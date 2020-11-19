@@ -1,0 +1,219 @@
+
+<div class="nav-bar">
+<!-- menu start -->
+<ul id="nav">
+<li  class="  level0"> <a href="https://www.electronicsbazaar.com/index.php/ebsbackend/dashboard/index/key/$dashboard/index$/"   class=""><span>Dashboard</span></a>
+</li>
+<li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class=" active  parent level0"> <a href="#"  onclick="return false" class="active"><span>Sales</span></a>
+<ul >
+<li  class="  level1"> <a href="https://www.electronicsbazaar.com/index.php/ebsbackend/sales_order/index/key/$sales_order/index$/"   class=""><span>Orders</span></a>
+</li>
+<li  class="  level1"> <a href="https://www.electronicsbazaar.com/index.php/ebsbackend/sales_invoice/index/key/$sales_invoice/index$/"   class=""><span>Invoices</span></a>
+</li>
+<li  class="  last level1"> <a href="https://www.electronicsbazaar.com/index.php/ebsbackend/sales_shipment/index/key/$sales_shipment/index$/"   class=""><span>Shipments</span></a>
+</li>
+</ul>
+</li>
+<li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="  parent level0"> <a href="#"  onclick="return false" class=""><span>Catalog</span></a>
+<ul >
+<li  class="  level1"> <a href="https://www.electronicsbazaar.com/index.php/ebsbackend/catalog_product/index/key/$catalog_product/index$/"   class=""><span>Manage Products</span></a>
+</li>
+<li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="  parent level1"> <a href="#"  onclick="return false" class=""><span>Featured Products</span></a>
+<ul >
+<li  class="  level2"> <a href="https://www.electronicsbazaar.com/index.php/ebsbackend/featuredproductsadmin/index/key/$featuredproductsadmin/index$/"   class=""><span>Manage Featured Products</span></a>
+</li>
+<li  class="  last level2"> <a href="https://www.electronicsbazaar.com/index.php/ebsbackend/system_config/edit/section/featured_products/key/$system_config/edit$/"   class=""><span>Configuration</span></a>
+</li>
+</ul>
+</li>
+<li  class="  level1"> <a href="https://www.electronicsbazaar.com/index.php/ebsbackend/catalog_category/index/key/$catalog_category/index$/"   class=""><span>Manage Categories</span></a>
+</li>
+<li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="  parent level1"> <a href="#"  onclick="return false" class=""><span>Attributes</span></a>
+<ul >
+<li  class="  level2"> <a href="https://www.electronicsbazaar.com/index.php/ebsbackend/catalog_product_attribute/index/key/$catalog_product_attribute/index$/"   class=""><span>Manage Attributes</span></a>
+</li>
+<li  class="  last level2"> <a href="https://www.electronicsbazaar.com/index.php/ebsbackend/catalog_product_set/index/key/$catalog_product_set/index$/"   class=""><span>Manage Attribute Sets</span></a>
+</li>
+</ul>
+</li>
+<li  class="  level1"> <a href="https://www.electronicsbazaar.com/index.php/ebsbackend/urlrewrite/index/key/$urlrewrite/index$/"   class=""><span>URL Rewrite Management</span></a>
+</li>
+<li  class="  level1"> <a href="https://www.electronicsbazaar.com/index.php/ebsbackend/catalog_search/index/key/$catalog_search/index$/"   class=""><span>Search Terms</span></a>
+</li>
+<li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="  parent level1"> <a href="#"  onclick="return false" class=""><span>Reviews and Ratings</span></a>
+<ul >
+<li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="  parent level2"> <a href="#"  onclick="return false" class=""><span>Customer Reviews</span></a>
+<ul >
+<li  class="  level3"> <a href="https://www.electronicsbazaar.com/index.php/ebsbackend/catalog_product_review/pending/key/$catalog_product_review/pending$/"   class=""><span>Pending Reviews</span></a>
+</li>
+<li  class="  last level3"> <a href="https://www.electronicsbazaar.com/index.php/ebsbackend/catalog_product_review/index/key/$catalog_product_review/index$/"   class=""><span>All Reviews</span></a>
+</li>
+</ul>
+</li>
+<li  class="  last level2"> <a href="https://www.electronicsbazaar.com/index.php/ebsbackend/rating/index/key/$rating/index$/"   class=""><span>Manage Ratings</span></a>
+</li>
+</ul>
+</li>
+<li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="  parent level1"> <a href="#"  onclick="return false" class=""><span>Tags</span></a>
+<ul >
+<li  class="  level2"> <a href="https://www.electronicsbazaar.com/index.php/ebsbackend/tag/index/key/$tag/index$/"   class=""><span>All Tags</span></a>
+</li>
+<li  class="  last level2"> <a href="https://www.electronicsbazaar.com/index.php/ebsbackend/tag/pending/key/$tag/pending$/"   class=""><span>Pending Tags</span></a>
+</li>
+</ul>
+</li>
+<li  class="  level1"> <a href="https://www.electronicsbazaar.com/index.php/ebsbackend/sitemap/index/key/$sitemap/index$/"   class=""><span>Google Sitemap</span></a>
+</li>
+<li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="  parent level1"> <a href="#"  onclick="return false" class=""><span>Improved Navigation</span></a>
+<ul >
+<li  class="  level2"> <a href="https://www.electronicsbazaar.com/index.php/amshopby/adminhtml_filter/index/key/$adminhtml_filter/index$/"   class=""><span>Filters</span></a>
+</li>
+<li  class="  level2"> <a href="https://www.electronicsbazaar.com/index.php/amshopby/adminhtml_range/index/key/$adminhtml_range/index$/"   class=""><span>Price Ranges</span></a>
+</li>
+<li  class="  level2"> <a href="https://www.electronicsbazaar.com/index.php/amshopby/adminhtml_page/index/key/$adminhtml_page/index$/"   class=""><span>Pages</span></a>
+</li>
+<li  class="  last level2"> <a href="https://www.electronicsbazaar.com/index.php/ebsbackend/system_config/edit/section/amshopby/key/$system_config/edit$/"   class=""><span>Settings</span></a>
+</li>
+</ul>
+</li>
+<li  class="  last level1"> <a href="https://www.electronicsbazaar.com/index.php/ebsbackend/stock_movement/list/key/$stock_movement/list$/"   class=""><span>Stock Movements</span></a>
+</li>
+</ul>
+</li>
+<li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="  parent level0"> <a href="#"  onclick="return false" class=""><span>Customers</span></a>
+<ul >
+<li  class="  level1"> <a href="https://www.electronicsbazaar.com/index.php/ebsbackend/customer/index/key/$customer/index$/"   class=""><span>Manage Customers</span></a>
+</li>
+<li  class="  level1"> <a href="https://www.electronicsbazaar.com/index.php/ebsbackend/customer_group/index/key/$customer_group/index$/"   class=""><span>Customer Groups</span></a>
+</li>
+<li  class="  level1"> <a href="https://www.electronicsbazaar.com/index.php/ebsbackend/customer_online/index/key/$customer_online/index$/"   class=""><span>Online Customers</span></a>
+</li>
+<li  class="  last level1"> <a href="https://www.electronicsbazaar.com/index.php/ebsbackend/customerattribute/index/key/$customerattribute/index$/"   class=""><span>Manage Attributes</span></a>
+</li>
+</ul>
+</li>
+<li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="  parent level0"> <a href="#"  onclick="return false" class=""><span>Newsletter</span></a>
+<ul >
+<li  class="  level1"> <a href="https://www.electronicsbazaar.com/index.php/ebsbackend/newsletter_template/index/key/$newsletter_template/index$/"   class=""><span>Newsletter Templates</span></a>
+</li>
+<li  class="  level1"> <a href="https://www.electronicsbazaar.com/index.php/ebsbackend/newsletter_queue/index/key/$newsletter_queue/index$/"   class=""><span>Newsletter Queue</span></a>
+</li>
+<li  class="  level1"> <a href="https://www.electronicsbazaar.com/index.php/ebsbackend/newsletter_subscriber/index/key/$newsletter_subscriber/index$/"   class=""><span>Newsletter Subscribers</span></a>
+</li>
+<li  class="  last level1"> <a href="https://www.electronicsbazaar.com/index.php/ebsbackend/newsletter_problem/index/key/$newsletter_problem/index$/"   class=""><span>Newsletter Problem Reports</span></a>
+</li>
+</ul>
+</li>
+<li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="  parent level0"> <a href="#"  onclick="return false" class=""><span>CMS</span></a>
+<ul >
+<li  class="  level1"> <a href="https://www.electronicsbazaar.com/index.php/ebsbackend/cms_page/index/key/$cms_page/index$/"   class=""><span>Pages</span></a>
+</li>
+<li  class="  level1"> <a href="https://www.electronicsbazaar.com/index.php/ebsbackend/cms_block/index/key/$cms_block/index$/"   class=""><span>Static Blocks</span></a>
+</li>
+<li  class="  level1"> <a href="https://www.electronicsbazaar.com/index.php/ebsbackend/widget_instance/index/key/$widget_instance/index$/"   class=""><span>Widgets</span></a>
+</li>
+<li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="  parent last level1"> <a href="#"  onclick="return false" class=""><span>SEO ToolKit</span></a>
+<ul >
+<li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="  parent level2"> <a href="#"  onclick="return false" class=""><span>Meta Tags Templates</span></a>
+<ul >
+<li  class="  level3"> <a href="https://www.electronicsbazaar.com/index.php/ammeta/adminhtml_config/index/key/$adminhtml_config/index$/"   class=""><span>Meta Tags by Category</span></a>
+</li>
+<li  class="  last level3"> <a href="https://www.electronicsbazaar.com/index.php/ammeta/adminhtml_custom/index/key/$adminhtml_custom/index$/"   class=""><span>Meta Tags by URL</span></a>
+</li>
+</ul>
+</li>
+<li  class="  last level2"> <a href="https://www.electronicsbazaar.com/index.php/ebsbackend/system_config/edit/section/amseotoolkit/key/$system_config/edit$/"   class=""><span>Settings</span></a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="  parent level0"> <a href="#"  onclick="return false" class=""><span>Exporter</span></a>
+<ul >
+<li  class="  last level1"> <a href="https://www.electronicsbazaar.com/index.php/ebsbackend/exporter/index/key/$exporter/index$/"   class=""><span>Export Orders</span></a>
+</li>
+</ul>
+</li>
+<li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="  parent level0"> <a href="#"  onclick="return false" class=""><span>Shop by Brand</span></a>
+<ul >
+<li  class="  level1"> <a href="https://www.electronicsbazaar.com/index.php/brandadmin/adminhtml_brand/index/key/$adminhtml_brand/index$/"   class=""><span>Manage Brands</span></a>
+</li>
+<li  class="  level1"> <a href="https://www.electronicsbazaar.com/index.php/brandadmin/adminhtml_Report/index/key/$adminhtml_Report/index$/"   class=""><span>Brand Reports</span></a>
+</li>
+<li  class="  last level1"> <a href="https://www.electronicsbazaar.com/index.php/ebsbackend/system_config/edit/section/shopbybrand/key/$system_config/edit$/"   class=""><span>Settings</span></a>
+</li>
+</ul>
+</li>
+<li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="  parent level0"> <a href="#"  onclick="return false" class=""><span>Banner Slider</span></a>
+<ul >
+<li  class="  level1"> <a href="https://www.electronicsbazaar.com/index.php/bannerslideradmin/adminhtml_bannerslider/index/key/$adminhtml_bannerslider/index$/"   class=""><span>Manage Sliders</span></a>
+</li>
+<li  class="  level1"> <a href="https://www.electronicsbazaar.com/index.php/bannerslideradmin/adminhtml_banner/index/key/$adminhtml_banner/index$/"   class=""><span>Manage Banners</span></a>
+</li>
+<li  class="  level1"> <a href="https://www.electronicsbazaar.com/index.php/bannerslideradmin/adminhtml_standardslider/index/key/$adminhtml_standardslider/index$/"   class=""><span>Preview Slider Styles</span></a>
+</li>
+<li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="  parent level1"> <a href="#"  onclick="return false" class=""><span>Report Banners</span></a>
+<ul >
+<li  class="  level2"> <a href="https://www.electronicsbazaar.com/index.php/bannerslideradmin/adminhtml_report/index/key/$adminhtml_report/index$/"   class=""><span>Per Slider</span></a>
+</li>
+<li  class="  last level2"> <a href="https://www.electronicsbazaar.com/index.php/bannerslideradmin/adminhtml_report/banner/key/$adminhtml_report/banner$/"   class=""><span>All Sliders</span></a>
+</li>
+</ul>
+</li>
+<li  class="  last level1"> <a href="https://www.electronicsbazaar.com/index.php/ebsbackend/system_config/edit/section/bannerslider/key/$system_config/edit$/"   class=""><span>Settings</span></a>
+</li>
+</ul>
+</li>
+<li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="  parent level0"> <a href="#"  onclick="return false" class=""><span>System</span></a>
+<ul >
+<li  class="  last level1"> <a href="https://www.electronicsbazaar.com/index.php/ebsbackend/system_config/index/key/$system_config/index$/"   class=""><span>Configuration</span></a>
+</li>
+</ul>
+</li>
+<li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="  parent level0"> <a href="#"  onclick="return false" class=""><span>Notification</span></a>
+<ul >
+<li  class="  last level1"> <a href="https://www.electronicsbazaar.com/index.php/ebsbackend/notification_notification/index/key/$notification_notification/index$/"   class=""><span>Notification</span></a>
+</li>
+</ul>
+</li>
+<li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="  parent level0"> <a href="#"  onclick="return false" class=""><span>Vowdelight</span></a>
+<ul >
+<li  class="  last level1"> <a href="https://www.electronicsbazaar.com/index.php/admin_vowdelight/adminhtml_vowdelight/index/key/$adminhtml_vowdelight/index$/"   class=""><span>Manage Vowdelight</span></a>
+</li>
+</ul>
+</li>
+<li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="  parent level0"> <a href="#"  onclick="return false" class=""><span>Suvidha</span></a>
+<ul >
+<li  class="  last level1"> <a href="https://www.electronicsbazaar.com/index.php/admin_suvidha/adminhtml_creditsuvidha/index/key/$adminhtml_creditsuvidha/index$/"   class=""><span>Manage Creditsuvidha</span></a>
+</li>
+</ul>
+</li>
+<li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="  parent level0"> <a href="#"  onclick="return false" class=""><span>Order Return</span></a>
+<ul >
+<li  class="  last level1"> <a href="https://www.electronicsbazaar.com/index.php/admin_orderreturn/adminhtml_return/index/key/$adminhtml_return/index$/"   class=""><span>Manage Return</span></a>
+</li>
+</ul>
+</li>
+<li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="  parent level0"> <a href="#"  onclick="return false" class=""><span>ASM Detail</span></a>
+<ul >
+<li  class="  level1"> <a href="https://www.electronicsbazaar.com/index.php/admin_asmdetail/adminhtml_rsm/index/key/$adminhtml_rsm/index$/"   class=""><span>Manage Rsm</span></a>
+</li>
+<li  class="  level1"> <a href="https://www.electronicsbazaar.com/index.php/admin_asmdetail/adminhtml_asm/index/key/$adminhtml_asm/index$/"   class=""><span>Manage Asm</span></a>
+</li>
+<li  class="  last level1"> <a href="https://www.electronicsbazaar.com/index.php/admin_asmdetail/adminhtml_asmdetail/index/key/$adminhtml_asmdetail/index$/"   class=""><span>Manage ASM Detail</span></a>
+</li>
+</ul>
+</li>
+<li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="  parent level0"> <a href="#"  onclick="return false" class=""><span>Gadget</span></a>
+<ul >
+<li  class="  last level1"> <a href="https://www.electronicsbazaar.com/index.php/admin_gadget/adminhtml_request/index/key/$adminhtml_request/index$/"   class=""><span>Manage Request</span></a>
+</li>
+</ul>
+</li>
+</ul>
+<!-- menu end -->
+
+    <a id="page-help-link" href="http://www.magentocommerce.com/gethelp/en_US/Neo_Adminhtml/sales_order/index/">Get help for this page</a>
+    <script type="text/javascript">$('page-help-link').target = 'magento_page_help'</script>
+
+</div>

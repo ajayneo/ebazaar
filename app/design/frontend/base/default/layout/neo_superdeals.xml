@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<layout version="0.0.1">
+	<superdeals_index_shopby>
+		<reference name="root">
+			<action method="setTemplate"><template>page/1column.phtml</template></action>
+		</reference>
+		<reference name="content">
+			<block type="core/template" name="superdeals" template="superdeals/superdeals.phtml" />
+		</reference>
+		<reference name="breadcrumbs">
+			<action method="addCrumb">
+				<crumbName>Home</crumbName>
+				<crumbInfo>
+					<label>Home</label>
+					<title>Home</title>
+					<link>/</link>
+				</crumbInfo>
+			</action>
+			<action method="addCrumb">
+				<crumbName>Super Deals</crumbName>
+				<crumbInfo>
+					<label>Super Deals</label>
+					<title>Super Deals</title>
+				</crumbInfo>
+			</action>
+		</reference>
+	</superdeals_index_shopby>
+</layout>

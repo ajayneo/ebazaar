@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Neo_Sitemap>
+      <active>false</active>
+      <codePool>local</codePool>
+    </Neo_Sitemap>
+  </modules>
+</config>

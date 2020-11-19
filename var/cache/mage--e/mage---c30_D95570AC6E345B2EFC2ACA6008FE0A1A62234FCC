@@ -1,0 +1,25 @@
+
+    <nav id="nav">
+    	<a class="close-button">X</a>
+        <ul class="nav-primary clearfix">
+        	<!--<li class="level0 nav-1 first home"><a href="" class="level0 active"><img src=""></a></li>-->
+        	<li class="home-icon">
+        			<a href="https://www.electronicsbazaar.com/"></a>
+        	</li>
+            <li  class="level0 nav-1 first"><a href="https://www.electronicsbazaar.com/laptops" class="level0 ">Laptops</a></li><li  class="level0 nav-2"><a href="https://www.electronicsbazaar.com/second-hand-desktop-pc" class="level0 ">Desktops</a></li><li  class="level0 nav-3"><a href="https://www.electronicsbazaar.com/mobiles" class="level0 ">Mobiles</a></li><li  class="level0 nav-4"><a href="https://www.electronicsbazaar.com/servers" class="level0 ">Servers</a></li><li  class="level0 nav-5"><a href="https://www.electronicsbazaar.com/workstation" class="level0 ">Workstation</a></li><li  class="level0 nav-6"><a href="https://www.electronicsbazaar.com/tablets-1" class="level0 ">Tablets</a></li><li  class="level0 nav-7"><a href="https://www.electronicsbazaar.com/accesories" class="level0 ">Accessories</a></li><li  class="level0 nav-8 last"><a href="https://www.electronicsbazaar.com/hot-deals" class="level0 ">HOT DEALS</a></li>
+          
+
+		<!--li>
+			<div class="chat-number">
+				<ul>
+					<li class="number">
+						<p class="contactNumber"><em class="fa fa-phone"></em><span>1800-266-4000</span></p>					</li>
+					<li>
+						<a class="live-chat"><span>Live Chat</span></a>
+					</li>
+				</ul>
+			</div>
+		</li-->
+        </ul>
+    </nav>
+	

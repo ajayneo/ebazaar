@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Neo_CouponsOnList>
+      <version>0.1.0</version>
+    </Neo_CouponsOnList>
+  </modules>
+  <global>
+    <helpers>
+      <couponsonlist>
+        <class>Neo_CouponsOnList_Helper</class>
+      </couponsonlist>
+    </helpers>
+  </global>
+</config> 

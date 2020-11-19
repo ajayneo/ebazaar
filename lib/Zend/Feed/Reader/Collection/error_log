@@ -1,0 +1,2 @@
+[08-Oct-2018 16:05:41 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Feed_Reader_Collection_CollectionAbstract' not found in /home/electronicsbazaa/public_html/lib/Zend/Feed/Reader/Collection/Author.php on line 35
+[08-Oct-2018 16:05:41 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Feed_Reader_Collection_CollectionAbstract' not found in /home/electronicsbazaa/public_html/lib/Zend/Feed/Reader/Collection/Category.php on line 35

@@ -1,0 +1,73 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     rwd_default
+ * @copyright   Copyright (c) 2014 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Top menu for store
+ *
+ * @see Mage_Page_Block_Html_Topmenu
+ */
+?>
+<?php $_menu = $this->getHtml('level-top') ?>
+
+<?php if($_menu): ?>
+    <nav id="nav">
+        <ol class="nav-primary">
+        	<!--<li class="level0 nav-1 first home"><a href="<?php //echo $this->getUrl('') ?>" class="level0 active"><img src="<?php //echo $this->getSkinUrl('images/home.png'); ?>"></a></li>-->
+            <?php echo $_menu ?>
+
+         <?php /* 
+	    <!--<li class="level0 deals"><a href="#" class="level0 ">Deals</a></li>-->
+	    <!--li class="level0 deals"><a href="<?php echo Mage::getUrl('deals'); ?>" class="level0 ">Deals</a></li-->
+		 <li class="mobile_menu"><a href="<?php echo Mage::getUrl('best-seller-products'); ?>">Best Seller</a></li>
+		<li class="mobile_menu"><a href="<?php echo Mage::getUrl('featured-products'); ?>">Featured Products</a></li>
+		<li class="mobile_menu"><a href="<?php echo Mage::getUrl('track/order'); ?>">Track Your Order</a></li>
+		<?php if(!Mage::getSingleton('customer/session')->isLoggedIn()): ?>
+			<li class="mobile_menu"><a href="<?php echo Mage::getUrl('customer/account/login'); ?>">Register</a></li>
+			<li class="mobile_menu"><a href="<?php echo Mage::getUrl('customer/account/login'); ?>">Log In</a></li>
+		<?php else: ?>
+			<li class="mobile_menu"><a href="<?php echo Mage::getUrl('customer/account'); ?>">My Account</a></li>
+			<li class="mobile_menu"><a href="<?php echo Mage::getUrl('customer/account/logout'); ?>">Sign Out</a></li>
+		<?php endif; ?>
+		*/ ?> 
+
+		<!--li>
+			<div class="chat-number">
+				<ul>
+					<li class="number">
+						<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('header-contact-no')->toHtml(); ?>
+					</li>
+					<li>
+						<a class="live-chat"><span>Live Chat</span></a>
+					</li>
+				</ul>
+			</div>
+		</li-->
+            <div class="clr"></div>
+        </ol>
+    </nav>
+	
+<?php endif ?>

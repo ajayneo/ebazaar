@@ -1,0 +1,28 @@
+<body style="margin:0; padding:0; font-size: 13px; color: #333; font-family: Arial,Tahoma,Verdana,sans-serif;">
+	<table width="598" border="0" cellspacing="0" cellpadding="0" style="border-left: 1px solid #e6e6e6; border-right: 1px solid #e6e6e6; margin:0 auto;">
+		<tbody>
+			<tr>
+				<td align="left" valign="top" colspan="2"  style="background:#1d1d53; padding:7px 25px;">
+					<a href="{{store url=""}}" target="blank" title="electronicsbazaar.com" ><img src="{{skin url="images/email-template/"}}email-tem-header-eb-logo.png" border="0"/></a>
+				</td>
+			</tr>
+			<tr>
+				<td align="left" valign="top" colspan="2"  style="margin:0; padding:25px 20px 5px 25px"  >
+					<div style="font-size: 16px; font-weight: bold; color: #333; margin:0; padding:0;">Dear {{var username}},</div>
+					<div style=" margin:0; padding:20px 0 0 0; line-height: 20px; color:#565656;">Your Order # {{var order_id}} is out for delivery. The Order value of this order is {{var amount}}</div>
+					<div style=" margin:0; padding:20px 0 0 0; line-height: 20px; color:#565656;">You can check shipment tracking information on <a href="{{store url=''}}trackyourorder/index/trackorder/?order={{var order_id}}&email={{var email}}" style="color:#1168ae;"> Track Your Shipment </a></div>
+				</td>
+			</tr>
+			<tr style="margin:20px 0 0; padding:0; background-color: #f9f9f9; float: left; border-top: 1px solid #e6e6e6; border-bottom: 1px solid #e6e6e6;">
+				<td align="left" valign="top" colspan="2" style="text-align:center; margin:0; padding:10px 25px;"  >
+					<div style=" margin:0; padding:0 0 5px 0; line-height: 20px; color:#1168ae; font-size:12px; width:100%; border-bottom:1px solid #a7a7a7; display:block;"><a href="{{store url=""}}" target="blank" style="color:#1168ae; text-decoration: none;">ElectronicsBazaar.com</a></div>
+					<div style=" margin:0; padding:10px 0; line-height: 20px; color:#565656; font-size:12px;">If you have any questions about your order please contact us at <a href="mailto:{{config path='trans_email/ident_support/email'}}" target="blank" style="color:#1168ae; text-decoration: none;">{{config path='trans_email/ident_support/email'}}</a> or call us at <span style="color:#1168ae;">{{config path='general/store_information/phone'}}</span> from Monday - Friday, 9:30am - 6:30pm IST.</div>	
+				</td>
+			</tr>					
+		</tbody>
+	</table>
+</body>
+<style type="text/css">
+	body{font-size: 13px; color: #333; font-family: Arial,Tahoma,Verdana,sans-serif;}
+	th{background:#9e9e9e; font-size: 13px; color: #ffffff; font-weight: normal; padding:4px 0;}
+</style>

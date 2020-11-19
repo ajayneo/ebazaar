@@ -1,0 +1,4 @@
+[08-Oct-2018 16:05:50 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Search_Lucene_FSM' not found in /home/electronicsbazaa/public_html/lib/Zend/Search/Lucene/Search/QueryLexer.php on line 37
+[08-Oct-2018 16:05:50 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Search_Lucene_FSM' not found in /home/electronicsbazaa/public_html/lib/Zend/Search/Lucene/Search/QueryParser.php on line 45
+[08-Oct-2018 16:05:50 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Search_Lucene_Exception' not found in /home/electronicsbazaa/public_html/lib/Zend/Search/Lucene/Search/QueryParserException.php on line 40
+[08-Oct-2018 16:05:50 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Search_Lucene_FSM' not found in /home/electronicsbazaa/public_html/lib/Zend/Search/Lucene/Search/BooleanExpressionRecognizer.php on line 35

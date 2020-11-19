@@ -1,0 +1,8 @@
+<config>
+	<modules>
+		<Neo_Postcode>
+			<active>false</active>
+			<codePool>local</codePool>
+		</Neo_Postcode>
+	</modules>
+</config>

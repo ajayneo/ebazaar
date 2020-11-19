@@ -1,0 +1,36 @@
+<?php
+$tickerItems = $this->getTickerItems();
+?>
+<style type="text/css">
+    .ticker-wrap { clear:both; }
+    ul.newsticker a {
+        float:left;
+    }
+    ul.newsticker span {
+        float:left;
+    }
+</style>
+<?php if(count($tickerItems) > 0): ?>
+<div class="ticker-wrap">
+    <ul id="top-ticker">
+        <?php foreach($tickerItems as $tickerItem): ?>
+        <li>
+            <?php if($tickerItem->getTitle()): ?><span class="ticker-title"><?php echo $tickerItem->getTitle() . ' : '; ?></span><?php endif; ?>
+            <a href="javascript:void(0)"><?php echo $tickerItem->getContent(); ?></a>
+        </li>
+        <?php endforeach; ?>
+    </ul>
+</div>
+<script type="text/javascript">
+
+    jQuery(function($) {
+        $("#top-ticker").liScroll();
+        $('#cartview').on('mouseenter', function() {
+            $('cartview-panel').show();
+        });
+        $('#cartview').on('mouseleave', function() {
+            $('cartview-panel').hide();
+        });
+    });
+</script>
+<?php endif; ?>

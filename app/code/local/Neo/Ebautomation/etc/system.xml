@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <tabs>
+        <ebautomation translate="label" module="ebautomation">
+            <label>Order Automation</label>
+            <sort_order>100</sort_order>
+        </ebautomation>
+    </tabs>
+    <sections>
+        <ebautomation translate="label" module="ebautomation">
+            <label>Order Automation</label>
+            <tab>ebautomation</tab>
+            <sort_order>1000</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+ 
+            <groups>
+                <ebautomation_group translate="label" module="ebautomation">
+                    <label>Module Status</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1000</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+ 
+                    <fields>
+                        
+                        <ebautomation_select translate="label">
+                            <label>Enable: </label>
+                            <comment>Source model provider Magento's default Yes/No values</comment>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </ebautomation_select>
+                    </fields>
+                </ebautomation_group>
+
+                <ebautomation_awb_status translate="label" module="ebautomation">
+                    <label>AWB Remaining Status Send Information</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>2000</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+ 
+                    <fields>
+                        
+                        <awb_status_to translate="label">
+                            <label>Email To : </label>
+                            <frontend_type>text</frontend_type>                    
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </awb_status_to>
+                        
+                    </fields>
+                </ebautomation_awb_status>
+                <ebautomation_credentials translate="label" module="ebautomation">
+                    <label>EB Automation Credentials </label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>3000</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+ 
+                    <fields>
+                        <enable translate="label">
+                            <label>Enable: </label>
+                            <comment>Source model provider Magento's default Yes/No values</comment>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </enable>
+                        <username translate="label">
+                            <label>Username : </label>
+                            <frontend_type>text</frontend_type>                    
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </username>
+                        <password translate="label">
+                            <label>Password : </label>
+                            <frontend_type>text</frontend_type>                    
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </password>
+                        <nav_product_url translate="label">
+                            <label>Navision Product Url : </label>
+                            <frontend_type>text</frontend_type>                    
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </nav_product_url>
+                        <nav_customer_url translate="label">
+                            <label>Navision Customer Url : </label>
+                            <frontend_type>text</frontend_type>                    
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </nav_customer_url>
+                        <nav_order_url translate="label">
+                            <label>Navision Order Url : </label>
+                            <frontend_type>text</frontend_type>                    
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </nav_order_url>
+                        <nav_credit_limit_url translate="label">
+                            <label>Navision Customer Credit Limit Url : </label>
+                            <frontend_type>text</frontend_type>                    
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </nav_credit_limit_url>
+                        <nav_item_category_url translate="label">
+                            <label>Navision Item Category Url : </label>
+                            <frontend_type>text</frontend_type>                    
+                            <sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </nav_item_category_url>
+                    </fields>
+                </ebautomation_credentials>
+                <credit_limit_exceed translate="label" module="ebautomation">
+                    <label>Credit Limit Setting</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>4000</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+ 
+                    <fields>
+                        <credit_limit_status translate="label">
+                            <label>Enable Credit Limit Set : </label>
+                            <comment>Source model provider Magento's default Yes/No values</comment>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </credit_limit_status>
+                        <credit_limit_exceed_value translate="label">
+                            <label>Allow customer to Credit Limit Exceed By : </label>
+                            <frontend_type>text</frontend_type>                    
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </credit_limit_exceed_value>
+                        
+                    </fields>
+                </credit_limit_exceed>
+                
+            </groups>
+        </ebautomation>
+    </sections>
+</config>

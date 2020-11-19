@@ -1,0 +1,263 @@
+
+<?php
+$product_id = $this->getRequest()->getParam('id');
+
+
+
+if (in_array(Mage::getModel('catalog/product')->load($product_id)->getTypeId(), array('simple', 'virtual', 'downloadable')) && Mage::getSingleton('admin/session')->isAllowed('catalog/products/advancedinventory') && Mage::getModel('pointofsale/pointofsale')->getPlaces()->count() > 0) :
+    ?>
+
+
+
+    <div class="entry-edit">
+
+        <div class="entry-edit-head">
+
+            <h4 class="icon-head head-edit-form fieldset-legend"><?php echo Mage::helper('catalog')->__('Local Inventory') ?></h4>
+
+        </div>
+
+        <fieldset>
+
+            <legend><?php echo Mage::helper('advancedinventory')->__('Local Inventory') ?></legend>
+
+    <?php
+    $data = $this->getLocalStockData();
+
+    $manage_local_stock = $data->getFirstItem()->getManageLocalStock();
+
+    $stock_id = $data->getFirstItem()->getStockProductId();
+
+
+
+    $store_id = $this->getRequest()->getParam('store', 0);
+    ?>
+
+            <table cellspacing="0" class="form-list" id="table_cataloglocalinventory">
+
+                <tr>
+
+                    <td class="label"><label for="inventory_manage_stock"><b><?php echo Mage::helper('advancedinventory')->__('Manage Local Stocks') ?></b></label></td>
+
+                    <td class="value"><select id="inventory_manage_local_stock" name='inventory[<?php echo $product_id ?>][manage_local_stock]' class="select" onChange="InventoryManager.displayMultiInventory(<?php echo $product_id ?>)">
+
+                            <option value="0"><?php echo Mage::helper('catalog')->__('No') ?></option>
+
+                            <option value="1"<?php if ($manage_local_stock == 1): ?> selected="selected"<?php endif; ?>><?php echo Mage::helper('catalog')->__('Yes') ?></option>
+
+                        </select>
+
+                        <input type="hidden" value="<?php echo $stock_id ?>" name='inventory[<?php echo $product_id ?>][local_stock_id]' />
+
+                    <td class="value scope-label"><?php echo Mage::helper('catalog')->__('[GLOBAL]') ?></td>
+
+                </tr>
+
+    <?php
+    $i = 0;
+
+    foreach ($data as $store):
+
+
+
+
+
+
+
+        // Le magasin n'est pas associé à la store view ou il est associé à aucune store view dans le cas d'un scope general
+
+        if ((!in_array($store_id, explode(',', $store->getStoreId())) || $store->getStoreId() == 0) && $store_id != 0) {
+
+            $readOnly = "disabled='disabled'";
+
+            $class = "disabled";
+        } else {
+
+            $readOnly = "";
+
+            $class = "enabled";
+        }
+
+
+
+
+
+        // si les stock locaux ne sont gérés pour le produit
+
+        if (!$manage_local_stock) {
+
+
+
+            $class .= " hidden";
+        }
+
+
+
+        // le magasin est caché ou visible
+
+        if ($store->getStatus() == 0)
+            $visibility = Mage::helper('advancedinventory')->__('hidden');
+        else
+            $visibility = Mage::helper('advancedinventory')->__('visible');
+
+
+
+
+
+
+
+        $validate = "validate-number";
+        ?>
+
+                    <tr class="<?php echo $class; ?> local-inventory">
+
+
+
+                        <td class="label"><label for="inventory_manage_local_stock"><?php echo Mage::helper('advancedinventory')->__('Qty for ') ?> <?php echo $store->getName(); ?> <span class="required">*</span><br><span style="font-size:10px;">[Status : <?php echo $visibility; ?>, code : <?php echo $store->getStoreCode(); ?>]</span></label></td>
+
+                        <td class="value"><input type="hidden" value="<?php echo $store->getStockId() ?>" name='inventory[<?php echo $product_id ?>][local_stock][<?php echo $store->getPlaceId(); ?>][stock_id]' />
+
+                            <input  
+
+                                style="width:30px;text-align:center" 
+
+                                type="text" 
+
+                                class="keydown input-text required-entry <?php echo $validate; ?> local_stock_qty_<?php echo $product_id ?>" 
+
+                                name='inventory[<?php echo $product_id ?>][local_stock][<?php echo $store->getPlaceId(); ?>][qty]'
+
+                                value="<?php /* ($store->getStoreId() == 0) ? $value = "" : $value = $store->getQty();
+
+              echo $value; */ echo $store->getQty(); ?>" 
+
+                                onchange="InventoryManager.updateStocks(<?php echo $product_id ?>, false)"
+
+        <?php echo $readOnly; ?> 
+
+                                />
+
+
+
+
+
+                                <?php
+                                $store->getBackorderAllowed();
+
+                                $store->getUseConfigSettingForBackorders();
+
+                                // valeur non initiliasée
+
+                                if (!$store->getStockId() || $store->getUseConfigSettingForBackorders()) {
+
+                                    $backorders_checked = true;
+
+                                    $backorders_value = Mage::getStoreConfig("cataloginventory/item_options/backorders");
+
+                                    $backorders_disabled = true;
+                                } else {
+
+                                    $backorders_checked = false;
+
+                                    $backorders_value = $store->getBackorderAllowed();
+
+                                    $backorders_disabled = false;
+                                }
+                                ?>
+
+
+
+                            <select  <?php echo $readOnly; ?>  <?php echo ($backorders_disabled) ? 'disabled="disabled"' : null; ?> name='inventory[<?php echo $product_id ?>][local_stock][<?php echo $store->getPlaceId(); ?>][backorder_allowed]'  style="width:240px;">
+
+                                <option value="0" <?php echo ($backorders_value == 0) ? 'selected' : null; ?> ><?php echo Mage::helper('advancedinventory')->__('No backorders') ?></option>
+
+                                <option value="1" <?php echo ($backorders_value == 1) ? 'selected' : null; ?>><?php echo Mage::helper('advancedinventory')->__('Allow Qty below 0 ') ?></option>
+
+                                <option value="2" <?php echo ($backorders_value == 2) ? 'selected' : null; ?>><?php echo Mage::helper('advancedinventory')->__('Allow Qty below 0 and Notify Customer') ?></option>
+
+                            </select>
+
+
+
+                            <input  <?php echo $readOnly; ?>  onclick="this.previous().disabled = this.checked;"<?php echo ($backorders_checked) ? 'checked' : null; ?> name='inventory[<?php echo $product_id ?>][local_stock][<?php echo $store->getPlaceId(); ?>][use_config_setting_for_backorders]' type="checkbox" style="margin-left:40px"/> <?php echo Mage::helper('advancedinventory')->__('Use Config Settings') ?>
+
+
+
+
+
+
+
+
+
+
+
+                        </td>
+
+                        <td class="value scope-label"><?php echo Mage::helper('catalog')->__('[GLOBAL]') ?></td>
+
+
+
+
+
+                    </tr>
+
+        <?php $i++;
+
+    endforeach;
+    ?>
+
+
+
+
+
+
+
+
+
+            </table>
+
+        </fieldset>
+
+    </div>
+
+
+
+    <div id="difference" style="display:<?php if ($manage_local_stock != 1)
+        echo "none";
+    ?>"><div><?php echo Mage::helper('advancedinventory')->__('Difference') ?></div><div id="stock_difference_<?php echo $product_id ?>"></div>
+
+    <?php if (!(Mage::getStoreConfig("advancedinventory/setting/lock_online_stock") && Mage::getStoreConfig("advancedinventory/setting/synchronize_online_stock"))): ?> 
+
+            <a id="recalculate" href="javascript:InventoryManager.recalculate(<?php echo $product_id ?>)"><?php echo Mage::helper('advancedinventory')->__('Sync. stocks') ?></a></div>
+
+    <?php endif; ?> 
+
+
+
+
+
+    <script>
+
+                        InventoryManager.disableMsg = "<?php echo Mage::helper('advancedinventory')->__("Disable local stocks") ?>";
+
+                        InventoryManager.enableMsg = "<?php echo Mage::helper('advancedinventory')->__("Enable local stocks") ?>";
+
+                        InventoryManager.config = {
+                            OnlineStockfrozen:<?php echo (Mage::getStoreConfig("advancedinventory/setting/lock_online_stock")) ? "true" : "false"; ?>, // allow to manually modify online stock
+
+                            AutoRecalculate:<?php echo (Mage::getStoreConfig("advancedinventory/setting/synchronize_online_stock")) ? "true" : "false"; ?>, // synchronize online stock from local stocks
+
+                            ProductId:<?php echo $product_id ?>,
+                            LocalStockActive:<?php echo ($manage_local_stock) ? "true" : "false" ?>
+
+                        }
+
+
+
+    </script>
+
+
+
+
+
+<?php endif; ?> 

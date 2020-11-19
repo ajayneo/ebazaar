@@ -1,0 +1,184 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     rwd_default
+ * @copyright   Copyright (c) 2014 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Cart cross sell items template
+ *
+ * @see Mage_Checkout_Block_Cart_Crosssell
+ */
+?>
+<?php $product_list_block = new Mage_Catalog_Block_Product_List(); ?>
+<?php $_products = $this->getItems(); ?>
+<?php // echo "Test:".$countcrosssellproducts = count($_products); ?>
+<?php if($this->getItemCount()): ?>
+<div class="category-products_test products_homeslider crosssell-products">
+    <div class="main"></div>
+    <h2 class="home-slider-heading"><?php echo $this->__('You may also like') ?></h2>
+    <!--<div class="block-content">-->
+        <ul  class="products-grid recently-viewed"> 
+        <?php foreach ($this->getItems() as $_item): ?>
+        <?php $label = Mage::helper('custombestseller')->getCustomImageLabel($_item->getSku()); ?>
+            <li class="item">
+                <div class="item-wrapper">
+<!--         <div class="product-view" data-pid="<?php //echo $_item->getId(); ?>">
+                    <span><a href="javascript:void(0)">Quick View</a></span>
+                </div> -->
+
+                <!-- Start add whislist button code added by JP. -->
+                <ul class="add-to-links">
+                    <li><a class="link-wishlist <?php if($hasProduct): echo 'added-to-wishlist'; endif;?>" title="Add to Wishlist" onclick="setLocation('<?php echo $product_list_block->getAddToWishlistUrl($_item); ?>')">Add to Wishlist</a></li>
+                </ul>
+                <!-- End add whislist button code added by JP. -->        
+                        
+                <div class="clr"></div>
+                <?php if (!$_item->isSaleable()): ?>
+                    <div class="outOfStock">
+                        <div class="outOfStockImage"></div>
+                    </div> 
+                <?php endif; ?>
+
+                <div class="product-image-container">
+                <a href="<?php echo $this->getProductUrl($_item) ?>" title="<?php echo $_item->getName(); ?>" class="product-image">
+                    <?php if($label != ''): ?>
+                            <div class="category-name category-<?php echo $label ?>">
+                                <img src="<?php echo $this->getSkinUrl(); ?>images/label/<?php echo $label.'-cat.png'; ?>">
+                            </div>
+                    <?php endif; ?>                    
+                    <?php $special_price = $_item->getSpecialPrice(); ?>
+                    <?php $now = date("Y-m-d"); ?>
+                    <?php $newsFrom = substr($_item->getData('news_from_date'),0,10); ?>
+                    <?php $newsTo =  substr($_item->getData('news_to_date'),0,10); ?>
+                    <?php if(!empty($special_price)): ?>
+                        <div class="product-offer">
+                            <span>Offer</span>
+                        </div>
+                    <?php elseif(!empty($newsFrom) || !empty($newsTo)):?>
+                        <?php if($now>=$newsFrom && $now<=$newsTo): ?> 
+                            <div class="product-new">
+                                <span>New</span>
+                            </div>
+                        <?php endif; ?>
+                    <?php endif; ?>
+                    <?php $_imgSize = 210; ?>
+                    <img id="product-collection-image-<?php echo $_item->getId(); ?>" src="<?php echo Mage::helper('catalog/image')->init($_item,'small_image')->resize($_imgSize); ?>" alt="<?php echo $_item->getName(); ?>" />
+                    <!--<img src="<?php //echo $this->getSkinUrl('images/product1.png'); ?>" alt="Home Product">-->
+                </a>
+            </div>
+                <div class="product-info">
+                    <h2 class="product-name"><a href="<?php echo $this->getProductUrl($_item) ?>" title="<?php echo $_item->getName(); ?>"><?php echo substr($_item->getName(),0,28); ?><?php if(strlen($_item->getName()) > 28) { echo '...'; } ?></a></h2>
+                    <?php // if(Mage::helper('customer')->isLoggedin()): ?>
+                        <?php echo $this->getLayout()->getBlockSingleton('catalog/product_list')->getPriceHtml($_item, true) ?>
+                    <?php /* else: ?>
+                        </div>
+                        <div class="product-info-custom">
+                            <a class="view-price" href="<?php echo $this->getUrl('customer/account/login');?>">Login to view Price</a>
+                    <?php endif; */ ?> 
+                </div>
+                <div class="short-description">
+                    <div class="c-prod-desc"><?php echo $_item->getImpDesc(); ?></div>
+                </div>
+                <div class="actions">
+                    <button class="button btn-cart" title="Add to cart" type="button" onclick="setLocation('<?php echo $product_list_block->getAddToCartUrl($_item); ?>')"><span><span>Add to cart</span></span></button>
+                    <!-- <ul class="add-to-links">
+                        <li><a class="link-wishlist" onclick="setLocation('<?php // echo $product_list_block->getAddToWishlistUrl($_item); ?>')">Add to Wishlist</a></li>
+                    </ul> -->
+                    <div class="clr"></div>
+                </div>
+                </div>
+            </li>
+        <?php endforeach; ?>
+        </ul>
+    <!--<div class="shareurpopup">
+        <div class="share-you-purchase-popup">
+            
+        </div>  
+    </div>-->
+        <script type="text/javascript">decorateList('recently-viewed-items');</script>
+    <!--</div>-->
+</div>
+    <script type="text/javascript">
+        var productcount = "<?php echo $countcrosssellproducts; ?>";
+        jQuery(document).ready(function(){
+            var window_width = jQuery(window).width();
+            //alert(jQuery(window).width());
+            // Recently Viewed Products on the product detail page
+                if((window_width <= 980 && window_width >= 768) && productcount >= 3){
+                    jQuery('#recently-viewed-items').bxSlider({
+                        auto: false,
+                        pager: false,
+                        slideWidth: 170,
+                        slideMargin:28,
+                        controls: true,
+                        infiniteLoop:true,
+                        minSlides: 1,
+                        maxSlides: 4,
+                        moveSlides: 1,
+                        preloadImages:'all'
+                    });
+                }else if(productcount > 4){
+                    jQuery('#recently-viewed-items').bxSlider({
+                        auto: false,
+                        pager: false,
+                        slideWidth: 170,
+                        slideMargin:28,
+                        controls: true,
+                        infiniteLoop:true,
+                        minSlides: 1,
+                        maxSlides: 4,
+                        moveSlides: 1,
+                        preloadImages:'all'
+                    });
+                }
+                // jQuery('html,body').animate({
+                // scrollTop: jQuery(".cart-footer-actions").offset().top},
+                // 'slow');         
+                //if(window_width <= 980 && window_width >= 768 || productcount > 4){
+                /*if(window_width <= 980 && window_width >= 768) {
+                    jQuery('#recently-viewed-items').bxSlider({
+                    auto: false,
+                    pager: false,
+                    slideWidth: 170,
+                    slideMargin:28,
+                    controls: true,
+                    infiniteLoop:true,
+                    minSlides: 1,
+                    maxSlides: 3,
+                    moveSlides: 1,
+                    preloadImages:'all'
+                    });
+                }*/
+
+                jQuery(".product-view").click(function(){
+                    var pid = jQuery(this).data('pid');
+                    jQuery('#ewquickview_overlay').attr('pid', pid);
+                    jQuery('#ewquickview_overlay').trigger('click');
+                    //alert(pid);
+                });
+            });
+        
+    </script>
+<?php endif; ?>

@@ -1,0 +1,13 @@
+<?php $_code=$this->getMethodCode(); ?>
+<?php $o = Mage::getStoreConfig('payment/neftrtgs/instructions');
+            $o = nl2br($o);
+            $o = explode('<br />', $o); ?>
+<fieldset class="form-list">
+    <ul style="display: none;" id="payment_form_<?php echo $_code ?>">
+        <li>
+        	<?php foreach($o as $oq): ?>
+            	<p><?php echo $oq; ?></p>
+        <?php endforeach; ?>
+        </li>
+    </ul>
+</fieldset>

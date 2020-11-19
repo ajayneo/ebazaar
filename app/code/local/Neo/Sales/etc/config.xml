@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config>
+    <modules>
+        <Neo_Sales>
+            <version>0.0.1</version>
+        </Neo_Sales>
+    </modules>
+    <global>
+    	<models>
+    		<sales>
+    			<rewrite>
+    				<order_invoice>Neo_Sales_Model_Order_Invoice</order_invoice>
+                    <order>Neo_Sales_Model_Order</order>
+                    <order_shipment>Neo_Sales_Model_Order_Shipment</order_shipment>
+    			</rewrite>
+    		</sales>
+    	</models>
+<!--         <models>
+            <sales>
+                <rewrite>
+                    <order>Neo_Sales_Model_Order</order>
+                    <order_pdf_invoice>Neo_Sales_Model_Order_Pdf_Invoice</order_pdf_invoice>
+                </rewrite>
+            </sales>
+        </models> -->
+     </global>
+</config>

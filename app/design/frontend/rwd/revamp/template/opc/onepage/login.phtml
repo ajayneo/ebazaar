@@ -1,0 +1,75 @@
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<p class="text-login"><a class="login-trigger signin-modal" data-modal="modal-login"><?php echo $this->__('Already have an account?') ?> <?php echo $this->__('Click here to login?')?></a></p>
+
+<div class="md-modal md-effect-7 login-popup" id="modal-login">
+	<div class="md-content">
+			<div class="md-modal-header">
+				<button type="button" class="close">&times;</button>
+				<h4><?php echo $this->__('Login to your Account')?></h4>
+			</div>
+			<div class="login-sec">	
+				<div class="md-content-wrapper">
+					<form action="<?php echo $this->getPostActionUrl() ?>" method="post" id="login-form">
+			      		<?php echo $this->getBlockHtml('formkey'); ?>
+				        <div>
+							<ul class="form-list">
+								<li>
+									<label for="email" class="required"><em>*</em><?php echo $this->__('Email Address') ?></label>
+									<div class="input-box">
+										<input type="text" name="login[username]" value="<?php echo $this->escapeHtml($this->getUsername()) ?>" id="email" class="input-text required-entry validate-email" title="<?php echo $this->__('Email Address') ?>" />
+									</div>
+								</li>
+							<li>
+								<label for="pass" class="required"><em>*</em><?php echo $this->__('Password') ?></label>
+								<div class="input-box">
+									<input type="password" name="login[password]" class="input-text required-entry validate-password" id="pass" title="<?php echo $this->__('Password') ?>" />
+								</div>
+							</li>
+							
+							</ul>				
+						</div>
+						<input name="context" type="hidden" value="checkout" />
+						<div class="login-button-set">
+						<input type ="submit" value="Login" name="submit">
+						<a href="<?php echo $this->getForgotPasswordUrl() ?>" class="f-left restore-account"><?php echo $this->__('Forgot Your Password?') ?></a>	        
+						</div>
+					</form>
+					
+					<?php echo $this->getChildhtml('forgotPassword');?>
+				</div>
+				<!--div class="md-modal-footer">
+					<div id="login-button-set">
+						<button type="button" class="btn btn-primary"><span><span><?php echo $this->__('Login') ?></span></span></button>
+					</div>	
+					<div id="forgotpassword-button-set" style="display:none">		        	
+			        	<p class="back-link"><a href="<?php echo $this->helper('customer')->getLoginUrl() ?>"><small>&laquo; </small><?php echo $this->__('Back to Login') ?></a></p>
+			        	<button type="button" title="<?php echo $this->__('Submit') ?>" class="btn"><span><span><?php echo $this->__('Submit') ?></span></span></button>
+	    			</div>
+				</div-->
+			</div>
+			<div class="divider-or"><span>OR</span></div>
+			<div class="social-logins">
+				<ul class="sharelinks">
+                	<li><?php //echo $this->getLayout()->createBlock('inchoo_socialconnect/google_button')->setTemplate('inchoo/socialconnect/google/button.phtml')->toHtml(); ?></li>
+                    <li><?php echo $this->getLayout()->createBlock('inchoo_socialconnect/facebook_button')->setTemplate('inchoo/socialconnect/facebook/button.phtml')->toHtml(); ?></li>
+                    <li><?php //echo $this->getLayout()->createBlock('inchoo_socialconnect/twitter_button')->setTemplate('inchoo/socialconnect/twitter/button.phtml')->toHtml(); ?></li>
+                    <!--<li><a href="<?php //echo Mage::getUrl('customer/account/login'); ?>" class="account-create">Create an Account</a></li>-->
+                </ul>
+				<!--<ul>
+					<li><a href="#" class="g_plus">Login With Google</a></li>
+					<li><a href="#" class="facebook">Login With Facebook</a></li>
+					<li><a href="#" class="twitter">Login With Twitter</a></li>
+					<li><a href="<?php //echo Mage::getUrl('customer/account/login'); ?>" class="account-create">Create an Account</a></li>
+				</ul>-->
+			</div>
+	</div>
+</div>
+<div class="md-overlay"></div>	
+	
+	
+<script type="text/javascript">
+    //<![CDATA[
+        var dataForm121 = new VarienForm('login-form',true);
+    //]]>
+</script>
+<div class="clear move-columns"></div>

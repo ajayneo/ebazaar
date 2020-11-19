@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Neo_Notification extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Neo
+ * @package        Neo_Notification
+ * @copyright      Copyright (c) 2015
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+--> 
+<layout>
+    <adminhtml_notification_notification_index>
+        <reference name="menu">
+            <action method="setActive">
+                <menupath>neo_notification/notification</menupath>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="neo_notification/adminhtml_notification" name="notification" />
+
+        </reference>
+    </adminhtml_notification_notification_index>
+    <adminhtml_notification_notification_grid>
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="neo_notification/adminhtml_notification_grid" name="notification_grid"/>
+        </block>
+    </adminhtml_notification_notification_grid>
+    <!-- Notification add/edit action -->
+    <adminhtml_notification_notification_edit>
+        <update handle="editor"/>
+        <reference name="menu">
+            <action method="setActive">
+                <menupath>neo_notification/notification</menupath>
+            </action>
+        </reference>
+        <reference name="content">
+            <block type="neo_notification/adminhtml_notification_edit" name="notification_edit"></block>
+        </reference>
+        <reference name="left">
+            <block type="neo_notification/adminhtml_notification_edit_tabs" name="notification_tabs"></block>
+        </reference>
+    </adminhtml_notification_notification_edit>
+
+</layout>

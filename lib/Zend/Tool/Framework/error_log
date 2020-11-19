@@ -1,0 +1,2 @@
+[08-Oct-2018 16:04:38 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Exception' not found in /home/electronicsbazaa/public_html/lib/Zend/Tool/Framework/Exception.php on line 35
+[08-Oct-2018 16:04:38 Asia/Kolkata] PHP Fatal error:  Interface 'Zend_Tool_Framework_Registry_Interface' not found in /home/electronicsbazaa/public_html/lib/Zend/Tool/Framework/Registry.php on line 35

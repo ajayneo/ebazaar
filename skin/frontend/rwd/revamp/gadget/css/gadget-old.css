@@ -1,0 +1,120 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+.gadgetContainer, .brandsContainer,.messageContainer{ width:100%; text-align:center; background:#FFFFFF; border:1px solid #ededed; padding:20px; box-sizing:border-box; -moz-box-sizing:border-box; -webkit-box-sizing:border-box;}
+.gadgetContainer h1, .brandsContainer h1{ font-size:28px; font-weight:400; border-bottom:1px solid #000000; display:inline-block; padding:0 0 4px 0; margin:0 0 30px 0;}
+.gadgetContainer ul, .brandsContainer ul{ text-align:center;}
+.gadgetContainer ul li, .brandsContainer ul li{ width:135px; font-size:20px; list-style:none; text-align:center; display:inline-block; margin:0 0 20px 0;}
+.imgContent{ width:135px; height:135px; border-radius:50%; -moz-border-radius:50%; -webkit-border-radius:50%; border:1px solid #999; display:table; margin:0 auto 10px; transition:0.5s ease-in; -moz-transition:0.5s ease-in; -webkit-transition:0.5s ease-in;}
+
+.gadgetContainer .imgContent img{ filter:grayscale(100%); -moz-filter:grayscale(100%); -webkit-filter:grayscale(100%); transition:0.5s ease-in; -moz-transition:0.5s ease-in; -webkit-transition:0.5s ease-in;}
+.gadgetContainer .imgContent:hover img{ filter:grayscale(0%); -moz-filter:grayscale(0%); -webkit-filter:grayscale(0%); transition:0.5s ease-in; -moz-transition:0.5s ease-in; -webkit-transition:0.5s ease-in;}
+
+.gadgetContainer ul li.pink .imgContent{ border-color:#e91e63;}
+.imgContent img { display: inline-block;}
+.gadgetContainer ul li a, .brandsContainer ul li a{ color:#777777; text-decoration:none; display:table-cell; vertical-align:middle;}
+.color{ color:#019cd7;}
+.gadgetContainer ul li p, .brandsContainer ul li p{ color:#777777;}
+.gadgetContainer ul li p a, .brandsContainer ul li p a{ color:#e91e63; display:block;}
+
+.brandsContainer h1{ font-size:20px; margin-bottom:20px;}
+.brandsContainer ul li{ font-size:16px;}
+.brandsContainer .imgContent{ width:100px; height:100px; margin-bottom:5px;}
+.brandsContainer .imgContent img{ max-width:85px; max-height:90px; filter:grayscale(100%); -moz-filter:grayscale(100%); -webkit-filter:grayscale(100%); transition:0.5s ease-in; -moz-transition:0.5s ease-in; -webkit-transition:0.5s ease-in;}
+.brandsContainer .imgContent:hover img{ filter:grayscale(0%); -moz-filter:grayscale(0%); -webkit-filter:grayscale(0%); transition:0.5s ease-in; -moz-transition:0.5s ease-in; -webkit-transition:0.5s ease-in;}
+.brandsContainer .imgContent:hover{ border-color:#019cd7; transition:0.5s ease-in; -moz-transition:0.5s ease-in; -webkit-transition:0.5s ease-in;}
+
+
+.mobileContainer{ background:#FFFFFF; border:1px solid #ededed; padding:20px; box-sizing:border-box; -moz-box-sizing:border-box; -webkit-box-sizing:border-box;}
+.mobileContainer h1{ font-size:20px; font-weight:400; margin:0 0 20px 0;}
+.mobileContainer ul{ margin:0; padding:0;}
+.mobileContainer ul li{ list-style:none; border:1px solid #e0e0e0; display:inline-block; width:140px; margin: 0 10px 10px 0;}
+.mobileContainer ul li img{ max-width:140px; max-height:140px; display:inline-block; transition:0.2s ease-in; -moz-transition:0.2s ease-in; -webkit-transition:0.2s ease-in;}
+.mobileContainer ul li img:hover{ max-height:150px; transition:0.2s ease-in; -moz-transition:0.2s ease-in; -webkit-transition:0.2s ease-in;}
+.productImg{ height:170px; display:table; margin:0 auto;}
+.productImg a{ display:table-cell; vertical-align:middle;}
+.productContent{ background:#019cd7; padding:8px 4px; height:65px; overflow:hidden; box-sizing:border-box; -moz-box-sizing:border-box; -webkit-box-sizing:border-box;}
+.productContent p{ color:#FFFFFF; font-size:13px; text-align:center; line-height:18px;}
+.productContentInner { display: table-cell; vertical-align: middle; height: 50px; margin: 0 auto; width: 130px;}
+
+
+.clearfix:after {
+    clear: both;
+    content: ".";
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+.clearfix {
+    display: inline-block;
+}
+.clearfix {
+    display: block;
+}
+.productContainer{ background:#FFFFFF; border:1px solid #ededed; padding:20px; box-sizing:border-box; -moz-box-sizing:border-box; -webkit-box-sizing:border-box;}
+.productContainer h1{ font-size:20px; font-weight:400; margin:0 0 20px 0;}
+.productContainer h3{ font-size:16px; line-height:22px; font-weight:400; margin:0 0 15px 0; text-align:center;}
+.productContainer ul{}
+.productContainer ul li{ float:left; list-style:none; position:relative;}
+ul.stepsList li .stepContent a{ cursor:default;}
+ul.stepsList li.active .stepContent a{ cursor:pointer;}
+.stepContainer{ border:1px solid #e0e0e0; border-radius:4px; -moz-border-radius:4px; -webkit-border-radius:4px; float:left;}
+.stepNumber{ font-size:35px; float:left; background:#eeeeee; color:#9e9e9e; border-radius:4px 0 0 4px; -moz-border-radius:4px 0 0 4px; -webkit-border-radius:4px 0 0 4px; padding: 5px 10px;}
+.stepContent{ font-size:15px; float:left;line-height: 28px;}
+.stepContent a{ color:#777777; text-decoration:none; padding:16px 10px 17px; display:block;}
+.stepContent a:hover{ background-color:#fafafa;}
+.stepArrow { background: url(../images/inactive-arrow.png) no-repeat; width: 55px; height: 33px; float:left; margin:10px 0 0 0;}
+.productContainer ul li.active .stepNumber{ background:#fbda1a; color:#FFFFFF;}
+.productContainer ul li.active .stepArrow{ background-image:url(../images/active-arrow.png);}
+.productContainer ul li.active .stepContent a:hover{ background-color:#fffde7;}
+
+.productDetailsContainer * {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.productDetailsContainer{ border-radius:4px; border:1px solid #ededed; margin:20px 0 0 0;}
+.steps{ position:relative; padding:15px 15px 60px 15px; display:none;}
+.steps.active{ display:block;}
+.productDetailsContainer h2{ font-weight:400; font-size:16px; margin:0 0 8px 0;}
+.stepProductImg{ float:left; width:20%; text-align:center;}
+.stepProductImg img{ max-width:100%; max-height:300px;}
+.productDetails{ float:left; font-size:14px; padding:0 0 0 20px; width:80%;}
+.ques{ font-weight:600; margin:0 0 6px 0; font-size:13px;}
+.ans{ font-size:13px;}
+.productDetails .ans select{ margin:0 0 6px 0;}
+.detailsQues{ margin:0 0 15px 0;}
+.mandatory{ color:#F44336; font-size:18px; line-height:18px;}
+.radioBtn{ margin:0 10px 0 0;}
+
+.btnContainer{}
+.btnContainer input[type="button"], button{ border:0; padding:10px 15px; cursor:pointer; font-size:14px; color:#ffffff!important; font-weight:600; position:absolute; bottom:0; text-decoration:none;}
+.btnNext{ background:#8BC34A; /*color:#333333;*/ right:0; border-radius: 4px 0 4px 0; -moz-border-radius: 4px 0 4px 0; -webkit-border-radius: 4px 0 4px 0;}
+.btnNext:hover{ background-color:#7CB342;}
+.btnPrevious{ background:#2196F3; /*color:#333333;*/ left:0; border-radius:0 4px 0 4px; -moz-border-radius:0 4px 0 4px; -webkit-border-radius:0 4px 0 4px;}
+.btnPrevious:hover{ background:#1E88E5;}
+.errorField{ margin-top:6px; color:#F44336; display:none;}
+
+ul.contactInformation{} 
+ul.contactInformation li{ width:24%; margin-right:1.3%;}
+ul.contactInformation li:last-child{ margin-right:0;}
+ul.contactInformation label{ font-size:13px;}
+ul.contactInformation input[type="text"]{ background:#fafafa; border:1px solid #dedede; color:#4A4A4A; padding:5px 8px; box-sizing:border-box; -moz-box-sizing:border-box; -webkit-box-sizing:border-box; width:100%;}
+.contactInfo{ border-top:1px solid #BDBDBD; padding:20px 0 0 0; margin:20px 0 0 0;}
+
+.quoteContainer{ text-align:center;}
+.quoteAmount{ background:#fbda1a; font-size:55px; padding:5px 20px; text-align:center; display:inline-block; line-height: 55px;}
+.quoteAmount span{ background:url(../images/rupees.png) no-repeat left center; padding-left:25px;}
+.quoteContainer .btnSubmit{ display:inline-block;}
+.quoteContainer .btnContainer{ margin:20px 0 0 0;}
+.quoteContainer .btnSubmit{ background:#2196F3; border:0; color:#FFFFFF; padding:10px 8px; cursor:pointer; position: static !important;}
+.quoteContainer .btnSubmit:hover{ background:#1E88E5;}
+
+.successfulContainer h1{ color:#019cd7; font-size:55px;margin-bottom: 0}
+.successfulContainer h1 span{ color:#fbda1a;}
+.successfulContainer p{ font-size:20px; color:#818181;}
+.successfulContainer .successImg{ background:url(../images/successful.png) no-repeat; width:47px; height:47px; margin:10px auto ;}
+.errorContainer h1{ font-size:55px; color:#F44336;margin-bottom: 0}
+.errorContainer .errorImg{ background:url(../images/error.png) no-repeat; width:47px; height:47px; margin:10px auto ;}

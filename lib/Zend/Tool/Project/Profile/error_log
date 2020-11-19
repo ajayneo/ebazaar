@@ -1,0 +1,2 @@
+[08-Oct-2018 16:05:42 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Tool_Project_Profile_Resource_Container' not found in /home/electronicsbazaa/public_html/lib/Zend/Tool/Project/Profile/Resource.php on line 42
+[08-Oct-2018 16:05:42 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Tool_Project_Exception' not found in /home/electronicsbazaa/public_html/lib/Zend/Tool/Project/Profile/Exception.php on line 35

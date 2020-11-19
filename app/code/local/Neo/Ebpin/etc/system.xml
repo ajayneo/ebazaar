@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+
+<config>
+
+      <tabs>
+
+        <ebpin translate="label" module="ebpin">
+
+            <label>Ebpin</label>
+
+            <sort_order>0</sort_order>
+
+        </ebpin>
+
+      </tabs>
+
+      <sections>
+
+        <ebpin_settings  translate="label" module="ebpin">                    
+
+        <label>Ebpin Settings</label>
+
+        <tab>ebpin</tab>
+
+        <frontend_type>text</frontend_type>
+
+        <sort_order>0</sort_order>
+
+        <show_in_default>1</show_in_default>
+
+        <show_in_website>1</show_in_website>
+
+        <show_in_store>1</show_in_store>            
+
+                    <groups>
+
+                      <ebpin_login translate="label"> 
+
+                      <label>Ebpin Login Details</label>
+
+                      <frontend_type>text</frontend_type>
+
+                      <sort_order>0</sort_order>
+
+                      <show_in_default>1</show_in_default>
+
+                      <show_in_website>1</show_in_website>
+
+                      <show_in_store>1</show_in_store>
+
+                       <fields>
+
+                          <username translate="label">
+
+                            <label>Username</label>
+
+                            <frontend_type>text</frontend_type>
+
+                            <sort_order>0</sort_order>
+
+                            <show_in_default>1</show_in_default>
+
+                            <show_in_website>1</show_in_website>
+
+                            <show_in_store>1</show_in_store>
+
+                          </username>
+
+                          <password translate="label">
+
+                            <label>Password</label>
+
+                            <frontend_type>text</frontend_type>
+
+                            <sort_order>1</sort_order>
+
+                            <show_in_default>1</show_in_default>
+
+                            <show_in_website>1</show_in_website>
+
+                            <show_in_store>1</show_in_store>
+
+                          </password>
+
+                          <feedid translate="label">
+
+                            <label>Feed Id</label>
+
+                            <frontend_type>text</frontend_type>
+
+                            <sort_order>2</sort_order>
+
+                            <show_in_default>1</show_in_default>
+
+                            <show_in_website>1</show_in_website>
+
+                            <show_in_store>1</show_in_store>
+
+                          </feedid>
+                          <api_url translate="label">
+                            <label>API Url</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                          </api_url>
+
+                       </fields>
+
+                       </ebpin_login>
+
+                    </groups>
+
+        </ebpin_settings>
+
+      </sections>
+
+</config>
+

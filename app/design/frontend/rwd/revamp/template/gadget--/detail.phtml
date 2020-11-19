@@ -1,0 +1,74 @@
+<?php $order = $this->getOrder(); 
+$options = json_decode($order->getOptions(),1);
+
+// $queryArray['awb_number'] = $order->getAwbNumber();
+// $queryArray['order_id'] = $order->getId();
+// $tracking = Mage::getModel('shippinge/ecom')->ecomexpressTracking($queryArray);
+//print_r($order->getData()); ?>
+<div class="new-gadget-container new-gadget-bank-details sales-history-container">
+	<div class="new-gadget-title"><h1>Sales history details</h1></div>
+	<div class="bank-details-inner-container clearfix">
+		<div class="bank-details-content clearfix">
+			<div class="gadget-order-details">
+				<ul class="clearfix">
+					<li class="clearfix">
+						<label>Ticket ID:</label> 
+						<div class="description">#<?php echo $order->getId(); ?></div>
+					</li>
+					<li class="clearfix">
+						<label>Status:</label>
+						<div class="description">
+							<?php $statusOptionsArray = Mage::helper('gadget')->getGadgetStatusOptions();?>
+							<p>
+								<span class="answer pending"><?php echo $statusOptionsArray[$order->getStatus()]; ?></span>
+							</p>
+						</div>
+					</li>
+					<li class="clearfix">
+						<label>Price:</label>
+						<div class="description"><span class="answer price"><?php 
+						echo '₹ '.$order->getPrice();
+						//echo Mage::helper('core')->currency($order->getPrice(), true, false); ?></span></div>
+					</li>
+				</ul>
+			</div>
+
+			<ul class="sales-history-list clearfix">
+				<?php /*?><h2><?php echo $order->getProname();?></h2><?php */?>
+				<!-- <p><span class="answer">What is the condition of the item ? -</span> Good</p>
+				<p><span class="answer">Are the compatible charger and battery included ?</span> - Yes</p> -->
+				<?php foreach($options as $que=>$ans){
+
+					if($que == 'Are the compatible charger and battery included ?'){
+						$que = 'Is the compatible charger included ?';
+					}else if($que == 'What is the condition of the item ?'){
+						$que = 'Condition';
+					} 
+					echo '<li><label>'.$que.' </label> <div class="description">'.$ans.'</div></li>';
+				} ?>
+			</ul>
+		
+		
+		<div class="order-detail clearfix">
+			<div class="left">
+				
+
+			</div>
+			<?php /*?>
+			<div class="right">
+				<h2>Address</h2>
+				<p><?php echo $order->getAddress() ? $order->getAddress(): 'Not Available'; ?></p>
+			</div>
+			<?php */?>
+
+		</div>
+		
+		</div>
+
+		<div class="gadget-icon"><img src="<?php echo $this->getSkinUrl(); ?>images/ebt/gadget-laptop-icon.png"></div>
+		<div class="track-details sales-history-list clearfix">
+		<div class="new-gadget-title"><h1>Tracking details</h1></div>
+		<?php echo $this->getChildHtml('order_detail_track'); ?>
+		</div>
+	</div>
+</div>

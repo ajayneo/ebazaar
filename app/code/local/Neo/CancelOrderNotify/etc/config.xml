@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config>
+	<modules>
+		<Neo_CancelOrderNotify>
+			<version>0.0.1</version>
+		</Neo_CancelOrderNotify>
+	</modules>
+	<global>
+		<helpers>
+			<neo_cancelordernotify>
+				<class>Neo_CancelOrderNotify_Helper</class>
+			</neo_cancelordernotify>
+		</helpers>
+		<models>
+			<neo_cancelordernotify>
+				<class>Neo_CancelOrderNotify_Model</class>
+			</neo_cancelordernotify>
+		</models>
+		<events>
+			<sales_order_save_commit_after>
+				<observers>
+					<cancel_order_notify>
+						<type>singleton</type>
+						<class>neo_cancelordernotify/observer</class>
+						<method>notifyCustomerOnOrderCancel</method>
+					</cancel_order_notify>
+				</observers>
+			</sales_order_save_commit_after>
+		</events>
+		<template>
+			<email>
+				<custom_order_tpl module="Neo_CancelOrderNotify">
+					<label>Notify Customer on Order Cancel</label>
+					<file>cancelordernotify/notifycustomeronordercancel.html</file>
+					<type>html</type>
+				</custom_order_tpl>
+			</email>
+		</template>
+	</global>
+</config>

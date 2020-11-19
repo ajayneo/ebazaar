@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<Neo_Socialconnect>
+			<active>false</active>
+			<codePool>local</codePool>
+		</Neo_Socialconnect>
+	</modules>
+</config>

@@ -1,0 +1,4 @@
+[08-Oct-2018 16:05:44 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Tool_Framework_Client_Abstract' not found in /home/electronicsbazaa/public_html/lib/Zend/Tool/Framework/Client/Console.php on line 50
+[08-Oct-2018 16:05:44 Asia/Kolkata] PHP Fatal error:  Interface 'Zend_Tool_Framework_Registry_EnabledInterface' not found in /home/electronicsbazaa/public_html/lib/Zend/Tool/Framework/Client/Abstract.php on line 40
+[08-Oct-2018 16:05:44 Asia/Kolkata] PHP Fatal error:  Interface 'Zend_Tool_Framework_Registry_EnabledInterface' not found in /home/electronicsbazaa/public_html/lib/Zend/Tool/Framework/Client/Manifest.php on line 61
+[08-Oct-2018 16:05:44 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Tool_Framework_Exception' not found in /home/electronicsbazaa/public_html/lib/Zend/Tool/Framework/Client/Exception.php on line 35

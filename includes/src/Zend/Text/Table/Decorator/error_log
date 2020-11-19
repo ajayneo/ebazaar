@@ -1,0 +1,2 @@
+[08-Oct-2018 16:07:00 Asia/Kolkata] PHP Fatal error:  Interface 'Zend_Text_Table_Decorator_Interface' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Text/Table/Decorator/Ascii.php on line 37
+[08-Oct-2018 16:07:00 Asia/Kolkata] PHP Fatal error:  Interface 'Zend_Text_Table_Decorator_Interface' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Text/Table/Decorator/Unicode.php on line 37

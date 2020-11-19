@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<Neo_Trackorder>
+			<version>0.1.0</version>
+		</Neo_Trackorder>
+	</modules>
+	<frontend>
+		<routers>
+			<trackorder>
+				<use>standard</use>
+				<args>
+					<module>Neo_Trackorder</module>
+					<frontName>track</frontName>
+				</args>
+			</trackorder>
+		</routers>
+		<layout>
+			<updates>
+				<trackorder>
+					<file>trackorder.xml</file>
+				</trackorder>
+			</updates>
+		</layout>
+	</frontend>
+	<global>
+		<blocks>
+			<trackorder>
+				<class>Neo_Trackorder_Block</class>
+			</trackorder>
+		</blocks>
+	</global>
+</config>

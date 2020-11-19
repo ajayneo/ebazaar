@@ -1,0 +1,200 @@
+<?php 
+  $tracking = $this->trackingCode();
+  if($tracking): 
+    $track_details = $tracking['tracking_details'];
+?>  
+
+<?php if($tracking['title'] == 'ecom_express' || $tracking['title'] == 'Ecom express'):?>
+    <div class="shipment-tracking-container">
+    <h1>Shipment Tracking</h1>
+      <?php $tracking_status =  $tracking['awb']['tracking_status']; ?>
+    <?php if(empty($tracking['awb']['delivery_date'])){
+        $tracking_status = "";
+      }?>
+    <div class="shipemnt-delivered">
+      <h2>Expected Delivery Date: <?php echo $tracking['awb']['delivery_date']  ?></h2>
+      <span>Order #: <?php echo $tracking['order']?></span>
+      <p>Courier: ECOM EXPRESS<?php //echo $tracking['awb']['customer']  ?> </p>
+      <p>AWB #: <?php echo $tracking['awbno']; ?></p>  
+    </div> 
+
+    <div class="shipment-bar-container <?php echo $tracking['step']?>">
+      <div class="shipment-deliverd-date">Delivered On <?php echo $tracking['awb']['delivery_date'] ?></div>
+      <div class="shipment-bar">
+        <div class="delivered-bar">
+          <div class="shipment-progress-bar"></div>
+        </div>
+      </div>
+      <div class="bar-bottom clearfix">
+        <div class="ordered-date"><span>Ordered on</span><?php echo $tracking['order_date'] ?></div>
+        
+        <div class="shipped-date"><span class="arrow"></span><span>Shipment details shared to courier on</span><?php echo $tracking['ship_date'] ?></div>
+        <?php if($tracking_status): ?>
+        <div class="tracking_status"><span class="arrow"></span><?php echo $this->__($tracking_status) ?></div>
+      <?php endif; ?>
+        <div class="shipment-tracking-address">
+            <span>Shipping Address</span>
+            <?php echo $tracking['ship_addr'] ?>
+        </div>
+
+      </div>
+    </div>
+    <?php $tracking_details = $tracking['status'];
+    if(!empty($tracking_details)){ ?>
+    <div class="shipment-tracking-content-container">
+      <h3>Shipment Details</h3>
+      <div class="shipment-tracking-content">
+      <?php foreach ($tracking_details as $date => $city) {
+            $city_val = array_keys($city);
+            ?>
+              <div class="shipment-tracking-details">
+              <div class="heading"><?php echo $date.", ".$city_val[0]; ?></div>
+            <?php foreach ($city as $key => $actvities) { 
+                  foreach ($actvities as $key => $value) {
+                  $time_array = explode(",",$value['date']);
+                  $time = $time_array[2];
+                  $status = $value['status'];
+                  $code = $value['code']; 
+                  $str_time = date("h:i a",strtotime($time));  
+            ?>
+                  
+              <div class="shipment-tracking-status clearfix code_<?php echo $code;?>">
+
+                <div class="left"><?php echo $str_time; ?></div>
+                <div class="right"><?php echo $status; ?></div>
+              </div>
+          <?php } ?>
+          <?php } ?>
+              </div>
+        <?php  } ?>
+      </div>
+    </div>
+      <?php  } ?>
+
+</div>
+
+<?php elseif($tracking['title'] == 'bluedart' || $tracking['title'] == 'Bluedart'): ?>
+    <?php $tracking_status =  $tracking['awb']['tracking_status']; ?>
+    <div class="shipment-tracking-container">
+    <h1>Shipment Tracking</h1>
+      <p>Order #: <?php echo $tracking['order']?></p>
+      <p>Courier: Bluedart Shipment </p>
+      <p>AWB #: <?php echo $tracking['awbno']; ?></p>  
+    <?php if(!empty($tracking['awb']['delivery_date'])){ ?>
+    <div class="shipemnt-delivered">
+      <h2>Expected Delivery Date: <?php echo $this->__($tracking['awb']['delivery_date'])  ?></h2>
+    </div>
+    <?php }else{
+        $tracking_status = "Shipment Delayed due to external factors";
+      } ?>
+    <div class="shipment-bar-container <?php echo $tracking['step']?> bar_status">
+      <div class="shipment-deliverd-date"><?php echo $this->__($tracking['awb']['delivery_date']) ?></div>
+      <div class="shipment-bar">
+        <div class="delivered-bar">
+          <div class="shipment-progress-bar"></div>
+        </div>
+      </div>
+      <div class="bar-bottom clearfix">
+        <div class="ordered-date"><span>Ordered on</span><?php echo $this->__($tracking['order_date']) ?></div>
+        <div class="shipped-date"><span class="arrow"></span><span>Shipment details shared to courier on</span><?php echo $this->__($tracking['ship_date']) ?></div>
+        <div class="tracking_status"><span class="arrow"></span><span><?php echo $this->__($tracking_status) ?></span></div>
+        <div class="shipment-tracking-address">
+            <?php echo $this->__($tracking['ship_addr']) ?>
+        </div>
+      </div>
+    </div>
+    <?php if(!empty($track_details)): ?>
+    <div class="shipment-tracking-content-container">
+      <h3>Shipment Details</h3>
+      <div class="shipment-tracking-content">
+      <?php foreach ($track_details as $date => $city) {
+        // echo "<pre>";
+        // print_r($city);
+          ?>
+          <div class="shipment-tracking-details">
+          <?php
+          foreach ($city as $key => $scans) { ?> 
+             
+              <div class="heading"><?php echo $date." ".$key ?></div>
+             <?php //print_r($scans); 
+             foreach ($scans as $key => $value){ 
+              $str_time = $value['time'];
+              $status = $value['status'];
+              $code = $value['code'];
+              ?>
+                <div class="shipment-tracking-status clearfix code_<?php echo $code;?>">
+                  <div class="left"><?php echo $str_time; ?></div>
+                  <div class="right"><?php echo $status; ?></div>
+                </div>
+
+              <?php } ?>
+        <?php } ?>
+          </div>
+         <?php } ?>
+      </div>
+    </div>
+  <?php endif; ?>
+  </div>
+
+
+<?php elseif($tracking['title'] == 'v_express'): ?>
+    <div class="shipment-tracking-container">
+    <h1>Shipment Tracking</h1>
+    <div class="shipemnt-delivered">
+      <h2>Expected Delivery Date: <?php echo $this->__($tracking['awb']['delivery_date'])  ?></h2>
+      <p>Courier: VExpress Shipment <?php //echo $this->__($tracking['awb']['customer'])  ?> </p>  
+      <p>Order #: <?php echo $tracking['order']  ?> </p>  
+      <p>AWB #: <?php echo $tracking['awbno']  ?> </p>  
+    </div>
+    <div class="shipment-bar-container <?php echo $tracking['step']?>">
+      <div class="shipment-deliverd-date"><?php echo $this->__($tracking['awb']['delivery_date']) ?></div>
+      <div class="shipment-bar">
+        <div class="delivered-bar">
+          <div class="shipment-progress-bar"></div>
+        </div>
+      </div>
+      <div class="bar-bottom clearfix">
+        <div class="ordered-date"><span>Ordered on</span><?php echo $this->__($tracking['order_date']) ?></div>
+        <div class="shipped-date"><span class="arrow"></span><span>Shipped on</span><?php echo $this->__($tracking['ship_date']) ?></div>
+        <div class="shipment-tracking-address">
+            <?php echo $this->__($tracking['ship_addr']) ?>
+        </div>
+      </div>
+    </div>
+    <div class="shipment-tracking-content-container">
+      <h3>Shipment Details</h3>
+      <div class="shipment-tracking-content">
+
+        <?php foreach ($tracking['status'] as $key => $value): ?> 
+
+            <div class="shipment-tracking-details">
+              <div class="heading"><?php echo $this->__($value['date'])?></div>
+              <div class="shipment-tracking-status clearfix">
+                <div class="left">Status:</div>
+                <div class="right"><?php echo $this->__($value['status'])?></div>
+              </div>
+              <div class="shipment-tracking-status clearfix">
+                <div class="left">Resion:</div>
+                <div class="right"><?php echo $this->__($value['resion'])?></div>
+              </div>
+            </div>
+
+        <?php endforeach; ?>
+
+      </div>
+    </div>
+  </div>
+
+<?php elseif(1): ?>
+
+<?php elseif(1): ?>
+
+
+<?php endif; ?>
+
+<?php else: ?>
+
+Not Found
+
+<?php endif; ?>
+

@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <career_adminhtml_career_index>
+        <reference name="content">
+            <block type="career/adminhtml_career" name="career" />
+        </reference>
+    </career_adminhtml_career_index>
+</layout>

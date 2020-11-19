@@ -1,0 +1,41 @@
+<div class="wishlist-view-section">
+<?php $collection = $this->getCollection();  ?>
+    <div class="page-title title-buttons">
+        <h1><?php echo $this->__('Sales History') ?></h1>
+    </div>
+    <?php if(count($collection) === 0){ ?>
+    <p>You have no orders in sales history</p>
+    <?php }else{ ?>
+    <div class="fieldset">
+    <?php echo $this->getToolbarHtml(); ?>
+    <div class="table-responsive">
+    <table class="data-table" id="my-custom-table">
+        <thead>
+        <tr>
+            <th><?php echo $this->__('Order #') ?></th>
+            <th><span class="nobr"><?php echo $this->__('Price') ?></span></th>
+            <th><span class="nobr"><?php echo $this->__('Status') ?></span></th>
+            <th><span class="nobr"><?php echo $this->__('View Invoice') ?></span></th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php $_odd = ''; ?>
+        <?php foreach ($collection as $item): $id = $item->getId(); ?>
+            <tr>
+                <td><span class="nobr"><?php echo $id; ?></span></td>
+                <!-- <td><?php echo Mage::helper('core')->currency($item->getPrice(), true, false); ?></td> -->
+                <td>Rs. <?php echo $item->getPrice(); ?></td>
+                <td><?php 
+                    $statusOptionsArray = Mage::helper('gadget')->getGadgetStatusOptions();
+                    echo $statusOptionsArray[$item->getStatus()];
+                 ?></td>
+                <td><a href="<?php echo Mage::getUrl('gadget/index/detail',array('order_id'=>$id)); ?>">View Details</a></td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+    </div>
+    <?php echo $this->getToolbarHtml(); ?>
+    </div>
+    <?php } ?>
+</div>

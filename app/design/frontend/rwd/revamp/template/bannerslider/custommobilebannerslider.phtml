@@ -1,0 +1,42 @@
+<?php
+$result = $this->getBlockData();
+$banners = $result['banners'];
+?>
+<!--ul class="bxslider_homepage_banner"-->
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+<?php
+$media_path = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA);
+$i=0;
+$slider1 = '';
+$url1 = '#';
+$content1='';
+$j=0;
+foreach ($banners as $banner) {
+	#$image = $banner['image'];
+	$image = $this->getBannerImage($banner['image']);
+	echo '<div class="swiper-slide">';
+	echo '<a href="'.$banner['click_url'].'">';
+	echo '<img src="'.$image.'" alt="">';
+	echo '</a>';
+	echo '</div>';
+/*	echo '<li>';
+	echo '<a href="'.$banner['click_url'].'">';
+	echo '<img src="'.$media_path.'wysiwyg/'.$image.'" alt="">';
+	echo '</a>';
+	echo '</li>';*/
+}
+?>
+</div>
+<div class="pagination"></div>
+</div>
+<!--/ul-->
+<script>
+  var mySwiper = new Swiper('.swiper-container',{
+    pagination: '.pagination',
+	loop:true,
+    paginationClickable: true,
+	calculateHeight:true,
+	autoplay: false
+  });
+</script>

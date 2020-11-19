@@ -1,0 +1,25 @@
+/* 
+    Document   : default.css    
+    Description:
+        Purpose of the stylesheet follows.
+*/
+.shopbybrand_sidebar .block-content ul{padding:10px;}
+/* add by Peter */
+.shopbybrand_sidebar .block-content ul li{
+    list-style: none;
+}
+.shopbybrand_sidebar .block-content ul li a{
+    text-decoration: none;
+}
+.shopbybrand_sidebar .block-content .brands-item{
+    margin-bottom: 5px;
+}
+.shopbybrand_sidebar .block-content .brands-item .brand-name{
+    margin-left: 5px;
+}
+/* end add by Peter */
+.shopbybrand_sidebar .actions a{float:right;}
+.shopbybrand .brand-input-search .validation-advice{top:50px;}
+.shopbybrand .brand-input-search form{position:relative;}
+.brand-right button.button{height:auto  !important;}
+/* */

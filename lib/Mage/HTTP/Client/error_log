@@ -1,0 +1,2 @@
+[08-Oct-2018 16:04:50 Asia/Kolkata] PHP Fatal error:  Interface 'Mage_HTTP_IClient' not found in /home/electronicsbazaa/public_html/lib/Mage/HTTP/Client/Curl.php on line 36
+[08-Oct-2018 16:04:50 Asia/Kolkata] PHP Fatal error:  Interface 'Mage_HTTP_IClient' not found in /home/electronicsbazaa/public_html/lib/Mage/HTTP/Client/Socket.php on line 36

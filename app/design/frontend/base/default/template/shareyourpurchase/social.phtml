@@ -1,0 +1,19 @@
+<div class="social-media-buttons <?php echo $this->helper('shareyourpurchase')->getIconsStyleClass() ?>">
+    <div class="order-share">
+        <h4>Share Your Order</h4>
+        <div class="buttons">
+            <?php echo $this->getChildHtml('social.facebook'); ?>
+            <?php echo $this->getChildHtml('social.twitter'); ?>
+            <?php echo $this->getChildHtml('social.pinterest'); ?>
+        </div>
+    </div>
+    <div class="product-share">
+        <?php $this->helper('shareyourpurchase')->canDisplay(); ?>
+        <?php if($this->helper('shareyourpurchase')->canDisplay()) : ?>
+            <h4>Share Purchased Items</h4>
+            <ul class="products-grid">
+                <?php echo $this->getChildHtml('social.products'); ?>
+            </ul>
+        <?php endif; ?>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+
+<div class="easy-finance-box-wrapper">
+    <div class="easy-finance-box">
+            <div class="easy-finance-box-left"><img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN); ?>frontend/rwd/electronics/images/easyfinance/easy-finance-image.png"/></div>
+            <div class="easy-finance-box-right">
+              <h3>ElectronicsBazaar.com</h3>
+              <p>Thanks for inquiring about our Easy Finance option for laptops, desktops, mobile phones, tablets, cameras and accessories.</p>
+              <p>We offer an EMI option for consumers without a credit card or low balance on credit cards. If you are interested to know more, please fill in your basic details if you would like to know more details.</p>
+                
+                <div class="form-container">
+                    <form name="easyfinance" id="easy-finance" method="post" action="<?php echo Mage::getUrl('easyfinance/index/save'); ?>">
+						<div class="small"><input type="text" id="first_name" name="first_name" value="" title="First Name" maxlength="100" class="input-text required-entry" placeholder="FIRST NAME"></div>
+						<div class="small"><input type="text" id="last_name" name="last_name" value="" title="Last Name" maxlength="255" class="input-text required-entry" placeholder="LAST NAME"></div>
+						<div class="wide"><input type="text" id="email" name="email" value="" title="Email Address" maxlength="255" class="input-text required-entry wide" placeholder="EMAIL"></div>
+						<div class="small"><input type="text" id="phone" name="phone" value="" title="Phone" maxlength="255" class="input-text required-entry" placeholder="PHONE"></div>
+						<div class="small"><input type="text" id="city" name="city" value="" title="City" maxlength="255" class="input-text required-entry" placeholder="CITY"></div>
+                        <button type="submit" title="Submit" class="button"><span><span>Submit</span></span></button>
+                    </form>
+                </div>
+                <p>Thanks for your inquiry. Our customer service team will get back shortly. If you want to check our entire range of products, please visit <a href="#">www.electronicsbazaar.com</a></p>
+            </div>
+    </div>
+</div>
+<script type="text/javascript">
+    //< ![CDATA[
+        var customForm = new VarienForm('easy-finance');
+    //]]>
+</script>

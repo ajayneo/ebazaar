@@ -1,0 +1,242 @@
+<?xml version="1.0"?>
+<config>
+   <sections>
+        <sales>
+            <groups>
+                <totals_sort>
+                    <fields>
+                        <cashondelivery translate="label" module="cashondelivery">
+                            <label>Cash on Delivery fee</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </cashondelivery>
+                    </fields>
+                </totals_sort>
+            </groups>
+        </sales>
+        <payment>
+            <groups>
+                <cashondelivery translate="label" module="payment">
+                    <label>Cash on Delivery</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <active translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </active>
+                        <display_zero_fee translate="label">
+                            <label>Display Zero Fee</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>11</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </display_zero_fee>
+                        <title translate="label">
+                            <label>Title</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </title>
+                        <order_status translate="label">
+                            <label>New order status</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_order_status</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </order_status>
+                        <sort_order translate="label">
+                            <label>Sort order</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </sort_order>
+                        <shippingallowspecific translate="label">
+                            <label>Shipment to applicable countries</label>
+                            <frontend_type>allowspecific</frontend_type>
+                            <sort_order>60</sort_order>
+                            <source_model>adminhtml/system_config_source_payment_allspecificcountries</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </shippingallowspecific>
+                        <shippingspecificcountry translate="label">
+                            <label>Shipment to Specific countries</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <sort_order>70</sort_order>
+                            <source_model>adminhtml/system_config_source_country</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </shippingspecificcountry>
+                        <min_order_total translate="label">
+                            <label>Minimum Order Total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>74</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </min_order_total>
+                        <max_order_total translate="label">
+                            <label>Maximum Order Total</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>78</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </max_order_total>
+                        <inlandcosts translate="label">
+                            <label>Costs for inland shipping</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </inlandcosts>
+                        <foreigncountrycosts translate="label">
+                            <label>Costs for shipping to foreign countries</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </foreigncountrycosts>
+                        <customtext translate="label">
+                            <label>Custom text for checkout page</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </customtext>
+                        <disallowspecificshippingmethods translate="label">
+                            <label>Disallow specific shipping methods</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>110</sort_order>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </disallowspecificshippingmethods>
+                        <disallowedshippingmethods translate="label">
+                            <label>Disallowed shipping methods</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <sort_order>120</sort_order>
+                            <source_model>cashondelivery/source_availableShipmentMethods</source_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </disallowedshippingmethods>
+                        <codzipcode translate="label">
+                            <label>Enter Pin/Zip Codes</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>130</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Please enter the Pin/Zip Code for which COD is allowed comma suparated if nothing leave blank Eg: CV12LE,500072</comment>
+                        </codzipcode>
+                        <cod_maxlimit translate="label">
+                            <label>Cash on Delivery Maximum Limit</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>131</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </cod_maxlimit>
+                        <sixteenkcodzipcode translate="label">
+                            <label>Enter Sixteen K Pin/Zip Codes</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>132</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Please enter the Pin/Zip Code for which COD is allowed comma suparated if nothing leave blank Eg: CV12LE,500072</comment>
+                        </sixteenkcodzipcode>
+                        <tenkcodzipcode translate="label">
+                            <label>Enter Ten K Pin/Zip Codes</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>133</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Please enter the Pin/Zip Code for which COD is allowed comma suparated if nothing leave blank Eg: CV12LE,500072</comment>
+                        </tenkcodzipcode>
+                        <fivekcodzipcode translate="label">
+                            <label>Enter Five K Pin/Zip Codes</label>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>134</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Please enter the Pin/Zip Code for which COD is allowed comma suparated if nothing leave blank Eg: CV12LE,500072</comment>
+                        </fivekcodzipcode>
+                    </fields>
+                </cashondelivery>
+            </groups>
+        </payment>
+        <tax translate="label" module="tax">
+            <groups>
+                <classes translate="label">
+                    <fields>
+                        <cod_tax_class translate="label">
+                            <label>Tax Class for Cash on Delivery Fee</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_shipping_taxclass</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </cod_tax_class>
+                    </fields>
+                </classes>
+                <calculation translate="label">
+                    <fields>
+                        <cod_includes_tax translate="label comment">
+                            <label>Cash on Delivery fee include tax</label>
+                            <frontend_type>select</frontend_type>
+                            <!--<backend_model>tax/config_price_include</backend_model>-->
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>35</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </cod_includes_tax>
+                    </fields>
+                </calculation>
+                <display>
+                    <fields>
+                        <cod_fee translate="label">
+                            <label>Display Cod Fee</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>tax/system_config_source_tax_display_type</source_model>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </cod_fee>
+                    </fields>
+                </display>
+            </groups>
+        </tax>
+    </sections>
+</config>

@@ -1,0 +1,2 @@
+[08-Oct-2018 16:06:48 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Feed_Reader_Extension_FeedAbstract' not found in /home/electronicsbazaa/public_html/lib/Zend/Feed/Reader/Extension/Podcast/Feed.php on line 34
+[08-Oct-2018 16:06:48 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Feed_Reader_Extension_EntryAbstract' not found in /home/electronicsbazaa/public_html/lib/Zend/Feed/Reader/Extension/Podcast/Entry.php on line 39

@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Neo_Catalog>
+      <version>0.0.1</version>
+    </Neo_Catalog>
+  </modules>
+  <global>
+    <models>
+      <neocatalog>
+        <class>Neo_Catalog_Model</class>
+      </neocatalog>
+    </models>
+    <events>
+      <catalog_product_import_finish_before>
+        <observers>
+          <catalog_import>
+            <type>singleton</type> 
+            <class>Neo_Catalog_Model_Observer</class> 
+            <method>catalog_product_import_finish</method> 
+          </catalog_import>
+        </observers>
+      </catalog_product_import_finish_before>
+    </events>
+  </global>
+</config>

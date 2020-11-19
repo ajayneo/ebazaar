@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Neo_Newregistrationcoupon>
+      <version>0.1.0</version>
+    </Neo_Newregistrationcoupon>
+  </modules>
+  <global>
+    
+    <template>
+      <email>
+        <newregistrationcoupon_newregistrationcoupon_email_template>
+              <label>Template to send promo code for new registered customer</label>
+              <file>notify_new_customer.html</file>
+              <type>html</type>
+          </newregistrationcoupon_newregistrationcoupon_email_template>
+      </email>
+    </template>
+ 
+    <helpers>
+      <newregistrationcoupon>
+        <class>Neo_Newregistrationcoupon_Helper</class>
+      </newregistrationcoupon>
+    </helpers>
+	<models>
+	  <newregistrationcoupon>
+		<class>Neo_Newregistrationcoupon_Model</class>
+		<resourceModel>newregistrationcoupon_mysql4</resourceModel>
+	  </newregistrationcoupon>
+	</models>
+    <events>
+	  <customer_save_after> <!-- identifier of the event we want to catch -->
+        <observers>
+          <customer_save_after_handler> <!-- identifier of the event handler -->
+            <type>model</type> <!-- class method call type; valid are model, object and singleton -->
+            <class>newregistrationcoupon/observer</class> <!-- observers class alias -->
+            <method>customerSaveAfter</method>  <!-- observer's method to be called -->
+            <args></args> <!-- additional arguments passed to observer -->
+          </customer_save_after_handler>
+        </observers>
+      </customer_save_after>
+    </events>
+  </global>
+</config> 

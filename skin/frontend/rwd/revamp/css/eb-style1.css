@@ -1,0 +1,1589 @@
+/*sell your gadget popup ravish*/
+body.cms-page-view.cms-gadget-terms-and-conditions .main-container {
+    padding-top: 190px;
+}
+.main-container.col1-layout.gadget-lenovo-index {
+    padding-top: 0;
+}
+.gadget-mobile-brand-content.lap-img {
+    background-image: url(https://www.electronicsbazaar.com/skin/frontend/rwd/revamp/images/ebt/gadget-laptop-brand-content-bg.png);
+}
+div#err-mes1 {
+    font-size: 15px;
+    font-weight: bold;
+    margin: 0 0 5px 0;
+    color: red;
+}
+.main-container.col1-layout.gadget-lenovo-index .product-view.gadget-view.new-gadget-tab-content {
+    padding-top: 70px;
+}
+.new-gadget-popup-inner-content .gadget-register,.new-gadget-popup-inner-content .gadget-login {
+    width: 48%;
+    float: left;
+}
+.new-gadget-popup-inner-content .gadget-register{
+    padding-right: 2%;
+    border-right: 1px solid #ccc;
+    padding-left: 2%;
+}
+.new-gadget-popup-inner-content .lenovo-button-container {
+    margin-top: 20px;
+}
+.new-gadget-popup-inner-content .gadget-login {
+    padding-left: 2%;
+}
+.input-box.half-input-box input {
+    width: 50%;
+    float: left;
+}
+.input-box.half-input-box .btn-sell {
+    height: 32px;
+}
+/*----------------------*/
+#newsletter-validate-detail .validation-advice {
+    color: #fff;
+}
+
+div.block-layered-nav div.amshopby-slider div.handle {
+    cursor: pointer;
+}
+
+/*track ur order page*/
+.inner-main-container .shipment-tracking-content{width: 100%;}
+
+/*navigation submenu css*/
+/*sell ur gadget*/
+.your-device-right {
+    display: inline-block;
+    width: 50%;
+}
+.your-device-right .bank-price-content {
+    padding-top: 40px;
+    margin-bottom: 45px;
+    width: 100%;
+}
+.internal_order_id.input-field {
+    margin-bottom: 20px;
+}
+.your-device-right .input-box select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding: 0 10px;
+    background-image: url(../images/new-images/select-down-arrow.png);
+    background-repeat: no-repeat;
+    background-position: right 20px center;
+        width: 100%;
+    height: 42px;
+    border-color: #e1e1e1;
+    font-size: 13px;
+    color: #4a4a4a;
+}
+/*testing css changes*/
+/*new pagination ravish*/
+/*
+.toolbar-bottom .pages a,.toolbar-bottom .pages .current {
+    border-radius: 50px;
+}
+
+
+.pager .pages{width: 60%;text-align: right;}
+.pages li + li {
+    margin-left: 6%;
+}
+.pages .next:after {
+    content: 'Next';
+    position: relative;
+    font-size: 14px;
+    color: #13447e;
+    left: -10px;
+    font-weight: bold;
+}
+.pages .previous:after{
+    content: 'Prev';
+    position: relative;
+    font-size: 14px;
+    color: #13447e;
+    left: 0px;
+    font-weight: bold;
+}
+.pages .next,.pages .previous{
+    background-image: none;
+}
+.pages a.next:hover,.pages a.previous:hover {
+    background: none;
+}
+.pager{width: 100%;}
+.toolbar-bottom .count-container .amount.amount--has-pages{display: block;}
+.toolbar-bottom .count-container{float: none;}
+*/
+
+/*------------------*/
+body.gadget-index-list.customer-account .my-account-pg .pager {
+    width: 100%;
+}
+.checkboxContainer2 label.css-label {background-image: url(../images/new-images/uncheck.png);}
+body.orderreturn-index-index .form-list > li {
+    margin-bottom: 22px;
+        display: inline-block;
+    width: 100%;
+}
+body.orderreturn-index-index .order-container .form-list label {
+    float: none;
+    display: inline-block;
+    vertical-align: middle;
+}
+.order-container .form-list .input-box {
+    padding: 0;
+        float: none;
+    display: inline-block;
+}
+.order-container .form-list .input-box input, .order-container .form-list .input-box select, .order-container .form-list .input-box textarea {background-color: transparent;}
+
+span.red {
+    color: red;
+}
+.orderreturn-index-index thead {
+    background-color: #414040;
+    color: #fff;
+}
+
+.bank-details,.shipping-address {
+    background: transparent;
+    border: none;
+}
+.bank-details{
+    
+    border-right: 1px solid #dedede;
+    }
+.orderreturn-index-index h2 {
+    color: #13447e;
+    font-size: 18px;
+}
+.orderreturn-index-index .order-container .btn-return{margin-top: 25px;}
+.order-list-container table,.order-list-container th{text-align: center;}
+.orderreturn-index-index input[type=checkbox].css-checkbox + label.css-label{
+    background-position: 0 3px;
+    height: auto;
+}
+.orderreturn-index-index .address-field,.orderreturn-index-index .gadget-btn-submit{display: block;}
+/*sell your gadget login radio button*/
+.account-login .account-create .sale-ur-gadget-radio-btn .input-box span {
+    position: static;
+}
+.account-login.account-login-new .sale-ur-gadget-radio-btn .input-box {
+    width: auto;
+    display: inline-block;
+}
+.account-login.account-login-new .sale-ur-gadget-radio-btn .input-box + .input-box {
+    margin-left: 5%;
+}
+.account-login.account-login-new .sale-ur-gadget-radio-btn .input-box input {height: auto!important;}
+
+.new-gadget-container.new-gadget-bank-details.new-gadget-login-signup .input-box + .input-box {
+    margin-left: 5%;
+}
+.new-gadget-container.new-gadget-bank-details.new-gadget-login-signup .input-box {
+    width: auto;
+    display: inline-block;
+}
+/*ends radio btn*/
+.main .opc-wrapper-opc .opc-col-left .input-box {
+    float: left;
+}
+.partner_store .buttons-set button,button#save_gstin{
+font-size: 14px;
+    background: #414040;
+    height: 40px;
+    padding: 0;
+    width: 100%;
+    color: #fff;
+    }
+.partner_store .buttons-set button:hover,button#save_gstin:hover{background: #13447e;color: #fff;}
+.partner_store .buttons-set button:hover span,button#save_gstin:hover span{color: #fff;}
+.careers-listing li {
+    padding: 0 30px;
+}
+
+.career-index-index .inner-main-container .col-main {
+    width: 100%;
+    float: none;
+}
+
+.career-index-index .inner-main-container {
+    width: 100%;
+}
+.careers-listing.new-careers-listing .tab {
+    text-align: center;
+}
+/*    for laptop*/
+
+ul.pre-owned-device-journey.clearfix.no-list-style li {
+    width: 18.5%;
+    padding-left: 0;
+}
+
+.products-list button.button.btn-cart.btn-address {
+    background: #8d8d8d;
+    color: #fff;
+    font-size: 14px;
+}
+
+.checkout-onepage-success .buttons-set button {
+    float: none;
+    padding: 8px 22px;
+    margin-top: 16px;
+}
+
+input#asm_affiliate_otp_sub_input_value:hover,
+.products-list button.button.btn-cart.btn-address:hover {
+    color: #fff;
+    background: #1d1d53;
+    background-image: -ms-linear-gradient(top, #13447E 0%, #1d1d53 100%);
+    background-image: -moz-linear-gradient(top, #13447E 0%, #1d1d53 100%);
+    background-image: -o-linear-gradient(top, #13447E 0%, #1d1d53 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #13447E), color-stop(100, #1d1d53));
+    background-image: -webkit-linear-gradient(top, #13447E 0%, #1d1d53 100%);
+    background-image: linear-gradient(to bottom, #13447E 0%, #1d1d53 100%);
+}
+
+.cms-about-us .main .std,
+.career-index-index .inner-main-container,
+.cms-page-view .inner-main-container {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.nav-inner nav ul li ul.level0 li.active a,
+.nav-inner nav ul li ul.level0 li a:hover {
+    font-weight: 600;
+    color: #13447e;
+}
+
+.new-padding-left ul {
+    margin-bottom: 0px;
+    margin-left: 0;
+    margin-top: 15px;
+}
+
+.new-padding-left ul li {
+    margin: 15px 0 0 0;
+}
+
+.new-padding-left.new-margin {
+    margin-top: 25px;
+}
+
+.static-page-content {
+    padding: 40px 20px;
+}
+
+.new-padding-left p {
+    padding-left: 40px;
+    margin-top: 25px;
+}
+
+.static-content.new-static-content p {
+    margin-top: 10px;
+    padding-left: 25px;
+}
+
+/*testing css changes ends*/
+
+/*css given by sneha*/
+.or-div {     clear: both;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.or-div span {
+font-size: 14px;
+    color: #868686;
+    margin-bottom: 5px;
+}
+.my-account.my-account-new.col2-left-layout-new li.success-msg {
+    margin-top: 25px;
+}
+
+.btn-remove:hover,
+.btn-previous:hover {
+    background-color: #13447e;
+    border-color: #13447e;
+}
+
+.block-layered-nav .block-content ol.currently li .btn-remove {
+    text-indent: -9999px;
+
+}
+
+.btn-remove:after {
+    text-indent: 0;
+    color: #333;
+}
+
+/*
+.cms-page-view .std {
+    background: #ffffff;
+    border: 1px solid #dedede;
+    clear: both;
+    padding: 20px;
+}
+*/
+
+body.checkout-onepage-success .page-title {
+    border-bottom: none;
+}
+
+.breadcrumbs li {
+    font-size: 12px;
+    padding-top: 10px;
+}
+
+.new-download-mobile-app-content ul li {
+    background-color: none;
+}
+
+.cms-home .footer-content.footer-payment.clearfix.no-display-new {
+    display: block;
+}
+
+.new-download-mobile-app-container {
+    position: relative;
+    padding-bottom: 98px;
+}
+
+.new-download-mobile-app-container .new-page-title {
+    border: none;
+    margin-bottom: 0;
+    position: static;
+    text-align: left;
+}
+
+.new-download-mobile-app-container .download-app-hand {
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    /*    top: 39%;*/
+}
+
+
+/*by aparna*/
+
+/*header starts here*/
+.catalog-category-view .toolbar-bottom .sorter{
+ display: none;
+}
+.deals-category-list li a {
+    color: #8a8888;
+}
+
+ends .wrapper .main-container .eb-buying-advantage-container .eb-buying-icon {
+    margin: 0;
+    display: table-cell;
+    vertical-align: middle;
+    padding: 0 10px 0 0;
+}
+
+.wrapper .main-container .eb-buying-advantage-container span {
+    display: table-cell;
+}
+
+.wrapper .main-container .eb-buying-advantage-container ul li a {
+    display: table;
+    margin: auto;
+}
+
+/*ends*/
+
+/*css for add to cart popup on header*/
+.qty-wrapper button {
+    background: #8d8d8d;
+}
+.qty-wrapper button:hover{
+    background: #13447e;
+}
+.minicart-wrapper.new-minicart-wrapper .category-name.category-open-box img {
+    width: 12px;
+    height: auto;
+}
+
+.minicart-wrapper.new-minicart-wrapper .category-name.category-pre-owned img {
+    width: 10px;
+    height: auto;
+}
+
+.minicart-wrapper.new-minicart-wrapper .category-name.category-refurbished img {
+    width: 7px;
+    height: auto;
+}
+
+.minicart-wrapper.new-minicart-wrapper .category-name {
+    /*    top: 25%;*/
+    left: 2px;
+}
+
+.minicart-wrapper.new-minicart-wrapper {
+    padding: 10px;
+}
+
+.new-minicart-wrapper tr.qty-wrapper {
+    vertical-align: top;
+}
+
+.new-minicart-wrapper table.info-wrapper {
+    margin-top: 15px;
+}
+
+.new-minicart-wrapper .mini-products-list li span {
+    font-size: 14px;
+    color: #37b342;
+}
+
+.new-minicart-wrapper .btn-edit,
+.new-minicart-wrapper .remove {
+    filter: grayscale(200%);
+}
+
+.new-minicart-wrapper .btn-edit:hover,
+.new-minicart-wrapper .remove:hover {
+    filter: grayscale(0);
+    background-position: 0 0!important;
+}
+
+.new-minicart-wrapper .header-minicart .info-wrapper .quantity-button {
+    padding: 0 6px;
+}
+
+.header-minicart .new-minicart-wrapper .subtotal {
+    background-color: #756d6d36;
+    text-align: left;
+    line-height: 2em;
+    padding: 5px 10px;
+}
+
+/*
+.header-minicart .new-minicart-wrapper .minicart-actions .cart-link,.header-minicart .new-minicart-wrapper .minicart-actions .checkout-button{
+    background: #1b265d;
+    border-radius: 50px;
+    filter: contrast(40%);
+}
+.header-minicart .new-minicart-wrapper .minicart-actions .cart-link:hover,.header-minicart .new-minicart-wrapper .minicart-actions .checkout-button:hover{
+    filter: contrast(100%);
+}
+*/
+
+.header-minicart .new-minicart-wrapper .info-wrapper .qty-wrapper td {
+    width: 70%;
+}
+
+
+
+.header-minicart .new-minicart-wrapper .info-wrapper .qty {
+    width: 25px;
+    margin-right: 0;
+    float: left;
+}
+
+.header-minicart .new-minicart-wrapper .info-wrapper .quantity-button {
+    width: 40px;
+    padding: 0 6px;
+    margin-left: 2px;
+    vertical-align: top;
+}
+
+.header-minicart .new-minicart-wrapper .info-wrapper th {
+    text-align: center;
+    font-size: 14px;
+}
+
+.header-minicart .new-minicart-wrapper .block-subtitle {
+    text-align: left;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+/*popup add to cart on header end here*/
+
+/*banner slider starts here*/
+
+.cms-index-index.cms-home .banners-container .bx-wrapper .bx-prev {
+    background: url("../images/new-images/prev-btn.png") no-repeat center;
+    left: 0;
+}
+
+.cms-index-index.cms-home .banners-container .bx-wrapper .bx-next {
+    background: url("../images/new-images/next-btn.png") no-repeat center;
+    right: 0;
+}
+
+.banners-container .bx-controls-direction {
+    max-width: 1075px;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 50%;
+}
+
+.cms-index-index.cms-home .bx-wrapper .bx-pager .bx-pager-item {
+    display: none;
+}
+
+/*banner footer part starts here*/
+
+.eb-buying-advantage-container.new-eb-buying-advantage-container ul li {
+    display: inline-block;
+    filter: grayscale(200%);
+    opacity: 0.5;
+    transition: 0.45s ease;
+    text-align: center;
+    padding: 25px 0 20px;
+}
+
+.new-eb-buying-advantage-container ul li:hover {
+    filter: grayscale(0);
+    opacity: 1;
+}
+
+.new-eb-buying-advantage-container span {
+    font-weight: 600;
+    vertical-align: middle;
+}
+
+.eb-buying-advantage-container.new-eb-buying-advantage-container.clearfix {
+    margin-bottom: 40px;
+}
+
+/*best seller slide starts here*/
+
+.cms-home .products_homeslider.products-grid {
+    max-width: 1075px;
+    margin: 0 auto;
+}
+
+.products-grid li.item img {
+/*    width: 100%;
+    */
+}
+
+/*best seller ends here*/
+
+/*pre owned product starts here*/
+
+/*pre owned guideline*/
+.pre-btn .button.button.btn-address {
+    border-radius: 0;
+    margin: 5px;
+    font-size: 16px;
+    margin-top: 10px;
+    padding: 12px 25px;
+}
+.pre-btn {
+    text-align: center;
+    padding: 15px 0 0;
+    margin-top: 20px;
+}
+.pre-owned-device-journey.clearfix.no-list-style1 {
+    margin-left: 6%;
+    margin-top: 30px;
+    position: relative;
+}
+
+.pre-owned-device-journey.clearfix.no-list-style li {
+    background: none;
+    position: relative;
+}
+
+.pre-owned-device-journey.clearfix.no-list-style1::before {
+    content: '';
+    position: absolute;
+    width: 666px;
+    height: 0;
+    border: 1px dashed #13447e;
+    left: 9%;
+    top: 35%;
+}
+
+/*pre owned laptop*/
+
+hr {
+    color: #d7d7d7;
+    opacity: .5;
+    margin: 50px 0 0;
+}
+
+.pob {
+    font-weight: bold;
+    margin-left: 25px;
+    font-size: 16px;
+}
+
+.new-para-point p {
+    margin-bottom: 25px;
+}
+
+.blue-note {
+    color: #13447e;
+}
+
+/*warranty page style here*/
+
+.warranty-eb-service-content {
+    margin: 0;
+}
+
+.warranty-inner-eb-seriver-content.new-warranty-inner-eb-service-content p {
+    padding-left: 0;
+}
+
+.warranty-inner-eb-seriver-content.new-warranty-inner-eb-service-content:hover .new-center-txt h3 a,
+.warranty-inner-eb-seriver-content.new-warranty-inner-eb-service-content:hover .new-center-txt p a {
+    color: #ffde13;
+}
+
+.warranty-table-container.new-warranty-table-container ul li {
+    margin: 0;
+    list-style: none;
+}
+
+.warranty-table-container.new-warranty-table-container ul {
+    margin: 0;
+}
+
+.warranty-table-container.new-warranty-table-container h3 {
+    margin: 0;
+    text-align: center;
+    font-size: 18px;
+    color: #303031;
+    background: #ebebeb;
+    border-bottom: 1px solid #3e3e3f4d;
+    padding: 5px 0;
+}
+
+.warranty-table-container.new-warranty-table-container {
+    border: 1px solid #3e3e3f4d;
+    margin: 0 0 0 0;
+}
+
+.warranty-table-container.new-warranty-table-container .warranty-category {
+    float: left;
+    width: 50%;
+    border-right: 1px solid #3e3e3f4d;
+    box-sizing: border-box;
+    padding: 10px 20px;
+    text-align: right;
+    font-size: 16px;
+}
+
+.warranty-eb-service-content.new-warranty-eb-service-content {
+    background: #12447d;
+    border-radius: 0;
+    position: relative;
+}
+
+.warranty-inner-eb-seriver-content.new-warranty-inner-eb-service-content {
+    border: none;
+    display: inline-block;
+    text-align: left;
+    width: 100%;
+}
+
+.eb-center-icon.new-eb-center-icon {
+    position: inherit;
+    margin: 15px 0 0 10px;
+    width: 25%;
+    float: left;
+
+}
+
+.new-center-txt {
+    width: 72%;
+    float: right;
+}
+
+.cms-page-view .new-static-content.new-a-warranty a {
+    color: #fff;
+}
+
+.warranty-eb-service-content.new-warranty-eb-service-content h3 {
+    font-size: 18px;
+    margin-top: 25px;
+    margin-bottom: 0
+}
+
+.new-static-page-content ul li {
+    list-style: none;
+    padding-left: 40px;
+}
+
+p.padding-l {
+    padding-left: 80px;
+}
+
+p.padding-l-no {
+    padding-left: 0;
+}
+
+/*default*/
+
+.cms-page-view .new-static-content .no-underline h2 {
+    background: none;
+    text-decoration: none;
+    font-weight: bold!important;
+}
+
+.default-title.no-underline {
+    margin-top: 10px;
+}
+
+.default-title h2 {
+    border-bottom: none;
+}
+
+/*warranty page style here ends*/
+
+/*eb advantages starts here*/
+
+.col-half {
+    width: 50%;
+    float: left;
+    position: relative;
+}
+
+.advantage-icon.new-advantage-icon {
+    position: absolute;
+    z-index: 1;
+    background: none;
+    border: none;
+    border: none;
+
+    min-height: 200px;
+
+}
+
+.advantage-icon.new-advantage-icon img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    left: -50px;
+}
+
+.advantage-content.new-advantage-content {
+    width: 100%;
+    height: auto;
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.static-page-content.new-static-page-content .eb-advantages-content {
+    padding: 0 20px;
+}
+
+.new-advantage-content .advantage-content-inner {
+    border-radius: 0;
+    box-shadow: none;
+    border: 1px solid #ccc;
+    padding-left: 70px;
+    display: flex;
+    min-height: 200px;
+    padding-top: 0;
+    padding-bottom: 0;
+    flex-wrap: wrap;
+    align-content: center;
+    margin-right: 7%;
+    padding-right: 25px;
+}
+
+.new-advantage-content .advantage-content-inner h2 {
+    font-size: 16px;
+    color: #13447e;
+}
+
+.new-advantage-content .advantage-content-inner p {
+    color: #4c4d4d;
+    font-size: 14px;
+    line-height: 20px;
+
+}
+
+.new-advantage-content .advantage-content-inner p a {
+    color: #13447e;
+}
+
+.col-half.clearfix {
+    margin-bottom: 35px;
+}
+
+/*eb advantages ends */
+
+/*brand store starts here*/
+
+.main.new-brandstore ul {
+    padding: 0 15px;
+}
+
+.main.new-brandstore ul li {
+    width: 31.40%;
+    float: left;
+}
+
+.main.new-brandstore ul li + li {
+    /*    margin-left: 30px;*/
+}
+
+.main.new-brandstore img {
+    width: 100%;
+}
+
+.main.new-brandstore span {
+    text-transform: uppercase;
+    text-align: center;
+    display: inherit;
+    font-size: 20px;
+    color: #555353;
+    line-height: 50px;
+}
+
+.main.new-brandstore {
+    padding-bottom: 40px;
+}
+
+.main.new-brandstore a {
+    display: block;
+}
+
+/*brand store starts ends*/
+
+/*career page starts here*/
+
+.career-index-index a {
+    color: #173770;
+}
+
+.static-content p {
+    font-size: 16px;
+    color: #4c4d4d;
+}
+
+.careers-listing.new-careers-listing h1 {
+    margin-top: 25px;
+    text-align: center;
+    font-size: 20px;
+    color: #4c4d4d;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.careers-listing.new-careers-listing ul li {
+    margin-top: 15px;
+    font-size: 16px;
+    color: #4c4d4d;
+    width: auto;
+}
+
+/* Style the tab */
+
+/* Style the buttons inside the tab */
+
+.tab button {
+    border: none;
+    background: transparent;
+    outline: none;
+    cursor: pointer;
+    padding: 0px 45px;
+    transition: 0.3s;
+    font-size: 15px;
+    text-align: center;
+    color: #8a8888;
+    border-right: 1px solid;
+}
+
+.tab button:last-child {
+    border: none;
+}
+
+/* Change background color of buttons on hover */
+
+.tab button:hover {
+    color: #12447d;
+}
+
+/* Create an active/current tablink class */
+
+.tab button.active {
+    background-color: transparent;
+    color: #12447d;
+}
+
+/* Style the tab content */
+
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+.cms-page-view .new-static-content h5 {
+    font-weight: bold;
+    font-size: 16px;
+    color: rgb(51, 51, 51);
+    line-height: 24px;
+    padding-left: 25px;
+    margin: 25px 0px 10px;
+    background: url(../images/new-images/bullet.png) left 8px no-repeat;
+    background-position: left 8px;
+
+}
+
+.cms-page-view .new-static-content h5 u {
+    text-decoration: unset;
+}
+
+.careers-listing ul ul {
+    margin: 0 0 15px 20px;
+}
+
+.careers-listing li .left-job .no-position,
+.careers-listing li .left-job .exp-required {
+    font-size: 18px;
+    color: #12447d;
+    font-weight: bold;
+
+}
+
+.careers-listing li .left-job .no-position span,
+.careers-listing li .left-job .exp-required span {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333333;
+}
+
+.careers-listing li .right-button {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.right-button a {
+    background: #b9b3b3;
+    color: #fff;
+    border-radius: 50px;
+    padding: 9px 55px;
+    transition: all .45s ease;
+}
+
+.right-button a:hover {
+
+    background-image: linear-gradient(to bottom, #13447E 0%, #1d1d53 100%);
+    background-image: -ms-linear-gradient(top, #13447E 0%, #1d1d53 100%);
+    background-image: -moz-linear-gradient(top, #13447E 0%, #1d1d53 100%);
+    background-image: -o-linear-gradient(top, #13447E 0%, #1d1d53 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #13447E), color-stop(100, #1d1d53));
+    background-image: -webkit-linear-gradient(top, #13447E 0%, #1d1d53 100%);
+    background: #1d1d53;
+}
+
+/*career page starts ends*/
+
+/*service center page starts here*/
+
+.service-center-table.new-service-center-table thead tr {
+    background: #12447d;
+    color: #ffffff;
+}
+
+.service-center-table.new-service-center-table th {
+    font-weight: lighter;
+    padding: 6px 10px;
+    text-align: center;
+}
+
+.service-center-table.new-service-center-table td {
+    vertical-align: top;
+}
+
+.service-center-search.new-service-center-search {
+    width: 36%;
+    position: relative;
+}
+
+.service-center-search.new-service-center-search .search-field input[type="text"] {
+
+    border: 1px solid #c1c1c1;
+    border-radius: 50px;
+    margin-bottom: 20px;
+}
+
+.service-center-search.new-service-center-search .search-field input[type="text"]:focus {
+    box-shadow: none;
+}
+
+.service-center-search.new-service-center-search .search-field .button {
+    background: url(../images/new-images/search-icon.png) no-repeat center;
+    background-position: 0 0;    
+    background-color: #ffde13;
+    width: 31px;
+    height: 33px;
+    border-radius: 0 50px 50px 0;
+    position: absolute;
+    top: 1px;
+    right: 1px;
+}
+
+/*service center page ends here*/
+
+/*my address book starts here*/
+
+.button.button.btn-address {
+    background: #8d8d8d;
+    color: #fff;
+    font-size: 14px;
+    /*    border: 1px solid #d8d8d8;*/
+    border-radius: 50px;
+    transition: all .45s ease;
+
+}
+
+.button.button.btn-address:hover {
+    color: #fff;
+    background: #1d1d53;
+    background-image: -ms-linear-gradient(top, #13447E 0%, #1d1d53 100%);
+    background-image: -moz-linear-gradient(top, #13447E 0%, #1d1d53 100%);
+    background-image: -o-linear-gradient(top, #13447E 0%, #1d1d53 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #13447E), color-stop(100, #1d1d53));
+    background-image: -webkit-linear-gradient(top, #13447E 0%, #1d1d53 100%);
+    background-image: linear-gradient(to bottom, #13447E 0%, #1d1d53 100%);
+
+}
+
+body.customer-account .my-account .addresses-list.new-addresses-list h3 {
+    font-size: 16px;
+    color: #12447d;
+}
+
+.my-account .addresses-list.new-addresses-list .item address {
+    font-size: 14px;
+    color: #343434;
+}
+
+.new-addresses-list .col-1.addresses-primary li {
+    border-right: 1px solid #ccc;
+}
+
+.customer-address-index .col2-set.new-addresses-list .col-1,
+.customer-address-index .col2-set.new-addresses-list .col-2 {
+    width: 47%;
+}
+
+.new-addresses-list a {
+    font-size: 14px;
+    color: #12447d;
+}
+
+.new-addresses-list a:hover {
+    color: #12447d;
+    text-decoration: none;
+
+}
+
+.my-account .addresses-list.new-addresses-list .col-1 li.item a {
+    color: #12447d;
+}
+
+/*my address book ends here*/
+
+/*wishlist starts here*/
+
+.wishlist-view-section .wishlist-list.new-wishlist-list .product-info .item-share-remove ul li .remove-product {
+    background: url(../images/new-images/compare-remove-icon.png) no-repeat left 50%;
+}
+
+.wishlist-view-section .wishlist-list .product-info .product-bottom-sec .btn-section .button.btn-address {
+    font-size: 14.46px;
+    background: #8d8d8d;
+    color: #fff;
+    font-weight: lighter;
+    margin-top: 5px;
+}
+
+.wishlist-view-section .wishlist-list .product-info .product-bottom-sec .btn-section .button.btn-address:hover {
+    color: #fff;
+    background: #1d1d53;
+    background-image: -ms-linear-gradient(top, #13447E 0%, #1d1d53 100%);
+    background-image: -moz-linear-gradient(top, #13447E 0%, #1d1d53 100%);
+    background-image: -o-linear-gradient(top, #13447E 0%, #1d1d53 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #13447E), color-stop(100, #1d1d53));
+    background-image: -webkit-linear-gradient(top, #13447E 0%, #1d1d53 100%);
+    background-image: linear-gradient(to bottom, #13447E 0%, #1d1d53 100%)
+}
+
+.wishlist-list.new-wishlist-list a {
+    color: #000;
+}
+
+button.button.btn-share.btn-address,
+button.button.btn-add.btn-address,
+button.button.btn-update.button-secondary.btn-address {
+    font-size: 15px;
+    margin-right: 10px;
+    height: 35px;
+}
+
+.col-main.my-account-pg .my-account .buttons-set button.button:hover {
+    color: #fff;
+    background: #1d1d53;
+    background-image: -ms-linear-gradient(top, #13447E 0%, #1d1d53 100%);
+    background-image: -moz-linear-gradient(top, #13447E 0%, #1d1d53 100%);
+    background-image: -o-linear-gradient(top, #13447E 0%, #1d1d53 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #13447E), color-stop(100, #1d1d53));
+    background-image: -webkit-linear-gradient(top, #13447E 0%, #1d1d53 100%);
+    background-image: linear-gradient(to bottom, #13447E 0%, #1d1d53 100%)
+}
+
+/*share wishllist page button*/
+
+p.back-link .button.button.btn-address,
+.buttons-set.form-buttons button.button.btn-address span {
+    font-size: 15px;
+    padding: 5px 20px;
+}
+
+.buttons-set.form-buttons button.button.btn-address {
+    margin-right: 25px;
+}
+
+/*wishlist ends here*/
+
+/*purchase history starts here*/
+
+.data-table .nobr a.link-vieworder:hover {
+    background-image: url(../images/new-images/view-order-active.png);
+}
+
+.data-table .nobr a.link-track:hover {
+    background-image: url(../images/new-images/track-order-new-active.png);
+}
+
+.data-table .nobr a.link-reorder:hover {
+    background-image: url(../images/new-images/reorder-active.png);
+}
+
+.data-table .nobr a.link-cancel:hover {
+    background-image: url(../images/new-images/cancel-order-active.png);
+}
+
+/*purchase history ends here*/
+
+/*home slider as low as css here*/
+
+/*home bg*/
+
+html,
+body.cms-index-index.cms-home {
+    background: #fff;
+}
+
+.product-info .price-box .special-price .price,
+.product-info .price-box .price {
+    display: inline-block;
+}
+
+/*home slider as low as css here*/
+
+/*forgot password starts here*/
+
+.account-forgot.my-account.my-account-new.new-account-forgot {
+    padding: 30px;
+    margin: 0;
+}
+
+.customer-account-forgotpassword .account-forgot.new-account-forgot .fieldset p {
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.new-account-forgot button.button.btn-address {
+    width: 150px;
+    margin-top: 10px;
+    font-size: 14px;
+
+}
+
+/*forgot password starts here*/
+
+/*success page here*/
+
+.checkout-onepage-success h1.thank-you {
+    padding: 0 0 10px 0;
+    text-transform: uppercase;
+    margin: 0;
+    font-size: 50px;
+    font-weight: 600;
+    display: block;
+    border-bottom: none;
+    background: -webkit-linear-gradient(#0cec2c, #316939);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-top: 25px;
+}
+
+.checkout-onepage-success .inner-main-container {
+    border-bottom: 5px solid #13447e;
+    padding-bottom: 35px;
+}
+
+.checkout-onepage-success .para-s {
+    border: 1px dashed #ccc;
+    display: inline-block;
+    padding: 5px 15px;
+    margin-bottom: 15px;
+}
+
+.checkout-onepage-success .para-s p {
+    font-size: 16px;
+}
+
+.checkout-onepage-success .para-s p span {
+    color: .checkout-onepage-success #13447e;
+    font-weight: bold;
+}
+
+/*success page ends here*/
+
+/*empty cart starts here*/
+
+.custom-main-wrapper .page-title h1 {
+    font-size: 18px;
+    padding: 0;
+    font-weight: 600;
+    margin-bottom: 0;
+    color: #13447e;
+    border: none;
+}
+
+.custom-main-wrapper span {
+    color: #13447e;
+}
+
+.custom-main-wrapper {
+    padding: 25px;
+}
+
+.cart-empty p {
+    text-align: center;
+}
+
+
+/*empty cart ends here*/
+
+/*track order starts here*/
+
+.track-container .my-account.my-account-new {
+    width: 46%;
+    margin: 0;
+    border: none;
+}
+
+.track-container .input-box input[type=text] {
+    background-color: #fff;
+    border-radius: 0;
+    height: 42px;
+    color: #4a4a4a;
+    font-size: 14px;
+}
+
+.track-container .product-track-order-form label {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.track-container .product-track-order-form .order_form_id,
+.track-container .product-track-order-form .order_form_email {
+    margin-bottom: 20px;
+}
+
+.track-container .order_form_track {
+    float: none;
+    width: 100%;
+    text-align: center;
+}
+
+.track-container .button.button.btn-address {
+    width: 135px;
+    margin-top: 20px;
+    font-size: 15px;
+    padding: 5px 20px;
+}
+
+.track-container .right-login-section {
+    margin-top: 16px;
+}
+
+.track-container .right-login-section .login-list li {
+    background-position: 0 22px;
+    padding: 15px 0 0 10px;
+    font-size: 13px;
+}
+
+.track-container .divider-or span {
+    font-weight: bold;
+}
+
+.my-account.my-account-new .page-title {
+    text-align: left;
+}
+
+/*track order ends here*/
+
+/*account info starts here*/
+.col-main.my-account-pg .messages + .my-account.my-account-new {
+    margin-top: -6px;
+}
+.my-account.my-account-new.col2-left-layout-new .new-account-info .input-box input[type=text],
+.my-account.my-account-new.col2-left-layout-new .new-account-info .input-box select,
+.my-account.my-account-new.col2-left-layout-new .new-account-info .input-box input[type=tel] {
+    background-color: #fff;
+    border-radius: 0;
+    height: 42px;
+    color: #4a4a4a;
+}
+
+.my-account.my-account-new.col2-left-layout-new .new-account-info .input-box input#day,
+.my-account.my-account-new.col2-left-layout-new .new-account-info .input-box input#month,
+.my-account.my-account-new.col2-left-layout-new .new-account-info .input-box input#year {
+    height: 35px;
+}
+
+.my-account.my-account-new.col2-left-layout-new .new-account-info .input-box select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding: 0 10px;
+    background-image: url(../images/new-images/select-down-arrow.png);
+    background-repeat: no-repeat;
+    background-position: right 20px center;
+}
+
+.my-account.my-account-new.col2-left-layout-new .new-account-info label {
+    font-size: 16px;
+    color: #868686;
+    margin-bottom: 0;
+    line-height: 1;
+}
+
+.col-main.my-account-pg .my-account .new-account-info form ul li label.required em {
+    display: inline;
+    font-size: 20px;
+    font-style: normal;
+    margin-left: 3px;
+}
+
+.col-main.my-account-pg .my-account .new-account-info .form-list > li {
+    margin-bottom: 25px;
+}
+
+.col-main.my-account-pg .my-account .new-account-info .back-link a {
+    background: transparent;
+    display: block;
+    color: #ffffff;
+    padding: 0;
+    line-height: 18px;
+}
+
+.col-main.my-account-pg .my-account .new-account-info .back-link a:hover {
+    background: none;
+    color: #fff;
+}
+
+/*edit address*/
+
+.col-main.my-account-pg .my-account .new-account-info h2.legend {
+    font-size: 16px;
+    color: #12447d;
+    font-weight: bold;
+    margin-top: 25px;
+}
+
+.fieldset p.required {
+    margin-top: -25px;
+}
+
+.customer-address-form .col-main.my-account-pg .my-account li.fields:first-child {
+    margin: 0 0 25px 0;
+}
+
+/*account info ends here*/
+
+/*view order starts*/
+
+.my-account-new .order-info-box .box-title {
+    width: 100%;
+}
+
+.my-account.my-account-new.col2-left-layout-new p.order-date {
+    margin-top: 10px;
+}
+
+.my-account-new .order-info-box .box-content address {
+    font-size: 16px;
+    color: #343434;
+}
+
+.my-account-new .order-info-box .box-title h2 {
+    font-size: 16px;
+    color: #12447d;
+}
+
+.my-account-new .order-info-box .col-1 {
+    padding-left: 0;
+}
+
+.col2-left-layout-new .new-order-details .data-table td,
+.col2-left-layout-new .new-order-details .data-table th {
+    padding: 6px;
+}
+
+.col2-left-layout-new .new-order-details .data-table td.last,
+.col2-left-layout-new .new-order-details .data-table th:last-child {
+    border-right: 1px solid #ccc;
+}
+
+.my-account.my-account-new {
+    position: relative;
+
+}
+
+.reorder-order {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+}
+
+.order-items.order-details.new-order-details h2 {
+    font-size: 16px;
+    color: #12447d;
+    font-weight: 600;
+}
+
+/*view order starts*/
+
+/*checkout cart page starts*/
+
+.checkout-cart-index .category-name.category-open-box img {
+    width: 15px;
+}
+
+.checkout-cart-index .cart.cart-new .cart-table .product-cart-image {
+    position: relative;
+}
+
+/*checkout cart page ends*/
+
+/*sale history details*/
+
+.sales-history-container .bank-details-content .gadget-order-details ul {
+    text-align: center;
+    width: 100%;
+    font-size: 0;
+}
+
+.sales-history-container .bank-details-content .gadget-order-details ul li {
+    width: 33.33%;
+    clear: both;
+    display: inline-block;
+    text-align: center;
+}
+
+.bank-details-content .gadget-order-details label,
+.bank-details-content .gadget-order-details .description {
+    display: inline-block;
+    float: none;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.new-gadget-bank-details.sales-history-container label {
+    display: inline-block;
+    width: 35%;
+}
+
+.new-gadget-bank-details.sales-history-container .bank-details-content .description {
+    display: inline-block;
+    width: 60%;
+}
+
+/*sale history details*/
+
+.track-details.sales-history-list.clearfix {
+    width: 100%;
+}
+
+.appTrackingContainer {
+    width: 80%;
+    margin: auto;
+}
+
+/*no data found*/
+
+.red-alert {
+    text-align: center;
+    color: red;
+    font-weight: 600;
+    display: block;
+}
+
+/*COD& shipping*/
+
+.free-ship-box {
+    padding: 60px 75px 0;
+    display: inline-block;
+}
+.static-page-content.free-shipping p {
+    padding: 0 13%;
+    text-align: center;
+    margin-top: 20px;
+}
+.static-page-content.free-shipping p a{
+    color: #13447D;
+    text-decoration: none;
+}
+.free-ship-box-left {
+    display: inline-block;
+    width: 60%;
+}
+
+
+
+.free-ship-box-right {
+    width: 22%;
+    float: right;
+    margin-top: 7.5%;
+}
+.free-ship-box-right ul {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+}
+.free-ship-box-right ul li {
+    padding: 0;
+    list-style: none;
+    display: inline-block;
+    vertical-align: middle;
+    margin-bottom: 20px;
+}
+.free-ship-box-right ul li img {
+    display: inline-block;
+    vertical-align: middle;
+}
+.free-ship-box-right ul li label {
+    display: inline-block;
+    vertical-align: middle;
+    color: #17366e;
+    font-size: 20px;
+    font-weight: 600;
+    font-style: italic;
+    width: 50%;
+    margin-left: 10px;
+}
+
+/*policy e-waste*/
+.text-center-policy{text-align: center;}

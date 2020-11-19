@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout>
+    <default>
+    </default>    
+    
+    <checkout_onepage_index>
+        <reference name="head">
+            <action method="addCss"><stylesheet>css/shareyourpurchase.css</stylesheet></action>
+            <action method="addItem"><type>skin_js</type><script>js/shareyourpurchase/jquery-1.10.2.js</script></action>
+            <action method="addItem"><type>skin_js</type><script>js/shareyourpurchase/scripts.js</script></action>
+            <action method="addItem"><type>skin_js</type><script>js/shareyourpurchase/twitterstatistics.js</script></action>
+        </reference>
+        <reference name="right">
+            <block type="shareyourpurchase/social_wrapper_checkout" name="social">
+                <block type="shareyourpurchase/social_button_facebook_purchase" name="social.facebook" as="social.facebook" />
+                <block type="shareyourpurchase/social_button_twitter_purchase" name="social.twitter" as="social.twitter" />
+                <block type="shareyourpurchase/social_button_pinterest_purchase" name="social.pinterest" as="social.pinterest" />
+            </block>
+        </reference>
+        <reference name="before_body_end">
+            <block type="shareyourpurchase/social_button_pinterest_script" name="social.pinterest.script" as="social.pinterest.script" />
+            <block type="shareyourpurchase/social_button_twitter_script" name="social.twitter.script" as="social.twitter.script" />
+        </reference>
+    </checkout_onepage_index>
+    
+    <checkout_onepage_success>
+        <reference name="head">
+            <action method="addCss"><stylesheet>css/shareyourpurchase.css</stylesheet></action>
+            <action method="addItem"><type>skin_js</type><script>js/shareyourpurchase/jquery-1.10.2.js</script></action>
+            <action method="addItem"><type>skin_js</type><script>js/shareyourpurchase/scripts.js</script></action>
+            <action method="addItem"><type>skin_js</type><script>js/shareyourpurchase/twitterstatistics.js</script></action>
+            <action method="addJs"><script>fancy-zoom-master/js/fancyzoom.js</script></action>
+        </reference>
+        <reference name="content">
+            <block type="shareyourpurchase/social_wrapper_checkout_success" name="social">
+                <block type="shareyourpurchase/social_button_facebook_purchase" name="social.facebook" as="social.facebook" />
+                <block type="shareyourpurchase/social_button_twitter_purchase" name="social.twitter" as="social.twitter" />
+                <block type="shareyourpurchase/social_button_pinterest_purchase" name="social.pinterest" as="social.pinterest" />
+                <block type="shareyourpurchase/social_wrapper_checkout_success_product_list" name="social.products" as="social.products">
+                    <action method="createProductBlocks"></action>
+                </block>
+            </block>
+        </reference>
+        <reference name="before_body_end">
+            <block type="shareyourpurchase/social_wrapper_checkout_success_lightbox" name="social.lightbox" as="social.lightbox" >
+                <block type="shareyourpurchase/social_button_facebook_purchase" name="social.facebook" as="social.facebook" />
+                <block type="shareyourpurchase/social_button_twitter_purchase" name="social.twitter" as="social.twitter" />
+                <block type="shareyourpurchase/social_button_pinterest_purchase" name="social.pinterest" as="social.pinterest" />
+            </block>
+            <block type="shareyourpurchase/social_button_pinterest_script" name="social.pinterest.script" as="social.pinterest.script" />
+            <block type="shareyourpurchase/social_button_twitter_script" name="social.twitter.script" as="social.twitter.script" />
+        </reference>
+    </checkout_onepage_success>
+    <sales_order_view>
+        <reference name="head">
+            <action method="addCss"><stylesheet>css/shareyourpurchase.css</stylesheet></action>
+            <action method="addItem"><type>skin_js</type><script>js/shareyourpurchase/jquery-1.10.2.js</script></action>
+            <action method="addItem"><type>skin_js</type><script>js/shareyourpurchase/scripts.js</script></action>
+            <action method="addItem"><type>skin_js</type><script>js/shareyourpurchase/twitterstatistics.js</script></action>
+        </reference>
+        <reference name="content">
+            <block type="shareyourpurchase/social_wrapper_sales_order_view" name="social">
+                <block type="shareyourpurchase/social_button_facebook_purchase" name="social.facebook" as="social.facebook" />
+                <block type="shareyourpurchase/social_button_twitter_purchase" name="social.twitter" as="social.twitter" />
+                <block type="shareyourpurchase/social_button_pinterest_purchase" name="social.pinterest" as="social.pinterest" />
+                <block type="shareyourpurchase/social_wrapper_checkout_success_product_list" name="social.products" as="social.products">
+                    <action method="createProductBlocks"></action>
+                </block>
+            </block>
+        </reference>
+        <reference name="before_body_end">
+            <block type="shareyourpurchase/social_button_pinterest_script" name="social.pinterest.script" as="social.pinterest.script" />
+            <block type="shareyourpurchase/social_button_twitter_script" name="social.twitter.script" as="social.twitter.script" />
+        </reference>        
+    </sales_order_view>
+    
+    <shareyourpurchase_index_index>
+        <reference name="head">
+            <block type="core/template" name="social_controller" template="shareyourpurchase/social_controller.phtml" /> 
+        </reference>
+    </shareyourpurchase_index_index>
+</layout>

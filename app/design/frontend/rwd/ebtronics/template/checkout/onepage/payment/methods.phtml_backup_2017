@@ -1,0 +1,171 @@
+<?php
+/**
+ * One page checkout payment methods
+ *
+ * @var $this Mage_Checkout_Block_Onepage_Payment_Methods
+ */
+?>
+<?php
+    $methods = $this->getMethods();
+    $oneMethod = count($methods) <= 1;
+?>
+<?php if (empty($methods)): ?>
+    <dt>
+        <?php echo $this->__('No Payment Methods') ?>
+    </dt>
+<?php else:
+    foreach ($methods as $_method):
+        $_code = $_method->getCode();
+?>
+    <?php
+        if($_code=='cashondelivery')
+        {
+          $locale = Mage::getStoreConfig('payment/cashondelivery/codzipcode');  
+          /*if($_code=='cashondelivery'){
+            $locale = Mage::getStoreConfig('payment/cashondelivery/codzipcode');  
+          }elseif($_code == 'billdesk_ccdc_net'){
+            $locale = Mage::getStoreConfig('payment/billdesk_ccdc_net/restricted_pincodes');            
+          }*/
+          
+          $al_locate = explode(',',$locale);
+
+           // added
+           $a = Mage::getSingleton('checkout/session')->getQuote()->getShippingAddress()->getPostcode();
+           $a = str_replace (" ", "", $a);
+           $a = strtolower($a);
+           
+           if(count($al_locate)<=0 || empty($a))
+           {
+            ?>
+                <dt>
+                <?php if(!$oneMethod): ?>
+                    <input id="p_method_<?php echo $_code ?>" value="<?php echo $_code ?>" type="radio" name="payment[method]" title="<?php echo $this->htmlEscape($_method->getTitle()) ?>" onclick="payment.switchMethod('<?php echo $_code ?>')"<?php if($this->getSelectedMethodCode()==$_code): ?> checked="checked"<?php endif; ?> class="radio" />
+                <?php else: ?>
+                    <span class="no-display"><input id="p_method_<?php echo $_code ?>" value="<?php echo $_code ?>" type="radio" name="payment[method]" checked="checked" class="radio" /></span>
+                    <?php $oneMethod = $_code; ?>
+                <?php endif; ?>
+                    <label for="p_method_<?php echo $_code ?>"><?php echo $this->getMethodTitle($_method) ?> <?php echo $this->getMethodLabelAfterHtml($_method) ?></label>
+                </dt>
+            <?php
+           }
+           else
+           {
+           $xyz=0;
+           for($i=0;$i<count($al_locate);$i++)
+           {
+           $a = Mage::getSingleton('checkout/session')->getQuote()->getShippingAddress()->getPostcode();
+           $b = $al_locate[$i];
+           $a = str_replace (" ", "", $a);
+           $b = str_replace (" ", "", $b);
+           $a = strtolower($a);
+           $b = strtolower($b);
+           if($a == $b) 
+           {
+            ?>
+            <?php $sixteenkcodzipcode = Mage::getStoreConfig('payment/cashondelivery/sixteenkcodzipcode'); ?>
+            <?php $tenkcodzipcode = Mage::getStoreConfig('payment/cashondelivery/tenkcodzipcode'); ?>
+            <?php $fivekcodzipcode = Mage::getStoreConfig('payment/cashondelivery/fivekcodzipcode'); ?>
+
+            <?php $current_quote = Mage::getSingleton('checkout/session')->getQuote(); ?>
+
+            <?php $sixteenk_array = explode(',', $sixteenkcodzipcode); ?>
+            <?php $tenk_array = explode(',', $tenkcodzipcode); ?>
+            <?php $fivek_array = explode(',', $fivekcodzipcode); ?>
+
+            <?php if(in_array($a,$sixteenk_array) && $current_quote->getGrandTotal() > 16000): ?>
+              <?php echo '<span class="cod_service_not">COD above 16000 is not available for your pincode.Prepaid is available</span>'; ?>
+            <?php elseif(in_array($a, $tenk_array) && $current_quote->getGrandTotal() > 10000): ?>
+              <?php echo '<span class="cod_service_not">COD above 10000 is not available for your pincode.Prepaid is available</span>'; ?>
+            <?php elseif(in_array($a, $fivek_array) && $current_quote->getGrandTotal() > 4999): ?>
+              <?php echo '<span class="cod_service_not">COD above 4999 is not available for your pincode.Prepaid is available</span>'; ?>
+            <?php else: ?>
+            <dt>
+            <?php if(!$oneMethod): ?>
+                <input id="p_method_<?php echo $_code ?>" value="<?php echo $_code ?>" type="radio" name="payment[method]" title="<?php echo $this->htmlEscape($_method->getTitle()) ?>" onclick="payment.switchMethod('<?php echo $_code ?>')"<?php if($this->getSelectedMethodCode()==$_code): ?> checked="checked"<?php endif; ?> class="radio" />
+            <?php else: ?>
+                <span class="no-display"><input id="p_method_<?php echo $_code ?>" value="<?php echo $_code ?>" type="radio" name="payment[method]" checked="checked" class="radio" /></span>
+                <?php $oneMethod = $_code; ?>
+            <?php endif; ?>
+                <label for="p_method_<?php echo $_code ?>"><?php echo $this->getMethodTitle($_method) ?> <?php echo $this->getMethodLabelAfterHtml($_method) ?></label>
+            </dt>
+            <?php if($_code=='cashondelivery'){ ?>
+            <?php
+                $advance_amount = 0;
+                $quote = Mage::getSingleton('checkout/cart')->getQuote();
+                $order_grand_total = $quote->getGrandTotal();
+                $cod_maxlimit = Mage::getStoreConfig('payment/cashondelivery/cod_maxlimit');
+                if($order_grand_total > $cod_maxlimit){
+                    $advance_amount = $order_grand_total - $cod_maxlimit;
+                }
+            ?>
+            <div style="<?php echo ($advance_amount == 0) ? 'display:none ;' : ''?> margin: 0 21px;" id="cod_message">
+                    <fieldset class="form-list" >
+                        <ul id="payment_form_<?php echo $_code ?>" >
+                            <li style=" font-weight:bold;">Pay in advance <span class="WebRupee"> Rs.</span><span id="cod_adv_amt_msg_id"><?php echo $advance_amount; ?></span> and remaining at the time of delivery. Click on click to pay to proceed with advance payment.</li>      
+                        </ul>
+                    </fieldset>	
+                </div>
+                <?php } ?>
+                <?php endif; ?>
+    <?php
+           $xyz++;
+        }
+        else
+        {
+            /*if($xyz==0)
+            {
+                echo '<span class="cod_service_not">COD Service not avaialable in your Pin code</span>';
+                //echo 'COD not avaialable';
+                $xyz++;
+            }*/
+            
+        } 
+     ?>
+    <?php
+        }
+        	if($xyz==0)
+            {
+              /*if($_code=='cashondelivery'){
+                echo '<span class="cod_service_not">We can deliver in the same locations for all pre-paid orders</span>';
+              }elseif($_code == 'billdesk_ccdc_net'){
+                echo '<span class="cod_service_not">Online Payment Service not avaialable in your Pin code</span>';
+              }*/
+              
+              echo '<span class="cod_service_not">COD is not available.Prepaid is available</span>';
+              //echo '<span class="cod_service_not">COD Service not avaialable in your Pin code</span>';
+              //echo 'COD not avaialable';
+              $xyz++;
+            }
+        }
+        } //if
+        else
+        { 
+    ?>
+    <dt>
+    <?php if(!$oneMethod): ?>
+        <input id="p_method_<?php echo $_code ?>" value="<?php echo $_code ?>" type="radio" name="payment[method]" title="<?php echo $this->htmlEscape($_method->getTitle()) ?>" onclick="payment.switchMethod('<?php echo $_code ?>')"<?php if($this->getSelectedMethodCode()==$_code): ?> checked="checked"<?php endif; ?> class="radio" />
+    <?php else: ?>
+        <span class="no-display"><input id="p_method_<?php echo $_code ?>" value="<?php echo $_code ?>" type="radio" name="payment[method]" checked="checked" class="radio" /></span>
+        <?php $oneMethod = $_code; ?>
+    <?php endif; ?>
+        <label for="p_method_<?php echo $_code ?>"><?php echo $this->getMethodTitle($_method) ?> <?php echo $this->getMethodLabelAfterHtml($_method) ?></label>
+    </dt>
+    <?php } ?>
+    <?php if ($html = $this->getPaymentMethodFormHtml($_method)): ?>
+    <dd>
+        <?php echo $html; ?>
+    </dd>
+    <?php endif; ?>
+<?php endforeach;
+    endif;
+?>
+<?php echo $this->getChildChildHtml('additional'); ?>
+<script type="text/javascript">
+    //<![CDATA[
+    <?php echo $this->getChildChildHtml('scripts'); ?>
+    payment.init();
+    <?php if (is_string($oneMethod)): ?>
+    payment.switchMethod('<?php echo $oneMethod ?>');
+        <?php endif; ?>
+    //]]>
+</script>

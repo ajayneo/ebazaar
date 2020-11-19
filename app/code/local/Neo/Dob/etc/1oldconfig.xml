@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Neo_Dob>
+      <version>0.0.1</version>
+    </Neo_Dob>
+  </modules>
+  <global>
+    <models>
+        <dob>
+            <class>Neo_Dob_Model</class>
+        </dob>
+    </models>
+    <events>
+      <opc_index_index>
+        <observers>
+          <set_blank_pincode>
+            <type>singleton</type> 
+            <class>Neo_Dob_Model_Observer</class> 
+            <method>setBlankPincode</method> 
+          </set_blank_pincode>
+        </observers>
+      </opc_index_index>
+    </events>
+  </global>
+  <crontab>
+        <jobs>
+            <send_dob_email>
+                <schedule>
+                    <cron_expr>0 1 * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>dob/observer::sendDobWishEmail</model>
+                </run>
+            </send_dob_email>
+        </jobs>
+    </crontab>
+</config>

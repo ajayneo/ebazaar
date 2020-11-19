@@ -1,0 +1,5 @@
+[08-Oct-2018 16:07:04 Asia/Kolkata] PHP Fatal error:  Interface 'Zend_Http_Client_Adapter_Interface' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Http/Client/Adapter/Test.php on line 51
+[08-Oct-2018 16:07:04 Asia/Kolkata] PHP Fatal error:  Interface 'Zend_Http_Client_Adapter_Interface' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Http/Client/Adapter/Curl.php on line 48
+[08-Oct-2018 16:07:05 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Http_Client_Adapter_Socket' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Http/Client/Adapter/Proxy.php on line 53
+[08-Oct-2018 16:07:05 Asia/Kolkata] PHP Fatal error:  Interface 'Zend_Http_Client_Adapter_Interface' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Http/Client/Adapter/Socket.php on line 47
+[08-Oct-2018 16:07:05 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Http_Client_Exception' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Http/Client/Adapter/Exception.php on line 36

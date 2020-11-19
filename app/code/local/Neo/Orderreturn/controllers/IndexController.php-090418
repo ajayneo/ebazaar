@@ -1,0 +1,307 @@
+<?php
+class Neo_Orderreturn_IndexController extends Mage_Core_Controller_Front_Action{
+
+    const XML_PATH_EMAIL_RECIPIENT  = 'return/return/recipient_email';
+    const XML_PATH_EMAIL_SENDER     = 'return/return/sender_email_identity';
+    const XML_PATH_EMAIL_TEMPLATE   = 'return/return/email_template';
+
+    public function IndexAction() {
+      $this->loadLayout();   
+      $this->getLayout()->getBlock("head")->setTitle($this->__("Order Return"));
+      
+      $auth_validate = false;
+      //check logged in then allow user for refund on order
+      $loggedIn = Mage::getSingleton('customer/session')->isLoggedIn();
+
+      $order_id = $this->getRequest()->getParam('order_id');
+      if(!empty($order_id)){
+        $order_id = Mage::helper('orderreturn')->decrypt($order_id);
+        $order = Mage::getModel('sales/order')->loadByIncrementId($order_id);
+        if($order){
+          $order_customer_id = $order->getCustomerId();
+        }
+      }
+
+      if($loggedIn){
+        $customer = Mage::getSingleton('customer/session')->getCustomer();
+        $loggedIn_customer_id = $customer->getEntityId();
+      }
+
+      if($loggedIn_customer_id && $order_customer_id){
+        if($loggedIn_customer_id == $order_customer_id){
+          $auth_validate = true;
+        }else{
+          $auth_validate = false;
+        }
+      }
+
+      if(!$auth_validate){
+        $this->_redirect('/');
+      }
+
+      
+      $this->renderLayout(); 
+    
+    }
+
+    public function submitAction()
+    {
+      $table = '';
+      $sn = 1;
+      $post = $this->getRequest()->getPost();
+      // $customer = Mage::getSingleton('customer/session')->getCustomer();
+      // $demo = false;
+      // if($customer->getEmail() == 'sandeep.mukherjee@wwindia.com'){
+      // //echo "<pre>"; print_r($post); echo "</pre>"; die();
+      //   $demo = true;
+      // }
+      $proName = '';
+      $banking = array();
+      if($post)
+      {
+      
+      $return_actionPost = $post['return_action'];
+      $reasonPost = $post['reason'];
+      $auth_customer = $post['auth_by_customer'];
+
+      $defective_imei =array();
+      $return_action =array();
+      $status = array();
+
+      $reason_label = Mage::helper('orderreturn')->getReason();
+      $status_label = Mage::helper('orderreturn')->getStatusLabel();
+      $return_label = Mage::helper('orderreturn')->getReturn();
+
+      foreach ($return_actionPost as $imei => $value) {
+        if($value){
+          $defective_imei[] = $imei;
+          $return_action[$imei] = $value;
+          $status[$imei] = 1;
+
+        }
+      }
+      if(!empty($defective_imei) && !empty($auth_customer)){
+          $reason = array();
+        foreach ($reasonPost as $imei => $value) {
+          if($value){
+            $reason[$imei] = $value;
+          }
+        }
+
+
+
+      $savedata['return_action'] = json_encode($return_action);
+      $savedata['status'] = json_encode($status);
+      $savedata['reason'] = json_encode($reason);
+
+        $savedata['order_number'] = Mage::helper('orderreturn')->decrypt($post['order_number']);
+        $order = Mage::getModel('sales/order')->loadByIncrementId($savedata['order_number']);
+        
+        $customer_id = $order->getCustomerId();
+
+        //check return action
+        $check_action = array_values($post['return_action']);
+
+
+        //check if action has refund request
+        if(in_array('2', $check_action)){
+          try{
+            $banking = array();
+            if(!empty($post['bank_name']) && !empty($post['bank_ifsc_code']) && !empty($post['bank_account_number'])) {
+              $banking['customer_id'] = $customer_id;
+              $banking['bank_name'] = $post['bank_name'];
+              $banking['bank_ifsc'] = $post['bank_ifsc_code'];
+              $banking['account_number'] = $post['bank_account_number'];
+              $banking['beneficiary_name'] = (string) trim($post['beneficiary_name']);
+              
+              $bankingCollection = Mage::getModel("orderreturn/banking")->getCollection();
+              $bankingCollection->addFieldToFilter('customer_id', $customer_id);
+              $bankingCollection->addFieldToFilter('bank_name', $banking['bank_name']);
+              $bankingCollection->addFieldToFilter('bank_ifsc', $banking['bank_ifsc']);
+              $bankingCollection->addFieldToFilter('account_number', $banking['account_number']);
+              $bankingCollection->addFieldToFilter('beneficiary_name', $banking['beneficiary_name']);
+              $bankData = $bankingCollection->getData();
+
+              if($demo){
+                //print_r($bankData); 
+              }
+              if(!empty($bankData) && count($bankData) > 0){
+                foreach ($bankData as $key => $value) {
+                  if($key !== 0){
+                    // echo "deleting bank id = ".$value['id'];
+                    $delete_bank =  Mage::getModel('orderreturn/return')->load($value['id']);
+                    $delete_bank->delete()->save();
+                  }else{
+                    $bank_id = $value['id'];
+                  }
+                }
+
+              }else{
+                  $bankingModel = Mage::getModel("orderreturn/banking");
+                  $bankingModel->addData($banking);
+                  $bankingModel->save();
+                  $bank_id = $bankingModel->getId();
+              }
+              // echo $bank_id;
+              $savedata['bank_id'] = $bank_id;
+              
+
+            }
+
+          }catch(Exception $e){
+            Mage::log($e->getMessage());
+              Mage::getSingleton('core/session')->addError(Mage::helper('orderreturn')->__('Unable to submit your  beacuse of insufficient bank details. Please, fill required details and try again'));
+              $this->_redirect('*/*/');
+              return;
+          }
+        }
+
+        //predefined address by customer
+        if(!empty($post['default_address'])){
+            $address_id = $post['default_address'];
+            $address_list = Mage::helper('orderreturn')->addressList();
+            $pickup_address = $address_list[$address_id];
+        }else if(!empty($post['new_address'])){
+          $new_address = $post['new_address'];
+          $pickup_address = preg_replace('/<script\b[^>]*>(.*?)<\/script>/is', "", $new_address);
+        }
+
+        if(!empty($pickup_address)){
+          $savedata['pickup_address'] = $pickup_address;
+        }
+
+        $product_img_array = array();
+        foreach($defective_imei as $imei)
+        {
+          
+          if($_FILES[$imei]['name'])
+          {
+              $uploader = new Varien_File_Uploader(
+                array(
+                    'name' => $_FILES[$imei]['name'], 
+                    'type' => $_FILES[$imei]['type'],
+                    'tmp_name' => $_FILES[$imei]['tmp_name'],
+                    'error' => $_FILES[$imei]['error'],
+                    'size' => $_FILES[$imei]['size']
+                  )
+              ); 
+              $uploader->setAllowedExtensions(array('jpg', 'jpeg', 'gif', 'png'));
+              $uploader->setAllowRenameFiles(true); 
+              $uploader->setFilesDispersion(false);
+              $path = Mage::getBaseDir('media') . DS . 'order_return' . DS . $imei . DS;
+              $img = $uploader->save($path, $_FILES[$imei]['name']);
+              $product_img_array[$imei] = 'media/order_return/'.$imei.'/'.$_FILES[$imei]['name']; 
+          } 
+
+          foreach ($order->getInvoiceCollection() as $inv)
+          {
+            $items = $inv->getItemsCollection()->getData();
+            foreach ($items as $item)
+            {
+              $imeiNumbers = explode(' ', $item['serial']);
+              foreach ($imeiNumbers as $imeio)
+              {
+                if($imei == $imeio){
+                  $proName = $item['name'];
+                  break;
+                }
+              }
+            }
+          }
+
+          $table .= '<tr style="background:#FFFFFF;">';
+          $table .= '<td style="font-family:arial; font-size:12px; color:#686868; border-right:1px solid #cccccc; padding:5px 10px; line-height:18px;">'.$sn.'</td>';
+          $table .= '<td style="font-family:arial; font-size:12px; color:#686868; border-right:1px solid #cccccc; padding:5px 10px; line-height:18px;">'.$proName.'</td>';
+          $table .= '<td style="font-family:arial; font-size:12px; color:#686868; border-right:1px solid #cccccc; padding:5px 10px; line-height:18px;">'.$imei.'</td>';
+          $table .= '<td style="font-family:arial; font-size:12px; color:#686868; border-right:1px solid #cccccc; padding:5px 10px; line-height:18px;">'.$reason_label[$reason[$imei]].'</td>';
+          $table .= '<td style="padding:5px 10px; line-height:18px; border-right:1px solid #cccccc;">';
+          $table .= '<img style="width:40px;" src="http://www.electronicsbazaar.com/media/emailcampaigns/return-order/images/logo1.png">';
+          $table .= '</td>';
+          $table .= '<td style="font-family:arial; font-size:12px; color:#686868; border-right:1px solid #cccccc; padding:5px 10px; line-height:18px;">'.$status_label[$status[$imei]].'</td>';
+          $table .= '</tr>';
+          
+
+          $sn++;
+          $imeis .= $imei . ',';
+
+          // if($reasonPost[$imei]){
+          //   $reasons .= $reasonPost[$imei] . ',';
+          // }
+
+        }
+
+                
+        
+        $savedata['canceled_imei'] = rtrim($imeis,",");
+        //$savedata['reason'] = $reasons;
+
+        $savedata['product_img'] = json_encode($product_img_array);
+      }
+      
+
+
+      try{
+          
+          $postData['ordno'] = $savedata['order_number'];
+          $postData['table'] = $table;
+          $postObject = new Varien_Object();  
+          $postObject->setData($postData); 
+
+          $translate = Mage::getSingleton('core/translate');
+            /* @var $translate Mage_Core_Model_Translate */
+          $translate->setTranslateInline(false);
+
+          $mailTemplate = Mage::getModel('core/email_template');
+          /* @var $mailTemplate Mage_Core_Model_Email_Template */
+          $mailTemplate->setDesignConfig(array('area' => 'frontend'))
+              //->setReplyTo($post['email'])
+              ->sendTransactional(
+                  Mage::getStoreConfig(self::XML_PATH_EMAIL_TEMPLATE),
+                  Mage::getStoreConfig(self::XML_PATH_EMAIL_SENDER),
+                  Mage::getStoreConfig(self::XML_PATH_EMAIL_RECIPIENT),
+                  null,
+                  array('data' => $postObject)
+              );
+
+          $translate->setTranslateInline(true); 
+
+
+          $returnData = Mage::getModel("orderreturn/return")->getCollection()->addFieldToFilter('order_number',$savedata['order_number'])->getFirstItem()->getData();
+
+          if($returnData['id']){
+            $model = Mage::getModel("orderreturn/return")              
+                ->addData($savedata) 
+                ->setId($returnData['id'])
+                ->save();
+          }else{
+
+            $model = Mage::getModel("orderreturn/return")              
+                ->addData($savedata)
+                ->save();
+            }
+      }
+      catch (Exception $e) {
+        Mage::getSingleton('core/session')->addError(Mage::helper('orderreturn')->__('Unable to submit your request. Please, try again later'));
+        $this->_redirect('*/*/');
+        return;
+      }
+
+      Mage::getSingleton('core/session')->addSuccess(Mage::helper('orderreturn')->__('Your inquiry was submitted and will be responded to as soon as possible. Thank you for contacting us.'));
+      $this->_redirect("order_return?order_id=".$post['order_number']); 
+
+      }
+      
+    }
+
+    public function deleteAction()
+    {
+      $imei = $this->getRequest()->getParam('imei'); 
+      $orderNumber = $this->getRequest()->getParam('order_id'); 
+      $path = Mage::getBaseDir('media') . DS . 'order_return' . DS . $imei . DS;
+      array_map('unlink', glob("$path*"));
+      Mage::getSingleton('core/session')->addSuccess(Mage::helper('orderreturn')->__('Image Deleted Sucess Fully.'));   
+      $this->_redirect("order_return?order_id=".$orderNumber); 
+    }
+
+
+}

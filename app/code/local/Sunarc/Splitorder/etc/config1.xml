@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<config>
+  <modules >
+    <Sunarc_Splitorder>
+      <version>0.1.0</version>
+    </Sunarc_Splitorder>
+  </modules>
+    <frontend>
+        <layout>
+            <updates>
+                <splitorder>
+                    <file>sunarc/splitorder.xml</file>
+                </splitorder>
+            </updates>
+        </layout>
+    </frontend>
+  <global>
+    <helpers>
+      <splitorder>
+        <class>Sunarc_Splitorder_Helper</class>
+      </splitorder>
+    </helpers>
+	<models>
+	  <splitorder>
+		<class>Sunarc_Splitorder_Model</class>
+		<resourceModel>splitorder_mysql4</resourceModel>
+	  </splitorder>
+			<checkout>
+				<rewrite>
+					<type_onepage>Sunarc_Splitorder_Model_Checkout_Type_Onepage</type_onepage>
+				</rewrite>
+			</checkout>
+	</models>
+  </global>
+    <default>
+        <ajaxlogin>
+            <options>
+                <enable>1</enable>
+            </options>
+        </ajaxlogin>
+    </default>
+</config> 

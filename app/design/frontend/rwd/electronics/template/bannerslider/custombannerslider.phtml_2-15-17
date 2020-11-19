@@ -1,0 +1,145 @@
+<div class="main-new-banner-container clearfix">
+
+  
+
+<!-- <div class="flashy-banner clearfix">
+<a href="http://www.electronicsbazaar.com/deals/" target="_blank"><img src="images/flash-sale-new.jpg"></a> 
+</div> -->
+
+<div class="flashy-banner clearfix">
+
+    <ul class="new-slider-banner clearfix">
+      <!--<li onclick="ga('send', 'event', { eventCategory: 'home-banner', eventAction: 'click', eventLabel: 'deals'});">
+        <a href="https://www.electronicsbazaar.com/deals" target="_blank">
+          <img src="https://electronicsbazaar.com/skin/frontend/rwd/electronics/customs/images/weekend-sale3.jpg">
+        </a>   
+      </li>-->
+
+    <li onclick="ga('send', 'event', { eventCategory: 'home-banner', eventAction: 'click', eventLabel: 'one-day-super-sale'});"><a href="https://www.electronicsbazaar.com/one-day-super-sale" target="_blank"><img src="https://www.electronicsbazaar.com/skin/frontend/rwd/electronics/customs/images/super-sale.jpg"></a></li>
+
+   <li onclick="ga('send', 'event', { eventCategory: 'home-banner', eventAction: 'click', eventLabel: 'galaxy-j7'});"><a href="http://www.electronicsbazaar.com/samsung-galaxy-j7-6-new-2016-edition-black-16-gb-7519/" target="_blank"><img src="https://www.electronicsbazaar.com/skin/frontend/rwd/electronics/customs/images/new-banner/banner2.jpg"></a></li>
+   <li onclick="ga('send', 'event', { eventCategory: 'home-banner', eventAction: 'click', eventLabel: 'lenovo-a7700'});"><a href="http://www.electronicsbazaar.com/lenovo-a7000-black/" target="_blank"><img src="https://www.electronicsbazaar.com/skin/frontend/rwd/electronics/customs/images/new-banner/banner3.jpg"></a></li>
+   <li onClick="ga('send', 'event', { eventCategory: 'home-banner', eventAction: 'click', eventLabel: 'iphone-4s'});"><a href="http://www.electronicsbazaar.com/apple-iphone-4s-16gb" target="_blank"><img src="https://www.electronicsbazaar.com/skin/frontend/rwd/electronics/customs/images/new-banner/banner4-new-now.jpg"></a></li>
+
+   <li onClick="ga('send', 'event', { eventCategory: 'home-banner', eventAction: 'click', eventLabel: 'panasonic-eluga'});"><a href="https://www.electronicsbazaar.com/panasonic-eluga-switch-black-32-gb-10196" target="_blank"><img src="https://electronicsbazaar.com/skin/frontend/rwd/electronics/customs/images/new-banner/banner5-new.jpg"></a></li>
+  </ul>
+ 
+   
+ </div>
+ 
+  <!--div class="responsive-bigbangsale">
+    <a onclick="ga('send', 'event', { eventCategory: 'home-banner', eventAction: 'click', eventLabel: 'bonanza-sale'});" href="http://www.electronicsbazaar.com/deals" target="_blank">
+      <img src="https://www.electronicsbazaar.com/skin/frontend/rwd/electronics/customs/images/merry-christmas.jpg">
+    </a>
+  </div-->
+
+  <div class="right-side-panel">
+  <div onclick="ga('send', 'event', { eventCategory: 'home-banner', eventAction: 'click', eventLabel: 'just-live-offers'});" class="exciting-offers"><a href="https://www.electronicsbazaar.com/deals/"><img src="https://www.electronicsbazaar.com/skin/frontend/rwd/electronics/customs/images/exciting-offers-new.png"></a></div>
+  <!-- <div class="coupon-code-container">
+   <a onclick="ga('send', 'event', { eventCategory: 'home-banner', eventAction: 'click', eventLabel: 'register-now'});" href="http://www.electronicsbazaar.com/customer/account/login/" target="_blank">
+    <span class="register-now">Register Now &amp; Get</span>
+    <span class="new-register-amount">Rs. 200/-<span class="amount-off">Off</span></span>
+    <span>on your first purchase</span>
+    <span class="use-coupon-code">Use Coupon Code</span>
+    <span class="coupon-code">Newsignup<span class="signup-amount">200</span></span>
+   </a>
+  </div> -->
+
+  <div class="coupon-code-container hourlydeals">
+   <img src="https://electronicsbazaar.com/skin/frontend/rwd/electronics/customs/images/hourly-deals.jpg" />
+   
+  </div>
+
+  <div class="coupon-code-container">
+   <a onclick="ga('send', 'event', { eventCategory: 'home-banner', eventAction: 'click', eventLabel: 'register-now'});" href="http://www.electronicsbazaar.com/customer/account/login/" target="_blank">
+    <img src="https://electronicsbazaar.com/skin/frontend/rwd/electronics/customs/images/200off.jpg" />
+   </a>
+  </div>
+
+  <!-- <div class="app-order-container">
+    <a href="https://www.electronicsbazaar.com/download-app/" target="_blank"><span>Get Extra</span>
+    <span class="app-amount">0.5%<span class="amount-off">Off</span></span>
+    <span>for all orders through Mobile App only</span>
+    <span class="download-now">Download Now!!!</span> </a>
+    <a onclick="ga('send', 'event', { eventCategory: 'home-banner', eventAction: 'click', eventLabel: 'download-now'});" href="http://play.google.com/store/apps/details?id=com.electronicsbazaar.electronicsbazaar" target="_blank"><img src="https://www.electronicsbazaar.com/skin/frontend/rwd/electronics/customs/images/google-play-new.png"></a>
+      <a href="http://itunes.apple.com/us/app/electronicsbazaar.com/id1064879270?ls=1&mt=8" target="_blank"><img src="https://www.electronicsbazaar.com/skin/frontend/rwd/electronics/customs/images/app-store-new.png"></a>
+  </div> -->
+ </div>
+</div> 
+
+
+<div  class="bottom-banner-container clearfix">
+
+<div class="small-banner-container">
+  <!--ul class="clearfix">
+  <li>
+  <a onclick="ga('send', 'event', { eventCategory: 'home-banner', eventAction: 'click', eventLabel: 'refurbished'});"  href="http://www.electronicsbazaar.com/refurbished" target="_blank"><img src="https://www.electronicsbazaar.com/media/homepagebanner/images/default/preowned-banner.png" ></a>
+   </li>
+  <li>
+  <a onclick="ga('send', 'event', { eventCategory: 'home-banner', eventAction: 'click', eventLabel: 'unboxed'});" href="http://www.electronicsbazaar.com/unboxed-units" target="_blank"><img src="https://www.electronicsbazaar.com/media/homepagebanner/images/default/unboxed-banner.png" ></a>  
+   </li>           
+  </ul-->
+   
+  <ul class="clearfix">
+   <li>
+   <a href="http://www.electronicsbazaar.com/laptops/unboxed-units" target="_blank"><img src="https://www.electronicsbazaar.com/neweb/skin/frontend/rwd/electronics/customs/images/new-banner/open-box-laptop-new.jpg"></a>
+    </li>
+    <li>
+   <a href="http://www.electronicsbazaar.com/mobiles/smartphones/open-box" target="_blank"><img src="https://www.electronicsbazaar.com/neweb/skin/frontend/rwd/electronics/customs/images/new-banner/open-box-mobile-new.jpg"></a>  
+    </li>
+   <li>
+   <a href="http://www.electronicsbazaar.com/laptops/refurbished" target="_blank"><img src="https://www.electronicsbazaar.com/neweb/skin/frontend/rwd/electronics/customs/images/new-banner/pre-owned-laptop-new.jpg"></a>  
+    </li>
+     
+     <li>
+   <a href="http://www.electronicsbazaar.com/mobiles/smartphones/pre-owned-ref" target="_blank"><img src="https://www.electronicsbazaar.com/neweb/skin/frontend/rwd/electronics/customs/images/new-banner/pre-owned-mobile-new.jpg"></a>
+    </li>
+   
+    </ul>  
+   
+</div>  
+
+<!-- <div onclick="ga('send', 'event', { eventCategory: 'home-banner', eventAction: 'click', eventLabel: 'seal-packed'});" class="deals-list-container">
+  <ul class="clearfix newDealsSlider">
+    <li><a onclick="ga('send', 'event', { eventCategory: 'home-banner',
+eventAction: 'click', eventLabel: 'Rockman-S'});" href="https://www.electronicsbazaar.com/catalogsearch/result/?q=albright" target="_blank"><img src="https://www.electronicsbazaar.com/skin/frontend/rwd/electronics/customs/images/left-banners/albright-rockmans.png"></a></li>
+    <li><a onclick="ga('send', 'event', { eventCategory: 'home-banner',
+eventAction: 'click', eventLabel: 'Rockman -X-Stander'});" href="https://www.electronicsbazaar.com/catalogsearch/result/?q=albright" target="_blank"><img src="https://www.electronicsbazaar.com/skin/frontend/rwd/electronics/customs/images/left-banners/albright-xstander.png"></a></li>
+    <li><a onclick="ga('send', 'event', { eventCategory: 'home-banner',
+eventAction: 'click', eventLabel: 'BT002'});" href="https://www.electronicsbazaar.com/catalogsearch/result/?q=albright" target="_blank"><img src="https://www.electronicsbazaar.com/skin/frontend/rwd/electronics/customs/images/left-banners/albright-bt002.png"></a></li>
+    <li><a onclick="ga('send', 'event', { eventCategory: 'home-banner',
+eventAction: 'click', eventLabel: 'Albright-L4'});" href="https://www.electronicsbazaar.com/catalogsearch/result/?q=albright" target="_blank"><img src="https://www.electronicsbazaar.com/skin/frontend/rwd/electronics/customs/images/left-banners/albright-l4.png"></a></li>
+   </ul>   
+</div> -->
+
+<div class="app-order-container">
+    <a href="https://www.electronicsbazaar.com/download-app/" target="_blank"><span class="getextra">Get Extra</span>
+    <span class="app-amount">0.5%<span class="amount-off">Off</span></span>
+    <span class="allorders">for all orders through Mobile App only</span>
+    <span class="download-now">Download Now!!!</span> </a>
+    <a onclick="ga('send', 'event', { eventCategory: 'home-banner', eventAction: 'click', eventLabel: 'download-now'});" href="http://play.google.com/store/apps/details?id=com.electronicsbazaar.electronicsbazaar" target="_blank"><img src="https://www.electronicsbazaar.com/skin/frontend/rwd/electronics/customs/images/google-play-new.png"></a>
+      <a href="https://itunes.apple.com/us/app/electronicsbazaar.com/id1064879270?ls=1&mt=8" target="_blank"><img src="https://www.electronicsbazaar.com/skin/frontend/rwd/electronics/customs/images/app-store-new.png"></a>
+  </div>
+
+</div>
+  
+<script type="text/javascript"> 
+
+var jqcs = jQuery.noConflict();
+ jqcs('.newDealsSlider').bxSlider({
+    auto: true, 
+    speed: 500,
+    pause: 2000
+ });
+</script>
+
+<script type="text/javascript"> 
+var jqcs = jQuery.noConflict();
+ jqcs('.new-slider-banner').bxSlider({
+    auto: true,
+    speed: 1500,
+    pause: 6000,
+    pager: true,
+ controls: true
+ });
+</script>

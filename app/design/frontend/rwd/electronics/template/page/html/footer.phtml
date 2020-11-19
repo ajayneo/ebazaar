@@ -1,0 +1,103 @@
+<?php
+/**
+ * Magento 
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     rwd_default
+ * @copyright   Copyright (c) 2014 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<div class="opc-ajax-loader">
+  <div id="floatingCirclesG">
+    <div class="f_circleG" id="frotateG_01"></div>
+    <div class="f_circleG" id="frotateG_02"></div>
+    <div class="f_circleG" id="frotateG_03"></div>
+    <div class="f_circleG" id="frotateG_04"></div>
+    <div class="f_circleG" id="frotateG_05"></div>
+    <div class="f_circleG" id="frotateG_06"></div>
+    <div class="f_circleG" id="frotateG_07"></div>
+    <div class="f_circleG" id="frotateG_08"></div>
+    </div>
+</div>
+<p id="back-top" class="back-top"><a href="#top"><span></span>Back to Top</a></p>
+<div class="footer-container">
+  <div class="footer">
+    
+
+      <div class="footer-top-sec clearfix">
+
+
+
+          <div class="links"> 
+            <?php echo $this->getChildHtml('eb_footer_links'); ?>
+          </div> 
+
+          <div class="payment-option-container">
+                        <h2>Payment Options</h2>
+                        <ul>
+                                <li class="payment-method1"></li>
+                                <li class="payment-method2"></li>
+                                <li class="payment-method3"></li>
+                                <li class="payment-method4"></li>
+                                <li class="payment-method5"></li>
+                        </ul>
+                </div>
+
+          <?php
+            /**
+              <div class="links sign-up-content">
+                <?php echo $this->getChildHtml('newsletter'); ?> 
+              </div>
+
+            */
+          ?>
+
+          <div class="links last clearfix">
+            <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('connect-with-us')->toHtml(); ?>
+          </div>
+
+
+
+      </div>
+    </div>
+    <div class="footer-bottom"> 
+
+    
+
+    <div class="footer copyright-main clearfix"> 
+        
+        <div class="address-content">
+ 
+          <address class="copyright">
+            Copyright © <?php echo date("Y") ?>  <a href="<?php echo $this->getBaseUrl(); ?>"><span>Electronics Bazaar</span></a>. Online Electronics Shopping Store in India. All Rights Reserved. <a href="http://www.electronicsbazaar.com/privacy-policy"><span>Privacy Policy</span></a>
+          </address>
+        </div>
+
+
+      
+          
+
+        <span class="design">Designed at <a href="http://neosofttech.com/" target="_blank">NeoSoft Technologies</a></span>
+      </div>
+      
+    </div>
+
+</div>
+ 

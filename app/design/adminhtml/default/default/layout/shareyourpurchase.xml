@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.0.1">
+    <shareyourpurchase_adminhtml_statistics_index>
+        <reference name="content">
+            <block type="shareyourpurchase/adminhtml_statistics" name="statistics" />
+        </reference>
+    </shareyourpurchase_adminhtml_statistics_index>
+</layout>

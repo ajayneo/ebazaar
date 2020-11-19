@@ -1,0 +1,12 @@
+<?xml version="1.0"?>   
+<layout version="0.1.0">   
+  <lenovoprogram_index_index>   
+    <reference name="root">   
+		<remove name="header"/>
+    	<remove name="footer"/>
+      	<action method="setTemplate"><template>lenovoprogram/index.phtml</template></action>   
+    </reference>   
+       
+  </lenovoprogram_index_index>   
+</layout>   
+	 

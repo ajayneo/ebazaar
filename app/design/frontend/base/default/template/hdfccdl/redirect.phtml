@@ -1,0 +1,10 @@
+<?php
+	$getSession = Mage::getSingleton('core/session')->getMsg();
+	$urlto_submit = Mage::getStoreConfig('payment/hdfc_cdl/urlto_submit');
+?>
+<form name='hdfccdlform' method='POST' action='<?php echo $urlto_submit; ?>'>
+    <input type='hidden' name='msg' value='<?php echo $getSession; ?>' />
+</form>
+<script type="text/javascript">
+document.hdfccdlform.submit();
+</script>

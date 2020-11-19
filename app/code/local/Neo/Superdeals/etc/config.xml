@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config>
+	<modules>
+		<Neo_Superdeals>
+			<version>0.0.1</version>
+		</Neo_Superdeals>
+	</modules>
+	<global>
+	    <models>
+	      <superdeals>
+	        <class>Neo_Superdeals_Model</class>
+	      </superdeals>
+	    </models>
+	    <!-- <events>
+	    	<customer_login>
+	    		<observers>
+	    			<notify_superdeals_customerlogin>
+	    				<type>singleton</type>
+	    				<class>Neo_Superdeals_Model_Observer</class>
+	    				<method>notifySuperdealsCustomerLogin</method>
+	    			</notify_superdeals_customerlogin>
+	    		</observers>
+	    	</customer_login>
+	    </events> -->
+  	</global>
+	<frontend>
+		<routers>
+			<superdeals>
+				<use>standard</use>
+				<args>
+					<module>Neo_Superdeals</module>
+					<frontName>superdeals</frontName>
+				</args>
+			</superdeals>
+		</routers>
+		<layout>
+			<updates>
+				<superdeals>
+					<file>neo_superdeals.xml</file>
+				</superdeals>
+			</updates>
+		</layout>
+	</frontend>
+</config>

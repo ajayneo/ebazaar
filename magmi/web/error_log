@@ -1,0 +1,2 @@
+[26-Feb-2018 13:18:38 Asia/Kolkata] PHP Fatal error:  Call to undefined function mb_internal_encoding() in /home/electronicsbazaa/public_html/magmi/inc/magmi_engine.php on line 46
+[26-Feb-2018 13:40:36 UTC] PHP Fatal error:  Allowed memory size of 1073741824 bytes exhausted (tried to allocate 99 bytes) in /home/electronicsbazaa/public_html/magmi/inc/dbhelper.class.php on line 346

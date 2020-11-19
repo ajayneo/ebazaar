@@ -1,0 +1,69 @@
+<config>
+	<modules>
+		<Neo_Customapiv6>
+			<version>0.1.0</version>
+		</Neo_Customapiv6>
+	</modules>
+	<frontend>
+		<routers>
+			<customapiv6>
+				<use>standard</use>
+				<args>
+					<module>Neo_Customapiv6</module>
+					<frontName>customapiv6</frontName>
+				</args>
+			</customapiv6>
+		</routers>
+	</frontend>
+	<global>
+		<models>
+			<customapiv6>
+				<class>Neo_Customapiv6_Model</class>
+			</customapiv6>
+		</models>
+		<helpers>
+		   <customapiv6> 
+		    <class>Neo_Customapiv6_Helper</class>
+		   </customapiv6>
+		</helpers>		
+		<events>
+			<customer_register_success>
+				<observers>
+					<customer_register_success>
+						<class>Neo_Customapiv6_Model_Observer</class>
+						<method>saveEncodedMd5Token</method>
+					</customer_register_success>
+				</observers>
+			</customer_register_success>
+			<adminhtml_customer_prepare_save>
+				<observers>
+					<adminhtml_customer_prepare_save>
+						<class>Neo_Customapiv6_Model_Observer</class>
+						<method>saveEncodedMd5Token</method>
+					</adminhtml_customer_prepare_save>
+				</observers>
+			</adminhtml_customer_prepare_save>
+		</events>
+	</global>
+	<!-- <adminhtml>
+		<acl>
+			<resources>
+				<admin>
+					<children>
+						<system>
+							<children>
+								<config>
+									<children>
+										<neo_api_section module="core">
+											<title>Neo Api Setting</title>
+										</neo_api_section>
+									</children>
+								</config>
+							</children>
+						</system>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+	</adminhtml> -->
+</config>

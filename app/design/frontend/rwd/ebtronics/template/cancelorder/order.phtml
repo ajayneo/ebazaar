@@ -1,0 +1,257 @@
+<?php
+$order = $this->getTrackOrder();
+
+
+
+$order_id = $order['increment_id'];
+$order_item = Mage::getModel("sales/order")->loadByIncrementId($order_id);
+
+$items = $order_item->getItemsCollection();
+$order_details = Mage::getModel('sales/order')->loadByIncrementId($order_id);
+
+
+// Get shipping method
+$shipping_method = $order_details->_data["shipping_description"];
+
+// Get ship-to address information
+$shipping_address_data = $order_details->getShippingAddress();
+$billingAddress = $order_details->getBillingAddress();
+
+//country codes
+$shippcode = $order_details->getShippingAddress()->getCountry();
+$billcode = $order_details->getBillingAddress()->getCountry();
+
+$paymentmethod = $order->getPayment()->getMethodInstance()->getTitle();
+//credit card information
+$payarry = $order->getPayment()->debug();
+
+foreach (Mage::getSingleton('payment/config')->getCcTypes() as $code => $name) {
+    if ($payarry['cc_type'] == $code) {
+        $options = $name;
+    }
+}
+
+
+?> 
+
+<div class="page-title title-buttons">
+    <h1><?php echo $this->__('Order Information'); ?></h1>
+</div>
+
+
+
+<?php //$order->getStatusLabel() == 'Processing' || $order->getStatusLabel() == 'Pending' ?>
+<?php if($order->getStatusLabel() == 'Processing' || $order->getStatusLabel() == 'Pending'): ?>
+    <?php 
+        $params['order_id'] = $order_item->getEntityId(); 
+        $params['order_no'] = $order_item->getIncrementId();
+        $params['email'] = $order_item->getCustomerEmail();
+    ?>
+    <?php $encrypt = base64_encode(serialize($params)); ?>
+    <?php $url =Mage::getBaseUrl().'cancelorder/index/cancelorderguest/encrypt/'.$encrypt;?>
+
+    <p><?php echo $this->__("Your Can Cancel Your Order By Clicking The Link :") ?> <strong> <a onclick="return beforeCancelOrder()" href="<?php echo $url ?>"><?php echo 'Cancel Your Order' ?></a></strong></p>
+<?php else: ?>
+    <p><?php echo $this->__("Your Order Status is :") ?> <strong><?php echo $order->getStatusLabel().', So Cannot Cancel It.'?></strong></p>
+<?php endif; ?>
+
+<div class="myorder-wrapper clearfix">
+    <div class="myorder">
+        <h3>Order Information</h3>
+        <?php if ($this->getCanViewOrder() && $this->getCanPrintOrder()) : ?>
+            <?php echo $this->__('<a class="print-icon" href="%s" onclick="this.target=\'_blank\'">here to print</a>', $this->getPrintUrl()) ?>
+            <?php // echo $this->getChildHtml()      ?>
+        <?php endif; ?>
+        <div class="inner_content">
+            <label> Date<span>:</span></label>
+            <span> <?php echo $order_item->getCreatedAtStoreDate(); ?></span>
+        </div>
+        <div class="inner_content">
+            <label>Order ID<span>:</span></label> 
+            <span><?php echo $order_id; ?></span>
+        </div>
+        <div class="inner_content">
+            <label>Order Total<span>:</span></label>
+            <span> <?php echo $this->helper('checkout')->formatPrice($order_item->getGrandTotal()); ?></span>
+        </div>
+    </div>
+    <div class="payment_method">
+        <h3>Payment & Shipping Information</h3>
+        <div class="inner_content">
+            <label><b>Shipping Method</b><span>:</span></label>
+            <span> <?php echo $shipping_method; ?></span> 
+        </div>
+        <div class="inner_content">
+            <label><b>Payment Method</b><span>:</span> </label>
+            <span><?php echo $paymentmethod; ?></span>
+        </div>
+        <?php if ($paymentmethod == 'Credit Card (saved)') { ?>
+            <div class="inner_content">
+                <label>Credit Card Type<span>:</span></label>
+                <span><?php echo $options; ?></span>
+            </div>
+            <div class="inner_content">
+                <label>Credit Card Number<span>:</span></label>
+                <span><?php echo $payarry['cc_last4']; ?></span>
+            </div>
+            <div class="inner_content">
+                <label>Credit Card Owner<span>:</span></label>
+                <span><?php echo $payarry['cc_owner']; ?></span>
+            </div>
+        <?php } ?>
+    </div>
+</div>
+<div class="myorder-wrapper clearfix">
+    <div class="order_summery">
+        <h3>Shipping Address</h3>
+        <div class="inner_content">
+            <label>Name<span>:</span></label>
+            <span><?php echo $shipping_address_data['firstname'] . " " . $shipping_address_data['lastname']; ?></span>
+        </div>
+        <div class="inner_content">
+            <label>Delivery Address<span>:</span></label>
+            <span> <?php echo $shipping_address_data['street']; ?></span> 
+        </div>
+        <div class="inner_content">
+            <label>Delivery City<span>:</span> </label>
+            <span> <?php echo $shipping_address_data['city']; ?></span> 
+        </div>
+        <div class="inner_content">
+            <label>State<span>:</span></label>
+            <span>  <?php echo $shipping_address_data['region']; ?></span> 
+        </div>
+        <div class="inner_content">
+            <label>Country<span>:</span></label>
+            <span>  <?php echo Mage::app()->getLocale()->getCountryTranslation($shippcode); ?></span> 
+        </div>
+        <div class="inner_content">
+            <label>Postcode<span>:</span></label> 
+            <span> <?php echo $shipping_address_data['postcode']; ?></span> 
+        </div>
+        <div class="inner_content">
+            <label>Telephone<span>:</span></label>
+            <span> <?php echo $shipping_address_data['telephone']; ?></span> 
+        </div>
+    </div>
+    <div class="order_summery">
+        <h3>Billing Address</h3>
+        <div class="inner_content">
+            <label>Name<span>:</span></label> 
+            <span><?php echo $billingAddress['firstname'] . " " . $billingAddress['lastname']; ?></span>
+        </div>
+        <div class="inner_content">
+            <label>Delivery Address<span>:</span></label>
+            <span><?php echo $billingAddress['street']; ?></span>
+        </div>
+        <div class="inner_content">
+            <label>Delivery City<span>:</span></label>
+            <span><?php echo $billingAddress['city']; ?></span>
+        </div>
+        <div class="inner_content">
+            <label>State<span>:</span></label>
+            <span><?php echo $billingAddress['region']; ?></span>
+        </div>
+        <div class="inner_content">
+            <label>Country<span>:</span></label>
+            <span><?php echo Mage::app()->getLocale()->getCountryTranslation($billcode); ?></span>
+        </div>
+        <div class="inner_content">
+            <label>Postcode<span>:</span></label>
+            <span><?php echo $billingAddress['postcode']; ?></span>
+        </div>
+        <div class="inner_content">
+            <label>Telephone<span>:</span> </label>
+            <span><?php echo $billingAddress->getTelephone(); ?></span>
+        </div>
+    </div>
+</div>
+<div id="checkout-review-table-wrapper">
+    <table class="data-table" id="checkout-review-table">
+        <thead>
+            <tr>
+                <th rowspan="<?php echo $rowspan ?>"><?php echo $this->__('Product Name') ?></th>
+                <th class="a-center"><?php echo $this->__('Unit Price') ?></th>
+                <th class="a-center"><?php echo $this->__('Qty') ?></th>
+                <th class="a-center"><?php echo $this->__('SKU') ?></th>
+                <th class="a-center"><?php echo $this->__('Sub Total') ?></th>
+            </tr>
+        </thead>
+        <?php echo $this->getChildHtml('totals'); ?>
+        <tbody>
+            <?php
+            foreach ($items as $i):
+                if(round($i->getPrice()) > 0):
+                $_product = Mage::getModel('catalog/product')->load($i->getProductId());
+                $options = $i->getProductOptions();
+                ?>
+                <tr>
+                    <td rowspan="1">
+                        <img class="product_img" src="<?php echo Mage::helper('catalog/image')->init($_product, 'thumbnail')->resize(75); ?>" alt="product-img" />
+                        <?php
+                        echo $i->getName();
+
+                        $customOptions = $options['options'];
+                        if (!empty($customOptions)) {
+                            foreach ($customOptions as $option) {
+                                ?>
+                                <span class="bottom-align">
+                                    <?php
+                                    echo '<b>' . $option['label'] . '</b> :';
+                                    echo $optionValue = $option['value'];
+                                    ?></span>                                
+                                <?php
+                            }
+                        }
+                        ?>
+                    </td>
+                    <td><?php echo $this->helper('checkout')->formatPrice($i->getPrice()); ?></td>
+                    <td><?php echo $i->getQtyOrdered(); ?></td>
+                    <td><?php echo $i->getSku(); ?></td>
+                    <td><?php echo $this->helper('checkout')->formatPrice($i->getRowTotal()); ?></td>
+                </tr>
+                <?php endif; ?>
+            <?php endforeach ?>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4" class="a-right">
+                    <small>SubTotal:</small>
+                </td>
+                <td colspan="2" class="a-right">
+                    <small><?php echo $this->helper('checkout')->formatPrice($order_item->getSubtotal()); ?></small>
+                </td>
+            </tr>
+            <tr class="shipping">
+                <td class="a-right" colspan="4">
+                    <?php echo $this->__('Shipping & Handling(' . $order_item->getShippingDescription() . ')'); ?>
+                </td>
+                <td colspan="2" class="last a-right">
+                    <span class="subtotlal-value">
+                        <?php echo $this->helper('checkout')->formatPrice($order_item->getShippingInclTax()); ?>
+                    </span>
+                </td>
+            </tr>
+            <?php if ($order_item->getDiscountAmount() != 0): ?>
+                <tr class="discount">
+                    <td class="a-right" colspan="4">
+                        <?php echo $this->__('Discount'); echo  $order_item->getDiscountDescription() ? '('.$order_item->getDiscountDescription() .')' : "";  ?>
+                    </td>
+                    <td class="last a-right">
+                        <span class="subtotlal-value">
+                            <?php echo $this->helper('checkout')->formatPrice($order_item->getDiscountAmount()); ?>
+                        </span>
+                    </td>
+                </tr><?php
+            endif;
+            ?>
+            <tr class="grand_total last">
+                <td class="a-right" colspan="4"><strong><?php echo $this->__('Total') ?></strong></td>
+                <td colspan="2" class="last a-right">
+                    <span class="subtotlal-value">
+                        <strong><?php echo $this->helper('checkout')->formatPrice($order_item->getGrandTotal()); ?></strong>
+                    </span>
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>

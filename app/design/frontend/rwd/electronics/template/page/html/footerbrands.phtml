@@ -1,0 +1,27 @@
+<?php $allbrands = $this->getAllBrands()->addFieldToFilter('status', 1); ?>
+<?php //Mage::log("allbrands".print_r($allbrands->getData(),1), null, 'allbrands.log'); //echo count($allbrands); ?>
+<?php $r = new Magestore_Shopbybrand_Block_Brandcategories(); ?>
+<?php $s = $r->getAllCategories(); ?>
+<?php //echo "<pre>"; print_r($s); exit; ?>
+<?php //$tb = array(); ?>
+<?php //foreach($allbrands as $brand): ?>
+	<?php //echo $top = $this->getNumberProductsOfBrand($brand)?>
+	<?php //$tb?>
+<?php //endforeach; ?>
+<div class="links">
+	<div class="block-title">
+		<strong><span>Top Brands:</span></strong>
+	</div>
+	<ul>
+	<?php $i = 0; ?>
+	<?php foreach($allbrands as $brand): ?>
+		<?php if($i < 10): ?>
+			<li><a href="<?php echo $this->getBrandUrl($brand); ?>" title="<?php echo $brand->getName(); ?>"><?php echo $brand->getName(); ?></a></li>
+		<?php elseif($i = 10): ?>
+			<li><a href="<?php echo Mage::getBaseUrl().'brand'; ?>" title="View All Brands">View All Brands</a></li>
+			<?php break; ?>
+		<?php endif; ?>
+		<?php $i++; ?>
+	<?php endforeach; ?>
+	</ul>
+</div>

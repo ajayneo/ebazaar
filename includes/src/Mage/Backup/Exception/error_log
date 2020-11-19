@@ -1,0 +1,5 @@
+[08-Oct-2018 16:05:58 Asia/Kolkata] PHP Fatal error:  Class 'Mage_Backup_Exception' not found in /home/electronicsbazaa/public_html/includes/src/Mage/Backup/Exception/CantLoadSnapshot.php on line 35
+[08-Oct-2018 16:05:58 Asia/Kolkata] PHP Fatal error:  Class 'Mage_Backup_Exception' not found in /home/electronicsbazaa/public_html/includes/src/Mage/Backup/Exception/FtpValidationFailed.php on line 35
+[08-Oct-2018 16:05:58 Asia/Kolkata] PHP Fatal error:  Class 'Mage_Backup_Exception' not found in /home/electronicsbazaa/public_html/includes/src/Mage/Backup/Exception/NotEnoughFreeSpace.php on line 35
+[08-Oct-2018 16:05:58 Asia/Kolkata] PHP Fatal error:  Class 'Mage_Backup_Exception' not found in /home/electronicsbazaa/public_html/includes/src/Mage/Backup/Exception/FtpConnectionFailed.php on line 35
+[08-Oct-2018 16:05:58 Asia/Kolkata] PHP Fatal error:  Class 'Mage_Backup_Exception' not found in /home/electronicsbazaa/public_html/includes/src/Mage/Backup/Exception/NotEnoughPermissions.php on line 35

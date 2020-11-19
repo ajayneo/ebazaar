@@ -1,0 +1,251 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     rwd_default
+ * @copyright   Copyright (c) 2014 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Edit customer address template
+ *
+ * @see Mage_Customer_Block_Address_Edit
+ */
+?>
+<?php if($this->getTitle()): ?>
+<div class="page-title">
+    <h1><?php echo $this->getTitle() ?></h1>
+</div>
+<?php endif; ?>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<form action="<?php echo $this->getSaveUrl() ?>" method="post" id="form-validate" class="scaffold-form" enctype="multipart/form-data">
+    <div class="fieldset">
+    <?php echo $this->getBlockHtml('formkey')?>
+    <input type="hidden" name="success_url" value="<?php echo $this->getSuccessUrl() ?>" />
+    <input type="hidden" name="error_url" value="<?php echo $this->getErrorUrl() ?>" />
+        <h2 class="legend"><?php echo $this->__('Contact Information') ?></h2>
+        <p class="required"><?php echo $this->__('* Required Fields') ?></p>
+        <ul class="form-list">
+            <li class="fields">
+                <?php echo $this->getNameBlockHtml() ?>
+            </li>
+            <li class="wide">
+                <label for="company"><?php echo $this->__('Company') ?></label>
+                <div class="input-box">
+                    <input type="text" name="company" id="company" title="<?php echo $this->__('Company') ?>" value="<?php echo $this->escapeHtml($this->getAddress()->getCompany()) ?>" class="input-text <?php echo $this->helper('customer/address')->getAttributeValidationClass('company') ?> validate-alphanum-with-spaces" />
+                </div>
+            </li>
+            <li class="fields">
+                <div class="field">
+                    <label for="telephone" class="required"><?php echo $this->__('Telephone') ?><em>*</em></label>
+                    <div class="input-box">
+                        <input type="tel" name="telephone" value="<?php echo $this->escapeHtml($this->getAddress()->getTelephone()) ?>" title="<?php echo $this->__('Telephone') ?>" class="input-text  <?php echo $this->helper('customer/address')->getAttributeValidationClass('telephone') ?> validate-digits" id="telephone" />
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="fax"><?php echo $this->__('Mobile') ?></label>
+                    <div class="input-box">
+                        <input type="tel" name="fax" id="fax" title="<?php echo $this->__('Fax') ?>" value="<?php echo $this->escapeHtml($this->getAddress()->getFax()) ?>" class="input-text <?php echo $this->helper('customer/address')->getAttributeValidationClass('fax') ?> validate-length-mob maximum-length-10" />
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="fieldset">
+        <h2 class="legend"><?php echo $this->__('Address') ?></h2>
+        <ul class="form-list">
+        <?php $_streetValidationClass = $this->helper('customer/address')->getAttributeValidationClass('street'); ?>
+            <li class="wide">
+                <label for="street_1" class="required"><?php echo $this->__('Street Address') ?><em>*</em></label>
+                <div class="input-box">
+                    <input type="text" name="street[]" value="<?php echo $this->escapeHtml($this->getAddress()->getStreet(1)) ?>" title="<?php echo $this->__('Street Address') ?>" id="street_1" class="input-text <?php echo $_streetValidationClass ?> validate-no-html-tags " />
+                </div>
+            </li>
+        <?php $_streetValidationClass = trim(str_replace('required-entry', '', $_streetValidationClass)); ?>
+        <?php for ($_i = 2, $_n = $this->helper('customer/address')->getStreetLines(); $_i <= $_n; $_i++): ?>
+            <li class="wide">
+                <label for="billing:street<?php echo $_i ?>"><?php echo $this->__('Street Address %s', $_i) ?></label>
+                <div class="input-box">
+                    <input type="text" name="street[]" value="<?php echo $this->escapeHtml($this->getAddress()->getStreet($_i)) ?>" title="<?php echo $this->__('Street Address %s', $_i) ?>" id="street_<?php echo $_i ?>" class="input-text <?php echo $_streetValidationClass ?> validate-no-html-tags" />
+                </div>
+            </li>
+        <?php endfor; ?>
+            <?php if ($this->helper('customer/address')->isVatAttributeVisible()) : ?>
+            <li class="wide">
+                <label for="vat_id"><?php echo $this->__('VAT Number') ?></label>
+                <div class="input-box">
+                    <input type="text" name="vat_id" value="<?php echo $this->escapeHtml($this->getAddress()->getVatId()) ?>" title="<?php echo $this->__('VAT Number') ?>" id="vat_id" class="input-text <?php echo $this->helper('customer/address')->getAttributeValidationClass('vat_id') ?>" />
+                </div>
+            </li>
+            <?php endif; ?>
+            <li class="fields">
+                <div class="field">
+                    <label for="zip" class="required"><?php echo $this->__('Pincode') ?><em>*</em></label>
+                    <div class="input-box">
+                        <input type="text" name="postcode" value="<?php echo $this->escapeHtml($this->getAddress()->getPostcode()) ?>" title="<?php echo $this->__('Zip/Postal Code') ?>" id="zip" class="input-text required-entry validate-zip-international pincode_fetch <?php echo $this->helper('customer/address')->getAttributeValidationClass('postcode') ?>" />
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="country" class="required"><?php echo $this->__('Country') ?><em>*</em></label>
+                    <div class="input-box">
+                        <?php echo $this->getCountryHtmlSelect() ?>
+                    </div>
+                </div>
+            </li>
+            <li class="fields">
+                <div class="field">
+                    <label for="city" class="required"><?php echo $this->__('City') ?><em>*</em></label>
+                    <div class="input-box">
+                        <input type="text" name="city" value="<?php echo $this->escapeHtml($this->getAddress()->getCity()) ?>"  title="<?php echo $this->__('City') ?>" class="input-text <?php echo $this->helper('customer/address')->getAttributeValidationClass('city') ?>" id="city" />
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="region_id" class="required"><?php echo $this->__('State/Province') ?><em>*</em></label>
+                    <div class="input-box">
+                        <select id="region_id" name="region_id" title="<?php echo $this->__('State/Province') ?>" class="validate-select billing_region_id" style="display:none;">
+                           <option value=""><?php echo $this->__('Please select region, state or province') ?></option>
+                        </select>
+                        <script type="text/javascript">
+                        //<![CDATA[
+                            $('region_id').setAttribute('defaultValue',  "<?php echo $this->getAddress()->getRegionId() ?>");
+                        //]]>
+                        </script>
+                        <input type="text" id="region" name="region" value="<?php echo $this->escapeHtml($this->getAddress()->getRegion()) ?>"  title="<?php echo $this->__('State/Province') ?>" class="input-text <?php echo $this->helper('customer/address')->getAttributeValidationClass('region') ?>" />
+                    </div>
+                </div>
+            </li>
+            <li<?php if($this->canSetAsDefaultBilling()) echo ' class="control"' ?>>
+                <?php if($this->isDefaultBilling()): ?>
+                    <!--<strong><?php //echo $this->__('Default Billing Address') ?></strong>-->
+                <?php elseif($this->canSetAsDefaultBilling()): ?>
+                    <div class="checkbox_sample sample">
+                        <input type="checkbox" id="primary_billing" name="default_billing" value="1" title="<?php echo $this->__('Use as My Default Billing Address') ?>" class="checkbox" /><label for="primary_billing" class="css-label"><?php echo $this->__('Use as my default billing address') ?></label>
+                    </div>
+                <?php else: ?>
+                    <input type="hidden" name="default_billing" value="1" />
+                <?php endif; ?>
+            </li>
+            <li<?php if($this->canSetAsDefaultShipping()) echo ' class="control"' ?>>
+                <?php if($this->isDefaultShipping()): ?>
+                    <!--<strong><?php //echo $this->__('Default Shipping Address') ?></strong>-->
+                <?php elseif($this->canSetAsDefaultShipping()): ?>
+                    <div class="checkbox_sample sample">
+                        <input type="checkbox" id="primary_shipping" name="default_shipping" value="1" title="<?php echo $this->__('Use as My Default Shipping Address') ?>" class="checkbox" /><label for="primary_shipping" class="css-label"><?php echo $this->__('Use as my default shipping address') ?></label>
+                    </div>
+                <?php else: ?>
+                    <input type="hidden" name="default_shipping" value="1" />
+                <?php endif; ?>
+            </li>
+        </ul>
+    </div>
+    <div class="buttons-set">
+        <!--<p class="back-link"><a href="<?php //echo $this->escapeUrl($this->getBackUrl()) ?>"><small>&laquo; </small><?php //echo $this->__('Back') ?></a></p>-->
+        <button type="submit" title="<?php echo $this->__('Save Address') ?>" class="button"><span><span><?php echo $this->__('Save Address') ?></span></span></button>
+    </div>
+
+</form>
+<script type="text/javascript">
+//<![CDATA[
+    var dataForm = new VarienForm('form-validate', true);
+    new RegionUpdater('country', 'region', 'region_id', <?php echo $this->helper('directory')->getRegionJson() ?>, undefined, 'zip');
+//]]>
+</script>
+<script type="text/javascript">
+    jQuery(document).ready(function(){
+        // custom add class by pradeep sanku on the 31-oct-2014 for making the postcode mandatory.
+        jQuery('.validate-zip-international').addClass('required-entry');
+        jQuery("label[for=zip]").find('em').css('display','inline');
+    
+    jQuery('.pincode_fetch').change(function(){
+            sendPincode_Billing(jQuery(this).val());
+        });
+       // show_states();
+    });
+    /*function show_states()
+    {
+        var states_ids=[485,486,487,488,489,490,491,492,493,494,496,497,498,499,500,501,
+            502,503,504,505,506,507,508,509,510,511,512,513,514,515,516,517,518,519,520];
+
+        jQuery(".billing_region_id option").each(function()
+        {
+            if(jQuery.inArray(parseInt(jQuery(this).val()),states_ids)==-1 && jQuery(this).val()!='')
+            {
+                jQuery(this).remove();
+            }
+
+        });
+    }*/
+    function sendPincode_Billing(pincode){
+        var numbers = /^[0-9]+$/;
+        if(pincode.match(numbers))
+        {  
+            var actionurl = '<?php  echo  Mage::getBaseUrl()."custom/index/checkPincodeState/pincode/"?>' + pincode ;
+            //var myDynamicAction1 = actionurl.replace("http://","https://");
+            var myDynamicAction1 = actionurl.replace("http://","http://");
+            http_dynamic1 = new XMLHttpRequest(); 
+            http_dynamic1.open("POST", myDynamicAction1, true);
+            http_dynamic1.send(null);
+            http_dynamic1.onreadystatechange = function() {
+                if (http_dynamic1.readyState == 4) {
+                
+                    var state_data = http_dynamic1.responseText;
+                    if(state_data != "ERROR"){
+                        var state_data_array = state_data.split("$$$$");
+                        var state_id = state_data_array[0];
+                        var state_code = state_data_array[1];
+                        
+                        /* Assign State value in Drop Box*/
+                        document.getElementById("region_id").value= state_id;
+                        
+                        var actionurl2 = '<?php  echo  Mage::getBaseUrl()."custom/index/checkPincodeStateCities/pincode/"?>' + pincode ;
+                        //var myDynamicAction2 = actionurl2.replace("http://","https://");
+                        var myDynamicAction2 = actionurl2.replace("http://","http://");
+                        http_dynamic2 = new XMLHttpRequest(); 
+                        http_dynamic2.open("POST", myDynamicAction2, true);
+                        http_dynamic2.send(null);
+                        http_dynamic2.onreadystatechange = function() {
+                        
+                            if (http_dynamic2.readyState == 4) {
+                                var city_name  = http_dynamic2.responseText ;
+                                if(city_name){
+                                    /* Assign City value in Text Box*/
+                                    document.getElementById("city").value= city_name;
+                                }else{
+                                    document.getElementById("city").value= '';
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        else  
+        {   /* Wrong Pincode validation */
+            alert('Pincode must have numeric characters only.');
+            document.getElementById("postcode").focus();
+            document.getElementById("postcode").value = '';
+            document.getElementById("region_id").value= '';
+            document.getElementById("city").value= '';
+            return false;  
+        }                       
+    }
+</script>

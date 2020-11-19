@@ -1,0 +1,8 @@
+[08-Oct-2018 16:03:43 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Captcha_Word' not found in /home/electronicsbazaa/public_html/lib/Zend/Captcha/Dumb.php on line 38
+[08-Oct-2018 16:03:43 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Captcha_Base' not found in /home/electronicsbazaa/public_html/lib/Zend/Captcha/Word.php on line 38
+[08-Oct-2018 16:03:43 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Validate_Abstract' not found in /home/electronicsbazaa/public_html/lib/Zend/Captcha/Base.php on line 40
+[08-Oct-2018 16:03:43 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Captcha_Word' not found in /home/electronicsbazaa/public_html/lib/Zend/Captcha/Figlet.php on line 41
+[08-Oct-2018 16:03:43 Asia/Kolkata] PHP Fatal error:  Interface 'Zend_Validate_Interface' not found in /home/electronicsbazaa/public_html/lib/Zend/Captcha/Adapter.php on line 38
+[08-Oct-2018 16:03:43 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Captcha_Base' not found in /home/electronicsbazaa/public_html/lib/Zend/Captcha/ReCaptcha.php on line 43
+[08-Oct-2018 16:03:43 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Captcha_Word' not found in /home/electronicsbazaa/public_html/lib/Zend/Captcha/Image.php on line 38
+[08-Oct-2018 16:03:43 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Exception' not found in /home/electronicsbazaa/public_html/lib/Zend/Captcha/Exception.php on line 36

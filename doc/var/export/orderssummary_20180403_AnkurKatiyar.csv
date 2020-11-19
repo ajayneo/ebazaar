@@ -1,0 +1,4 @@
+"Order Id",SKU,"Product Name","Store Name","Amount Total",Qty,Discount,"Net Sale",Category,City,State,"ASM Name","RSM Name","Payment Method","Customer Email"
+200104060,OPMBNTF0232,"Apple iPhone 6S Plus (Silver, 16 GB)","Mahima Enterprises",28000.0000,1.0000,250.0000,27750.0000,Openbox,KANPUR,"Uttar Pradesh","Ankur Katiyar","Syed Shakir",custompayment,gyanendratty@gmail.com
+200104077,REFMOB0002,"Samsung Galaxy J5 Prime 3GB 32GB GOLD (Brand Refurbished Mobile)","M   Guru",7900.0000,1.0000,0.0000,7900.0000,RefurbishedMobiles,KANPUR,"Uttar Pradesh","Ankur Katiyar","Syed Shakir",cashondelivery,hchaurasiaji@gmail.com
+200104078,REFMOB0001,"Samsung Galaxy J5 Prime 3GB 32GB BLACK (Brand Refurbished Mobile)","M   Guru",7900.0000,1.0000,0.0000,7900.0000,RefurbishedMobiles,KANPUR,"Uttar Pradesh","Ankur Katiyar","Syed Shakir",cashondelivery,hchaurasiaji@gmail.com

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<config>
+    <modules>
+        <Neo_Sidebanner>
+            <version>1.0.0</version>
+        </Neo_Sidebanner>
+    </modules>
+    <global>
+        <models>
+            <neo_sidebanner>
+                <class>Neo_Sidebanner_Model</class>
+            </neo_sidebanner>
+        </models>
+        <blocks>
+            <neo_sidebanner>
+                <class>Neo_Sidebanner_Block</class>
+            </neo_sidebanner>
+        </blocks>
+        <helpers>
+            <neo_sidebanner>
+                <class>Neo_Sidebanner_Helper</class>
+            </neo_sidebanner>
+        </helpers>
+    </global>
+    <frontend>
+        <layout>
+            <updates>
+                <Neo_Sidebanner>
+                    <file>neo_sidebanner.xml</file>
+                </Neo_Sidebanner>
+            </updates>
+        </layout>
+    </frontend>
+</config>

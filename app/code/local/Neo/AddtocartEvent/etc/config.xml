@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Neo_AddtocartEvent>
+      <version>0.1.0</version>
+    </Neo_AddtocartEvent>
+  </modules>
+  <global>
+    <helpers>
+      <addtocartevent>
+        <class>Neo_AddtocartEvent_Helper</class>
+      </addtocartevent>
+    </helpers>
+	<models>
+	  <addtocartevent>
+		<class>Neo_AddtocartEvent_Model</class>
+		<resourceModel>addtocartevent_mysql4</resourceModel>
+	  </addtocartevent>
+	</models>
+    <events>
+	  <controller_action_predispatch_checkout_cart_add> <!-- identifier of the event we want to catch -->
+        <observers>
+          <controller_action_predispatch_checkout_cart_add_handler> <!-- identifier of the event handler -->
+            <type>model</type> <!-- class method call type; valid are model, object and singleton -->
+            <class>addtocartevent/observer</class> <!-- observers class alias -->
+            <method>beforeaddtocart</method>  <!-- observer's method to be called -->
+            <args></args> <!-- additional arguments passed to observer -->
+          </controller_action_predispatch_checkout_cart_add_handler>
+        </observers>
+      </controller_action_predispatch_checkout_cart_add>
+    </events>
+  </global>
+</config> 

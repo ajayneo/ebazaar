@@ -1,0 +1,29 @@
+<?php $jobs = $this->getJobs(); ?>
+<div class="page-title">
+    <h1><?php echo $this->__('Careers'); ?></h1>
+</div>
+<div class="static-content">
+    <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('careers')->toHtml(); ?>
+</div>
+<?php if($jobs->getSize() > 0): ?>
+<div class="careers-listing">
+    <h1><?php echo $this->__('Jobs Openings'); ?></h1>
+    <ul>
+        <?php foreach($jobs as $job): ?>
+        <li>
+            <div class="left-job">
+                <h3 class="job-title"><?php echo $job->getTitle(); ?></h3>
+                <p class="job-des"><?php echo $job->getJde(); ?></p>
+                <p class="no-position"><?php echo $this->__('No of positions') ?>: <span><?php echo $job->getNumPositions(); ?></span></p>
+                <p class="exp-required"><?php echo $this->__('Experience required'); ?>: <span><?php $job->getExperience(); ?></span></p>
+            </div>
+            <div class="right-button">
+                <a href="#"><img src="images/apply-now.jpg" /></a>
+            </div>
+        </li>
+        <?php endforeach; ?>
+    </ul>
+</div>
+<?php else: ?>
+<p><?php echo $this->__('There are currently no job openings.'); ?></p>
+<?php endif; ?>

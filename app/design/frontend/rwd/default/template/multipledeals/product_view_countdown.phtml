@@ -1,0 +1,19 @@
+<?php
+    $product = $this->getDealProduct();
+	$displayQty = Mage::getStoreConfig('multipledeals/configuration/qty');
+	$displayQtyForType = array('simple', 'virtual', 'downloadable');
+?>
+<?php if ($this->helper('multipledeals')->isEnabled() && $product): ?>	
+	<div class="clearer"></div>          
+	<!-- deal countdown -->	
+	<div class="main-countdown">
+		<div class="countdown-title">
+			<?php echo $this->__('Get it before it\'s <b>gone!</b>'); ?>
+		</div>   
+    	<?php echo $this->helper('multipledeals')->getProductCountdown($product, false, false); ?>
+	</div>          
+	<!-- deal qty -->
+	<?php if ($displayQty && in_array($product->getTypeId(), $displayQtyForType)): ?>
+		<p class="qty-text"><?php echo $this->__('Hurry, there are only <b>%s  item(s)</b> left!', $product->getDealQty()); ?></p> 
+	<?php endif; ?>
+<?php endif; ?>

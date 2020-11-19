@@ -1,0 +1,165 @@
+<!--@vars
+{
+"var data.name":"Sender name", 
+"var data.brand":"Sender brand",
+"var data.price":"Sender price",
+"var data.switch":"Sender switch",
+"var data.pincode":"Sender pincode",
+"var data.city":"Sender city",
+"var data.email":"Sender email",
+"var data.mobile":"Sender mobile",
+"var data.order_id":"Order Id",
+"var data.image":"Sender image"  
+}
+@-->
+
+<!--@subject Sell Your Gadget: Order ID {{var data.order_id}} @--> 
+
+
+
+  <table width="600" cellspacing="0" cellpadding="0" border="0" style=" margin:0 auto; border: 1px solid #e0e0e0;">
+      <tr align="center"><td style="background:#0085c3; padding:10px 25px; color:#fff;"><img src="http://www.electronicsbazaar.com/media/emailcampaigns/Affiliates/site/logo.png" width="116" height="29" alt="Electronics Bazaar" title="Electronics Bazaar" style="display:block;" /></td></tr>
+        <tr><td>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr align="center">
+    <td bgcolor="#eeeeee" align="center"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td height="56" align="center" style="font-family:Arial, Helvetica, sans-serif; font-size:40px; margin:0; padding:0; color:#0085c3; font-weight:bold;">Thank <span style="color:#fbda19">you</span></td>
+      </tr>
+      <tr>
+        <td height="97" align="center" valign="top" style="font-family:Arial, Helvetica, sans-serif; color:#616161; font-size:14px; line-height:22px; padding:0 30px; border-bottom:#e0e0e0 3px solid;">for using <span style="font-weight:bold;"><a href="http://www.electronicsbazaar.com/" style="color:#616161; text-decoration:none;">www.electronicsbazaar.com</a></span> to evaluate the present worth of your gadget.
+We appreciate your intent of selling your Old/used gadget to us.<br />
+All gadgets we buy are pre-owned and given new life and the ones which cannot be re-furbished are recycled.</td>
+      </tr>
+    </table></td>
+  </tr>  
+
+  <table width="100%">  
+<tr>
+<td height="30" style="background: #efe70f; color: #e71313; text-align: center; font-family: arial; font-size: 15px;"><strong>Your Order ID {{var data.order_id}}</strong></td>
+</tr>
+</table>
+
+  <tr>
+  <td height="34" align="center" style="font-family:Arial, Helvetica, sans-serif; font-size:14px; color:#424242;">You have provided following details:</td>
+  </tr>
+  <tr> 
+    <td bgcolor="#169fff"><table width="100%" border="0" cellspacing="0" cellpadding="0" style="border-top:3px solid #0e68a7; border-bottom:3px solid #0e68a7;">
+      <tr> 
+        <td width="6%">&nbsp;</td>
+        <td width="39%" align="center" bgcolor="#ffffff" style="padding: 20px;"><img src="{{var data.image}}" alt="{{var data.name}}" title="{{var data.name}}" style="max-width:100%; max-height:330px;" /></td>
+        <td width="4%">&nbsp;</td>
+        <td width="48%" align="left" valign="top">
+          <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin:8px 0 0 0;">
+          <!--<tr>
+            <td align="left" valign="top" style="color:#FFFFFF; font-family:Arial, Helvetica, sans-serif; font-weight:bold; font-size:25px; line-height:26px; border-bottom:2px solid #FFFFFF; padding-bottom: 8px;">{{var data.proname}}</td>
+          </tr>-->
+          <tr>
+            <td>
+                &nbsp;&nbsp;&nbsp;{{var data.switch}} 
+            </td>
+          </tr>
+          <tr>
+            <td height="150" align="left" valign="top"><h2 style="font-family:Arial, Helvetica, sans-serif; font-size:16px; margin:0; padding:0; color:#FFFFFF; margin:0 0 2px 0;">Contact Information</h2>
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td style="font-family:Arial, Helvetica, sans-serif; font-size:14px; color:#FFFFFF;" height="22">Name: {{var data.name}}</td>
+                </tr>
+                <tr>
+                  <td style="font-family:Arial, Helvetica, sans-serif; font-size:14px; color:#FFFFFF;" height="22">Pincode: {{var data.pincode}}</td>
+                </tr>
+                <tr>
+                  <td style="font-family:Arial, Helvetica, sans-serif; font-size:14px; color:#FFFFFF;" height="22">City: {{var data.city}}</td>
+                </tr>
+                <tr>
+                  <td style="font-family:Arial, Helvetica, sans-serif; font-size:14px; color:#FFFFFF; text-decoration:none;" height="22">Email Id: <a target="_blank" href="{{var data.email1}}" style="color:#fbda1a; text-decoration: none;">{{var data.email}}</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="font-family:Arial, Helvetica, sans-serif; font-size:14px; color:#FFFFFF;" height="22">Mobile Number: {{var data.mobile}}</td>
+                </tr>
+              </table></td>
+          </tr>
+
+          <tr>
+            <td height="150" align="left" valign="top"><h2 style="font-family:Arial, Helvetica, sans-serif; font-size:16px; margin:0; padding:0; color:#FFFFFF; margin:0 0 2px 0;">Bank Details</h2>
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td style="font-family:Arial, Helvetica, sans-serif; font-size:14px; color:#FFFFFF;" height="22">Name on Bank Account: {{var data.bank_customer_name}}</td>
+                </tr>
+                <tr>
+                  <td style="font-family:Arial, Helvetica, sans-serif; font-size:14px; color:#FFFFFF;" height="22">Name of Bank: {{var data.bank_name}}</td>
+                </tr>
+                <tr>
+                  <td style="font-family:Arial, Helvetica, sans-serif; font-size:14px; color:#FFFFFF;" height="22">Bank IFSC code: {{var data.bank_ifsc}}</td>
+                </tr>
+                <tr>
+                  <td style="font-family:Arial, Helvetica, sans-serif; font-size:14px; color:#FFFFFF;" height="22">Account Number: {{var data.bank_account_no}}</td>
+                </tr>
+              </table></td>
+          </tr>
+
+          <tr>
+            <td height="28" align="left" valign="top"><h2 style="font-family:Arial, Helvetica, sans-serif; font-size:16px; margin:0; padding:0; color:#FFFFFF; margin:0 0 2px 0;">Quoted value is</h2>
+              </td>
+          </tr>
+          <tr>
+            <td align="left" valign="top">
+            <span style="background:#FFFFFF; display:inline-block;">&nbsp;&nbsp;&nbsp;<span style="display:inline-block;"><img src="http://www.electronicsbazaar.com/media/emailcampaigns/Affiliates/site/rupees.png" alt="Rupees" title="Rupees" width="15" height="24" /></span>&nbsp;&nbsp;&nbsp;<span style="color:#FFFFFF; font-family:Arial, Helvetica, sans-serif; font-size:36px; color:#169fff; font-weight:bold;">{{var data.price}}/-</span>&nbsp;&nbsp;&nbsp;</span></td>
+          </tr>
+          <tr>
+            <td align="left" valign="top">&nbsp;</td>
+          </tr> 
+        </table></td>
+        <td width="3%">&nbsp;</td>  
+      </tr>
+    </table></td>
+  </tr>
+</table>
+
+        </td></tr>
+
+<tr><td style="padding-top:10px" align="center" bgcolor="#eeeeee">
+
+<table cellpadding="0" cellspacing="0" border="0" width="100%">
+  <tr>
+    <td align="center">  
+      <table border="0" cellpadding="0" cellspacing="0" width="600" style="background: #eeeeee;">
+          <tbody><tr>
+            <td style="font-family:Arial,Helvetica,sans-serif;font-size:14px;font-weight:bold;color:#424242;" align="center" height="25"><span style="border-bottom:1px solid #424242;padding:0 20px 5px">Packaging Instructions</span></td>
+          </tr>
+          <tr>
+            <td style="font-family:Arial,Helvetica,sans-serif;font-size:13px;color:#424242;padding:8px 20px 0 20px" align="left" height="59" valign="top">
+            1. Choose a material that is impact resistant and durable enough considering the weight of the item.<br>
+            2. Remove old address labels, bar codes and Special Handling indications.<br>
+            3. Leave enough space on the wrapping for the address label.<br>
+            4. Insert an address slip with your and the recipient's contact details inside the item.<br>
+            5. See to it that the package is definitely undamaged.<br>
+            6. The package must not contain empty space and must withstand 4-5 times its own weight.<br>
+            7. If necessary, use expanded polystyrene, Styrofoam or bubble wrap as filling.<br>
+            8. Check that each item in the batch is furnished with an address label.<br>
+            9. Provide your and the recipient’s information in full.
+            </td>
+          </tr> 
+      </tbody></table>
+    </td>
+  </tr>
+</table>
+
+      </td></tr> 
+
+
+
+        <tr><td align="center" bgcolor="#eeeeee" style="padding-top: 10px;"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td height="25" align="center" style="font-family:Arial, Helvetica, sans-serif; font-size:14px; font-weight:bold; color:#424242;"><span style="border-bottom:1px solid #424242; padding: 0 20px 5px;">Terms and Condition :</span></td>
+          </tr>
+          <tr>
+            <td height="59" align="center" valign="top" style="font-family:Arial, Helvetica, sans-serif; font-size:13px; color:#424242; padding:8px 20px 0 20px;">The price quoted is basis the condition reported by you on our website.<br />
+            Electronics Bazaar team reserves the right to revoke the quote / seek refund from you if the condition is found to be different / incorrect</td>
+          </tr>
+          <tr>
+            <td height="30" align="center" style="font-family:Arial, Helvetica, sans-serif; font-size:14px; color:#FFFFFF; background:#000000;">Price quoted is valid only for 15 days</td>
+          </tr>
+      </table></td></tr>
+    </table>

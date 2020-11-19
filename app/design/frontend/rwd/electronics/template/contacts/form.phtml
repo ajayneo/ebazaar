@@ -1,0 +1,128 @@
+<?php
+
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     rwd_default
+ * @copyright   Copyright (c) 2014 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
+<div class="breadcrumbs">
+  <ul>
+    <li class="home">
+      <a title="Go to Home Page" href="<?php echo Mage::getBaseUrl(); ?>">Home</a>
+      <span>/ </span>
+    </li>
+    <li class="cms_page">
+      <strong>Contact Us</strong>
+    </li>
+  </ul>
+</div>
+<div class="inner-main-container">
+  <div class="page-title">
+    <h1>Contact Us</h1>
+  </div>
+  <div class="contact-content">
+    <div class="left-contact">
+      <form action="<?php echo $this->getFormAction(); ?>" id="contactForm" method="post" onsubmit="return ValidCaptchaContacts();" class="scaffold-form">
+        <ul>
+          <li>
+            <label class="required" for="contacts-name"><em>*</em><?php echo $this->__('Name'); ?></label>
+            <input name="name" id="contacts-name" title="<?php echo Mage::helper('contacts')->__('Name') ?>" value="<?php echo $this->escapeHtml($this->helper('contacts')->getUserName()) ?>" class="input-text required-entry" type="text" />
+          </li>
+          <li>
+            <label class="required" for="contacts-email"><em>*</em><?php echo $this->__('Email'); ?></label>
+            <input name="email" id="contacts-email"  class="input-text required-entry validate-email" type="text" />
+          </li>
+          <li>
+            <label class="required" for="contacts-mobile"><em>*</em><?php echo $this->__('Mobile'); ?></label>
+            <input name="mobile" id="contacts-mobile"  class="input-text required-entry" type="text" />
+          </li>
+          <li>
+            <label class="required" for="contacts-email"><em>*</em><?php echo $this->__('Comments'); ?></label>
+            <textarea class="required-entry" name="comment" id="contacts-email" placeholder="Write..."></textarea>
+          </li>
+          <li></li>
+          <li>
+            <div class="captcha">
+              <div class="code-div"><span id="txtCaptcha" class="verification-code"></span></div>
+              <div class="input-box">
+                <input type="text" class="input-text required-entry validate-captch-class" title="Verification Code" id="verification_code" name="verification_code" />
+              </div >
+              <input type="text" name="hideit" id="hideit" value="" style="display:none !important;" />
+            </div>
+          </li>
+          <li>
+            <div class="buttons-set">
+              <button type="submit" title="<?php echo Mage::helper('contacts')->__('Submit') ?>" class="button"><span><span><?php echo Mage::helper('contacts')->__('Submit') ?></span></span></button>
+            </div>
+          </li>
+        </ul>
+      </form>
+    </div>
+    <div class="right-col">
+      <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('contacts-right')->toHtml(); ?>
+    </div>
+  </div>
+  <script type="text/javascript">
+    //<![CDATA[
+      var contactForm = new VarienForm('contactForm', true);
+      Validation.add('validate-captch-class','Captcha doesn\'t match!',function(the_field_value){
+        return ValidCaptchaContacts();
+      });
+    //]]>
+  </script>
+  <script type="text/javascript">
+    //Created / Generates the captcha function    
+    function DrawCaptchaContacts(){
+        var a = Math.ceil(Math.random() * 9)+ '';
+        var b = Math.ceil(Math.random() * 9)+ '';       
+        var c = Math.ceil(Math.random() * 9)+ '';  
+        var d = Math.ceil(Math.random() * 9)+ '';  
+        //var e = Math.ceil(Math.random() * 10)+ '';  
+        //var f = Math.ceil(Math.random() * 10)+ '';  
+        //var g = Math.ceil(Math.random() * 10)+ '';  
+        //var code = a + ' ' + b + ' ' + ' ' + c + ' ' + d + ' ' + e + ' '+ f + ' ' + g;
+        var code = a + ' ' + b + ' ' + ' ' + c + ' ' + d;
+        jQuery("#txtCaptcha").html(code);
+        //document.getElementById("txtCaptcha").value = code
+    }
+
+    // Validate the Entered input aganist the generated security code function   
+    function ValidCaptchaContacts(){
+        var str1 = removeSpaces(jQuery('#txtCaptcha').html());
+        var str2 = removeSpaces(jQuery('#verification_code').val());
+        if (str1 == str2) return true;        
+        return false;
+        
+    }
+
+    // Remove the spaces from the entered and generated code
+    function removeSpacesContacts(string){
+        return string.split(' ').join('');
+    }
+
+    jQuery(document).ready(function(){
+        DrawCaptchaContacts();
+    });
+  </script>
+</div>

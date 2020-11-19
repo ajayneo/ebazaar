@@ -1,0 +1,341 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+
+/**
+ * Product view template
+ *
+ * @see Mage_Catalog_Block_Product_View
+ * @see Mage_Review_Block_Product_View
+ */
+?>
+<?php $_helper = $this->helper('catalog/output'); ?>
+<?php $_product = $this->getProduct(); ?>
+<script type="text/javascript">
+    var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
+</script>
+<div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
+<div class="quick-view-pop">
+    <div class="product-view">
+        <div class="product-essential">
+            <div class="pradeep"></div>
+        <form action="<?php echo $this->getSubmitUrl($_product) ?>" method="post" id="product_addtocart_form"<?php if($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
+            <div class="no-display">
+                <input type="hidden" name="product" value="<?php echo $_product->getId() ?>" />
+                <input type="hidden" name="related_product" id="related-products-field" value="" />
+            </div>
+
+
+            <div class="product-name">
+                <div class="h1">
+                    <span class="products_name"><?php echo $_product->getName(); ?></span>
+                </div>
+        
+                <!-- need to move -->
+                <?php
+                    $productId = $_product->getId();
+                    $reviews = Mage::getModel('review/review')
+                            ->getResourceCollection()
+                            ->addStoreFilter(Mage::app()->getStore()->getId()) 
+                            ->addEntityFilter('product', $productId)
+                            ->addStatusFilter(Mage_Review_Model_Review::STATUS_APPROVED)
+                            ->setDateOrder()
+                            ->addRateVotes();
+                ?>
+                <!-- need to move -->
+                
+                <?php $product_review = new Neo_Review_Block_Product_View_List(); ?>
+                <?php $ratings = $product_review->RatingCounts($_product->getId()); ?>
+
+                <ul>
+                    <li>
+                        <span class="write-review">
+                            <a class="review_form" href="#form-left-review">Write a Review</a>
+                        </span>
+                    </li>
+                    <?php if (count($reviews) > 0): ?>
+                        <li>
+                            <div class="h4">
+                                <span>
+                                    <?php if ($ratings): ?>
+                                        <?php echo $ratings . " Ratings"; ?>
+                                    <?php endif; ?>
+                                </span>
+                                <?php $avg = $product_review->AggregrateRating($_product->getId()); ?>
+                                <?php if ($avg > 0): ?>
+                                    <div class="ratings">
+                                        <div class="rating-box">
+                                            <div class="rating" style="width: <?php echo ceil($avg); ?>%;"></div>
+                                        </div>
+                                    </div>
+                                <?php endif; ?>
+                            </div>
+                        </li>
+                        <li>
+                            <span>
+                                <?php echo count($reviews) . " reviews" ?>
+                            </span>
+                        </li>
+                    <?php else: ?>
+                        <li>
+                            <span class="write-review">
+                                <a class="review_form" href="#review-form">Be the first to review this product. </a>
+                            </span>
+                        </li>
+                    <?php endif; ?>
+                </ul>
+                <div class="clr"></div>
+            </div><!-- end of product-name -->
+
+            <div class="product-img-box">
+                <?php echo $this->getChildHtml('media') ?>
+            </div><!-- end of product-img-box -->
+
+            <div class="product-shop">
+                <div class="product-options-bottom">
+                    <?php echo $this->getPriceHtml($_product); ?>
+                    <?php echo $this->getChildHtml('bundle_prices') ?>
+                    <?php echo $this->getTierPriceHtml() ?>
+                    <?php if(!$this->hasOptions()):?>
+                    <!--<div class="add-to-box">-->
+                        <?php //if($_product->isSaleable()): ?>
+                        <?php //echo $this->getChildHtml('addtocart') ?>
+                        <!--<?php //if( $this->helper('wishlist')->isAllow() || $_compareUrl=$this->helper('catalog/product_compare')->getAddUrl($_product)): ?>
+                            <span class="or"><?php //echo $this->__('OR') ?></span>
+                        <?php //endif; ?>-->
+                        <?php //endif; ?>
+                        <?php echo $this->getChildHtml('addto') ?>
+                        <?php echo $this->getChildHtml('sharing') ?>
+                    <!--</div>-->
+                    <?php echo $this->getChildHtml('extra_buttons') ?>
+                    <?php elseif (!$_product->isSaleable()): ?>
+                        <!--<div class="add-to-box">-->
+                        <?php echo $this->getChildHtml('addto') ?>
+                        <?php echo $this->getChildHtml('sharing') ?>
+                    <!--</div>-->
+                    <?php endif; ?>
+                        </div><!-- end of product-options-bottom -->
+        
+                    <div class="product-detail-section">
+                        <div class="product-sec">
+                            <?php echo $this->getChildHtml('product_type_availability'); ?>
+                                <div class="short-description">
+                                    <div class="std">
+                                        <?php echo $_helper->productAttribute($_product, $_product->getShortDescription(), 'short_description') ?>
+                                    </div>
+                                </div>                        
+                                <!--right-des-se end -->
+
+                                <!-- WARRANTY sec start-->
+                                <div class="warranty-section">
+                                    <p><?php echo $_product->getWarrenty(); ?></p>
+                                </div><!-- WARRANTY sec end-->
+                        </div>
+
+                        <?php $customblocks_index = new Neo_Customblocks_Block_Index(); ?>
+                        <?php $discount_percent = $customblocks_index->getDiscountPercentage($_product->getId()); ?>
+                        <div class="product-bottom-sec">
+                            <div class="price-info">
+                                <?php echo $this->getPriceHtml($_product); ?>
+                                <?php echo $this->getChildHtml('bundle_prices') ?>
+                                <?php echo $this->getTierPriceHtml() ?>
+                                <?php if(!empty($discount_percent)): ?>
+                                    <?php $currency_code = Mage::app()->getStore()->getCurrentCurrencyCode(); ?>
+                                    <span class="tax">Save <span class="percentage"><?php echo Mage::app()->getLocale()->currency( $currency_code )->getSymbol() . $discount_percent; ?></span></span>
+                                <?php endif; ?>
+                            </div><!-- end of price-info -->
+                            <!--offer-sec start -->
+                            <?php $offers = $_product->getOffers(); ?>
+                            <?php if(!empty($offers)): ?>
+                                <div class="offer-sec">
+                                    <?php $offers_array = explode(',',$offers); ?>
+                                    <?php $product = Mage::getModel('catalog/product'); ?>
+                                    <?php $attr = $product->getResource()->getAttribute("offers"); ?>
+                                    <?php if ($attr->usesSource()) { ?>
+                                        <?php foreach($offers_array as $offer): ?>
+                                            <?php $offer_label = $attr->getSource()->getOptionText($offer); ?>
+                                            <?php $model = Mage::getModel("offers/offers")->getCollection()->addFieldToFilter('offer',$offer_label)->getFirstItem(); // check once ?>
+                                            <div class="info-icon"><span>Offer</span></div>
+                                            <span class="info-text"><?php echo $model->getData('offer'); ?><span title="<?php echo $model->getData('offer_desc'); ?>">[?]</span></span>
+                                        <?php endforeach; ?>
+                                    <?php } ?>
+                                </div><!-- end of offer-sec -->
+                            <?php endif; ?>
+
+                            <!--location-section start -->
+                            <div class="location-section">
+                                <div class="btn-section">
+                                    <?php if($_product->isSaleable()): ?>
+                                        <?php echo $this->getChildHtml('addtocart') ?>
+                                    <?php endif; ?>
+                                </div><!-- btn-section -->
+                            </div>
+                            <!--location-section end -->
+
+                            <div class="std-options">
+				    <ul>
+					<?php if ($_product->getEmiOption()): ?><li class="emi_op"><i class="emi-options">&nbsp;</i><span>EMI Options</span></li><?php endif; ?>
+					<?php if ($_product->getCashOnDelivery()): ?><li class="cod"><i class="cash-on-delivery">&nbsp;</i><span>Cash on Delivery</span></li><?php endif; ?>                              
+					<?php if ($_product->getFreeHomeDelivery()): ?><li class="ho_deli"><i class="home-delivery">&nbsp;</i><span>Free Home Delivery</span></li><?php endif; ?>
+					<li class="vod"><i class="vod-delivery">&nbsp;</i><span class="info-text"><?php echo 'Verify On Delivery'; ?><span title="<?php echo 'Verify your product on delivery.' ?>">[?]</span></span></li>
+					<!--<li class="replacement"><i class="replace-guarantee">&nbsp;</i><span>Replacement Guarantee</span></li>-->
+					<div class="clr"></div>
+				    </ul>
+                            </div><!--std-options end -->
+                        </div>
+                    </div><!-- product-detail-section end -->       
+        
+                    <!--<div class="extra-info">
+                        <?php //echo $this->getReviewsSummaryHtml($_product, 'default', false)?>
+                        <?php //echo $this->getChildHtml('product_type_availability'); ?>
+                    </div>-->
+
+                    <?php //echo $this->getChildHtml('alert_urls') ?>
+
+                    <?php //echo $this->getChildHtml('other');?>
+
+                    <?php if ($_product->isSaleable() && $this->hasOptions()):?>
+                        <?php echo $this->getChildChildHtml('container1', '', true, true) ?>
+                    <?php endif;?>
+
+                </div><!-- END of product-shop -->
+
+                <?php if ($_product->isSaleable() && $this->hasOptions()):?>
+                    <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
+                <?php endif;?>
+
+        </form>
+        <script type="text/javascript">
+        //<![CDATA[
+            var productAddToCartForm = new VarienForm('product_addtocart_form');
+            productAddToCartForm.submit = function(button, url) {
+                if (this.validator.validate()) {
+                    var form = this.form;
+                    var oldUrl = form.action;
+
+                    if (url) {
+                       form.action = url;
+                    }
+                    var e = null;
+                    try {
+                        this.form.submit();
+                    } catch (e) {
+                    }
+                    this.form.action = oldUrl;
+                    if (e) {
+                        throw e;
+                    }
+
+                    if (button && button != 'undefined') {
+                        button.disabled = true;
+                    }
+                }
+            }.bind(productAddToCartForm);
+
+            productAddToCartForm.submitLight = function(button, url){
+                if(this.validator) {
+                    var nv = Validation.methods;
+                    delete Validation.methods['required-entry'];
+                    delete Validation.methods['validate-one-required'];
+                    delete Validation.methods['validate-one-required-by-name'];
+                    // Remove custom datetime validators
+                    for (var methodName in Validation.methods) {
+                        if (methodName.match(/^validate-datetime-.*/i)) {
+                            delete Validation.methods[methodName];
+                        }
+                    }
+
+                    if (this.validator.validate()) {
+                        if (url) {
+                            this.form.action = url;
+                        }
+                        this.form.submit();
+                    }
+                    Object.extend(Validation.methods, nv);
+                }
+            }.bind(productAddToCartForm);
+        //]]>
+        </script>
+        </div><!-- end of product-essential -->
+
+        <!--<div class="product-collateral">
+    <?php //foreach ($this->getChildGroup('detailed_info', 'getChildHtml') as $alias => $html):?>
+            <div class="box-collateral <?php //echo "box-{$alias}"?>">
+                <?php //if ($title = $this->getChildData($alias, 'title')):?>
+                <h2><?php //echo $this->escapeHtml($title); ?></h2>
+                <?php //endif;?>
+                <?php //echo $html; ?>
+            </div>
+    <?php //endforeach;?>
+            <?php //echo $this->getChildHtml('upsell_products') ?>
+            <?php //echo $this->getChildHtml('product_additional_data') ?>
+        </div>-->
+    </div>
+</div>
+<script type="text/javascript">
+    jQuery(document).ready(function(){
+        jQuery('.info-text').tooltip();
+        
+        // video fancy box
+        jQuery(".fancybox-media").click(function(){
+            jQuery.fancybox({
+                'padding'       : 0,
+                'autoScale'     : false,
+                'transitionIn'  : 'none',
+                'transitionOut' : 'none',
+                'title'         : this.title,
+                'width'         : 640,
+                'height'        : 385,
+                'href'          : this.href.replace(new RegExp("watch\\?v=", "i"), 'v/'),
+                'type'          : 'swf',
+                'swf'           : {
+                'wmode'             : 'transparent',
+                'allowfullscreen'   : 'true'
+                }
+            });
+            return false;
+        });
+        
+        jQuery('.link-share').click(function(){
+            jQuery('.opc-ajax-loader').css('display','block');
+            var a = jQuery(this).data('ppid');
+            jQuery.ajax({
+                url:'<?php echo Mage::getUrl('customblocks/index/setproinregistry'); ?>',
+                type:'POST',
+                dataType : 'json',
+                data:{a:a},
+                success:function(data){
+                    jQuery('.opc-ajax-loader').css('display','none');
+                    jQuery('.share-you-purchase-popup').replaceWith(data.sidebar);
+                    jQuery('.share-you-purchase-popup').show();
+                }
+            })
+        });
+        
+        jQuery(document).on('click','.close-icon',function(){
+            jQuery('.share-you-purchase-popup').hide();
+        });
+    });
+</script>

@@ -1,0 +1,137 @@
+<?php $customer_address = $this->getCustomerAddress(); 
+$request_id = $this->getRequest()->getParam("id"); 
+$requestData = Mage::helper('orderreturn')->getAdminImeiList($request_id);
+$pickup = trim($requestData['pickup_address']);
+$imei_list = $requestData['imei_list'];
+$table_str2 = '';
+$flag_generate = true;
+foreach ($imei_list as $key => $value) {
+	$imei_no = $key;
+	$docket_no = $value['docket_no'];
+
+	$table_str2 .= '<tr class="border">';
+    
+    $table_str2 .='<td>'.$imei_no.'</td>';
+    if($docket_no){
+        $table_str2 .='<td>'.$docket_no.'</td>';
+        $flag_generate = false;
+    }else{
+        $table_str2 .= '<td><input id="'.$imei_no.'" type="text" name="docket_no['.$imei_no.']"/></td>';
+    }
+
+
+    $table_str2 .= '</tr>';
+}
+$return_url =  Mage::helper("adminhtml")->getUrl("/adminhtml_return/pickup/");
+?>
+<div class="entry-edit-head">
+    <h4 class="icon-head head-edit-form fieldset-legend">Docket/AWB Number Information</h4>
+    <?php if($flag_generate): ?>
+    <div class="form-buttons"><button id="gen-qc-rvp" title="QC RVP Submit" type="button" class="scalable save" onclick="qcrvp()" style=""><span><span><span>Genrate AWB Number</span></span></span></button></div>
+<?php endif; ?>
+</div>
+
+<div class="grid np">
+    <div class="hor-scroll">
+        <table class="data order-tables">
+            <thead>
+                <tr class="headings">
+                    <th>IMEI</th>
+                    <th>Docket/AWB Number</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php echo $table_str2; ?>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<br>
+    <div class="clear"></div>
+    
+<div class="entry-edit-head">
+    <h4 class="icon-head head-edit-form fieldset-legend">Pickup Address</h4>
+    <div class="form-buttons"></div>
+</div>
+<div class="fieldset " id="_accountbase_fieldset">
+    <div class="hor-scroll">
+    <table cellspacing="0" class="form-list">
+        <tbody>
+        	<?php 
+        	//show prefilled pickup address
+        	if(!empty($pickup) && strlen($pickup) > 0){ ?>
+        		<tr>
+			    	<td class="value">
+			        <div class="store-scope">
+			        	<?php echo $pickup; ?>
+			        </div>
+	        		</td>
+				</tr>
+        	<?php }else{  ?>
+            <tr>
+    			<td class="label"><label for="customer_address">Customer Default Address</label></td>
+		    	<td class="value">
+		        <div class="store-scope">
+		        	<input id="default_address" type="checkbox" name="default_billing_address" value="1"/> 
+		        	<label><?php echo $customer_address ?></label>
+		        </div>
+        		</td>
+			</tr>
+			<tr>
+				<td class="label"><label for="new_address">Add Pickup Address</label></td>
+				<td class="value">
+		        <div class="store-scope">
+		        	<textarea id="new_address" name="pickup_address"></textarea>
+		        </div>
+        		</td>
+			</tr>
+			<?php } ?>
+		</tbody>
+    </table>
+    <script type="text/javascript">
+    	jQuery("#default_address").on("change",function(){
+    		if(jQuery(this). prop("checked") == true){
+    			//alert(jQuery(this).closest('label').text());
+				jQuery("#new_address").val('<?php echo $customer_address ?>').attr("readonly", true);	
+			}
+			else if(jQuery(this). prop("checked") == false){
+				jQuery("#new_address").removeAttr("readonly");
+			}
+    	});
+
+        //this is one time function to send ecom request for pickup
+        function qcrvp(){
+
+        	var checkValues = jQuery('input[name=imei_pickup]:checked').map(function()
+            {
+                return jQuery(this).val();
+            }).get();
+
+            var return_url = '<?php echo $return_url; ?>';
+            // var params = '&ids='+checkValues;
+            var params = '&ids='+<?php echo $request_id; ?>;
+
+            new Ajax.Request(return_url, {
+            method: 'post',
+            parameters: params,
+            dataType: "json",
+                onSuccess: function(myObj) {
+                    jQuery("#gen-qc-rvp").attr("disabled", "disabled");
+                    var jsonObj = myObj.responseText;
+                    var result = jQuery.parseJSON(jsonObj);
+                    jQuery(result).each(function(i,val){
+                        if(val.error == 0){
+                            jQuery("#"+val.serial).val(val.msg);
+                            jQuery("#"+val.serial).attr("disabled", "disabled")
+                        }else{
+                            alert(val.msg);
+                        }
+                    });
+                }
+            });    
+        }
+    </script>
+    </div>
+</div>

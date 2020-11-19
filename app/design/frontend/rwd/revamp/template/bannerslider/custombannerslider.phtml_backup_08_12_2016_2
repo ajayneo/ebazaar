@@ -1,0 +1,96 @@
+<div class="main-new-banner-container clearfix">
+<div class="deals-list-container">
+<h1>Seal Packed Mobiles</h1>
+<ul class="">
+  <!-- <li>
+    <p class="title"><a href="http://www.electronicsbazaar.com/samsung-galaxy-j7-black-16-gb" target="_blank">Samsung Galaxy J7 <span class="price">@ 10850/-</span></a></p>
+  </li>
+  <li>
+    <p class="title"><a href="http://www.electronicsbazaar.com/samsung-galaxy-j5-black-8-gb" target="_blank">Samsung Galaxy J5 <span class="price">@ 8450/-</span></a></p>
+  </li> -->
+  <!-- <li>
+    <p class="title"><a href="http://www.electronicsbazaar.com/samsung-galaxy-on5-black-8-gb" target="_blank">Samsung Galaxy On5 <span class="price">@ 6050/-</span></a></p>
+  </li> -->
+  <!-- <li>
+    <p class="title"><a href="" target="_blank">Samsung Galaxy J2 <span class="price">@ 6050/-</span></a></p>
+  </li> -->
+  <!-- <li>
+    <p class="title"><a href="http://www.electronicsbazaar.com/samsung-galaxy-on7-black-8-gb" target="_blank">Samsung Galaxy On7 <span class="price">@ 7250/-</span></a></p>
+  </li> -->
+  <!-- <li>
+    <p class="title"><a href="http://www.electronicsbazaar.com/samsung-galaxy-on5-black-8-gb" target="_blank">Samsung Galaxy On5 <span class="price">@ 6050/-</span></a></p>
+  </li> -->
+  <!-- <li>
+    <p class="title"><a href="http://www.electronicsbazaar.com/samsung-galaxy-j7-6-new-2016-edition-black-16-gb-7526" target="_blank">Samsung Galaxy J7 - 6 (New 2016 Edition) <span class="price">@ 12600/-</span></a></p>
+  </li>
+  <li>
+    <p class="title"><a href="http://www.electronicsbazaar.com/samsung-galaxy-j5-black-8-gb-9213" target="_blank">Samsung Galaxy J5 - 6 (New 2016 Edition) <span class="price">@ 9650/-</span></a></p>
+  </li>
+  <li>
+    <p class="title"><a href="http://www.electronicsbazaar.com/moto-g-plus-4th-gen-black-32-gb" target="_blank">Moto G 4 Plus 32 GB <span class="price">@ 10800/-</span></a></p>
+  </li>
+  <li>
+    <p class="title"><a href="http://www.electronicsbazaar.com/moto-g-3rd-generation-black-16-gb-7656" target="_blank">Moto G 4 Plus 16 GB <span class="price">@ 9550/-</span></a></p>
+  </li>
+  <li>
+    <p class="title"><a href="http://www.electronicsbazaar.com/moto-g-3rd-generation-black-16-gb-7658" target="_blank">Moto G 4 16 GB <span class="price">@ 8800/-</span></a></p>
+  </li> -->
+  <!-- <li>
+    <p class="title"><a href="http://www.electronicsbazaar.com/redmi-note-3-gold-16-gb-albright-rockman-x-stander-bluetooth-speaker-with-the-stand-function-red-8777" target="_blank">Redmi Note 3 16 GB <span class="price">@ 7900/-</span></a></p>
+  </li> -->
+  <!-- <li>
+    <p class="title"><a href="http://www.electronicsbazaar.com/redmi-note-3-grey-32-gb" target="_blank">Redmi Note 3 32 GB <span class="price">@ 10000/-</span></a></p>
+  </li> -->
+  <li> 
+    <p class="title"><a href="http://www.electronicsbazaar.com/one-plus-3-soft-gold-64-gb" target="_blank">One Plus 3 <span class="price">@ 26990/-</span></a></p>
+  </li>
+  <li>
+    <p class="title"><a href="http://www.electronicsbazaar.com/moto-g-4th-gen-black-16gb-8720" target="_blank">Moto G Play <span class="price">@ 8400/-</span></a></p>
+  </li>
+  <li>
+    <p class="title"><a href="http://www.electronicsbazaar.com/coolpad-note-3-plus-champagne-white" target="_blank">Cool Pad Note 3 <span class="price">@ 8400/-</span></a></p>
+  </li>
+  <li>
+    <p class="title"><a href="http://www.electronicsbazaar.com/coolpad-mega-2-5d-royal-gold" target="_blank">Cool Pad Mega <span class="price">@ 6800/-</span></a></p>
+  </li>
+  <li>
+    <p class="title"><a href="http://www.electronicsbazaar.com/micromax-cg666-white" target="_blank">Micromax CG 666 <span class="price">@ 1475/-</span></a></p>
+  </li>
+</ul>
+</div>
+
+<div class="flashy-banner clearfix">
+<a href="http://www.electronicsbazaar.com/deals/" target="_blank"><img src="http://cdn.electronicsbazaar.com/skin/frontend/rwd/electronics/customs/images/flash-sale-new.jpg"></a> 
+</div>
+</div>
+
+<script type="text/javascript">
+var jns = jQuery.noConflict();
+jns('.newDealsSlider').bxSlider({
+      mode: 'vertical',
+      auto: true,
+      minSlides: 6,
+      maxSlides: 6,
+      pager: false,
+      controls: false,
+      infiniteLoop: true,
+      speed: 15000,
+      pause: 1,
+      autoDirection: 'prev'
+});
+</script>
+
+<script type="text/javascript">
+jns('.newBannerSlider').bxSlider({
+      mode: 'vertical',
+      auto: true,
+      minSlides: 6,
+      maxSlides: 6, 
+      pager: false,
+      controls: false,
+      infiniteLoop: true,
+      speed: 15000,
+      pause: 1,
+      autoDirection: 'prev'
+});
+</script>

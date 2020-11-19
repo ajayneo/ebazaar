@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Neo_Affiliatelimit>
+      <version>0.1.0</version>
+    </Neo_Affiliatelimit>
+  </modules>
+  <global>
+    <helpers>
+      <affiliatelimit>
+        <class>Neo_Affiliatelimit_Helper</class>
+      </affiliatelimit>
+    </helpers>
+	<blocks>
+	  <affiliatelimit>
+		<class>Neo_Affiliatelimit_Block</class>
+	  </affiliatelimit>
+	</blocks>
+	<models>
+	  <affiliatelimit>
+		<class>Neo_Affiliatelimit_Model</class>
+		<resourceModel>affiliatelimit_mysql4</resourceModel>
+	  </affiliatelimit>
+	  <affiliatelimit_mysql4>
+		<class>Neo_Affiliatelimit_Model_Mysql4</class>
+		<entities>		  
+			  <limit>
+				<table>neo_limit</table>
+			  </limit>
+        </entities>
+	  </affiliatelimit_mysql4>
+	</models>
+	<resources>
+	  <affiliatelimit_setup>
+		<setup>
+		  <module>Neo_Affiliatelimit</module>
+		</setup>
+		<connection>
+		  <use>core_setup</use>
+		</connection>
+	  </affiliatelimit_setup>
+	  <affiliatelimit_write>
+		<connection>
+		  <use>core_write</use>
+		</connection>
+	  </affiliatelimit_write>
+	  <affiliatelimit_read>
+		<connection>
+		  <use>core_read</use>
+		</connection>
+	  </affiliatelimit_read>
+	</resources>
+    <events>
+	  <sales_order_place_after> <!-- identifier of the event we want to catch -->
+        <observers>
+          <sales_order_place_after_handler> <!-- identifier of the event handler -->
+            <type>model</type> <!-- class method call type; valid are model, object and singleton -->
+            <class>affiliatelimit/observer</class> <!-- observers class alias -->
+            <method>orderPlaceAfterAffiliate</method>  <!-- observer's method to be called -->
+            <args></args> <!-- additional arguments passed to observer -->
+          </sales_order_place_after_handler>
+        </observers>
+      </sales_order_place_after>
+    </events>
+  </global>
+  <admin>
+	<routers>
+	  <affiliatelimit>
+	    <use>admin</use>
+		<args>
+		  <module>Neo_Affiliatelimit</module>
+		  <frontName>admin_affiliatelimit</frontName>
+		</args>
+	  </affiliatelimit>
+	</routers>
+  </admin>
+  <adminhtml>
+	<menu>
+	  <affiliatelimit module="affiliatelimit">
+		<title>Affiliate Credit Limit</title>
+		<sort_order>100</sort_order>
+		<children>
+		  <limit module="affiliatelimit">
+		    <title>Manage Credit Limit</title>
+			<sort_order>0</sort_order>
+			<action>admin_affiliatelimit/adminhtml_limit</action>
+		  </limit>
+		</children>
+	  </affiliatelimit>
+	</menu>
+	<acl>
+	  <resources>
+		<all>
+		  <title>Allow Everything</title>
+		</all>
+		<admin>
+		  <children>
+			<affiliatelimit translate="title" module="affiliatelimit">
+			  <title>Affiliatelimit</title>
+			  <sort_order>1000</sort_order>
+			  <children>
+		  <limit translate="title">
+			<title>Manage Limit</title>
+			<sort_order>0</sort_order>
+		  </limit>
+			  </children>
+			</affiliatelimit>
+		  </children>
+		</admin>
+	  </resources>
+	</acl>
+	<layout>
+	  <updates>
+		<affiliatelimit>
+		  <file>affiliatelimit.xml</file>
+		</affiliatelimit>
+	  </updates>
+	</layout>
+  </adminhtml>
+</config> 

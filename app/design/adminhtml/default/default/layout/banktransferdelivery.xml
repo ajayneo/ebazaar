@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+  <banktransferdelivery_adminhtml_delivery_index>
+	<reference name="content">
+	  <block type="banktransferdelivery/adminhtml_delivery" name="delivery" />
+	</reference>
+  </banktransferdelivery_adminhtml_delivery_index>
+</layout>

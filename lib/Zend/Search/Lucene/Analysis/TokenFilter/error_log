@@ -1,0 +1,4 @@
+[08-Oct-2018 16:06:51 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Search_Lucene_Analysis_TokenFilter' not found in /home/electronicsbazaa/public_html/lib/Zend/Search/Lucene/Analysis/TokenFilter/StopWords.php on line 40
+[08-Oct-2018 16:06:51 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Search_Lucene_Analysis_TokenFilter' not found in /home/electronicsbazaa/public_html/lib/Zend/Search/Lucene/Analysis/TokenFilter/LowerCase.php on line 39
+[08-Oct-2018 16:06:51 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Search_Lucene_Analysis_TokenFilter' not found in /home/electronicsbazaa/public_html/lib/Zend/Search/Lucene/Analysis/TokenFilter/ShortWords.php on line 39
+[08-Oct-2018 16:06:51 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Search_Lucene_Analysis_TokenFilter' not found in /home/electronicsbazaa/public_html/lib/Zend/Search/Lucene/Analysis/TokenFilter/LowerCaseUtf8.php on line 39

@@ -1,0 +1,37 @@
+<?php $product = Mage::registry('current_product'); ?>
+<?php if(!$product): ?>
+  <?php $product_id = Mage::registry('product_id'); ?>
+  <?php Mage::unregister('product_id');?>
+  <?php $product = Mage::getModel('catalog/product')->load($product_id); ?>
+<?php endif; ?>
+<div class="share-you-purchase-popup">
+  <div class="share-you-purchase-inner">
+    <div class="share-you-purchase">
+      <span class="close-icon">x</span>
+      <div class="share-you-purchase-left-box">
+        <div class="share-you-purchase-bg">
+          <div class="share-you-purchase-img">
+            <img src="<?php echo Mage::helper('catalog/image')->init($product,'small_image')->resize(210); ?>" alt="<?php echo $product->getName(); ?>" />
+          </div>
+          <div class="share-you-purchase-text">Thanks for Sharing</div>
+        </div>
+      </div>
+      <div class="share-you-purchase-right-box">
+        <div class="share-you-purchase-title">
+          <h4><?php echo $product->getName(); ?></h4>
+          <p><?php echo Mage::getBaseUrl().$product->getUrlPath(); ?></p>
+        </div>
+        <div class="share-you-purchase-social">
+          <span class="share-you-purchase-social-text">Share on:</span>
+          <ul class="share-you-purchase-social-links">
+            <li><a class="syp-facebook" href="javascript:popWin('https://www.facebook.com/sharer/sharer.php?u=<?php echo Mage::getBaseUrl().$product->getUrlPath(); ?>&t=<?php echo $product->getName(); ?>', 'facebook', 'width=640,height=480,left=0,top=0,location=no,status=yes,scrollbars=yes,resizable=yes');">Facebook</a></li>
+            <!--<li><a class="syp-facebook" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<?php //echo Mage::getBaseUrl().$product->getUrlPath(); ?>&t=<?php //echo $product->getName(); ?>">Facebook</a></li>-->
+            <li><a class="syp-twitter" target="_blank" href="http://twitter.com/home/?status=<?php echo $product->getName(); ?> (<?php echo Mage::getBaseUrl().$product->getUrlPath(); ?>)">Twitter</a></li>
+            <li><a class="syp-g_plus" target="_blank" href="https://plus.google.com/share?url=<?php echo Mage::getBaseUrl().$product->getUrlPath(); ?>">Google</a></li>
+            <li><a class="syp-pinterest" target="_blank" href="https://pinterest.com/pin/create/button/?url=<?php echo Mage::getBaseUrl().$product->getUrlPath(); ?>&media=<?php echo Mage::helper('catalog/image')->init($product,'small_image')->resize(210); ?>& description=<?php //echo $product->getShortDescription(); ?>">Pinterest</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

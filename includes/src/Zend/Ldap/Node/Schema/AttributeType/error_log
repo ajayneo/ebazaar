@@ -1,0 +1,2 @@
+[08-Oct-2018 16:07:51 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Ldap_Node_Schema_Item' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Ldap/Node/Schema/AttributeType/OpenLdap.php on line 43
+[08-Oct-2018 16:07:51 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Ldap_Node_Schema_Item' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Ldap/Node/Schema/AttributeType/ActiveDirectory.php on line 43

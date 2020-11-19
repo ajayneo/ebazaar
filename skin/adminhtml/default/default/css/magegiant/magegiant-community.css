@@ -1,0 +1,7 @@
+.header-right fieldset {
+    float: right;
+}
+
+.header-right #magegiant_notice {
+    display: inline !important;
+}

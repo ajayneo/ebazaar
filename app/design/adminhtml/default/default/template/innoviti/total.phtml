@@ -1,0 +1,17 @@
+<?php
+$order = '';
+if(Mage::registry('current_order')) {
+	$order = Mage::registry('current_order');
+	$grand_total = $order->getSubtotal();
+}
+$payment = $order->getPayment();
+if($payment->getData('method') == 'innoviti') {
+	$grand_total += $order->getTaxAmount();
+	$interest = $payment->getAdditionalInformation('interest');
+	$interest_amount = ($grand_total * $interest) / 100;
+?>
+	<tr>
+		<td class="label"><?php echo $this->__('Emi Interest') ?></td>
+		<td class="emph"><strong><span class="price">Rs<?=$interest_amount?></span></strong></td>
+	</tr>
+<?php } ?>

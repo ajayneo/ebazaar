@@ -1,0 +1,274 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php Mage::getSingleton('core/session')->unsEBPin(); ?>
+<?php Mage::getSingleton('core/session')->unsCountEBPin(); ?>
+<div class="inner-main-container">
+<?php $_order = Mage::getModel('sales/order')->loadByIncrementId($this->getOrderId()); ?>
+<div class="page-title">
+    <h1 class="thank-you"><?php echo $this->__('Thank You') ?></h1>
+    <p><?php echo $this->__('Your order has been received.') ?></p>
+</div>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<!-- <h2 class="sub-title"><?php // echo $this->__('Thank you for your purchase!') ?></h2> -->
+
+<?php if ($this->getOrderId()):?>
+<?php if ($this->getCanViewOrder()) :?>
+    <div class="para-s">
+    <p><?php echo $this->__('Your order # is: %s.', sprintf('<a href="%s"><span>%s</span></a>', $this->escapeHtml($this->getViewOrderUrl()), $this->escapeHtml($this->getOrderId()))) ?></p>
+    </div>
+<?php  else :?>
+    <p><?php echo $this->__('Your order # is: %s.', $this->escapeHtml($this->getOrderId())) ?></p>
+<?php endif;?>
+    <p><?php echo $this->__('You will receive an order confirmation email with details of your order and a link to track its progress.') ?></p>
+<?php if ($this->getCanViewOrder() && $this->getCanPrintOrder()) :?>
+    <p>
+        <?php echo $this->__('<a href="%s" onclick="this.target=\'_blank\'">Click here</a> to print a copy of your order confirmation.', $this->getPrintUrl()) ?>
+        <?php echo $this->getChildHtml() ?>
+    </p>
+<?php endif;?>
+<?php endif;?>
+
+<?php if ($this->getAgreementRefId()): ?>
+    <p><?php echo $this->__('Your billing agreement # is: %s.', sprintf('<a href="%s">%s</a>', $this->escapeHtml($this->getAgreementUrl()), $this->escapeHtml($this->getAgreementRefId())))?></p>
+<?php endif;?>
+
+<?php if ($profiles = $this->getRecurringProfiles()):?>
+<p><?php echo $this->__('Your recurring payment profiles:'); ?></p>
+<ul class="disc">
+<?php foreach($profiles as $profile):?>
+<?php $profileIdHtml = ($this->getCanViewProfiles() ? sprintf('<a href="%s">%s</a>', $this->escapeHtml($this->getProfileUrl($profile)), $this->escapeHtml($this->getObjectData($profile, 'reference_id'))) : $this->escapeHtml($this->getObjectData($profile, 'reference_id')));?>
+    <li><?php echo $this->__('Payment profile # %s: "%s".', $profileIdHtml, $this->escapeHtml($this->getObjectData($profile, 'schedule_description')))?></li>
+<?php endforeach;?>
+</ul>
+<?php endif;?>
+
+<div class="buttons-set">
+    <button type="button" class="button btn-address" title="<?php echo $this->__('Continue Shopping') ?>" onclick="window.location='<?php echo $this->getUrl() ?>'"><span><span><?php echo $this->__('Continue Shopping') ?></span></span></button>    
+    <button type="button" class="button btn-address btn-feedback" title="<?php echo $this->__('Give Your Feedback') ?>" <span><span><?php echo $this->__('Give Your Feedback') ?></span></span></button>
+</div>
+</div>
+<?php  
+    if(Mage::getStoreConfig('ecommercetracking/ecommercetracking_general/enabled') == 1):
+    $profile_id = Mage::getStoreConfig('ecommercetracking/ecommercetracking_general/google_profile_id')
+?>
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', '<?php echo $profile_id; ?>']);
+    _gaq.push(['_trackPageview']);
+    _gaq.push(['_addTrans',
+            '<?php echo $this->getOrderId(); ?>',           // transaction ID - required
+            '<?php echo Mage::app()->getStore()->getName(); ?>',  // affiliation or store name
+            '<?php echo $_order->getBaseSubtotal(); ?>',          // total - required
+            '<?php echo $_order->getTaxAmount(); ?>',           // tax
+            '<?php echo $_order->getShippingAmount(); ?>',              // shipping
+            '<?php echo $_order->getShippingAddress()->getData('city'); ?>',       // city
+            '<?php echo $_order->getShippingAddress()->getRegion(); ?>',     // state or province
+            '<?php echo $_order->getShippingAddress()->getData('country_id'); ?>'             // country
+        ]);
+
+    <?php foreach ($_order->getAllItems() as $_item){ 
+            $category_ids = Mage::getModel('catalog/product')->load($_item->getProductId())->getCategoryids();
+            $category_name = Mage::getModel('catalog/category')->load($category_ids[count($category_ids)-1])->getName();
+        ?>
+        _gaq.push(['_addItem',
+                '<?php echo $this->getOrderId(); ?>',           // transaction ID - required
+                '<?php echo $_item->getSku(); ?>',           // SKU/code - required
+                '<?php echo $_item->getName(); ?>',        // product name
+                '<?php echo $category_name; ?>',   // category or variation
+                '<?php echo $_item->getPrice(); ?>',          // unit price - required
+                '<?php echo $_item->getQtyOrdered(); ?>'               // quantity - required
+            ]);
+        <?php } ?>
+    _gaq.push(['_trackTrans']);
+    (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+<?php
+    endif;
+?>
+
+
+<!-- ############# Start code for feedback form (Code by JP)############## -->
+  <div class="new-gadget-popup-container popup-feedback">
+    <div class="new-gadget-popup-inner-content">
+      <span class="new-gadget-close-popup feedback-close-popup">X</span>
+      <div class="default-title">
+        <h1>Your feedback will help us serve you better</h1>
+      </div>
+
+      <div id="succ-mes" class="succ-mes" name="succ-mes"></div>
+      <div id="err-mes" class="err-mes" name="err-mes"></div>        
+  <input type="hidden" name="orderid" id="orderid" value="<?php echo $this->getOrderId(); ?>" />
+
+    <?php 
+    $customerid = '';  
+    $telephone = '';
+    $cname = '';
+    $cemail = '';
+    if(Mage::getSingleton('customer/session')->isLoggedIn()) {
+         $customerData = Mage::getSingleton('customer/session')->getCustomer();
+         if($customerData->getPrimaryBillingAddress()){ //added if condition by Sneha to clear System log errors on 5th April
+            $telephone = $customerData->getPrimaryBillingAddress()->getTelephone();
+         }
+         $customerid = $customerData->getId();
+         $cname = $customerData->getName();
+         $cemail = $customerData->getEmail();
+     } ?>  
+  <input type="hidden" name="name" id="name" value="<?php echo $cname; ?>" />
+  <input type="hidden" name="email" id="email" value="<?php echo $cemail; ?>" />
+  <input type="hidden" name="cid" id="cid" value="<?php echo $customerid; ?>" />
+  <input type="hidden" name="mobile" id="mobile" value="<?php echo $telephone; ?>" /> 
+
+  <h2 class="feedback-q1">On a scale of 1 to 10, how likely are you to recommend <a class="recommend-eb" href="https://electronicsbazaar.com/">electronicsbazaar.com</a> to a friend or colleague?</h2>
+
+  <div class="options-list feedback-radio-btn">
+    <div class="feedback-radio-btn--ctn">
+      <input type="radio" name="rate" value="1">
+      <span class="label"><div class="radio-text">1</div></span>
+      <span class="scale-feedback least-likely">Least Likely</span>
+    </div>  
+    <div class="feedback-radio-btn--ctn">
+      <input type="radio" name="rate" value="2">
+      <span class="label"><div class="radio-text">2</div></span>
+    </div>
+    <div class="feedback-radio-btn--ctn">
+      <input type="radio" name="rate" value="3">
+      <span class="label"><div class="radio-text">3</div></span>
+    </div>
+    <div class="feedback-radio-btn--ctn">
+      <input type="radio" name="rate" value="4">
+      <span class="label"><div class="radio-text">4</div></span>
+    </div>
+    <div class="feedback-radio-btn--ctn">
+      <input type="radio" name="rate" value="5">
+      <span class="label"><div class="radio-text">5</div></span>
+      <span class="scale-feedback neautral">Neutral</span>
+    </div>
+    <div class="feedback-radio-btn--ctn">
+      <input type="radio" name="rate" value="6">
+      <span class="label"><div class="radio-text">6</div></span>
+    </div>
+    <div class="feedback-radio-btn--ctn">
+      <input type="radio" name="rate" value="7">
+      <span class="label"><div class="radio-text">7</div></span>
+    </div>
+    <div class="feedback-radio-btn--ctn">
+      <input type="radio" name="rate" value="8">
+      <span class="label"><div class="radio-text">8</div></span>
+    </div>
+    <div class="feedback-radio-btn--ctn">
+      <input type="radio" name="rate" value="9">
+      <span class="label"><div class="radio-text">9</div></span>
+    </div>
+    <div class="feedback-radio-btn--ctn">
+      <input type="radio" name="rate" value="10">
+      <span class="label"><div class="radio-text">10</div></span>
+      <span class="scale-feedback most-likely">Most Likely</span>
+    </div>
+  </div>
+
+  <div id="feedback-input-box" name="feedback-input-box" style="display:none;">
+  <h2>Let us know what you liked about us</h2>
+  <textarea name="feedback" id="feedback" placeholder="Enter Feedback"></textarea>
+  </div>
+  <div>  
+  <!-- <input type="button" name="feedback-smt" id="feedback-smt" value="Submit" onclick="return submitFeedback()"/>-->
+<div class="feedback-button-container">
+    <button type="button" class="button btn-address btn-feedback" onclick="return submitFeedback()" title="<?php echo $this->__('Submit') ?>" <span><span><?php echo $this->__('Submit') ?></span></span></button>
+</div>
+<span class="feedback-close-popup">No, May be next time</span>   
+  <div class="gadget-icon"><img src="<?php echo $this->getSkinUrl(); ?>images/ebt/gadget-mobile-icon.png"></div>
+    </div>
+  </div>
+<!-- ############# End code for feedback form (Code by JP) ############## -->
+<script>
+  jQuery( document ).ready(function() {
+    jQuery( function() {
+      setTimeout(function(){ jQuery(".popup-feedback").fadeIn("slow"); }, 3000);              
+  });
+
+    jQuery(".btn-feedback").click(function(){
+        jQuery(".popup-feedback").fadeIn("slow");
+    });
+    jQuery(".feedback-close-popup").click(function(){
+        jQuery(".popup-feedback").fadeOut("slow");
+    });
+
+    jQuery("input[name$='rate']").click(function() {
+       jQuery("#feedback-input-box").show("slow");
+      });    
+});
+
+    function submitFeedback()
+    {   
+        jQuery('#succ-mes').html('');
+        jQuery('#err-mes').html('');
+        var url = "<?php echo $this->getUrl('feedback/index/sendfeedback') ?>";        
+        var feedback = jQuery('#feedback').val(); //alert(feedback);
+        var cid = jQuery('#cid').val(); //alert(rate);
+        var orderid = jQuery('#orderid').val(); //alert(rate);   
+        var cname = jQuery('#name').val();     
+        var cemail = jQuery('#email').val();
+        var mobile = jQuery('#mobile').val();
+        var scale = document.querySelectorAll('input[type="radio"]:checked');
+        var scalevalue = scale.length>0? scale[0].value: null; 
+        if(scalevalue == null){
+            //alert("Please select Scale.");
+            jQuery('#err-mes').html('Please select Scale.');
+            return false;
+        }                
+        // if(feedback == ''){
+        //     //alert("Please select Scale.");
+        //     jQuery('#err-mes').html('Please enter proper feedback.');
+        //     return false;
+        // }  
+        jQuery.ajax({
+            url: url,
+            data: {scale:scalevalue,comments:feedback,cid:cid,name:cname,email:cemail,mobile:mobile,orderid:orderid},   
+            type: 'POST', 
+            success: function(response) {
+                //jQuery('#email_address').html(data).css('display','block');
+                var data = JSON.parse(response);
+                // console.log();
+                if(data.status){                                      
+                    jQuery('#succ-mes').html(data.message);
+                    jQuery(".popup-feedback").fadeOut("slow");                    
+                }
+                else
+                {
+                   jQuery('#err-mes').html(data.message);
+                   jQuery(".popup-feedback").fadeOut("slow");                 
+                }
+            }
+        }); 
+ 
+        //return false;  
+    }  
+</script>

@@ -1,0 +1,325 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     rwd_default
+ * @copyright   Copyright (c) 2014 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+/**
+ * @var Mage_Page_Block_Html_Header $this
+ */
+$base = Mage::getBaseUrl();
+$skinurl = $this->getSkinUrl();
+// var_dump(Mage::getSingleton('customer/session'));
+?>
+	<div class="top-header">
+		
+		<div class="header-language-background">
+		    <div class="header-language-container clearfix">
+			<div class="store-language-container">
+			    <?php echo $this->getChildHtml('store_language') ?>
+			</div>
+			
+
+			    <?php // echo $this->getLayout()->createBlock('cms/block')->setBlockId('header-contact-no')->toHtml(); ?> 
+
+			    <!-- <div id="main_links" onclick="toplinksClick()" class="main-links"><p>Top Links</p></div>  -->
+
+				
+	  			<a class="responsive-menu-icon"><img src="<?php echo $this->getSkinUrl(); ?>images/ebt/responsive-menu.png"></a>
+	  			<div class="toll-free-number-container toll-free-mobile">
+					<p class="dial">For any queries dial</p>
+					<p class="dial-number">1800-266-4000</p>
+					<p class="emailid"><a href="mailto:support@electronicsbazaar.com">support@electronicsbazaar.com</a></p>
+				</div>
+				<a class="more-links"><img src="<?php echo $this->getSkinUrl(); ?>images/ebt/more.png"></a>
+				<a class="search-links"><img src="<?php echo $this->getSkinUrl(); ?>images/ebt/search-active.png"></a>
+				    <?php 
+					    /*
+			    <ul id="top-links" class="top-links clearfix"> 
+							<!--li class="first phone"><?php #echo $this->getLayout()->createBlock('cms/block')->setBlockId('header-contact-no')->toHtml(); ?></li-->
+							<!--li class="first"><a href="<?php //echo Mage::getUrl('deals/'); ?>">Deals of The Day</a></li-->
+							<li><a href="<?php echo $this->getBaseUrl().'gadget/'; ?>"><i class="fa fa-tag" aria-hidden="true"></i> Sell Your Gadget</a></li>
+
+						*/ 
+					?>
+					<?php echo $this->getChildHtml('topLinks') ?> 
+					<?php 
+					    /*
+
+					<li class="deals"><a href="http://www.electronicsbazaar.com/deals/"><i class="fa fa-tag" aria-hidden="true"></i>Deals of The Day</a></li>
+
+
+
+					<li class="brand-connect"><a href="#"> <i class="fa fa-tag" aria-hidden="true"></i>Brand Connect </a></li>
+
+					*/ 
+					?>
+
+					<!--li><a href="<?php //echo Mage::getUrl('track/order'); ?>"><i class="fa fa-map-marker" aria-hidden="true"></i>Track Your Order</a></li-->
+					<!--li><a href="<?php //echo Mage::getUrl('faq'); ?>"><i class="fa fa-question" aria-hidden="true"></i>FAQ</a></li-->
+					<?php /* if(!Mage::getSingleton('customer/session')->isLoggedIn()): ?>
+						<!--li><a href="<?php// echo Mage::getUrl('customer/account/login'); ?>"><i class="fa fa-pencil" aria-hidden="true"></i>Register</a></li-->
+				    	<!--<li class="login"><a href="javascript:void(0)">Login/Sign Up</a></li>-->
+				    	<li class="login"><a href="<?php echo Mage::getUrl('customer/account/login'); ?>">Login/Sign Up</a></li>
+					<?php else: ?>
+						<li class="my-acct"><a href="<?php echo Mage::getUrl('customer/account'); ?>">My Account</a></li>
+						<li class="logout"><a href="<?php echo Mage::getUrl('customer/account/logout'); ?>">Log Out</a></li> 
+					<?php endif; ?>
+					<!-- <li class="my-cart"><a href="<?php // echo Mage::getUrl('checkout/cart'); ?>">My Cart</a></li> -->
+					<li class="right-links">
+						<ul>
+							<li class="track-order"><a href="<?php echo Mage::getUrl('track/order'); ?>">Track your order</a></li>
+							<li class="download-app"><a href="<?php echo Mage::getUrl('download-app/'); ?>">Download App</a></li>  
+							<li class="support"><a href="mailto:support@electronicsbazaar.com">Support</a></li>
+						</ul>
+					</li>					
+				</ul>
+			     <?php */ ?>
+				
+	  
+
+
+			<?php //echo $this->getChildHtml('currency_switcher') ?>
+
+			<!--<p class="welcome-msg"><?php //echo $this->getChildHtml('welcome') ?> <?php //echo $this->getAdditionalHtml() ?></p>-->
+		    </div>
+		</div>
+		<header id="header" class="page-header mobile-page-header">
+		    <div class="page-header-container clearfix">
+		    <div class="logo">
+				<a href="<?php echo $this->getUrl('') ?>" class="logo-image">
+				    <img src="<?php echo $this->getLogoSrc() ?>" alt="<?php echo $this->getLogoAlt() ?>" />
+				    <?php /* ?> <img src="<?php echo $this->getLogoSrcSmall() ?>" alt="<?php echo $this->getLogoAlt() ?>" class="small" /> <?php */ ?>
+				</a>
+				<a href="<?php echo $this->getUrl('microsoft-auth-refurbisher') ?>" title="Microsoft Authorized Refurbisher"> <div class="logo-microsoft">Microsoft Authorized Refurbisher</div> </a>
+			</div>
+
+			<?php // In order for the language switcher to display next to logo on smaller viewports, it will be moved here.
+			      // See app.js for details ?>
+
+			    <?php // commented below 2 lines as a part of optimization on the 1st April 2015 by Pradeep Sanku ?>
+				<?php //$index_block = new Neo_Customblocks_Block_Index(); ?>
+				<?php //$categories = $index_block->getAllCategories(); ?>
+			
+			<!-- Search -->
+
+			
+
+			<!-- Skip Links -->
+	 
+	 		<?php /* ?>
+			<div class="skip-links">
+			    <a onclick="addclassnav()" href="#header-nav" class="skip-link skip-nav mobile-nav">
+				<span class="icon"><i class="fa fa-navicon" aria-hidden="true"></i></span>  
+				<span class="label"><?php echo $this->__('Menu'); ?></span>
+			    </a>
+
+			    <a href="#header-search" class="skip-link skip-search">
+				<span class="icon"><i aria-hidden="true" class="fa fa-search"></i></span>
+				<span class="label"><?php echo $this->__('Search'); ?></span>
+			    </a>
+
+			    <!--div class="mini-wishlist">
+				    <?php //$wish_count = Mage::helper('wishlist')->getItemCount(); ?>
+				    <a href="<?php //echo Mage::getUrl('wishlist'); ?>" class="wishlist-icon" title="My Wishlist">
+				    <span class="icon"></span>
+				    <?php //if($wish_count): ?><span class="count"><?php //echo $wish_count; ?></span><span class="mytopwishlist">Wishlist</span><?php //endif; ?></a>
+			    </div-->
+
+				<!-- Cart -->		     
+			</div>
+			<?php */ ?>
+			
+
+			<!-- <div class="lenovo-small-banner">
+			  <a onclick="ga('send', 'event', { eventCategory: 'home-banner', eventAction: 'click', eventLabel: 'sell-your-gadget'});" href="<?php //echo $this->getUrl('lenovoprogram') ?>"><img src="<?php //echo $this->getUrl('skin/frontend/rwd/electronics/customs/images/sell-gadget/').'lenovo-buy-back.png' ?>">
+			  </a>
+			</div> --> 
+			<div class="header-right">
+				<div id="header-search" class="skip-content">					
+				    <?php echo $this->getChildHtml('topSearch') ?>
+				</div>
+				<!-- <div class="gsti-container">
+					<a href="<?php // echo $this->getBaseUrl().'customer/gst/details' ?>" class="clearfix">
+						<span class="gsti-click">Click Here <span class="gst-to">to</span> <span class="gst-submit">submit your</span></span>
+						<span class="gst-identification">GST <span class="gst-number">Indentification Number</span></span>
+					</a>
+				</div> -->
+				<div class="wishlist-cart-list">
+					<div class="mini-wishlist my-wishlist">
+					    <?php $wish_count = Mage::helper('wishlist')->getItemCount(); ?>
+					    <a href="<?php echo Mage::getUrl('wishlist'); ?>" class="wishlist-icon" title="My Wishlist">
+					    <span class="icon"></span>
+					    <?php if($wish_count): ?><span class="count"><?php echo $wish_count; ?></span><?php endif; ?></a>
+				    </div>
+					<div class="header-minicart my-cart">
+						<?php echo $this->getChildHtml('minicart_head'); ?>
+			    	</div>					
+				</div>
+			</div>
+				
+				<div id="header-account" class="skip-content">
+			    <?php // echo $this->getChildHtml('topLinks') ?> 
+			</div>
+
+			<!-- Cart -->
+		    </div>
+		</header>
+
+
+		<!-- Navigation -->
+
+		<div class="main-navigation clearfix">
+			<div class="main">
+		        <div id="header-nav" class="skip-content nav-inner">            
+			    	<?php echo $this->getChildHtml('topMenu') ?>
+			    	<?php /* ?> <div class="header-minicart">
+						<?php echo $this->getChildHtml('minicart_head'); ?>
+			    	</div><?php */ ?>            
+		        </div>
+		        <?php /*?>
+		        <a title="Get credit now" href="<?php echo $this->getUrl().'shubhlabh'; ?>"><div class="suvidha-button"><img src="<?php echo $this->getSkinUrl() ?>images/new-images/shubh-labh.png" alt="Get credit now"></div></a>
+		        <div class="header-deals">
+		        	<a href="<?php echo Mage::getUrl('deals/'); ?>">Deals</a>		        	
+		        </div> <?php */?>
+	        </div>
+        </div>
+
+        </div>
+
+<?php echo $this->getChildHtml('topContainer'); ?>
+<?php /*$is_homepage = Mage::getBlockSingleton('page/html_header')->getIsHomePage(); ?>
+<?php if($is_homepage): ?>
+  
+
+<!-- Initialize Swiper --> 
+    <script>
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination', 
+        paginationClickable: true,
+        spaceBetween: 30,
+  autoplay: 2500
+    });
+    </script>
+
+    <div class="main-container"> <!--Start slider-container-->
+   	<div class="main">
+   		<?php
+	   		//echo '<div class="main-slider-container clearfix">';
+			//echo $this->getLayout()->createBlock("bannerslider/default")->setTemplate("bannerslider/custombannerslider.phtml")->setBannersliderId(1)->toHtml();
+			//echo '</div>';
+			//echo $this->getLayout()->createBlock("neo_sidebanner/sidebanner")->setTemplate("sidebanner/sidebanner.phtml")->toHtml();
+			
+		?>
+		<?php #echo $this->getLayout()->createBlock('cms/block')->setBlockId('home_top_banner_block')->toHtml(); ?>
+   		<?php #echo $this->getLayout()->createBlock("bannerslider/default")->setTemplate("bannerslider/bannerslider.phtml")->setBannersliderId(1)->toHtml(); ?>
+<?php //echo $this->getLayout()->createBlock("core/template")->setTemplate("bannerslider/hotselling.phtml")->toHtml(); ?>
+   	</div>
+
+ </div>
+<?php endif; */ ?> 
+
+<script type="text/javascript">
+
+	var toplinks = document.getElementById("top-links");
+	var check = 2;
+
+	function toplinksClick()
+    {
+
+    	if(check % 2 === 0){
+            toplinks.classList.add("active");
+        }else{ 
+            toplinks.classList.remove("active");
+        }
+        check = check+1; 
+    	
+    	return false;
+    }
+
+
+    var nav = document.getElementById("nav");
+    var check1 = 2;
+
+	function addclassnav()
+    {
+
+    	if(check1 % 2 === 0){
+            nav.classList.add("skip-active");
+        }else{ 
+            nav.classList.remove("skip-active");
+        }
+        check1 = check1+1;  
+    	
+    	return false;
+    }
+
+</script>
+
+<script type="text/javascript">
+var jqnav = jQuery.noConflict();
+ jqnav(".nav-primary li.level0").mouseover(function() {
+  jqnav(this).find("ul.level0").addClass( "active" );
+ });
+ jqnav(".nav-primary li.level0").mouseleave(function() {
+  jqnav(this).find("ul.level0").removeClass( "active" );
+ });
+
+ jqnav(".nav-primary li.level1").mouseover(function() {  
+  jqnav(this).find("ul.level1").addClass( "active" );
+ });
+ jqnav(".nav-primary li.level1").mouseleave(function() {
+  jqnav(this).find("ul.level1").removeClass( "active" );
+ });
+</script>
+<?php /* ?>
+<!-- Start Alexa Certify Javascript -->   
+<script type="text/javascript">
+_atrk_opts = { atrk_acct:"X6awo1IWx810V1", domain:"electronicsbazaar.com",dynamic: true};
+(function() { var as = document.createElement('script'); as.type = 'text/javascript'; as.async = true; as.src = "https://d31qbv1cthcecs.cloudfront.net/atrk.js"; var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(as, s); })();
+</script>
+<noscript><img src="https://d5nxst8fruw4z.cloudfront.net/atrk.gif?account=X6awo1IWx810V1" style="display:none" height="1" width="1" alt="" /></noscript>
+<!-- End Alexa Certify Javascript --> <?php */ ?>
+
+
+
+<!-- code for redirection after login -->
+
+<?php  /*
+	$request = $this->getRequest();
+ 	$action = $request->getActionName();
+
+if(Mage::registry('current_product')){
+	Mage::getSingleton('core/session')->setRedirectFlag('pro');
+}elseif(Mage::registry('current_category')){
+	Mage::getSingleton('core/session')->setRedirectFlag('pro');
+}elseif($this->getIsHomePage()) {
+	Mage::getSingleton('core/session')->setRedirectFlag('pro');
+}elseif($action == 'login'){
+	if(Mage::getSingleton('core/session')->getRedirectFlag()){
+		Mage::getSingleton('core/session')->setRedirectFlag(Mage::getSingleton('core/session')->getRedirectFlag());
+	}
+}else{
+	Mage::getSingleton('core/session')->setRedirectFlag('other');
+
+} */
+?>

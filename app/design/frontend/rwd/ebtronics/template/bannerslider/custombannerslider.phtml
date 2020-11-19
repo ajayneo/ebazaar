@@ -1,0 +1,210 @@
+<?php
+      $result = $this->getBlockData();
+      $banners = $result['banners'];
+
+    ?>
+<!-- Initialize Swiper --> 
+    <script>
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination', 
+        paginationClickable: true,
+        spaceBetween: 30,
+  autoplay: 2500
+    });
+    </script>
+<div class="banners-container"> <!--Start slider-container-->
+    <div class="main">
+  <div class="banner-left">
+
+    <div class="flashy-banner banner-top-container clearfix">
+      <ul class="new-slider-banner clearfix">
+
+        <?php foreach ($banners as $banner) : ?>
+
+          <?php if($banner['bannerslider_id'] == 2):  ?>
+
+          <li onclick="ga('send', 'event', { eventCategory: 'home-banner', eventAction: 'click', eventLabel: '<?php echo $banner['name'] ?> '});">
+            <?php if($banner['click_url']){ ?>
+            <a href="<?php echo $banner['click_url'] ?>" target="_blank">
+            <?php } ?>  
+              <img src="<?php echo $this->getBannerImage($banner['image']);?>">
+            <?php if($banner['click_url']){ ?>
+            </a>
+            <?php } ?>  
+          </li>  
+
+        <?php endif; ?>
+        <?php endforeach; ?>
+
+      </ul>   
+    </div>
+     
+   
+    
+
+    <!-- <div class="right-side-panel">
+    <div class="exciting-offers"><a href="https://www.electronicsbazaar.com/deals/"><img src="https://www.electronicsbazaar.com/skin/frontend/rwd/electronics/customs/images/big_day_web.png"></a>
+    </div>
+
+
+    <div class="partnerprogram">
+     <a href="https://www.electronicsbazaar.com/partner_program" ><img src="https://www.electronicsbazaar.com/neweb/skin/frontend/rwd/electronics/customs/images/partner-program.jpg" /> </a> 
+     
+    </div>
+
+    <div class="coupon-code-container hourlydeals">
+    <a href="https://www.electronicsbazaar.com/warranty" >
+     <img src="https://electronicsbazaar.com/skin/frontend/rwd/electronics/customs/images/warranty.jpg" />
+     </a>
+     
+    </div>
+   </div> -->
+
+  <div class="banner-bottom-container">
+                  <ul class="clearfix">
+                    <!-- <li class="register-now-container">
+                      <a href="<?php echo $this->getUrl('customer/account/login'); ?>" class="clearfix" title="Register Now">
+                        <span class="register-content-container clearfix">
+                        <span class="register-left">
+                          <span class="register-now-text">Register now<br><span>&amp; get</span><span class="off-text">200/- Off</span></span>
+                        </span>
+                        <span class="register-right">
+                          <span class="on-your-purchase">On your first Purchase!!</span>
+                          <span class="coupon-code">Use Coupon Code</span>
+                          <span class="newsignup"><span>NEWSIGNUP200</span></span>
+                        </span>
+                        </span>
+                        <span class="brand-new-scheme">**The scheme excludes Brand New Mobiles of Motorola and Lenovo</span>
+                      </a>
+                    </li> -->
+                    <li class="download-app-container clearfix">
+                      <div class="download-app-left">
+                        <p><a href="<?php echo $this->getUrl('download-app'); ?>">Click here to <span class="download-text">Download</span> <span class="download-text">Mobile App</span> <span class="now">now</span></a></p>
+                        <span class="mobile-app-icon"><img src="<?php echo $this->getSkinUrl(); ?>images/ebt/app-icon.png" alt="Mobile App Icon" /></span>
+                      </div>
+                      <div class="download-app-right">
+                        <a href="https://play.google.com/store/apps/details?id=com.electronicsbazaar.electronicsbazaar" title="Google Play" target="_blank"><img src="<?php echo $this->getSkinUrl(); ?>images/ebt/google-play.png" alt="Google Play" /></a>
+                        <a href="https://itunes.apple.com/us/app/electronicsbazaar.com/id1064879270?ls=1&mt=8" title="App Store" target="_blank"><img src="<?php echo $this->getSkinUrl(); ?>images/ebt/app-store.png" alt="App Store" /></a>
+                      </div>
+                    </li>
+                    <li class="deals-link-container">
+                      <a href="<?php echo $this->getUrl('deals'); ?>" title="Deals of The Day">
+                        <span class="deals-text">Deals</span>
+                        <span class="deals-text2">of the</span>
+                        <span class="deals-text3">Day</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+
+  </div>   
+ 
+
+  <div class="banner-right">
+    <ul class="clearfix">
+        <li class="eb-warranty-desktop eb-warranty-banner"><a href="<?php echo $this->getUrl('warranty'); ?>" title="EB Warranty">
+        <!-- <img src="<?php // echo $this->getSkinUrl(); ?>images/ebt/eb-warranty.png" alt="EB Warranty" /> -->
+          <span class="warranty-top clearfix">
+            <!-- <span class="one-yr"><img src="<?php // echo $this->getSkinUrl(); ?>images/ebt/one-yr.png" alt="EB Warranty" /></span> -->
+            <span class="eb-warranty-for-all"><!-- Year --> EB Warranty for</span></span>
+          </span>
+          <span class="warranty-preowned-products">Open Box &amp; Pre Owned Products</span>
+          <span class="shop-now">Shop Now</span>
+        </a></li>
+        <li class="lenovo-motorola-banner">
+          <a href="<?php echo $this->getUrl('mobiles/brand-new-mobiles-moto-lenovo'); ?>" title="Brand New Mobiles Lenovo & Motorola">
+            <span class="lenovo-top">
+              <span class="eb-seller">*EB is now Authorised Seller for</span>
+              <span class="lenovo-smartphone clearfix">
+                <span class="lenovo">Lenovo &amp; Motorola</span>
+                <span class="smart-phone">Smart Phones</span>
+              </span>
+            </span>
+            <span class="lenovo-shop-now clearfix">
+              <span class="buy-2-units"></span>
+              <span class="shop-now-icon"><img src="<?php echo $this->getSkinUrl(); ?>images/ebt/shop-now.jpg" alt="Shop now" /></span>
+            </span>
+          </a>
+        </li>
+       
+        <li>
+          <div class="gsti-container">
+            <a href="https://www.electronicsbazaar.com/customer/gst/details" class="clearfix">
+              <span class="gsti-click">Click Here <span class="gst-to">to</span> <span class="gst-submit">submit your</span></span>
+              <span class="gst-identification">GST <span class="gst-number">Indentification Number</span></span>
+            </a>
+          </div>
+        </li> 
+
+        <!-- <li>
+          <div class="">
+            <a href="https://www.electronicsbazaar.com/moto-diwali-dhamaka" class="clearfix">
+            <img src="http://electronicsbazaar.com/media/homepage/diwali_dhamaka.jpg" alt="Diwali Dhamaka"/>
+            </a>
+          </div>
+        </li> -->
+        
+        <!-- <li class="eb-warranty-mobile">
+                  <a href="<?php //echo $this->getUrl('warranty'); ?>">
+                    <span class="eb-warranty-top clearfix">
+                      <span class="warranty-left clearfix">
+                        <span class="eb-left">1</span>
+                        <span class="eb-right">
+                          <span>Year EB</span>
+                          <span>Warranty</span>
+                        </span>
+                      </span>
+                      <span class="warranty-right">
+                        <span class="warranty-category">Now for Pre Owned</span>
+                        <span class="warranty-mobile">Mobiles</span>
+                        <span class="warranty-laptop">Laptops</span>
+                      </span>
+                    </span>
+                    <span class="eb-click">Click here to Know More</span>
+                  </a>
+                </li> -->
+        
+    </ul>
+
+    <!-- <div class="bottom-right-container">
+    <div class="coupon-code-container">
+       <a onclick="ga('send', 'event', { eventCategory: 'home-banner', eventAction: 'click', eventLabel: 'register-now'});" href="https://www.electronicsbazaar.com/customer/account/login/" target="_blank">
+        <img src="https://www.electronicsbazaar.com/skin/frontend/rwd/electronics/customs/images/200off.jpg" />
+       </a>
+      </div>
+
+    <div class="app-order-container">
+        <a href="https://www.electronicsbazaar.com/download-app/" target="_blank"><span class="getextra">Get Extra</span>
+        <span class="app-amount">0.5%<span class="amount-off">Off</span></span>
+        <span class="allorders">for all orders through Mobile App only</span>
+        <span class="download-now">Download Now!!!</span> </a>
+        <a onclick="ga('send', 'event', { eventCategory: 'home-banner', eventAction: 'click', eventLabel: 'download-now'});" href="https://play.google.com/store/apps/details?id=com.electronicsbazaar.electronicsbazaar" target="_blank"><img src="https://www.electronicsbazaar.com/skin/frontend/rwd/electronics/customs/images/google-play-new.png"></a>
+          <a href="https://itunes.apple.com/us/app/electronicsbazaar.com/id1064879270?ls=1&mt=8" target="_blank"><img src="https://www.electronicsbazaar.com/skin/frontend/rwd/electronics/customs/images/app-store-new.png"></a>
+      </div>
+
+      </div> -->
+
+  </div>
+  
+  <script type="text/javascript"> 
+
+  var jqcs = jQuery.noConflict();
+   jqcs('.newDealsSlider').bxSlider({
+      auto: true, 
+      speed: 500,
+      pause: 2000
+   });
+  </script>
+
+  <script type="text/javascript"> 
+  var jqcs = jQuery.noConflict();
+   jqcs('.new-slider-banner').bxSlider({
+      auto: true,
+      speed: 1000,
+      pause: 5000,
+      pager: true,
+   controls: true 
+   });
+  </script>
+  </div>
+</div>  

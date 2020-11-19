@@ -1,0 +1,410 @@
+<?php
+class Neo_Affiliate_Model_Eav_Entity_Attribute_Source_Affiliatescontacts extends Mage_Eav_Model_Entity_Attribute_Source_Abstract
+{
+    /**
+     * Retrieve all options array
+     *
+     * @return array ASM
+     */
+    public function getAllOptions()
+    {
+        if (is_null($this->_options)) {
+            $this->_options = array(
+			 
+
+				array(
+                    "label" => Mage::helper("eav")->__(""),
+                    "value" =>  ""
+                ),
+	               
+                   array(  
+                    "label" => Mage::helper("eav")->__("Whatsapp campaign"), 
+                    "value" =>  76
+                ), 
+                array(  
+                    "label" => Mage::helper("eav")->__("Emailers"), 
+                    "value" =>  77
+                ),
+                
+                array(
+                    "label" => Mage::helper("eav")->__("Abraham Varakala"),
+                    "value" =>  2
+                ),
+	
+                array(
+                    "label" => Mage::helper("eav")->__("Amit Kumar Vishnoi"),
+                    "value" =>  3
+                ),
+	
+                array(
+                    "label" => Mage::helper("eav")->__("Ashutosh Shukla"),
+                    "value" =>  4
+                ),
+                
+                
+                array(
+                    "label" => Mage::helper("eav")->__("Dhiraj Ahuja"),
+                    "value" =>  6
+                ),
+    
+                array(
+                    "label" => Mage::helper("eav")->__("Mohammed Rizwan Uddin"),
+                    "value" =>  8
+                ),
+
+                array(
+                    "label" => Mage::helper("eav")->__("Rajdeep Nandi"),
+                    "value" =>  10
+                ),
+    
+                array(
+                    "label" => Mage::helper("eav")->__("Ratish Mehrotra"),
+                    "value" =>  11
+                ),
+
+                array(
+                    "label" => Mage::helper("eav")->__("Bedanta Haloi"),
+                    "value" =>  14
+                ),
+
+      
+                 array(
+                    "label" => Mage::helper("eav")->__("Birendra Kumar"),
+                    "value" =>  17
+                ),
+    
+                array(
+                    "label" => Mage::helper("eav")->__("Channel Play"),
+                    "value" =>  19
+                ), 
+                
+                array(
+                    "label" => Mage::helper("eav")->__("Binod Kumar Singh"),
+                    "value" =>  21
+                ),
+      
+                array(
+                    "label" => Mage::helper("eav")->__("Pradeep Munot"),
+                    "value" =>  23
+                ),
+                array(
+                    "label" => Mage::helper("eav")->__("Gagandeep Chhatwal"),
+                    "value" =>  24
+                ),
+                
+          
+                array(
+                    "label" => Mage::helper("eav")->__("Ugandhar Konda"),
+                    "value" =>  27
+                ),
+
+              
+                array(
+                    "label" => Mage::helper("eav")->__("Ashish Patidar"),
+                    "value" =>  30
+                ), 
+                
+                
+                array(
+                    "label" => Mage::helper("eav")->__("Vivek Sisodiya"),   
+                    "value" =>  33
+                ), 
+                array(
+                    "label" => Mage::helper("eav")->__("Manas Banerjee"),   
+                    "value" =>  34
+                ), 
+                
+                
+                array(
+                    "label" => Mage::helper("eav")->__("Gaurav Bajpai"),    
+                    "value" =>  37
+                ),
+                array(
+                    "label" => Mage::helper("eav")->__("Rajesh Tiwari"),    
+                    "value" =>  38
+                ),
+                
+                
+                array(
+                    "label" => Mage::helper("eav")->__("Raj Kalet"),    
+                    "value" =>  42 
+                ),
+                
+                array(
+                    "label" => Mage::helper("eav")->__("Gaurav Panchal"),    
+                    "value" =>  44  
+                ),
+                
+                array(
+                    "label" => Mage::helper("eav")->__("Ramamoorthy Krishnan"),    
+                    "value" =>  46
+                ),
+                array(
+                    "label" => Mage::helper("eav")->__("PANKAJ KUMAR"),    
+                    "value" =>  47
+                ),
+                array(
+                    "label" => Mage::helper("eav")->__("Tanweer Ansari"),    
+                    "value" =>  48
+                ),
+                
+                array(
+                    "label" => Mage::helper("eav")->__("Varinder Singh"),    
+                    "value" =>  51
+                ),    
+                array(
+                    "label" => Mage::helper("eav")->__("Sahil Mujoo"),    
+                    "value" =>  52
+                ),
+               
+                array(
+                    "label" => Mage::helper("eav")->__("Shailesh Singhal"),    
+                    "value" =>  54 
+                ), 
+                array(
+                    "label" => Mage::helper("eav")->__("Sandeep Mukherjee"),    
+                    "value" =>  55
+                ),  
+                array(
+                    "label" => Mage::helper("eav")->__("Ramkrishna Sahoo"),    
+                    "value" =>  56  
+                ), 
+                array(
+                    "label" => Mage::helper("eav")->__("AMIT BHUSHAN SHARMA"),
+                    "value" =>  57 
+                ),  
+                array(
+                    "label" => Mage::helper("eav")->__("Sohan Karunamoorthy"),
+                    "value" =>  58
+                ), 
+                array(
+                    "label" => Mage::helper("eav")->__("Biplov Bose"),
+                    "value" =>  59
+                ), 
+                   
+                array(
+                    "label" => Mage::helper("eav")->__("Suraj Bhandari"),
+                    "value" =>  61
+                ), 
+                array(
+                    "label" => Mage::helper("eav")->__("Abhijeet Sontakke"),
+                    "value" =>  62
+                ),  
+                array(
+                    "label" => Mage::helper("eav")->__("Abhishek Pandey"),
+                    "value" =>  63
+                ),  
+                array(
+                    "label" => Mage::helper("eav")->__("Rajinder Singh"),
+                    "value" =>  64
+                ), 
+                array(
+                    "label" => Mage::helper("eav")->__("Neetesh Vinode"),
+                    "value" =>  65
+                ), 
+                array(
+                    "label" => Mage::helper("eav")->__("Syed Tabrez"), 
+                    "value" =>  66
+                ),
+                array(
+                    "label" => Mage::helper("eav")->__("Sathish Vittal"), 
+                    "value" =>  67
+                ),
+                array(  
+                    "label" => Mage::helper("eav")->__("Chhitij Awasti"), 
+                    "value" =>  68
+                ), 
+                array(  
+                    "label" => Mage::helper("eav")->__("Neeraj Kumar"), 
+                    "value" =>  69
+                ),  
+                
+                array(  
+                    "label" => Mage::helper("eav")->__("Vijay Kumar Guvvala"), 
+                    "value" =>  71
+                ), 
+                array(  
+                    "label" => Mage::helper("eav")->__("Vishnu Kmar"), 
+                    "value" =>  72
+                ),  
+                array(  
+                    "label" => Mage::helper("eav")->__("Manish Kumar Verma"), 
+                    "value" =>  73
+                ), 
+                 array(  
+                    "label" => Mage::helper("eav")->__("Mahendra Parihar"), 
+                    "value" =>  74
+                ),   
+                 array(  
+                    "label" => Mage::helper("eav")->__("Pavan  Pandhi"), 
+                    "value" =>  75
+                ), 
+                
+                array(  
+                    "label" => Mage::helper("eav")->__("Karthik Raj"), 
+                    "value" =>  78
+                ), 
+                array(  
+                    "label" => Mage::helper("eav")->__("Marconix"), 
+                    "value" =>  79
+                ),  
+                array(  
+                    "label" => Mage::helper("eav")->__("Subham Dixit"), 
+                    "value" =>  80
+                ),
+                array(  
+                    "label" => Mage::helper("eav")->__("Elayaraja"), 
+                    "value" =>  81
+                ),
+                array(  
+                    "label" => Mage::helper("eav")->__("Ravi Amrit"), 
+                    "value" =>  82
+                ),
+                array(  
+                    "label" => Mage::helper("eav")->__("Krishan Pratap Singh"), 
+                    "value" =>  83
+                ),     
+            ); 
+        }
+        return $this->_options;  
+    }   
+     
+    /** 
+     * Retrieve option array
+     * 
+     * @return array
+     */
+    public function getOptionArray()  
+    {
+        $_options = array();
+        foreach ($this->getAllOptions() as $option) {
+            $_options[$option["value"]] = $option["label"];
+        }
+        return $_options;
+    }
+
+    /**
+     * Get a text for option value
+     *
+     * @param string|integer $value
+     * @return string
+     */
+    public function getOptionText($value)
+    {
+        $options = $this->getAllOptions();
+        foreach ($options as $option) {
+            if ($option["value"] == $value) {
+                return $option["label"];
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Retrieve Column(s) for Flat
+     *
+     * @return array
+     */
+    /*public function getFlatColums()
+    {
+        $columns = array();
+        $columns[$this->getAttribute()->getAttributeCode()] = array(
+            "type"      => "tinyint(1)",
+            "unsigned"  => false,
+            "is_null"   => true,
+            "default"   => null,
+            "extra"     => null
+        );
+
+        return $columns;
+    }*/
+
+    /**
+     * Retrieve Indexes(s) for Flat
+     *
+     * @return array
+     */
+    /*public function getFlatIndexes()
+    {
+        $indexes = array();
+
+        $index = "IDX_" . strtoupper($this->getAttribute()->getAttributeCode());
+        $indexes[$index] = array(
+            "type"      => "index",
+            "fields"    => array($this->getAttribute()->getAttributeCode())
+        );
+
+        return $indexes;
+    }*/
+
+    /**
+     * Retrieve Select For Flat Attribute update
+     *
+     * @param int $store
+     * @return Varien_Db_Select|null
+     */
+    /*public function getFlatUpdateSelect($store)
+    {
+        return Mage::getResourceModel("eav/entity_attribute")
+            ->getFlatUpdateSelect($this->getAttribute(), $store);
+    }*/
+
+    /**
+     * Retrieve all options array
+     *
+     * @return array RSM
+     */
+    public function getOptionArray2()
+    {
+        if (is_null($this->_options)) {
+            $this->_options = array(
+            
+                array(
+                    "label" => Mage::helper("eav")->__(""),
+                    "value" =>  ""
+                ),
+                
+                array(
+                    "label" => Mage::helper("eav")->__("Sandeep Mukherjee"),
+                    "value" =>  1
+                ),
+                array(
+                    "label" => Mage::helper("eav")->__("Chhitij Awasti"),
+                    "value" =>  2
+                ),
+                array(
+                    "label" => Mage::helper("eav")->__("Praveen Shrivastva"),
+                    "value" =>  3
+                ),
+                array(
+                    "label" => Mage::helper("eav")->__("Sathish Vittal"),
+                    "value" =>  4
+                ),
+                array(
+                    "label" => Mage::helper("eav")->__("Raffiq"),
+                    "value" =>  5
+                ),
+                array(
+                    "label" => Mage::helper("eav")->__("Mazhar Shaikh"),
+                    "value" =>  6
+                ),
+                
+            ); 
+        }
+        return $this->_options;  
+    }   
+
+    static public function getOptionText2($value)
+    {
+        $obj = new Neo_Affiliate_Model_Eav_Entity_Attribute_Source_Affiliatescontacts;
+        $options = $obj->getOptionArray2();
+        foreach ($options as $option) {
+            if ($option["value"] == $value) {
+                return $option["label"];
+            }
+        }
+        return false;
+    }
+}
+
+			 

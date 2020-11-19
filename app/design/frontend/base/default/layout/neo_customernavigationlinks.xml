@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<layout>
+<!-- Removes Customer Navigation Links from My Account -->
+	<customer_account>
+		<reference name="customer_account_navigation">
+			<action method="removeLinkByName" ifconfig="neocustomernavigation_options/neocustomernavigation_links/account">
+				<name>account</name>
+			</action>
+			<action method="removeLinkByName" ifconfig="neocustomernavigation_options/neocustomernavigation_links/account_edit">
+				<name>account_edit</name>
+			</action>
+			<action method="removeLinkByName" ifconfig="neocustomernavigation_options/neocustomernavigation_links/address_book">
+				<name>address_book</name>	
+			</action>
+			<action method="removeLinkByName" ifconfig="neocustomernavigation_options/neocustomernavigation_links/orders">
+				<name>orders</name>	
+			</action>
+			<action method="removeLinkByName" ifconfig="neocustomernavigation_options/neocustomernavigation_links/billing_agreements">
+				<name>billing_agreements</name>	
+			</action>
+			<action method="removeLinkByName" ifconfig="neocustomernavigation_options/neocustomernavigation_links/recurring_profiles">
+				<name>recurring_profiles</name>	
+			</action>
+			<action method="removeLinkByName" ifconfig="neocustomernavigation_options/neocustomernavigation_links/reviews">
+				<name>reviews</name>	
+			</action>
+			<action method="removeLinkByName" ifconfig="neocustomernavigation_options/neocustomernavigation_links/wishlist">
+				<name>wishlist</name>	
+			</action>
+			<action method="removeLinkByName" ifconfig="neocustomernavigation_options/neocustomernavigation_links/oauth_customer_tokens">
+				<name>OAuth Customer Tokens</name>	
+			</action>
+			<action method="removeLinkByName" ifconfig="neocustomernavigation_options/neocustomernavigation_links/newsletter">
+				<name>newsletter</name>	
+			</action>
+			<action method="removeLinkByName" ifconfig="neocustomernavigation_options/neocustomernavigation_links/downloadable_products">
+				<name>downloadable_products</name>	
+			</action>
+			<action method="removeLinkByName" ifconfig="neocustomernavigation_options/neocustomernavigation_links/tags">
+				<name>tags</name>	
+			</action>
+			<action method="removeLinkByName">
+				<name>inchoo_socialconnect_google</name>	
+			</action>
+			<action method="removeLinkByName">
+				<name>inchoo_socialconnect_facebook</name>	
+			</action>
+			<action method="removeLinkByName">
+				<name>inchoo_socialconnect_twitter</name>	
+			</action>
+		</reference>
+	</customer_account>
+</layout>

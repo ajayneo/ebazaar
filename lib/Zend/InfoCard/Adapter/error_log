@@ -1,0 +1,2 @@
+[08-Oct-2018 16:04:48 Asia/Kolkata] PHP Fatal error:  Class 'Zend_InfoCard_Exception' not found in /home/electronicsbazaa/public_html/lib/Zend/InfoCard/Adapter/Exception.php on line 36
+[08-Oct-2018 16:04:48 Asia/Kolkata] PHP Fatal error:  Interface 'Zend_InfoCard_Adapter_Interface' not found in /home/electronicsbazaa/public_html/lib/Zend/InfoCard/Adapter/Default.php on line 41

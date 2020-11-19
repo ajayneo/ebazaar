@@ -1,0 +1,46 @@
+<?php 
+$dhlshipment = array('local','interstate','tamil_banglore','tamil_outer');
+$otherShipment = array('ecom','vexpress');
+foreach ($this->getContent() as $key => $content): 
+	if($key == 'dhl'){
+		$collDHLRegion = array();
+		echo "<p><u><b> For ".strtoupper($key)." : </b></u></p>";
+		foreach ($content as $data): 
+				$collDHLRegion[] = $data['region']; 
+			
+				if($data['region'] == 'local')
+					$region = 'Mumbai and Pune';
+				elseif($data['region'] == 'interstate')
+					$region = 'Other than Mumbai and Pune';
+				elseif($data['region'] == 'tamil_banglore')
+					$region = 'Tamilnadu and Banglore';
+				elseif($data['region'] == 'tamil_outer')
+					$region = 'Other than Tamilnadu and Banglore';
+
+			echo "<p><b>".$region ."</b> - ".$data['no_of_unused_awb']." Remaining</p>";
+
+		endforeach;
+
+		foreach (array_diff($dhlshipment, $collDHLRegion) as $key => $value) {
+			if($value == 'local')
+				$region = 'Mumbai and Pune';
+			elseif($value == 'interstate')
+				$region = 'Other than Mumbai and Pune';
+			elseif($value == 'tamil_banglore')
+				$region = 'Tamilnadu and Banglore';
+			elseif($value == 'tamil_outer')
+				$region = 'Other than Tamilnadu and Banglore';
+			
+			echo "<p style='color:red'><b>".$region ."</b> - 0 Remaining</p>";
+
+		}
+
+
+	}
+	else{
+		$otherRegion[] = $key; 
+		echo "<p><u><b>".strtoupper($key)."</b></u> - ". $content ." Remaining<p>"; 
+	}
+
+endforeach; 
+?>

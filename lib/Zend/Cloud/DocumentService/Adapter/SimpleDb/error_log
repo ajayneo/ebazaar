@@ -1,0 +1,1 @@
+[08-Oct-2018 16:06:51 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Cloud_DocumentService_Query' not found in /home/electronicsbazaa/public_html/lib/Zend/Cloud/DocumentService/Adapter/SimpleDb/Query.php on line 37

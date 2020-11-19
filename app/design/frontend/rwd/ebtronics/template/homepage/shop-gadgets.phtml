@@ -1,0 +1,109 @@
+<div class="tab_container">
+			<?php $allcategories = $this->getIsHomeCategories(); ?>
+			<?php foreach($allcategories as $allcategorie): ?>
+				<?php $categoryproducts = $this->getCategoryProducts($allcategorie->getId()); ?>
+				<div id="tab<?php echo $allcategorie->getId(); ?>" class="tab_content">
+					<ul class="products-grid products-grid--max-4-col first last odd gadgets_remove">
+						<?php $product_list_block = new Mage_Catalog_Block_Product_List(); ?>
+						<?php $i = 0; ?>
+						<?php foreach($categoryproducts as $categoryproduct): ?>
+							<?php $products = $this->getProductsDetails($categoryproduct->getSku()); ?>
+							<?php if($i < 4): ?>
+								<li class="item">
+									<div class="product-view" data-pid="<?php echo $products->getId(); ?>">
+										<span><a href="javascript:void(0)">Quick View</a></span>
+									</div>
+									<div class="clr"></div>
+									<a href="<?php echo $products->geturlPath(); ?>" title="<?php echo $products->getName(); ?>" class="product-image">
+										<?php $special_price = $products->getSpecialPrice(); ?>
+									<?php $now = date("Y-m-d"); ?>
+									<?php $newsFrom = substr($products->getData('news_from_date'),0,10); ?>
+									<?php $newsTo =  substr($products->getData('news_to_date'),0,10); ?>
+									<?php if(!empty($special_price)): ?>
+									    <div class="product-offer">
+										<span>Offer</span>
+									    </div>
+									<?php elseif(!empty($newsFrom) || !empty($newsTo)):?>
+									    <?php if($now>=$newsFrom && $now<=$newsTo): ?> 
+										<div class="product-new">
+										    <span>New</span>
+										</div>
+									    <?php endif; ?>
+									<?php endif; ?>
+										<?php $_imgSize = 210; ?>
+										<img id="product-collection-image-<?php echo $products->getId(); ?>" src="<?php echo Mage::helper('catalog/image')->init($products,'small_image')->resize($_imgSize); ?>" alt="<?php echo $products->getName(); ?>" />
+										<!--<img src="<?php //echo $this->getSkinUrl('images/product1.png'); ?>" alt="Home Product">-->
+									</a>
+									<div class="product-info">
+										<h2 class="product-name"><a href="<?php echo $products->geturlPath(); ?>" title="<?php echo $products->getName(); ?>"><?php echo $products->getName(); ?></a></h2>
+										<?php $specialprice = $products->getSpecialPrice(); ?>
+										<?php if(!empty($specialprice)): ?>
+											<div class="price-info">
+												<div class="price-box">                                            
+													<p class="old-price">
+														<span class="price-label">Regular Price:</span>
+														<span class="price"><?php echo Mage::helper('core')->currency($products->getPrice()); //echo $products->getPrice(); ?></span>
+													</p>
+													<p class="special-price">
+														<span class="price-label">Special Price</span>
+														<span class="price"><?php echo Mage::helper('core')->currency($products->getFinalPrice()); //echo $products->getPrice(); ?></span>
+													</p>
+												</div>
+											</div>
+										<?php else: ?>
+											<div class="price-box">
+												<span class="regular-price">
+													<span class="price"><?php echo Mage::helper('core')->currency($products->getPrice()); //echo $products->getPrice(); ?></span>
+												</span>
+											</div>
+										<?php endif; ?>
+										<div class="info-inner">
+											<div class="rating">
+												<?php $product_review = new Neo_Review_Block_Product_View_List(); ?>
+												<?php $avg = $product_review->AggregrateRating($products->getId()); ?>
+												<?php $ratings = $product_review->RatingCounts($products->getId()); ?>
+												<?php if($avg >= 0): ?>
+													<div class="ratings">
+														<div class="rating-box">
+															<div class="rating" style="width: <?php echo ceil($avg) ; ?>%;"></div>
+														</div>
+													</div>
+												<?php endif; ?>
+												<?php if($ratings): ?>
+													<p><?php echo $ratings; ?> Ratings</p>
+												<?php endif; ?>
+											</div>
+											<div class="share">
+												<span><a href="#">Share</a></span>
+											</div>
+										</div>
+									</div>
+									<div class="short-description">
+										<div class="c-prod-desc"><?php echo $products->getImpDesc(); ?></div>
+									</div>
+									<div class="gadets-addtocomare">
+										<?php $_compareUrl = Mage::helper('catalog/product_compare')->getAddUrl($products); ?>
+										<div class="checkbox_sample sample">
+											<!--<input type="checkbox" name="homeaddtocomere"><a href="#" onclick="ajaxCompare('<?php //echo $_compareUrl; ?>','<?php //echo $products->getId()?>'); return false;" class="link-compare"><?php //echo $this->__('Add to Compare') ?></input>-->
+											<input type="checkbox" class="checkbox" id="<?php echo "products_".$products->getId(); ?>" onclick="ajaxCompare('<?php echo $_compareUrl; ?>','<?php echo $products->getId()?>');" class="link-compare" /><label class="css-label" for="<?php echo "products_".$products->getId(); ?>"><?php echo $this->__('Add to Compare') ?></label>
+										</div>
+										<!--<input type="checkbox" name="homeaddtocomere"><span data-addtocompare="<?php //echo Mage::helper('catalog/product_compare')->getAddUrl($products); ?>">Add to Compare</span></input>-->
+										<!--<a href="" class="link-compare">Add to Compare</a>-->
+									</div>
+									<div class="actions">
+										<button class="button btn-cart" title="Buy now" type="button" onclick="setLocation('<?php echo $product_list_block->getAddToCartUrl($products); ?>')"><span><span>Buy now</span></span></button>
+										<ul class="add-to-links">
+											<li><a class="link-wishlist" onclick="setLocation('<?php echo $product_list_block->getAddToWishlistUrl($products); ?>')">Add to Wishlist</a></li>
+										</ul>
+										<div class="clr"></div>
+									</div>
+								</li>
+								<?php $i++; ?>
+							<?php endif; ?>
+						<?php endforeach; ?>     	
+					</ul>
+					<span class="view-all"><a href="<?php echo Mage::getBaseUrl().$allcategorie->getUrlPath(); ?>">View All</a></span>
+					<div class="clr"></div>
+				</div><!--end of tab_content -->	
+			<?php endforeach; ?>
+		</div>

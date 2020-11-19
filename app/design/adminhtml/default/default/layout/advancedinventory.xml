@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+
+<layout version="0.1.0">
+    <default>
+       
+        
+      
+        <reference name="notifications">
+            <block type="advancedinventory/adminhtml_notifications" name="notification_advancedinventory" />
+        </reference>
+       
+         
+    </default>
+    <advancedinventory_adminhtml_stocks_index>
+
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>advancedinventory/scripts.js</name>
+            </action>    
+        </reference>
+        <reference name="content">
+            <block type="advancedinventory/adminhtml_stocks" name="stocks">
+                <block type="adminhtml/store_switcher" name="store_switcher" as="store_switcher">
+                    <action method="setUseConfirm">
+                        <params>1</params>
+                    </action>
+                </block>    
+            </block>
+        </reference>
+    </advancedinventory_adminhtml_stocks_index>
+
+    <adminhtml_catalog_product_edit>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>advancedinventory/styles.css</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>advancedinventory/scripts.js</name>
+            </action>    
+        </reference>
+    </adminhtml_catalog_product_edit>
+    
+    <_adminhtml_pointofsale_edit>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_css</type>
+                <name>advancedinventory/styles.css</name>
+            </action>
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>advancedinventory/scripts.js</name>
+            </action>
+        </reference>
+    </_adminhtml_pointofsale_edit>
+   
+    <adminhtml_sales_order_index>
+        <reference name="head">
+           
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>advancedinventory/scripts.js</name>
+            </action>
+        </reference>
+    </adminhtml_sales_order_index>
+</layout>

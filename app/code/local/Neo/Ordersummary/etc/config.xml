@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Neo_Ordersummary>
+      <version>0.1.0</version>
+    </Neo_Ordersummary>
+  </modules>
+  <global>
+    <helpers>
+      <ordersummary>
+        <class>Neo_Ordersummary_Helper</class>
+      </ordersummary>
+    </helpers>
+	<models>
+	  <ordersummary>
+		<class>Neo_Ordersummary_Model</class>
+		<resourceModel>ordersummary_mysql4</resourceModel>
+	  </ordersummary>
+	</models>
+  </global>    
+    <!-- <crontab>
+        <jobs>            
+			<ordersummary_crmorders>
+                <schedule><cron_expr>20 */2 * * *</cron_expr></schedule>
+                <run><model>ordersummary/cron::Crmorders</model></run>
+            </ordersummary_crmorders>            
+			<ordersummary_armorders>
+                <schedule><cron_expr>25 */2 * * *</cron_expr></schedule>
+                <run><model>ordersummary/cron::Armorders</model></run>
+            </ordersummary_armorders>
+        </jobs>
+    </crontab> -->
+    <!-- <crontab>
+        <jobs>
+            <ordersummary_exports>
+                <schedule><cron_expr>*/5 * * * *</cron_expr></schedule>
+                <run><model>ordersummary/cron::Exportorders</model></run>
+            </ordersummary_exports>            
+        </jobs>
+    </crontab> -->
+</config> 

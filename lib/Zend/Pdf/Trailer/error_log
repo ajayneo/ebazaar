@@ -1,0 +1,2 @@
+[08-Oct-2018 16:04:34 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Pdf_Trailer' not found in /home/electronicsbazaa/public_html/lib/Zend/Pdf/Trailer/Keeper.php on line 35
+[08-Oct-2018 16:04:34 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Pdf_Trailer' not found in /home/electronicsbazaa/public_html/lib/Zend/Pdf/Trailer/Generator.php on line 34

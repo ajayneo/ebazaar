@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<Neo_Customer>
+			<version>0.0.2</version>
+		</Neo_Customer>
+	</modules>
+	<global>
+		<blocks>
+			<customer>
+				<rewrite>
+					<widget_dob>Neo_Customer_Block_Widget_Dob</widget_dob>
+				</rewrite>
+			</customer>
+		</blocks>
+		<models>
+			<customer>
+				<rewrite>
+					<customer>Neo_Customer_Model_Customer</customer>
+				</rewrite>
+			</customer>
+		</models>
+		<template>
+            <email>
+                <customer_ibmaccount_email_template translate="label" module="customer">
+                    <label>New IBM account</label>
+                    <file>ibm_account_new.html</file>
+                    <type>html</type>
+                </customer_ibmaccount_email_template>
+            </email>
+        </template>
+	</global>
+	<frontend>
+	    <routers>
+	        <customer>
+	            <args>
+	                <modules>
+	                    <neo_customer before="Mage_Customer">Neo_Customer</neo_customer>
+	                </modules>
+	            </args>
+	        </customer>
+	    </routers>
+	</frontend>
+</config>

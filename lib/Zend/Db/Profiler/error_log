@@ -1,0 +1,2 @@
+[08-Oct-2018 16:04:31 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Db_Exception' not found in /home/electronicsbazaa/public_html/lib/Zend/Db/Profiler/Exception.php on line 38
+[08-Oct-2018 16:04:31 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Db_Profiler' not found in /home/electronicsbazaa/public_html/lib/Zend/Db/Profiler/Firebug.php on line 42

@@ -1,0 +1,1 @@
+[08-Oct-2018 16:05:51 Asia/Kolkata] PHP Fatal error:  Class 'Zend_InfoCard_Xml_Element' not found in /home/electronicsbazaa/public_html/lib/Zend/InfoCard/Xml/Assertion/Saml.php on line 44

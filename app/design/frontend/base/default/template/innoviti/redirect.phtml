@@ -1,0 +1,80 @@
+<?php
+// Retrieve order
+$_order = new Mage_Sales_Model_Order();
+$orderId = Mage::getSingleton('checkout/session')->getLastRealOrderId();
+$_order->loadByIncrementId($orderId);
+$session = Mage::getSingleton('checkout/session');
+	$orderIncrementId = $session->getLastRealOrderId();
+	$order = Mage::getModel('sales/order')->loadByIncrementId($orderIncrementId);
+	$billingaddress = $order->getBillingAddress();
+	$shippingaddress = $order->getShippingAddress();
+	$currencyDesc = Mage::app()->getStore()->getCurrentCurrencyCode();
+	$totals = number_format($order->getGrandTotal(), 2, '.', ''); 
+	$address = $billingaddress->getStreet();
+	$address1 = $shippingaddress->getStreet();
+
+	$amt=$totals;
+	$cur="INR";
+ 	$proskucode="abcd";  
+	$customer = $order->getCustomerFirstname();
+ 	$mobileno = $billingaddress->getTelephone();
+ 	$email = $order->getCustomerEmail();
+ 	/*
+ 	//Getting Salt value ,merchantid from  table  innoviti_payment_info
+	$sql = "SELECT * FROM innoviti_payment_info";
+	$connection = Mage::getSingleton('core/resource')->getConnection('core_read');
+	foreach ($connection->fetchAll($sql) as $arr_row) {
+	Mage::log( $arr_row['code']);
+	Mage::log( $arr_row['description']);
+	$saltval =($arr_row['description']);
+	$merchantid =($arr_row['code']);
+	}
+
+	//Getting redirecturl , submerchantid from  table  innoviti_store
+	$sql = "SELECT * FROM innoviti_store";
+	$connection = Mage::getSingleton('core/resource')->getConnection('core_read');
+	foreach ($connection->fetchAll($sql) as $arr_row) {
+	Mage::log( $arr_row['code']);
+	Mage::log( $arr_row['description']);
+	
+	$redirecturl=($arr_row['description']);
+	$submerchantid=($arr_row['code']);
+
+	}
+
+
+*/
+$merchantid = '656463565655623';
+$saltval = 'bg@#8&';
+$submerchantid = 'bg67';
+$redirecturl = Mage::getUrl('innoviti/payment/response');
+	$data = array(
+		'Merchant_Id' => $merchantid,
+		'billing_last_name'=>$order->getCustomerLastname(),
+		'billingAddress'=>$address[0] . ' '.$address[1].' '.$billingaddress->getStreet().' '.$billingaddress->getCity().' '.$billingaddress->getRegion().' '.$billingaddress->getPostcode(),
+		'delivery_cust_email'=>$shippingaddress->getCustomerEmail(),
+		'custAddress'=>$address1[0] . ' '.$address1[1].' '.$shippingaddress->getStreet().' '.$shippingaddress->getCity().' '.$shippingaddress->getRegion().' '.$shippingaddress->getPostcode(),
+		'orderId' => $order->getIncrementId(),
+		'cur' => 'INR',
+		'merchantId' =>$merchantid,
+		'subMerchantId'=>$submerchantid,
+		'redirUrl'=>$redirecturl,
+		'proSku'=>"abcd",
+		'Cname' =>$order->getCustomerFirstname(),
+		'amt' => $totals,
+		'mobile' => $billingaddress->getTelephone(),
+		'emailId'=>$order->getCustomerEmail(),
+	);
+	$compString=$orderId."|".$merchantid."|".$submerchantid."|".$amt."|".$cur."|".$proskucode."|".$customer."|".$mobileno."|".$email."|".$redirecturl."|".$saltval;
+	$hash = md5($compString);
+?>
+<form name="innovitigatewayForm" method="post" action="https://192.168.0.53:8443/uniPAYNet1/saleTrans">
+	<?php foreach($data as $key => $value):	?>
+		<input type='hidden' name='<?php echo $key?>' value='<?php echo $value;?>' />
+	<?php endforeach;?>
+	<input type="hidden" name="processingCode" value="000001"/>	
+	<input type="hidden" name="chksum"  value='<?php echo $hash;?>'/>
+</form>
+<script type="text/javascript">
+	document.innovitigatewayForm.submit();
+</script>

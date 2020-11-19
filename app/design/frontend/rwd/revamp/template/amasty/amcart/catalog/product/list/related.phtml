@@ -1,0 +1,123 @@
+<?php 
+/**
+* @author Amasty Team
+* @copyright Copyright (c) 2013 Amasty (http://www.amasty.com)
+* @package Amasty_Cart
+*/  
+?>
+<?php
+#$product = Mage::registry('product');
+/* @var $product Mage_Catalog_Model_Product */
+
+/*$this->_itemCollection = $product->getRelatedProductCollection()
+    ->addAttributeToSelect('required_options')
+    //->setPositionOrder()
+	->setOrder('price', 'DESC')
+    ->addStoreFilter()
+	->setPageSize(4)
+;*/
+?>
+<?php if($this->getItems()->getSize()): ?>
+<div class="no-display">
+		<input type="hidden" name="am_related_product" id="am-related-products-field" value="" />
+</div>
+<div class="block block-related" id="am-block-related">
+   <p class="block-related-p"><?php echo $this->__('Accessories Recommended') ?></p>
+    <div class="block-content">
+    	<ul id='accessories_recommended'>
+    		<?php
+                $i = 0; 
+                foreach($this->getItems() as $_item): $i++;if($i>4)break;?>
+                     <li class="<?php if($i%2==0) echo 'even'; else echo 'odd'; ?>">
+                        <?php if(!$_item->isComposite() && $_item->isSaleable()): ?>
+                        <?php endif; ?>
+                        <div class="product">
+                            <a href="<?php echo $_item->getProductUrl() ?>" title="<?php echo $this->htmlEscape($_item->getName()) ?>" class="product-image"><img src="<?php echo $this->helper('catalog/image')->init($_item, 'thumbnail')->resize(150) ?>" width="150" height="150" alt="<?php echo $this->htmlEscape($_item->getName()) ?>" /></a>
+                             <p class="product-name"><a href="<?php echo $_item->getProductUrl() ?>"><?php echo substr($this->htmlEscape($_item->getName()),0,30); ?><?php if(strlen($_item->getName()) > 30) { echo '...'; } ?></a></p>
+                        </div>
+                        
+                        <?php echo $this->getPriceHtml($_item, true, '-related') ?>
+                    
+                    	<?php if(!$_item->isComposite() && $_item->isSaleable()): ?>
+                        	<div class="related-chk-cart">
+                         		<!--button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button-->
+                         		<input type="checkbox" class="checkbox am-related-checkbox" id="am-related-checkbox<?php echo $_item->getId() ?>" name="am-related_products[]" value="<?php echo $_item->getId() ?>" /><label for="am-related-checkbox<?php echo $_item->getId() ?>" class="css-label"><?php echo $this->__('Add to Cart');?></label>
+                        	</div> 
+                    	<?php else: ?>
+                        	<p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+                    	<?php endif; ?>
+                   </li>
+                <?php endforeach ?>
+    	</ul>
+    </div>
+    <!--button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button-->
+    <script type="text/javascript">
+        AmAjaxShoppCartLoad('#messageBox button.btn-cart');
+        jQuery(document).ready(function () {
+        	jQuery('.btn-add-related-prdts').hide();
+			jQuery('.am-related-checkbox').change(function() {
+			    var vals = jQuery('input[name="am-related_products[]"]:checked').map(function() {
+			        return jQuery(this).val();
+			    }).get().join(',');
+				
+				if(vals.length>0) {
+					jQuery('.btn-add-related-prdts').show();
+				}
+				else{
+					jQuery('.btn-add-related-prdts').hide();
+				}
+			    jQuery('#am-related-products-field').val(vals);
+			});
+			jQuery('.btn-add-related-prdts').click(function(){
+				jQuery(this).off("click");
+				var related_product_ids = jQuery('#am-related-products-field').val();
+				
+				jQuery.ajax({ 
+        			url: 'amcart/ajax/addrelatedproducts',
+        			data: {"related_product_ids": related_product_ids},
+        			type: 'post',
+        			success: function(result){
+        				if(result=='SUCESS'){
+        					window.location.href = "checkout/cart/";
+        				}
+        				else{
+        					alert('Something Went Wrong. Please Refresh Page and Try Again');
+        				}
+        			}
+    			});
+				return false;
+			});
+			
+			if(jQuery( window ).width() <= 599) {
+				jQuery('#accessories_recommended').bxSlider({
+			        auto: false,
+					pager: false,
+					slideWidth: 70,
+					slideMargin:28,
+					controls: true,
+					infiniteLoop:false,
+					preloadImages:'all',
+					minSlides: 1,
+					maxSlides: 1,
+					moveSlides: 1
+	    		});
+    		}
+    		else if(jQuery( window ).width() >= 600 && jQuery( window ).width() <= 767) {
+    			jQuery('#accessories_recommended').bxSlider({
+			        auto: false,
+					pager: false,
+					slideWidth: 70,
+					slideMargin:28,
+					controls: true,
+					infiniteLoop:false,
+					preloadImages:'all',
+					minSlides: 3,
+					maxSlides: 3,
+					moveSlides: 1
+	    		});
+    		}
+		});
+    </script>
+
+</div>
+<?php endif ?>

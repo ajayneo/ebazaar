@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config>
+	<modules>
+		<Neo_Pincode>
+			<version>0.0.1</version>
+		</Neo_Pincode>
+	</modules>
+	<frontend>
+		<routers>
+			<pincode>
+				<use>standard</use>
+				<args>
+					<module>Neo_Pincode</module>
+					<frontName>pincode</frontName>
+				</args>
+			</pincode>
+		</routers>
+	</frontend>
+	<global>
+		<models>
+            <pincode>
+                <class>Neo_Pincode_Model</class>
+            </pincode>
+        </models>
+        <helpers>
+            <pincode>
+                <class>Neo_Pincode_Helper</class>
+            </pincode>
+        </helpers>
+     </global>
+     <adminhtml>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <pincode_options>
+                                            <title>Store Pincode Module Section</title>
+                                        </pincode_options>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+</config>

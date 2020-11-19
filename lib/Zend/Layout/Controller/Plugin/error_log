@@ -1,0 +1,1 @@
+[08-Oct-2018 16:05:51 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Controller_Plugin_Abstract' not found in /home/electronicsbazaa/public_html/lib/Zend/Layout/Controller/Plugin/Layout.php on line 37

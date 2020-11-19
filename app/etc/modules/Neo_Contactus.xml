@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Neo_Contactus>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Neo_Contactus>
+    </modules>
+</config> 

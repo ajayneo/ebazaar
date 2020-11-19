@@ -1,0 +1,564 @@
+<?php $skin = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN).'frontend/rwd/revamp/'; ?>
+<div class="new-gadget-container new-gadget-home-page">
+<div class="new-gadget-content">
+	<div class="scroller">				    
+    <div class="gadget-home-page-howtosell">
+	   <div class="brand-title"><h1>How <strong>Sell your Gadget</strong> works</h1></div>
+	   <ul class="clearfix how-to-sell--list">
+			<li>
+			 <div class="how-to-sell--list__icon">
+			 <img src="<?php echo $this->getSkinUrl(); ?>images/ebt/get-your-device-price-icon.png" alt="Get an offer">
+			 <img class="how-to-sell--list-up-arrow" src="<?php echo $this->getSkinUrl(); ?>images/ebt/how-to-sell--list-up-arrow.png" alt="">
+			 </div>
+			 <h4 class="how-to-sell--list__title"><b>Get an offer</b></h4>
+			 <p class="how-to-sell--list__detail">It takes less than a minute</p>
+			</li>
+			<li>
+			 <div class="how-to-sell--list__icon">
+			 <img src="<?php echo $this->getSkinUrl(); ?>images/ebt/schedule-a-free-pickup-icon.png" alt="Pickup">
+			 <img class="how-to-sell--list-down-arrow" src="<?php echo $this->getSkinUrl(); ?>images/ebt/how-to-sell--list-down-arrow.png" alt="">
+			 </div>
+			 <h4 class="how-to-sell--list__title"><b>Pickup</b></h4>
+			 <p class="how-to-sell--list__detail">Free doorstep pickup</p>
+			</li>
+			<li>
+			 <div class="how-to-sell--list__icon">
+			 <img src="<?php echo $this->getSkinUrl(); ?>images/ebt/get-paid-instantly-icon.png" alt="Get Paid Instantly">
+			 </div>
+			 <h4 class="how-to-sell--list__title"><b>Get paid fast</b></h4>
+			 <p class="how-to-sell--list__detail">By Bank Transfer</p>
+			</li>
+	   </ul>
+	</div>
+	<!--gadget-home-page-howtosell ends-->
+    
+	<!--gadget-home-page-pincode start-->
+	<div class="gadget-home-page-pincode gadget-darkgrey-bg">
+	   <p class="gadget-home-page-pincode__headline">Please note that the Sell your Gadget program depends on the pin code you share. Please check for your pincode</p>
+	   <ul class="gadget-brand-form">							
+			<li>
+			  <div class="input-field">
+			   <div class="pincode-field">
+			   <?php $pincode = "";
+			   $ecom_qc_message = "";
+			   if(!empty($_COOKIE['syg-pincode'])){
+			   		$cookies_pincode = unserialize($_COOKIE['syg-pincode']);
+			   		$pincode = $cookies_pincode['pincode'];
+			   		$ecom_qc = $cookies_pincode['ecom_qc'];
+
+			   		if($ecom_qc == 1){
+			   			$ecom_qc_message = '<span class="pincode-field-narration successful-msg">We service this pincode</span>';
+			   		}else{
+			   			$ecom_qc_message = '<span class="pincode-field-narration error-msg">Sorry! We are yet to service this pincode</span>';
+			   		}
+
+			   }
+			   ?>
+			     <input id="postcode" type="text" name="pincode" value="<?php echo $pincode; ?>" placeholder="Pincode" class="validate-number validate-zip" onkeydown="search()"/>
+			     <?php echo $ecom_qc_message; ?>
+			   </div>
+			   <button id="checkpincode" type="button" class="submit-btn" onclick="checkpin()">Submit</button>
+			  </div>
+			</li>
+	   </ul>
+	</div>
+	</div>
+	<!--gadget-home-page-pincode ends-->
+<div id="category" style="<?php echo ($pincode)? 'display:block':'display:none '?>">	
+	<div class="new-gadget-title"><h1>What would you like to Sell today?</h1></div>
+	<ul class="clearfix gadget-tabs">
+		<!-- <li onclick="brands('gadget_laptop');" class="gadget-laptop"><h2>Laptop</h2> <a class="gadget-sell">Sell Now</a></li>
+		<li onclick="brands('gadget');" class="gadget-mobile"><h2>Mobile</h2> <a class="gadget-sell">Sell Now</a></li> -->
+		<?php $group_id = 0;
+        if(Mage::getSingleton('customer/session')){
+            $_customer = Mage::getSingleton('customer/session')->getCustomer();
+            $group_id = $_customer->getGroupId();
+        }?>
+        <?php if($group_id == 6 || $group_id == 5): ?>
+        <li class="gadget-laptop" style="margin: 0 auto; float: none;"><h2>Laptop</h2> <a class="gadget-sell">Sell Now</a></li>
+        <?php else: ?>	
+        <li class="gadget-laptop"><h2>Laptop</h2> <a class="gadget-sell">Sell Now</a></li>
+		<li class="gadget-mobile"><h2>Smartphone</h2> <a class="gadget-sell">Sell Now</a></li>
+        <?php endif; ?>	
+	</ul>
+
+	<div id="brands-list" class="new-gadget-inner-content new-gadget-laptop">
+       <div class="brand-title"><h3>Brands</h3></div>
+	   <div class="gadget-laptop--content">
+		   <ul class="clearfix gadget-brand-list">
+		   	<li onclick="sku('SYGLAPAPPLE')" class="laptop-apple"><div class="gadget-brand__box"><img src="<?php echo $skin; ?>images/brands-logo/apple.png" alt="Apple"></div><div class="gadget-brand__title">Apple</div></li>
+		   	<li onclick="sku('SYGLAPDELL')" class="laptop-dell"><div class="gadget-brand__box"><img src="<?php echo $skin; ?>images/brands-logo/dell.png" alt="Dell"></div><div class="gadget-brand__title">Dell</div></li><li onclick="sku('SYGLAPHP')" class="laptop-hp"><div class="gadget-brand__box"><img src="<?php echo $skin; ?>images/brands-logo/hp.png" alt="HP"></div><div class="gadget-brand__title">HP</div></li><li onclick="sku('SYGLAPLENOVO')" class="laptop-lenovo"><div class="gadget-brand__box"><img src="<?php echo $skin; ?>images/brands-logo/lenovo.png" alt="Lenovo"></div><div class="gadget-brand__title">Lenovo</div></li><li onclick="sku('SYGLAPOTHER')" class="laptop-other"><div class="gadget-brand__box"><img src="<?php echo $skin; ?>images/brands-logo/laptop-icon.png" alt="Other"></div><div class="gadget-brand__title">Other</div></li></ul>
+		</div>
+		<div id="product"></div>
+	</div>
+	<div class="new-gadget-inner-content new-gadget-mobile">
+       <div class="brand-title"><h3>Brands</h3></div>
+	   <div class="gadget-laptop--content">
+		   <ul class="clearfix gadget-brand-list">
+			 <li onclick="sku('SYGMOBAPPLE')" class="mobile-apple"><div class="gadget-brand__box"><img src="<?php echo $skin; ?>images/brands-logo/apple.png" alt="Apple"></div><div class="gadget-brand__title">Apple</div></li><li onclick="sku('SYGMOBSAMSUNG')" class="mobile-samsung"><div class="gadget-brand__box"><img src="<?php echo $skin; ?>images/brands-logo/samsung.png" alt="Samsung"></div><div class="gadget-brand__title">Samsung</div></li>
+		   </ul>
+		</div>
+	</div>		   
+                        	   
+</div>	
+<div class="opc-ajax-loader">
+  <div id="floatingCirclesG">
+    <div class="f_circleG" id="frotateG_01"></div>
+    <div class="f_circleG" id="frotateG_02"></div>
+    <div class="f_circleG" id="frotateG_03"></div>
+    <div class="f_circleG" id="frotateG_04"></div>
+    <div class="f_circleG" id="frotateG_05"></div>
+    <div class="f_circleG" id="frotateG_06"></div>
+    <div class="f_circleG" id="frotateG_07"></div>
+    <div class="f_circleG" id="frotateG_08"></div>
+    </div>
+</div>
+
+<!-- ############# Start code for feedback form (Code by JP)############## -->
+  <div class="new-gadget-popup-container lenovo-register">
+    <div class="new-gadget-popup-inner-content">
+
+    <div class="gadget-register">    	
+      <span class="new-gadget-close-popup lenovo-close-popup">X</span>
+      <div class="default-title">
+        <h1>Register Form</h1>
+      </div>
+
+      <div id="succ-mes" class="succ-mes" name="succ-mes"></div>
+      <div id="err-mes" class="err-mes" name="err-mes"></div>        
+  <!-- <input type="button" name="feedback-smt" id="feedback-smt" value="Submit" onclick="return submitFeedback()"/>-->
+    <label for="firstname" class="required">First Name<em>*</em></label>
+	<div class="input-box">
+	<input type="text" name="firstname" id="firstname" value="" title="First Name" class="input-text validate-email required-entry">
+	</div>
+	<label for="lastname" class="required">Last Name<em>*</em></label>
+	<div class="input-box">
+	<input type="text" name="lastname" id="lastname" value="" title="Last Name" class="input-text validate-email required-entry">
+	</div>
+    <label for="email" class="required">Email ID<em>*</em></label>
+	<div class="input-box">
+	<input type="text" name="emailid" id="emailid" value="" title="Email Address" class="input-text validate-email required-entry">
+	</div>
+	<label for="mobile" class="required">Mobile<em>*</em></label> 
+	<div class="input-box">
+	<input type="text" name="mobile" id="mobile" title="mobile" class="input-text required-entry validate-password">
+	<input id="asm_affiliate_otp_sub_input_value" class="eb-pin-btn" style="background-color: yellow;border:0;padding: 3px 10px" type="button" name="Submit For EB PIN" title="Submit For EB PIN" value="Click Here To Generate EB Pin"  onclick="return submitEbPin()"/>	
+	</div>	
+<!-- 	<label for="password" class="required">Password<em>*</em></label> 
+	<div class="input-box">
+	<input type="password" name="password" id="password" title="Password" class="input-text required-entry validate-password">
+	</div> -->
+
+    <!-- <li id="asm_affiliate_otp_sub" class="fields"> -->
+    <!-- <label for="city" class="required"><?php //echo $this->__('Click Here') ?><em></em></label> -->
+        <!-- <div class="input-box">
+            <input id="asm_affiliate_otp_sub_input_value" class="eb-pin-btn" style="background-color: yellow;border:0;padding: 3px 10px" type="button" name="Submit For EB PIN" title="Submit For EB PIN" value="Click Here To Generate EB Pin"  onclick="return submitEbPin()"/>
+        </div> -->  
+    <!-- </li> -->
+    
+    <label for="city" class="required"><?php echo $this->__('EB PIN') ?><em>*</em></label>
+    <div class="input-box">
+        <input type="text" name="cus_otp" id="cus_otp" value="" title="<?php echo $this->__('EB PIN') ?>" class="input-text required-entry" />
+    </div>
+<div class="lenovo-button-container">
+    <button type="button" class="button btn-address btn-lenovo" onclick="return submitRegister()" title="<?php echo $this->__('Register') ?>" <span><span><?php echo $this->__('Register') ?></span></span></button>
+    <!-- <span class="lenovo-close-popup">Close</span> -->
+</div>
+</div>
+   
+  <!-- <div class="gadget-icon"><img src="<?php //echo $this->getSkinUrl(); ?>images/ebt/gadget-mobile-icon.png"></div>
+    </div> -->
+     <div class="gadget-login">
+      <!-- <span class="new-gadget-close-popup lenovo-close-popup">X</span> -->
+      <div class="default-title">
+        <h1>Login / Sign UP</h1>
+      </div>
+
+      <div id="succ-mes1" class="succ-mes" name="succ-mes"></div>
+      <div id="err-mes1" class="err-mes" name="err-mes"></div>        
+  <!-- <input type="button" name="feedback-smt" id="feedback-smt" value="Submit" onclick="return submitFeedback()"/>-->
+    <label for="email" class="required">Email ID / Mobile No<em>*</em></label>
+	<div class="input-box">
+	<input type="text" name="emailid1" id="emailid1" value="" title="Email Address" class="input-text validate-email required-entry">
+	</div>
+	<div class="input-box">
+	<input id="asm_affiliate_otp_sub_input_value" class="eb-pin-btn" style="background-color: yellow;border:0;padding: 3px 10px" type="button" name="Submit For EB PIN" title="Submit For EB PIN" value="Click Here To Generate EB Pin"  onclick="return submitEbPin1()"/>
+	</div>		
+    <label for="city" class="required"><?php echo $this->__('EB PIN') ?><em>*</em></label>
+    <div class="input-box">
+        <input type="text" name="cus_otp1" id="cus_otp1" value="" title="<?php echo $this->__('EB PIN') ?>" class="input-text required-entry" />
+    </div>           	
+	<div class="lenovo-button-container">
+	    <button type="button" class="button btn-address btn-lenovo" onclick="return submitlogin()" title="<?php echo $this->__('Login') ?>" <span><span><?php echo $this->__('Login') ?></span></span></button>
+	    <!-- <span class="lenovo-close-popup">Close</span> -->
+	</div>
+  </div>
+
+
+  </div>
+<!-- ############# End code for feedback form (Code by JP) ############## -->
+
+
+	<script type="text/javascript">
+		function search() {
+		    if(event.keyCode == 13) {
+		    	jQuery('.opc-ajax-loader').css('display', 'block');
+		        checkpin();
+		    }
+		}
+		function checkpin(){
+			var idpost = jQuery('#postcode');
+			var pin = idpost.val();
+			
+			jQuery(".pincode-field-narration").remove();
+	    	var zipRegex = /^\d{6}$/;
+
+		    if (!zipRegex.test(pin))
+		    {
+		        // trigger error
+		        jQuery('#postcode').after('<span class="pincode-field-narration error-msg">Please enter valid pincode</span>');
+		        jQuery('#postcode').val('');
+		        return false;
+		    }
+		    else
+		    {
+		        // success!
+		    }			
+
+	    	var xhr;
+	        if(xhr && xhr.readyState != 4){
+	            xhr.abort();
+	        }
+	        xhr = jQuery.ajax({
+	            url: '<?php echo $this->getUrl("gadget/index/checkpincode");?>',
+	            data:'pincode='+pin,
+	            type:'POST',
+	            dataType: "json",
+	            beforeSend: function() {
+	              	jQuery('.opc-ajax-loader').css('display', 'block');
+	              	jQuery(".pincode-field-narration").remove();
+	              	// jQuery("#category").hide();
+	           	},
+	            success: function(data) {
+	            	jQuery('.opc-ajax-loader').css('display', 'none');
+			  		//jQuery("#category").show(); // commented by jp.
+	                if(data.status == 1){
+				  		jQuery('#postcode').after('<span class="pincode-field-narration successful-msg">'+data.message+'</span>');
+				  		// jQuery(".scroller").hide().slow();
+				  		// jQuery("#panel").show().slow();
+				  		//test code
+						  jQuery( document ).ready(function() {
+						    jQuery( function() {
+						      setTimeout(function(){ jQuery(".lenovo-register").fadeIn("slow"); }, 0);              
+						  });
+
+						    jQuery(".btn-lenovo").click(function(){
+						        jQuery(".lenovo-register").fadeIn("slow");
+						    });
+						    jQuery(".lenovo-close-popup").click(function(){
+						        jQuery(".lenovo-register").fadeOut("slow");
+						    });    
+						});			  		
+				  		//test code				  		
+				  	}
+				  	if(data.status == 0){
+				  		jQuery('#postcode').after('<span class="pincode-field-narration error-msg">'+data.message+'</span>');
+				  		// jQuery("#category").hide();
+				  	}
+	                return false;
+	            }
+	        });
+		}
+
+		//brands
+		function brands(cat){
+			// alert(cat); exit;
+			return false;
+			if(cat == 'gadget'){
+				jQuery(".gadget-mobile").addClass('active');
+				jQuery(".gadget-laptop").removeClass('active');
+			}else if(cat == 'gadget_laptop'){
+				jQuery(".gadget-mobile").removeClass('active');
+				jQuery(".gadget-laptop").addClass('active');
+			}
+			
+			var xhr;
+	        if(xhr && xhr.readyState != 4){
+	            xhr.abort();
+	        }
+	        xhr = jQuery.ajax({
+	            url: '<?php echo $this->getUrl("gadget/index/brands");?>',
+	            data:'cat='+cat,
+	            type:'POST',
+	            dataType: "json",
+	            beforeSend: function() {
+	              	jQuery("#loading-image").show();
+	           	},
+	            success: function(data) {
+	                if(data.status == 1){
+
+	           //      	jQuery.each(data, function(index, element) {
+				        //     alert(index+":"+element);
+				        // });
+
+				  //       var splitarr = data.data;
+				  //       jQuery.each(splitarr,function(i){
+						//    alert(splitarr[i]);
+						// });
+						jQuery('#brandlist').html(data.data);
+						jQuery('.new-gadget-inner-content').addClass("active").show();
+				  	}
+
+				  	if(data.status == 0){
+
+				  	}
+	                return false;
+	            }
+	        });
+		}
+
+		//brands
+		function sku(sku){
+			var xhr;
+	        if(xhr && xhr.readyState != 4){
+	            xhr.abort();
+	        }
+	        xhr = jQuery.ajax({
+	            url: '<?php echo $this->getUrl("gadget/index/sku");?>',
+	            data:'sku='+sku,
+	            type:'POST',
+	            dataType: "json",
+	            beforeSend: function() {
+	              	jQuery("#loading-image").show();
+	           	},
+	            success: function(data) {
+	                if(data.status == 1){
+
+	                	window.location.replace(data.data);
+				  	}
+
+				  	if(data.status == 0){
+				  		// alert(0);
+				  	}
+	                return false;
+	            }
+	        });
+		}
+
+		jQuery(document).ready(function(){
+			<?php if(!empty($_COOKIE['syghome'])): 
+				$cookies = unserialize($_COOKIE['syghome']);
+				foreach ($cookies as $key => $classname) { ?>
+                	jQuery("<?php echo $classname; ?>").addClass('active');
+                <?php }  
+                endif; ?>
+		});
+
+     function submitRegister()
+     {   
+        jQuery('#succ-mes').html('');
+        jQuery('#err-mes').html('');
+        var url = "<?php echo $this->getUrl('gadget/user/register') ?>";                
+        var firstname = jQuery('#firstname').val();
+        var lastname = jQuery('#lastname').val();        
+        var email = jQuery('#emailid').val();
+        var mobile = jQuery('#mobile').val();
+        var cus_otp = jQuery('#cus_otp').val();
+        var pincode = jQuery('#pincode').val();
+        
+        if(firstname == ''){
+            //alert("Please select Scale.");
+            jQuery('#err-mes').html('Please enter first name.');
+            return false;
+        }
+        if(lastname == ''){
+            //alert("Please select Scale.");
+            jQuery('#err-mes').html('Please enter last name.');
+            return false;
+        }
+        if(email == ''){
+            //alert("Please select Scale.");
+            jQuery('#err-mes').html('Please enter email ID.');
+            return false;
+        }                 
+        if(mobile == ''){
+            //alert("Please select Scale.");
+            jQuery('#err-mes').html('Please enter mobile no.');
+            return false;
+        }
+        if(cus_otp == ''){
+            //alert("Please select Scale.");
+            jQuery('#err-mes').html('Please enter OTP number.');
+            return false;
+        }                                               
+        jQuery.ajax({
+            url: url,
+            data: {firstname:firstname,lastname:lastname,emailid:email,mobile:mobile,cus_otp:cus_otp,pincode:pincode},   
+            type: 'POST', 
+            success: function(response) {
+                //jQuery('#email_address').html(data).css('display','block');
+                var data = JSON.parse(response);
+                console.log(data);
+                if(data.status){                                      
+                    jQuery('#succ-mes').html(data.message);
+                    jQuery(".lenovo-register").fadeOut("slow");
+                    window.location.reload();                    
+                }
+                else
+                {
+                   jQuery('#err-mes').html(data.message);
+                   //jQuery(".lenovo-register").fadeOut("slow");                 
+                }
+            }
+        }); 
+ 
+        //return false;  
+    }
+
+     function submitlogin()
+     {   alert('called');
+        jQuery('#succ-mes1').html('');
+        jQuery('#err-mes1').html('');
+        var url = "<?php echo $this->getUrl('gadget/user/login') ?>";                        
+        var email = jQuery('#emailid1').val();        
+        var cus_otp = jQuery('#cus_otp1').val();               
+        
+        if(email == ''){
+            //alert("Please select Scale.");
+            jQuery('#err-mes1').html('Please enter email ID.');
+            return false;
+        }                 
+        if(cus_otp == ''){
+            //alert("Please select Scale.");
+            jQuery('#err-mes1').html('Please enter OTP number.');
+            return false;
+        }                                               
+        jQuery.ajax({
+            url: url,
+            data: {emailid:email,cus_otp:cus_otp},   
+            type: 'POST', 
+            success: function(response) {
+                //jQuery('#email_address').html(data).css('display','block');
+                var data = JSON.parse(response);
+                //console.log(data);
+                if(data.status){                                      
+                    jQuery('#succ-mes1').html(data.message);
+                    jQuery(".lenovo-register").fadeOut("slow");
+                    window.location.reload();                    
+                }
+                else
+                {
+                   jQuery('#err-mes1').html(data.message);
+                   //jQuery(".lenovo-register").fadeOut("slow");                 
+                }
+            }
+        }); 
+ 
+        //return false;  
+    }    
+
+    function submitEbPin()
+    {   
+        var url = "<?php echo $this->getUrl('ebpin/index/index') ?>";
+        var mobile = jQuery('#mobile').val();
+        var count_mobile = mobile.length;
+
+        // console.log(mobile.match(/^\d+$/));
+        if(mobile == "" || count_mobile !== 10 || mobile.match(/^\d+$/) == null){
+            alert("Please enter mobile number with 10 digits");
+            return false;
+        }
+        jQuery.ajax({
+            url: url,
+            data: {mobile: mobile},   
+            type: 'POST', 
+            success: function(response) {
+                //jQuery('#email_address').html(data).css('display','block');
+                var data = JSON.parse(response);
+                // console.log();
+                if(data.status){
+                    alert(data.message);
+                    document.getElementById("asm_affiliate_otp_sub_input_value").value = 'Resend EB Pin';
+                }
+            }
+        }); 
+ 
+        //return false;  
+    }
+
+    function submitEbPin1()
+    {   
+        var url = "<?php echo $this->getUrl('ebpin/index/index') ?>";
+        var mobile = jQuery('#emailid1').val();
+        var count_mobile = mobile.length;
+
+        // console.log(mobile.match(/^\d+$/));
+        if(mobile == "" || count_mobile !== 10 || mobile.match(/^\d+$/) == null){
+            alert("Please enter mobile number with 10 digits");
+            return false;
+        }
+        jQuery.ajax({
+            url: url,
+            data: {mobile: mobile},   
+            type: 'POST', 
+            success: function(response) {
+                //jQuery('#email_address').html(data).css('display','block');
+                var data = JSON.parse(response);
+                // console.log();
+                if(data.status){
+                    alert(data.message);
+                    document.getElementById("asm_affiliate_otp_sub_input_value").value = 'Resend EB Pin';
+                }
+            }
+        }); 
+ 
+        //return false;  
+    }    
+
+     function checkingMobile()
+     {  alert('called');
+        jQuery('#succ-mes1').html('');
+        jQuery('#err-mes1').html('');
+        var url = "<?php echo $this->getUrl('gadget/user/getMobileNo') ?>";                        
+        var email = jQuery('#emailid1').val();        
+        var cus_otp = jQuery('#cus_otp1').val();               
+        
+        if(email == ''){
+            //alert("Please select Scale.");
+            jQuery('#err-mes1').html('Please enter email ID.');
+            return false;
+        }                 
+        if(cus_otp == ''){
+            //alert("Please select Scale.");
+            jQuery('#err-mes1').html('Please enter OTP number.');
+            return false;
+        }                                               
+        jQuery.ajax({
+            url: url,
+            data: {emailid:email,cus_otp:cus_otp},   
+            type: 'POST', 
+            success: function(response) {
+                //jQuery('#email_address').html(data).css('display','block');
+                var data = JSON.parse(response);
+                //console.log(data);
+                if(data.status){                                      
+                    jQuery('#succ-mes1').html(data.message);
+                    jQuery(".lenovo-register").fadeOut("slow");
+                    window.location.reload();                    
+                }
+                else
+                {
+                   jQuery('#err-mes1').html(data.message);
+                   //jQuery(".lenovo-register").fadeOut("slow");                 
+                }
+            }
+        }); 
+ 
+        //return false;  
+    }    
+
+
+
+	</script>
+</div>
+</div>

@@ -1,0 +1,2 @@
+[08-Oct-2018 16:06:47 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Feed_Writer_Renderer_RendererAbstract' not found in /home/electronicsbazaa/public_html/lib/Zend/Feed/Writer/Renderer/Feed/Rss.php on line 45
+[08-Oct-2018 16:06:47 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Feed_Writer_Renderer_Feed_Atom_AtomAbstract' not found in /home/electronicsbazaa/public_html/lib/Zend/Feed/Writer/Renderer/Feed/Atom.php on line 50

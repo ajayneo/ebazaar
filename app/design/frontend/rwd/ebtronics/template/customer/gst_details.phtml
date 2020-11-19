@@ -1,0 +1,125 @@
+<?php 
+$cities =  $this->getCities(); 
+$states =  $this->getStates(); 
+?>
+<div class="gst-popup-inner-container gst-popup-contanier">
+	<?php /*?><form id="customer-gst-details" action="<?php echo $this->getUrl();?>customer/gst/savegstin/" method="POST"><?php */?>
+	<form id="customer-gst-details" action="<?php echo $this->getUrl();?>indiagst/index/index/" method="POST">
+	<div class="gst-popup-content">
+		<h1>GST Identification Number</h1>
+		<ul class="clearfx">
+			<li>
+				<label>Partner Store Name*</label>
+				<div class="input-field"><input type="text" class="required-entry" name="affliate_store"></div>
+			</li>
+			<li>
+				<label>Prop/Partner/Director Name*</label>
+				<div class="input-field"><input type="text" class="required-entry" name="director_name"></div>
+			</li>
+			<li>
+				<label>Contact Name*</label>
+				<div class="input-field"><input type="text" class="required-entry" name="contact_name"></div>
+			</li>
+			<li>
+				<label>Address Line 1*</label>
+				<div class="input-field"><input type="text" class="required-entry" name="address_line_1"></div>
+			</li>
+			<li>
+				<label>Address Line 2*</label>
+				<div class="input-field"><input type="text" name="address_line_2"></div>
+			</li>
+			<li>
+				<label>Post Code*</label>
+				<div class="input-field"><input type="text" name="postcode" class="input-text required-entry validate-length maximum-length-6 minimum-length-6 validate-digits"></div>
+			</li>
+			<li>
+				<label>City</label>
+				<div class="input-field">
+					<select name="city" class="validate-select required-entry">
+						<option value="">Select City</option>
+						<?php if(!empty($cities)){ foreach($cities as $key=>$city){
+							echo '<option values="'.$city.'">'.$city.'</option>';
+							}?>
+						<?php } ?>
+					</select>
+				</div>
+			</li>
+			<li>
+				<label>State*</label>
+				<div class="input-field">
+					<select name="state" class="required-entry validate-select">
+						<option value="">Select State</option>
+						<?php if(!empty($states)){ foreach($states as $key=>$region){
+							echo '<option values="'.$region.'">'.$region.'</option>';
+							}?>
+						<?php } ?>
+					</select>
+				</div>
+			</li>
+			<li>
+				<label>Country*</label>
+				<div class="input-field"><input type="text" class="required-entry" name="country" value="IN"/></div>
+			</li>
+			<li>
+				<label>Email*</label>
+				<div class="input-field"><input type="text" class="required-entry" name="email"></div>
+			</li>
+			<li>
+				<label>Mobile No*</label>
+				<div class="input-field"><input type="text" class="required-entry" name="mobile"></div>
+			</li>
+			<li>
+				<label>GST Identification Number*</label>
+				<div class="input-field"><input type="text" class="required-entry validation-gstin" name="gstin"></div>
+			</li>
+			<li>
+				<label>PAN Number*</label>
+				<div class="input-field"><input type="text" class="required-entry" name="pan"></div>
+			</li>
+		</ul>
+		<div class="button-container">
+			<button class="bttton submit"><span><span>Submit</span></span></button>
+		</div>
+	</div>
+	</form>
+	<script type="text/javascript">
+    //< ![CDATA[
+        var gstForm = new VarienForm('customer-gst-details');
+
+  //       if(Validation) {       
+		//    Validation.addAllThese([     
+		//     [
+		//         'validation-gstin',      
+		//         'GST Identification Number is not valid. It should be in this "11AAAAA1111Z1A1" format',   
+		//         function(v,r){  
+		//         	var gstin_regex = new RegExp(/^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[1-9]{1}[A-Z]{1}[0-9A-Z]{1}$/);
+		//         	return gstin_regex.test(v);	
+		//         } 
+		//     ],
+		//    [ ]   
+		// ])
+		// }
+  //       jQuery(document).ready(function(){
+		// var regext = "/^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[1-9A-Z]{1}Z[0-9A-Z]{1}$/";  
+		// var regex3 = "/^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[1-9]{1}[A-Z]{1}[0-9A-Z]{1}$/";  
+		// var str = "27ASBPG2986Q1B1";   
+		// var str2 = "33COGPP9915R1Z1";
+		// //var re = new RegExp(regext);	
+		// // var re2 = new RegExp(regex2);	
+		// var re3 = new RegExp(/^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[1-9]{1}[A-Z]{1}[0-9A-Z]{1}$/);	
+  //       //var reg = preg_match("/^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[1-9A-Z]{1}Z[0-9A-Z]{1}$/","dksjkdaskdj");
+  //       // var res = re3.test(str);
+  //       var res2 = re3.test(str2);
+  //       // console.log(res);
+  //       // console.log(res2);
+  //       alert(str2+" is "+res2);
+  //       var reggst = /^([0-9]){2}([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}([0-9]){1}([a-zA-Z]){1}([0-9]){1}?$/;
+		// if(!reggst.test(str2) && str2!=''){
+		//         alert('GST Identification Number is not valid. It should be in this "11AAAAA1111Z1A1" format');
+		// }else{
+		// 	alert(str2+" is Valid");
+		// }
+  //       });
+    //]]>
+	</script>
+</div>

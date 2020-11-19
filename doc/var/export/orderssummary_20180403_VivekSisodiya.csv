@@ -1,0 +1,5 @@
+"Order Id",SKU,"Product Name","Store Name","Amount Total",Qty,Discount,"Net Sale",Category,City,State,"ASM Name","RSM Name","Payment Method","Customer Email"
+200103919,REFMOB0011,"Samsung Galaxy J7 Pro (Gold, 64 GB) (Brand Refurbished Mobile)","Mayank Electronics",12600.0000,1.0000,0.0000,12600.0000,RefurbishedMobiles,UDAIPUR,Rajasthan,"Vivek Sisodiya","Rajesh Soni",cashondelivery,jainannu006@gmail.com
+200103923,NEWMOB00410,"Redmi Note 4   4GB (Dark Grey 64GB)","Chandra Gift And General Store",32101.0000,3.0000,50.0000,32051.0000,New,"CHITTOR GARH",Rajasthan,"Vivek Sisodiya","Rajesh Soni",cashondelivery,hanumehta2013@gmail.com
+200103928,NEWMOB00410,"Redmi Note 4   4GB (Dark Grey 64GB)","Chandra Gift And General Store",21401.0000,2.0000,50.0000,21351.0000,New,"CHITTOR GARH",Rajasthan,"Vivek Sisodiya","Rajesh Soni",cashondelivery,hanumehta2013@gmail.com
+200104000,NEWMOB00410,"Redmi Note 4   4GB (Dark Grey 64GB)","Welcome Mobile And Electronics",21401.0000,2.0000,241.0000,21160.0000,New,UDAIPUR,Rajasthan,"Vivek Sisodiya","Rajesh Soni",billdesk_ccdc_net,vr699welcome@gmail.com

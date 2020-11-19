@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <tabs>
+        <hashtag translate="label" module="detailpage">
+            <label>Hashtags Extensions</label>
+            <sort_order>100</sort_order>
+        </hashtag>
+    </tabs>
+    <sections>
+        <hashtag translate="label" module="detailpage">
+            <label>Hashtag Extension Options</label>
+            <tab>hashtag</tab>
+            <sort_order>1000</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+ 
+            <groups>
+                <hashtag_group translate="label" module="detailpage">
+                    <label>Hashtag Extension Options</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1000</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+ 
+                    <fields module="detailPage">
+                        <attribute translate="label">
+                            <label>Attributes Names</label>
+                            <comment>Select attribute to use for hashtags</comment>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>detailpage/system_config_source_attributes</source_model>
+                        </attribute>
+                    </fields>
+                     <fields module="detailPage">
+                        <category_name translate="label">
+                            <label>Categories</label>
+                            <comment>Select one of the category from above dropdown</comment>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>21</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>detailpage/system_config_source_pricerange</source_model>
+                        </category_name>
+                    </fields>
+                    <!--fields module="detailPage">
+                        <price_range translate="label">
+                            <label>Price Range Option</label>
+                            <comment>You can select multiple options</comment>
+                            <frontend_type>multiselect</frontend_type>
+                            <sort_order>21</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>detailpage/system_config_source_pricerange</source_model>
+                        </price_range>
+                    </fields-->
+                    
+                    
+                    <fields module="detailpage">  
+                        <run translate="label">
+                            <label>Generate Tag</label>
+                            <frontend_type>button</frontend_type>
+                            <frontend_model>detailpage/button</frontend_model>
+                            <sort_order>22</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </run>
+                    </fields>
+                </hashtag_group>
+            </groups>
+        </hashtag>
+    </sections>
+</config>

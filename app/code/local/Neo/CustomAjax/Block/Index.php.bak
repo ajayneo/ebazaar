@@ -1,0 +1,8 @@
+<?php   
+class NeoCustom_CustomAjax_Block_Index extends Mage_Core_Block_Template{   
+
+
+
+
+
+}

@@ -1,0 +1,178 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Neo_Affiliatecommision>
+      <version>0.1.0</version>
+    </Neo_Affiliatecommision>
+  </modules>
+  <global>
+    <helpers>
+      <affiliatecommision>
+        <class>Neo_Affiliatecommision_Helper</class>
+      </affiliatecommision>
+    </helpers>
+	<blocks>
+	  <affiliatecommision>
+		<class>Neo_Affiliatecommision_Block</class>
+	  </affiliatecommision>
+	</blocks>
+	<models>
+	  <affiliatecommision>
+		<class>Neo_Affiliatecommision_Model</class>
+		<resourceModel>affiliatecommision_mysql4</resourceModel>
+	  </affiliatecommision>
+	  <affiliatecommision_mysql4>
+		<class>Neo_Affiliatecommision_Model_Mysql4</class>
+		<entities>		  
+			  <commision>
+				<table>neo_affiliate_commision</table>
+			  </commision>
+        </entities>
+	  </affiliatecommision_mysql4>
+	</models>
+	<resources>
+	  <affiliatecommision_setup>
+		<setup>
+		  <module>Neo_Affiliatecommision</module>
+		</setup>
+		<connection>
+		  <use>core_setup</use>
+		</connection>
+	  </affiliatecommision_setup>
+	  <affiliatecommision_write>
+		<connection>
+		  <use>core_write</use>
+		</connection>
+	  </affiliatecommision_write>
+	  <affiliatecommision_read>
+		<connection>
+		  <use>core_read</use>
+		</connection>
+	  </affiliatecommision_read>
+	  <salesattribute1481471500_setup>
+		<setup>
+		  <module>Neo_Affiliatecommision</module>
+		  <class>Mage_Sales_Model_Mysql4_Setup</class>
+		</setup>
+		<connection>
+		  <use>core_setup</use>
+		</connection>
+	  </salesattribute1481471500_setup>
+	  <salesattribute1481471500_write>
+		<connection>
+		  <use>core_write</use>
+		</connection>
+	  </salesattribute1481471500_write>
+	  <salesattribute1481471500_read>
+		<connection>
+		  <use>core_read</use>
+		</connection>
+	  </salesattribute1481471500_read>
+	</resources>
+    <events>
+	<checkout_type_onepage_save_order_after> <!-- identifier of the event we want to catch -->
+        <observers>
+          <checkout_type_onepage_save_order_after_affiliatecommision_handler> <!-- identifier of the event handler -->
+            <type>model</type> <!-- class method call type; valid are model, object and singleton -->
+            <class>affiliatecommision/newordertotalobserver</class> <!-- observers class alias -->
+            <method>saveAffiliatecommisionTotal</method>  <!-- observer's method to be called -->
+            <args></args> <!-- additional arguments passed to observer -->
+          </checkout_type_onepage_save_order_after_affiliatecommision_handler>
+	    </observers>
+      </checkout_type_onepage_save_order_after>		
+	<checkout_type_multishipping_create_orders_single> <!-- identifier of the event we want to catch -->
+        <observers>		
+          <checkout_type_multishipping_create_orders_single_affiliatecommision_handler> <!-- identifier of the event handler -->
+            <type>model</type> <!-- class method call type; valid are model, object and singleton -->
+            <class>affiliatecommision/newordertotalobserver</class> <!-- observers class alias -->
+            <method>saveAffiliatecommisionTotalForMultishipping</method>  <!-- observer's method to be called -->
+            <args></args> <!-- additional arguments passed to observer -->
+          </checkout_type_multishipping_create_orders_single_affiliatecommision_handler>		
+        </observers>
+      </checkout_type_multishipping_create_orders_single>
+    </events>	
+	 <sales>
+		<quote>
+			<totals>				
+	            <affiliatecommision_total>
+					<class>affiliatecommision/quote_address_total_affiliatecommision</class>
+					<after>subtotal,freeshipping,tax_subtotal,shipping</after>
+					<before>grand_total</before>
+				</affiliatecommision_total> 
+			</totals>
+		</quote>
+            <order_invoice>
+                <totals>				
+	            <affiliatecommision_total>
+					<class>affiliatecommision/order_invoice_total_affiliatecommision</class>
+					<after>subtotal,freeshipping,tax_subtotal,shipping</after>
+					<before>grand_total</before>
+				</affiliatecommision_total> 
+                </totals>
+            </order_invoice>
+            <order_creditmemo>
+                <totals>				
+	            <affiliatecommision_total>
+					<class>affiliatecommision/order_creditmemo_total_affiliatecommision</class>
+					<after>subtotal,freeshipping,tax_subtotal,shipping</after>
+					<before>grand_total</before>
+				</affiliatecommision_total> 
+                </totals>
+            </order_creditmemo>
+	</sales>
+  </global>
+  <admin>
+	<routers>
+	  <affiliatecommision>
+	    <use>admin</use>
+		<args>
+		  <module>Neo_Affiliatecommision</module>
+		  <frontName>admin_affiliatecommision</frontName>
+		</args>
+	  </affiliatecommision>
+	</routers>
+  </admin>
+  <adminhtml>
+	<menu>
+	  <affiliatecommision module="affiliatecommision">
+		<title>Affiliate Commision</title>
+		<sort_order>100</sort_order>
+		<children>
+		  <commision module="affiliatecommision">
+		    <title>Manage Commision</title>
+			<sort_order>0</sort_order>
+			<action>admin_affiliatecommision/adminhtml_commision</action>
+		  </commision>
+		</children>
+	  </affiliatecommision>
+	</menu>
+	<acl>
+	  <resources>
+		<all>
+		  <title>Allow Everything</title>
+		</all>
+		<admin>
+		  <children>
+			<affiliatecommision translate="title" module="affiliatecommision">
+			  <title>Affiliate Commision</title>
+			  <sort_order>1000</sort_order>
+			  <children>
+		  <commision translate="title">
+			<title>Manage Commision</title>
+			<sort_order>0</sort_order>
+		  </commision>
+			  </children>
+			</affiliatecommision>
+		  </children>
+		</admin>
+	  </resources>
+	</acl>
+	<layout>
+	  <updates>
+		<affiliatecommision>
+		  <file>affiliatecommision.xml</file>
+		</affiliatecommision>
+	  </updates>
+	</layout>
+  </adminhtml>
+</config> 

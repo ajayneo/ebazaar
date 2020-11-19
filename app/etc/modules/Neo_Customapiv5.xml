@@ -1,0 +1,8 @@
+<config>
+	<modules>
+		<Neo_Customapiv5>
+			<active>true</active>
+			<codePool>local</codePool>
+		</Neo_Customapiv5>
+	</modules>
+</config>

@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Neo_Producttype>
+            <version>1.0.0</version>
+        </Neo_Producttype>
+    </modules>
+    <global>
+        <catalog>
+            <product>
+                <type>
+                    <neo translate="label" module="neo_producttype">
+                        <label>Gadget Product</label>
+                        <model>neo_producttype/product_type</model>
+                        <is_qty>1</is_qty>
+                        <composite>0</composite>
+                        <can_use_qty_decimals>1</can_use_qty_decimals>
+                        <price_model>neo_producttype/product_price</price_model>
+                        <!--<index_data_retreiver>downloadable/catalogIndex_data_downloadable</index_data_retreiver>-->
+                        <price_indexer>neo_producttype/indexer_price</price_indexer>
+                    </neo>
+                </type>
+            </product>
+        </catalog>
+        
+        <resources>
+            <neo_producttype_setup>
+                <setup>
+                    <module>Neo_Producttype</module>
+                    <class>Mage_Catalog_Model_Resource_Eav_Mysql4_Setup</class>
+                </setup>
+            </neo_producttype_setup>
+        </resources>
+        <blocks>
+            <neo_producttype>
+                <class>Neo_Producttype_Block</class>
+            </neo_producttype>
+        </blocks>
+        <helpers>
+            <neo_producttype>
+                <class>Neo_Producttype_Helper</class>
+            </neo_producttype>
+        </helpers>
+        <models>
+            <neo_producttype>
+                <class>Neo_Producttype_Model</class>
+                <resourceModel>neo_producttype_resource</resourceModel>
+            </neo_producttype>
+            <neo_producttype_resource>
+                <class>Neo_Producttype_Model_Resource</class>
+            </neo_producttype_resource>
+        </models>
+    </global>
+</config>

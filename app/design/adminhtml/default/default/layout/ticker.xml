@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <ticker_adminhtml_ticker_index>
+        <reference name="content">
+            <block type="ticker/adminhtml_ticker" name="ticker" />
+        </reference>
+    </ticker_adminhtml_ticker_index>
+</layout>

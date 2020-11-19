@@ -1,0 +1,18 @@
+<input type="text" id="pincode" class="input-text" maxlength="6" placeholder="Enter Pincode" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Pincode'" />
+<button class="button validate" title="Check for Delivery" type="button"><span><span>Check for Delivery</span></span></button>
+<span class='deliveryresult'></span>
+
+<script type="text/javascript">
+
+jQuery('.validate').click(function(){
+	var test=jQuery("#pincode").val();
+	jQuery.ajax({
+		url: "<?php echo Mage::getUrl('deliveryvalidator/index/validator/'); ?>",
+		type: "POST",
+		data: {pincode : test},
+		success: function(data){
+			jQuery('span.deliveryresult').html(data);
+		}
+	})
+});
+</script>

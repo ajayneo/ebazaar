@@ -1,0 +1,6 @@
+"Order Id",SKU,"Product Name","Store Name","Amount Total",Qty,Discount,"Net Sale",Category,City,State,"ASM Name","RSM Name","Payment Method","Customer Email"
+200104548,ASMBA000044,"Xiaomi Mi 4i (16GB) ASIS (NO RETURNS) ","Techno Shoppe",3000.0000,1.0000,0.0000,3000.0000,ASISMobiles,MYSORE,Karnataka,"Abu Irshad","Prakash Purohit",banktransfer,shamsipanoor@gmail.com
+200104548,NEWMOB00255,"SAMSUNG GALAXY J2 6 (J210F) (8GB Silver)","Techno Shoppe",7899.0000,1.0000,0.0000,7899.0000,New,MYSORE,Karnataka,"Abu Irshad","Prakash Purohit",banktransfer,shamsipanoor@gmail.com
+200104548,NEWMOB00410,"Redmi Note 4   4GB (Dark Grey 64GB)","Techno Shoppe",21401.0000,2.0000,50.0000,21351.0000,New,MYSORE,Karnataka,"Abu Irshad","Prakash Purohit",banktransfer,shamsipanoor@gmail.com
+200104548,REFMOB0004,"Samsung Galaxy J7 Max 4GB 32GB GOLD (Brand Refurbished Mobile)","Techno Shoppe",12750.0000,1.0000,0.0000,12750.0000,RefurbishedMobiles,MYSORE,Karnataka,"Abu Irshad","Prakash Purohit",banktransfer,shamsipanoor@gmail.com
+200104548,REFMOB0011,"Samsung Galaxy J7 Pro (Gold, 64 GB) (Brand Refurbished Mobile)","Techno Shoppe",12600.0000,1.0000,0.0000,12600.0000,RefurbishedMobiles,MYSORE,Karnataka,"Abu Irshad","Prakash Purohit",banktransfer,shamsipanoor@gmail.com

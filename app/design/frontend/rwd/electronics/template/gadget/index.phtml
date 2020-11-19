@@ -1,0 +1,123 @@
+<?php
+   $categories = $this->getcategories();
+   $categoriesMobileBrandImages = $this->getGadgetBrandImages();
+   $categorieslaptopBrandImagesLaptop = $this->getGadgetBrandImagesLaptop();
+?>
+<style type="text/css">
+  .header-fixed, #header-nav.nav-fixed{ position: static; }
+  .gadgetModuleContainer{ background: none; border:0; }
+.main-container{ background: url("https://www.electronicsbazaar.com/skin/frontend/rwd/electronics/customs/images/sell-gadget/doodle-2.png"); margin: 0; background-color: #e9e9e9; }
+
+.footer-container{ margin: 0; }
+</style>
+<div class="gadgetModuleContainer">
+   <div class="title">
+      <h1>Sell Your <span>Gadget!!</span></h1>
+   </div>
+   <ul class="gadgetList">
+      <?php foreach ($categories as $key => $value): ?>
+      <li class="<?php echo  $value['image_alt'] ?>">
+         <a class=""><img src="<?php echo  $value['image'] ?>" /></a>
+      </li>
+      <?php endforeach; ?>  
+
+      <li class="sell-other">
+        <img src="https://www.electronicsbazaar.com/neweb/media/bannerslider/o/t/other-gadget-1.jpg" />
+      </li>
+
+   </ul>
+   <div class="gadget-brands-container">
+      <div class="mobile-gadget-container">
+         <div class="title">
+            <h1>Mobile Brands</h1>
+         </div>
+         <ul class="clearfix">
+            <?php foreach ($categoriesMobileBrandImages as $key => $value): ?>
+            <li>
+
+            <?php if($value['value'] == 'Others'): ?>
+                    <a>
+                   <?php else: ?>   
+                    <a href="<?php echo $this->getGadgetBaseUrl().'Mobile/'.$value['value'] ?>">
+                   <?php endif; ?>
+
+               
+               <span class="brand-img-container">
+               <span class="brand-img"><img src="<?php echo  $value['image'] ?>" /></span>
+               </span>
+               <span class="brand-text"><?php echo  $value['value'] ?></span>
+               </a>
+            </li>
+            <?php endforeach; ?>
+
+            <!-- <li>
+               
+               <span class="brand-img-container">
+               <span class="brand-img"><img src="https://www.electronicsbazaar.com/neweb/media/wysiwyg/other.png" /></span>
+               </span>
+               <span class="brand-text">Others</span>
+               
+            </li> -->
+         </ul>
+      </div>
+      <div class="laptop-gadget-container">
+         <div class="title">
+            <h1>Laptop Brands</h1>
+         </div>
+         <ul class="clearfix">
+            
+            <?php foreach ($categorieslaptopBrandImagesLaptop as $key => $value): ?>
+                <li>
+
+                   <?php if($value['value'] == 'Other'): ?>
+                    <a>
+                   <?php else: ?>   
+                    <a href="<?php echo $this->getGadgetBaseUrl().'Laptops/'.$value['value'] ?>">
+                   <?php endif; ?>
+                   <span class="brand-img-container">
+                   <span class="brand-img"><img src="<?php echo  $value['image'] ?>" /></span>
+                   </span>
+                   <span class="brand-text"><?php echo  $value['value'] ?></span>
+                   </a>
+                </li>
+            <?php endforeach; ?>
+
+            <!-- <li>
+               
+               <span class="brand-img-container">
+               <span class="brand-img"><img src="https://www.electronicsbazaar.com/neweb/media/wysiwyg/other.png" /></span>
+               </span>
+               <span class="brand-text">Others</span>
+               
+            </li> -->
+         </ul>
+      </div>
+   </div>
+</div>
+<script type="text/javascript">
+   var jqg = jQuery.noConflict();
+    jqg( ".sell-mobile a" ).click(function() {
+     jqg( ".laptop-gadget-container" ).hide("slow");
+       jqg( ".laptop-gadget-container" ).removeClass( "active" );
+     jqg( ".mobile-gadget-container" ).show("slow");
+       jqg( ".mobile-gadget-container" ).addClass( "active" );
+    });
+   
+    jqg( ".sell-laptop a" ).click(function() {
+       jqg( ".mobile-gadget-container" ).hide("slow");
+       jqg( ".mobile-gadget-container" ).removeClass( "active" );
+     jqg( ".laptop-gadget-container" ).show("slow");
+       jqg( ".laptop-gadget-container" ).addClass( "active" );
+    });
+
+      jqg(".sell-mobile").click(function() {
+         jqg('html, body').animate({
+             scrollTop: jqg(".mobile-gadget-container").offset().top
+         }, 2000);
+     });
+     jqg(".sell-laptop").click(function() {
+         jqg('html, body').animate({
+             scrollTop: jqg(".laptop-gadget-container").offset().top
+         }, 2000);
+     });
+</script>

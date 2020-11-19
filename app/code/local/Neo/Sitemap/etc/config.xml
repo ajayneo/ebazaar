@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<Neo_Sitemap>
+			<version>0.0.1</version>
+		</Neo_Sitemap>
+	</modules>
+	<global>
+		<models>
+			<sitemap>
+				<rewrite>
+					<sitemap>Neo_Sitemap_Model_Sitemap</sitemap>
+				</rewrite>
+			</sitemap>
+		</models>
+	</global>
+</config>

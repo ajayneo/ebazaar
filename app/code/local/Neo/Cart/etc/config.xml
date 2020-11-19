@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config>
+	<modules>
+		<Neo_Cart>
+			<version>1.0.0</version>
+		</Neo_Cart>
+	</modules>
+	<frontend>
+		<routers>
+			<amcart>
+				<args>
+					<modules>
+						<neo_cart before="Amasty_Cart">Neo_Cart</neo_cart>
+					</modules>
+				</args>
+			</amcart>
+		</routers>
+	</frontend>
+</config>

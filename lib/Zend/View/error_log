@@ -1,0 +1,2 @@
+[08-Oct-2018 16:03:40 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Exception' not found in /home/electronicsbazaa/public_html/lib/Zend/View/Exception.php on line 38
+[08-Oct-2018 16:03:40 Asia/Kolkata] PHP Fatal error:  Interface 'Zend_View_Interface' not found in /home/electronicsbazaa/public_html/lib/Zend/View/Abstract.php on line 40

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Neo_Producttype extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ */
+-->
+<config>
+    <modules>
+        <Neo_Producttype>
+            <active>true</active>
+            <codePool>local</codePool>
+            <depends>
+                <Mage_Core />
+             </depends>
+        </Neo_Producttype>
+    </modules>
+</config>

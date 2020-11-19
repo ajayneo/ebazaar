@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Neo_Stopcreditpayment>
+      <version>0.1.0</version>
+    </Neo_Stopcreditpayment>
+  </modules>
+  <global>
+    <helpers>
+      <stopcreditpayment>
+        <class>Neo_Stopcreditpayment_Helper</class>
+      </stopcreditpayment>
+    </helpers>
+	<models>
+	  <stopcreditpayment>
+		<class>Neo_Stopcreditpayment_Model</class>
+		<resourceModel>stopcreditpayment_mysql4</resourceModel>
+	  </stopcreditpayment>
+	</models>
+    
+  </global>
+
+  <frontend> 
+
+    <events>
+    <payment_method_is_active> <!-- identifier of the event we want to catch -->
+        <observers>
+          <payment_method_is_active_handler> <!-- identifier of the event handler -->
+            <type>model</type> <!-- class method call type; valid are model, object and singleton -->
+            <class>stopcreditpayment/observer</class> <!-- observers class alias -->
+            <method>filterpaymentmethod</method>  <!-- observer's method to be called -->
+            <args></args> <!-- additional arguments passed to observer -->
+          </payment_method_is_active_handler>
+        </observers>
+      </payment_method_is_active>
+    </events>
+  </frontend>
+</config> 

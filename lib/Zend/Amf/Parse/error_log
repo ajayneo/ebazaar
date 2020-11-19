@@ -1,0 +1,2 @@
+[08-Oct-2018 16:04:36 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Amf_Util_BinaryStream' not found in /home/electronicsbazaa/public_html/lib/Zend/Amf/Parse/InputStream.php on line 38
+[08-Oct-2018 16:04:36 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Amf_Util_BinaryStream' not found in /home/electronicsbazaa/public_html/lib/Zend/Amf/Parse/OutputStream.php on line 39

@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Creatuitycorp_Shareyourpurchase>
+            <version>0.1.3</version>
+        </Creatuitycorp_Shareyourpurchase>
+    </modules>
+    
+    <global>
+        <helpers>
+            <shareyourpurchase>
+                <class>Creatuitycorp_Shareyourpurchase_Helper</class>
+            </shareyourpurchase>
+        </helpers>
+        
+        <blocks>
+            <shareyourpurchase>
+                <class>Creatuitycorp_Shareyourpurchase_Block</class>
+            </shareyourpurchase>
+        </blocks>
+        
+        <models>
+            <shareyourpurchase>
+                <class>Creatuitycorp_Shareyourpurchase_Model</class>
+                <resourceModel>shareyourpurchase_resources</resourceModel>
+            </shareyourpurchase>
+            <shareyourpurchase_resources>
+                <class>Creatuitycorp_Shareyourpurchase_Model_Mysql4</class>
+                <entities>
+                    <statistics>
+                        <table>shareyourpurchase_statistics</table>
+                    </statistics>
+                </entities>
+            </shareyourpurchase_resources>
+        </models>
+        
+        <resources>
+            <creatuitycorp_shareyourpurchase_setup>
+                <setup>
+                    <module>Creatuitycorp_Shareyourpurchase</module>
+                    <class>Mage_Core_Model_Resource_Setup</class>
+                </setup>
+            </creatuitycorp_shareyourpurchase_setup>
+        </resources>
+    </global>
+    
+    <adminhtml>
+        <menu>
+            <shareyourpurchase module="shareyourpurchase">
+                <title>Share Your Purchase</title>
+                <sort_order>100</sort_order>
+                <children>
+                    <statistics module="shareyourpurchase">
+                        <title>Statistics</title>
+                        <sort_order>0</sort_order>
+                        <action>shareyourpurchase/adminhtml_statistics</action>
+                    </statistics>
+                </children>
+            </shareyourpurchase>
+        </menu>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <shareyourpurchase translate="title" module="shareyourpurchase">
+                            <title>Share Your Purchase</title>
+                            <sort_order>1000</sort_order>
+                            <children>
+                                <statistics translate="title">
+                                    <title>Statistics</title>
+                                </statistics>
+                            </children>
+                        </shareyourpurchase>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+        <layout>
+            <updates>
+                <shareyourpurchase>
+                    <file>shareyourpurchase.xml</file>
+                </shareyourpurchase>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <Creatuitycorp_Shareyourpurchase>
+                    <files>
+                        <default>Creatuitycorp_Shareyourpurchase.csv</default>
+                    </files>
+                </Creatuitycorp_Shareyourpurchase>
+            </modules>
+        </translate> 
+    </adminhtml>
+    
+    <frontend>
+        <layout>
+            <updates>
+                <shareyourpurchase>
+                    <file>shareyourpurchase.xml</file>
+                </shareyourpurchase>
+            </updates>
+        </layout>
+        <routers>
+            <shareyourpurchase>
+                <use>standard</use>
+                <args>
+                    <module>Creatuitycorp_Shareyourpurchase</module>
+                    <frontName>social</frontName>
+                </args>
+            </shareyourpurchase>
+        </routers>
+        <translate>
+            <modules>
+                <Creatuitycorp_Shareyourpurchase>
+                    <files>
+                        <default>Creatuitycorp_Shareyourpurchase.csv</default>
+                    </files>
+                </Creatuitycorp_Shareyourpurchase>
+            </modules>
+        </translate>
+    </frontend>
+    
+    <admin>
+        <routers>
+            <shareyourpurchase>
+                <use>admin</use>
+                <args>
+                    <module>Creatuitycorp_Shareyourpurchase</module>
+                    <frontName>shareyourpurchase</frontName>
+                </args>
+            </shareyourpurchase>
+        </routers>
+    </admin>
+    
+    <default>
+        <shareyourpurchase>
+            <general>
+                <enable>0</enable>
+                <onepage_checkout_enable>0</onepage_checkout_enable>
+                <user_sales_history_enable>0</user_sales_history_enable>
+            </general>
+            <template>
+                <template_title>{items_names}</template_title>
+                <template_description>{item_name} {item_price}</template_description>
+            </template>
+            <template_one_product>
+                <template_title>{item_name}</template_title>
+            </template_one_product>
+            <facebook_aggregate_purchase>
+                <enable>0</enable>
+                <use_template>0</use_template>
+                <template_title>{items_names}</template_title>
+                <template_description>{item_name} {item_price}</template_description>
+                <items_limit>0</items_limit>
+                <post_image>product_image</post_image>
+                <icon_size>small</icon_size>
+            </facebook_aggregate_purchase>
+            <facebook_one_product>
+                <enable>0</enable>
+                <use_template>0</use_template>
+                <template_title>{item_name}</template_title>
+                <template_description>{item_name} {item_price}</template_description>
+                <items_limit>0</items_limit>
+                <post_image>product_image</post_image>
+                <icon_size>small</icon_size>
+            </facebook_one_product>
+            <twitter_aggregate_purchase>
+                <enable>0</enable>
+                <use_template>0</use_template>
+                <items_limit>0</items_limit>
+                <button_size>0</button_size>
+                <counter>1</counter>
+            </twitter_aggregate_purchase>
+            <twitter_one_product>
+                <enable>0</enable>
+                <use_template>0</use_template>
+                <button_size>0</button_size>
+                <counter>1</counter>
+            </twitter_one_product>
+            <pinterest_aggregate_purchase>
+                <enable>0</enable>
+                <use_template>0</use_template>
+                <items_limit>0</items_limit>
+                <button_type>1</button_type>
+                <pin_count>0</pin_count>
+                <post_image>product_image</post_image>
+            </pinterest_aggregate_purchase>
+            <pinterest_one_product>
+                <enable>0</enable>
+                <use_template>0</use_template>
+                <button_type>1</button_type>
+                <pin_count>0</pin_count>
+                <post_image>product_image</post_image>
+            </pinterest_one_product>
+        </shareyourpurchase>
+    </default>
+</config>

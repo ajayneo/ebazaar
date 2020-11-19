@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+  <ebautomation_adminhtml_priceupdatelog_index>
+	<reference name="content">
+	  <block type="ebautomation/adminhtml_priceupdatelog" name="priceupdatelog" />
+	</reference>
+  </ebautomation_adminhtml_priceupdatelog_index>
+</layout>

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+  <asmdetail_adminhtml_asmdetail_index>
+	<reference name="content">
+	  <block type="asmdetail/adminhtml_asmdetail" name="asmdetail" />
+	</reference>
+  </asmdetail_adminhtml_asmdetail_index>
+  <asmdetail_adminhtml_asm_index>
+	<reference name="content">
+	  <block type="asmdetail/adminhtml_asm" name="asm" />
+	</reference>
+  </asmdetail_adminhtml_asm_index>
+  <asmdetail_adminhtml_rsm_index>
+	<reference name="content">
+	  <block type="asmdetail/adminhtml_rsm" name="rsm" />
+	</reference>
+  </asmdetail_adminhtml_rsm_index>
+</layout>

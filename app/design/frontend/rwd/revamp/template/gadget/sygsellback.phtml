@@ -1,0 +1,133 @@
+<?php $orderdata = $this->getSygOrderList(); ?>
+<div class="my-account my-account-new col2-left-layout-new">
+	<div class="syg-order-sellback">
+	<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+	<div class="page-title">
+	    <h1><?php echo $this->__('SYG Order Sell Back') ?></h1>
+        <span class="syg-odr-selbck-btn">
+            <button type="button" class="button btn-address" onclick="window.history.go(-1); return false;">
+                <span>
+                    <span>Back</span>
+                </span>
+            </button>
+        </span>
+	</div>
+	<form action="<?php echo Mage::getUrl('gadget/index/sellBackSendData');?>" name="syg_sell_back" id="syg_sell_back" method="post">
+	<div class="checkout-container new-gadget-container new-gadget-bank-details"> 
+            
+        <input name="order_id" value="<?php echo $this->getRequest()->getParam('id');?>" type="hidden">
+        <input name="form_key" value="<?php echo Mage::getSingleton('core/session')->getFormKey();  ?>" type="hidden">
+        <!-- <div class="title"><h1>Enter Your Details</h1></div> -->
+        <div class="clearfix">
+            <div class="bank-container"> 
+                <div class="new-gadget-title"><h1>Bank Details</h1></div>
+                    <ul class="clearfix">
+                        <li class="clearfix">
+                            <label>Customer Name:</label>
+                            <div class="input-field"><input type="text" class="required-entry" placeholder="As per Bank Records" name="confrm_by_retailer_name_in_bank"></div>
+                        </li>
+                        <li class="clearfix">
+                            <label>Bank Name:</label>
+                            <div class="input-field"><input type="text" class="required-entry" placeholder="E.g. HDFC Bank" name="confrm_by_retailer_bank_name"></div>
+                        </li>
+                        <li class="clearfix">
+                            <label>Account Number:</label>
+                            <div class="input-field"><input type="text" class="required-entry" placeholder="E.g. A/c 345931234568524" name="confrm_by_retailer_acct_number"></div>
+                        </li>
+                        <li class="clearfix">
+                            <label>IFSC Code:</label>
+                            <div class="input-field"><input type="text" class="required-entry" placeholder="E.g. HDFC000005" name="confrm_by_retailer_ifsc_code"></div>
+                        </li>
+                    </ul>
+            	</div> 
+	            <div class="address-container"> 
+	                <div class="new-gadget-title"><h1>Address</h1></div>
+	                    <ul class="clearfix">
+	                        <li>
+	                            <div class="checkout-details">
+	                                <div class="checkout-details-form checkout-address">
+	                                    <label>We will arrange pickup on your existing shipping address</label>
+	                                    <div role="tablist" id="accordion" class="clearfix">
+	                                        <?php $addresses = $this->getCustomerAddress(); ?>
+	                                        <select name="confrm_by_retailer_address_id" id="confrm_by_retailer_address_id" onchange="removeValidationOnAddressFields(this.value)">
+	                                        	<option value="">--Select your Pick up Address--</option>
+	                                        	<?php 
+                                                foreach ($addresses as $key => $value) { ?>
+                                                    <option value="<?php echo $key; ?>"><?php echo $value; ?></option>
+                                                <?php } ?>
+                                                
+	                                        </select>
+	                                        
+	                                    </div>
+	                                </div>
+	                            </div>
+	                        </li>
+	                        <li class="detail-or">OR</li>
+	                        <li id="new_address" class="clearfix add-address">
+	                            <label>Add Address</label>
+	                            <div class="input-field">
+	                                <input type="text" class="required-entry" name="customer_name" placeholder="Name">
+	                                <input type="text" class="required-entry" name="street" placeholder="Street">
+	                                <input type="text" class="required-entry validate-number validate-minlength-6 validate-maxlength-6" name="postcode" placeholder="Pincode">
+	                                <input type="text" class="required-entry" name="city" placeholder="City" readonly="">
+	                                <input type="text" class="required-entry" name="state" placeholder="State" readonly="">
+	                            </div>
+	                        </li>      
+	                        <li>
+	                             <input type="checkbox" name="checkboxG1" id="checkboxG1" class="css-checkbox required-entry">
+	                                <label for="checkboxG1" class="css-label">
+	                                    I agree to the <a href="<?php echo Mage::getUrl();?>gadget_terms_and_conditions" target="_blank">terms and conditions</a>
+	                                </label>
+	                        </li>                                            
+	                    </ul>
+	        		</div>
+	    		</div>
+	            <div class="btnContainer btn-submit button-container">       
+	                <button type="submit" class="btnSubmit btn-submit">
+	                    <span>
+	                        <span>Sell Now</span>
+	                    </span>
+	                </button>
+	            </div>  
+    		</div>
+		</div>
+	</form>
+</div>
+<script type="text/javascript">
+    //< ![CDATA[
+        var syg_sell_back = new VarienForm('syg_sell_back');
+    //]]>
+
+    function removeValidationOnAddressFields(value) {
+    	if(value!=''){
+    		if(jQuery("input[name='customer_name']").hasClass('required-entry')){
+    			jQuery("input[name='customer_name']").removeClass('required-entry');
+    			jQuery('#advice-required-entry-customer_name').remove();
+    		}	
+    		if(jQuery("input[name='street']").hasClass('required-entry')){
+    			jQuery("input[name='street']").removeClass('required-entry');
+    			jQuery('#advice-required-entry-street').remove();
+    		}
+    		if(jQuery("input[name='postcode']").hasClass('required-entry')){
+    			jQuery("input[name='postcode']").removeClass('required-entry');
+    			jQuery('#advice-required-entry-postcode').remove();
+    		}
+    		if(jQuery("input[name='city']").hasClass('required-entry')){
+    			jQuery("input[name='city']").removeClass('required-entry');
+    			jQuery('#advice-required-entry-city').remove();
+    		}
+    		if(jQuery("input[name='state']").hasClass('required-entry')){
+    			jQuery("input[name='state']").removeClass('required-entry');
+    			jQuery('#advice-required-entry-state').remove();
+    		}
+    		
+    	}else{
+    		jQuery('customer_name').addClass('required-entry');
+    		jQuery('street').addClass('required-entry');
+    		jQuery('postcode').addClass('required-entry');
+    		jQuery('city').addClass('required-entry');
+    		jQuery('state').addClass('required-entry');
+    	}
+    	
+    }
+</script>

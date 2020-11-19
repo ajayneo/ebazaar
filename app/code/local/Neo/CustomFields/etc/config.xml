@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config>
+	<modules>
+		<Neo_CustomFields>
+			<version>0.0.6</version>
+		</Neo_CustomFields>
+	</modules>
+	<frontend>
+		<!-- <routers>
+			<customfields>
+				<use>standard</use>
+				<args>
+					<module>Neo_CustomFields</module>
+					<frontName>customfields</frontName>
+				</args>
+			</customfields>
+		</routers> -->
+		<layout>
+			<updates>
+				<customfields>
+					<file>customfields.xml</file>
+				</customfields>
+			</updates>
+		</layout>
+	</frontend>
+	<!-- <admin>
+		<routers>
+			<customfields>
+				<use>admin</use>
+				<args>
+					<module>Neo_CustomFields</module>
+					<frontName>customfields</frontName>
+				</args>
+			</customfields>
+		</routers>
+	</admin> -->
+	<global>
+		<fieldsets>
+			<customer_account>
+				<mobile>
+					<to_quote>mobile</to_quote>
+				</mobile>
+			</customer_account>
+			<customer_account>
+				<mobile>
+					<create>1</create>
+					<update>1</update>
+				</mobile>
+			</customer_account>
+		</fieldsets>
+		<models>
+			<customfields>
+				<class>Neo_CustomFields_Model</class>
+			</customfields>
+		</models>
+		<helpers>
+			<customfields>
+				<class>Neo_CustomFields_Helper</class>
+			</customfields>
+		</helpers>
+		<resources>
+			<customfields_setup>
+				<setup>
+					<module>Neo_CustomFields</module>
+					<class>Neo_CustomFields_Model_Entity_Setup</class>
+				</setup>
+				<connection>
+					<use>core_setup</use>
+				</connection>
+			</customfields_setup>
+			<!-- <customfields_write>
+				<connection>
+					<use>core_write</use>
+				</connection>
+			</customfields_write>
+			<customfields_read>
+				<connection>
+					<use>core_read</use>
+				</connection>
+			</customfields_read> -->
+		</resources>
+	</global>
+</config>

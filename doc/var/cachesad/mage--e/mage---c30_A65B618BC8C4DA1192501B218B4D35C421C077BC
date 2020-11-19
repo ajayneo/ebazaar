@@ -1,0 +1,81 @@
+
+<div class="nav-bar">
+<!-- menu start -->
+<ul id="nav">
+<li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="  parent level0"> <a href="#"  onclick="return false" class=""><span>Sales</span></a>
+<ul >
+<li  class="  level1"> <a href="https://www.electronicsbazaar.com/index.php/ebsbackend/sales_order/index/key/$sales_order/index$/"   class=""><span>Orders</span></a>
+</li>
+<li  class="  level1"> <a href="https://www.electronicsbazaar.com/index.php/ebsbackend/sales_invoice/index/key/$sales_invoice/index$/"   class=""><span>Invoices</span></a>
+</li>
+<li  class="  last level1"> <a href="https://www.electronicsbazaar.com/index.php/ebsbackend/sales_shipment/index/key/$sales_shipment/index$/"   class=""><span>Shipments</span></a>
+</li>
+</ul>
+</li>
+<li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="  parent level0"> <a href="#"  onclick="return false" class=""><span>Catalog</span></a>
+<ul >
+<li  class="  last level1"> <a href="https://www.electronicsbazaar.com/index.php/ebsbackend/catalog_product/index/key/$catalog_product/index$/"   class=""><span>Manage Products</span></a>
+</li>
+</ul>
+</li>
+<li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="  parent level0"> <a href="#"  onclick="return false" class=""><span>Customers</span></a>
+<ul >
+<li  class="  last level1"> <a href="https://www.electronicsbazaar.com/index.php/ebsbackend/customer/index/key/$customer/index$/"   class=""><span>Manage Customers</span></a>
+</li>
+</ul>
+</li>
+<li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="  parent level0"> <a href="#"  onclick="return false" class=""><span>Exporter</span></a>
+<ul >
+<li  class="  last level1"> <a href="https://www.electronicsbazaar.com/index.php/admin_operations/exporter/index/key/$exporter/index$/"   class=""><span>Export Orders</span></a>
+</li>
+</ul>
+</li>
+<li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="  parent level0"> <a href="#"  onclick="return false" class=""><span>System</span></a>
+<ul >
+<li  class="  level1"> <a href="https://www.electronicsbazaar.com/index.php/ebsbackend/cache/index/key/$cache/index$/"   class=""><span>Cache Management</span></a>
+</li>
+<li  class="  level1"> <a href="https://www.electronicsbazaar.com/index.php/ebsbackend/process/list/key/$process/list$/"   class=""><span>Index Management</span></a>
+</li>
+<li  class="  last level1"> <a href="https://www.electronicsbazaar.com/index.php/ebsbackend/system_config/index/key/$system_config/index$/"   class=""><span>Configuration</span></a>
+</li>
+</ul>
+</li>
+<li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="  parent level0"> <a href="#"  onclick="return false" class=""><span>Vowdelight</span></a>
+<ul >
+<li  class="  last level1"> <a href="https://www.electronicsbazaar.com/index.php/admin_vowdelight/adminhtml_vowdelight/index/key/$adminhtml_vowdelight/index$/"   class=""><span>Manage Vowdelight</span></a>
+</li>
+</ul>
+</li>
+<li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="  parent level0"> <a href="#"  onclick="return false" class=""><span>ASM Detail</span></a>
+<ul >
+<li  class="  level1"> <a href="https://www.electronicsbazaar.com/index.php/admin_asmdetail/adminhtml_rsm/index/key/$adminhtml_rsm/index$/"   class=""><span>Manage Rsm</span></a>
+</li>
+<li  class="  level1"> <a href="https://www.electronicsbazaar.com/index.php/admin_asmdetail/adminhtml_asm/index/key/$adminhtml_asm/index$/"   class=""><span>Manage Asm</span></a>
+</li>
+<li  class="  last level1"> <a href="https://www.electronicsbazaar.com/index.php/admin_asmdetail/adminhtml_asmdetail/index/key/$adminhtml_asmdetail/index$/"   class=""><span>Manage ASM Detail</span></a>
+</li>
+</ul>
+</li>
+<li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="  parent level0"> <a href="#"  onclick="return false" class=""><span>Operations</span></a>
+<ul >
+<li  class="  level1"> <a href="https://www.electronicsbazaar.com/index.php/admin_operations/adminhtml_operationsbackend/index/key/$adminhtml_operationsbackend/index$/"   class=""><span>Cancel Orders</span></a>
+</li>
+<li  class="  level1"> <a href="https://www.electronicsbazaar.com/index.php/admin_operations/adminhtml_customerupdate/index/key/$adminhtml_customerupdate/index$/"   class=""><span>Update Customer</span></a>
+</li>
+<li  class="  last level1"> <a href="https://www.electronicsbazaar.com/index.php/admin_operations/adminhtml_productexport/index/key/$adminhtml_productexport/index$/"   class=""><span>Product Export/Updation</span></a>
+</li>
+</ul>
+</li>
+<li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="  parent level0"> <a href="#"  onclick="return false" class=""><span>Order Return</span></a>
+<ul >
+<li  class="  last level1"> <a href="https://www.electronicsbazaar.com/index.php/admin_orderreturn/adminhtml_return/index/key/$adminhtml_return/index$/"   class=""><span>Manage Return</span></a>
+</li>
+</ul>
+</li>
+</ul>
+<!-- menu end -->
+
+    <a id="page-help-link" href="http://www.magentocommerce.com/gethelp/en_US/Neo_Operations/adminhtml_operationsbackend/index/">Get help for this page</a>
+    <script type="text/javascript">$('page-help-link').target = 'magento_page_help'</script>
+
+</div>

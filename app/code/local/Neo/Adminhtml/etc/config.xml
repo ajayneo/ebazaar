@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<config>
+  <global>
+		<blocks>
+            <adminhtml>
+                <rewrite>
+				<report_sales_coupons_grid>Neo_Adminhtml_Block_Report_Sales_Coupons_Grid</report_sales_coupons_grid>
+				<tag_tag_grid>Neo_Adminhtml_Block_Tag_Tag_Grid</tag_tag_grid>
+				<customer_edit_tab_account>Neo_Adminhtml_Block_Customer_Edit_Tab_Account</customer_edit_tab_account>
+				<customer_grid>Neo_Adminhtml_Block_Customer_Grid</customer_grid>
+				<!--<sales_invoice_grid>Neo_Adminhtml_Block_Sales_Invoice_Grid</sales_invoice_grid>-->
+				</rewrite>
+            </adminhtml>
+			<Neo_adminhtml>
+				<class>Neo_Adminhtml_Block</class>
+			</Neo_adminhtml>			
+        </blocks>
+  </global> 
+  <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Neo_adminhtml before="Mage_Adminhtml">Neo_Adminhtml</Neo_adminhtml>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+</config>

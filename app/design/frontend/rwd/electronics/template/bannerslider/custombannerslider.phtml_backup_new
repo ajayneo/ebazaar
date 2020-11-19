@@ -1,0 +1,81 @@
+
+
+
+<?php
+$result = $this->getBlockData();
+$banners = $result['banners'];
+#print_r($banners);die;
+?>
+<?php
+$media_path = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA);
+$i=0;
+$slider1 = '';
+$url1 = '#';
+$content1='';
+?>
+
+<div id="main" class="slider-container">
+	<div class="image_thumb">
+		<ul>
+			<?php 
+			$j=0;
+			foreach ($banners as $banner) {
+				$iconid = $banner['iconid'];
+				$icon = Mage::getModel('bannericon/bannericon')->load($banner['iconid']);
+				$image = $banner['image'];
+
+				$iconImageName = $icon->getFilename();
+				if($i==0) {
+					$slider1 = $this->getBannerImage($banner['image']);
+					if(!empty($banner['click_url'])) {
+						$url1 = $banner['click_url'];
+					}
+					if(empty($banner['iconcontent'])) {
+						$content1 = $icon->getContent();
+					}
+					else {
+						$content1 = $banner['iconcontent'];
+					}
+					$i=1;
+				}
+				//$media = $media_path.'wysiwyg/'.$image;
+				$media = $this->getBannerImage($banner['image']);
+				$media_icon = $media_path.'bannericon/'.$iconImageName;
+				$url = $banner['click_url'];
+			?>
+			<?php if($j < 6 ) { ?>
+			<li>
+				<div class="icons">
+					<a href="<?php echo $media; ?>" data-target="<?php echo $url; ?>">
+						<img src="<?php echo $media_icon; ?>" alt="" width="32" height="32" />
+					</a>
+				</div>
+				<div class="block">
+					<?php
+						if(empty($banner['iconcontent'])) {
+							echo $icon->getContent();
+						}
+						else{
+							echo $banner['iconcontent'];
+						}
+					?>
+				</div>
+			</li>
+			<?php } ?>
+			<?php
+				$j++;
+				}
+			?>
+		</ul>
+	</div>
+	
+	<div class="main_image">
+		<a href="<?php echo $url1; ?>" target="_blank"><img width="754" height="352" src="<?php echo $slider1; ?>" alt="- banner1" /></a>
+		<div class="desc">
+			<a class="collapse" href="#">Close Me!</a>
+			<div class="block">
+				<?php echo $content1; ?>
+			</div> 
+		</div> 
+	</div>
+</div>

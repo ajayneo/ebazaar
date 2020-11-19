@@ -1,0 +1,148 @@
+<?php
+/**
+ * Magento 
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     rwd_default
+ * @copyright   Copyright (c) 2014 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<div class="opc-ajax-loader">
+	<div id="floatingCirclesG">
+		<div class="f_circleG" id="frotateG_01"></div>
+	 	<div class="f_circleG" id="frotateG_02"></div>
+	 	<div class="f_circleG" id="frotateG_03"></div>
+	 	<div class="f_circleG" id="frotateG_04"></div>
+	 	<div class="f_circleG" id="frotateG_05"></div>
+	 	<div class="f_circleG" id="frotateG_06"></div>
+	 	<div class="f_circleG" id="frotateG_07"></div>
+	 	<div class="f_circleG" id="frotateG_08"></div>
+  	</div>
+</div>
+<p id="back-top" class="back-top"><a href="#top"><span></span>Back to Top</a></p>
+<div class="footer-container">
+	<div class="footer">
+		<div class="top-footer-sec">
+			<?php echo $this->getChildHtml('eb_footer_links'); ?>
+			<?php echo $this->getChildHtml('reach-us-at'); ?>
+		</div>
+    	<div class="footer-top-sec">
+      		<div class="links">
+        		<?php echo $this->getChildHtml('help-footer-links'); ?>
+      		</div>
+	  		<div class="links">
+				<?php echo $this->getChildHtml('footer_all_categories'); ?>
+      		</div>
+      		<div class="links">
+        		<?php echo $this->getChildHtml('footer_all_brands'); ?>	
+      		</div>
+	  		<div class="links mobile-help-main">
+				<?php echo $this->getChildHtml('mobile-help-footer-links'); ?>	
+      		</div>
+	  		<div class="footer-right">
+        		<?php //echo $this->getChildHtml('footer_follow_us_on'); ?>
+		    	<?php echo $this->getChildHtml('newsletter'); ?>
+      		</div>
+    	</div>
+    	<div class="footer-bottom-sec">
+    		<div class="left-links">
+      			<div class="top-brands">
+	        		<?php echo $this->getChildHtml('all_brands'); ?>
+      			</div>
+      			<?php $footermostsearched_block = new Neo_Customblocks_Block_Footersearch(); ?>
+      			<?php //$footmostSearch = $footermostsearched_block->getPopularSearchTerms(); ?>
+      			<?php //$u = array(); ?>
+      			<?php //foreach ($footmostSearch as $search): ?>
+        			<?php //$searchText = $search->getName(); ?>
+        			<?php //$searchresproducts = $footermostsearched_block->getSearchResultProducts($searchText); ?>
+        			<?php //foreach ($searchresproducts as $product): ?>
+          				<?php //$sku = $product->getSku(); ?>
+          				<?php //$u[] = $sku; ?>
+        			<?php //endforeach; ?>
+      			<?php //endforeach; ?>
+      			<div class="footer-category">
+        			<?php $active_cats = $footermostsearched_block->getTopLevelCategory(); ?>
+        			<?php foreach ($active_cats as $categorie): ?>
+          				<?php $cat_brands = $footermostsearched_block->getCategoryBrands($categorie->getId()); ?>
+          				<?php $brands_array = array(); ?>
+          				<?php foreach($cat_brands as $product): ?>
+            				<?php $brands_array[] = $product->getBrands(); ?>
+          				<?php endforeach;  ?>
+          				<?php $final_brand_id = array_unique($brands_array); ?>
+          				<?php $final_brand_id = array_filter($final_brand_id); ?>
+          				<?php if(!empty($final_brand_id)): ?>
+            				<div class="footer-category-list">
+						  		<div class="block-title"><strong><span><?php echo $categorie->getName();?>:</span></strong></div>
+						  		<ul class="links">
+	                				<?php //endif; ?>
+	                				<?php $brands_label = array(); ?>
+                					<?php $_product = Mage::getModel('catalog/product'); ?>
+                					<?php $attr = $_product->getResource()->getAttribute("brands"); ?>
+                					<?php if($attr->usesSource()): ?>
+								  		<?php foreach($final_brand_id as $final_brand_id): ?>
+                    						<?php $brands_label[$final_brand_id] = $attr->getSource()->getOptionText($final_brand_id); ?>
+                  						<?php endforeach; ?>
+                					<?php endif; ?>
+                					<?php $i = 0; ?>
+                					<?php foreach ($brands_label as $key => $value): ?>
+                  						<?php if($i <= 9): ?>
+                    						<!--<li><a href="<?php //echo Mage::getBaseUrl().'shopby?brands='.$key.'&cat='.$categorie->getId(); ?>"><?php //echo $value; ?></a></li>-->
+                    						<li><a href="<?php echo Mage::getBaseUrl().$categorie->getUrlKey().'/shopby/'.strtolower($value) ?>"><?php echo $value; ?></a></li>
+                  						<?php endif; ?>
+                  						<?php $i++; ?>
+                  						<?php if($i == 10): ?>
+                    						<li><a href="<?php echo Mage::getBaseUrl().'brand/?category='.$categorie->getId(); ?>">View All</a></li>
+                  						<?php endif; ?>
+                					<?php endforeach; ?>
+              					</ul>
+            				</div>
+          				<?php endif; ?>
+        			<?php endforeach; ?>
+      			</div>
+			</div>
+			<!--div class="geo-trust">
+				<table width="135" border="0" cellpadding="2" cellspacing="0" title="Click to Verify - This site chose GeoTrust SSL for secure e-commerce and confidential communications.">
+					<tr>
+						<td width="135" align="center" valign="top"><script type="text/javascript" src="https://seal.geotrust.com/getgeotrustsslseal?host_name=www.electronicsbazaar.com&amp;size=S&amp;lang=en"></script><br />
+							<a href="http://www.geotrust.com/ssl/" target="_blank"  style="color:#000000; text-decoration:none; font:bold 7px verdana,sans-serif; letter-spacing:.5px; text-align:center; margin:0px; padding:0px;"></a></td>
+					</tr>
+				</table>
+			</div-->
+    	</div>
+  	</div>
+  	<div class="footer-bottom">
+		<div class="footer copyright-main">
+			<?php //$is_homepage = Mage::getBlockSingleton('page/html_header')->getIsHomePage(); ?>
+			<?php //if($is_homepage): ?>
+				<div class="info-massage">
+					<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('electronic-bazaar-message')->toHtml(); ?>
+				</div>
+			<?php //endif; ?>
+    		<address class="copyright">Copyright &copy; 2016 Electronics Bazaar - Online Electronics Shopping Store in India. All Rights Reserved</address>
+    		<span class="design">Designed at <a href="http://neosofttech.com/" target="_blank">NeoSoft Technologies</a></span>
+  		</div>
+    	<?php //echo $this->getChildHtml('footer-bottom-links'); ?>
+  	</div>
+  	<!--div class="footer">
+    	<address class="copyright">Copyright &copy; 2014 Electronics Bazaar. All Rights Reserved</address>
+    	<span class="design">Designed at <a href="http://neosofttech.com/" target="_blank">NeoSoft Technologies</a></span>
+  	</div-->
+</div>
+ 

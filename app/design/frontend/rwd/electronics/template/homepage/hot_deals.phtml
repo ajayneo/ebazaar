@@ -1,0 +1,121 @@
+<?php $product_list_block = new Mage_Catalog_Block_Product_List(); ?>
+<?php $customblocks_list = new Neo_Multipledeals_Block_List(); ?>
+<?php $dealproductIds = $this->getDealProducts(); ?>
+<?php $compare_ids = $this->getProductsfromCompare(); ?>
+<?php $weekly_deals = $customblocks_list->getWeeklyDealsCollection(); ?>
+<?php $weekly_deal_count = count($weekly_deals); ?>
+
+<?php if($weekly_deal_count > 0):?>
+	<div class="category-products products_homeslider">
+		<h2 class="home-slider-heading">Hot Deals</h2>
+		<ul class="products-grid products-grid--max-4-col first last odd" id="<?php if($weekly_deal_count>4): echo 'homeproslider1'; endif;?>">
+			<?php $now = date("Y-m-d"); ?>
+			<?php $_imgSize = 210; ?>
+			<?php foreach($weekly_deals as $_dealproduct): ?>
+				<?php $special_price = $_dealproduct->getSpecialPrice(); ?>
+				<?php $newsFrom = substr($_dealproduct->getData('news_from_date'),0,10); ?>
+				<?php $newsTo =  substr($_dealproduct->getData('news_to_date'),0,10); ?>
+				<?php $stockItem = $_dealproduct->getStockItem(); ?>
+				<?php $finalprice = $_dealproduct->getFinalPrice(); ?>
+				<?php $product_id = $_dealproduct->getId(); ?>
+				<li class="item">
+					<div class="product-view" data-pid="<?php echo $_dealproduct->getId(); ?>">
+						<span><a href="javascript:void(0)">Quick View</a></span>
+					</div>
+					<div class="clr"></div>
+					<a href="<?php echo $_dealproduct->getProductUrl(); ?>" title="<?php echo $_dealproduct->getName(); ?>" class="product-image">
+						<?php if(!empty($special_price)): ?>
+							<div class="product-offer">
+								<span>Offer</span>
+							</div>
+						<?php elseif(!empty($newsFrom) || !empty($newsTo)):?>
+							<?php if($now>=$newsFrom && $now<=$newsTo): ?> 
+								<div class="product-new">
+									<span>New</span>
+								</div>
+							<?php endif; ?>
+						<?php endif; ?>
+	                    <?php if(!$stockItem->getIsInStock()): ?>
+	                        <span class="out-of-stock"><span>Sold Out</span></span>
+	                    <?php endif; ?>
+						<img id="product-collection-image-<?php echo $_dealproduct->getId(); ?>" src="<?php echo Mage::helper('catalog/image')->init($_dealproduct,'small_image')->resize($_imgSize); ?>" width="<?php echo $_imgSize; ?>" height="<?php echo $_imgSize; ?>" alt="<?php echo $_dealproduct->getName(); ?>" />
+						<div class="mask"></div>
+					</a>
+
+					<div class="product-info">
+						<h2 class="product-name"><a href="<?php echo $_dealproduct->getProductUrl(); ?>" title="<?php echo $_dealproduct->getName(); ?>"><?php echo substr($_dealproduct->getName(),0,24); ?><?php if(strlen($_dealproduct->getName()) > 24) { echo '...'; } ?></a></h2>
+						<?php if(in_array($product_id, $dealproductIds)): ?>
+							<?php if(!empty($finalprice) && $finalprice>0): ?>
+								<div class="price-info">
+										<div class="price-box">                                 
+											<p class="old-price">
+												<span class="price-label">Regular Price:</span>
+												<span class="price"><?php echo Mage::helper('core')->currency($_dealproduct->getPrice()); ?></span>
+											</p>
+											<p class="special-price">
+												<span class="price-label">Special Price</span>
+												<span class="price"><?php echo Mage::helper('core')->currency($_dealproduct->getFinalPrice()); ?></span>
+											</p>
+										</div>
+									</div>
+							<?php else: ?>
+								<div class="price-box">
+									<span class="regular-price">
+										<span class="price"><?php echo Mage::helper('core')->currency($_dealproduct->getPrice()); ?></span>
+									</span>
+								</div>
+							<?php endif; ?>
+						<?php else: ?>
+							<?php if(!empty($special_price)): ?>
+								<div class="price-info">
+									<div class="price-box">                                            
+										<p class="old-price">
+											<span class="price-label">Regular Price:</span>
+											<span class="price"><?php echo Mage::helper('core')->currency($_dealproduct->getPrice()); ?></span>
+										</p>
+										<p class="special-price">
+											<span class="price-label">Special Price</span>
+											<span class="price"><?php echo Mage::helper('core')->currency($_dealproduct->getFinalPrice()); ?></span>
+										</p>
+									</div>
+								</div>
+							<?php else: ?>
+								<div class="price-box">
+									<span class="regular-price">
+										<span class="price"><?php echo Mage::helper('core')->currency($_dealproduct->getPrice()); ?></span>
+									</span>
+								</div>
+							<?php endif; ?>
+						<?php endif; ?>
+					</div>
+					<div class="short-description">
+						<div class="c-prod-desc"><?php echo $_dealproduct->getImpDesc(); ?></div>
+					</div>
+					<div class="bottom-gadget">
+						<div class="gadets-addtocomare">
+							<?php $_compareUrl = $this->getProductCompareUrlonHome($_dealproduct); ?>
+							<div class="checkbox_sample sample">
+								<input <?php echo in_array($_dealproduct->getId(),$compare_ids)? 'checked':'' ?> type="checkbox" class="checkbox" id="<?php echo "products_".$_dealproduct->getId(); ?>" onclick="ajaxCompare('<?php echo $_compareUrl; ?>','<?php echo $_dealproduct->getId()?>',jQuery(this));" class="link-compare" /><label class="css-label" for="<?php echo "products_".$_dealproduct->getId(); ?>"><?php echo $this->__('Add to Compare') ?></label>
+							</div>
+						</div>
+						<div class="actions">
+							<button class="button btn-cart" title="Buy now" type="button" onclick="setLocation('<?php echo $product_list_block->getAddToCartUrl($_dealproduct); ?>')"><span><span>Buy now</span></span></button>
+							<?php // added to check wthr product is in the wishlist and add "added-to-wishlist" accordingly by pradeep sanku on 1st April 2015 ?>
+							<?php $hasProduct = $this->getIsProductInWishlist($_dealproduct->getId()); ?>
+							<ul class="add-to-links">
+								<li><a class="link-wishlist <?php if($hasProduct): echo 'added-to-wishlist'; endif;?>" title="Add to Wishlist" onclick="setLocation('<?php echo $product_list_block->getAddToWishlistUrl($_dealproduct); ?>')">Add to Wishlist</a></li>
+							</ul>
+							<div class="clr"></div>
+						</div>
+					</div>
+					<?php if(in_array($product_id, $dealproductIds)): ?>
+						<?php $discount_percent = $this->getDealsDiscountPercent($product_id); ?>
+						<?php if($discount_percent > 0): ?>
+							<div class="tag"><p><?php echo $discount_percent; ?>% <span>Off</span></p></div>
+						<?php endif; ?>
+					<?php endif; ?>
+				</li>
+			<?php endforeach; ?>
+		</ul>
+	</div><!-- end of the hotdeals  -->
+<?php endif; ?>

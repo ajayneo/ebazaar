@@ -1,0 +1,97 @@
+<?php 
+$_code = $this->getMethodCode();
+$banks = $this->getBanks();
+?>
+
+<ul class="form-list" id="payment_form_<?php echo $_code ?>" style="display:none;">
+
+<li style="display:none;">
+	<span class="input-box">
+	<input style="width: 200px;"  			  	id="microsoft_discount" type="text" 			 	   	name="payment[microsoft-discount]" /> 
+	</span>
+</li>
+	<li> 
+		<span class="input-box">
+			<select name="payment[bankcode]" onchange="displayplans(this.value)" style="width: 200px;" id="emi_available_banks" class="validate-select required-entry">
+				<option value="" name="------Select Bank------" style="font-weight: bold; text-align: center; font-style: normal;">------Select your bank------</option>
+				<?php foreach($banks as $code => $name) { ?>
+					<option value="<?=$code?>"><?=$name?></option>
+				<?php } ?>
+			</select>
+		</span>
+	</li>
+	<?php $i=1; ?>
+	<?php foreach($banks as $code => $name) { $tenures = $this->getBankEmi($code);?>
+	<li class="emi_plans" id="bank_code_<?=$code?>" style="display:none;max-width:300px;overflow-x:scroll;">
+	<span style="font-size: 10px;">Please Note: the interest % shown below is an annualized rates. Actual EMI charges depend on your tenure</span>
+		<table class="innoviti-table" cellpadding="50" cellspacing="50" style="width: 550px;">
+			<thead>
+			<tr style="height:30px;">
+				<th>&nbsp;</th>
+				<th style="width: 70px;">Months</th>
+				<th>Interest(%)</th>
+				<th style="width: 85px;">Interest Amount(INR)</th>
+				<th style="width: 85px;">Processing Fee(%)</th>
+				<th style="width: 65px;">EMI(INR)</th>
+				<th>Transaction Amount</th>
+				<th style="width: 85px;">Total Amount(INR)</th>
+			</tr>
+			</thead>  
+			
+			<?php foreach($tenures as $tenureCode => $tenure) {  
+				if($tenure['interest'] == 0) { continue; }?>  
+				<tr style="height:30px;">
+					<td><input onclick="return selectedEmiOption('<?php echo $i; ?>')"  class="validate-one-required-by-name" type="radio" checked="checked" name="payment[tenurecode]" value="<?php echo $tenureCode ?>"></td>
+					<td><?php echo $tenure['duration'] ?></td>
+					<td><?php echo $tenure['interest'] ?></td>
+					<td>
+						<?php if(Mage::getSingleton('checkout/session')->getMicrosoftDiscountRedirect() == 1): ?>
+							<input style="display:none" readonly="readonly" type="text"  id="<?php echo 'innoviti-emi-selected-'.$i; ?>" value="<?php echo $tenure['interest_amount'] ?>">0.00
+						<?php else: ?>
+							<?php echo $tenure['interest_amount'] ?>
+						<?php endif; ?> 
+					</td>
+					<td><?php echo $tenure['processingFee'] ?></td> 
+					<td><?php echo $tenure['installment'] ?></td> 
+					<td><?php echo $tenure['transaction_amount'] ?></td>
+					<td><?php echo $tenure['including_inr'] ?></td>
+				</tr>
+			<?php
+				$i++;
+			 	}
+			 	
+			 ?>
+			
+		</table>
+		<span style="font-size: 10px;">*Taxes will be applicable on the interest paid to bank.</span>
+	</li>
+	<?php } ?>
+</ul>
+<div>
+    <?php // echo $this->getMethod()->getConfigData('message');?>
+</div>
+<script>
+
+	function displayplans(banks)  
+	{
+		jQuery('.emi_plans').css('display','none');
+		jQuery('li [bank_code='+banks+']').css('display','block');
+	}
+	jQuery(document).on('change', '#emi_available_banks', function() {
+		jQuery('.emi_plans').css('display','none');
+		//jQuery('li.emi_plans [bank_code='+this.value+']').css('display','block');
+		document.getElementById('bank_code_'+this.value).style.display = 'block';
+	});
+
+	 function selectedEmiOption(id){
+		var input_field_id = 'innoviti-emi-selected-'+id;
+
+		if(document.getElementById(input_field_id))
+		{
+			var discount_value = document.getElementById(input_field_id).value;
+			document.getElementById('microsoft_discount').value = discount_value;
+		}
+
+	} 	
+</script>
+

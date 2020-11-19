@@ -1,0 +1,2 @@
+[08-Oct-2018 16:05:04 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Db_Adapter_Abstract' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Test/DbAdapter.php on line 48
+[08-Oct-2018 16:05:04 Asia/Kolkata] PHP Fatal error:  Interface 'Zend_Db_Statement_Interface' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Test/DbStatement.php on line 38

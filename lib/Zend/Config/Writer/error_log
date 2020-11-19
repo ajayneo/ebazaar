@@ -1,0 +1,6 @@
+[08-Oct-2018 16:04:45 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Config_Writer_FileAbstract' not found in /home/electronicsbazaa/public_html/lib/Zend/Config/Writer/Ini.php on line 34
+[08-Oct-2018 16:04:45 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Config_Writer_FileAbstract' not found in /home/electronicsbazaa/public_html/lib/Zend/Config/Writer/Xml.php on line 39
+[08-Oct-2018 16:04:45 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Config_Writer_FileAbstract' not found in /home/electronicsbazaa/public_html/lib/Zend/Config/Writer/Yaml.php on line 39
+[08-Oct-2018 16:04:45 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Config_Writer_FileAbstract' not found in /home/electronicsbazaa/public_html/lib/Zend/Config/Writer/Json.php on line 39
+[08-Oct-2018 16:04:45 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Config_Writer_FileAbstract' not found in /home/electronicsbazaa/public_html/lib/Zend/Config/Writer/Array.php on line 34
+[08-Oct-2018 16:04:45 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Config_Writer' not found in /home/electronicsbazaa/public_html/lib/Zend/Config/Writer/FileAbstract.php on line 34

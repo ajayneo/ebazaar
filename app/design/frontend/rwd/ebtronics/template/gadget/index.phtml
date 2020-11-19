@@ -1,0 +1,281 @@
+<?php //$_SERVER['HTTP_REFERER']; 
+// print_r($_SERVER);
+// print_r($_COOKIE);
+// $data = unserialize($_COOKIE['syghome']);
+                // $cookie = Mage::getModel('core/cookie')->get("syghome");
+                // var_dump($cookie);
+?>
+<?php $skin = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN).'frontend/rwd/ebtronics/'; ?>
+<?php $group_id = 0;
+if(Mage::getSingleton('customer/session')){
+    $_customer = Mage::getSingleton('customer/session')->getCustomer();
+    $group_id = $_customer->getGroupId();
+}?>
+<div class="new-gadget-container new-gadget-home-page">
+<div class="new-gadget-content">
+	<div class="scroller">				    
+    <!--gadget-home-page-banner start-->
+	<div class="gadget-home-page-banner">
+	   <img src="<?php echo $this->getSkinUrl(); ?>images/banner/gadget-home-page-banner1.jpg" alt="Banner1">
+	   <div class="gadget-home-page-banner-title">
+	   Sell your old
+	   <?php if($group_id == 6):?>
+	   <strong>Laptop</strong>
+	   <?php else:?>
+	   <strong>Laptop  &amp; Smartphone</strong>
+	   <?php endif;?>
+		</div>
+	</div>
+	<!--gadget-home-page-banner ends-->
+
+	<!--gadget-home-page-howtosell start-->
+	<div class="gadget-home-page-howtosell">
+	   <div class="brand-title"><h1>How <strong>Sell your Gadget</strong> works</h1></div>
+	   <ul class="clearfix how-to-sell--list">
+			<li>
+			 <div class="how-to-sell--list__icon">
+			 <img src="<?php echo $this->getSkinUrl(); ?>images/ebt/get-your-device-price-icon.png" alt="Get an offer">
+			 <img class="how-to-sell--list-up-arrow" src="<?php echo $this->getSkinUrl(); ?>images/ebt/how-to-sell--list-up-arrow.png" alt="">
+			 </div>
+			 <h4 class="how-to-sell--list__title"><b>Get an offer</b></h4>
+			 <p class="how-to-sell--list__detail">It takes less than a minute</p>
+			</li>
+			<li>
+			 <div class="how-to-sell--list__icon">
+			 <img src="<?php echo $this->getSkinUrl(); ?>images/ebt/schedule-a-free-pickup-icon.png" alt="Pickup">
+			 <img class="how-to-sell--list-down-arrow" src="<?php echo $this->getSkinUrl(); ?>images/ebt/how-to-sell--list-down-arrow.png" alt="">
+			 </div>
+			 <h4 class="how-to-sell--list__title"><b>Pickup</b></h4>
+			 <p class="how-to-sell--list__detail">Free doorstep pickup</p>
+			</li>
+			<li>
+			 <div class="how-to-sell--list__icon">
+			 <img src="<?php echo $this->getSkinUrl(); ?>images/ebt/get-paid-instantly-icon.png" alt="Get Paid Instantly">
+			 </div>
+			 <h4 class="how-to-sell--list__title"><b>Get paid fast</b></h4>
+			 <p class="how-to-sell--list__detail">By Bank Transfer</p>
+			</li>
+	   </ul>
+	</div>
+	<!--gadget-home-page-howtosell ends-->
+    
+	<!--gadget-home-page-pincode start-->
+	<div class="gadget-home-page-pincode gadget-darkgrey-bg">
+	   <p class="gadget-home-page-pincode__headline">Please note that the Sell your Gadget program depends on the pin code you share. Please check for your pincode</p>
+	   <ul class="gadget-brand-form">							
+			<li>
+			  <div class="input-field">
+			   <div class="pincode-field">
+			   <?php $pincode = "";
+			   $ecom_qc_message = "";
+			   if(!empty($_COOKIE['syg-pincode'])){
+			   		$cookies_pincode = unserialize($_COOKIE['syg-pincode']);
+			   		$pincode = $cookies_pincode['pincode'];
+			   		$ecom_qc = $cookies_pincode['ecom_qc'];
+
+			   		if($ecom_qc == 1){
+			   			$ecom_qc_message = '<span class="pincode-field-narration successful-msg">We service this pincode</span>';
+			   		}else{
+			   			$ecom_qc_message = '<span class="pincode-field-narration error-msg">Sorry! We are yet to service this pincode</span>';
+			   		}
+
+			   }
+			   ?>
+			     <input id="postcode" type="text" name="pincode" value="<?php echo $pincode; ?>" placeholder="Pincode" class="validate-number validate-zip" onkeydown="search()"/>
+			     <?php echo $ecom_qc_message; ?>
+			   </div>
+			   <button id="checkpincode" type="button" class="submit-btn" onclick="checkpin()">Submit</button>
+			  </div>
+			</li>
+	   </ul>
+	</div>
+	</div>
+	<!--gadget-home-page-pincode ends-->
+<div id="category" style="<?php echo ($pincode)? 'display:block':'display:none '?>">	
+	<div class="new-gadget-title"><h1>What would you like to Sell today?</h1></div>
+	<ul class="clearfix gadget-tabs">
+		<!-- <li onclick="brands('gadget_laptop');" class="gadget-laptop"><h2>Laptop</h2> <a class="gadget-sell">Sell Now</a></li>
+		<li onclick="brands('gadget');" class="gadget-mobile"><h2>Mobile</h2> <a class="gadget-sell">Sell Now</a></li> -->
+		<?php if($group_id == 6):?>
+		<li class="gadget-laptop" style="margin: 0 auto; float: none;"><h2>Laptop</h2> <a class="gadget-sell">Sell Now</a></li>
+		<?php else: ?>	
+		<li class="gadget-laptop"><h2>Laptop</h2> <a class="gadget-sell">Sell Now</a></li>
+		<li class="gadget-mobile"><h2>Smartphone</h2> <a class="gadget-sell">Sell Now</a></li>
+		<?php endif; ?>	
+	</ul>
+
+	<div id="brands-list" class="new-gadget-inner-content new-gadget-laptop">
+       <div class="brand-title"><h3>Brands</h3></div>
+	   <div class="gadget-laptop--content">
+		   <ul class="clearfix gadget-brand-list">
+		   	<li onclick="sku('SYGLAPAPPLE')" class="laptop-apple"><div class="gadget-brand__box"><img src="<?php echo $skin; ?>images/brands-logo/apple.png" alt="Apple"></div><div class="gadget-brand__title">Apple</div></li>
+		   	<li onclick="sku('SYGLAPDELL')" class="laptop-dell"><div class="gadget-brand__box"><img src="<?php echo $skin; ?>images/brands-logo/dell.png" alt="Dell"></div><div class="gadget-brand__title">Dell</div></li><li onclick="sku('SYGLAPHP')" class="laptop-hp"><div class="gadget-brand__box"><img src="<?php echo $skin; ?>images/brands-logo/hp.png" alt="HP"></div><div class="gadget-brand__title">HP</div></li><li onclick="sku('SYGLAPLENOVO')" class="laptop-lenovo"><div class="gadget-brand__box"><img src="<?php echo $skin; ?>images/brands-logo/lenovo.png" alt="Lenovo"></div><div class="gadget-brand__title">Lenovo</div></li><li onclick="sku('SYGLAPOTHER')" class="laptop-other"><div class="gadget-brand__box"><img src="<?php echo $skin; ?>images/brands-logo/laptop-icon.png" alt="Other"></div><div class="gadget-brand__title">Other</div></li></ul>
+		</div>
+		<div id="product"></div>
+	</div>
+	<div class="new-gadget-inner-content new-gadget-mobile">
+       <div class="brand-title"><h3>Brands</h3></div>
+	   <div class="gadget-laptop--content">
+		   <ul class="clearfix gadget-brand-list">
+			 <li onclick="sku('SYGMOBAPPLE')" class="mobile-apple"><div class="gadget-brand__box"><img src="<?php echo $skin; ?>images/brands-logo/apple.png" alt="Apple"></div><div class="gadget-brand__title">Apple</div></li><li onclick="sku('SYGMOBSAMSUNG')" class="mobile-samsung"><div class="gadget-brand__box"><img src="<?php echo $skin; ?>images/brands-logo/samsung.png" alt="Samsung"></div><div class="gadget-brand__title">Samsung</div></li>
+		   </ul>
+		</div>
+	</div>		   
+                        	   
+</div>	
+<div class="opc-ajax-loader">
+  <div id="floatingCirclesG">
+    <div class="f_circleG" id="frotateG_01"></div>
+    <div class="f_circleG" id="frotateG_02"></div>
+    <div class="f_circleG" id="frotateG_03"></div>
+    <div class="f_circleG" id="frotateG_04"></div>
+    <div class="f_circleG" id="frotateG_05"></div>
+    <div class="f_circleG" id="frotateG_06"></div>
+    <div class="f_circleG" id="frotateG_07"></div>
+    <div class="f_circleG" id="frotateG_08"></div>
+    </div>
+</div>
+	<script type="text/javascript">
+		function search() {
+		    if(event.keyCode == 13) {
+		    	jQuery('.opc-ajax-loader').css('display', 'block');
+		        checkpin();
+		    }
+		}
+		function checkpin(){
+			var idpost = jQuery('#postcode');
+			var pin = idpost.val();
+			
+			jQuery(".pincode-field-narration").remove();
+	    	var zipRegex = /^\d{6}$/;
+
+		    if (!zipRegex.test(pin))
+		    {
+		        // trigger error
+		        jQuery('#postcode').after('<span class="pincode-field-narration error-msg">Please enter valid pincode</span>');
+		        jQuery('#postcode').val('');
+		        return false;
+		    }
+		    else
+		    {
+		        // success!
+		    }			
+
+	    	var xhr;
+	        if(xhr && xhr.readyState != 4){
+	            xhr.abort();
+	        }
+	        xhr = jQuery.ajax({
+	            url: '<?php echo $this->getUrl("gadget/index/checkpincode");?>',
+	            data:'pincode='+pin,
+	            type:'POST',
+	            dataType: "json",
+	            beforeSend: function() {
+	              	jQuery('.opc-ajax-loader').css('display', 'block');
+	              	jQuery(".pincode-field-narration").remove();
+	              	// jQuery("#category").hide();
+	           	},
+	            success: function(data) {
+	            	jQuery('.opc-ajax-loader').css('display', 'none');
+			  		jQuery("#category").show();
+	                if(data.status == 1){
+				  		jQuery('#postcode').after('<span class="pincode-field-narration successful-msg">'+data.message+'</span>');
+				  		// jQuery(".scroller").hide().slow();
+				  		// jQuery("#panel").show().slow();
+				  	}
+
+				  	if(data.status == 0){
+				  		jQuery('#postcode').after('<span class="pincode-field-narration error-msg">'+data.message+'</span>');
+				  		// jQuery("#category").hide();
+				  	}
+	                return false;
+	            }
+	        });
+		}
+
+		//brands
+		function brands(cat){
+			// alert(cat); exit;
+			return false;
+			if(cat == 'gadget'){
+				jQuery(".gadget-mobile").addClass('active');
+				jQuery(".gadget-laptop").removeClass('active');
+			}else if(cat == 'gadget_laptop'){
+				jQuery(".gadget-mobile").removeClass('active');
+				jQuery(".gadget-laptop").addClass('active');
+			}
+			
+			var xhr;
+	        if(xhr && xhr.readyState != 4){
+	            xhr.abort();
+	        }
+	        xhr = jQuery.ajax({
+	            url: '<?php echo $this->getUrl("gadget/index/brands");?>',
+	            data:'cat='+cat,
+	            type:'POST',
+	            dataType: "json",
+	            beforeSend: function() {
+	              	jQuery("#loading-image").show();
+	           	},
+	            success: function(data) {
+	                if(data.status == 1){
+
+	           //      	jQuery.each(data, function(index, element) {
+				        //     alert(index+":"+element);
+				        // });
+
+				  //       var splitarr = data.data;
+				  //       jQuery.each(splitarr,function(i){
+						//    alert(splitarr[i]);
+						// });
+						jQuery('#brandlist').html(data.data);
+						jQuery('.new-gadget-inner-content').addClass("active").show();
+				  	}
+
+				  	if(data.status == 0){
+
+				  	}
+	                return false;
+	            }
+	        });
+		}
+
+		//brands
+		function sku(sku){
+			var xhr;
+	        if(xhr && xhr.readyState != 4){
+	            xhr.abort();
+	        }
+	        xhr = jQuery.ajax({
+	            url: '<?php echo $this->getUrl("gadget/index/sku");?>',
+	            data:'sku='+sku,
+	            type:'POST',
+	            dataType: "json",
+	            beforeSend: function() {
+	              	jQuery("#loading-image").show();
+	           	},
+	            success: function(data) {
+	                if(data.status == 1){
+
+	                	window.location.replace(data.data);
+				  	}
+
+				  	if(data.status == 0){
+				  		// alert(0);
+				  	}
+	                return false;
+	            }
+	        });
+		}
+
+		jQuery(document).ready(function(){
+			<?php if(!empty($_COOKIE['syghome'])): 
+				$cookies = unserialize($_COOKIE['syghome']);
+				foreach ($cookies as $key => $classname) { ?>
+                	jQuery("<?php echo $classname; ?>").addClass('active');
+                <?php }  
+                endif; ?>
+		});
+	</script>
+</div>
+</div>

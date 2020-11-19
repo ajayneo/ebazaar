@@ -1,0 +1,369 @@
+<?xml version="1.0"?>
+
+<config>
+
+  <modules>
+
+    <Neo_Orderreturn>
+
+      <version>0.1.9</version>
+
+    </Neo_Orderreturn>
+
+  </modules>
+
+  <frontend>
+
+    <routers>
+
+      <orderreturn>
+
+        <use>standard</use>
+
+          <args>
+
+            <module>Neo_Orderreturn</module>
+
+            <frontName>order_return</frontName>
+
+          </args>
+
+      </orderreturn>
+
+    </routers>
+
+		<layout>
+
+		  <updates>
+
+			<orderreturn>
+
+			  <file>orderreturn.xml</file>
+
+			</orderreturn>
+
+		  </updates>
+
+		</layout>
+
+  </frontend>
+
+  <global>
+
+    <helpers>
+
+      <orderreturn>
+
+        <class>Neo_Orderreturn_Helper</class>
+
+      </orderreturn>
+
+    </helpers>
+
+	<blocks>
+
+	  <orderreturn>
+
+		<class>Neo_Orderreturn_Block</class>
+
+	  </orderreturn>
+
+	</blocks>
+
+	<models>
+
+	  <orderreturn>
+
+		<class>Neo_Orderreturn_Model</class>
+
+		<resourceModel>orderreturn_mysql4</resourceModel>
+
+	  </orderreturn>
+
+	  <orderreturn_mysql4>
+
+		<class>Neo_Orderreturn_Model_Mysql4</class>
+
+		<entities>		  
+
+			  <return>
+
+				<table>neo_order_return</table>
+
+			  </return>		  
+
+			  <banking>
+
+				<table>neo_orderreturn_banking</table>
+
+			  </banking>
+
+        </entities>
+
+	  </orderreturn_mysql4>
+
+	</models>
+
+	<resources>
+
+	  <orderreturn_setup>
+
+		<setup>
+
+		  <module>Neo_Orderreturn</module>
+
+		</setup>
+
+		<connection>
+
+		  <use>core_setup</use>
+
+		</connection>
+
+	  </orderreturn_setup>
+
+	  <orderreturn_write>
+
+		<connection>
+
+		  <use>core_write</use>
+
+		</connection>
+
+	  </orderreturn_write>
+
+	  <orderreturn_read>
+
+		<connection>
+
+		  <use>core_read</use>
+
+		</connection>
+
+	  </orderreturn_read>
+
+	</resources>
+
+	<template>
+
+        <email>
+
+            <return_return_email_template translate="label" module="orderreturn">
+
+                <label>Orderreturn Form</label>
+
+                <file>orderreturn_form.html</file>
+
+                <type>html</type>
+
+            </return_return_email_template>
+            <shipment_status_email_template translate="label" module="orderreturn">
+                <label>Out For Delivery Customer Email</label>
+                <file>orderreturn_outfordelivery.html</file>
+                <type>html</type>
+            </shipment_status_email_template>
+        </email>
+        
+
+    </template>
+
+    <template>
+
+        <email>
+
+            <return_return_adminmail_template translate="label" module="orderreturn">
+
+                <label>Orderreturn Admin Email</label>
+
+                <file>orderreturn_admin.html</file>
+
+                <type>html</type>
+
+            </return_return_adminmail_template>
+
+        </email>  
+
+    </template>
+
+  </global>
+
+  <admin>
+
+	<routers>
+
+	  <orderreturn>
+
+	    <use>admin</use>
+
+		<args>
+
+		  <module>Neo_Orderreturn</module>
+
+		  <frontName>admin_orderreturn</frontName>
+
+		</args>
+
+	  </orderreturn>
+
+	</routers>
+
+  </admin>
+
+  <adminhtml>
+
+  	<acl>
+
+			<resources>
+
+				<admin>
+
+					<children>
+
+						<system>
+
+							<children>
+
+								<config>
+
+									<children>
+
+										<return translate="title" module="orderreturn">
+
+											<title>return Section</title>
+
+											<sort_order>0</sort_order>
+
+										</return>
+
+									</children>
+
+								</config>
+
+								<return translate="title">
+
+                                <title>Orders</title>
+
+                                <children>
+
+                                    <actions translate="title">
+
+                                        <title>Actions</title>
+
+                                        <children>
+
+                                            <save translate="title"><title>Save</title></save>
+
+                                        </children>
+
+                                    </actions>
+
+                                </children>
+
+                                <sort_order>10</sort_order>
+
+                            	</return>
+
+							</children>
+
+						</system>
+
+					</children>
+
+				</admin>
+
+			</resources>
+
+		</acl>
+
+	<menu>
+
+	  <orderreturn module="orderreturn">
+
+		<title>Order Return</title>
+
+		<sort_order>100</sort_order>
+
+		<children>
+
+		  <return module="orderreturn">
+
+		    <title>Manage Return</title>
+
+			<sort_order>0</sort_order>
+
+			<action>admin_orderreturn/adminhtml_return</action>
+
+		  </return>
+
+		</children>
+
+	  </orderreturn>
+
+	</menu>
+
+	<acl>
+
+	  <resources>
+
+		<all>
+
+		  <title>Allow Everything</title>
+
+		</all>
+
+		<admin>
+
+		  <children> 
+
+			<orderreturn translate="title" module="orderreturn">
+
+			  <title>Order Return</title>
+
+			  <sort_order>1000</sort_order>
+
+			  <children>
+
+		  <return translate="title">
+
+			<title>Manage Return</title>
+
+			<sort_order>0</sort_order>
+
+		  </return>
+
+			  </children>
+
+			</orderreturn>
+
+		  </children>
+
+		</admin>
+
+	  </resources>
+
+	</acl>
+
+	<layout>
+
+	  <updates>
+
+		<orderreturn>
+
+		  <file>orderreturn.xml</file>
+
+		</orderreturn>
+
+	  </updates>
+
+	</layout>
+
+  </adminhtml>
+	<!-- <crontab>
+        <jobs>            
+			<shipment_track_status>
+                <schedule><cron_expr>15 */1 * * *</cron_expr></schedule>
+                <run><model>orderreturn/trackstatus::init</model></run>
+            </shipment_track_status>
+        </jobs>
+    </crontab> -->
+</config> 

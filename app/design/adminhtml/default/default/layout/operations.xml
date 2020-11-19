@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+	<!-- <default>
+		<reference name="head">
+        	<action method="addJs"><script>js/prototype.js</script></action>
+    	</reference>
+	</default> -->
+  <operations_adminhtml_operationsbackend_index>
+	<reference name="content">
+	  <block type="operations/adminhtml_operationsbackend" name="operationsbackend" template="operations/operationsbackend.phtml"/>
+	</reference>
+  </operations_adminhtml_operationsbackend_index>
+  <operations_adminhtml_productexport_index>
+	<reference name="content">
+	  <block type="operations/adminhtml_productexport" name="productexport" template="operations/productexport.phtml"/>
+	</reference>
+  </operations_adminhtml_productexport_index>
+  <operations_adminhtml_bluedartpincodes_index>
+	<reference name="content">
+	  <block type="operations/adminhtml_bluedartpincodes" name="bluedartpincodes" template="operations/bluedartpincodes.phtml"/>
+	</reference>
+  </operations_adminhtml_bluedartpincodes_index>
+  <operations_adminhtml_pincodestatupdate_index>
+	<reference name="content">
+	  <block type="operations/adminhtml_pincodestatupdate" name="pincodestatupdate" template="operations/pincodestatupdate.phtml"/>
+	</reference>
+  </operations_adminhtml_pincodestatupdate_index>
+  
+  <operations_adminhtml_customerupdate_index>
+	<reference name="content">
+	  <block type="operations/adminhtml_customerupdate" name="customerupdate" template="operations/customerupdate.phtml"/>
+	</reference>
+  </operations_adminhtml_customerupdate_index>
+ 
+</layout>

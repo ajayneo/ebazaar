@@ -1,0 +1,2 @@
+[08-Oct-2018 16:04:42 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Gdata_Feed' not found in /home/electronicsbazaa/public_html/lib/Zend/Gdata/Geo/Feed.php on line 49
+[08-Oct-2018 16:04:42 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Gdata_Entry' not found in /home/electronicsbazaa/public_html/lib/Zend/Gdata/Geo/Entry.php on line 49

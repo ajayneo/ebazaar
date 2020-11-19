@@ -1,0 +1,4 @@
+[08-Oct-2018 16:04:36 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Log_Filter_Abstract' not found in /home/electronicsbazaa/public_html/lib/Zend/Log/Filter/Suppress.php on line 35
+[08-Oct-2018 16:04:36 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Log_Filter_Abstract' not found in /home/electronicsbazaa/public_html/lib/Zend/Log/Filter/Message.php on line 35
+[08-Oct-2018 16:04:36 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Log_Filter_Abstract' not found in /home/electronicsbazaa/public_html/lib/Zend/Log/Filter/Priority.php on line 35
+[08-Oct-2018 16:04:36 Asia/Kolkata] PHP Fatal error:  Interface 'Zend_Log_Filter_Interface' not found in /home/electronicsbazaa/public_html/lib/Zend/Log/Filter/Abstract.php on line 38

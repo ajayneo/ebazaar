@@ -1,0 +1,1 @@
+[08-Oct-2018 16:05:52 Asia/Kolkata] PHP Fatal error:  Class 'Varien_Db_Adapter_Pdo_Mysql' not found in /home/electronicsbazaa/public_html/lib/Magento/Db/Adapter/Pdo/Mysql.php on line 35

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Neo_Multipledeals>
+      <active>false</active>
+      <codePool>local</codePool>
+    </Neo_Multipledeals>
+  </modules>
+</config>

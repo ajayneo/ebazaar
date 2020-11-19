@@ -1,0 +1,10 @@
+[08-Oct-2018 16:07:08 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Gdata_Extension' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Gdata/DublinCore/Extension/Date.php on line 40
+[08-Oct-2018 16:07:08 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Gdata_Extension' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Gdata/DublinCore/Extension/Title.php on line 39
+[08-Oct-2018 16:07:08 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Gdata_Extension' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Gdata/DublinCore/Extension/Format.php on line 39
+[08-Oct-2018 16:07:08 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Gdata_Extension' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Gdata/DublinCore/Extension/Rights.php on line 39
+[08-Oct-2018 16:07:08 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Gdata_Extension' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Gdata/DublinCore/Extension/Creator.php on line 39
+[08-Oct-2018 16:07:08 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Gdata_Extension' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Gdata/DublinCore/Extension/Identifier.php on line 39
+[08-Oct-2018 16:07:08 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Gdata_Extension' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Gdata/DublinCore/Extension/Subject.php on line 39
+[08-Oct-2018 16:07:08 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Gdata_Extension' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Gdata/DublinCore/Extension/Description.php on line 39
+[08-Oct-2018 16:07:08 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Gdata_Extension' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Gdata/DublinCore/Extension/Language.php on line 39
+[08-Oct-2018 16:07:08 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Gdata_Extension' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Gdata/DublinCore/Extension/Publisher.php on line 39

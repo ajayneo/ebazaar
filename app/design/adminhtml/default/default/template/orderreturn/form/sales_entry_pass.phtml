@@ -1,0 +1,43 @@
+<?php $request_id = $this->getRequest()->getParam("id"); 
+$requestData = Mage::helper('orderreturn')->getAdminImeiList($request_id);
+$imei_list = $requestData['imei_list'];
+$yesno = array(0=>'No', 1=>'Yes');
+$table_htm = '';
+foreach ($imei_list as $key => $val) {
+	$table_htm .='<tr class="border">';
+	$table_htm .='<td>'.$key.'</td>';
+if($imei_list[$key]['sales_entry_pass'] !=='' && $imei_list[$key]['sales_entry_pass'] !== NULL){
+	$pass_val = $imei_list[$key]['sales_entry_pass'];
+	$table_htm .= '<td>'.$yesno[$pass_val].'</td>';
+}else{
+
+	$table_htm .='<td><select name="sales_entry_pass['.$key.']"><option value="">Is Sales Entry Passed</option><option value="0">No</option><option value="1">Yes</option></select></td>';
+}
+	
+
+	$table_htm .='<td><input type="text" name="sales_entry_no['.$key.']" value="'.$imei_list[$key]['sales_entry_no'].'" /></td>';
+	$table_htm .='</tr>';
+}
+?>
+
+
+<div class="entry-edit-head">
+    <h4 class="icon-head head-edit-form fieldset-legend">Sales Entry Passed</h4>
+    <div class="form-buttons"></div>
+</div>
+<div class="grid np">
+    <div class="hor-scroll">
+        <table class="data order-tables">
+            <thead>
+                <tr class="headings">
+                    <th>IMEI</th>
+                    <th>Sales Entry Pass</th>
+                    <th>Sales Entry No</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php echo $table_htm; ?>
+            </tbody>
+        </table>
+    </div>
+</div>

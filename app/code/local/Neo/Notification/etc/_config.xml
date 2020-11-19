@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Neo_Notification extension
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category       Neo
+ * @package        Neo_Notification
+ * @copyright      Copyright (c) 2015
+ * @license        http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+<config>
+    <modules>
+        <Neo_Notification>
+            <version>1.0.1</version>
+        </Neo_Notification>
+    </modules>
+    <global>
+        <resources>
+            <neo_notification_setup>
+                <setup>
+                    <module>Neo_Notification</module>
+                    <class>Neo_Notification_Model_Resource_Setup</class>
+                </setup>
+            </neo_notification_setup>
+        </resources>
+        <blocks>
+            <neo_notification>
+                <class>Neo_Notification_Block</class>
+            </neo_notification>
+        </blocks>
+        <helpers>
+            <neo_notification>
+                <class>Neo_Notification_Helper</class>
+            </neo_notification>
+        </helpers>
+        <models>
+            <neo_notification>
+                <class>Neo_Notification_Model</class>
+                <resourceModel>neo_notification_resource</resourceModel>
+            </neo_notification>
+            <neo_notification_resource>
+                <class>Neo_Notification_Model_Resource</class>
+                <entities>
+                    <notification>
+                        <table>neo_notification_notification</table>
+                    </notification>
+                    <pushnotification>
+                        <table>neo_notification_pushnotification</table>
+                    </pushnotification>
+                </entities>
+            </neo_notification_resource>
+        </models>
+    </global>
+    <adminhtml>
+        <layout>
+            <updates>
+                <neo_notification>
+                    <file>neo_notification.xml</file>
+                </neo_notification>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <Neo_Notification>
+                    <files>
+                        <default>Neo_Notification.csv</default>
+                    </files>
+                </Neo_Notification>
+            </modules>
+        </translate>
+        <global_search>
+            <notification>
+                <class>neo_notification/adminhtml_search_notification</class>
+                <acl>neo_notification</acl>
+            </notification>
+        </global_search>
+    </adminhtml>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <Neo_Notification before="Mage_Adminhtml">Neo_Notification_Adminhtml</Neo_Notification>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+</config>

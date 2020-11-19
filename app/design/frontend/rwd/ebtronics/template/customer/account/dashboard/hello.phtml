@@ -1,0 +1,82 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2014 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+$customerName = $this->getCustomerName();
+$customerName = str_replace(".", "", $customerName);
+$customerName = trim($customerName);
+?>
+<div class="welcome-msg">
+    <p class="hello"><strong><?php echo $this->__('Hello %s!', $this->escapeHtml($customerName)) ?></strong></p>
+    <p><?php echo $this->__('From your My Account Dashboard you have the ability to view a snapshot of your recent account activity and update your account information. Select a link below to view or edit information.') ?></p>
+</div>
+
+<?php 
+ if(Mage::getSingleton('customer/session')->isLoggedIn()) {
+ 	$customerData = Mage::getSingleton('customer/session')->getCustomer();
+  	$user_id = $customerData->getId();
+  	$credit = Mage::getModel('customapiv6/customer')->getCreditLimit($user_id);
+    //echo $cart_summary["grand_total"];
+    $credit['message'] = '';
+    $credit['bounce'] = 0;
+    $red = false; 
+    if($credit['balance_credit'] == 1){
+      $credit['message'] = "Your Credit limit is not set yet.";
+      // $credit = null;
+    }else if($credit['total_credit'] == 0){
+      // $credit['message'] = "You can use credit days payment method";
+      // $credit = null;
+    }else if($credit['overdue_credit'] !== 0){
+      $credit['message'] = "Your credit has overdue ".$credit['overdue_credit'];
+      $red = true;
+      // $credit = null;
+    }else if( $cart_summary["grand_total"] > $credit['balance_credit']){
+      $credit['message'] = "Your order amount exceeded than available balance. Your available credit balance is ".$credit['balance_credit'];
+      $credit['bounce'] = 1;
+    }else{
+      $credit['message'] = "Your available credit balance is ".$credit['balance_credit'];
+    }
+    // print_r($credit);
+    // if($user_id == 13945) {echo "hllo"; print_r($credit);}
+ }
+?>
+<?php if($credit !== null):?>
+<div class="welcome-msg">
+    <p class="title"><?php echo $this->__('Your credit Limit') ?></p>
+    <div class="clearfix">
+    <p class="credit-limit"><?php echo $credit['total_label'] ?>: <?php echo Mage::helper('core')->currency($credit['total_credit'], true, false);?></p>
+
+    <p class="credit-limit"><?php echo $credit['utilized_label'] ?>: <?php echo Mage::helper('core')->currency($credit['utilized_credit'], true, false);?></p>
+    <?php /*?><p><?php echo $credit['utilized_label'] ?>: <?php echo $credit['utilized_credit'] ?></p><?php */ ?>
+    <p class="balance-limit"><?php echo $credit['balance_label'] ?>: <?php echo Mage::helper('core')->currency($credit['balance_credit'], true, false); ?></p>
+    <p class="overdue-limit" style="<?php if($red):?> color:red; <?php endif; ?>"><?php echo $credit['overdue_label'] ?>: <?php echo Mage::helper('core')->currency($credit['overdue_credit'], true, false); ?></p>
+    </div>
+</div>
+<?php endif; ?>
+<div class="welcome-msg">
+    <p class="title"><?php echo $this->__('Download List with prices') ?></p>
+    <div class="clearfix">
+    <p><a class="stock-list" href="<?php echo $this->getUrl().'operations/index/stocklist'?>"> Click here to download</a></p>
+    </div>
+</div>

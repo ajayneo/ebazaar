@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Neo_Override>
+      <version>0.1.0</version>
+    </Neo_Override>
+  </modules>
+  <frontend>
+    <routers>
+      <override>
+        <use>standard</use>
+          <args>
+            <module>Neo_Override</module>
+            <frontName>override</frontName>
+          </args>
+      </override>
+    </routers>
+  </frontend>
+  <global>
+		<rewrite>        
+            <neo_override_wishlist_indexcontroller>
+                <from><![CDATA[#^/wishlist/index/#]]></from> <!-- Mage_Wishlist_IndexController  -->
+                <to>/override/wishlist_index/</to> <!-- Neo_Override_Wishlist_IndexController  -->
+            </neo_override_wishlist_indexcontroller>
+		</rewrite>
+    <rewrite>        
+            <neo_override_wishlist_sharedcontroller>
+                <from><![CDATA[#^/wishlist/shared/#]]></from> <!-- Mage_Wishlist_SharedController  -->
+                <to>/override/wishlist_shared/</to> <!-- Neo_Override_Wishlist_SharedController  -->
+            </neo_override_wishlist_sharedcontroller>
+    </rewrite>
+    <helpers>
+      <override>
+        <class>Neo_Override_Helper</class>
+      </override>
+    </helpers>
+  </global>
+  <admin>
+	<routers>
+	  <override>
+	    <use>admin</use>
+		<args>
+		  <module>Neo_Override</module>
+		  <frontName>admin_override</frontName>
+		</args>
+	  </override>
+	</routers>
+  </admin>
+</config> 

@@ -1,0 +1,136 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Neo_Productpricereport>
+      <version>0.1.0</version>
+    </Neo_Productpricereport>
+  </modules>
+  <global>
+    <helpers>
+      <productpricereport>
+        <class>Neo_Productpricereport_Helper</class>
+      </productpricereport>
+    </helpers>
+	<blocks>
+	  <productpricereport>
+		<class>Neo_Productpricereport_Block</class>
+	  </productpricereport>
+	</blocks>
+	<models>
+	  <productpricereport>
+		<class>Neo_Productpricereport_Model</class>
+		<resourceModel>productpricereport_mysql4</resourceModel>
+	  </productpricereport>
+	  <productpricereport_mysql4>
+		<class>Neo_Productpricereport_Model_Mysql4</class>
+		<entities>		  
+			  <productpricereport>
+				<table>neo_productpricereport</table>
+			  </productpricereport>
+		</entities>
+	  </productpricereport_mysql4>
+	</models>
+	<resources>
+	  <productpricereport_setup>
+		<setup>
+		  <module>Neo_Productpricereport</module>
+		</setup>
+		<connection>
+		  <use>core_setup</use>
+		</connection>
+	  </productpricereport_setup>
+	  <productpricereport_write>
+		<connection>
+		  <use>core_write</use>
+		</connection>
+	  </productpricereport_write>
+	  <productpricereport_read>
+		<connection>
+		  <use>core_read</use>
+		</connection>
+	  </productpricereport_read>
+	</resources>
+  </global>
+  <admin>
+	<routers>
+	  <productpricereport>
+	    <use>admin</use>
+		<args>
+		  <module>Neo_Productpricereport</module>
+		  <frontName>admin_productpricereport</frontName>
+		</args>
+	  </productpricereport>
+	</routers>
+  </admin>
+  <adminhtml>
+	<menu>
+	  <productpricereport module="productpricereport">
+		<title>Product Price Report</title>
+		<sort_order>100</sort_order>
+		<children>
+		  <productpricereport module="productpricereport">
+		    <title>Manage Product Price Report</title>
+			<sort_order>0</sort_order>
+			<action>admin_productpricereport/adminhtml_productpricereport</action>
+		  </productpricereport>
+		</children>
+	  </productpricereport>
+	</menu>
+	<acl>
+	  <resources>
+		<all>
+		  <title>Allow Everything</title>
+		</all>
+		<admin>
+		  <children>
+			<productpricereport translate="title" module="productpricereport">
+			  <title>Product Price Report</title> 
+			  <sort_order>1000</sort_order>
+			  <children>
+		  <productpricereport translate="title">
+			<title>Manage Product Price Report</title>
+			<sort_order>0</sort_order> 
+		  </productpricereport>
+			  </children>
+			</productpricereport>
+		  </children>
+		</admin>
+	  </resources>
+	</acl>
+	<layout>
+	  <updates>
+		<productpricereport>
+		  <file>productpricereport.xml</file> 
+		</productpricereport>
+	  </updates>
+	</layout>
+<events>
+	  <catalog_product_save_before>
+        <observers>
+          <catalog_product_save_before_handler>
+            <type>model</type>
+            <class>productpricereport/observer</class>
+            <method>adminhtmlCatalogProductSaveAfter</method>
+            <args></args>
+          </catalog_product_save_before_handler>
+        </observers>
+      </catalog_product_save_before>
+    </events>
+  </adminhtml>
+
+    <crontab>     
+        <jobs>            
+			<productpricereport_toptenpartnersperday>
+                <schedule><cron_expr>0 18 * * *</cron_expr></schedule>
+                <run><model>productpricereport/cron::toptenpartnersperday</model></run>
+            </productpricereport_toptenpartnersperday>
+        </jobs> 
+        <jobs>            
+			<productpricereport_toptenpartnersperweek> 
+                <schedule><cron_expr>0 19 * * *</cron_expr></schedule>
+                <run><model>productpricereport/cron::toptenpartnersperweek</model></run>
+            </productpricereport_toptenpartnersperweek>
+        </jobs>
+    </crontab> 
+    
+</config> 

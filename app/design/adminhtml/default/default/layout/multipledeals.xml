@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <multipledealsadmin_adminhtml_multipledeals_index>
+        <reference name="content">
+            <block type="multipledeals/adminhtml_multipledeals" name="multipledeals" />
+        </reference>
+    </multipledealsadmin_adminhtml_multipledeals_index>
+
+    <multipledealsadmin_adminhtml_multipledeals_grid>        
+        <block type="core/text_list" name="root" output="toHtml">
+            <block type="multipledeals/adminhtml_multipledeals_grid" name="multipledeals.grid"/>
+        </block>
+    </multipledealsadmin_adminhtml_multipledeals_grid>
+</layout>

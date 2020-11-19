@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<config>
+    <api>
+        <resources>
+            <soapapi_api translate="title" module="soapapi">
+                <title>Automation Price Update API</title>
+                <acl>soapapi/api</acl>
+                <model>soapapi/api</model>
+                <methods>                    
+						<price translate="title" module="soapapi">
+							<title>Update Products Price</title>
+							<!-- <acl>soapapi/api</acl> -->
+                            <method>updatePrice</method>
+						</price>
+                        <stock translate="title" module="soapapi">
+                            <title>Update Products Stock</title>
+                            <!-- <acl>soapapi/api</acl> -->
+                            <method>updateStock</method>
+                        </stock>
+                </methods>
+                <faults module="soapapi"> <!-- module="customer" specifies the module which will be used for translation. -->
+                    <sku_not_found> 
+                        <code>501</code>
+                        <message>Sku Not Found.</message>
+                    </sku_not_found>
+                    <product_not_found>
+                        <code>502</code>
+                        <message>Product Not Found.</message>
+                    </product_not_found>
+                    <price_validation>
+                        <code>503</code>
+                        <message>Price must be numeric and greater than 0.</message>
+                    </price_validation>
+                    <exception_error>
+                        <code>504</code>
+                        <message>Unable to save data.</message>
+                    </exception_error>
+                    <date_not_valid>
+                        <code>505</code>
+                        <message>Date is not valid('Y-m-d').</message>
+                    </date_not_valid>
+                    <qty_validation>
+                        <code>506</code>
+                        <message>Qty must be numeric.</message>
+                    </qty_validation>
+                    <reason_not_found>
+                        <code>507</code>
+                        <message>Reason not specified.</message>
+                    </reason_not_found>
+                    <stock_not_updated>
+                        <code>508</code>
+                        <message>Stock not updated.</message>
+                    </stock_not_updated>
+                    <qty_not_defined>
+                        <code>509</code>
+                        <message>Qty not defined.</message>
+                    </qty_not_defined>
+                    
+                </faults>
+            
+            </soapapi_api>
+        </resources>
+       
+        <resources_alias>
+          <updateproductsprice>soapapi_api</updateproductsprice>
+        </resources_alias>
+        <v2>
+          <resources_function_prefix>
+             <soapapi_api>updateProducts</soapapi_api>
+          </resources_function_prefix>
+        </v2>
+
+        <acl>
+            <resources>
+                <soapapi translate="title" module="soapapi">
+                    <title>Automation Product Update API</title>
+                    <sort_order>2000</sort_order>                    
+					<api translate="title" module="soapapi">
+                        <title>Automation Product Update API</title>
+                    </api>
+                </soapapi>
+            </resources>
+        </acl>
+    </api>
+</config>

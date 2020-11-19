@@ -1,0 +1,4 @@
+"Order Id",SKU,"Product Name","Store Name","Amount Total",Qty,Discount,"Net Sale",Category,City,State,"ASM Name","RSM Name","Payment Method","Customer Email"
+200103552,NEWMOB00454,"VOW V104 (Black + Blue)","Classic Telecom",5253.0000,10.0000,0.0000,5253.0000,New,DELHI,Delhi,"Jatin Kapoor","Ajay Yadav",banktransfer,classictelecom60@gmail.com
+200103587,NEWMOB00410,"Redmi Note 4   4GB (Dark Grey 64GB)","Classic Network ",214010.0000,20.0000,2703.0000,211307.0000,New,DELHI,Delhi,"Jatin Kapoor","Ajay Yadav",custompayment,anumanocha310@gmail.com
+200103591,NEWMOB00410,"Redmi Note 4   4GB (Dark Grey 64GB)","Classic Network ",128406.0000,12.0000,1622.0000,126784.0000,New,DELHI,Delhi,"Jatin Kapoor","Ajay Yadav",custompayment,anumanocha310@gmail.com

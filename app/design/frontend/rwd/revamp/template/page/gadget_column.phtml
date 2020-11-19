@@ -1,0 +1,101 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2014 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Template for Mage_Page_Block_Html
+ */
+?>
+<?php 
+$group_id = 0;
+if(Mage::getSingleton('customer/session')){
+    $_customer = Mage::getSingleton('customer/session')->getCustomer();
+    $group_id = $_customer->getGroupId();
+}
+// echo "Group id = ".$group_id; exit;
+// var_dump(in_array($group_id, array('5','6'))); exit;
+// var_dump(strpos($this->getBodyClass(),'gadget-lenovo-index')); 
+// $current_url = Mage::helper('core/url')->getCurrentUrl();
+// var_dump(strpos($current_url,'/gadget'));
+// echo strpos(Mage::helper('core/url')->getCurrentUrl(),'/gadget'); 
+// exit;
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->getLang() ?>" lang="<?php echo $this->getLang() ?>">
+<head>
+<?php echo $this->getChildHtml('head') ?>
+</head>
+<body<?php echo $this->getBodyClass()?' class="'.$this->getBodyClass().'"':'' ?>>
+<?php echo $this->getChildHtml('after_body_start') ?>
+<div class="wrapper">
+    <?php echo $this->getChildHtml('global_notices') ?>
+    <div class="page">
+        <?php 
+            if($group_id !== '5'){
+                echo $this->getChildHtml('header'); 
+            }
+        ?>
+        <?php echo $this->getChildHtml('popup.imei'); ?>
+        <div class="main-container col1-layout <?php echo ($group_id == '5') ? 'gadget-lenovo-index' : ''; ?>">
+            <?php if(strpos($this->getBodyClass(),'cms-deals' ) !== false) :?>
+                <?php echo $this->getChildHtml('deals_banner') ?>
+            <?php endif; ?>
+            <?php if(strpos(Mage::helper('core/url')->getCurrentUrl(),'/gadget') > 0 ) :?>
+                <div class="gadget-home-page-banner">
+                    <img src="<?php echo $this->getSkinUrl(); ?>images/ebt/gadget-home-page-banner1.jpg" alt="Banner1">
+                    <div class="gadget-home-page-banner-title">
+                     Sell your old
+                    <?php /* if(in_array($group_id, array('5','6')) == true || strpos(Mage::helper('core/url')->getCurrentUrl(),'/gadget/lenovo') > 0):?>
+                    <strong>Laptop</strong></div>
+                    <?php else: */?>
+                    <strong>Laptop &amp; Smartphone</strong></div>
+                    <?php //endif; ?>
+                </div>
+                <div class="sell-your-gadget-mobile"><img src="<?php echo $this->getSkinUrl(); ?>images/new-images/sell-your-gadget-mobile.jpg"></div>
+            <?php endif; ?>
+            <div class="main">
+                <?php if(in_array($group_id, array('5','6')) == false): ?>
+                <?php echo $this->getChildHtml('breadcrumbs') ?>
+                <?php endif; ?>
+                   
+                <div class="col-main">
+                    <?php echo $this->getChildHtml('global_messages') ?>
+                    <?php echo $this->getChildHtml('content') ?>
+                </div>
+            </div>
+        </div>
+        <?php 
+        if($group_id !== '5'){
+            echo $this->getChildHtml('footer');
+        } 
+        ?>
+        <?php echo $this->getChildHtml('global_cookie_notice') ?>
+        <?php echo $this->getChildHtml('before_body_end') ?>
+    </div>
+</div>
+<?php echo $this->getAbsoluteFooter() ?>
+</body>
+</html>

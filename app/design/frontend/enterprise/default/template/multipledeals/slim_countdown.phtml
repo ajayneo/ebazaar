@@ -1,0 +1,11 @@
+<?php
+    $product = $this->getMainDealProduct();
+	if ($this->helper('multipledeals')->isEnabled() && $product):
+?>
+	<div class="page-countdown" onclick="window.location = '<?php echo $product->getProductUrl(); ?>'">  
+		<div class="countdown-title">  
+			<?php echo $this->__('Get today\'s deal before it\'s <b>gone!</b>'); ?>
+		</div>                   
+        <?php echo $this->helper('multipledeals')->getProductCountdown($product, array('width'=>'180px','height'=>'40px'), false); ?>
+    </div>
+<?php endif; ?>

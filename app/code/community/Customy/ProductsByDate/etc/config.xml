@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Customy
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Customy EULA that is bundled with
+ * this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.customy.com/LICENSE-1.0.html
+ *
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@customy.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade the extension
+ * to newer versions in the future. If you wish to customize the extension
+ * for your needs please refer to http://www.customy.com/ for more information
+ * or send an email to sales@customy.com
+ *
+ * @copyright  Copyright (c) 2011 Triple Dev Studio (http://www.customy.com/)
+ * @license    http://www.customy.com/LICENSE-1.0.html
+ */
+-->
+<config>
+    <modules>
+        <Customy_ProductsByDate>
+            <version>0.2.0</version>
+        </Customy_ProductsByDate>
+    </modules>
+
+    <adminhtml>
+         <translate>
+            <modules>
+                <Customy_ProductsByDate>
+                     <files>
+                          <default>Customy_ProductsByDate.csv</default>
+                     </files>
+                </Customy_ProductsByDate>
+            </modules>
+        </translate>
+         
+         <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <productsbydate />
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+    
+
+    <global>
+        <helpers>
+            <productsbydate>
+                <class>Customy_ProductsByDate_Helper</class>
+            </productsbydate>
+        </helpers>
+        
+        <models>
+            <productsbydate>
+                <class>Customy_ProductsByDate_Model</class>
+            </productsbydate>   
+            
+            <adminhtml>
+            	<rewrite>
+	            	<system_config_source_catalog_listSort>Customy_ProductsByDate_Model_Rewrite_Adminhtml_Model_System_Config_Source_Catalog_ListSort</system_config_source_catalog_listSort>
+	            </rewrite>
+            </adminhtml>
+            
+            
+            <catalog>
+            	<rewrite>
+	            	<category_attribute_source_sortby>Customy_ProductsByDate_Model_Rewrite_Catalog_Model_Category_Attribute_Source_Sortby</category_attribute_source_sortby>
+                    <config>Customy_ProductsByDate_Model_Rewrite_Catalog_Model_Config</config>
+	            </rewrite>
+            </catalog>
+            
+        </models>
+        
+        <events>
+            <catalog_block_product_list_collection>
+                <observers>
+                    <customy_productsbydate_model_observer>
+                        <class>Customy_ProductsByDate_Model_Observer</class>
+                        <method>catalogBlockProductListCollectionEvent</method>
+                    </customy_productsbydate_model_observer>
+                </observers>
+            </catalog_block_product_list_collection>
+        </events>
+        
+    </global>
+    
+    <frontend>    
+        <translate>
+            <modules>
+                <Customy_ProductsByDate>
+                     <files>
+                          <default>Customy_ProductsByDate.csv</default>
+                     </files>
+                </Customy_ProductsByDate>
+            </modules>
+        </translate>
+		
+		<layout>
+			<updates>
+				<customy>
+					<file>sortbydate.xml</file>
+				</customy>
+			</updates>
+		</layout>
+	</frontend>
+    
+    
+    <default>
+        <productsbydate>
+            <options>
+                <active>1</active>
+				<direction>1</direction>
+            </options>
+        </productsbydate>
+    </default>
+    
+</config>

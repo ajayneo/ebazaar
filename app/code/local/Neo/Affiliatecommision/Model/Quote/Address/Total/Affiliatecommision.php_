@@ -1,0 +1,77 @@
+<?php
+class Neo_Affiliatecommision_Model_Quote_Address_Total_Affiliatecommision 
+extends Mage_Sales_Model_Quote_Address_Total_Abstract
+{
+     public function __construct()
+    {
+         $this -> setCode('affiliatecommision_total');
+         }
+    /**
+     * Collect totals information about affiliatecommision
+     * 
+     * @param Mage_Sales_Model_Quote_Address $address 
+     * @return Mage_Sales_Model_Quote_Address_Total_Shipping 
+     */
+     public function collect(Mage_Sales_Model_Quote_Address $address)
+    {
+         parent :: collect($address);
+         $items = $this->_getAddressItems($address);
+         if (!count($items)) {
+            return $this;
+         }
+         $quote= $address->getQuote();
+
+		 //amount definition
+
+         $customer = Mage::getSingleton('customer/session')->getCustomer();
+         if($customer->getEmail() == 'sandeep.mukherjee@wwindia.com')
+         {
+
+             $ammountDiscount = 0;
+
+             Mage::getSingleton('checkout/session')->setAffiliatecommisionTotal($ammountDiscount);
+
+             $affiliatecommisionAmount = -$ammountDiscount;
+
+             //amount definition
+
+             $affiliatecommisionAmount = $quote -> getStore() -> roundPrice($affiliatecommisionAmount);
+             $this -> _setAmount($affiliatecommisionAmount) -> _setBaseAmount($affiliatecommisionAmount);
+             $address->setData('affiliatecommision_total',$affiliatecommisionAmount);
+
+        }
+
+         return $this;
+     }
+    
+    /**
+     * Add affiliatecommision totals information to address object
+     * 
+     * @param Mage_Sales_Model_Quote_Address $address 
+     * @return Mage_Sales_Model_Quote_Address_Total_Shipping 10101010
+     */
+     public function fetch(Mage_Sales_Model_Quote_Address $address)
+    {
+         parent :: fetch($address);
+         $amount = $address -> getTotalAmount($this -> getCode());
+         if ($amount != 0){
+             $address -> addTotal(array(
+                     'code' => $this -> getCode(),
+                     'title' => $this -> getLabel(),
+                     'value' => $amount
+                    ));
+         }
+        
+         return $this;
+     }
+    
+    /**
+     * Get label
+     * 
+     * @return string 
+     */
+     public function getLabel()
+    {
+         return Mage :: helper('affiliatecommision') -> __('Affiliate Commision');
+    }
+}

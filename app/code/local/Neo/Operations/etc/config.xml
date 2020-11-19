@@ -1,0 +1,157 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Neo_Operations>
+      <version>0.1.6</version>
+    </Neo_Operations>
+  </modules>
+  <frontend>
+    <routers>
+      <operations>
+        <use>standard</use>
+          	<args>
+	            <module>Neo_Operations</module>
+	            <frontName>operations</frontName>
+        	</args>
+      </operations>
+    </routers>
+  </frontend>
+
+  <global>
+    <helpers>
+      <operations>
+        <class>Neo_Operations_Helper</class>
+      </operations>
+    </helpers>
+	<blocks>
+	  <operations>
+		<class>Neo_Operations_Block</class>
+	  </operations>
+	</blocks>
+	<models>
+	  <operations>
+		<class>Neo_Operations_Model</class>
+		<resourceModel>operations_mysql4</resourceModel>
+	  </operations>
+	    <operations_mysql4>
+	    <class>Neo_Operations_Model_Mysql4</class>
+	    <entities>      
+    		<serviceablepincodes>
+    		  	<table>city_pincodes</table>
+    		</serviceablepincodes>
+    		<bluedartpincodes>
+    			<table>bluedart_pincodes</table>
+    		</bluedartpincodes>
+	    </entities>
+	    </operations_mysql4>
+	</models>
+  <resources>
+    <operations_setup>
+      <setup>
+        <module>Neo_Operations</module>
+      </setup>
+      <connection>
+        <use>core_setup</use>
+      </connection>
+    </operations_setup>
+    <operations_write>
+      <connection>
+        <use>core_write</use>
+      </connection>
+    </operations_write>
+    <operations_read>
+      <connection>
+        <use>core_read</use>
+      </connection>
+    </operations_read>
+  </resources>
+  </global>
+  <admin>
+	<routers>
+	  <operations>
+	    <use>admin</use>
+		<args>
+		  <module>Neo_Operations</module>
+		  <frontName>admin_operations</frontName>
+		</args>
+	  </operations>
+	</routers>
+  </admin>
+  <adminhtml>
+	<menu>
+	  <operations module="operations">
+		<title>Operations</title>
+		<sort_order>100</sort_order>
+		<children>
+		  <operationsbackend module="operations">
+			<title>Cancel Orders</title>
+			<sort_order>0</sort_order>
+			<action>admin_operations/adminhtml_operationsbackend</action>
+		  </operationsbackend>
+		  <customerupdate module="operations">
+			<title>Update Customer</title>
+			<sort_order>0</sort_order>
+			<action>admin_operations/adminhtml_customerupdate</action>
+		  </customerupdate>
+		  
+		  <productexport module="operations">
+		    <title>Product Export/Updation</title>
+			<sort_order>10</sort_order>
+			<action>admin_operations/adminhtml_productexport</action>
+		  </productexport>
+		  <bluedartpincodes module="operations">
+		    <title>Manage Bluedart Pincodes</title>
+			<sort_order>10</sort_order>
+			<action>admin_operations/adminhtml_bluedartpincodes</action>
+		  </bluedartpincodes>
+		  <pincodestatupdate module="operations">
+		    <title>Manage Shipment Pincodes TAT</title>
+			<sort_order>10</sort_order>
+			<action>admin_operations/adminhtml_pincodestatupdate</action>
+		  </pincodestatupdate>
+		</children>
+	  </operations>
+	</menu>
+	<acl>
+	  <resources>
+		<all>
+		  <title>Allow Everything</title>
+		</all>
+		<admin>
+		  <children>
+			<operations translate="title" module="operations">
+			  <title>Operations</title>
+			  <sort_order>1000</sort_order>
+			  <children>
+				  <operationsbackend translate="title">
+					<title>Cancel Orders</title>
+				  </operationsbackend>
+				  <customerupdate translate="title">
+					<title>Update Customers</title>
+				  </customerupdate>
+				  
+				  <bluedartpincodes translate="title">
+					<title>Manage Bluedart Pincodes</title>
+				  </bluedartpincodes>
+				  <pincodestatupdate translate="title">
+					<title>Manage Shipment Pincodes TAT</title>
+				  </pincodestatupdate>
+				  <productexport translate="title">
+					<title>Product Export/Updation</title>
+				  </productexport>
+			  </children>
+			</operations>
+		  </children>
+		</admin>
+	  </resources>
+	</acl>
+	<layout>
+	  <updates>
+		<operations>
+		  <file>operations.xml</file>
+		</operations>
+	  </updates>
+	</layout>
+  </adminhtml>
+ 
+</config> 

@@ -1,0 +1,2 @@
+[08-Oct-2018 16:04:53 Asia/Kolkata] PHP Fatal error:  Class 'Varien_Event_Observer' not found in /home/electronicsbazaa/public_html/lib/Varien/Event/Observer/Cron.php on line 36
+[08-Oct-2018 16:04:53 Asia/Kolkata] PHP Fatal error:  Class 'Varien_Event_Observer' not found in /home/electronicsbazaa/public_html/lib/Varien/Event/Observer/Regex.php on line 36

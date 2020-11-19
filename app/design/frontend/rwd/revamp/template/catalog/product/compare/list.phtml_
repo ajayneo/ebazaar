@@ -1,0 +1,300 @@
+<?php $items = $this->getItems()->getData(); ?>
+<?php $sessionss = Mage::getSingleton('core/session'); ?>
+<?php $session_var = $sessionss->getData('my_cookie_compare'); ?>
+<?php //if(count($items) == 0): ?>
+    <?php //$sessionss->setData('my_cookie_compare',null); ?>
+<?php //endif; ?>
+<div class="hello">
+<?php //echo "<pre>"; print_r($items->getData());  exit; ?>
+<?php //echo count($items); exit; ?>
+<?php if(count($items) > 0): ?>
+<div class="products-compare">
+    <div class="page-title title-buttons">
+        <h1>Compare Products</h1>
+    </div>
+    <div class="products-compare-section">
+        <table class="data-table compare-table" id="product_comparison" border="0" cellspacing="0" cellpadding="0">
+            <tbody class="product-name-section" id="product-name-section">            	
+            	<tr class="product-shop-row top first odd">
+                    <th class="product-compare-bg"><img src="<?php echo $this->getSkinUrl('images/product-compare-bg.jpg'); ?>"></th>
+                    <?php $noleft = 4 - count($this->getItems()->getData()); ?>
+                    <?php $parent_category_id; ?>
+                    <?php $parent_category_name; ?>
+                    <?php $brand_no; ?>
+                    <?php foreach($this->getItems() as $item): ?>
+                    	<?php //echo "<pre>"; print_r($item->getCategoryIds()); exit; ?>
+                    	<?php $topCategory = Mage::getResourceModel('catalog/category_collection')
+    							->addIdFilter($item->getCategoryIds())
+    							->setOrder('level', 'ASC')
+    							->setPage(1,1)
+    							->getFirstItem();
+
+    							//echo $topCategory->getId();
+    							//echo "<pre>"; print_r($topCategory->getData());
+                    		//exit;
+
+                    	?>
+                    	<?php global $parent_category_id; ?>
+                    	<?php $parent_category_id = $topCategory->getId(); ?>
+                    	<?php global $parent_category_name; ?>
+                    	<?php $parent_category_name = $topCategory->getName(); ?>
+                    	<?php global $brand_no; ?>
+                    	<?php $brand_no = $item->getBrands(); ?>
+                    	<td>
+	                        <a href="javascript:void(0)" data-itemid="<?php echo $item->getId(); ?>" class="remove-from-product">Remove</a>
+	                        <a class="product-image" href="javascript:void(0)" onclick="setLocation('<?php echo $this->getProductUrl($item) ?>', true)" title="<?php echo $this->stripTags($item->getName(), null, true) ?>"><img src="<?php echo $this->helper('catalog/image')->init($item, 'small_image')->resize(125, 125); ?>" width="125" height="125" alt="<?php echo $this->stripTags($item->getName(), null, true) ?>" /></a>
+	                        <h2 class="product-name"><a href="javascript:void(0)" onclick="setLocation('<?php echo $this->getProductUrl($item) ?>', true)" title="<?php echo $this->stripTags($item->getName(), null, true) ?>"><?php echo $this->helper('catalog/output')->productAttribute($item, $item->getName(), 'name') ?></a></h2>
+                    	</td>
+                    <?php endforeach; ?>
+                    <?php for($i=0;$i<$noleft;$i++): ?>
+                    	<td class="pro_<?php echo $i; ?>">
+                    		<?php 
+                    			$_product = Mage::getModel('catalog/product');
+								$attr = $_product->getResource()->getAttribute("brands");
+								if($attr->usesSource()){
+									$brands_label = $attr->getSource()->getOptionText($brand_no);
+								}
+							?>
+                            <ul class="select-brands-products">
+                                <li>
+                                    <label>Please Select Brand</label>
+                                    <select class="brands brandname_<?php echo $i; ?>" data-brandno="<?php echo $i; ?>">
+                                            <option value="">Please Select Brand</option>
+                                    </select>
+                                </li>
+                                <li>
+                                    <label>Please Select Products</label>
+                                    <select class="brandpros brandproduct_<?php echo $i; ?>" data-brandprono="<?php echo $i; ?>">
+                                            <option>Please Select Products</option>
+                                    </select>
+                                </li>
+                            </ul>
+                    	</td>
+					<?php endfor; ?>
+                </tr>
+            </tbody>
+            <tbody class="product-comapre-info">
+                <tr class="rating-section">
+                    <th>&nbsp;</th>
+                    <?php foreach($this->getItems() as $item): ?>
+                    	<td>
+                    		<?php //echo $this->getReviewsSummaryHtml($item, 'short') ?>
+                            <?php $review = $this->getReviewsSummaryHtml($item, 'short') ?>
+                            <?php if(empty($review)): ?>
+                                <div class="ratings">
+                                    <div class="rating-box">
+                                        <div class="rating" style="width: 0%;"></div>
+                                    </div>
+                                </div>
+                            <?php else: ?>
+                                <?php echo $this->getReviewsSummaryHtml($item, 'short') ?>
+                            <?php endif; ?>
+                    	</td>
+                    <?php endforeach; ?>
+                </tr>
+                <tr class="odd">
+                	<th>Price</th>
+                	<?php foreach($this->getItems() as $item): ?>
+	                    <td>
+                            <?php if($item->getSpecialPrice()): ?>
+                                <div class="price-box">
+                                    <p class="old-price">
+                                        <span class="price-label">Regular Price:</span>
+                                        <span class="price"><?php echo Mage::helper('core')->currency($item->getPrice()); ?></span>
+                                    </p>
+                                </div>
+                            <?php else: ?>
+                                <div class="price-box">
+                                    <span class="regular-price">
+                                        <span class="price"><?php echo Mage::helper('core')->currency($item->getPrice()); ?></span>
+                                    </span>
+                                </div>
+                            <?php endif; ?>
+	                    </td>
+                    <?php endforeach; ?>
+                </tr>
+                <tr class="even">
+                	<th>Special Price</th>
+                	<?php foreach($this->getItems() as $item): ?>
+	                    <td>
+                            <?php if($item->getSpecialPrice()): ?>
+    	                        <div class="price-box">
+    	                            <p class="special-price">
+    	                                <span class="price-label">Special Price</span>
+    	                                <span class="price"><?php echo Mage::helper('core')->currency($item->getSpecialPrice()); ?></span>
+    	                            </p>
+    	                        </div>
+                        <?php endif; ?>
+	                    </td>
+                    <?php endforeach; ?>
+                </tr>
+                <tr class="odd">
+                    <th>Availability</th>
+                    <?php foreach($this->getItems() as $item): ?>
+	                    <td>
+                            <?php $stockItem = $item->getStockItem(); ?>
+                            <?php if($stockItem->getIsInStock()): ?>
+                                <p class="availability in-stock"><span class="value"><?php echo $this->__('In Stock') ?></span></p>
+                            <?php else: ?>
+                                <p class="availability out-of-stock"><span class="value"><?php echo $this->__('Out of stock') ?></span></p>
+                            <?php endif; ?>
+	                    </td>
+	                <?php endforeach; ?>
+            	</tr>
+                <?php foreach ($this->getAttributes() as $_attribute): ?>
+                    <tr>
+                        <?php $_i=0 ?>
+                        <?php foreach($this->getItems() as $_item): ?>
+                            <?php if($_i++%10==0): ?>
+                                <th><span class="nobr"><?php echo $_attribute->getStoreLabel() ?></span></th>
+                            <?php endif; ?>
+                            <td>
+                                <?php switch ($_attribute->getAttributeCode()) {
+                                    case "price": ?>
+                                        <?php echo $this->getPriceHtml($_item, true, '-compare-list-' . $_attribute->getCode()) ?>
+                                        <?php break;
+                                    case "small_image": ?>
+                                        <img src="<?php echo $this->helper('catalog/image')->init($_item, 'small_image')->resize(125, 125); ?>" width="125" height="125" alt="<?php echo $this->escapeHtml($_item->getName()) ?>" title="<?php echo $this->escapeHtml($_item->getName()) ?>" />
+                                        <?php break;
+                                    case "date":
+                                        echo substr($this->getProductAttributeValue($_item, $_attribute),0,10);
+                                        break;
+                                    default: ?>
+                                        <div class="std">
+                                            <?php echo $this->helper('catalog/output')->productAttribute($_item, $this->getProductAttributeValue($_item, $_attribute), $_attribute->getAttributeCode()) ?>
+                                        </div>
+                                    <?php break;
+                                } ?>
+                            </td>
+                        <?php endforeach; ?>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+            <tbody>
+                <tr class="add-to-row">
+            <?php $_i=0 ?>
+            <?php foreach($this->getItems() as $_item): ?>
+                <?php if($_i++%10==0): ?>
+                    <th>&nbsp;</th>
+                <?php endif; ?>
+                <td>
+                    <?php if($_item->isSaleable()): ?>
+                        <p><button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocation('<?php echo $this->helper('catalog/product_compare')->getAddToCartUrl($_item) ?>', true)"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button></p>
+                    <?php else: ?>
+                        <p class="availability out-of-stock"><span><?php echo $this->__('Out of stock') ?></span></p>
+                    <?php endif; ?>
+                </td>
+            <?php endforeach; ?>
+        </tr>
+            </tbody>
+        </table>
+    </div>
+</div><!-- products-compare -->
+<?php elseif(count($items) == 0): ?>
+    <p class="note-msg">There are no products matching the selection.</p>
+<?php endif; ?>
+</div>
+<?php 
+$items_coll = Mage::getResourceModel('catalog/product_compare_item_collection');
+    if (Mage::getSingleton('customer/session')->isLoggedIn()) {
+        $items_coll->setCustomerId(Mage::getSingleton('customer/session')->getCustomerId());
+    } elseif ($this->_customerId) {
+        $items_coll->setCustomerId($this->_customerId);
+    } else {
+        $items_coll->setVisitorId(Mage::getSingleton('log/visitor')->getId());
+    }
+
+/** @var $session Mage_Catalog_Model_Session */
+$session = Mage::getSingleton('catalog/session');
+
+try {
+    $items_coll->clear();
+    Mage::helper('catalog/product_compare')->calculate(); 
+}
+catch (Exception $e){
+    //do nothing
+}
+?>
+<script type="text/javascript">
+	jQuery(document).ready(function($){
+		var parent_category_id = "<?php echo $parent_category_id; ?>";
+                $('.opc-ajax-loader').css('display','block');
+		$.ajax({
+			url:"<?php echo Mage::getUrl('customblocks/index/getcategorybrands'); ?>",
+			type:'POST',
+			data:{parent_category_id:parent_category_id},
+			success:function(data){
+                $('.opc-ajax-loader').css('display','none');
+				var selectValues=JSON.parse(data);
+				$.each(selectValues, function(key, value){
+     					$('select.brands')
+							.append($("<option></option>")
+							.attr("value",key)
+							.text(value)); 
+						});
+			}
+		});
+
+		$('select.brands').change(function(){
+			var parent_category_id = "<?php echo $parent_category_id; ?>";
+			var brand = $(this).val();
+			var brandno = $(this).data('brandno');
+			if(brand){
+                $('.opc-ajax-loader').css('display','block');
+				$.ajax({
+					url:"<?php echo Mage::getUrl('customblocks/index/getbrandproducts'); ?>",
+					type:'POST',
+					data:{brand:brand,parent_category_id:parent_category_id},
+					success:function(data){
+                        $('.opc-ajax-loader').css('display','none');
+						$('select.brandproduct_'+brandno).empty().append('<option value="">---Please Select Products---</option>');
+						var selectValues=JSON.parse(data);
+						$.each(selectValues, function(key, value){
+     					$('select.brandproduct_'+brandno)
+							.append($("<option></option>")
+							.attr("value",key)
+							.text(value)); 
+						});
+					}
+				});
+			}
+		});
+
+		$('select.brandpros').change(function(){
+            $('.opc-ajax-loader').css('display','block');
+			var brandproid = $(this).val();
+			var brandprono = $(this).data('brandprono');
+			if(brandproid){
+				$.ajax({
+					url:"<?php echo Mage::getUrl('customblocks/index/getbrandproductdetails'); ?>",
+					type:'POST',
+					dataType:'json',
+					data:{brandproid:brandproid},
+					success:function(data){
+						//alert(data);
+                        $('.opc-ajax-loader').css('display','none');
+                        $('.hello').replaceWith(data.sidebar);
+						//$('td.pro_'+brandprono).html(data.sidebar);
+					}
+				});
+			}
+		});
+                
+                $('.remove-from-product').click(function(){
+                    $('.opc-ajax-loader').css('display','block');
+                    var cancel_itemid = $(this).data('itemid');
+                    if (cancel_itemid) {
+                        $.ajax({
+                            url:"<?php echo Mage::getUrl('customblocks/index/cancelitemfromcomparelist'); ?>",
+                            type:'POST',
+                            dataType:'json',
+                            data:{cancel_itemid:cancel_itemid},
+                            success:function(data){
+                                $('.opc-ajax-loader').css('display','none');
+                                $('.hello').replaceWith(data.sidebar);
+                            }
+			});
+                    }
+                });
+	});
+</script>

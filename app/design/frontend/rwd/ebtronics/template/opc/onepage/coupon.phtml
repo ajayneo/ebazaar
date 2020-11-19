@@ -1,0 +1,41 @@
+<form id="opc-discount-coupon-form" action="<?php echo $this->getUrl('checkout/cart/couponPost', array('_secure' => $this->getRequest()->isSecure())) ?>" method="post">
+    <div class="discount">
+        <div class="discount-form">
+            <label for="coupon_code"><?php echo $this->__('Coupon code:') ?></label>            
+            <div class="input-box">
+                <input class="input-text" id="coupon_code" type="text" name="coupon_code" value="<?php echo $this->htmlEscape($this->getCouponCode()) ?>" autocomplete="off"/>
+            </div>
+            <div class="buttons-set">
+                <button type="button" title="<?php echo $this->__('Apply') ?>" class="button apply-coupon"  value="<?php echo $this->__('Apply') ?>"><span><span><?php echo $this->__('Apply') ?></span></span></button>
+                <?php if(strlen($this->getCouponCode())): ?>
+                    &nbsp; <button type="button" title="<?php echo $this->__('Cancel') ?>" class="button remove-coupon right"  value="<?php echo $this->__('Cancel') ?>"><span><span><?php echo $this->__('Cancel') ?></span></span></button>
+                <?php endif;?>
+            </div>
+        </div>
+    </div>
+</form>
+<script type="text/javascript">
+    /*jQuery(document).ready(function(){
+        jQuery(".apply-coupon").click(function(event){
+            var coupon_code_text = jQuery("#coupon_code").val();
+            var coupon_code = coupon_code_text.toLowerCase();
+            if(coupon_code == "affap250" || coupon_code == "aff4p" || coupon_code == "aff10p"){
+                var repcustomername = jQuery("#repcustomername").val();
+                var repemail = jQuery("#repemail").val();
+                var repmobile = jQuery("#repmobile").val();
+                var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+                if(repcustomername == '' || repmobile == ''){
+                    alert('For using this coupon you need to fill full customer details');
+                    return false;
+                }else if(!(/^\d{10}$/.test(repmobile) && repmobile.length<=10)){
+                    alert('For using this coupon you need to enter valid 10 digit mobile number of customer');
+                    return false;
+                }else if(repemail !== '' && !regex.test(repemail)){
+                    alert('For using this coupon you need to enter valid email address of customer');
+                    return false;
+                }
+            }
+            return true;
+        });
+    });*/
+</script>

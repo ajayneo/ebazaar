@@ -1,0 +1,203 @@
+<?php
+class NeoCustom_CustomAjax_AjaxController extends Mage_Core_Controller_Front_Action 
+{
+	public function indexAction() 
+	{
+		$this->loadLayout();
+		$this->renderLayout();
+	}
+		
+	public function addtobasketAction() 
+	{
+		$this->loadLayout();
+		$this->renderLayout();
+	}
+	
+	public function priceupdateAction() 
+	{
+		$this->loadLayout();
+		$this->renderLayout();		
+	}
+	
+	public function setidforcollectionajaxAction() 
+	{
+		$this->loadLayout();
+		$this->renderLayout();		
+	}
+
+	public function addwishlisttocartajaxAction() 
+	{
+		$this->loadLayout();
+		$this->renderLayout();		
+	}
+	
+	public function removeitemajaxAction() 
+	{
+		$this->loadLayout();
+		$this->renderLayout();		
+	}
+	
+	public function validatepincodeajaxAction() 
+	{
+		$this->loadLayout();
+		$this->renderLayout();		
+	}
+	
+	public function removeorderajaxAction() 
+	{
+		$this->loadLayout();
+		$this->renderLayout();		
+	}
+
+	public function billingsaveajaxAction()
+	{
+		$billarea 			= Mage::app()->getRequest()->getParam('selectedregion');
+		$itemsCollection 	= Mage::getSingleton('checkout/session')->getQuote()->getItemsCollection();
+	    $itemsVisible 		= Mage::getSingleton('checkout/session')->getQuote()->getAllVisibleItems();
+	    $items 				= Mage::getSingleton('checkout/session')->getQuote()->getAllItems();
+	    
+		$res_prods = array();
+		$res_prod_msg;
+		$count = 0;
+		
+	    foreach($items as $item)
+		{
+			$shipmentrestriction = Mage::getModel('shipmentrestriction/shipmentrestriction')
+									->getCollection()
+									->addFieldToFilter('shipment_restriction_amount',array('lteq' => $item->getPrice()));
+									
+			if($shipmentrestriction->count())
+			{
+				foreach($shipmentrestriction as $shi)
+				{
+		        	$states = explode(',',$shi->getShipmentRestrictionState());
+					if($billarea)
+		            {
+		            	if(in_array($billarea,$states))
+		                {    
+							$res_prod_msg = 'We are not shipping if any particular cart item exceeds '.$shi->getShipmentRestrictionAmount().' to your region.if you want to ship to different address.Or Provide few Docs to Ship to your region';
+							$res_prods[] = $item->getData('product_id');
+							$count++;
+						}
+					}
+				}
+			}
+		}
+
+		if($count > 0):
+			$res_prods = array_filter($res_prods);
+			if(!empty($res_prods)):
+				foreach($res_prods as $res_prod):
+					$cartHelper = Mage::helper('checkout/cart');
+				    $items = $cartHelper->getCart()->getItems();
+					foreach($items as $item):
+				    	if($item->getProduct()->getId() == $res_prod):
+				        	$itemId = $item->getItemId();
+				            $cartHelper->getCart()->removeItem($itemId)->save();
+						endif;
+					endforeach;
+				endforeach;
+			endif;
+			
+			echo json_encode(array(
+				'restrict_value' => '1', 
+				'restrict_message' => $res_prod_msg  
+			));
+			exit;
+		else:
+			echo json_encode(array(
+				'restrict_value' => '0',
+			));
+			exit;
+		endif;
+	}
+
+	public function shippingsaveajaxAction() 
+	{
+		$shiparea 			= Mage::app()->getRequest()->getParam('selectedregion');
+		$itemsCollection 	= Mage::getSingleton('checkout/session')->getQuote()->getItemsCollection();
+	    $itemsVisible 		= Mage::getSingleton('checkout/session')->getQuote()->getAllVisibleItems();
+	    $items 				= Mage::getSingleton('checkout/session')->getQuote()->getAllItems();
+	    
+		$res_prods = array();
+		$res_prod_msg;
+		$count = 0;
+		
+	    foreach($items as $item)
+		{
+			$shipmentrestriction = Mage::getModel('shipmentrestriction/shipmentrestriction')
+									->getCollection()
+									->addFieldToFilter('shipment_restriction_amount',array('lteq' => $item->getPrice()));
+
+			if($shipmentrestriction->count())
+			{
+				foreach($shipmentrestriction as $shi)
+				{
+					$states = explode(',',$shi->getShipmentRestrictionState());
+		            if($shiparea)
+		            {
+						if(in_array($shiparea,$states))
+						{
+							$res_prod_msg = 'We are not shipping if any particular cart item exceeds '.$shi->getShipmentRestrictionAmount().' to your region.if you want to ship to different address.Or Provide few Docs to Ship to your region';
+							$res_prods[] = $item->getData('product_id');
+							$count++;
+						}
+		            }
+				}
+			}
+		}
+		if($count > 0):
+			$res_prods = array_filter($res_prods);
+			if(!empty($res_prods)):
+				foreach($res_prods as $res_prod):
+					$cartHelper = Mage::helper('checkout/cart');
+				    $items = $cartHelper->getCart()->getItems();
+					foreach($items as $item):
+				    	if($item->getProduct()->getId() == $res_prod):
+				        	$itemId = $item->getItemId();
+				            $cartHelper->getCart()->removeItem($itemId)->save();
+						endif;
+					endforeach;
+				endforeach;
+			endif;
+			
+			echo json_encode(array(
+				'restrict_value' => '1', 
+				'restrict_message' => $res_prod_msg  
+			));
+			exit;
+		else:
+			echo json_encode(array(
+				'restrict_value' => '0',
+			));
+			exit;
+		endif;
+	}
+	
+	public function getsessionrestrictionAction()
+	{		
+		$res_prods = Mage::getSingleton('customer/session')->getMyShipmentRestrictionProd();
+		$res_prods = array_filter($res_prods);
+		if(!empty($res_prods)):
+			foreach($res_prods as $res_prod):
+				$cartHelper = Mage::helper('checkout/cart');
+    			$items = $cartHelper->getCart()->getItems();
+				foreach($items as $item):
+            		if($item->getProduct()->getId() == $res_prod):
+                		$itemId = $item->getItemId();
+                		$cartHelper->getCart()->removeItem($itemId)->save();
+					endif;
+				endforeach;
+			endforeach;
+			Mage::getSingleton('customer/session')->unsMyShipmentRestrictionProd();
+		//else:
+			//echo 'else'; exit;
+		endif;
+		
+		echo json_encode(array(
+			'session_value' => Mage::getSingleton('customer/session')->getMyShipmentRestriction(), 
+			'session_message' => Mage::getSingleton('customer/session')->getMyCusMessage()
+		));
+	}
+	
+}

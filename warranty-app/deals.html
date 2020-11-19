@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no" />
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="css/jquery.bxslider.min.css">
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<link rel="stylesheet" type="text/css" href="css/eb-style.css">
+	<link rel="stylesheet" type="text/css" href="css/eb-responsive.css">
+</head>
+<body>
+
+<div class="popup-container">
+	<div id="loginregister" class="login-register-container">
+		<span class="close-button"><a>X</a></span>
+		<ul class="login-register-tabs clearfix">
+			<li><a href="#tabs-1">Partner Login</a></li>
+			<li><a href="#tabs-2">Create New Account</a></li>
+		</ul>
+		<div id="tabs-1" class="login-container">
+			<div class="login-content">
+				<ul>
+					<li>
+						<label>Email</label>
+						<div class="input-field"><input type="text" name=""></div>
+					</li>
+					<li>
+						<label>Passowrd</label>
+						<div class="input-field"><input type="password" name=""></div>
+					</li>
+				</ul>
+				<div class="button-container">
+					<button class="button"><span><span>Login</span></span></button>
+				</div>
+				<div class="clearfix">
+					<!-- <div class="remember-me"><input type="checkbox" name=""> Remember me</div> -->
+					<div id="remember-me-box" class="remember-me control clearfix">
+				        <div class="input-box">
+				        	<input type="checkbox" class="checkbox" id="remember_me" title="Remember Me">
+				    	</div>
+    					<label for="remember_me">Remember Me</label>
+					</div>
+					<div class="forgot-password"><a href="#">Forgot Password?</a></div>
+				</div>
+			</div>
+			<div class="login-register-image">
+				<img src="images/login-image.png" />
+			</div>
+		</div>
+
+		<div id="tabs-2" class="register-container">
+			<div class="register-content">
+				<ul class="clearfix">
+					<li>
+						<label>Partner Store Name</label>
+						<div class="input-field"><input type="text" name=""></div>
+					</li>
+					<li>
+						<label>Mobile</label>
+						<div class="input-field"><input type="text" name=""></div>
+					</li>
+					<li>
+						<label>Email</label>
+						<div class="input-field"><input type="text" name=""></div>
+					</li>
+					<li>
+						<label>City</label>
+						<div class="input-field"><input type="text" name=""></div>
+					</li>
+					<li>
+						<label>Referred By</label>
+						<div class="input-field"><input type="text" name=""></div>
+					</li>
+					<li>
+						<label>Password</label>
+						<div class="input-field"><input type="password" name=""></div>
+					</li>
+					<li>
+						<label>Confirm Password</label>
+						<div class="input-field"><input type="password" name=""></div>
+					</li>
+					<li>
+						<label>EB Pin</label>
+						<div class="input-field"><input type="text" name=""></div>
+					</li>
+				</ul>
+				<div class="button-container">
+					<button class="button eb-pin-button"><span><span>Click here to Generate EB Pin<span class="break-line"> for Mobile Verification</span></span></button>
+					<button class="button"><span><span>Register</span></span></button>
+				</div>
+			</div>
+			<div class="login-register-image">
+				<img src="images/register-image.png" />
+			</div>
+		</div>
+		
+	</div>
+</div>
+
+	<div class="wrapper">
+		<div class="page">
+		<div class="top-header">
+			<div class="header-language-background">
+				<div class="header-language-container clearfix">
+					<a class="responsive-menu-icon"><img src="images/responsive-menu.png"></a>
+					<a class="more-links"><img src="images/more.png"></a>
+					<a class="search-links"><img src="images/search-active.png"></a>
+					<ul id="top-links" class="top-links">
+						<li class="download-app"><a href="#" title="Download App">Download App</a></li>
+						<li class="login"><a title="Login/Sign Up">Login/Sign Up</a></li>
+						<li class="my-cart"><a href="#" title="My Cart">My Cart</a></li>
+					</ul>
+				</div>
+			</div>
+
+			<header id="header" class="page-header mobile-page-header">
+				<div class="page-header-container clearfix">
+					<div class="logo"><a href="index.html" title="Electronics Bazaar"><img src="images/eb-logo.png" alt="Electronics Bazaar" /></a></div>
+					<div class="brand-logo">
+						<ul>
+							<li><a href="#" title="Sell Your Gadget"><img src="images/sell-your-gadget.png" alt="Sell Your Gadget" /></a></li>
+							<!-- <li><a href="#" title="Lenovo Buy Back Program"><img src="images/lenovo.png" alt="Lenovo Buy Back Program" /></a></li> -->
+						</ul>
+					</div>
+				</div>
+			</header>
+
+			<div class="main-navigation clearfix">
+				<div class="main">
+					<div id="header-nav" class="skip-content nav-inner">					
+							<nav id="nav">
+								<a class="close-button">X</a>
+								<ul class="clearfix">
+									<li class="category1">
+										<a href="#">Mobiles</a>
+										<ul class="submenu">
+											<li><a href="#">Brand New Mobiles</a></li>
+											<li><a href="#">Open Box Mobiles</a></li>
+											<li><a href="#">Pre-Owned Mobiles</a></li>
+											<li><a href="#">Pre-Owned ASIS Mobiles</a></li>
+											<li><a href="#">Feature Phone</a></li>
+										</ul>
+									</li>
+									<li class="category2">
+										<a href="#">Laptops</a>
+										<ul class="submenu">
+											<li><a href="#">Brand New Laptops</a></li>
+											<li><a href="#">Open Box Laptops</a></li>
+											<li><a href="#">Pre-Owned Laptops</a></li>
+											<li><a href="#">Brand Refurbished Laptops</a></li>
+										</ul>
+									</li>
+									<li class="category3">
+										<a href="#">Desktops</a>
+										<ul class="submenu">
+											<li><a href="#">Brand New Desktop</a></li>
+											<li><a href="#">Brand Refurbished Desktop</a></li>
+										</ul>
+									</li>
+									<li class="category4">
+										<a href="#">Accessories</a>
+										<ul class="submenu">
+											<li><a href="#">Bluetooth Speakers</a></li>
+											<li><a href="#">Bluetooth Headsets</a></li>
+											<li><a href="#">USB Cables</a></li>
+											<li><a href="#">Power Banks</a></li>
+											<li><a href="#">Laptop Bags</a></li>
+										</ul>
+									</li>
+								</ul>
+							</nav>					
+					</div>
+					<div id="header-search" class="skip-content">
+						<form>
+							<div class="nav clearfix">
+						        <div class="nav-input UI-NAV-INPUT">
+						            <input class="input-text UI-SEARCH" type="text" placeholder="Search">
+						        </div>
+						        <div class="searchautocomplete-loader UI-LOADER">
+						            <div id="g01"></div>
+						            <div id="g02"></div>
+						            <div id="g03"></div>
+						            <div id="g04"></div>
+						            <div id="g05"></div>
+						            <div id="g06"></div>
+						            <div id="g07"></div>
+						            <div id="g08"></div>
+						        </div>
+						        <div class="btn-search"> 
+							        <button type="submit" title="Go" class="button">
+							            
+							        </button>
+							    </div>
+						    </div>
+						</form>
+					</div>
+				</div>
+			</div>
+			</div>
+
+			<div class="main-container">
+				<div class="main">
+					<div class="breadcrumbs">
+					    <ul>
+		                    <li class="home">
+		                        <a href="https://www.electronicsbazaar.com/" title="Go to Home Page">Home</a>
+		                        <span>/ </span>
+		                    </li>
+		                    <li class="product">
+		                        <strong>Deals</strong>
+		                    </li>
+					    </ul>
+					</div>
+					<div class="deals-container">
+						<div class="deals-list-content">
+							<div class="deals-heading"><img src="images/deals-heading.png"></div>
+							<div class="sale-list-container">
+								<div class="sale-list-content"> <!-- Start of sale-list-content -->
+									<div class="sale-list-heading"><h1>Pre Owned Mobiles</h1></div>
+									<ul class="clearfix">
+										<li class="clearfix">
+											<div class="deal-image">
+						                    	<a href="#">
+							                    	<span>
+							                    		<img src="images/deals-product-img.jpg" alt="Samsung Galaxy Note 1">
+							                    	</span>
+						                    	</a>   
+						                    </div>
+						                    <div class="deal-content">
+						                        <p class="title">
+						                        	<a href="#" title="Samsung Galaxy Note 1">Samsung Galaxy Note 1</a>
+						                        </p>
+						                        <div class="deals-bottom clearfix">
+						                        	<div class="price">@ 2749/-</div>
+							                        <div class="buy-now-btn">
+							                        	<a href="#">Buy Now</a>
+							                        </div>
+							                    </div>
+						                    </div>
+										</li>
+										<li class="clearfix">
+											<div class="deal-image">
+						                    	<a href="#">
+							                    	<span>
+							                    		<img src="images/deals-product-img.jpg" alt="Samsung Galaxy Note 1">
+							                    	</span>
+						                    	</a>   
+						                    </div>
+						                    <div class="deal-content">
+						                        <p class="title">
+						                        	<a href="#" title="Samsung Galaxy Note 1">Samsung Galaxy Note 1</a>
+						                        </p>
+						                        <div class="deals-bottom clearfix">
+						                        	<div class="price">@ 2749/-</div>
+							                        <div class="buy-now-btn">
+							                        	<a href="#">Buy Now</a>
+							                        </div>
+							                    </div>
+						                    </div>
+										</li>
+										<li class="clearfix">
+											<div class="deal-image">
+						                    	<a href="#">
+							                    	<span>
+							                    		<img src="images/deals-product-img.jpg" alt="Samsung Galaxy Note 1">
+							                    	</span>
+						                    	</a>   
+						                    </div>
+						                    <div class="deal-content">
+						                        <p class="title">
+						                        	<a href="#" title="Samsung Galaxy Note 1">Samsung Galaxy Note 1</a>
+						                        </p>
+						                        <div class="deals-bottom clearfix">
+						                        	<div class="price">@ 2749/-</div>
+							                        <div class="buy-now-btn">
+							                        	<a href="#">Buy Now</a>
+							                        </div>
+							                    </div>
+						                    </div>
+										</li>
+										<li class="clearfix">
+											<div class="deal-image">
+						                    	<a href="#">
+							                    	<span>
+							                    		<img src="images/deals-product-img.jpg" alt="Samsung Galaxy Note 1">
+							                    	</span>
+						                    	</a>   
+						                    </div>
+						                    <div class="deal-content">
+						                        <p class="title">
+						                        	<a href="#" title="Samsung Galaxy Note 1">Samsung Galaxy Note 1</a>
+						                        </p>
+						                        <div class="deals-bottom clearfix">
+						                        	<div class="price">@ 2749/-</div>
+							                        <div class="buy-now-btn">
+							                        	<a href="#">Buy Now</a>
+							                        </div>
+							                    </div>
+						                    </div>
+										</li>
+										<li class="clearfix">
+											<div class="deal-image">
+						                    	<a href="#">
+							                    	<span>
+							                    		<img src="images/deals-product-img.jpg" alt="Samsung Galaxy Note 1">
+							                    	</span>
+						                    	</a>   
+						                    </div>
+						                    <div class="deal-content">
+						                        <p class="title">
+						                        	<a href="#" title="Samsung Galaxy Note 1">Samsung Galaxy Note 1</a>
+						                        </p>
+						                        <div class="deals-bottom clearfix">
+						                        	<div class="price">@ 2749/-</div>
+							                        <div class="buy-now-btn">
+							                        	<a href="#">Buy Now</a>
+							                        </div>
+							                    </div>
+						                    </div>
+										</li>
+										<li class="clearfix">
+											<div class="deal-image">
+						                    	<a href="#">
+							                    	<span>
+							                    		<img src="images/deals-product-img.jpg" alt="Samsung Galaxy Note 1">
+							                    	</span>
+						                    	</a>   
+						                    </div>
+						                    <div class="deal-content">
+						                        <p class="title">
+						                        	<a href="#" title="Samsung Galaxy Note 1">Samsung Galaxy Note 1</a>
+						                        </p>
+						                        <div class="deals-bottom clearfix">
+						                        	<div class="price">@ 2749/-</div>
+							                        <div class="buy-now-btn">
+							                        	<a href="#">Buy Now</a>
+							                        </div>
+							                    </div>
+						                    </div>
+										</li>
+									</ul>
+								</div> <!-- End of sale-list-content -->
+
+								<div class="sale-list-content"> <!-- Start of sale-list-content -->
+									<div class="sale-list-heading"><h1>Open Box Laptop</h1></div>
+									<ul class="clearfix">
+										<li class="clearfix">
+											<div class="deal-image">
+						                    	<a href="#">
+							                    	<span>
+							                    		<img src="images/hp-laptop.jpg" alt="HP Laptop">
+							                    	</span>
+						                    	</a>   
+						                    </div>
+						                    <div class="deal-content">
+						                        <p class="title">
+						                        	<a href="#" title="HP Laptop">HP Laptop</a>
+						                        </p>
+						                        <div class="deals-bottom clearfix">
+						                        	<div class="price">@ 27,800/-</div>
+							                        <div class="buy-now-btn">
+							                        	<a href="#">Buy Now</a>
+							                        </div>
+							                    </div>
+						                    </div>
+										</li>
+										<li class="clearfix">
+											<div class="deal-image">
+						                    	<a href="#">
+							                    	<span>
+							                    		<img src="images/hp-laptop.jpg" alt="HP Laptop">
+							                    	</span>
+						                    	</a>   
+						                    </div>
+						                    <div class="deal-content">
+						                        <p class="title">
+						                        	<a href="#" title="HP Laptop">HP Laptop</a>
+						                        </p>
+						                        <div class="deals-bottom clearfix">
+						                        	<div class="price">@ 27,800/-</div>
+							                        <div class="buy-now-btn">
+							                        	<a href="#">Buy Now</a>
+							                        </div>
+							                    </div>
+						                    </div>
+										</li>
+										<li class="clearfix">
+											<div class="deal-image">
+						                    	<a href="#">
+							                    	<span>
+							                    		<img src="images/hp-laptop.jpg" alt="HP Laptop">
+							                    	</span>
+						                    	</a>   
+						                    </div>
+						                    <div class="deal-content">
+						                        <p class="title">
+						                        	<a href="#" title="HP Laptop">HP Laptop</a>
+						                        </p>
+						                        <div class="deals-bottom clearfix">
+						                        	<div class="price">@ 27,800/-</div>
+							                        <div class="buy-now-btn">
+							                        	<a href="#">Buy Now</a>
+							                        </div>
+							                    </div>
+						                    </div>
+										</li>
+										<li class="clearfix">
+											<div class="deal-image">
+						                    	<a href="#">
+							                    	<span>
+							                    		<img src="images/hp-laptop.jpg" alt="HP Laptop">
+							                    	</span>
+						                    	</a>   
+						                    </div>
+						                    <div class="deal-content">
+						                        <p class="title">
+						                        	<a href="#" title="HP Laptop">HP Laptop</a>
+						                        </p>
+						                        <div class="deals-bottom clearfix">
+						                        	<div class="price">@ 27,800/-</div>
+							                        <div class="buy-now-btn">
+							                        	<a href="#">Buy Now</a>
+							                        </div>
+							                    </div>
+						                    </div>
+										</li>
+										<li class="clearfix">
+											<div class="deal-image">
+						                    	<a href="#">
+							                    	<span>
+							                    		<img src="images/hp-laptop.jpg" alt="HP Laptop">
+							                    	</span>
+						                    	</a>   
+						                    </div>
+						                    <div class="deal-content">
+						                        <p class="title">
+						                        	<a href="#" title="HP Laptop">HP Laptop</a>
+						                        </p>
+						                        <div class="deals-bottom clearfix">
+						                        	<div class="price">@ 27,800/-</div>
+							                        <div class="buy-now-btn">
+							                        	<a href="#">Buy Now</a>
+							                        </div>
+							                    </div>
+						                    </div>
+										</li>
+										<li class="clearfix">
+											<div class="deal-image">
+						                    	<a href="#">
+							                    	<span>
+							                    		<img src="images/hp-laptop.jpg" alt="HP Laptop">
+							                    	</span>
+						                    	</a>   
+						                    </div>
+						                    <div class="deal-content">
+						                        <p class="title">
+						                        	<a href="#" title="HP Laptop">HP Laptop</a>
+						                        </p>
+						                        <div class="deals-bottom clearfix">
+						                        	<div class="price">@ 27,800/-</div>
+							                        <div class="buy-now-btn">
+							                        	<a href="#">Buy Now</a>
+							                        </div>
+							                    </div>
+						                    </div>
+										</li>
+									</ul>
+								</div> <!-- End of sale-list-content -->
+
+								<div class="sale-list-content"> <!-- Start of sale-list-content -->
+									<div class="sale-list-heading"><h1>Accessories</h1></div>
+									<ul class="clearfix">
+										<li class="clearfix">
+											<div class="deal-image">
+						                    	<a href="#">
+							                    	<span>
+							                    		<img src="images/accessories.jpg" alt="Albright L4 Wireless Bluetooth Headset">
+							                    	</span>
+						                    	</a>   
+						                    </div>
+						                    <div class="deal-content">
+						                        <p class="title">
+						                        	<a href="#" title="Albright L4 Wireless Bluetooth Headset">Albright L4 Wireless Bluetooth Headset</a>
+						                        </p>
+						                        <div class="deals-bottom clearfix">
+						                        	<div class="price">@ 499/-</div>
+							                        <div class="buy-now-btn">
+							                        	<a href="#">Buy Now</a>
+							                        </div>
+							                    </div>
+						                    </div>
+										</li>
+										<li class="clearfix">
+											<div class="deal-image">
+						                    	<a href="#">
+							                    	<span>
+							                    		<img src="images/accessories.jpg" alt="Albright L4 Wireless Bluetooth Headset">
+							                    	</span>
+						                    	</a>   
+						                    </div>
+						                    <div class="deal-content">
+						                        <p class="title">
+						                        	<a href="#" title="Albright L4 Wireless Bluetooth Headset">Albright L4 Wireless Bluetooth Headset</a>
+						                        </p>
+						                        <div class="deals-bottom clearfix">
+						                        	<div class="price">@ 499/-</div>
+							                        <div class="buy-now-btn">
+							                        	<a href="#">Buy Now</a>
+							                        </div>
+							                    </div>
+						                    </div>
+										</li>
+										<li class="clearfix">
+											<div class="deal-image">
+						                    	<a href="#">
+							                    	<span>
+							                    		<img src="images/accessories.jpg" alt="Albright L4 Wireless Bluetooth Headset">
+							                    	</span>
+						                    	</a>   
+						                    </div>
+						                    <div class="deal-content">
+						                        <p class="title">
+						                        	<a href="#" title="Albright L4 Wireless Bluetooth Headset">Albright L4 Wireless Bluetooth Headset</a>
+						                        </p>
+						                        <div class="deals-bottom clearfix">
+						                        	<div class="price">@ 499/-</div>
+							                        <div class="buy-now-btn">
+							                        	<a href="#">Buy Now</a>
+							                        </div>
+							                    </div>
+						                    </div>
+										</li>
+									</ul>
+								</div> <!-- End of sale-list-content -->
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="footer-container">
+				<div class="footer-top">
+					<div class="main clearfix">
+						<div class="footer-content">
+							<h3>Quick Links</h3>
+							<div class="quick-links clearfix">
+								<ul>
+									<li><a href="#">About Us</a></li>
+									<li><a href="#">Laptops</a></li>
+									<li><a href="#">Mobiles</a></li>
+									<li><a href="#">Accessories</a></li>
+									<li><a href="#">Shiping &amp; Packaging</a></li>
+									<li><a href="#">Shiping &amp; Packaging</a></li>
+								</ul>
+								<ul>
+									<li><a href="#">Easy Payments</a></li>
+									<li><a href="#">FAQ'S</a></li>
+									<li><a href="#">Warranty</a></li>
+									<li><a href="#">Careers</a></li>
+									<li><a href="#">Login</a></li>
+									<li><a href="#">Contact Us</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="footer-content">
+							<h3>Connect With Us</h3>
+							<div class="social-container clearfix">
+								<ul class="clearfix">
+	                                <li><a target="_blank" href="https://www.facebook.com/pages/Electronicsbazaarcom/796505747037072" class="facebook-icon"></a></li>
+	                                <li><a target="_blank" href="https://twitter.com/electrosbazaar" class="twitter-icon"></a></li>
+	                        	</ul>
+                        	</div>
+                        	<div class="toll-free-number">
+                        		<p>Call us @ Toll Free Number <span>1800-266-4000</span></p>
+                        	</div>
+						</div>
+						<div class="footer-content">
+							<h3>Payment Method</h3>
+							<ul class="payment-method clearfix">
+								<li><img src="images/visa.jpg" alt="Visa" /></li>
+								<li><img src="images/master-card.jpg" alt="Master Card" /></li>
+								<li><img src="images/paytm.jpg" alt="Paytm" /></li>
+								<li><img src="images/cash-on-delivery.jpg" alt="Cash on delivery" /></li>
+								<li><img src="images/easy-emi.jpg" alt="Easy EMI" /></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="footer-bottom">
+					<div class="main">
+						<p>Copyright © 2017 <a href="#">Electronics Bazaar</a>. Online Electronics Shopping Store in India. All Rights Reserved. <a href="#">Privacy Policy</a></p>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+	
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>	
+	<script type="text/javascript" src="js/jquery.bxslider.min.js"></script>
+	<script src="js/jquery-ui.js"></script>
+	<script type="text/javascript" src="js/custom.js"></script>
+</body>
+</html>

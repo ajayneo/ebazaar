@@ -1,0 +1,204 @@
+<?php 
+try{
+	$media_url = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA);
+	$limit = 10;
+	$collection = Mage::getModel('catalog/product')->getCollection();
+	$collection->addAttributeToSelect(array('sku','name', 'image', 'price','is_superdeal'));
+    $collection->addAttributeToFilter('is_superdeal',array('eq'=>1));
+    $collection->addAttributeToFilter('attribute_set_id','10');
+    Mage::getSingleton('catalog/product_status')->addVisibleFilterToCollection($collection);
+	Mage::getSingleton('catalog/product_visibility')->addVisibleInCatalogFilterToCollection($collection);
+	$collection->getSelect()->limit($limit)->order('entity_id', 'DESC');
+	// echo $collection->getSelect();
+	$products = $collection->getData();
+	$data = array();
+	$openbox = array();
+	$preowned = array();
+	$new = array();
+	$o = 0;
+	$p = 0;
+	$q = 0;
+	$image = 'web-hotseller-bg-';
+	if(!empty($products)){
+		foreach ($products as $key => $product) {
+			$_product = Mage::getModel('catalog/product')->load($product['entity_id']);
+			$_url = $_product->getProductUrl();
+			if (strpos(strtolower($product['sku']), 'newmob') !== false) {
+				if($q==2) continue;
+				// $img = $o+1;
+				$product_id = $product['entity_id'];
+				$image = 'web-'.$product_id.'.png';
+				
+				$new[$q]['product_id'] = $product['entity_id'];
+				$new[$q]['name'] = $product['name'];
+				// $new[$q]['price'] = (int) $product['price'];
+				// $new[$q]['image'] = $media_url.'homepage/'.$image;
+				$new[$q]['image'] = Mage::helper('catalog/image')->init($_product, 'thumbnail');
+				$new[$q]['url'] = $_url;
+				$q++;
+			}
+
+			if (strpos($product['sku'], 'Openbox') !== false || strpos($product['sku'], 'OPMBN') !== false) {
+				if($o==2) continue;
+				$img = $o+1;
+				// $image = 'web-hotseller-bg-'.$img.'.jpg';
+				$image = 'web-'.$product['entity_id'].'.jpg';
+				$openbox[$o]['product_id'] = $product['entity_id'];
+				$openbox[$o]['name'] = $product['name'];
+				$openbox[$o]['price'] = (int) $product['price'];
+				$openbox[$o]['image'] = $media_url.'homepage/'.$image;
+				$openbox[$o]['url'] = $_url;
+				$o++;
+			}
+
+			if (strpos($product['sku'], 'REF/') !== false) {
+				if($p==2) continue;
+				$img = $p+3;
+				// $image = 'web-hotseller-bg-'.$img.'.jpg';
+				$image = 'web-'.$product['entity_id'].'.jpg';
+				$preowned[$p]['product_id'] = $product['entity_id'];
+				$preowned[$p]['name'] = $product['name'];
+				$preowned[$p]['price'] = (int) $product['price'];
+				$preowned[$p]['image'] = $media_url.'homepage/'.$image;
+				$preowned[$p]['url'] = $_url;
+				$p++;
+			}
+
+		}
+	}
+}catch(Exception $e){
+	Mage::log($e->getMessage(),null,'cms_index.log',true);
+}
+
+$total_units = $p+$q+$o;
+$class_name = '';
+if($total_units == 6){
+$class_name = 'hot-selling-3';
+}else if($total_units == 4){
+$class_name = 'hot-selling-2';
+
+}else if($total_units == 2){
+	$class_name = 'hot-selling-1';
+}else{
+	$class_name = 'hot-selling-2';
+}
+?>
+
+<?php /* if(!empty($openbox) || !empty($preowned) || !empty($new)): ?>
+<!-- Hot Selling Brands -->
+
+<div class="brands-container">
+	<div class="brands-heading">
+		<h2>Hot Selling Brands</h2>
+	</div>
+	<div class="brands-content-container clearfix <?php echo $class_name; ?>">
+		<?php if(!empty($new)): ?>
+		<div class="brands-content">
+			<h3>Brand New</h3>
+			<ul class="clearfix">
+			<?php 
+			foreach($new as $key=>$product){ ?>
+				<li class="<?php echo 'product_'.$product['product_id']; ?>">
+					<a href="<?php echo $product['url']; ?>" class="product_url <?php echo 'product_'.$product['product_id']; ?>">
+						<img src="<?php echo $product['image']; ?>" alt="<?php echo $product['name']; ?>">
+						<span class="brand-title-container">
+							<span class="brand-title-container-inner">
+								<span class="brand-title"><?php echo $product['name']; ?></span>
+							</span>
+						</span>
+					</a>
+				</li>
+			<?php } ?>
+			</ul>
+		</div>
+	<?php endif; ?>
+	
+		<?php if(!empty($openbox)): ?>
+		<div class="brands-content">
+			<h3>Open Box</h3>
+			<ul class="clearfix">
+			<?php 
+			foreach($openbox as $key=>$product){ ?>
+				<li class="product_<?php echo $product['product_id']; ?>">
+					<a href="<?php echo $product['url']; ?>">
+						<img src="<?php echo $product['image']; ?>" alt="<?php echo $product['name']; ?>">
+						<span class="brand-title-container">
+							<span class="brand-title-container-inner">
+								<span class="brand-title"><?php echo $product['name']; ?></span>
+							</span>
+						</span>
+					</a>
+				</li>
+			<?php }
+			
+			 ?>
+			</ul>
+		</div>
+		<?php endif;?>
+		<?php if(!empty($preowned)): ?>
+		<div class="brands-content">
+			<h3>Pre Owned</h3>
+			<ul class="clearfix">
+			<?php 
+			foreach($preowned as $key=>$product){ ?>
+				<li class="product_<?php echo $product['product_id']; ?>">
+					<a href="<?php echo $product['url']; ?>">
+						<img src="<?php echo $product['image']; ?>" alt="<?php echo $product['name']; ?>">
+						<span class="brand-title-container">
+							<span class="brand-title-container-inner">
+								<span class="brand-title"><?php echo $product['name']; ?></span>
+							</span>
+						</span>
+					</a>
+				</li>
+			<?php }
+			
+			 ?>
+			</ul>
+		</div>
+	<?php endif; ?>
+	</div>
+</div>
+
+<?php endif; */ ?>
+
+
+<!-- Category Container -->
+<?php /*
+<!-- <div class="category-container">
+	<ul class="clearfix">
+		<li>
+			<a href="<?php echo $this->getUrl('laptops/pre-owned-laptops'); ?>" title="Pre Owned Laptop">
+				<span class="upto-off">Upto <span class="off-amt">60%</span> Off</span>
+				<span class="tr-layer"></span>
+				<img src="<?php echo $this->getSkinUrl(); ?>images/ebt/pre-owned-laptop.jpg" alt="Pre Owned Laptop" />
+				<span class="text">Pre Owned Laptop</span>
+			</a>
+		</li>
+		<li>
+			<a href="<?php echo $this->getUrl('mobiles/pre-owned-mobiles'); ?>" title="Pre Owned Mobile">
+				<span class="upto-off">Upto <span class="off-amt">60%</span> Off</span>
+				<span class="tr-layer"></span>
+				<img src="<?php echo $this->getSkinUrl(); ?>images/ebt/pre-owned-mobile.jpg" alt="Pre Ownned Mobile" />
+				<span class="text">Pre Owned Mobile</span>
+			</a>
+		</li>
+		<li>
+			<a href="<?php echo $this->getUrl('mobiles/open-box-mobiles'); ?>" title="Open Box Mobile">
+				<span class="upto-off">Upto <span class="off-amt">25%</span> Off</span>
+				<span class="tr-layer"></span>
+				<img src="<?php echo $this->getSkinUrl(); ?>images/ebt/open-box-mobile.jpg" alt="Open Box Mobile" />
+				<span class="text">Open Box Mobile</span>
+			</a>
+		</li>
+		<li>
+			<a href="<?php echo $this->getUrl('laptops/open-box-laptops'); ?>" title="Open Box Laptop">
+				<span class="upto-off">Upto <span class="off-amt">25%</span> Off</span>
+				<span class="tr-layer"></span>
+				<img src="<?php echo $this->getSkinUrl(); ?>images/ebt/open-box-laptop.jpg" alt="Open Box Laptop" />
+				<span class="text">Open Box Laptop</span>
+			</a>
+		</li>
+	</ul>
+</div> -->
+*/ ?>

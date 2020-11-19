@@ -1,0 +1,121 @@
+[11-Nov-2015 08:46:39 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1040] Too many connections' in /home/electronicsbazaa/public_html/lib/Zend/Db/Adapter/Pdo/Abstract.php:129
+Stack trace:
+#0 /home/electronicsbazaa/public_html/lib/Zend/Db/Adapter/Pdo/Abstract.php(129): PDO->__construct('mysql:host=loca...', 'electron_electr...', 'c2D[3i7!B,73', Array)
+#1 /home/electronicsbazaa/public_html/lib/Zend/Db/Adapter/Pdo/Mysql.php(109): Zend_Db_Adapter_Pdo_Abstract->_connect()
+#2 /home/electronicsbazaa/public_html/lib/Varien/Db/Adapter/Pdo/Mysql.php(320): Zend_Db_Adapter_Pdo_Mysql->_connect()
+#3 /home/electronicsbazaa/public_html/lib/Zend/Db/Adapter/Abstract.php(460): Varien_Db_Adapter_Pdo_Mysql->_connect()
+#4 /home/electronicsbazaa/public_html/lib/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('SET NAMES utf8', Array)
+#5 /home/electronicsbazaa/public_html/lib/Varien/Db/Adapter/Pdo/Mysql.php(428): Zend_Db_Adapter_Pdo_Abstract->query('SET NAMES utf8', Array)
+#6 /home/electronicsbazaa/public_html/app/code/core/Mage/Core/Model/Resource.php(169): Varien_Db_Adapter_Pdo_Mysql->query('SET NAMES utf8')
+#7 /home/electronicsbazaa/public_html/app/code/core/Mage/Core/Model/Resource.php(110): Mage_Core_Model_Resource->_newConnection('pdo_mysql', Object(Mage_Core_Model_Config_Element))
+#8 /home/electronicsbazaa/public_html/app/code/core/Mage/Core/Model/Resource/Db/Abstract.php(320): Mage_Core_Model_Resource->getConnection('core_write')
+#9 /home/electronicsbazaa/public_html/app/code/core/Mage/Core/Model/Resource/Db/Abstract.php(350): Mage_Core_Model_Resource_Db_Abstract->_getConnection('write')
+#10 /home/electronicsbazaa/public_html/app/code/core/Mage/Core/Model/Resource/Db/Abstract.php(335): Mage_Core_Model_Resource_Db_Abstract->_getWriteAdapter()
+#11 /home/electronicsbazaa/public_html/app/code/core/Mage/Core/Model/Resource/Cache.php(53): Mage_Core_Model_Resource_Db_Abstract->_getReadAdapter()
+#12 /home/electronicsbazaa/public_html/var/cache/ew/files/Mage/Core/Model/Cache/4ee495ea9b101d9b4a68b7fbc05a4a31.php(497): M in /home/electronicsbazaa/public_html/lib/Zend/Db/Adapter/Pdo/Abstract.php on line 144
+[11-Nov-2015 08:53:59 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1040] Too many connections' in /home/electronicsbazaa/public_html/lib/Zend/Db/Adapter/Pdo/Abstract.php:129
+Stack trace:
+#0 /home/electronicsbazaa/public_html/lib/Zend/Db/Adapter/Pdo/Abstract.php(129): PDO->__construct('mysql:host=loca...', 'electron_electr...', 'c2D[3i7!B,73', Array)
+#1 /home/electronicsbazaa/public_html/lib/Zend/Db/Adapter/Pdo/Mysql.php(109): Zend_Db_Adapter_Pdo_Abstract->_connect()
+#2 /home/electronicsbazaa/public_html/lib/Varien/Db/Adapter/Pdo/Mysql.php(320): Zend_Db_Adapter_Pdo_Mysql->_connect()
+#3 /home/electronicsbazaa/public_html/lib/Zend/Db/Adapter/Abstract.php(460): Varien_Db_Adapter_Pdo_Mysql->_connect()
+#4 /home/electronicsbazaa/public_html/lib/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('SET NAMES utf8', Array)
+#5 /home/electronicsbazaa/public_html/lib/Varien/Db/Adapter/Pdo/Mysql.php(428): Zend_Db_Adapter_Pdo_Abstract->query('SET NAMES utf8', Array)
+#6 /home/electronicsbazaa/public_html/app/code/core/Mage/Core/Model/Resource.php(169): Varien_Db_Adapter_Pdo_Mysql->query('SET NAMES utf8')
+#7 /home/electronicsbazaa/public_html/app/code/core/Mage/Core/Model/Resource.php(110): Mage_Core_Model_Resource->_newConnection('pdo_mysql', Object(Mage_Core_Model_Config_Element))
+#8 /home/electronicsbazaa/public_html/app/code/core/Mage/Core/Model/Resource/Db/Abstract.php(320): Mage_Core_Model_Resource->getConnection('core_write')
+#9 /home/electronicsbazaa/public_html/app/code/core/Mage/Core/Model/Resource/Db/Abstract.php(350): Mage_Core_Model_Resource_Db_Abstract->_getConnection('write')
+#10 /home/electronicsbazaa/public_html/app/code/core/Mage/Core/Model/Resource/Db/Abstract.php(335): Mage_Core_Model_Resource_Db_Abstract->_getWriteAdapter()
+#11 /home/electronicsbazaa/public_html/app/code/core/Mage/Core/Model/Resource/Cache.php(53): Mage_Core_Model_Resource_Db_Abstract->_getReadAdapter()
+#12 /home/electronicsbazaa/public_html/var/cache/ew/files/Mage/Core/Model/Cache/4ee495ea9b101d9b4a68b7fbc05a4a31.php(497): M in /home/electronicsbazaa/public_html/lib/Zend/Db/Adapter/Pdo/Abstract.php on line 144
+[11-Nov-2015 09:01:50 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1040] Too many connections' in /home/electronicsbazaa/public_html/lib/Zend/Db/Adapter/Pdo/Abstract.php:129
+Stack trace:
+#0 /home/electronicsbazaa/public_html/lib/Zend/Db/Adapter/Pdo/Abstract.php(129): PDO->__construct('mysql:host=loca...', 'electron_electr...', 'c2D[3i7!B,73', Array)
+#1 /home/electronicsbazaa/public_html/lib/Zend/Db/Adapter/Pdo/Mysql.php(109): Zend_Db_Adapter_Pdo_Abstract->_connect()
+#2 /home/electronicsbazaa/public_html/lib/Varien/Db/Adapter/Pdo/Mysql.php(320): Zend_Db_Adapter_Pdo_Mysql->_connect()
+#3 /home/electronicsbazaa/public_html/lib/Zend/Db/Adapter/Abstract.php(460): Varien_Db_Adapter_Pdo_Mysql->_connect()
+#4 /home/electronicsbazaa/public_html/lib/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('SET NAMES utf8', Array)
+#5 /home/electronicsbazaa/public_html/lib/Varien/Db/Adapter/Pdo/Mysql.php(428): Zend_Db_Adapter_Pdo_Abstract->query('SET NAMES utf8', Array)
+#6 /home/electronicsbazaa/public_html/app/code/core/Mage/Core/Model/Resource.php(169): Varien_Db_Adapter_Pdo_Mysql->query('SET NAMES utf8')
+#7 /home/electronicsbazaa/public_html/app/code/core/Mage/Core/Model/Resource.php(110): Mage_Core_Model_Resource->_newConnection('pdo_mysql', Object(Mage_Core_Model_Config_Element))
+#8 /home/electronicsbazaa/public_html/app/code/core/Mage/Core/Model/Resource/Db/Abstract.php(320): Mage_Core_Model_Resource->getConnection('core_write')
+#9 /home/electronicsbazaa/public_html/app/code/core/Mage/Core/Model/Resource/Db/Abstract.php(350): Mage_Core_Model_Resource_Db_Abstract->_getConnection('write')
+#10 /home/electronicsbazaa/public_html/app/code/core/Mage/Core/Model/Resource/Db/Abstract.php(335): Mage_Core_Model_Resource_Db_Abstract->_getWriteAdapter()
+#11 /home/electronicsbazaa/public_html/app/code/core/Mage/Core/Model/Resource/Cache.php(53): Mage_Core_Model_Resource_Db_Abstract->_getReadAdapter()
+#12 /home/electronicsbazaa/public_html/var/cache/ew/files/Mage/Core/Model/Cache/4ee495ea9b101d9b4a68b7fbc05a4a31.php(497): M in /home/electronicsbazaa/public_html/lib/Zend/Db/Adapter/Pdo/Abstract.php on line 144
+[11-Nov-2015 09:31:51 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1040] Too many connections' in /home/electronicsbazaa/public_html/lib/Zend/Db/Adapter/Pdo/Abstract.php:129
+Stack trace:
+#0 /home/electronicsbazaa/public_html/lib/Zend/Db/Adapter/Pdo/Abstract.php(129): PDO->__construct('mysql:host=loca...', 'electron_electr...', 'c2D[3i7!B,73', Array)
+#1 /home/electronicsbazaa/public_html/lib/Zend/Db/Adapter/Pdo/Mysql.php(109): Zend_Db_Adapter_Pdo_Abstract->_connect()
+#2 /home/electronicsbazaa/public_html/lib/Varien/Db/Adapter/Pdo/Mysql.php(320): Zend_Db_Adapter_Pdo_Mysql->_connect()
+#3 /home/electronicsbazaa/public_html/lib/Zend/Db/Adapter/Abstract.php(460): Varien_Db_Adapter_Pdo_Mysql->_connect()
+#4 /home/electronicsbazaa/public_html/lib/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('SET NAMES utf8', Array)
+#5 /home/electronicsbazaa/public_html/lib/Varien/Db/Adapter/Pdo/Mysql.php(428): Zend_Db_Adapter_Pdo_Abstract->query('SET NAMES utf8', Array)
+#6 /home/electronicsbazaa/public_html/app/code/core/Mage/Core/Model/Resource.php(169): Varien_Db_Adapter_Pdo_Mysql->query('SET NAMES utf8')
+#7 /home/electronicsbazaa/public_html/app/code/core/Mage/Core/Model/Resource.php(110): Mage_Core_Model_Resource->_newConnection('pdo_mysql', Object(Mage_Core_Model_Config_Element))
+#8 /home/electronicsbazaa/public_html/app/code/core/Mage/Core/Model/Resource/Db/Abstract.php(320): Mage_Core_Model_Resource->getConnection('core_write')
+#9 /home/electronicsbazaa/public_html/app/code/core/Mage/Core/Model/Resource/Db/Abstract.php(350): Mage_Core_Model_Resource_Db_Abstract->_getConnection('write')
+#10 /home/electronicsbazaa/public_html/app/code/core/Mage/Core/Model/Resource/Db/Abstract.php(335): Mage_Core_Model_Resource_Db_Abstract->_getWriteAdapter()
+#11 /home/electronicsbazaa/public_html/app/code/core/Mage/Core/Model/Resource/Cache.php(53): Mage_Core_Model_Resource_Db_Abstract->_getReadAdapter()
+#12 /home/electronicsbazaa/public_html/var/cache/ew/files/Mage/Core/Model/Cache/4ee495ea9b101d9b4a68b7fbc05a4a31.php(497): M in /home/electronicsbazaa/public_html/lib/Zend/Db/Adapter/Pdo/Abstract.php on line 144
+[17-Dec-2015 07:16:04 UTC] PHP Fatal error:  Call to a member function load() on a non-object in /home/electronicsbazaa/public_html/shell/extendware/ewcore/installer/enable_module.php on line 30
+[17-Dec-2015 07:18:16 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1040] Too many connections' in /home/electronicsbazaa/public_html/lib/Zend/Db/Adapter/Pdo/Abstract.php:129
+Stack trace:
+#0 /home/electronicsbazaa/public_html/lib/Zend/Db/Adapter/Pdo/Abstract.php(129): PDO->__construct('mysql:host=loca...', 'electron_electr...', 'c2D[3i7!B,73', Array)
+#1 /home/electronicsbazaa/public_html/lib/Zend/Db/Adapter/Pdo/Mysql.php(109): Zend_Db_Adapter_Pdo_Abstract->_connect()
+#2 /home/electronicsbazaa/public_html/lib/Varien/Db/Adapter/Pdo/Mysql.php(320): Zend_Db_Adapter_Pdo_Mysql->_connect()
+#3 /home/electronicsbazaa/public_html/lib/Zend/Db/Adapter/Abstract.php(460): Varien_Db_Adapter_Pdo_Mysql->_connect()
+#4 /home/electronicsbazaa/public_html/lib/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('SET NAMES utf8', Array)
+#5 /home/electronicsbazaa/public_html/lib/Varien/Db/Adapter/Pdo/Mysql.php(428): Zend_Db_Adapter_Pdo_Abstract->query('SET NAMES utf8', Array)
+#6 /home/electronicsbazaa/public_html/app/code/core/Mage/Core/Model/Resource.php(169): Varien_Db_Adapter_Pdo_Mysql->query('SET NAMES utf8')
+#7 /home/electronicsbazaa/public_html/app/code/core/Mage/Core/Model/Resource.php(110): Mage_Core_Model_Resource->_newConnection('pdo_mysql', Object(Mage_Core_Model_Config_Element))
+#8 /home/electronicsbazaa/public_html/app/code/core/Mage/Core/Model/Resource/Db/Abstract.php(320): Mage_Core_Model_Resource->getConnection('core_write')
+#9 /home/electronicsbazaa/public_html/app/code/core/Mage/Core/Model/Resource/Db/Abstract.php(350): Mage_Core_Model_Resource_Db_Abstract->_getConnection('write')
+#10 /home/electronicsbazaa/public_html/app/code/core/Mage/Core/Model/Resource/Db/Abstract.php(335): Mage_Core_Model_Resource_Db_Abstract->_getWriteAdapter()
+#11 /home/electronicsbazaa/public_html/app/code/core/Mage/Core/Model/Resource/Cache.php(53): Mage_Core_Model_Resource_Db_Abstract->_getReadAdapter()
+#12 /home/electronicsbazaa/public_html/var/cache/ew/files/Mage/Core/Model/Cache/4ee495ea9b101d9b4a68b7fbc05a4a31.php(497): M in /home/electronicsbazaa/public_html/lib/Zend/Db/Adapter/Pdo/Abstract.php on line 144
+[26-Dec-2015 11:28:00 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1040] Too many connections' in /home/electronicsbazaa/public_html/lib/Zend/Db/Adapter/Pdo/Abstract.php:129
+Stack trace:
+#0 /home/electronicsbazaa/public_html/lib/Zend/Db/Adapter/Pdo/Abstract.php(129): PDO->__construct('mysql:host=loca...', 'electron_electr...', 'c2D[3i7!B,73', Array)
+#1 /home/electronicsbazaa/public_html/lib/Zend/Db/Adapter/Pdo/Mysql.php(109): Zend_Db_Adapter_Pdo_Abstract->_connect()
+#2 /home/electronicsbazaa/public_html/lib/Varien/Db/Adapter/Pdo/Mysql.php(320): Zend_Db_Adapter_Pdo_Mysql->_connect()
+#3 /home/electronicsbazaa/public_html/lib/Zend/Db/Adapter/Abstract.php(460): Varien_Db_Adapter_Pdo_Mysql->_connect()
+#4 /home/electronicsbazaa/public_html/lib/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('SET NAMES utf8', Array)
+#5 /home/electronicsbazaa/public_html/lib/Varien/Db/Adapter/Pdo/Mysql.php(428): Zend_Db_Adapter_Pdo_Abstract->query('SET NAMES utf8', Array)
+#6 /home/electronicsbazaa/public_html/app/code/core/Mage/Core/Model/Resource.php(169): Varien_Db_Adapter_Pdo_Mysql->query('SET NAMES utf8')
+#7 /home/electronicsbazaa/public_html/app/code/core/Mage/Core/Model/Resource.php(110): Mage_Core_Model_Resource->_newConnection('pdo_mysql', Object(Mage_Core_Model_Config_Element))
+#8 /home/electronicsbazaa/public_html/app/code/core/Mage/Core/Model/Resource/Db/Abstract.php(320): Mage_Core_Model_Resource->getConnection('core_write')
+#9 /home/electronicsbazaa/public_html/app/code/core/Mage/Core/Model/Resource/Db/Abstract.php(350): Mage_Core_Model_Resource_Db_Abstract->_getConnection('write')
+#10 /home/electronicsbazaa/public_html/app/code/core/Mage/Core/Model/Resource/Db/Abstract.php(335): Mage_Core_Model_Resource_Db_Abstract->_getWriteAdapter()
+#11 /home/electronicsbazaa/public_html/app/code/core/Mage/Core/Model/Resource/Cache.php(53): Mage_Core_Model_Resource_Db_Abstract->_getReadAdapter()
+#12 /home/electronicsbazaa/public_html/var/cache/ew/files/Mage/Core/Model/Cache/4ee495ea9b101d9b4a68b7fbc05a4a31.php(497): M in /home/electronicsbazaa/public_html/lib/Zend/Db/Adapter/Pdo/Abstract.php on line 144
+[30-Dec-2015 14:35:16 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1040] Too many connections' in /home/electronicsbazaa/public_html/lib/Zend/Db/Adapter/Pdo/Abstract.php:129
+Stack trace:
+#0 /home/electronicsbazaa/public_html/lib/Zend/Db/Adapter/Pdo/Abstract.php(129): PDO->__construct('mysql:host=loca...', 'electron_electr...', 'c2D[3i7!B,73', Array)
+#1 /home/electronicsbazaa/public_html/lib/Zend/Db/Adapter/Pdo/Mysql.php(109): Zend_Db_Adapter_Pdo_Abstract->_connect()
+#2 /home/electronicsbazaa/public_html/lib/Varien/Db/Adapter/Pdo/Mysql.php(320): Zend_Db_Adapter_Pdo_Mysql->_connect()
+#3 /home/electronicsbazaa/public_html/lib/Zend/Db/Adapter/Abstract.php(460): Varien_Db_Adapter_Pdo_Mysql->_connect()
+#4 /home/electronicsbazaa/public_html/lib/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('SET NAMES utf8', Array)
+#5 /home/electronicsbazaa/public_html/lib/Varien/Db/Adapter/Pdo/Mysql.php(428): Zend_Db_Adapter_Pdo_Abstract->query('SET NAMES utf8', Array)
+#6 /home/electronicsbazaa/public_html/app/code/core/Mage/Core/Model/Resource.php(169): Varien_Db_Adapter_Pdo_Mysql->query('SET NAMES utf8')
+#7 /home/electronicsbazaa/public_html/app/code/core/Mage/Core/Model/Resource.php(110): Mage_Core_Model_Resource->_newConnection('pdo_mysql', Object(Mage_Core_Model_Config_Element))
+#8 /home/electronicsbazaa/public_html/app/code/core/Mage/Core/Model/Resource/Db/Abstract.php(320): Mage_Core_Model_Resource->getConnection('core_write')
+#9 /home/electronicsbazaa/public_html/app/code/core/Mage/Core/Model/Resource/Db/Abstract.php(350): Mage_Core_Model_Resource_Db_Abstract->_getConnection('write')
+#10 /home/electronicsbazaa/public_html/app/code/core/Mage/Core/Model/Resource/Db/Abstract.php(335): Mage_Core_Model_Resource_Db_Abstract->_getWriteAdapter()
+#11 /home/electronicsbazaa/public_html/app/code/core/Mage/Core/Model/Resource/Cache.php(53): Mage_Core_Model_Resource_Db_Abstract->_getReadAdapter()
+#12 /home/electronicsbazaa/public_html/var/cache/ew/files/Mage/Core/Model/Cache/4ee495ea9b101d9b4a68b7fbc05a4a31.php(497): M in /home/electronicsbazaa/public_html/lib/Zend/Db/Adapter/Pdo/Abstract.php on line 144
+[08-Mar-2016 14:24:16 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000] [1040] Too many connections' in /home/electronicsbazaa/public_html/lib/Zend/Db/Adapter/Pdo/Abstract.php:129
+Stack trace:
+#0 /home/electronicsbazaa/public_html/lib/Zend/Db/Adapter/Pdo/Abstract.php(129): PDO->__construct('mysql:host=loca...', 'electron_electr...', 'c2D[3i7!B,73', Array)
+#1 /home/electronicsbazaa/public_html/lib/Zend/Db/Adapter/Pdo/Mysql.php(109): Zend_Db_Adapter_Pdo_Abstract->_connect()
+#2 /home/electronicsbazaa/public_html/lib/Varien/Db/Adapter/Pdo/Mysql.php(320): Zend_Db_Adapter_Pdo_Mysql->_connect()
+#3 /home/electronicsbazaa/public_html/lib/Zend/Db/Adapter/Abstract.php(460): Varien_Db_Adapter_Pdo_Mysql->_connect()
+#4 /home/electronicsbazaa/public_html/lib/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('SET NAMES utf8', Array)
+#5 /home/electronicsbazaa/public_html/lib/Varien/Db/Adapter/Pdo/Mysql.php(428): Zend_Db_Adapter_Pdo_Abstract->query('SET NAMES utf8', Array)
+#6 /home/electronicsbazaa/public_html/app/code/core/Mage/Core/Model/Resource.php(169): Varien_Db_Adapter_Pdo_Mysql->query('SET NAMES utf8')
+#7 /home/electronicsbazaa/public_html/app/code/core/Mage/Core/Model/Resource.php(110): Mage_Core_Model_Resource->_newConnection('pdo_mysql', Object(Mage_Core_Model_Config_Element))
+#8 /home/electronicsbazaa/public_html/app/code/core/Mage/Core/Model/Resource/Db/Abstract.php(320): Mage_Core_Model_Resource->getConnection('core_write')
+#9 /home/electronicsbazaa/public_html/app/code/core/Mage/Core/Model/Resource/Db/Abstract.php(350): Mage_Core_Model_Resource_Db_Abstract->_getConnection('write')
+#10 /home/electronicsbazaa/public_html/app/code/core/Mage/Core/Model/Resource/Db/Abstract.php(335): Mage_Core_Model_Resource_Db_Abstract->_getWriteAdapter()
+#11 /home/electronicsbazaa/public_html/app/code/core/Mage/Core/Model/Resource/Config.php(55): Mage_Core_Model_Resource_Db_Abstract->_getReadAdapter()
+#12 /home/electronicsbazaa/public_html/app/code/core/Mage/Core/Model/Config.php(354): Mage_Core_Model_Resource_Config->load in /home/electronicsbazaa/public_html/lib/Zend/Db/Adapter/Pdo/Abstract.php on line 144

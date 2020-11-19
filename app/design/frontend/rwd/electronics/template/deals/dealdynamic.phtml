@@ -1,0 +1,218 @@
+<div class="deals-container">
+    <div class="deals-list-content">
+        <div class="deals-heading">
+        	<img src="https://www.electronicsbazaar.com/skin/frontend/rwd/electronics/customs/images/deals-heading.png">
+    	</div>
+    	<div class="sale-list-container">
+        <div id="seal-packed" class="sale-list-content">
+            <div class="sale-list-heading">
+                <h1>Pre Owned Mobiles</h1> 
+            </div>
+            <ul class="clearfix">
+            	<?php $PreOwned = $this->helper('neo_sidebanner')->getPreOwned() ?>
+            	<?php foreach($PreOwned as $openproids): ?>
+            		<?php 
+            			$productdata2 = Mage::getModel('catalog/product')->load($openproids); 
+						$imageCacheUrl = (string) Mage::helper('catalog/image')->init($productdata2, 'image'); 
+						if($productdata2->isSaleable()):
+						//if(1):
+            		?> 
+		                <li class="clearfix">
+		                    <div class="deal-image">
+		                    	<a href="<?php echo $productdata2->getProductUrl() ?>" target="_blank">
+			                    	<span>
+			                    		<img src="<?php echo (string) $imageCacheUrl ?>" alt="" />
+			                    	</span>
+		                    	</a>   
+		                    </div>
+		                    <div class="deal-content">
+		                        <p class="title">
+		                        	<a href="<?php echo $productdata2->getProductUrl() ?>" target="_blank">
+		                        		<?php echo $productdata2->getName() ?>		                        		
+		                        	</a>
+		                        </p>
+		                        <div class="deals-bottom clearfix">
+		                        	<div class="price">@ <?php echo round($productdata2->getPrice()) ?>/-</div>
+			                        <div class="buy-now-btn">
+			                        	<a href="<?php echo $productdata2->getProductUrl() ?>" target="_blank">
+			                        		Buy Now
+			                        	</a> 
+			                        </div>
+		                        </div> 
+		                    </div>
+		                </li>
+	            	<?php endif; ?>
+	            <?php endforeach; ?>
+            </ul>
+        </div>
+        <div id="seal-packed" class="sale-list-content">
+            <div class="sale-list-heading">
+                <h1>Pre  Owned Laptops</h1>
+            </div>
+            <ul class="clearfix">
+            	<?php $PreOwnedLap = $this->helper('neo_sidebanner')->getPreOwnedLap() ?>
+            	<?php foreach($PreOwnedLap as $openproids): ?>
+            		<?php 
+            			$productdata3 = Mage::getModel('catalog/product')->load($openproids); 
+						$imageCacheUrl = (string) Mage::helper('catalog/image')->init($productdata3, 'image'); 
+						if($productdata3->isSaleable()):
+						//if(1):
+            		?> 
+		                <li class="clearfix">
+		                    <div class="deal-image">
+		                    	<a href="<?php echo $productdata3->getProductUrl() ?>" target="_blank">
+			                    	<span>
+			                    		<img src="<?php echo (string) $imageCacheUrl ?>" alt="" />
+			                    	</span>
+		                    	</a> 
+		                    </div>   
+		                    <div class="deal-content">
+		                        <p class="title">
+		                        	<a href="<?php echo $productdata3->getProductUrl() ?>" target="_blank">
+		                        		<?php echo $productdata3->getName() ?>		                        		
+		                        	</a>
+		                        </p>
+		                        <div class="deals-bottom clearfix">
+		                        	<div class="price">@ <?php echo round($productdata3->getPrice()) ?>/-</div>
+			                        <div class="buy-now-btn">
+			                        	<a href="<?php echo $productdata3->getProductUrl() ?>" target="_blank">
+			                        		Buy Now
+			                        	</a>
+			                        </div> 
+		                        </div>
+		                    </div>
+		                </li>
+	            	<?php endif; ?>
+	            <?php endforeach; ?>
+            </ul>
+        </div>
+        <div class="sale-list-content">
+            <div class="sale-list-heading">
+                <h1>Open Box Mobiles</h1>  
+            </div>
+            <ul class="clearfix">
+            	<?php $openBoxCollection = $this->helper('neo_sidebanner')->getopenBoxCollection() ?>
+            	<?php foreach($openBoxCollection as $openproid): ?>
+            		<?php 
+            			$productdata = Mage::getModel('catalog/product')->load($openproid);
+						$imageCacheUrl = (string) Mage::helper('catalog/image')->init($productdata, 'image'); 
+						if($productdata->isSaleable()):
+            		?> 
+	                <li class="clearfix">
+	                    <div class="deal-image">
+	                    	<a href="<?php echo $productdata->getProductUrl() ?>" target="_blank">
+		                    	<span>
+		                    		<img src="<?php echo (string) $imageCacheUrl ?>" alt="" />
+		                    	</span>
+	                    	</a>
+	                    </div>
+	                    <div class="deal-content">
+	                        <p class="title">
+	                        	<a href="<?php echo $productdata->getProductUrl() ?>" target="_blank">
+	                        		<?php echo $productdata->getName() ?>	                        		
+	                        	</a>
+	                        </p>
+	                        <div class="deals-bottom clearfix">
+	                        	<div class="price">@ <?php echo round($productdata->getPrice()) ?>/-</div>
+		                        <div class="buy-now-btn">
+		                        	<a href="<?php echo $productdata->getProductUrl() ?>" target="_blank">
+		                        		Buy Now
+		                        	</a>
+		                        </div> 
+	                        </div>
+	                    </div>
+	                </li>
+	            <?php endif; ?>
+	            <?php endforeach; ?>
+            </ul>
+        </div>
+        <div id="seal-packed" class="sale-list-content">
+            <div class="sale-list-heading">
+                <h1>Seal Packed Mobiles</h1>
+            </div>
+            <ul class="clearfix">
+            	<?php $sealPackCollection = $this->helper('neo_sidebanner')->getsealPackCollection() ?>
+            	<?php foreach($sealPackCollection as $openproids): ?>
+            		<?php 
+            			$productdata1 = Mage::getModel('catalog/product')->load($openproids); 
+						$imageCacheUrl = (string) Mage::helper('catalog/image')->init($productdata1, 'image'); 
+						if($productdata1->isSaleable()):
+						//if(1):
+            		?> 
+		                <li class="clearfix">
+		                    <div class="deal-image">
+		                    	<a href="<?php echo $productdata1->getProductUrl() ?>" target="_blank">
+			                    	<span>
+			                    		<img src="<?php echo (string) $imageCacheUrl ?>" alt="" />
+			                    	</span>
+		                    	</a> 
+		                    </div>
+		                    <div class="deal-content">
+		                        <p class="title">
+		                        	<a href="<?php echo $productdata1->getProductUrl() ?>" target="_blank">
+		                        		<?php echo $productdata1->getName() ?>		                        		
+		                        	</a>
+		                        </p>
+		                        <div class="deals-bottom clearfix">
+		                        	<div class="price">@ <?php echo round($productdata1->getPrice()) ?>/-</div>
+			                        <div class="buy-now-btn">
+			                        	<a href="<?php echo $productdata1->getProductUrl() ?>" target="_blank">
+			                        		Buy Now
+			                        	</a>
+			                        </div> 
+		                        </div>
+		                    </div>
+		                </li>
+	            	<?php endif; ?>
+	            <?php endforeach; ?>
+            </ul>
+        </div> 
+     	<div class="sale-list-content">
+            <div class="sale-list-heading"> 
+                <h1>Accessories</h1>  
+            </div>
+            <ul class="clearfix">
+            	<?php $openBoxCollection = $this->helper('neo_sidebanner')->getAccessoriesCollection() ?>
+            	<?php foreach($openBoxCollection as $openproid): ?>
+            		<?php 
+            			$productdata = Mage::getModel('catalog/product')->load($openproid);
+						$imageCacheUrl = (string) Mage::helper('catalog/image')->init($productdata, 'image'); 
+						if($productdata->isSaleable()):
+            		?> 
+	                <li class="clearfix">
+	                    <div class="deal-image">
+	                    	<a href="<?php echo $productdata->getProductUrl() ?>" target="_blank">
+		                    	<span>
+		                    		<img src="<?php echo (string) $imageCacheUrl ?>" alt="" />
+		                    	</span>
+	                    	</a>
+	                    </div>
+	                    <div class="deal-content">  
+	                        <p class="title">
+	                        	<a href="<?php echo $productdata->getProductUrl() ?>" target="_blank">
+	                        		<?php echo $productdata->getName() ?>	                        		
+	                        	</a>
+	                        </p>
+	                        <div class="deals-bottom clearfix">
+	                        	<div class="price">@ <?php echo round($productdata->getPrice()) ?>/-</div>
+		                        <div class="buy-now-btn">
+		                        	<a href="<?php echo $productdata->getProductUrl() ?>" target="_blank">
+		                        		Buy Now
+		                        	</a>
+		                        </div> 
+	                        </div>
+	                    </div>
+	                </li>
+	            <?php endif; ?>
+	            <?php endforeach; ?>
+            </ul>
+        </div>
+        </div>
+    </div> 
+</div>
+<script type="text/javascript">// <![CDATA[
+    var jnsde = jQuery.noConflict();
+    jnsde(window).bind("load", function () {
+        history.pushState("", document.title, window.location.pathname);
+    });
+// ]]></script>

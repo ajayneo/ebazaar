@@ -1,0 +1,237 @@
+<!--<link rel="stylesheet" type="text/css" href="http://eb.php-dev.in/skin/frontend/base/default/css/iwd/opc/opc.css" media="all" />-->
+<div class="track-container product-track-order">
+    <?php if(!Mage::getSingleton('customer/session')->isLoggedIn()){ ?>
+        <div class="track-container-main product-track-order-form">
+            <div class="top-track">
+                <h1>Track order</h1>
+                    <form id="orderForm" name="orderForm">
+                        <div class="order_form_id">
+                            <label for="orderId" class="required">Order ID</label>
+                            <div class="input-box">
+                                <input type="text" name="order_id" value="" placeholder="500000001" maxlength="9" class="input-text required-entry" />
+                                <p class="sub-text"><span class="remainingtext">9</span> characters</p>
+                            </div>
+                        </div>
+                        <div class="order_form_email">
+                            <label for="email" class="required">Email</label>
+                            <div class="input-box">
+                                <input type="text" name="order_mail" value="" placeholder="name@example.com" class="input-text required-entry validate-email" />
+                                <span class="sub-text">Enter Email ID used to place the order</span>
+                            </div>
+                        </div>
+                        
+                        <!--<?php //if(!Mage::getSingleton("customer/session")->isLoggedIn()) { ?>
+                        
+                        <p><span>Order Id :</span><input type="text" name="order_id" value="" class="input-text required-entry" /></p>
+                        <p><span>Email :</span><input type="text" name="order_mail" value="" class="input-text required-entry validate-email" /></p>
+                        
+                        
+                        <?php //} 
+                            //else { ?>
+                        <select name="order_id" id="order_id" class="input-text required-entry validate-select" title="Select order Id">
+                            <option value="">Select Order</option>
+                            <?php //$orderCollection = $this->getCustomerOrderId();
+                            //foreach($orderCollection AS $order_row)
+                            //{
+                            ?>
+                            <option value="<?php //echo $order_row->getIncrementId() ?>"><?php //echo $order_row->getIncrementId() ?></option>
+                            <?php
+                            //}
+                            ?>
+                        </select>
+                        <?php //} ?>-->
+                        <div class="order_form_track">
+                            <button type="button" id="order_submit" title="track" class="button"><span><span>track</span></span></button>
+                        </div>
+                        <div class="clr"></div>
+                    </form>
+                </div>
+                <div class="divider-or"><span>OR</span></div>
+                <div class="right-login-section">
+                    <h4>Login and do more!</h4>
+                    <div class="login-list">
+                        <ul>
+                            <li>Track individual Orders</li>
+                            <li>View your entire Order history</li>
+                            <li>Cancel individual Orders</li>
+                            <li>Conveniently review products and sellers</li>
+                            <li>
+                                <button type="submit" class="button login-trigger" title="Login" name="send" data-modal="modal-login">
+                                    <span>
+                                        <span>Login</span>
+                                    </span>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="md-modal md-effect-7 login-popup" id="modal-login">
+                    <div class="md-content">
+                        <div class="md-modal-header">
+                            <button type="button" class="close">&times;</button>
+                            <h4><?php echo $this->__('Login to your Account')?></h4>
+                        </div>
+                        <div class="login-sec"> 
+                            <div class="md-content-wrapper">
+                                <form action="<?php echo Mage::getUrl('customer/account/loginPost/'); ?>" method="post" id="login-form">
+                                    <?php echo $this->getBlockHtml('formkey'); ?>
+                                    <div>
+                                        <ul class="form-list">
+                                            <li>
+                                                <label for="email" class="required"><em>*</em><?php echo $this->__('Email') ?></label>
+                                                <div class="input-box">
+                                                    <input type="text" name="login[username]" value="<?php echo $this->escapeHtml($this->getUsername()) ?>" id="email" class="input-text required-entry validate-email" title="<?php echo $this->__('Email Address') ?>" />
+                                                </div>
+                                            </li>
+                                        <li>
+                                            <label for="pass" class="required"><em>*</em><?php echo $this->__('Password') ?></label>
+                                            <div class="input-box">
+                                                <input type="password" name="login[password]" class="input-text required-entry validate-password" id="pass" title="<?php echo $this->__('Password') ?>" />
+                                            </div>
+                                        </li>
+                                        
+                                        </ul>               
+                                    </div>
+                                    <input name="context" type="hidden" value="checkout" />
+                                </form>
+                                <form action="<?php echo Mage::getUrl('customer/account/forgotpasswordpost/'); ?>" method="post" id="form-validate-email" style="display:none">
+                                	<?php echo $this->getBlockHtml('formkey'); ?>
+									<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>    
+       
+        							<p class="restore-account"><?php echo $this->__('Please enter your email address below. You will receive a link to reset your password.') ?></p>
+        							<ul class="form-list">
+							            <li>
+							                <label for="email_address" class="required"><em>*</em><?php echo $this->__('Email') ?></label>
+							                <div class="input-box">
+							                    <input type="text" name="email" alt="email" id="email_address" class="input-text required-entry validate-email" value="<?php echo $this->htmlEscape($this->getEmailValue()) ?>" />
+							                </div>
+							            </li>
+        							</ul>
+								</form>
+                                <?php //echo $this->getChildhtml('forgotPassword');?>
+                            </div>
+                            <div class="md-modal-footer">
+                                <div id="login-button-set">
+                                    <button type="button" class="btn btn-primary"><span><span><?php echo $this->__('Login') ?></span></span></button>
+                                    <a href="<?php echo $this->getForgotPasswordUrl() ?>" class="f-left restore-account"><?php echo $this->__('Forgot Your Password?') ?></a>
+                                </div>  
+                                <div id="forgotpassword-button-set" style="display:none">                   
+                                    <p class="back-link"><a href="<?php echo $this->helper('customer')->getLoginUrl() ?>"><small>&laquo; </small><?php echo $this->__('Back to Login') ?></a></p>
+                                    <button type="button" title="<?php echo $this->__('Submit') ?>" class="button btn"><span><span><?php echo $this->__('Submit') ?></span></span></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="divider-or"><span>OR</span></div>
+                        <div class="social-logins">
+                            <ul class="sharelinks">
+                                <li><?php //echo $this->getLayout()->createBlock('inchoo_socialconnect/google_button')->setTemplate('inchoo/socialconnect/google/button.phtml')->toHtml(); ?></li>
+                                <li><?php echo $this->getLayout()->createBlock('inchoo_socialconnect/facebook_button')->setTemplate('inchoo/socialconnect/facebook/button.phtml')->toHtml(); ?></li>
+                                <li><?php //echo $this->getLayout()->createBlock('inchoo_socialconnect/twitter_button')->setTemplate('inchoo/socialconnect/twitter/button.phtml')->toHtml(); ?></li>
+                                <!--<li><a href="<?php //echo Mage::getUrl('customer/account/login'); ?>" class="account-create">Create an Account</a></li>-->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="md-overlay"></div>
+                <div id="loading-mask" style="left: -2px; top: 0px; width: 1351px; height: 1077px; display: none;">
+                    <p class="loader" id="loading_mask_loader"><img src="<?php echo Mage::getUrl().'skin/adminhtml/default/default/images/ajax-loader-tr.gif' ?>" alt="Loading..."><br>Please wait...</p>
+                </div>
+                <div id="order_details"></div>
+        </div>
+    <?php }else{ ?>
+        <div class="track-container-main product-track-order-form">
+            <div class="top-track">
+                <?php $customerData = Mage::getSingleton('customer/session')->getCustomer(); ?>
+                <?php $collection = Mage::getModel('sales/order')->getCollection()
+                                    ->addAttributeToSelect('increment_id', $oid)
+                                    ->addAttributeToFilter('customer_email', $customerData->getEmail());
+                ?>
+                <form id="orderForm" name="orderForm">
+                    <input type="hidden" name="order_mail" value="<?php echo $customerData->getEmail(); ?>" />
+                    <select class="required-entry" name="order_id" id='billing:country_id'>
+                        <option value="">Please Select Order</option>
+                        <?php foreach($collection as $orderid): ?>
+                            <option value="<?php echo $orderid->getIncrementId(); ?>"><?php echo $orderid->getIncrementId(); ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                    <div class="order_form_track">
+                            <button type="button" id="order_submit" title="track" class="button"><span><span>track</span></span></button>
+                        </div>
+                        <div class="clr"></div>
+                </form>
+            </div>
+            <div id="loading-mask" style="left: -2px; top: 0px; width: 1351px; height: 1077px; display: none;">
+                <p class="loader" id="loading_mask_loader"><img src="<?php echo Mage::getUrl().'skin/adminhtml/default/default/images/ajax-loader-tr.gif' ?>" alt="Loading..."><br>Please wait...</p>
+            </div>
+            <div id="order_details"></div>
+        </div>    
+    <?php } ?>
+</div>
+<div class="shareurpopup">
+	<div class="share-you-purchase-popup">
+	</div>	
+</div>
+<script type="text/javascript">
+    var orderForm = new VarienForm('orderForm', true);
+    jQuery('input[name=order_id]').keyup(function(){
+        var entered_char = jQuery(this).val().length;
+        var remained_char = 9 - entered_char;
+        if(remained_char >= 0){
+            jQuery('span.remainingtext').text(remained_char);
+        }
+    });
+
+    jQuery('#login-button-set .btn').click(function(){
+    	var dataForm = new VarienForm('login-form', true);
+		if (!dataForm.validator.validate()){
+    		return;
+		}
+		jQuery('.opc-ajax-loader').css('display','block');
+		jQuery.post(
+    		'<?php echo $this->getUrl("customblocks/index/loginpost") ?>',
+    		jQuery("#login-form").serialize(),
+    		function(data){
+    			jQuery('.opc-ajax-loader').css('display','none');	
+    			var result = eval("(" + data + ")");
+    			if (result.logined){
+        			location.reload();
+    			}else{
+        			// Login failed.
+        			alert("Login failed");
+
+    			}
+			});
+    });
+
+    jQuery('#forgotpassword-button-set .btn').click(function(){
+    	var dataForm = new VarienForm('form-validate-email', true);
+		if (!dataForm.validator.validate()){
+    		return;
+		}
+		jQuery('#form-validate-email').submit();
+    });
+
+    jQuery('#order_submit').click(function() {		
+        if (orderForm.validator.validate()) {
+        	//console.log(jQuery('#orderForm').serialize());
+                jQuery('.opc-ajax-loader').css('display','block');
+            //jQuery('#loading-mask').show();
+            jQuery.ajax({
+                //url : 'order/ajax',
+                url : 'ajax',
+                type : 'POST',
+                data : jQuery('#orderForm').serialize(),
+                success : function(data)
+                {
+                    //console.log(data);
+                    jQuery('.opc-ajax-loader').css('display','none');
+                    //jQuery('#loading-mask').hide();
+                    jQuery('#order_details').html(data);
+                    jQuery('html,body').animate({
+                        scrollTop: jQuery(".track-container").offset().top
+                        }, 1000);
+                }
+            });
+        }
+    });    
+</script>

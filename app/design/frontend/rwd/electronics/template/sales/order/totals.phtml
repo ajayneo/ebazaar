@@ -1,0 +1,77 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2014 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+/**
+ * @var $this Mage_Sales_Block_Order_Totals
+ * @see Mage_Sales_Block_Order_Totals
+ */
+?>
+<?php foreach ($this->getTotals() as $_code => $_total): ?>
+<?php #Mage::log($_code, null, 'logfile123.log');?>
+    <?php if ($_total->getBlockName()): ?>
+		<?php echo $this->getChildHtml($_total->getBlockName(), false); ?>
+    <?php else:?>
+	<?php #Mage::log($_code, null, 'logfile123.log'); ?>
+		<?php if ($_code == "grand_total"): ?>
+
+			<?php 
+				$array =  (array) $this->getTotals()['discount']; 
+				foreach($array as $data):
+				if($data['value'] < 0) : 
+			?>
+				<tr class="<?php echo $_code?>">
+					<td colspan="5" align="right" valign="center" style="text-align: right; background-color: #f9f9f9; border-top: 1px solid #e6e6e6; padding: 0 10px;"><p style="margin:8px 0px;"><?php echo $this->__($data['label']); ?> <span style="font-size:12px; color:#565656;"><?php echo 'Rs '.$data['value']; ?></span></p></td>  
+				</tr>
+			<?php endif; ?>
+			<?php endforeach; ?>    
+
+			<tr class="<?php echo $_code?>">
+				<td colspan="5" align="right" valign="center" style="text-align: right; background-color: #f9f9f9; border-top: 1px solid #e6e6e6; padding: 0 10px;"><p style="color:#565656; margin:8px 0px;"><?php echo $this->__('Total Excluding Tax'); ?> <span style="font-size:12px; color:#565656; font-weight:bold;"><?php echo $this->formatValue($_total) ?></span></p></td>  
+			</tr>
+		
+ 			<?php $grandTotalIncludingTax = (array) $this->getTotals()['grand_total_incl']; ?>  
+			<?php foreach($grandTotalIncludingTax as $data): ?>
+			<?php if($data['value'] > 0): ?>
+				<tr class="<?php echo $_code?>">
+					<td colspan="5" align="right" valign="center" style="text-align: right; background-color: #f9f9f9; border-top: 1px solid #e6e6e6; padding: 0 10px;"><p style="color:#565656; margin:8px 0px;"><?php echo $this->__('Total Payable'); ?> <span style="font-size:12px; color:#565656; font-weight:bold;"><?php echo 'Rs. '.round($data['value']) ?></span></p></td>    
+				</tr>
+			<?php endif; ?>
+			<?php endforeach; ?> 
+ 
+		<?php //else:?>
+		<?php //subtotal shipping shipping_incl grand_total ?>
+		<?php elseif($_code == "subtotal"):?>
+			<tr class="<?php echo $_code?>">
+				<!--td colspan="4" align="left" valign="center" style="padding:13px 10px; text-align: right;"><span style="padding: 3px 8px; background-color:#f8f8f8; border: 1px solid #e6e6e6; color: #9e9e9e; margin-right: 37px;">Will be delivered by Saturday, 31st May'14</span></td-->
+				<td colspan="5" align="right" valign="center" style="text-align: right;">
+					<p style="color:#565656; margin:4px 10px;">
+						<?php echo $this->escapeHtml($_total->getLabel());?>:
+						<span><?php echo $this->formatValue($_total) ?></span>
+					</p> 
+				</td> 
+			</tr>
+		<?php endif?>
+    <?php endif?>
+<?php endforeach?>

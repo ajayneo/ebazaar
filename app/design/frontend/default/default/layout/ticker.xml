@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+    </default>
+    <ticker_index_index>
+        <reference name="content">
+            <block type="ticker/ticker" name="ticker" template="ticker/ticker.phtml" />
+        </reference>
+    </ticker_index_index>
+</layout> 

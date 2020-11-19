@@ -1,0 +1,1 @@
+[08-Oct-2018 16:06:47 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Pdf_FileParser_Font_OpenType' not found in /home/electronicsbazaa/public_html/lib/Zend/Pdf/FileParser/Font/OpenType/TrueType.php on line 36

@@ -1,0 +1,303 @@
+<?php //custom php code to prepare blocks of data over the page on page load
+    // echo "<pre>";
+
+    $encrypt = $this->getRequest()->getParam('order_id');
+    $orderId = $this->helper('orderreturn')->decrypt($encrypt);
+    $returnData = $this->helper('orderreturn')->returnData($orderId);
+    $order = $this->helper('orderreturn')->getOrderImei($orderId);
+    $imeiList = $this->helper('orderreturn')->getImeiList($orderId);
+    $reason_label = $this->helper('orderreturn')->getStatusLabel();
+    $customer_id = $order->getCustomerId();
+    $bankList = $this->helper('orderreturn')->getCustomerBanks($customer_id);
+    $bank_id = $imeiList['bank_id'];
+    $prefilled_bank = array();
+    if(!empty($bankList)){
+        $bank_dropdown = '<select name="banking">';
+        foreach ($bankList as $key => $bank) { 
+            $bank_detail = $bank['beneficiary_name'].", ".$bank['bank_name'].", ".$bank['account_number'].", ".$bank['bank_ifsc'];
+            if($bank_id == $bank['id']){
+                $prefilled_bank = $bank;
+               $bank_dropdown .= '<option selected="selected" value="'.$bank['id'].'">'.$bank_detail.'</option>';
+            }else{
+               $bank_dropdown .= '<option value="'.$bank['id'].'">'.$bank_detail.'</option>';
+            }
+        }
+        $bank_dropdown .= "</select>";
+    }
+   $address_list = $this->helper('orderreturn')->addressList();
+?>	
+
+<div class="order-container">
+    <h1>Return Your Order <?php echo $orderId ? "#".$orderId : '';  ?></h1>
+    <form action="<?php echo $this->getUrl('order_return/index/submit/') ?>" id="returnForm" method="POST" enctype="multipart/form-data">
+        <div class="return-form-container clearfix">
+            <div class="bank-details">
+                <h2>Bank Details</h2>
+                <ul id="add_bank_details" class="form-list">
+                    <?php if(!empty($bankList)){ ?>
+                    <li class="fields clearfix">
+                        <label class="banking" for="bank_name">Select Bank for refund: <em>*</em></label> 
+                        <div class="input-box">
+                        <?php echo $bank_dropdown;?>
+                        </div>
+                    </li> 
+                    <?php } ?> 
+                    
+                    <li class="fields clearfix">
+                        <label class="banking" for="beneficiary_name">Beneficiary Name: <em>*</em></label> 
+                        <div class="input-box">
+                            <input type="text" class="banking" name="beneficiary_name" value="<?php echo $prefilled_bank['beneficiary_name'] ? $prefilled_bank['beneficiary_name'] : ''; ?>" />
+                        </div>
+                    </li>
+                    <li class="fields clearfix">
+                        <label class="banking" for="bank_name">Bank Name: <em>*</em></label> 
+                        <div class="input-box">
+                            <input type="text" class="banking" name="bank_name" value="<?php echo $prefilled_bank['bank_name'] ? $prefilled_bank['bank_name'] : ''; ?>" />
+                        </div>
+                    </li>
+                    <li class="fields clearfix">
+                        <label class="banking" for="bank_account_number">Account Number: <em>*</em></label> 
+                        <div class="input-box">
+                            <input type="text" class="banking" name="bank_account_number" value="<?php echo $prefilled_bank['account_number'] ? $prefilled_bank['account_number'] : ''; ?>" />
+                        </div>
+                    </li>
+                    <li class="fields clearfix">
+                        <label class="banking" for="bank_ifsc_code">IFSC code: <em>*</em></label> 
+                        <div class="input-box">
+                            <input type="text" class="banking" name="bank_ifsc_code" value="<?php echo $prefilled_bank['bank_ifsc'] ? $prefilled_bank['bank_ifsc'] : ''; ?>" />
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="shipping-address">
+                <h2>Shipping Address</h2>
+                <ul class="form-list address-field">
+                    <li class="fields clearfix">
+                        <label class="banking" for="bank_name">Select Address</label> 
+                        <div class="input-box">
+                        <select name="default_address">
+                            <?php foreach($address_list as $key=>$address){
+                                echo "<option value=".$key.">".$address."</option>";
+                                } ?>
+                            <option value="">Enter new address</option>    
+                        </select>
+                        </div>
+                    </li>
+                    <li>
+                        <label>Address</label>
+                        <div class="input-box">
+                        <textarea name="new_address"></textarea>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <input type="hidden" name="order_number" value="<?php echo $encrypt ?>">
+        <!-- <div class="order-label">
+            <label>Order No.</label>
+            <div class="input-txt"><?php echo $orderId ?></div>
+        </div> -->    
+        <div class="order-list-container">
+            <h2>Items</h2>
+            <table class="order-list-table" cellspacing="0" cellpadding="0">
+                <thead>
+                    <tr>
+                        <th>Sr. No.</th>
+                        <th>SKU</th>
+                        <th>IMEI No.</th>
+                        <th>Product Name</th>
+                        <th>IMEI Replace/Refund</th>
+                        <th>Quantity</th>
+                        <th>Reason</th>
+                        <th>Image of Damage Product</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php $i = 0 ?>
+                    <?php foreach ($order->getInvoiceCollection() as $inv):
+                         $items = $inv->getItemsCollection()->getData(); 
+                        foreach ($items as $item): 
+                        //$imeiNumbers = explode(' ', $item['serial']); 
+                        $serial = (string) $item['serial'];
+                        $imeiNumbers = preg_split('/\s+/', $serial);
+                     ?>
+                            <?php foreach ($imeiNumbers as $imei): 
+                                $imei_item = $imeiList['imei_list'][$imei];
+                                //print_r($imei_item);
+                                $old_reason = $imei_item['reason'];
+                                $old_return =  $imei_item['return_action'];
+                                $status =  $imei_item['status'];
+                                //$old_status =  $imei_item['status'];
+                            ?> 
+                                <tr>
+                                    <td><?php echo ++$i; ?></td>
+                                    <td><?php echo $item['sku']; ?></td>
+                                    <td><?php echo $imei ?></td>
+                                    <td><?php echo $item['name']; ?></td>
+                                    <!--<td><?php echo $imei; ?></td>-->  
+                                    
+                                    <td align="center" class="return_action">
+                                        <?php //if(!empty($old_return)){ echo $old_return; }else{ ?>
+                                        <select id="return_action_<?php echo $i; ?>" name="return_action[<?php echo $imei; ?>]" class="replace_refund">
+                                            <option value="">Select Action</option>
+                                            <?php $return_array = Mage::helper('orderreturn')->getReturn();
+                                                foreach ($return_array as $key => $label) {
+                                                    if($old_return == $label){
+                                                    echo '<option selected="selected" value="'.$key.'">'.$label.'</option>';
+                                                    }else{
+                                                    echo '<option value="'.$key.'">'.$label.'</option>';
+                                                    }
+                                                }
+                                                 ?>
+                                        </select>
+                                        <?php //} ?>
+                                    </td>
+
+                                    <td align="center">1</td>
+
+                                    <td>
+                                    <?php //if(!empty($old_reason)){ echo $old_reason; }else{?>
+                                        <select id="reason_<?php echo $i; ?>" name="reason[<?php echo $imei; ?>]" class="return_reason" onclick="addRequiredClassFile('<?php echo $i; ?>')">
+                                            <option value="">Select Reason</option>
+                                            <?php $reason_array = Mage::helper('orderreturn')->getReason();
+                                            foreach ($reason_array as $key => $label) {
+                                                if($old_reason == $label){
+                                                echo '<option selected="selected" value="'.$key.'">'.$label.'</option>';
+                                                }else{
+                                                echo '<option value="'.$key.'">'.$label.'</option>';
+                                                }
+                                            }
+                                             ?>
+                                        </select>
+                                    <?php //} ?>    
+                                    </td>
+                                    <td style="text-align: center;" >
+                                            <?php if (array_key_exists($imei, $returnData)): 
+                                                $directory = Mage::getBaseDir('media') . DS . 'order_return' . DS . $imei . DS;
+                                                $files = scandir ($directory);
+                                                $firstFile = Mage::getBaseUrl('media') .  'order_return' . DS . $imei . DS . $files[2];
+                                                //var_dump($files);
+                                               
+                                            ?>
+
+                                                <?php if($files[2]): ?>
+
+                                                    <img style="margin:0 auto" height="50px" width="50px" alt="Image" src="<?php echo $firstFile ?>" />
+
+                                                    <a href="<?php echo $this->getUrl('order_return/index/delete/').'imei/'.$imei.'/order_id/'.$encrypt ?>" title="Delete Image">
+                                                        Delete Image 
+                                                    </a>
+                                                <?php else: ?> 
+                                                    <?php if($returnData[$imei] == 2):  ?>
+                                                        <input id="image_<?php echo $i; ?>" class="required-entry" type="file" name="<?php echo $imei ?>" accept="image/*">
+                                                    <?php else: ?>
+
+                                                    <?php endif; ?>
+                                                <?php endif; ?>    
+                                            <?php else:  ?> 
+
+                                            <input style="display:none;" id="image_<?php echo $i; ?>" class="" type="file" name="<?php echo $imei ?>" accept="image/*">                                      
+                                          <?php endif; ?>
+                                    </td>
+                                    <td><?php echo $status; ?></td>
+                                </tr>
+                            <?php endforeach; ?>  
+                        <?php endforeach; ?>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+        <div class="customer_auth">
+        <input type="checkbox" name="auth_by_customer" class="required-entry"/> I confirm that all details filled by me are correct and validate as per knowledge and Electronics Bazaar will not be responsible to any violation occured due to information filled by me.
+        </div>
+        <input class="btn-return" type="submit" name="Submit" value="Submit" />
+    </form>
+</div>
+
+<script type="text/javascript">
+    //<![CDATA[
+    var returnForm = new VarienForm('returnForm', true);
+    //]]>
+</script>
+<script type="text/javascript">
+    var id;
+
+    function addRequiredClass(id)
+    {
+        if (document.getElementById('return_' + id).checked) {
+            document.getElementById('reason_' + id).classList.add("required-entry");
+        } else {
+            alert('che');
+            document.getElementById('reason_' + id).classList.remove("required-entry");
+        }
+
+    }
+
+    function addRequiredClassFile(id)
+    {   
+        val = document.getElementById('reason_' + id).value;
+        console.log("reason change val = "+val);
+        if (val == 2) {
+            document.getElementById('image_' + id).style.display = "block";
+            document.getElementById('image_' + id).classList.add("required-entry");
+        } else {
+            document.getElementById('image_' + id).style.display = "none";
+            document.getElementById('image_' + id).classList.remove("required-entry");
+        }
+    }
+</script>
+<script type="text/javascript">
+    jQuery(".replace_refund").each(function(){
+        jQuery(this).removeClass("required-entry");
+        jQuery(this).on("change", function(){
+            var selcted_val = jQuery(this).find("option:selected").val();
+            var checkrefundValidation = checkRefund();
+            if(selcted_val == 2 && checkrefundValidation == 1){
+                jQuery(".banking").each(function(){
+                    jQuery(this).addClass("required-entry");
+                });
+            }else if(selcted_val == 1 && checkrefundValidation == 0){
+                jQuery(".banking").each(function(){
+                    jQuery(this).removeClass("required-entry validation-failed");
+                    jQuery(this).closest('validation-advice').remove();
+                });
+            }
+        });
+    });
+
+    function checkRefund(){
+        var checkrefund = '0';
+        jQuery(".replace_refund").each(function(){
+            var selcted_val = jQuery(this).find("option:selected").val();
+            if(selcted_val == 2){
+                checkrefund = '1';
+            }
+        });
+
+        return checkrefund;
+    }
+
+    jQuery("select[name=banking]").on("change",function(){
+        var selected_bank = jQuery(this).find("option:selected").text();
+        var resr = selected_bank.split(",");
+        var beneficiary_name = resr[0].trim();
+        var bank_name = resr[1].trim();
+        var bank_ifsc = resr[3].trim();
+        var account_number = resr[2].trim();
+        jQuery("input[name=beneficiary_name]").val(beneficiary_name);
+        jQuery("input[name=bank_name]").val(bank_name);
+        jQuery("input[name=bank_ifsc_code]").val(bank_ifsc);
+        jQuery("input[name=bank_account_number]").val(account_number);
+    });
+
+    jQuery(".return_reason").each(function(){
+        jQuery(this).on("change", function(){
+            //var val_selected = jQuery(this).find("option:selected").val();
+            var reason_id = jQuery(this).attr("ïd").val();
+
+            //var split_label = reason_id.split("_");
+            alert(reason_id);
+        });
+    });
+</script>

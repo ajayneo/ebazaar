@@ -1,0 +1,2 @@
+[08-Oct-2018 16:07:11 Asia/Kolkata] PHP Fatal error:  Class 'Varien_Simplexml_Config_Cache_Abstract' not found in /home/electronicsbazaa/public_html/includes/src/Varien/Simplexml/Config/Cache/File.php on line 36
+[08-Oct-2018 16:07:11 Asia/Kolkata] PHP Fatal error:  Class 'Varien_Object' not found in /home/electronicsbazaa/public_html/includes/src/Varien/Simplexml/Config/Cache/Abstract.php on line 36

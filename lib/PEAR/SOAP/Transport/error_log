@@ -1,0 +1,2 @@
+[08-Oct-2018 16:04:31 Asia/Kolkata] PHP Warning:  require_once(SOAP/Transport.php): failed to open stream: No such file or directory in /home/electronicsbazaa/public_html/lib/PEAR/SOAP/Transport/HTTP.php on line 33
+[08-Oct-2018 16:04:31 Asia/Kolkata] PHP Fatal error:  require_once(): Failed opening required 'SOAP/Transport.php' (include_path='.:/opt/cpanel/ea-php54/root/usr/share/pear') in /home/electronicsbazaa/public_html/lib/PEAR/SOAP/Transport/HTTP.php on line 33

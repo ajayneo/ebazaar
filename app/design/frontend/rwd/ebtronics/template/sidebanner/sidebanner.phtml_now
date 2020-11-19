@@ -1,0 +1,32 @@
+<div class="side_banner">
+<ul>
+	<?php foreach ($this->getVerticalBanners() as $_banner) : ?>
+		<?php
+			if(!empty($_banner['link'])):
+				$link = $_banner['link'];
+			else:
+				$link ='#';
+			endif;
+		?>
+		<li><a href="<?php echo $link ?>" <?php if(!empty($_banner['link'])): ?> target="_blank" <?php endif; ?>>
+			<img width="235" height="110" src="<?php echo $_banner['image'] ?>" alt="<?php echo $_banner['title'] ?>" title="<?php echo $_banner['title'] ?>" />
+		</a></li>
+	<?php endforeach; ?>
+</ul>
+</div>
+<div class="bottom_banner_sec">        
+<ul>
+	<?php foreach ($this->getHorizontalBanners() as $_hbanner) : ?>
+		<?php
+			if(!empty($_hbanner['link'])):
+				$hlink = $_hbanner['link'];
+			else:
+				$hlink ='#';
+			endif;
+		?>
+		<li><a href="<?php echo $hlink ?>" <?php if(!empty($_hbanner['link'])): ?> target="_blank" <?php endif; ?>>
+			<img src="<?php echo $_hbanner['image'] ?>" alt="<?php echo $_hbanner['title'] ?>" title="<?php echo $_hbanner['title'] ?>" width="319" height="172" />
+		</a></li>
+	<?php endforeach; ?>
+</ul> 
+</div> 

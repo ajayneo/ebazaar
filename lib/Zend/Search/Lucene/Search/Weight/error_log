@@ -1,0 +1,5 @@
+[08-Oct-2018 16:06:51 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Search_Lucene_Search_Weight' not found in /home/electronicsbazaa/public_html/lib/Zend/Search/Lucene/Search/Weight/Empty.php on line 36
+[08-Oct-2018 16:06:51 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Search_Lucene_Search_Weight' not found in /home/electronicsbazaa/public_html/lib/Zend/Search/Lucene/Search/Weight/Term.php on line 36
+[08-Oct-2018 16:06:51 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Search_Lucene_Search_Weight' not found in /home/electronicsbazaa/public_html/lib/Zend/Search/Lucene/Search/Weight/Phrase.php on line 38
+[08-Oct-2018 16:06:51 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Search_Lucene_Search_Weight' not found in /home/electronicsbazaa/public_html/lib/Zend/Search/Lucene/Search/Weight/Boolean.php on line 36
+[08-Oct-2018 16:06:51 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Search_Lucene_Search_Weight' not found in /home/electronicsbazaa/public_html/lib/Zend/Search/Lucene/Search/Weight/MultiTerm.php on line 36

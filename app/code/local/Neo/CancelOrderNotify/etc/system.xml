@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config>
+	<tabs>
+		<neo_cancelordernotify translate="label" module="neo_cancelordernotify">
+            <label>Cancel Order Notify Email Ids</label>
+            <sort_order>100</sort_order>
+        </neo_cancelordernotify>
+	  </tabs>
+	  <sections>
+		<neo_cancelordernotify_section  translate="label" module="neo_cancelordernotify">
+		<label>Cancel Order Notify Email Ids</label>
+		<tab>neo_cancelordernotify</tab>
+		<frontend_type>text</frontend_type>
+		<sort_order>100</sort_order>
+		<show_in_default>1</show_in_default>
+		<show_in_website>1</show_in_website>
+		<show_in_store>1</show_in_store>
+			<groups>
+				<neo_cancelordernotify_group translate="label"> 
+					<label>ASM Email Ids for Invoices and Shipments</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>1</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<notify_emails_field translate="label">
+							<label>Email Address for the Cancel Order</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+							<comment>Email Address for the Cancel Order</comment>
+						</notify_emails_field>
+					</fields>
+				</neo_cancelordernotify_group>
+			</groups>
+		</neo_cancelordernotify_section>
+	</sections>
+</config>

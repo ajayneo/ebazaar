@@ -1,0 +1,7 @@
+[08-Oct-2018 16:03:44 Asia/Kolkata] PHP Fatal error:  Class 'Mage_Backup_Snapshot' not found in /home/electronicsbazaa/public_html/lib/Mage/Backup/Media.php on line 35
+[08-Oct-2018 16:03:44 Asia/Kolkata] PHP Fatal error:  Class 'Mage_Backup_Abstract' not found in /home/electronicsbazaa/public_html/lib/Mage/Backup/Db.php on line 35
+[08-Oct-2018 16:03:44 Asia/Kolkata] PHP Fatal error:  Class 'Mage_Backup_Snapshot' not found in /home/electronicsbazaa/public_html/lib/Mage/Backup/Nomedia.php on line 35
+[08-Oct-2018 16:03:44 Asia/Kolkata] PHP Fatal error:  Interface 'Mage_Backup_Interface' not found in /home/electronicsbazaa/public_html/lib/Mage/Backup/Abstract.php on line 35
+[08-Oct-2018 16:03:44 Asia/Kolkata] PHP Fatal error:  Class 'Mage_Backup_Filesystem' not found in /home/electronicsbazaa/public_html/lib/Mage/Backup/Snapshot.php on line 35
+[08-Oct-2018 16:03:44 Asia/Kolkata] PHP Fatal error:  Class 'Mage_Exception' not found in /home/electronicsbazaa/public_html/lib/Mage/Backup/Exception.php on line 35
+[08-Oct-2018 16:03:44 Asia/Kolkata] PHP Fatal error:  Class 'Mage_Backup_Abstract' not found in /home/electronicsbazaa/public_html/lib/Mage/Backup/Filesystem.php on line 35

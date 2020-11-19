@@ -1,0 +1,169 @@
+<?xml version="1.0"?>
+<config>
+	<menu>
+		<report>
+			<children>			
+				<neo_reports translate="title" module="reports">
+					<title>Custom Reports</title>
+                    <sort_order>60</sort_order>
+					<children>
+<!-- 						<sales translate="title" module="reports">
+							<title>Sales Reports</title>
+							<action>adminhtml/report_custom/sales</action>
+							<sort_order>10</sort_order>
+						</sales>
+						<invoice translate="title" module="reports">
+							<title>Invoice Reports</title>
+							<action>adminhtml/report_custom/invoice</action>
+							<sort_order>20</sort_order>
+						</invoice>
+						<stock translate="title" module="reports">
+							<title>Stock Reports</title>
+							<action>adminhtml/report_custom/stock</action>
+							<sort_order>30</sort_order>
+						</stock>
+						<export_order translate="title" module="reports">
+							<title>Order Exports</title>
+							<action>adminhtml/report_custom_export/order</action>
+							<sort_order>40</sort_order>
+						</export_order>
+						<export_invoice translate="title" module="reports">
+							<title>Invoice Exports</title>
+							<action>adminhtml/report_custom_export/invoice</action>
+							<sort_order>50</sort_order>
+						</export_invoice>
+						<export_shipment translate="title" module="reports">
+							<title>Shipment Exports</title>
+							<action>adminhtml/report_custom_export/shipment</action>
+							<sort_order>60</sort_order>
+						</export_shipment>
+						<export_creditmemo translate="title" module="reports">
+							<title>Creditmemo Exports</title>
+							<action>adminhtml/report_custom_export/creditmemo</action>
+							<sort_order>70</sort_order>
+						</export_creditmemo>
+						<export_lineitems translate="title" module="reports">
+							<title>LineItem Exports</title>
+							<action>adminhtml/report_custom_export/items</action>
+							<sort_order>80</sort_order>
+						</export_lineitems>
+						<export_bluedartshipments translate="title" module="reports">
+							<title>Bluedart Shipment Exports</title>
+							<action>adminhtml/report_custom_export/bluedartshipments</action>
+							<sort_order>90</sort_order>
+						</export_bluedartshipments>
+						<export_bluedartshipmentsprepaid translate="title" module="reports">
+							<title>Bluedart Shipment ECom(PrePaid)</title>
+							<action>adminhtml/report_custom_export/bluedartshipmentsprepaid</action>
+							<sort_order>92</sort_order>
+						</export_bluedartshipmentsprepaid>
+						<export_bluedartshipmentscod translate="title" module="reports">
+							<title>Bluedart Shipment COD</title>
+							<action>adminhtml/report_custom_export/bluedartshipmentscod</action>
+							<sort_order>93</sort_order>
+						</export_bluedartshipmentscod>
+						<nocoupon translate="title" module="reports">
+							<title>No Coupon Report</title>
+							<action>adminhtml/report_custom/nocoupon</action>
+							<sort_order>95</sort_order>
+						</nocoupon>
+						<servicetagmailer translate="title" module="reports">
+							<title>Service Tag Transfer Report</title>
+							<action>adminhtml/report_custom/servicetagmailer</action>
+							<sort_order>96</sort_order>
+						</servicetagmailer> -->
+						<export_ecomexpressshipmentscod translate="title" module="reports">
+							<title>Export Shipment</title>
+							<action>adminhtml/report_custom_export/ecomexpressshipmentscod</action>
+							<sort_order>97</sort_order>
+						</export_ecomexpressshipmentscod>
+<!-- 						<export_ecomexpressshipmentsprepaid translate="title" module="reports">
+							<title>Ecomexpress Shipment (Prepaid)</title>
+							<action>adminhtml/report_custom_export/ecomexpressshipmentsprepaid</action>
+							<sort_order>98</sort_order>
+						</export_ecomexpressshipmentsprepaid> -->
+					</children>
+				</neo_reports>
+			</children>
+		</report>
+	</menu>
+	
+	<acl>
+		<resources>
+			<admin>
+				<children>
+					<report>
+						<children>
+							<neo_reports translate="title" module="reports">	
+								<title>Custom Reports</title>
+								<sort_order>60</sort_order>
+								<children>
+									<sales translate="title" module="reports">
+										<title>Sales Reports</title>
+										<sort_order>10</sort_order>
+									</sales>
+									<invoice translate="title" module="reports">
+										<title>Invoice Reports</title>
+										<sort_order>20</sort_order>
+									</invoice>
+									<stock translate="title" module="reports">
+										<title>Stock Reports</title>
+										<sort_order>30</sort_order>
+									</stock>
+									<export_order translate="title" module="reports">
+										<title>Order Exports</title>
+										<sort_order>40</sort_order>
+									</export_order>
+									<export_invoice translate="title" module="reports">
+										<title>Invoice Exports</title>
+										<sort_order>50</sort_order>
+									</export_invoice>
+									<export_shipment translate="title" module="reports">
+										<title>Shipment Exports</title>
+										<sort_order>60</sort_order>
+									</export_shipment>
+									<export_creditmemo translate="title" module="reports">
+										<title>Creditmemo Exports</title>
+										<sort_order>70</sort_order>
+									</export_creditmemo>
+									<export_lineitems translate="title" module="reports">
+										<title>LineItem Exports</title>
+										<sort_order>80</sort_order>
+									</export_lineitems>
+									<export_bluedartshipments translate="title" module="reports">
+										<title>Bluedart Shipment Exports</title>
+										<sort_order>90</sort_order>
+									</export_bluedartshipments>
+									<export_bluedartshipmentsprepaid translate="title" module="reports">
+										<title>Bluedart Shipment ECom(PrePaid)</title>
+										<sort_order>92</sort_order>
+									</export_bluedartshipmentsprepaid>									
+									<export_bluedartshipmentscod translate="title" module="reports">
+										<title>Bluedart Shipment COD</title>
+										<sort_order>93</sort_order>
+									</export_bluedartshipmentscod>
+									<nocoupon translate="title" module="reports">
+										<title>No Coupon Report</title>
+										<sort_order>95</sort_order>
+									</nocoupon>
+									<servicetagmailer translate="title" module="reports">
+										<title>Service Tag Transfer Report</title>
+										<sort_order>96</sort_order>
+									</servicetagmailer>
+									<export_ecomexpressshipmentscod translate="title" module="reports">
+										<title>Ecomexpress Shipment (COD)</title>
+										<sort_order>97</sort_order>
+									</export_ecomexpressshipmentscod>
+									<export_ecomexpressshipmentsprepaid translate="title" module="reports">
+										<title>Ecomexpress Shipment (Prepaid)</title>
+										<sort_order>98</sort_order>
+									</export_ecomexpressshipmentsprepaid>
+								</children>
+							</neo_reports>
+						</children>
+					</report>
+				</children>
+			</admin>
+		</resources>
+	</acl>
+</config>

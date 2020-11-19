@@ -1,0 +1,17 @@
+<?php
+// Retrieve order
+$urlto_submit = Mage::getStoreConfig('payment/billdesk_netbanking/urlto_submit');
+$getSession =Mage::getSingleton('core/session')->getMsg();
+$getChecksum =Mage::getSingleton('core/session')->getChecksum();
+    
+Mage::log($getSession,null,'sessionr.log');
+Mage::log($getChecksum,null,'sessionr.log');
+?>
+<form name='billdeskform' method='POST' action='https://pgi.billdesk.com/pgidsk/PGIMerchantPayment'>
+	<input type='hidden' name='msg' value='<?php echo $getSession; ?>'>
+        <!--<input type='hidden' name='hidRequestId' value='PGIME1000'>
+        <input type='hidden' name='hidOperation' value='ME100'>-->
+</form>
+<script type="text/javascript">
+document.billdeskform.submit();
+</script>

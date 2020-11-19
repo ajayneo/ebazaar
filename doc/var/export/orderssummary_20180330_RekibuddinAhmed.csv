@@ -1,0 +1,4 @@
+"Order Id",SKU,"Product Name","Store Name","Amount Total",Qty,Discount,"Net Sale",Category,City,State,"ASM Name","RSM Name","Payment Method","Customer Email"
+200103359,REFMOB0005,"Samsung Galaxy C7 Pro (Navy Blue, 64 GB) (Brand Refurbished Mobile)","NN MARKETING",16250.0000,1.0000,0.0000,16250.0000,RefurbishedMobiles,MANGOLDOI,Assam,"Rekibuddin Ahmed",Info,cashondelivery,nnmarketing092@gmail.com
+200103359,REFMOB0012,"Samsung Galaxy J7 Pro (Black, 64 GB) (Brand Refurbished Mobile)","NN MARKETING",12900.0000,1.0000,0.0000,12900.0000,RefurbishedMobiles,MANGOLDOI,Assam,"Rekibuddin Ahmed",Info,cashondelivery,nnmarketing092@gmail.com
+200103385,NEWMOB00301,"Mi 4i  (White, 16 GB)","Sahara Mobile Store",7000.0000,1.0000,0.0000,7000.0000,New,MANGOLDOI,Assam,"Rekibuddin Ahmed",Info,cashondelivery,saharamobilestore@gmail.com

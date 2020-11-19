@@ -1,0 +1,33 @@
+@charset "utf-8";
+/* CSS Document */
+
+.header-language-background, #header, #header-nav, .footer-container{ display:none !important;}
+.quikr-header-container{ background:#fafafa; padding:15px 0; display:block!important;}
+.quikr-header-container a{ display:inline-block;}
+.quikr-breadcrumbs{ display:block; width:980px; margin:10px auto;}
+.main-container { margin-top: 0 !important; border-top:1px solid #ededed;}
+.gadgetModuleContainer{ background:#f5f5f5!important; border:0!important; padding: 65px 20px!important;}
+.gadgetModuleContainer ul{ margin-top:50px!important;}
+.gadgetModuleContainer h1{ border:0!important; font-size:20px!important; color:#070707; font-weight:600!important;}
+.gadgetModuleContainer h2 { color: #666666; font-size: 17px; font-weight: 600;}
+.gadgetModuleContainer ul.gadgetList li .imgContent { background-image: url("../images/qyikr-laptop-bg.png"); height: 260px;    width: 252px;}
+ul.gadgetList li .imgContent .fa.fa-laptop{ line-height:250px; font-size: 110px!important;}
+ul.gadgetList li .imgContent{ background-image:url(../images/pink-bg.png)}
+ul.gadgetList li p a:hover, ul.gadgetList li .imgContent a:hover .fa{ color:#e91e63;}
+.product-view{ margin: 0 0 40px;}
+.quikr-list{}
+.quikr-list li label{ float: left; width: 150px; margin: 0 16px 8px 0; font-size: 14px; font-weight: bold;}
+.quikr-list li .input-box{ float: left; width:70%; }
+.quikr-list li input[type="text"]{ width: 100%; background: #FFFFFF; border:1px solid #e0e0e0; height: 27px; }
+.gadget-view .bundled-optionscss .product-options{ padding-top: 15px; }
+.product-view.gadget-view .product-shop { padding-top: 30px;}
+.gadget-view .product-options p.required{ top: -64px; }
+.main-container > .main { margin-bottom: 100px !important;}
+.messageContainer{ margin-top:20px;}
+textarea{ width:100% !important; resize:none;}
+
+.wrapper{ position:relative;}
+.quikr-footer-container{ background:#fafafa; padding:25px 0; display:block!important; position:absolute; bottom:0; width:100%;}
+.footer-content { float: right;}
+.main.clearfix p { float: left; font-size: 11px; font-style: italic; margin: 38px 15px 0 0;}
+.footer-img { float: left;}

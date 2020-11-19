@@ -1,0 +1,581 @@
+<?php 	
+	if(Mage::getSingleton('customer/session')->isLoggedIn()) {
+	    $customer = Mage::getSingleton('customer/session')->getCustomer();
+
+	    $armcrm = Mage::helper('suvidha')->getArmCrmNameEmail($customer['asm_map']);
+
+	    // print_r($customer);exit;
+	    if($customer->getPrimaryBillingAddress()){
+	    	$address  = $customer->getPrimaryBillingAddress()->getData();
+	    }
+	    // print_r($address->getData());exit;
+	    $suvidhaCust = Mage::getResourceModel('suvidha/creditsuvidha_collection')->addFieldToFilter('email_id',$customer['email'])->getData();
+	    // if($suvidhaCust){
+	    $suvidhaCust = $suvidhaCust[0];
+	    // }
+
+?>
+
+<div class="main-form-container">
+<form id="creditsuvidha-form" method="post" action="<?php echo Mage::getBaseUrl().'shubhlabh/index/save'; ?>" enctype="multipart/form-data">
+<?php echo $this->getBlockHtml('formkey') ?>
+<input type="text" name="focuspurpose" style="opacity:0;position: absolute;">
+<input type="hidden" name="customer_id" value="<?php echo $customer['entity_id']?>">
+<input type="hidden" name="customer_name" value="<?php echo $customer['firstname']." ".$customer['lastname'] ?>">
+<input type="hidden" name="asm_map" value="<?php echo $customer['asm_map'] ?>">
+
+<input type="hidden" name="arm_name" value="<?php echo $armcrm['arm_name'] ?>">
+<input type="hidden" name="crm_name" value="<?php echo $armcrm['crm_name'] ?>">
+
+<input type="hidden" name="arm_email" value="<?php echo $armcrm['arm_email'] ?>">
+<input type="hidden" name="crm_email" value="<?php echo $armcrm['crm_email'] ?>">
+<div class="suvidha-container">
+    <h1>Customer Credit Application Form (CCAF)</h1>    
+<div class="shub-labh-logo">
+	<img src="<?php echo $this->getSkinUrl().'images/new-images/suvidha.jpg' ;?>">
+</div>
+    <div class="form-container">    	
+    		<div class="default-title">
+    			<h2>Business Information</h2>
+    		</div>
+    		<div class="form-content">
+    			<ul class="clearfix">
+	    			<li>
+	          		<label class="required">Company Name<em>*</em></label>
+	          		<div class="input-box">
+	              		<input type="text" name="company_name" value="<?php if($suvidhaCust['company_name']){ echo $suvidhaCust['company_name']; }else{echo $customer['store_name'];}?>" class="input-text required-entry " title="Company Name">
+	          		</div>
+	      		</li>
+	      		<li>
+	          		<label class="required">GST No<em>*</em></label>
+	          		<div class="input-box">
+	              		<input type="text" name="gst_no" value="<?php if($suvidhaCust['gst_no']){ echo $suvidhaCust['gst_no']; }else{echo $customer['gstin']; }?>" class="input-text required-entry " title="GST No">
+	          		</div>
+	      		</li>
+	      		<li>
+	          		<label class="required">Proprietor/Partners/Directors details<em>*</em></label>
+	          		<div class="input-box">
+	              		<input type="text" name="partner_details" value="<?php echo $suvidhaCust['partner_details']?>" class="input-text required-entry " title="Proprietor/Partners/Directors details">
+	          		</div>
+	      		</li>
+	      		<li>
+	      				<label class="required">Business Type<em>*</em></label>
+	      				<ul class="checkbox-container checkboxContainer3 clearfix">
+				    			<li>
+				    				<div class="input-box">
+			        				<input type="radio" name="partnership_type" value="0" class="radio input-radio" id="soleProprietorship" title="Sole proprietorship" <?php if($suvidhaCust['partnership_type']==0){ echo 'checked'; }?>>
+			    						<label class="label-radio" for="soleProprietorship">Sole proprietorship</label>
+			    					</div>
+			    				</li>
+			    				<li>
+				    				<div class="input-box">
+			        				<input type="radio" name="partnership_type" value="1" class="radio input-radio" id="partnership" title="Partnership" <?php if($suvidhaCust['partnership_type']==1){ echo 'checked'; }?>>
+			    						<label class="label-radio" for="partnership">Partnership</label>
+			    					</div>
+			    				</li>
+			    				<li>
+				    				<div class="input-box">
+			        				<input type="radio" name="partnership_type" value="2" class="radio input-radio" id="corporation" title="Corporation" <?php if($suvidhaCust['partnership_type']==2){ echo 'checked'; }?>>
+			    						<label class="label-radio" for="corporation">Corporation</label>
+			    					</div>
+			    				</li>
+			    				<li>
+				    				<div class="input-box">
+			        				<input type="radio" name="partnership_type" value="3" class="radio input-radio" id="other" title="Other" <?php if($suvidhaCust['partnership_type']==3){ echo 'checked'; }?>>
+			    						<label class="label-radio" for="other">Other</label>
+			    					</div>
+			    				</li>
+				    		</ul>
+	      		</li>
+	      		<li>
+							<ul class="clearfix address-content">
+								<li>
+		          		<label class="required">Billing Address<em>*</em></label>
+		          		<div class="input-box">
+		              		<input type="text" name="billing_add" value="<?php if($suvidhaCust['billing_add']){ echo $suvidhaCust['billing_add']; }else{ echo $address['street']; }?>" class="input-text required-entry " title="Address">
+		          		</div>
+			      		</li>
+			      		<li>
+		          		<label class="required">City<em>*</em></label>
+		          		<div class="input-box">
+		              		<input type="text" name="billing_city" value="<?php if($suvidhaCust['billing_city']){ echo $suvidhaCust['billing_city']; }else{ echo $address['city'] ; }?>" class="input-text required-entry " title="City">
+		          		</div>
+			      		</li>
+							</ul>
+						</li>	    						
+	      		<li>
+	      			<ul class="clearfix">
+	      				<li>
+		          		<label class="required">State<em>*</em></label>
+		          		<div class="input-box">
+		              		<input type="text" name="billing_state" value="<?php if($suvidhaCust['billing_state']){ echo $suvidhaCust['billing_state']; }else{ echo $address['region']; }?>" class="input-text required-entry " title="State">
+		          		</div>
+			      		</li>
+			      		<li>
+		          		<label class="required">Zip Code<em>*</em></label>
+		          		<div class="input-box">
+		              		<input type="text" name="billing_zip_code" value="<?php if($suvidhaCust['billing_zip_code']){ echo $suvidhaCust['billing_zip_code']; }else{ echo $address['postcode']; }?>" class="input-text required-entry validate-number" maxlength="6" title="Zip Code">
+		          		</div>
+			      		</li>			      		
+	      			</ul>
+	      		</li>
+	      		<li>
+	    				<ul class="clearfix address-content">
+	    					<li>
+		          		<label class="required">Registered Company Address<em>*</em></label>
+		          		<div class="input-box">
+		              		<input type="text" name="company_add" value="<?php echo $suvidhaCust['company_add']?>" class="input-text required-entry " title="Registered Company Address City, State ZIP Code">
+		          		</div>
+			      		</li>
+			      		<li>
+		          		<label class="required">City<em>*</em></label>
+		          		<div class="input-box">
+		              		<input type="text" name="company_city" value="<?php echo $suvidhaCust['company_city']?>" class="input-text required-entry " title="City">
+		          		</div>
+			      		</li>
+	    				</ul>
+	    			</li>
+	      		<li>
+	      			<ul class="clearfix">
+	      				<li>
+		          		<label class="required">State<em>*</em></label>
+		          		<div class="input-box">
+		              		<input type="text" name="company_state" value="<?php echo $suvidhaCust['company_state']?>" class="input-text required-entry " title="State">
+		          		</div>
+			      		</li>
+			      		<li>
+		          		<label class="required">Zip Code<em>*</em></label>
+		          		<div class="input-box">
+		              		<input type="text" name="company_zip_code" value="<?php echo $suvidhaCust['company_zip_code']?>" class="input-text required-entry validate-number" maxlength="6" title="Zip Code">
+		          		</div>
+			      		</li>			      		
+	      			</ul>
+	      		</li>
+	      			<li>
+	          		<label class="required">E-mail | Fax<em>*</em></label>
+	          		<div class="input-box">
+	              		<input type="email" name="email_id" value="<?php if($suvidhaCust['email_id']){ echo $suvidhaCust['email_id']; }else{echo $customer['email'];}?>" class="input-text required-entry validate-email" title="E-mail Phone | Fax">
+	          		</div>
+		      		</li>
+		      		<li>
+	          		<label class="required">Credit Requested (Amount)<em>*</em></label>
+	          		<div class="input-box">
+	              		<input type="text" name="credit_requested" value="<?php echo $suvidhaCust['credit_requested']?>" class="input-text required-entry validate-number validate-digits" title="Credit Requested">
+	          		</div>
+		      		</li>
+		      		<li>
+	          		<label class="required">Date business commenced<em>*</em></label>
+	          		<div class="input-box">
+	              		<input type="date" name="business_commenced" value="<?php echo $suvidhaCust['business_commenced']?>" class="input-text required-entry " title="Date business commenced">
+	          		</div>
+		      		</li>
+		      		<li>
+	          		<label class="required">Nature of Business<em>*</em></label>
+	          		<div class="input-box">
+	              		<input type="text" name="nature_of_business" value="<?php echo $suvidhaCust['nature_of_business']?>" class="input-text required-entry " title="Nature of Business">
+	          		</div>
+		      		</li>
+	    		</ul>
+    		</div>    	
+    </div>
+
+    <div class="form-container">    	
+    		<div class="default-title">
+    			<h2>Bank Information</h2>
+    		</div>
+    		<div class="form-content">
+    			<ul class="clearfix">
+	    			<li>
+	          		<label class="required">Account Name<em>*</em></label>
+	          		<div class="input-box">
+	              		<input type="text" name="bank_acc_name" value="<?php echo $suvidhaCust['bank_acc_name']?>" class="input-text required-entry " title="Account Name">
+	          		</div>
+	      		</li>
+	      		<li>
+	          		<label class="required">Account Number<em>*</em></label>
+	          		<div class="input-box">
+	              		<input type="text" name="bank_acc_no" value="<?php echo $suvidhaCust['bank_acc_no']?>" class="input-text required-entry validate-number" title="Account Number">
+	          		</div>
+	      		</li>
+	      		<li>
+	          		<label class="required">Bank Name<em>*</em></label>
+	          		<div class="input-box">
+	              		<input type="text" name="bank_name" value="<?php echo $suvidhaCust['bank_name']?>" class="input-text required-entry " title="Bank Name">
+	          		</div>
+	      		</li>
+	      		<li>
+	          		<label class="required">Branch<em>*</em></label>
+	          		<div class="input-box">
+	              		<input type="text" name="bank_branch" value="<?php echo $suvidhaCust['bank_branch']?>" class="input-text required-entry " title="Branch">
+	          		</div>
+	      		</li>
+	      		<li>
+	      			<label class="required">Type of Account<em>*</em></label>
+	      			<ul class="checkbox-container clearfix">
+			    			<li>
+			    				<div class="input-box">
+		        				<input type="radio" name="bank_acc_type" class="radio input-radio" value="1" id="current" title="Current" <?php if($suvidhaCust['bank_acc_type']=='1'){ echo 'checked'; }?>>
+		    						<label class="label-radio" for="current">Current</label>
+		    					</div>
+		    				</li>
+		    				<li>
+			    				<div class="input-box">
+		        				<input type="radio" name="bank_acc_type" class="radio input-radio" value="2" id="cashCredit" title="Cash Credit" <?php if($suvidhaCust['bank_acc_type']=='2'){ echo 'checked'; }?>>
+		    						<label class="label-radio" for="cashCredit">Cash Credit</label>
+		    					</div>
+		    				</li>
+		    				<li>
+			    				<div class="input-box">
+		        				<input type="radio" name="bank_acc_type" class="radio input-radio" value="3" id="otherAccount" title="Other" <?php if($suvidhaCust['bank_acc_type']=='3'){ echo 'checked'; }?>>
+		    						<label class="label-radio" for="otherAccount">Other</label>
+		    					</div>
+		    				</li>
+			    		</ul>
+	      		</li>
+	      		<li>
+          		<label class="required">Email<em>*</em></label>
+          		<div class="input-box">
+              		<input type="email" name="email_id" value="<?php if($suvidhaCust['email_id']){ echo $suvidhaCust['email_id']; }else{echo $customer['email'];}?>" class="input-text required-entry validate-email" title="Email Phone">
+          		</div>
+	      		</li>
+	      		<li>
+          		<label class="required">IFSC Code<em>*</em></label>
+          		<div class="input-box">
+              		<input type="text" name="bank_ifsc" value="<?php echo $suvidhaCust['bank_ifsc']?>" class="input-text required-entry " title="IFSC Code">
+          		</div>
+	      		</li>
+	      		<li>
+          		<label class="required">Phone<em>*</em></label>
+          		<div class="input-box">
+              		<input type="text" name="mobile" value="<?php if($suvidhaCust['mobile']){ echo $suvidhaCust['mobile']; }else{echo $customer['mobile'];}?>" class="input-text required-entry validate-number validate-digits" maxlength="10" title="Phone">
+          		</div>
+	      		</li>
+	    		</ul>	    		
+    		</div>    	
+    </div>
+
+    <div class="form-container">    	
+    		<div class="default-title">
+    			<h2>Required Documents</h2>
+    		</div>
+    		<div class="form-content required-documents">
+    			<span class="required-documents-format">Supported file formats: jpg, jpeg, png, gif, pdf, doc, docx </span>
+    			<ul class="clearfix">
+	      		<li>
+	          		<label class="required">Aadhar card<em>*</em></label>
+	          		<div class="input-box">	              		
+						<input type="file" class="custom-input-file required-entry aadhar <?php if($suvidhaCust['aadhar'] == ''){ echo 'empty'; }?>" name="aadhar" value="<?php if($suvidhaCust['aadhar']) ?>"/>
+						<?php if($suvidhaCust['aadhar']) : ?>
+							<a class="requried-document-info" target="_blank" href="<?php echo $suvidhaCust['aadhar']; ?>"><?php echo substr(strrchr($suvidhaCust['aadhar'], "/"), 1);?></a>
+						<?php endif; ?>
+	          			<div class="validation-advice" style="display:none;" id="advice-required-entry-aadhar" style="">Invalid file format.</div>
+	          			<div class="validation-advice1" style="display:none;" id="advice-required-entry-aadhar1" style="">This is required field.</div>	
+	          		</div>
+	      		</li>
+	      		<li>
+	          		<label class="required">Pan Card<em>*</em></label>
+	          		<div class="input-box">	              		
+	              		<input type="file" class="custom-input-file required-entry pancard <?php if($suvidhaCust['pancard'] == ''){ echo 'empty'; }?>" name="pancard" value="<?php if($suvidhaCust['pancard']) ?>"/>
+	              		<?php if($suvidhaCust['pancard']) : ?>
+							<a class="requried-document-info" target="_blank" href="<?php echo $suvidhaCust['aadhar']; ?>"><?php echo substr(strrchr($suvidhaCust['pancard'], "/"), 1);?></a>
+						<?php endif; ?>
+	              		<div class="validation-advice" style="display:none;" id="advice-required-entry-pancard" style="">Invalid file format.</div>
+	              		<div class="validation-advice1" style="display:none;" id="advice-required-entry-pancard1" style="">This is required field.</div>
+	          		</div>
+	      		</li>
+	      		<li>
+	          		<label class="required">Bank Statements (last 3months)<em>*</em></label>
+	          		<div class="input-box">	              		
+	              		<input type="file" class="custom-input-file required-entry bankst <?php if($suvidhaCust['bankst'] == ''){ echo 'empty'; }?>" name="bankst" value="<?php if($suvidhaCust['bankst']) ?>"/>
+	              		<?php if($suvidhaCust['bankst']) : ?>
+							<a class="requried-document-info" target="_blank" href="<?php echo $suvidhaCust['bankst']; ?>"><?php echo substr(strrchr($suvidhaCust['bankst'], "/"), 1);?></a>
+						<?php endif; ?>
+	              		<div class="validation-advice" style="display:none;" id="advice-required-entry-bankst" style="">Invalid file format.</div>
+	              		<div class="validation-advice1" style="display:none;" id="advice-required-entry-bankst1" style="">This is required field.</div>
+	          		</div>
+	      		</li>
+	      		<li>
+	          		<label class="required">Post cheque<em>*</em></label>
+	          		<div class="input-box">	              		
+	              		<input type="file" class="custom-input-file required-entry postcheque <?php if($suvidhaCust['postcheque'] == ''){ echo 'empty'; }?>" name="postcheque" value="<?php if($suvidhaCust['postcheque']) ?>"/>
+	              		<?php if($suvidhaCust['postcheque']) : ?>
+							<a class="requried-document-info" target="_blank" href="<?php echo $suvidhaCust['postcheque']; ?>"><?php echo substr(strrchr($suvidhaCust['postcheque'], "/"), 1);?></a>
+						<?php endif; ?>
+	              		<div class="validation-advice" style="display:none;" id="advice-required-entry-postcheque" style="">Invalid file format.</div>
+	              		<div class="validation-advice1" style="display:none;" id="advice-required-entry-postcheque1" style="">This is required field.</div>
+	          		</div>
+	      		</li>	      		
+	    		</ul>	    		
+    		</div>    	
+    </div>
+
+    <div class="form-container">    	
+    		<div class="default-title">
+    			<h2>Business / Trade References</h2>
+    		</div>
+    		<div class="form-content two-columns clearfix">
+    			<ul class="clearfix">
+	    			<li>
+	          		<label class="required">Company name<em>*</em></label>
+	          		<div class="input-box">
+	              		<input type="text" name="ref_company1" value="<?php echo $suvidhaCust['ref_company1']?>" class="input-text required-entry " title="Company name">
+	          		</div>
+	      		</li>	      		
+	      		<li>
+	          		<label class="required">Address<em>*</em></label>
+	          		<div class="input-box">
+	              		<input type="text" name="ref_address1" value="<?php echo $suvidhaCust['ref_address1']?>" class="input-text required-entry " title="Address">
+	          		</div>
+	      		</li>  		
+	      		<li>
+	          		<label class="required">Nature of Business<em>*</em></label>
+	          		<div class="input-box">
+	              		<input type="text" name="ref_nature_of_business1" value="<?php echo $suvidhaCust['ref_nature_of_business1']?>" class="input-text required-entry " title="Nature of Business">
+	          		</div>
+	      		</li>
+	      		<li>
+	          		<label class="required">Phone<em>*</em></label>
+	          		<div class="input-box">
+	              		<input type="text" name="ref_phone1" value="<?php echo $suvidhaCust['ref_phone1']?>" class="input-text required-entry validate-number validate-digits" maxlength="10" title="Phone">
+	          		</div>
+	      		</li>	      		
+	    		</ul>
+	    		<ul class="clearfix">
+	      		<li>
+	          		<label class="required">Company name</label>
+	          		<div class="input-box">
+	              		<input type="text" name="ref_company2" value="<?php echo $suvidhaCust['ref_company2']?>" class="input-text " title="Company name">
+	          		</div>
+	      		</li>
+	      		<li>
+	          		<label class="required">Address</label>
+	          		<div class="input-box">
+	              		<input type="text" name="ref_address2" value="<?php echo $suvidhaCust['ref_address2']?>" class="input-text" title="Address">
+	          		</div>
+	      		</li>	
+	      		<li>
+	          		<label class="required">Nature of Business</label>
+	          		<div class="input-box">
+	              		<input type="text" name="ref_nature_of_business2" value="<?php echo $suvidhaCust['ref_nature_of_business2']?>" class="input-text" title="Nature of Business">
+	          		</div>
+	      		</li>
+	      		<li>
+	          		<label class="required">Phone</label>
+	          		<div class="input-box">
+	              		<input type="text" name="ref_phone2" value="<?php echo $suvidhaCust['ref_phone2']?>" class="input-text validate-number validate-digits" maxlength="10" title="Phone">
+	          		</div>
+	      		</li>   	      		
+	    		</ul>	    		
+    		</div>    	
+    </div>
+
+	    <div class="form-container">    	
+	  		<div class="default-title">
+	  			<h2>Agreement</h2>
+	  		</div>
+	  		<div class="agreement-container">
+	  			<ul>
+	  				<li>All invoices are to be paid 21 days from the date of the delivery</li>
+	  				<li>Claims arising from invoices must be made within seven working days.</li>
+	  				<li>Finance charge of 1.5% per month will be assessed on all balance outstanding past terms</li>
+	  				<li>By submitting this application, you authorize to make inquiries into the banking and business/trade references that you have supplied.</li>
+	  				<li>In case of cheque bounce, all bank charges should be borne by the customer along with penalty fee of INR 500 per cheque.</li>
+	  			</ul>
+	  			<p>I HAVE READ AND UNDERSTOOD THE TERMS AND CONDITIONS MENTIONED ABOVE AND HEREBY AGREES TO ABIDE BY THEM. BY COMPLETING AND RETURNING THIS APPLICATION TO ELECTRONICS BAZAAR. THE APPLICANT REPRESENTS THAT ALL OF THE INFORMATION CONTAINED IN THIS APPLICATION IS TRUE AND CORRECT. THE APPLICANT WILL ALSO AGREE TO NOTIFY ELECTRONICS BAZAAR OF ANY CHANGE IN COMPANY OWNERSHIP OR MANAGEMENT</p>
+	  		</div>
+	  	</div>
+
+	  	<div class="form-container">    	
+	  		<div class="default-title">
+	  			<h2>Signatures</h2>
+	  		</div>
+	  		<div class="form-content three-columns clearfix">
+	  			<ul class="signatures-container clearfix">
+	  				<li>
+	  					<label class="required">Signature</label>
+          		<div class="input-box">
+              		<input type="text" name="sign_file1" value="" class="input-text" title="Signature">
+              		<!-- <input type="file" class="custom-input-file" name="sign_file1"/> -->
+          		</div>
+	  				</li>
+	  				<li>
+	  					<label class="required">Name and Title<em>*</em></label>
+          		<div class="input-box">
+              		<input type="text" name="sign_name1" value="<?php echo $suvidhaCust['sign_name1']?>" class="input-text required-entry " title="Name and Title">
+          		</div>
+	  				</li>
+	  				<li>
+	  					<label class="required">Date<em>*</em></label>
+          		<div class="input-box">
+              		<input type="date" name="sign_date1" value="<?php echo $suvidhaCust['sign_date1']?>" class="input-text required-entry " title="Date">
+          		</div>
+	  				</li>
+	  			</ul>
+
+	  			<ul class="signatures-container clearfix">	  				
+	  				<li>
+	  					<label class="required">Signature</label>
+          		<div class="input-box">
+              		<input type="text" name="sign_file2" value="" class="input-text" title="Signature">
+              		<!-- <input type="file" class="custom-input-file" name="sign_file2"/> -->
+          		</div>
+	  				</li>	  				
+	  				<li>
+	  					<label class="required">Name and Title</label>
+          		<div class="input-box">
+              		<input type="text" name="sign_name2" value="<?php echo $suvidhaCust['sign_name2']?>" class="input-text " title="Name and Title">
+          		</div>
+	  				</li>
+	  				<li>
+	  					<label class="required">Date</label>
+          		<div class="input-box">
+              		<input type="date" name="sign_date2" value="<?php echo $suvidhaCust['sign_date2']?>" class="input-text " title="Date">
+          		</div>
+	  				</li>	  				
+	  			</ul>
+
+	  			<ul class="signatures-container clearfix">
+	  				<li>
+	  					<label class="required">Signature</label>
+          		<div class="input-box">
+              		<input type="text" name="sign_file3" value="" class="input-text" title="Signature">
+              		<!-- <input type="file" class="custom-input-file" name="sign_file3"/> -->
+          		</div>
+	  				</li>
+	  				<li>
+	  					<label class="required">Name and Title</label>
+          		<div class="input-box">
+              		<input type="text" name="sign_name3" value="<?php echo $suvidhaCust['sign_name3']?>" class="input-text " title="Name and Title">
+          		</div>
+	  				</li>
+	  				<li>
+	  					<label class="required">Date</label>
+          		<div class="input-box">
+              		<input type="date" name="sign_date3" value="<?php echo $suvidhaCust['sign_date3']?>" class="input-text " title="Date">
+          		</div>
+	  				</li>
+	  			</ul>
+	  		</div>
+	  	</div>
+
+	  	<div class="form-container no-display">    	
+	  		<div class="default-title">
+	  			<h2>(For Official Use Only)</h2>
+	  		</div>
+	  		<div class="form-content">
+	  			<ul class="clearfix">
+	  				<li>
+	  					<label class="required">Sales Rep Name Employee Code</label>
+          		<div class="input-box">
+              		<input type="text" name="salesCode" value="" class="input-text" title="Sales Rep Name Employee Code">
+          		</div>
+	  				</li>
+	  				<li>
+	  					<label class="required">Credit Limit</label>
+          		<div class="input-box">
+              		<input type="text" name="creditLimit" value="" class="input-text" title="Credit Limit">
+          		</div>
+	  				</li>
+	  				<li>
+	  					<label class="required">Customer No</label>
+          		<div class="input-box">
+              		<input type="text" name="customerNo" value="" class="input-text" title="Customer No">
+          		</div>
+	  				</li>
+	  				<li>
+	  					<label class="required">Zone/State</label>
+          		<div class="input-box">
+              		<input type="text" name="zone" value="" class="input-text" title="Zone/State">
+          		</div>
+	  				</li>
+	  				<li>
+	  					<label class="required">Approved By</label>
+          		<div class="input-box">
+              		<input type="text" name="approvedBy" value="" class="input-text" title="Approved By">
+          		</div>
+	  				</li>
+	  				<li>
+	  					<label class="required">Date of Approval</label>
+          		<div class="input-box">
+              		<input type="text" name="approvalDate" value="" class="input-text" title="Date of Approval">
+          		</div>
+	  				</li>
+	  			</ul>
+	  		</div>
+	  	</div>	  	    
+</div>
+<div class="button-container">
+	<!-- <input type="button" class="btn submit-form" value="Submit" /> -->
+	<button class="btn"><span><span>Submit</span></span></button>
+	<input type="button" name="" class="btn save-data" value="Save Data" />
+</div>
+</form>
+</div>
+
+<script type="text/javascript" src="<?php echo $this->getSkinUrl() ?>js/jquery.simplefileinput.min.js"></script>
+<script type="text/javascript">
+	var dl = jQuery.noConflict();
+	dl(document).ready(function(){
+		dl('.custom-input-file').simpleFileInput({
+			placeholder : 'Select your file',
+			buttonText : 'Select',
+			allowedExts : ['png', 'gif', 'jpg', 'jpeg', 'pdf', 'doc', 'docx'],
+		});
+		dl('#custom-input-file-2').simpleFileInput({
+			placeholder : 'Select an image',
+			buttonText : 'Select',
+			allowedExts : ['png', 'gif', 'jpg', 'jpeg'],
+		});
+	});
+
+	jQuery(function($){
+		$('.btn.save-data').click(function(){
+
+			if(jQuery('.sfi-wrapper').hasClass('sfi-error')){
+		    	alert('File format not supoorted. Supported file formats are jpg, jpeg, doc, png, gif, pdf, doc, docx');
+		    	return false;
+		    }
+
+	  		var form = $("#creditsuvidha-form");
+		    var formdata = false;
+		    if (window.FormData){
+		        formdata = new FormData(form[0]);
+		    }
+
+		    var formAction = form.attr('action');
+		    $.ajax({
+		        url         : "<?php  echo Mage::getBaseUrl().'shubhlabh/index/savedata'; ?>",
+		        data        : formdata ? formdata : form.serialize(),
+		        cache       : false,
+		        contentType : false,
+		        processData : false,
+		        type        : 'POST',
+		        success     : function(data, textStatus, jqXHR){
+		        	// alert(data);
+		            window.location.reload(true);
+		        }
+		    });
+
+		});
+	});
+
+</script>
+<script type="text/javascript">
+	jQuery('#creditsuvidha-form').submit(function() {
+		var rv = true;		
+	    jQuery(".custom-input-file.empty").each(function() {		    	
+	    	var name = jQuery(this).attr('name');
+		    alert('Please select '+ name);
+		    // jQuery(this).parent().find('.validation-advice1').toggle();
+		    return rv = false;
+		});
+	    if(jQuery('.sfi-wrapper').hasClass('sfi-error')){
+	    	alert('File format not supoorted. Supported file formats are jpg, jpeg, doc, png, gif, pdf, doc, docx');
+	    	return rv = false;
+	    }
+		return rv;
+	});
+   var myForm= new VarienForm('creditsuvidha-form', true);
+</script>
+
+<?php } ?>

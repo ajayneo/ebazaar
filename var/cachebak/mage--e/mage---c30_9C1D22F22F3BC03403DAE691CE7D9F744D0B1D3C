@@ -1,0 +1,25 @@
+
+    <nav id="nav">
+    	<a class="close-button">X</a>
+        <ul class="nav-primary clearfix">
+        	<!--<li class="level0 nav-1 first home"><a href="" class="level0 active"><img src=""></a></li>-->
+        	<li class="home-icon">
+        			<a href="https://www.electronicsbazaar.com/"></a>
+        	</li>
+            <li  class="level0 nav-1 first parent"><a href="https://www.electronicsbazaar.com/mobiles" class="level0 has-children">Mobiles</a><ul class="level0"><li  class="level1 nav-1-1 first last"><a href="https://www.electronicsbazaar.com/mobiles/brand-new-mobiles" class="level1 ">Brand New Mobiles</a></li></ul></li><li  class="level0 nav-2 parent"><a href="https://www.electronicsbazaar.com/laptops" class="level0 has-children">Laptops</a><ul class="level0"><li  class="level1 nav-2-1 first"><a href="https://www.electronicsbazaar.com/laptops/brand-new-laptops" class="level1 ">Brand New Laptops</a></li><li  class="level1 nav-2-2"><a href="https://www.electronicsbazaar.com/laptops/open-box-laptops" class="level1 ">Open Box Laptops</a></li><li  class="level1 nav-2-3"><a href="https://www.electronicsbazaar.com/laptops/pre-owned-laptops" class="level1 ">Pre-Owned Laptops</a></li><li  class="level1 nav-2-4"><a href="https://www.electronicsbazaar.com/laptops/pre-owned-laptops-grade-b" class="level1 ">Pre-Owned Laptops Grade B </a></li><li  class="level1 nav-2-5 last"><a href="https://www.electronicsbazaar.com/laptops/brand-refurbished-laptops" class="level1 ">Brand Refurbished Laptops</a></li></ul></li><li  class="level0 nav-3 parent"><a href="https://www.electronicsbazaar.com/desktops" class="level0 has-children">Desktops</a><ul class="level0"><li  class="level1 nav-3-1 first"><a href="https://www.electronicsbazaar.com/desktops/brand-new-desktops" class="level1 ">Brand New Desktops</a></li><li  class="level1 nav-3-2"><a href="https://www.electronicsbazaar.com/desktops/pre-owned-desktops" class="level1 ">Pre-Owned Desktops</a></li><li  class="level1 nav-3-3 last"><a href="https://www.electronicsbazaar.com/desktops/brand-refurbished-desktops-369" class="level1 ">Brand Refurbished Desktops</a></li></ul></li><li  class="level0 nav-4 active last"><a href="https://www.electronicsbazaar.com/epp-program" class="level0 ">EPP Program</a></li>
+          
+
+		<!--li>
+			<div class="chat-number">
+				<ul>
+					<li class="number">
+						<p class="contactNumber"><em class="fa fa-phone"></em><span>1800-266-4000</span></p>					</li>
+					<li>
+						<a class="live-chat"><span>Live Chat</span></a>
+					</li>
+				</ul>
+			</div>
+		</li-->
+        </ul>
+    </nav>
+	

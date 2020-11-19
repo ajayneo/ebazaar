@@ -1,0 +1,136 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @category   Neo
+ * @package    Neo_Bannericon
+ * @author     Rajesh Maurya
+ */
+ -->
+<config>
+    <modules>
+        <Neo_Bannericon>
+            <version>0.1.0</version>
+        </Neo_Bannericon>
+    </modules>
+    <frontend>
+        <routers>
+            <bannericon>
+                <use>standard</use>
+                <args>
+                    <module>Neo_Bannericon</module>
+                    <frontName>bannericon</frontName>
+                </args>
+            </bannericon>
+        </routers>
+        <layout>
+            <updates>
+                <bannericon>
+                    <file>bannericon.xml</file>
+                </bannericon>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+        <routers>
+			<bannericon>
+				<use>admin</use>
+				<args>
+					<module>Neo_Bannericon</module>
+					<frontName>bannericon</frontName>
+				</args>
+			</bannericon>
+        </routers>
+    </admin>
+    <adminhtml>
+		<menu>
+			<!--bannericon module="bannericon">
+				<title>Bannericon</title>
+				<sort_order>71</sort_order>               
+				<children>
+					<items module="bannericon">
+						<title>Manage Items</title>
+						<sort_order>0</sort_order>
+						<action>bannericon/adminhtml_bannericon</action>
+					</items>
+				</children>
+			</bannericon-->
+			<bannerslider>
+				<children>
+					<bannericon>
+						<title>Manage Banner Icons</title>
+						<sort_order>2</sort_order>
+						<action>bannericon/adminhtml_bannericon</action>
+					</bannericon>
+				</children>
+			</bannerslider>
+		</menu>
+		<acl>
+			<resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+				<admin>
+					<children>
+						<Neo_Bannericon>
+							<title>Bannericon Module</title>
+							<sort_order>10</sort_order>
+						</Neo_Bannericon>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+		<layout>
+			<updates>
+				<bannericon>
+					<file>bannericon.xml</file>
+				</bannericon>
+			</updates>
+		</layout>
+    </adminhtml>   
+    <global>
+        <models>
+            <bannericon>
+                <class>Neo_Bannericon_Model</class>
+                <resourceModel>bannericon_mysql4</resourceModel>
+            </bannericon>
+            <bannericon_mysql4>
+                <class>Neo_Bannericon_Model_Mysql4</class>
+                <entities>
+                    <bannericon>
+                        <table>bannericon</table>
+                    </bannericon>
+                </entities>
+            </bannericon_mysql4>
+        </models>
+        <resources>
+            <bannericon_setup>
+                <setup>
+                    <module>Neo_Bannericon</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </bannericon_setup>
+            <bannericon_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </bannericon_write>
+            <bannericon_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </bannericon_read>
+        </resources>
+        <blocks>
+            <bannericon>
+                <class>Neo_Bannericon_Block</class>
+            </bannericon>
+        </blocks>
+        <helpers>
+            <bannericon>
+                <class>Neo_Bannericon_Helper</class>
+            </bannericon>
+        </helpers>
+    </global>
+</config>

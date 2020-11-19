@@ -1,0 +1,42 @@
+#table_cataloglocalinventory .disabled, .disabled *{
+    color:grey!important;
+}
+
+#table_cataloglocalinventory .hidden{
+    display:none;
+}
+#table_cataloglocalinventory .green{
+    color:green;font-size:10px;
+}
+#table_cataloglocalinventory .red{
+    color:red;font-size:10px;
+}
+
+.inventory_delivery_areas{
+
+    height:400px;
+}
+.inventory_delivery_areas  OPTION{
+    font-weight:bold;
+}
+.inventory_delivery_areas OPTGROUP OPTION{
+    padding-left:30px;
+    font-weight:normal;
+}
+#product_edit_form #difference{
+    background: none repeat scroll 0 0 #EFEFEF;
+    border-color: grey;
+    -moz-border-radius: 10px 0 0 10px;
+    -webkit-border-radius: 10px 0 0 10px;
+    border-radius: 10px 0 0 10px;
+    border-style: solid;
+    border-width: 3px 0 3px 3px;
+    font-weight: bold;
+    height: 55px;
+    padding: 2px;
+    position: fixed;
+    right: 0;
+    text-align: center;
+    top: 50%;
+    color:grey;
+}

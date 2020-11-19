@@ -1,0 +1,182 @@
+
+<div class="new-gadget-container new-gadget-home-page">
+<div class="new-gadget-content">
+	<div class="scroller">				    
+    <!--gadget-home-page-banner start-->
+	<div class="gadget-home-page-banner">
+	   <img src="<?php echo $this->getSkinUrl(); ?>images/banner/gadget-home-page-banner1.jpg" alt="Banner1">
+	   <div class="gadget-home-page-banner-title">
+	   Sell your old
+	   <strong>Laptop &amp; Mobile</strong></div>
+	</div>
+	<!--gadget-home-page-banner ends-->
+
+	<!--gadget-home-page-howtosell start-->
+	<div class="gadget-home-page-howtosell">
+	   <div class="brand-title"><h1>How <strong>Sell your Gadget</strong> works</h1></div>
+	   <ul class="clearfix how-to-sell--list">
+			<li>
+			 <div class="how-to-sell--list__icon">
+			 <img src="<?php echo $this->getSkinUrl(); ?>images/ebt/get-your-device-price-icon.png" alt="Get Your Device Price">
+			 <img class="how-to-sell--list-up-arrow" src="<?php echo $this->getSkinUrl(); ?>images/ebt/how-to-sell--list-up-arrow.png" alt="">
+			 </div>
+			 <h4 class="how-to-sell--list__title">Get Your Device Price</h4>
+			 <p class="how-to-sell--list__detail">Select your device &amp; we'll help you unlock the best selling price based on the present conditions of your gadget &amp; the current market price.</p>
+			</li>
+			<li>
+			 <div class="how-to-sell--list__icon">
+			 <img src="<?php echo $this->getSkinUrl(); ?>images/ebt/schedule-a-free-pickup-icon.png" alt="Schedule a Free Pickup">
+			 <img class="how-to-sell--list-down-arrow" src="<?php echo $this->getSkinUrl(); ?>images/ebt/how-to-sell--list-down-arrow.png" alt="">
+			 </div>
+			 <h4 class="how-to-sell--list__title">Schedule a Free Pickup</h4>
+			 <p class="how-to-sell--list__detail">On accepting the price offered for your device, we'll arrange a free pick up.</p>
+			</li>
+			<li>
+			 <div class="how-to-sell--list__icon">
+			 <img src="<?php echo $this->getSkinUrl(); ?>images/ebt/get-paid-instantly-icon.png" alt="Get Paid Instantly">
+			 </div>
+			 <h4 class="how-to-sell--list__title">Get Paid Instantly</h4>
+			 <p class="how-to-sell--list__detail">Instant Cash will be handed over to you at time of pickup or through payment mode of your choice.</p>
+			</li>
+	   </ul>
+	</div>
+	<!--gadget-home-page-howtosell ends-->
+    
+	<!--gadget-home-page-pincode start-->
+	<div class="gadget-home-page-pincode gadget-darkgrey-bg">
+	   <p class="gadget-home-page-pincode__headline">Please note that the Sell your Gadget program depends on the pin code you share. Please check for your pincode</p>
+	   <ul class="gadget-brand-form">							
+			<li>
+			  <div class="input-field">
+			   <div class="pincode-field">
+			     <input id="postcode" type="text" name="pincode" value="" placeholder="400069">
+				 <!-- <span class="pincode-field-narration successful-msg">We service this pincode</span>
+				 <span class="pincode-field-narration error-msg">Sorry! We are yet to service this pincode</span> -->
+			   </div>
+			   <button id="checkpincode" type="button" class="submit-btn" onclick="checkpin()">Submit</button>
+			  </div>
+			</li>
+	   </ul>
+	</div>
+	</div>
+	<!--gadget-home-page-pincode ends-->
+	
+	<div class="new-gadget-title"><h1>What would you like to Sell today?</h1></div>
+	<ul class="clearfix gadget-tabs">
+		<li onclick="brands('gadget');" class="gadget-mobile"><h2>Mobile</h2> <a class="gadget-sell">Sell Now</a></li>
+		<li onclick="brands('gadget_laptop');" class="gadget-laptop"><h2>Laptop</h2> <a class="gadget-sell">Sell Now</a></li>
+	</ul>
+
+	<div class="new-gadget-inner-content new-gadget-mobile">
+       <div class="brand-title"><h3>Brands</h3></div>
+	   <div class="gadget-laptop--content">
+           <!--gadget-brand-list start-->
+		   <ul id="brandlist" class="clearfix gadget-brand-list">
+			</ul>
+		</div>
+		<div id="product"></div>
+	</div>	   
+	
+
+	<script type="text/javascript">
+		function checkpin(){
+			var idpost = jQuery('#postcode');
+			var pin = idpost.val();
+	    	var xhr;
+	        if(xhr && xhr.readyState != 4){
+	            xhr.abort();
+	        }
+	        xhr = jQuery.ajax({
+	            url: '<?php echo $this->getUrl("gadget/index/checkpincode");?>',
+	            data:'pincode='+pin,
+	            type:'POST',
+	            dataType: "json",
+	            beforeSend: function() {
+	              	jQuery("#loading-image").show();
+	              	jQuery(".pincode-field-narration").remove();
+	           	},
+	            success: function(data) {
+	                if(data.status == 1){
+				  		jQuery('#postcode').after('<span class="pincode-field-narration successful-msg">'+data.message+'</span>');
+				  		jQuery(".scroller").hide().slow();
+				  		jQuery("#panel").show().slow();
+				  	}
+
+				  	if(data.status == 0){
+				  		jQuery('#postcode').after('<span class="pincode-field-narration error-msg">'+data.message+'</span>');
+				  	}
+	                return false;
+	            }
+	        });
+		}
+
+		//brands
+		function brands(cat){
+			// alert(cat); exit;
+			jQuery(this).addClass('active');
+			var xhr;
+	        if(xhr && xhr.readyState != 4){
+	            xhr.abort();
+	        }
+	        xhr = jQuery.ajax({
+	            url: '<?php echo $this->getUrl("gadget/index/brands");?>',
+	            data:'cat='+cat,
+	            type:'POST',
+	            dataType: "json",
+	            beforeSend: function() {
+	              	jQuery("#loading-image").show();
+	           	},
+	            success: function(data) {
+	                if(data.status == 1){
+
+	           //      	jQuery.each(data, function(index, element) {
+				        //     alert(index+":"+element);
+				        // });
+
+				  //       var splitarr = data.data;
+				  //       jQuery.each(splitarr,function(i){
+						//    alert(splitarr[i]);
+						// });
+						jQuery('#brandlist').html(data.data);
+						jQuery('.new-gadget-inner-content').addClass("active").show();
+				  	}
+
+				  	if(data.status == 0){
+
+				  	}
+	                return false;
+	            }
+	        });
+		}
+
+		//brands
+		function sku(sku){
+			var xhr;
+	        if(xhr && xhr.readyState != 4){
+	            xhr.abort();
+	        }
+	        xhr = jQuery.ajax({
+	            url: '<?php echo $this->getUrl("gadget/index/sku");?>',
+	            data:'sku='+sku,
+	            type:'POST',
+	            dataType: "json",
+	            beforeSend: function() {
+	              	jQuery("#loading-image").show();
+	           	},
+	            success: function(data) {
+	                if(data.status == 1){
+
+	                	window.location.replace(data.data);
+				  	}
+
+				  	if(data.status == 0){
+				  		// alert(0);
+				  	}
+	                return false;
+	            }
+	        });
+		}
+	</script>
+</div>
+</div>
+

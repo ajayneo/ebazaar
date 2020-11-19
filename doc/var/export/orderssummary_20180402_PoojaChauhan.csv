@@ -1,0 +1,5 @@
+"Order Id",SKU,"Product Name","Store Name","Amount Total",Qty,Discount,"Net Sale",Category,City,State,"ASM Name","RSM Name","Payment Method","Customer Email"
+200103674,OPMBNTF0296,"Lenovo Vibe K5 Plus  (Gold 16 GB)","Yogi Telecom",5800.0000,1.0000,0.0000,5800.0000,Openbox,GURUGRAM,Haryana,"Pooja Chauhan","Rakesh Zaroo",cashondelivery,rmoni10119@gmail.com
+200103851,QCMBB000003,"Samsung Galaxy Y (B)",kamal,400.0000,1.0000,0.0000,400.0000,Preowned,kapurthala,Punjab,"Pooja Chauhan","Rakesh Zaroo",cashondelivery,kamal25sikka@gmail.com
+200103851,QCMBB000072,"MOTOROLA E 2ND GEN (8GB)",kamal,1500.0000,1.0000,0.0000,1500.0000,Preowned,kapurthala,Punjab,"Pooja Chauhan","Rakesh Zaroo",cashondelivery,kamal25sikka@gmail.com
+200103851,QCMBB000201,"Xiaomi Mi 4i (16GB) (B)",kamal,3600.0000,1.0000,0.0000,3600.0000,Preowned,kapurthala,Punjab,"Pooja Chauhan","Rakesh Zaroo",cashondelivery,kamal25sikka@gmail.com

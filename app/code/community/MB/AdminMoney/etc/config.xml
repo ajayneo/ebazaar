@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<config>
+<modules>
+    <MB_AdminMoney>
+        <version>0.0.1</version>
+    </MB_AdminMoney>
+</modules>
+
+<global>
+    <models>
+        <MB_AdminMoney>
+            <class>MB_AdminMoney_Model</class>
+        </MB_AdminMoney>
+        <payment>
+        	<rewrite>
+        		<method_checkmo>MB_AdminMoney_Model_Method_Checkmo</method_checkmo>
+        	</rewrite>
+        </payment>
+    </models>
+    <events>
+        <payment_method_is_active>
+            <observers>
+                <MB_AdminMoney>
+                    <type>singleton</type>
+                    <class>MB_AdminMoney/Observer</class>
+                    <method>paymentMethodIsActive</method>
+                </MB_AdminMoney>
+            </observers>
+        </payment_method_is_active>
+    </events>
+    <resources>
+    	<adminmoney_setup>
+    		<setup>
+    			<module>MB_AdminMoney</module>
+    			<class>MB_AdminMoney_Model_Mysql4_Setup</class>
+    		</setup>
+    		<connection>
+    			<use>core_setup</use>
+    		</connection>
+    	</adminmoney_setup>
+    	<adminmoney_write>
+    		<connection>
+    			<use>core_write</use>
+    		</connection>
+    	</adminmoney_write>
+    	<adminmoney_read>
+    		<connection>
+    			<use>core_read</use>
+    		</connection>
+    	</adminmoney_read>
+    </resources>
+    <fieldsets>
+    	<sales_convert_quote_payment>
+    		<cheque_no>
+    			<to_order_payment>*</to_order_payment>
+    		</cheque_no>
+    		<bank_name>
+    			<to_order_payment>*</to_order_payment>
+    		</bank_name>
+    		<bank_branch_name>
+    			<to_order_payment>*</to_order_payment>
+    		</bank_branch_name>
+    	</sales_convert_quote_payment>
+    </fieldsets>
+</global>
+
+</config>

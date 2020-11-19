@@ -1,0 +1,50 @@
+<?php $product = Mage::registry('current_product'); ?>
+<div id="data" class="share-you-purchase-popup"> <!-- .share-you-purchase-pop start -->
+  <div class="share-you-purchase-inner">
+    <!-- .share-you-purchase start -->
+      <div class="share-you-purchase">
+        <span class="close-icon">x</span>
+          <div class="share-you-purchase-left-box">
+              <div class="share-you-purchase-bg">
+                  <div class="share-you-purchase-img">
+                    <img src="<?php echo Mage::helper('catalog/image')->init($product,'small_image')->resize(210); ?>" alt="<?php echo $product->getName(); ?>" />
+                  </div>
+                  <div class="share-you-purchase-text">Thanks for Purchasing </div>
+              </div>
+          </div>
+          <div class="share-you-purchase-right-box">
+              <div class="share-you-purchase-title">
+                  <h4><?php echo $product->getName(); ?></h4>
+                  <p><?php echo Mage::getBaseUrl().$product->getUrlPath(); ?></p>
+              </div>
+              <div class="share-you-purchase-social">
+                  <span class="share-you-purchase-social-text">Share on:</span>
+                  <ul class="share-you-purchase-social-links">
+                      <li><a class="syp-facebook" href="https://www.facebook.com/sharer/sharer.php?u=<?php echo Mage::getBaseUrl().$product->getUrlPath(); ?>&t=<?php echo $product->getName(); ?>">Facebook</a></li>
+                      <li><a class="syp-twitter" href="http://twitter.com/home/?status=<?php echo $product->getName(); ?> (<?php echo Mage::getBaseUrl().$product->getUrlPath(); ?>)">Twitter</a></li>
+                      <li><a class="syp-g_plus" href="https://plus.google.com/share?url=<?php echo Mage::getBaseUrl().$product->getUrlPath(); ?>">Google</a></li>
+                      <li><a class="syp-pinterest" href="https://pinterest.com/pin/create/button/?url=<?php echo Mage::getBaseUrl().$product->getUrlPath(); ?>&media=<?php echo Mage::helper('catalog/image')->init($product,'small_image')->resize(210); ?>& description=<?php echo $product->getShortDescription(); ?>">Pinterest</a></li>                      
+                  </ul>
+              </div>
+          </div>
+      </div>
+    <!-- .share-you-purchase end -->
+
+  </div>
+</div> <!-- .share-you-purchase-pop end -->
+
+<script type="text/javascript">
+  jQuery(document).ready(function(){
+    //Video Container//
+	jQuery(".link-share").click(function(){
+    jQuery('.share-you-purchase-popup').show();
+	    //jQuery(".share-you-purchase-popup").fadeIn("slow");
+            //jQuery("#inline").fancybox();
+	});
+	
+	jQuery(".close-icon").click(function(){
+       jQuery('.share-you-purchase-popup').hide();
+	    //jQuery(".share-you-purchase-popup").fadeOut("slow");
+	});
+  });
+</script>

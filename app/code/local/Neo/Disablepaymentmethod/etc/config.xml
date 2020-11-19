@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Neo_Disablepaymentmethod>
+      <version>0.1.0</version>
+    </Neo_Disablepaymentmethod>
+  </modules>
+  <global>
+    <helpers>
+      <disablepaymentmethod>
+        <class>Neo_Disablepaymentmethod_Helper</class>
+      </disablepaymentmethod>
+    </helpers>
+	<models>
+	  <disablepaymentmethod>
+		<class>Neo_Disablepaymentmethod_Model</class>
+		<resourceModel>disablepaymentmethod_mysql4</resourceModel>
+	  </disablepaymentmethod>
+	</models>
+    <events>
+	  <checkout_cart_add_product_complete> <!-- identifier of the event we want to catch -->
+        <observers>
+          <checkout_cart_add_product_complete_handler> <!-- identifier of the event handler -->
+            <type>model</type> <!-- class method call type; valid are model, object and singleton -->
+            <class>disablepaymentmethod/observer</class> <!-- observers class alias -->
+            <method>filterpaymentmethodss</method>  <!-- observer's method to be called -->
+            <args></args> <!-- additional arguments passed to observer -->
+          </checkout_cart_add_product_complete_handler>
+        </observers>
+      </checkout_cart_add_product_complete>
+    </events>
+  </global>
+</config> 

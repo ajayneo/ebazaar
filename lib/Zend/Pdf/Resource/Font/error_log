@@ -1,0 +1,4 @@
+[08-Oct-2018 16:05:40 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Pdf_Resource_Font' not found in /home/electronicsbazaa/public_html/lib/Zend/Pdf/Resource/Font/Type0.php on line 64
+[08-Oct-2018 16:05:40 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Pdf_Resource_Font' not found in /home/electronicsbazaa/public_html/lib/Zend/Pdf/Resource/Font/Simple.php on line 63
+[08-Oct-2018 16:05:40 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Pdf_Resource_Font' not found in /home/electronicsbazaa/public_html/lib/Zend/Pdf/Resource/Font/Extracted.php on line 39
+[08-Oct-2018 16:05:40 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Pdf_Resource_Font' not found in /home/electronicsbazaa/public_html/lib/Zend/Pdf/Resource/Font/CidFont.php on line 58

@@ -1,0 +1,67 @@
+<?php //if(Mage::getSingleton('customer/session')->isLoggedIn()): ?>
+<?php if($_GET['orderid'] != '' && $_GET['userid'] != ''): ?>
+<?php $orderdata = Mage::getBlockSingleton('gadget/index')->getOrderDetails($_GET['orderid']); ?>
+<?php if(count($orderdata) > 0): ?>
+    <?php foreach($orderdata as $data): ?>
+    <?php $customer_name = ''; ?>
+    <?php $customer_name = Mage::getModel('customer/customer')->load($_GET['userid'])->getName(); ?>
+    <div class="my-account my-account-new col2-left-layout-new">
+        <div class="syg-order-view">
+            <div class="page-title">
+                <h1><?php echo $this->__('Order Details') ?></h1>
+            </div>
+            <div class="syg-order-view-details">
+            <p><label>Order Number –  </label>: <?php echo $_GET['orderid'] ?></p>
+            <p><label>Device –  </label> : <?php echo $data['proname'] ?></p>
+            <p><label>Exchange Price to be Paid – INR </label> : <?php echo str_replace('?','',$data['price']) ?></p>
+            <p><label>Incentive – INR</label> : 500</p>
+            <p><label>Customer Name –  </label> : <?php echo $customer_name;  ?></p>
+            <p><label>Customer Phone No –  </label> : <?php echo $data['pincode']  ?></p>
+            <p><label>Pick Up Address – </label> : <?php echo $data['address']  ?></p>
+            </div>                
+    <?php endforeach; ?>
+<div class="feedback-button-container">
+	  <div id="succ-mes" class="succ-mes" name="succ-mes"></div>
+      <div id="err-mes" class="err-mes" name="err-mes"></div>        
+      <input type="hidden" name="orderid" id="orderid" value="<?php echo $_GET['orderid'] ?>" />
+      <input type="hidden" name="userid" id="userid" value="<?php echo $_GET['userid'] ?>" />
+      <button type="button" class="button btn-address btn-feedback" onclick="return submitOrderConfirmation()" title="<?php echo $this->__('Confirm') ?>" <span><span><?php echo $this->__('Confirm') ?></span></span></button>
+      <button type="button" class="button btn-address btn-feedback" onclick="return submitNotInterested()" title="<?php echo $this->__('Not Interested') ?>" <span><span><?php echo $this->__('Not Interested') ?></span></span></button>
+</div>
+<?php endif; ?>
+<?php endif; ?>
+
+<script>
+    function submitOrderConfirmation()
+    {   
+        jQuery('#succ-mes').html('');
+        jQuery('#err-mes').html('');
+        var url = "<?php echo $this->getUrl('gadget/index/orderconfirm') ?>";        
+        var orderid = jQuery('#orderid').val(); //alert(rate);   
+        var userid = jQuery('#userid').val();     
+        jQuery.ajax({
+            url: url,
+            data: {orderid:orderid,userid:userid},   
+            type: 'POST', 
+            success: function(response) {
+                //jQuery('#email_address').html(data).css('display','block');
+                var data = JSON.parse(response);
+                // console.log();
+                if(data.status){                                      
+                    jQuery('#succ-mes').html(data.message);                    
+                }
+                else
+                {
+                   jQuery('#err-mes').html(data.message);                   
+                }
+            }
+        }); 
+ 
+        //return false;  
+    }
+
+    function submitNotInterested()
+    { 
+        window.location.href = "/revamp";
+    }   
+</script>

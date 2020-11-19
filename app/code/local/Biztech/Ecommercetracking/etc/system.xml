@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config>
+    <tabs>
+        <biztech translate="label" module="ecommercetracking">
+            <label>Biztech Extensions</label>
+            <sort_order>400</sort_order>
+        </biztech>
+    </tabs>
+    <sections>
+        <ecommercetracking translate="label" module="ecommercetracking">
+            <label>Ecommerce Tracking</label>
+            <tab>biztech</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>10</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <ecommercetracking_general translate="label">
+                    <label>General</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Select Yes to enable this feature.</comment>
+                        </enabled>
+                        <google_profile_id translate="label">
+                            <label>Google Analytics Property ID</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                           <!-- <validate>required-entry</validate>-->
+                            <comment>Set Google Analytics Property ID to to track items purchased by visitors</comment>
+                        </google_profile_id>
+
+                    </fields>
+                </ecommercetracking_general>
+            </groups>
+        </ecommercetracking>
+    </sections>
+</config>

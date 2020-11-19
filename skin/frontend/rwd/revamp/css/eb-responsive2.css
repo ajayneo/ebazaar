@@ -1,0 +1,126 @@
+@media only screen and (max-width: 1024px) {
+    
+/*Login page start*/
+.account-login.account-login-new .new-users {margin-right:0;}
+.account-login.account-login-new .registered-users {margin-left:0;}
+
+.account-login.account-login-new .buttons-set .button {width: 100%;}
+.remember-li {width: 41%;margin-left: 0 !important;}
+.forgot-li {width: 57%;}
+/*Login page end*/
+
+/*order otp form css start*/
+.new-gadget-popup-container.order-otp .new-gadget-popup-inner-content {width: 60%;height: auto;}
+/*order otp form css end*/
+}
+
+@media only screen and (max-width: 979px) {
+/*Credit Request List page css start*/
+.responsive-table-container table.responsive-table tr td {word-break: keep-all;}
+.responsive-table-container table.responsive-table thead tr, .responsive-table-container table.responsive-table thead tr th {white-space: nowrap;}
+/*Credit Request List page css end*/
+}
+
+@media only screen and (max-width: 770px) {
+
+/*Login page start*/
+.account-login.account-login-new .col2-set h2 {font-size: 19px;}
+.account-login.account-login-new .col2-set .col-1 {padding: 15px 10px 15px 15px;}
+.account-login.account-login-new .col2-set .col-2 {padding: 15px 15px 15px 10px;}
+
+.account-login.account-login-new .account-registered, .account-login.account-login-new .account-create{width: 100%;padding: 5%; margin: 0;}
+.remember-li{width: 44%;}
+.forgot-li {width: 54%;}
+/*Login page end*/
+
+/*vow delight page css start*/
+/*--vow delight index page--*/
+.vow-delight-container {border: 0;padding: 0;}
+.vow-delight-container .form-content.three-columns ul li {width: 100%;margin-bottom: 20px;}
+.vow-delight-container .form-content.three-columns ul li:nth-child(4n) {margin-bottom: 0;}
+.vow-delight-container .three-columns ul {margin-bottom: 30px !important;}
+.vow-mobile-button-container button {width: 50%;}
+.vow-delight-table-container {margin-bottom: 30px;}
+.vow-delight-container .form-container .form-content .input-box select {height: 35px;}
+.vow-delight-container .form-content.three-columns ul li.imei-number-li .input-box input {width: 95%;}
+.vow-delight-container .form-content.three-columns ul li.imei-number-li .help-vow {top: 6px;}
+/*vow delight page css end*/
+
+/*RETAIL SITE EVALUATION FORM css start*/
+.form-container input[type="date"] {height: 35px;}
+/*RETAIL SITE EVALUATION FORM css end*/
+
+/*approve & Reject css start*/
+ul.credit-form li .input-box.text-box {padding: 6px 10px;height: 35px;}
+/*approve & Reject css end*/
+}
+
+@media only screen and (max-width: 767px) {
+/*SYG Order page css start*/
+/*syg order sell back css start*/
+.syg-order-sellback .bank-container {padding-right: 0;}
+.syg-order-sellback .address-container {padding-left: 0;}
+/*SYG Order page css end*/
+
+}
+
+@media only screen and (max-width: 600px) {
+
+/*Login page start*/
+ .account-login.account-login-new .col-1.registered-users, .account-login.account-login-new .col-2.new-users {width: 100%;}
+ .account-login.account-login-new .col2-set .col-1, .account-login.account-login-new .col2-set .col-2 {padding: 15px;margin-top: 0;}
+/*Login page end*/
+
+/*vow delight page css start*/
+/*--vow delight success page--*/
+.vow-delight-success {padding: 0 10px;}
+.vow-delight-success .buttons-set {width: 100%;}
+.vow-delight-success .buttons-set button {min-width: auto;width: 60%;margin-bottom: 0;}
+.vow-delight-success .buttons-set button + button {margin-left: 0;margin-top: 20px;}
+
+span.vow-delight-btn {width: 120px;}
+/*vow delight page css end*/
+
+/*SYG Order page css start*/
+/*syg order sell back css start*/
+body.gadget-index-sellback .syg-order-sellback .page-title h1 {display: inline !important;}
+.syg-order-sellback .new-gadget-title {margin-top: 0;}
+/*SYG Order page css end*/
+
+/*RETAIL SITE EVALUATION FORM css start*/
+.button-container .btn {display: block; margin: 0 auto 8px; }
+.button-container .btn:last-child {margin-bottom: 0;}
+/*RETAIL SITE EVALUATION FORM css end*/
+
+/*order otp form css start*/
+.new-gadget-popup-container.order-otp .new-gadget-popup-inner-content {width: 80%;height: auto;}
+/*order otp form css end*/
+}
+
+@media only screen and (max-width: 480px) {
+    
+/*vow delight page css start*/
+/*--vow delight index page--*/
+.vow-delight-container .form-content.three-columns ul li.imei-number-li .input-box input {width: 91%;}
+
+/*--vow delight success page--*/
+.vow-delight-success .page-title {margin: 35px 0 25px 0;}
+.vow-delight-success h1.success-head {font-size: 45px;}
+.blue-btm-border {padding-bottom: 35px;}
+.vow-delight-success p {font-size: 16px;}
+.vow-delight-success .para-s p {font-size: 17px;}
+.vow-delight-success .buttons-set {margin: 10px 0 0 0;}
+.vow-delight-success .buttons-set button { width: 78%;}
+
+span.vow-delight-btn {width: 90px;}
+
+/*--vow delight program page css start--*/
+ul.vow-delight-program-steps-list li {font-size: 13px;}
+.vow-delight-program-content p {font-size: 15px;}
+.vow-delight-program-content span.vow-delight-btn {width: auto;}
+/*vow delight page css end*/
+
+/*order otp form css start*/
+.new-gadget-popup-container.order-otp .new-gadget-popup-inner-content {width: 90%;height: auto;}
+/*order otp form css end*/
+}

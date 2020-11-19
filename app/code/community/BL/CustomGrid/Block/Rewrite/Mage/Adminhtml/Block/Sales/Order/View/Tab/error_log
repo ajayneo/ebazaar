@@ -1,0 +1,5 @@
+[31-May-2016 05:57:43 UTC] PHP Parse error:  syntax error, unexpected 'email' (T_STRING) in /home/electronicsbazaa/public_html/app/code/local/Neo/Sales/Model/Order/Shipment.php on line 63
+[31-May-2016 06:00:09 UTC] PHP Parse error:  syntax error, unexpected 'email' (T_STRING) in /home/electronicsbazaa/public_html/app/code/local/Neo/Sales/Model/Order/Shipment.php on line 63
+[31-May-2016 06:00:22 UTC] PHP Parse error:  syntax error, unexpected 'email' (T_STRING) in /home/electronicsbazaa/public_html/app/code/local/Neo/Sales/Model/Order/Shipment.php on line 63
+[31-May-2016 06:08:26 UTC] PHP Parse error:  syntax error, unexpected 'email' (T_STRING) in /home/electronicsbazaa/public_html/app/code/local/Neo/Sales/Model/Order/Shipment.php on line 63
+[11-Jul-2016 11:06:25 UTC] PHP Fatal error:  Call to a member function load() on a non-object in /home/electronicsbazaa/public_html/app/code/local/Mage/Adminhtml/controllers/Sales/OrderController.php on line 74

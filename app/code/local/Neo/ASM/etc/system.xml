@@ -1,0 +1,348 @@
+<?xml version="1.0"?>
+<config>
+	  <tabs>
+		<neo_asm translate="label" module="asm">
+            <label>ASM Email Ids Order Intimations</label>
+            <sort_order>100</sort_order>
+        </neo_asm>
+	  </tabs>
+	  <sections>
+		<neoasm_section  translate="label" module="asm">                    
+		<label>ASM Email Ids for Order Intimations</label>
+		<tab>neo_asm</tab>
+		<frontend_type>text</frontend_type>
+		<sort_order>100</sort_order>
+		<show_in_default>1</show_in_default>
+		<show_in_website>1</show_in_website>
+		<show_in_store>1</show_in_store>            
+					<groups>
+				      <neoasm_group translate="label"> 
+					  <label>ASM Email Ids for Order Intimations</label>
+					  <frontend_type>text</frontend_type>
+					  <sort_order>1</sort_order>
+					  <show_in_default>1</show_in_default>
+					  <show_in_website>1</show_in_website>
+					  <show_in_store>1</show_in_store>
+				       <fields>
+                  <neoasm_enabled translate="label">
+                      <label>Enabled</label>
+                      <frontend_type>select</frontend_type>
+                      <source_model>adminhtml/system_config_source_yesno</source_model>
+                      <sort_order>0</sort_order>
+                      <show_in_default>1</show_in_default>
+                      <show_in_website>1</show_in_website>
+                      <show_in_store>1</show_in_store>
+							        <comment>enabled</comment>
+                  </neoasm_enabled>
+                  <neoasm_485_field translate="label">
+    <label>Andra Pradesh</label>
+    <frontend_type>text</frontend_type>
+    <sort_order>1</sort_order>
+    <show_in_default>1</show_in_default>
+    <show_in_website>1</show_in_website>
+    <show_in_store>1</show_in_store>
+    <comment>Andra Pradesh Email address</comment>
+  </neoasm_485_field>
+<neoasm_486_field translate="label">
+    <label>Arunachal Pradesh</label>
+    <frontend_type>text</frontend_type>
+    <sort_order>2</sort_order>
+    <show_in_default>1</show_in_default>
+    <show_in_website>1</show_in_website>
+    <show_in_store>1</show_in_store>
+    <comment>Arunachal Pradesh Email address</comment>
+  </neoasm_486_field>
+<neoasm_487_field translate="label">
+    <label>Assam</label>
+    <frontend_type>text</frontend_type>
+    <sort_order>3</sort_order>
+    <show_in_default>1</show_in_default>
+    <show_in_website>1</show_in_website>
+    <show_in_store>1</show_in_store>
+    <comment>Assam Email address</comment>
+  </neoasm_487_field>
+<neoasm_488_field translate="label">
+    <label>Bihar</label>
+    <frontend_type>text</frontend_type>
+    <sort_order>4</sort_order>
+    <show_in_default>1</show_in_default>
+    <show_in_website>1</show_in_website>
+    <show_in_store>1</show_in_store>
+    <comment>Bihar Email address</comment>
+  </neoasm_488_field>
+<neoasm_489_field translate="label">
+    <label>Chandigarh</label>
+    <frontend_type>text</frontend_type>
+    <sort_order>5</sort_order>
+    <show_in_default>1</show_in_default>
+    <show_in_website>1</show_in_website>
+    <show_in_store>1</show_in_store>
+    <comment>Chandigarh Email address</comment>
+  </neoasm_489_field>
+<neoasm_490_field translate="label">
+    <label>Chhattisgarh</label>
+    <frontend_type>text</frontend_type>
+    <sort_order>6</sort_order>
+    <show_in_default>1</show_in_default>
+    <show_in_website>1</show_in_website>
+    <show_in_store>1</show_in_store>
+    <comment>Chhattisgarh Email address</comment>
+  </neoasm_490_field>
+<neoasm_491_field translate="label">
+    <label>Dadra and Nagar Haveli</label>
+    <frontend_type>text</frontend_type>
+    <sort_order>7</sort_order>
+    <show_in_default>1</show_in_default>
+    <show_in_website>1</show_in_website>
+    <show_in_store>1</show_in_store>
+    <comment>Dadra and Nagar Haveli Email address</comment>
+  </neoasm_491_field>
+<neoasm_492_field translate="label">
+    <label>Daman and Diu</label>
+    <frontend_type>text</frontend_type>
+    <sort_order>8</sort_order>
+    <show_in_default>1</show_in_default>
+    <show_in_website>1</show_in_website>
+    <show_in_store>1</show_in_store>
+    <comment>Daman and Diu Email address</comment>
+  </neoasm_492_field>
+<neoasm_493_field translate="label">
+    <label>Delhi</label>
+    <frontend_type>text</frontend_type>
+    <sort_order>9</sort_order>
+    <show_in_default>1</show_in_default>
+    <show_in_website>1</show_in_website>
+    <show_in_store>1</show_in_store>
+    <comment>Delhi Email address</comment>
+  </neoasm_493_field>
+<neoasm_494_field translate="label">
+    <label>Goa</label>
+    <frontend_type>text</frontend_type>
+    <sort_order>10</sort_order>
+    <show_in_default>1</show_in_default>
+    <show_in_website>1</show_in_website>
+    <show_in_store>1</show_in_store>
+    <comment>Goa Email address</comment>
+  </neoasm_494_field>
+<neoasm_495_field translate="label">
+    <label>Gujarat</label>
+    <frontend_type>text</frontend_type>
+    <sort_order>11</sort_order>
+    <show_in_default>1</show_in_default>
+    <show_in_website>1</show_in_website>
+    <show_in_store>1</show_in_store>
+    <comment>Gujarat Email address</comment>
+  </neoasm_495_field>
+<neoasm_496_field translate="label">
+    <label>Haryana</label>
+    <frontend_type>text</frontend_type>
+    <sort_order>12</sort_order>
+    <show_in_default>1</show_in_default>
+    <show_in_website>1</show_in_website>
+    <show_in_store>1</show_in_store>
+    <comment>Haryana Email address</comment>
+  </neoasm_496_field>
+<neoasm_497_field translate="label">
+    <label>Himachal Pradesh</label>
+    <frontend_type>text</frontend_type>
+    <sort_order>13</sort_order>
+    <show_in_default>1</show_in_default>
+    <show_in_website>1</show_in_website>
+    <show_in_store>1</show_in_store>
+    <comment>Himachal Pradesh Email address</comment>
+  </neoasm_497_field>
+<neoasm_498_field translate="label">
+    <label>Jammu and Kashmir</label>
+    <frontend_type>text</frontend_type>
+    <sort_order>14</sort_order>
+    <show_in_default>1</show_in_default>
+    <show_in_website>1</show_in_website>
+    <show_in_store>1</show_in_store>
+    <comment>Jammu and Kashmir Email address</comment>
+  </neoasm_498_field>
+<neoasm_499_field translate="label">
+    <label>Jharkhand</label>
+    <frontend_type>text</frontend_type>
+    <sort_order>15</sort_order>
+    <show_in_default>1</show_in_default>
+    <show_in_website>1</show_in_website>
+    <show_in_store>1</show_in_store>
+    <comment>Jharkhand Email address</comment>
+  </neoasm_499_field>
+<neoasm_500_field translate="label">
+    <label>Karnataka</label>
+    <frontend_type>text</frontend_type>
+    <sort_order>16</sort_order>
+    <show_in_default>1</show_in_default>
+    <show_in_website>1</show_in_website>
+    <show_in_store>1</show_in_store>
+    <comment>Karnataka Email address</comment>
+  </neoasm_500_field>
+<neoasm_501_field translate="label">
+    <label>Kerala</label>
+    <frontend_type>text</frontend_type>
+    <sort_order>17</sort_order>
+    <show_in_default>1</show_in_default>
+    <show_in_website>1</show_in_website>
+    <show_in_store>1</show_in_store>
+    <comment>Kerala Email address</comment>
+  </neoasm_501_field>
+<neoasm_502_field translate="label">
+    <label>Lakshadeep</label>
+    <frontend_type>text</frontend_type>
+    <sort_order>18</sort_order>
+    <show_in_default>1</show_in_default>
+    <show_in_website>1</show_in_website>
+    <show_in_store>1</show_in_store>
+    <comment>Lakshadeep Email address</comment>
+  </neoasm_502_field>
+<neoasm_503_field translate="label">
+    <label>Madya Pradesh</label>
+    <frontend_type>text</frontend_type>
+    <sort_order>19</sort_order>
+    <show_in_default>1</show_in_default>
+    <show_in_website>1</show_in_website>
+    <show_in_store>1</show_in_store>
+    <comment>Madya Pradesh Email address</comment>
+  </neoasm_503_field>
+<neoasm_504_field translate="label">
+    <label>Maharashtra</label>
+    <frontend_type>text</frontend_type>
+    <sort_order>20</sort_order>
+    <show_in_default>1</show_in_default>
+    <show_in_website>1</show_in_website>
+    <show_in_store>1</show_in_store>
+    <comment>Maharashtra Email address</comment>
+  </neoasm_504_field>
+<neoasm_505_field translate="label">
+    <label>Manipur</label>
+    <frontend_type>text</frontend_type>
+    <sort_order>21</sort_order>
+    <show_in_default>1</show_in_default>
+    <show_in_website>1</show_in_website>
+    <show_in_store>1</show_in_store>
+    <comment>Manipur Email address</comment>
+  </neoasm_505_field>
+<neoasm_506_field translate="label">
+    <label>Meghalaya</label>
+    <frontend_type>text</frontend_type>
+    <sort_order>22</sort_order>
+    <show_in_default>1</show_in_default>
+    <show_in_website>1</show_in_website>
+    <show_in_store>1</show_in_store>
+    <comment>Meghalaya Email address</comment>
+  </neoasm_506_field>
+<neoasm_507_field translate="label">
+    <label>Mizoram</label>
+    <frontend_type>text</frontend_type>
+    <sort_order>23</sort_order>
+    <show_in_default>1</show_in_default>
+    <show_in_website>1</show_in_website>
+    <show_in_store>1</show_in_store>
+    <comment>Mizoram Email address</comment>
+  </neoasm_507_field>
+<neoasm_508_field translate="label">
+    <label>Nagaland</label>
+    <frontend_type>text</frontend_type>
+    <sort_order>24</sort_order>
+    <show_in_default>1</show_in_default>
+    <show_in_website>1</show_in_website>
+    <show_in_store>1</show_in_store>
+    <comment>Nagaland Email address</comment>
+  </neoasm_508_field>
+<neoasm_510_field translate="label">
+    <label>Orissa</label>
+    <frontend_type>text</frontend_type>
+    <sort_order>25</sort_order>
+    <show_in_default>1</show_in_default>
+    <show_in_website>1</show_in_website>
+    <show_in_store>1</show_in_store>
+    <comment>Orissa Email address</comment>
+  </neoasm_510_field>
+<neoasm_511_field translate="label">
+    <label>Pondicherry</label>
+    <frontend_type>text</frontend_type>
+    <sort_order>26</sort_order>
+    <show_in_default>1</show_in_default>
+    <show_in_website>1</show_in_website>
+    <show_in_store>1</show_in_store>
+    <comment>Pondicherry Email address</comment>
+  </neoasm_511_field>
+<neoasm_512_field translate="label">
+    <label>Punjab</label>
+    <frontend_type>text</frontend_type>
+    <sort_order>27</sort_order>
+    <show_in_default>1</show_in_default>
+    <show_in_website>1</show_in_website>
+    <show_in_store>1</show_in_store>
+    <comment>Punjab Email address</comment>
+  </neoasm_512_field>
+<neoasm_513_field translate="label">
+    <label>Rajasthan</label>
+    <frontend_type>text</frontend_type>
+    <sort_order>28</sort_order>
+    <show_in_default>1</show_in_default>
+    <show_in_website>1</show_in_website>
+    <show_in_store>1</show_in_store>
+    <comment>Rajasthan Email address</comment>
+  </neoasm_513_field>
+<neoasm_514_field translate="label">
+    <label>Sikkim</label>
+    <frontend_type>text</frontend_type>
+    <sort_order>29</sort_order>
+    <show_in_default>1</show_in_default>
+    <show_in_website>1</show_in_website>
+    <show_in_store>1</show_in_store>
+    <comment>Sikkim Email address</comment>
+  </neoasm_514_field>
+<neoasm_515_field translate="label">
+    <label>Tamil Nadu</label>
+    <frontend_type>text</frontend_type>
+    <sort_order>30</sort_order>
+    <show_in_default>1</show_in_default>
+    <show_in_website>1</show_in_website>
+    <show_in_store>1</show_in_store>
+    <comment>Tamil Nadu Email address</comment>
+  </neoasm_515_field>
+<neoasm_555_field translate="label">
+    <label>Telangana</label>
+    <frontend_type>text</frontend_type>
+    <sort_order>31</sort_order>
+    <show_in_default>1</show_in_default>
+    <show_in_website>1</show_in_website>
+    <show_in_store>1</show_in_store>
+    <comment>Telangana Email address</comment>
+  </neoasm_555_field>
+<neoasm_516_field translate="label">
+    <label>Tripura</label>
+    <frontend_type>text</frontend_type>
+    <sort_order>32</sort_order>
+    <show_in_default>1</show_in_default>
+    <show_in_website>1</show_in_website>
+    <show_in_store>1</show_in_store>
+    <comment>Tripura Email address</comment>
+  </neoasm_516_field>
+<neoasm_517_field translate="label">
+    <label>Uttar Pradesh</label>
+    <frontend_type>text</frontend_type>
+    <sort_order>33</sort_order>
+    <show_in_default>1</show_in_default>
+    <show_in_website>1</show_in_website>
+    <show_in_store>1</show_in_store>
+    <comment>Uttar Pradesh Email address</comment>
+  </neoasm_517_field>
+<neoasm_519_field translate="label">
+    <label>West Bengal</label>
+    <frontend_type>text</frontend_type>
+    <sort_order>34</sort_order>
+    <show_in_default>1</show_in_default>
+    <show_in_website>1</show_in_website>
+    <show_in_store>1</show_in_store>
+    <comment>West Bengal Email address</comment>
+  </neoasm_519_field>
+					   </fields>
+					   </neoasm_group>
+					</groups>
+		</neoasm_section>
+	  </sections>
+</config>

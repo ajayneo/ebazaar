@@ -1,0 +1,219 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     rwd_default
+ * @copyright   Copyright (c) 2014 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+/* @var $this Mage_Reports_Block_Product_Viewed */
+?>
+<?php $product_list_block = new Mage_Catalog_Block_Product_List(); ?>
+<?php if ($_products = $this->getRecentlyViewedProducts()): ?>
+<?php $countrecentlyviewedproducts = count($_products);
+    $compare_collection = Mage::helper('catalog/product_compare')->getItemCollection();
+    $compare_ids = array();
+    foreach ($compare_collection as $comp_prod) {
+        $compare_ids[] = $comp_prod->getId();
+    }
+    ?>
+<?php
+/**
+Add Deals Offer Tag on Product
+*/
+// $dealCollection = Mage::getModel('multipledeals/multipledeals')->getCollection()->addFieldToFilter('status', array('eq'=>1));
+// $dealproductIds = array();
+// if (count($dealCollection)) {
+// 	foreach ($dealCollection as $deal) {
+// 			$dealproductIds[] = $deal->getProductId();
+// 	}
+// }
+?>
+<div class="recently-viewed-container1 category-products_test products_homeslider products-grid">
+    <div class="main">
+    	
+    <h2 class="home-slider-heading"><?php echo $this->__('Recently Viewed Products') ?></h2>
+    
+    <!--<div class="block-content">-->
+        <!-- <ol id="recently-viewed-items" class="products-grid products-grid--max-4-col first last odd homeproslider2ssssss"> --> 
+        <ul class="products-grid recently-viewed">
+        <?php foreach ($_products as $_item): ?>
+        	<?php $label = Mage::helper('custombestseller')->getCustomImageLabel($_item->getSku()); ?>
+            <li class="item">
+            	<div class="item-wrapper">
+            	<?php $hasProduct = 0; ?>
+                    <?php if(Mage::getSingleton('customer/session')->isLoggedIn()): ?>
+                        <?php $customerId = Mage::getSingleton('customer/session')->getCustomerId(); ?>
+                        <?php $wishlist = Mage::getModel('wishlist/wishlist')->loadByCustomer($customerId, true); ?>
+                        <?php $collection = Mage::getModel('wishlist/item')->getCollection()->addFieldToFilter('wishlist_id', $wishlist->getId())->addFieldToFilter('product_id', $_item->getId()); ?>
+                        <?php $item = $collection->getFirstItem(); ?>
+                        <?php $hasProduct = $item->getWishlistItemId(); ?>
+                    <?php endif; ?>
+                    <ul class="add-to-links">
+                        <?php if($hasProduct): ?>
+                            <li><a href="<?php echo $this->getBaseUrl() ?>wishlist/index/remove/item/<?php echo $hasProduct?>" class="link-wishlist added-to-wishlist"><?php echo $this->__('Remove from Wishlist') ?></a>
+                            </li>
+                        <?php else: ?>
+                            <li><a class="link-wishlist" title="Add to Wishlist" onclick="setLocation('<?php echo $product_list_block->getAddToWishlistUrl($_item); ?>')">Add to Wishlist</a>
+                            </li>
+                        <?php endif; ?>
+                    </ul>
+				<!-- <div class="product-view" data-pid="<?php // echo $_item->getId(); ?>">
+					<span><a href="javascript:void(0)">Quick View</a></span>
+				</div> -->
+            	<div class="clr"></div>
+				<div class="product-image-container">
+				<a target="_blank" href="<?php echo $this->getProductUrl($_item) ?>" title="<?php echo $_item->getName(); ?>" class="product-image">
+					<?php if($label != ''): ?>
+                            <div class="category-name category-open-box">
+                                <img src="<?php echo $this->getSkinUrl(); ?>images/label/<?php echo $label.'-cat.png'; ?>">
+                            </div>
+                    <?php endif; ?>
+					<?php $special_price = $_item->getSpecialPrice(); ?>
+					<?php $finalprice = $_item->getFinalPrice(); ?>
+					<?php $product_id = $_item->getId(); ?>
+					<?php $now = date("Y-m-d"); ?>
+					<?php $newsFrom = substr($_item->getData('news_from_date'),0,10); ?>
+					<?php $newsTo =  substr($_item->getData('news_to_date'),0,10); ?>
+					<?php if(!empty($special_price)): ?>
+						<div class="product-offer">
+							<span>Offer</span>
+						</div>
+					<?php elseif(!empty($newsFrom) || !empty($newsTo)):?>
+						<?php if($now>=$newsFrom && $now<=$newsTo): ?> 
+							<div class="product-new">
+								<span>New</span>
+							</div>
+						<?php endif; ?>
+					<?php endif; ?>
+					<?php $_imgSize = 210; ?>
+					<span><img id="product-collection-image-<?php echo $_item->getId(); ?>" src="<?php echo Mage::helper('catalog/image')->init($_item,'small_image')->resize($_imgSize); ?>" alt="<?php echo $_item->getName(); ?>" /></span>
+					<!--<img src="<?php //echo $this->getSkinUrl('images/product1.png'); ?>" alt="Home Product">-->
+					<div class="mask"></div>
+				</a>
+				</div>
+				<?php if($_item->getNewLaunch()) { ?>
+                <div class="coming-soon">Coming Soon</div>
+                <?php }?>
+                <div class="clr"></div>
+				<div class="product-info">
+					<h2 class="product-name"><a href="<?php echo $this->getProductUrl($_item) ?>" title="<?php echo $_item->getName(); ?>"><?php echo substr($_item->getName(),0,28); ?><?php if(strlen($_item->getName()) > 28) { echo '...'; } ?></a></h2>
+					 <?php // if(Mage::helper('customer')->isLoggedin()): ?>
+ 					 	<?php echo $this->getLayout()->getBlockSingleton('catalog/product_list')->getPriceHtml($_item, true) ?>
+                    <?php /* else: ?>
+						</div>
+                        <div class="product-info-custom">
+                            <a class="view-price" href="<?php echo $this->getUrl('customer/account/login');?>">Login to view Price</a>
+                    <?php endif; */?>	
+				</div>
+				<div class="short-description">
+					<div class="c-prod-desc"><?php echo $_item->getImpDesc(); ?></div>
+				</div>
+				<?php /*?>
+				<div class="gadets-addtocomare">
+					<?php $_compareUrl = Mage::helper('catalog/product_compare')->getAddUrl($_item); ?>
+					<div class="checkbox_sample sample">
+						<input <?php echo in_array($_item->getId(),$compare_ids)? 'checked':'' ?> type="checkbox"  id="<?php echo "products_".$_item->getId(); ?>" onclick="ajaxCompare('<?php echo $_compareUrl; ?>','<?php echo $_item->getId()?>',jQuery(this));" class="checkbox" /><label class="css-label" for="<?php echo "products_".$_item->getId(); ?>"><?php echo $this->__('Add to Compare') ?></label>
+					</div>
+				</div><?php */?>
+				<?php if(!$_item->getNewLaunch()) { ?>
+				<div class="actions">
+					<button class="button btn-cart" title="Buy now" type="button" onclick="setLocation('<?php echo $product_list_block->getAddToCartUrl($_item); ?>')"><span><span>Add to Cart</span></span></button>
+
+					<?php // added to check wthr product is in the wishlist and add "added-to-wishlist" accordingly by pradeep sanku on 1st April 2015 ?>
+					<div class="clr"></div>
+				</div>
+				<?php }?>
+				<?php /*
+					
+					if(in_array($product_id, $dealproductIds)) {
+						$customblocks_index = new Neo_Customblocks_Block_Index();
+						$discount_percent = $customblocks_index->getDealsDiscountPercent($product_id);
+						if($discount_percent > 0):
+				?>
+						<div class="tag"><p><?php echo $discount_percent; ?>% <span>Off</span></p></div>
+				<?php 
+						endif;
+					} */
+				?>
+			</div>
+            </li>
+        <?php endforeach; ?>
+        <!-- </ol> -->
+        </ul>
+	<!--<div class="shareurpopup">
+		<div class="share-you-purchase-popup">
+			
+		</div>	
+	</div>-->
+        <script type="text/javascript">decorateList('recently-viewed-items');</script>
+    </div>
+</div>
+<?php endif; ?>
+	<script type="text/javascript">
+		var productcount = "<?php echo $countrecentlyviewedproducts; ?>";
+		jQuery(document).ready(function(){
+			var window_width = jQuery(window).width();
+			//alert(jQuery(window).width());
+			// Recently Viewed Products on the product detail page
+				if((window_width <= 980 && window_width >= 768) && productcount >= 3){
+					jQuery('#recently-viewed-items').bxSlider({
+						auto: false,
+						pager: false,
+						slideMargin:10,
+						controls: true,
+						infiniteLoop:true,
+						minSlides: 1,
+						maxSlides: 4,
+						moveSlides: 4,
+						preloadImages:'all'
+					});
+				}else if(productcount > 4){
+					jQuery('#recently-viewed-items').bxSlider({
+						auto: false,
+						pager: false,
+						slideMargin:10,
+						controls: true,
+						infiniteLoop:true,
+						minSlides: 1,
+						maxSlides: 4,
+						moveSlides: 4,
+						preloadImages:'all'
+					});
+				}
+				
+				//if(window_width <= 980 && window_width >= 768 || productcount > 4){
+				/*if(window_width <= 980 && window_width >= 768) {
+					jQuery('#recently-viewed-items').bxSlider({
+					auto: false,
+					pager: false,
+					slideWidth: 170,
+					slideMargin:28,
+					controls: true,
+					infiniteLoop:true,
+					minSlides: 1,
+					maxSlides: 3,
+					moveSlides: 1,
+					preloadImages:'all'
+				    });
+				}*/
+			});
+		
+	</script>

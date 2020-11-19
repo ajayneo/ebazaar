@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<config>
+	  <tabs>
+		<reverse_pickup_tabs translate="label" module="reversepickup">
+            <label>Reverse Pickup Tabs</label>
+            <sort_order>0</sort_order>
+        </reverse_pickup_tabs>
+	  </tabs>
+	  <sections>
+		<reverse_pickup_section  translate="label" module="reversepickup">                    
+		<label>Reverse Pickup Section</label>
+		<tab>reverse_pickup_tabs</tab>
+		<frontend_type>text</frontend_type>
+		<sort_order>0</sort_order>
+		<show_in_default>1</show_in_default>
+		<show_in_website>1</show_in_website>
+		<show_in_store>1</show_in_store>            
+					<groups>
+				      <reverse_pickup_group translate="label"> 
+					  <label>Reverse Pickup Group</label>
+					  <frontend_type>text</frontend_type>
+					  <sort_order>0</sort_order>
+					  <show_in_default>1</show_in_default>
+					  <show_in_website>1</show_in_website>
+					  <show_in_store>1</show_in_store>
+				       <fields>
+                          <address translate="label">
+                            <label>Address</label>
+							<frontend_type>textarea</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Mage::getStoreConfig('reverse_pickup_section/reverse_pickup_group/address',Mage::app()->getStore());
+                            </comment>
+                          </address>
+                          <city translate="label">
+                            <label>City</label>
+              <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Mage::getStoreConfig('reverse_pickup_section/reverse_pickup_group/city',Mage::app()->getStore());</comment>
+                          </city>                          
+                          <pincode translate="label">
+                            <label>Pincode</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Mage::getStoreConfig('reverse_pickup_section/reverse_pickup_group/pincode',Mage::app()->getStore());</comment>
+                          </pincode>
+                          <state translate="label">
+                            <label>State</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Mage::getStoreConfig('reverse_pickup_section/reverse_pickup_group/state',Mage::app()->getStore());</comment>
+                          </state>
+                          <mobile translate="label">
+                            <label>Mobile No</label>
+							<frontend_type>text</frontend_type>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Mage::getStoreConfig('reverse_pickup_section/reverse_pickup_group/mobile',Mage::app()->getStore());</comment>
+                          </mobile>
+					   </fields>
+					   </reverse_pickup_group>
+					</groups>
+		</reverse_pickup_section>
+	  </sections>
+</config>

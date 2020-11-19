@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+
+<config>
+
+  <modules>
+
+    <Neo_Navisionexport>
+
+      <version>0.1.0</version>
+
+    </Neo_Navisionexport>
+
+  </modules>
+
+  <global>
+
+    <helpers>
+
+      <navisionexport>
+
+        <class>Neo_Navisionexport_Helper</class>
+
+      </navisionexport>
+
+    </helpers>
+
+	<models>
+
+	  <navisionexport> 
+
+		<class>Neo_Navisionexport_Model</class>
+
+		<resourceModel>navisionexport_mysql4</resourceModel>
+
+	  </navisionexport>
+
+	</models>
+
+  <template>
+
+      <email>
+
+          <navisionexport_hourly_email_template translate="label" module="navisionexport">
+
+              <label>Hourly Sales Report</label>
+
+              <file>hourly_sales_report.html</file>
+
+              <type>html</type>
+
+          </navisionexport_hourly_email_template>
+
+      </email>
+
+  </template>
+
+  <template>
+
+      <email>
+
+          <newsummary_v2_template translate="label" module="navisionexport">
+
+              <label>New Summary Template</label>
+
+              <file>newsummary_v2.html</file>
+
+              <type>html</type>
+
+          </newsummary_v2_template>
+
+      </email>
+
+
+      <email>
+
+        <ordersummary_v3_template translate="label" module="navisionexport">
+
+              <label>Order Summary V3 Template</label>
+
+              <file>ordersummary_v3.html</file>
+
+              <type>html</type>
+
+          </ordersummary_v3_template>
+
+      </email>
+
+  </template>
+
+  </global>    
+
+</config>    

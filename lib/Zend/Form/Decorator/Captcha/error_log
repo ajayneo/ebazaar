@@ -1,0 +1,2 @@
+[08-Oct-2018 16:05:39 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Form_Decorator_Abstract' not found in /home/electronicsbazaa/public_html/lib/Zend/Form/Decorator/Captcha/Word.php on line 38
+[08-Oct-2018 16:05:39 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Form_Decorator_Abstract' not found in /home/electronicsbazaa/public_html/lib/Zend/Form/Decorator/Captcha/ReCaptcha.php on line 38

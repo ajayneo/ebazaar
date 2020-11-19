@@ -1,0 +1,141 @@
+<?php // refund then uploading the return doc
+// return then update order id and imei
+?>
+<?php $request_id = $this->getRequest()->getParam("id"); 
+$requestData = Mage::helper('orderreturn')->getAdminImeiList($request_id);
+$dropdown_status = Mage::helper('orderreturn')->getStatusLabel();
+$dropdown_return_action = Mage::helper('orderreturn')->getReturn();
+$dropdown_reason = Mage::helper('orderreturn')->getReason();
+$bank_id = $requestData['bank_id'];
+$imei_list = $requestData['imei_list'];
+$order_id = $requestData['order_id'];
+$customer = Mage::helper('orderreturn')->getCustomer($order_id);
+$table_str = '';
+foreach ($imei_list as $key => $value) {
+    // print_r($value); die();
+    $imei_no = $key;
+
+    $directory = Mage::getBaseDir('media') . DS . 'order_return' . DS . $imei_no . DS;
+    $files = scandir ($directory);
+    $firstFile = Mage::getBaseUrl('media') .  'order_return' . DS . $imei_no . DS . $files[2];
+    
+
+    $reason = $value['reason'];
+    $return = $value['return_action'];
+    $imei_status = $value['status'];
+    $docket_no = $value['docket_no'];
+    $remarks = $value['remarks'];
+
+    $return_action_options = '';
+    foreach ($dropdown_return_action as $key => $value) {
+        if($value == $return){
+            $return_action_options .='<option selected="selected" value="'.$key.'">'.$value.'</option>';
+        }else{
+            $return_action_options .='<option value="'.$key.'">'.$value.'</option>';
+        }
+    }
+
+    $status_options = '';
+    foreach ($dropdown_status as $key => $value) {
+        if($value == $imei_status){
+            $status_options .='<option selected="selected" value="'.$key.'">'.$value.'</option>';
+        }else{
+            $status_options .='<option value="'.$key.'">'.$value.'</option>';
+        }
+    }
+
+    $table_str .= '<tr class="border">';
+    // $table_str .= '<td>Product Name</td>';
+    $table_str .= '<td>'.$imei_no.'</td>';
+    $table_str .= '<td>'.$reason.'</td>';
+    //$table_str .= '<td><select name="return_action['.$imei_no.']">';
+    //$table_str .= $return_action_options;
+    //$table_str .='</select></td>';
+    $table_str .= '<td>'.$return.'</td>';
+    
+    if($files[2]){
+        $table_str .= '<td><a href="'.$firstFile.'" target="_blank" title="View in New Tab"><img width="80" src="'.$firstFile.'" alt="Product Image" /></a>
+        </td>';
+    }else{
+        $table_str .='<td>Image Not Avaliable</td>';
+    }
+    $table_str .= '<td><select name="status['.$imei_no.']">';
+    $table_str .= $status_options;
+    $table_str .='</select></td>';
+    // if($return == "Refund"){
+    //     $table_str .='<td><input type="file" name="refund_filepath['.$imei_no.']" /></td>';
+    //     $table_str .='<td>Not Applicable</td>';
+    // }else{
+    // 	$table_str .='<td>Not Applicable</td>';
+    //     $table_str .='<td><input type="text" name=return_increment_id['.$imei_no.'] /></td>';
+    // }
+
+    $table_str .= '<td><textarea name="remarks['.$imei_no.']">'.$remarks.'</textarea></td>';
+    $table_str .= '</tr>';
+}
+
+?>
+<div class="entry-edit-head">
+    <h4 class="icon-head head-edit-form fieldset-legend">Approve/Reject IMEI</h4>
+    <div class="form-buttons"></div>
+</div>
+<div class="grid np">
+    <div class="hor-scroll">
+        <table class="data order-tables">
+            <thead>
+                <tr class="headings">
+                    <th>IMEI</th>
+                    <th>Reason</th>
+                    <th>Request</th>
+                    <th>Image</th>
+                    <th>Status</th>
+                    <th>Remarks</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php echo $table_str; ?>
+            </tbody>
+        </table>
+    </div>
+</div>
+<br>
+    <div class="clear"></div>
+<?php if(!empty($bank_id)){
+$bank_details_model = Mage::getModel('orderreturn/banking')->load($bank_id);
+$bank_details = $bank_details_model->getData();
+    if(!empty($bank_details)){
+        $bank_name = $bank_details['bank_name'];
+        $bank_ifsc = $bank_details['bank_ifsc'];
+        $bank_account = $bank_details['account_number'];
+    ?>
+    
+    <div class="entry-edit-head">
+        <h4 class="icon-head head-edit-form fieldset-legend">Bank Details</h4>
+        <div class="form-buttons"></div>
+    </div>
+    <div class="fieldset">
+        <div class="hor-scroll">
+        	<div class="label"><b>Bank Name:</b> <?php echo $bank_name; ?></div>
+        	<div class="label"><b>Bank IFSC:</b> <?php echo $bank_ifsc; ?></div>
+        	<div class="label"><b>Bank Account Number: </b> <?php echo $bank_account; ?></div> 
+        </div>
+    </div>
+    <br>
+    <div class="clear"></div>
+    <?php }
+} ?>    
+
+
+<?php if(!empty($customer)){ ?>
+<div class="entry-edit-head">
+    <h4 class="icon-head head-edit-form fieldset-legend">Customer Details</h4>
+    <div class="form-buttons"></div>
+</div>
+<div class="fieldset">
+    <div class="hor-scroll">
+    <div class="label"><b>Customer Name:</b> <?php echo $customer['name']; ?></div>
+    <div class="label"><b>Customer Email:</b> <?php echo $customer['email']; ?></div>
+    <div class="label"><b>Asm Name:</b> <?php echo $customer['asm_name']; ?></div>
+    </div>
+</div>
+<?php } ?>

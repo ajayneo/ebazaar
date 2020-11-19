@@ -1,0 +1,2 @@
+[08-Oct-2018 16:07:11 Asia/Kolkata] PHP Fatal error:  Class 'Mage_Adminhtml_Controller_Action' not found in /home/electronicsbazaa/public_html/includes/src/Aschroder/SMTPPro/controllers/Smtp/LogController.php on line 14
+[08-Oct-2018 16:07:11 Asia/Kolkata] PHP Fatal error:  Class 'Mage_Adminhtml_Controller_Action' not found in /home/electronicsbazaa/public_html/includes/src/Aschroder/SMTPPro/controllers/Smtp/TestController.php on line 11

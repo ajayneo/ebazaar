@@ -1,0 +1,2 @@
+[08-Oct-2018 16:04:36 Asia/Kolkata] PHP Fatal error:  Class 'PHPUnit_Extensions_Database_TestCase' not found in /home/electronicsbazaa/public_html/lib/Zend/Test/PHPUnit/DatabaseTestCase.php on line 64
+[08-Oct-2018 16:04:36 Asia/Kolkata] PHP Fatal error:  Class 'PHPUnit_Framework_TestCase' not found in /home/electronicsbazaa/public_html/lib/Zend/Test/PHPUnit/ControllerTestCase.php on line 57

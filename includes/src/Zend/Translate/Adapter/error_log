@@ -1,0 +1,9 @@
+[08-Oct-2018 16:06:17 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Translate_Adapter' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Translate/Adapter/Qt.php on line 36
+[08-Oct-2018 16:06:17 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Translate_Adapter' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Translate/Adapter/Tmx.php on line 36
+[08-Oct-2018 16:06:17 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Translate_Adapter' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Translate/Adapter/Tbx.php on line 36
+[08-Oct-2018 16:06:17 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Translate_Adapter' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Translate/Adapter/Csv.php on line 37
+[08-Oct-2018 16:06:17 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Translate_Adapter' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Translate/Adapter/Xliff.php on line 36
+[08-Oct-2018 16:06:17 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Translate_Adapter' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Translate/Adapter/Ini.php on line 35
+[08-Oct-2018 16:06:17 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Translate_Adapter' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Translate/Adapter/Array.php on line 37
+[08-Oct-2018 16:06:17 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Translate_Adapter' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Translate/Adapter/XmlTm.php on line 36
+[08-Oct-2018 16:06:17 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Translate_Adapter' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Translate/Adapter/Gettext.php on line 34

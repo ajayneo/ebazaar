@@ -1,0 +1,63 @@
+<div class="assured-buyback-program-container">
+	<div class="buyback-program-banner">
+		<img src="<?php echo $this->getSkinUrl(); ?>images/ebt/assured-buyback-program.jpg">
+	</div>
+	<div class="buyback-program-content">
+		<form id="buyback-paytm" name="assured_buyback_paytm" action="<?php echo $this->getUrl().'buyback/paytm/post'?>" method="POST" enctype="multipart/form-data">
+			<h2>Upload your Paytm Invoice</h2>
+			<ul>
+				<li class="clearfix">
+					<div class="upload-file">
+						<input type="file" class="required-entry" name="paytm_invoice" accept=".pdf"/>
+					</div>
+					<div class="file-format">Accepted file format: Adobe PDF (.pdf)</div>
+				</li>
+				<li>
+					<label>Customer Name</label>
+					<input type="text" class="required-entry" name="customer_name">
+				</li>
+				<li>
+					<label>Paytm registered email address</label>
+					<input type="text" class="required-entry validate-email" name="email">
+				</li>
+				<li>
+					<label>Paytm registered phone number</label>
+					<input type="text" class="required-entry validate-mobile" name="mobile">
+				</li>
+				<li>
+					<label>Address</label>
+					<textarea class="required-entry" name="address"></textarea>
+				</li>
+			</ul>
+			<h2>Select Assured Buyback Option</h2>
+			<ul class="buyback-options">
+				<li>
+					<input type="radio" name="buyback_due" value="1" class="radio" id="buyback-option1">
+					<span class="label">
+						<label for="buyback-option1">1 Year (50% of Purchase buyback_due)</label>
+					</span>
+				</li>
+				<li>
+					<input type="radio" name="buyback_due" class="radio" value="2" id="buyback-option2">
+					<span class="label">
+						<label for="buyback-option2">2 Year (40% of Purchase buyback_due)</label>
+					</span>
+				</li>
+				<li>
+					<input type="radio" name="buyback_due" class="radio" value="3" id="buyback-option3">
+					<span class="label">
+						<label for="buyback-option3">3 Year (30% of Purchase buyback_due)</label>
+					</span>
+				</li>
+			</ul>
+			<div class="button-container">
+				<button type="submit" class="btn-submit"><span>Submit</span></button>
+			</div>
+		</form>
+		<script type="text/javascript">
+		    //< ![CDATA[
+		        var buybackform = new VarienForm('buyback-paytm');
+		    //]]>
+		</script>
+	</div>
+</div>

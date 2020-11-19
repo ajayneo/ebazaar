@@ -1,0 +1,4 @@
+[08-Oct-2018 16:04:49 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Barcode_Renderer_RendererAbstract' not found in /home/electronicsbazaa/public_html/lib/Zend/Barcode/Renderer/Pdf.php on line 44
+[08-Oct-2018 16:04:49 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Barcode_Renderer_RendererAbstract' not found in /home/electronicsbazaa/public_html/lib/Zend/Barcode/Renderer/Svg.php on line 35
+[08-Oct-2018 16:04:49 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Barcode_Renderer_RendererAbstract' not found in /home/electronicsbazaa/public_html/lib/Zend/Barcode/Renderer/Image.php on line 35
+[08-Oct-2018 16:04:49 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Barcode_Exception' not found in /home/electronicsbazaa/public_html/lib/Zend/Barcode/Renderer/Exception.php on line 34

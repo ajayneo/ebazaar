@@ -1,0 +1,1 @@
+[08-Oct-2018 16:07:04 Asia/Kolkata] PHP Fatal error:  Interface 'Zend_Feed_Writer_Extension_RendererInterface' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Feed/Writer/Extension/RendererAbstract.php on line 35

@@ -1,0 +1,146 @@
+<?php
+   $skinUrl = $this->getSkinUrl();
+   $basenUrl = $this->getBaseUrl();
+?>
+<div class="brandsContainer">
+    	<h1>Choose By <span class="color">Brands/Model</span></h1>
+        <div class="brandsContainerInner clearfix">
+    	<ul>
+        	<li>
+                <div class="imgContent">
+                    <a href="<?php echo $basenUrl.'gadget/mobile/apple'; ?>">
+                        <img src="<?php echo $skinUrl.'gadget/images/mobile/iphone.jpg'?>" alt="iPhone" />
+                    </a>
+                </div>
+                <p>Apple iPhone</p>
+            </li>
+            <li>
+            	<div class="imgContent">
+                    <a href="<?php echo $basenUrl.'gadget/mobile/asus'; ?>">
+                        <img src="<?php echo $skinUrl.'gadget/images/mobile/asus.jpg'?>" alt="Asus" />
+                    </a>
+                </div>
+                <p>Asus</p>
+            </li>
+            <li>
+            	<div class="imgContent"><a href="<?php echo $basenUrl.'gadget/mobile/blackberry'; ?>"><img src="<?php echo $skinUrl.'gadget/images/mobile/blackberry.png'?>" alt="BlackBerry" /></a></div>
+                <p>BlackBerry</p>
+            </li>
+            <li>
+            	<div class="imgContent"><a href="<?php echo $basenUrl.'gadget/mobile/gionee'; ?>"><img src="<?php echo $skinUrl.'gadget/images/mobile/gionee.png'?>" alt="Gionee" /></a></div>
+                <p>Gionee</p>
+            </li>
+          </ul>
+            
+          <ul>
+            <li>
+            	<div class="imgContent"><a href="<?php echo $basenUrl.'gadget/mobile/google'; ?>"><img src="<?php echo $skinUrl.'gadget/images/mobile/google.png'?>" alt="Google" /></a></div>
+                <p>Google</p>
+            </li>
+            <li>
+            	<div class="imgContent"><a href="<?php echo $basenUrl.'gadget/mobile/htc'; ?>"><img src="<?php echo $skinUrl.'gadget/images/mobile/htc.png'?>" alt="HTC" /></a></div>
+                <p>HTC</p>
+            </li>
+            <li>
+            	<div class="imgContent"><a href="<?php echo $basenUrl.'gadget/mobile/huawei'; ?>"><img src="<?php echo $skinUrl.'gadget/images/mobile/huawei.png'?>" alt="Huawei" /></a></div>
+                <p>Huawei</p>
+            </li>
+            <li>
+            	<div class="imgContent"><a href="<?php echo $basenUrl.'gadget/mobile/intex'; ?>"><img src="<?php echo $skinUrl.'gadget/images/mobile/intex.png'?>" alt="Intex" /></a></div>
+                <p>Intex</p>
+            </li>
+          </ul>
+            
+          <ul>
+            <li>
+            	<div class="imgContent"><a href="<?php echo $basenUrl.'gadget/mobile/karbonn'; ?>"><img src="<?php echo $skinUrl.'gadget/images/mobile/karbonn.png'?>" alt="Karbonn" /></a></div>
+                <p>Karbonn</p>
+            </li>
+            <li>
+            	<div class="imgContent"><a href="<?php echo $basenUrl.'gadget/mobile/lava'; ?>"><img src="<?php echo $skinUrl.'gadget/images/mobile/Lava.png'?>" alt="Lava" /></a></div>
+                <p>Lava</p>
+            </li>
+            <li>
+            	<div class="imgContent"><a href="<?php echo $basenUrl.'gadget/mobile/lenovo'; ?>"><img src="<?php echo $skinUrl.'gadget/images/mobile/lenovo.png'?>" alt="Lenovo" /></a></div>
+                <p>Lenovo</p>
+            </li>
+            <li>
+            	<div class="imgContent"><a href="<?php echo $basenUrl.'gadget/mobile/lg'; ?>"><img src="<?php echo $skinUrl.'gadget/images/mobile/lg.png'?>" alt="LG" /></a></div>
+                <p>LG</p>
+            </li>
+           </ul>
+            
+            
+          <ul>
+            <li>
+            	<div class="imgContent"><a href="<?php echo $basenUrl.'gadget/mobile/meizu'; ?>"><img src="<?php echo $skinUrl.'gadget/images/mobile/meizu.png'?>" alt="Meizu" /></a></div>
+                <p>Meizu</p>
+            </li>
+            <li>
+            	<div class="imgContent"><a href="<?php echo $basenUrl.'gadget/mobile/micromax'; ?>"><img src="<?php echo $skinUrl.'gadget/images/mobile/micromax.png'?>" alt="Micromax" /></a></div>
+                <p>Micromax</p>
+            </li>
+            <li>
+            	<div class="imgContent"><a href="<?php echo $basenUrl.'gadget/mobile/motorola'; ?>"><img src="<?php echo $skinUrl.'gadget/images/mobile/motorola.png'?>" alt="Motorola" /></a></div>
+                <p>Motorola</p>
+            </li>
+            <li>
+            	<div class="imgContent"><a href="<?php echo $basenUrl.'gadget/mobile/nokia'; ?>"><img src="<?php echo $skinUrl.'gadget/images/mobile/nokia.png'?>" alt="Nokia" /></a></div>
+                <p>Nokia</p>
+            </li>
+           </ul>
+            
+           <ul>
+            <li>
+            	<div class="imgContent"><a href="<?php echo $basenUrl.'gadget/mobile/oneplus'; ?>"><img src="<?php echo $skinUrl.'gadget/images/mobile/oneplus.png'?>" alt="OnePlus" /></a></div>
+                <p>OnePlus</p>
+            </li>
+            <li>
+            	<div class="imgContent"><a href="<?php echo $basenUrl.'gadget/mobile/oppo'; ?>"><img src="<?php echo $skinUrl.'gadget/images/mobile/oppo.png'?>" alt="Oppo" /></a></div>
+                <p>Oppo</p>
+            </li>
+            <li>
+            	<div class="imgContent"><a href="<?php echo $basenUrl.'gadget/mobile/panasonic'; ?>"><img src="<?php echo $skinUrl.'gadget/images/mobile/panasonic.png'?>" alt="Panasonic" /></a></div>
+                <p>Panasonic</p>
+            </li>
+            <li>
+            	<div class="imgContent"><a href="<?php echo $basenUrl.'gadget/mobile/samsung'; ?>"><img src="<?php echo $skinUrl.'gadget/images/mobile/samsung.png'?>" alt="Samsung" /></a></div>
+                <p>Samsung</p>
+            </li>
+          </ul>
+            
+          <ul>
+            <li>
+            	<div class="imgContent"><a href="<?php echo $basenUrl.'gadget/mobile/sony'; ?>"><img src="<?php echo $skinUrl.'gadget/images/mobile/sony.png'?>" alt="Sony" /></a></div>
+                <p>Sony</p>
+            </li>
+            <li>
+            	<div class="imgContent"><a href="<?php echo $basenUrl.'gadget/mobile/xiaomi'; ?>"><img src="<?php echo $skinUrl.'gadget/images/mobile/xiaomi.png'?>" alt="Xiaomi" /></a></div>
+                <p>Xiaomi</p>
+            </li>
+            <li>
+            	<div class="imgContent"><a href="<?php echo $basenUrl.'gadget/mobile/xolo'; ?>"><img src="<?php echo $skinUrl.'gadget/images/mobile/xolo.png'?>" alt="Xolo" /></a></div>
+                <p>Xolo</p>
+            </li>
+            <li>
+            	<div class="imgContent"><a href="<?php echo $basenUrl.'gadget/mobile/alcatel'; ?>"><img src="<?php echo $skinUrl.'gadget/images/mobile/alcatel.png'?>" alt="Alcatel" /></a></div>
+                <p>Alcatel</p>
+            </li>
+           </ul>
+            
+           <ul>
+            <li>
+            	<div class="imgContent"><a href="<?php echo $basenUrl.'gadget/mobile/honor'; ?>"><img src="<?php echo $skinUrl.'gadget/images/mobile/honor.png'?>" alt="Honor" /></a></div>
+                <p>Honor</p>
+            </li>
+            <li>
+            	<div class="imgContent"><a href="<?php echo $basenUrl.'gadget/mobile/microsoft'; ?>"><img src="<?php echo $skinUrl.'gadget/images/mobile/microsoft.png'?>" alt="Microsoft" /></a></div>
+                <p>Microsoft</p>
+            </li>
+            <li>
+            	<div class="imgContent"><a href="<?php echo $basenUrl.'gadget/mobile/yota'; ?>"><img src="<?php echo $skinUrl.'gadget/images/mobile/yotaphone.png'?>" alt="Yotaphone" /></a></div>
+                <p>Yota</p>
+            </li>
+        </ul>
+        </div>
+    </div>

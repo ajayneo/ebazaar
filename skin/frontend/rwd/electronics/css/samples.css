@@ -1,0 +1,31 @@
+*{margin:0; padding:0;}
+.sample{position:relative; width:30%; margin:20px auto;}
+
+/*select box styling*/
+.select-box{position:relative;}
+.select{height:30px; position:relative; line-height:30px; cursor:pointer; font-size:13px; width:100%;}
+.select option{border-bottom: 1px solid #b2b2b2; width: 100%; padding:6px;}
+.select option:last-child{border:0;}
+span.select{position:absolute; background:#ffffff url('../images/drop-down.png') no-repeat 99.5% center; z-index:1; border:1px solid #cacbcd; left:0; width:100%; text-indent: 8px; color:#5f636f; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+/*select box styling*/
+
+/*checkbox styling*/
+input[type="checkbox"].checkbox {display:none;}
+input[type="checkbox"].checkbox + label.css-label {padding-left:24px; height:22px; display:inline-block; background-repeat:no-repeat; background-position: 0 0;   vertical-align:middle; cursor:pointer; line-height:22px; text-indent:5px; margin:0 7px;}
+input[type="checkbox"].checkbox:checked + label.css-label {background-position: 0 -28px;}
+label.css-label {background-image:url(../images/checkbox.png); -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;}
+/*checkbox styling*/
+
+/*radio styling*/
+input[type="radio"].radio {display:none;}
+input[type="radio"].radio + label.radio-label {padding-left:22px; height:22px; display:inline-block; background-repeat:no-repeat; background-position: 0 2px;   vertical-align:middle; cursor:pointer; line-height:22px; text-indent:5px; margin-right:15px;}
+input[type="radio"].radio:checked + label.radio-label{background-position: 0 -18px;}
+label.radio-label {background-image:url(../images/radio.png); -webkit-touch-callout: none; -webkit-user-select: none; -khtml-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;}
+/*radio styling*/
+
+/*browser_button_styleing*/
+.custom_file_upload {position: relative;}
+.custom_file_upload .file_upload:before {content: "Choose Image"; cursor: pointer; /*left: 0;*/ position: absolute;/* right: 0;*/ text-align: center; width:50%; line-height:42px; font-size:14px;}
+.custom_file_upload .file_upload {background:#06688f; color:#ffffff; cursor: pointer !important; display: block; font-weight: normal; /*line-height:35px; overflow: hidden; position: absolute;right: 0; text-align: center;*/ width: 50%;}
+.custom_file_upload .file_upload input {padding: 9px 0; cursor: pointer; display: inline;  opacity: 0; position: relative; width: 100%; filter:Alpha(opacity=0); margin:0; font-size:14px;}
+/*browser_button_styleing*/

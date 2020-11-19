@@ -1,0 +1,5 @@
+[08-Oct-2018 16:03:37 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Feed_Abstract' not found in /home/electronicsbazaa/public_html/lib/Zend/Feed/Rss.php on line 50
+[08-Oct-2018 16:03:38 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Feed_Abstract' not found in /home/electronicsbazaa/public_html/lib/Zend/Feed/Atom.php on line 51
+[08-Oct-2018 16:03:38 Asia/Kolkata] PHP Fatal error:  Interface 'Zend_Feed_Builder_Interface' not found in /home/electronicsbazaa/public_html/lib/Zend/Feed/Builder.php on line 51
+[08-Oct-2018 16:03:38 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Feed_Element' not found in /home/electronicsbazaa/public_html/lib/Zend/Feed/Abstract.php on line 43
+[08-Oct-2018 16:03:38 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Exception' not found in /home/electronicsbazaa/public_html/lib/Zend/Feed/Exception.php on line 41

@@ -1,0 +1,210 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Neo_Ebautomation>
+      <version>0.2.2</version>
+    </Neo_Ebautomation>
+  </modules>
+  <frontend>
+    <routers>
+      <ebautomation>
+        <use>standard</use>
+          <args>
+            <module>Neo_Ebautomation</module>
+            <frontName>ebautomation</frontName>
+          </args>
+      </ebautomation>
+    </routers>
+		
+  </frontend>
+  <global>
+    <blocks>
+         <ebautomation>
+          <class>Neo_Ebautomation_Block</class>
+          </ebautomation>
+         <adminhtml>
+            <rewrite>
+                <sales_order_view>Neo_Ebautomation_Block_Adminhtml_Sales_Order_View</sales_order_view>
+            </rewrite>
+
+            <rewrite>
+                 <catalog_product_edit_tabs>Neo_Ebautomation_Block_Adminhtml_Catalog_Tabs</catalog_product_edit_tabs>
+             </rewrite>
+         </adminhtml>
+    </blocks>
+    <helpers>
+      <ebautomation>
+        <class>Neo_Ebautomation_Helper</class>
+      </ebautomation>
+    </helpers>
+	<models>
+	  <ebautomation>
+		<class>Neo_Ebautomation_Model</class>
+		<resourceModel>ebautomation_mysql4</resourceModel>
+	  </ebautomation>
+	    <ebautomation_mysql4>
+	    <class>Neo_Ebautomation_Model_Mysql4</class>
+	    <entities>      
+    		<stockchennai>
+    		  <table>stock_tamil_nadu</table>
+    		</stockchennai>
+        <dhlawb>
+          <table>dhl_awb_number</table>
+        </dhlawb>
+        <priceupdatelog>
+          <table>priceupdatelog</table>
+        </priceupdatelog>
+	    </entities>
+	    </ebautomation_mysql4>
+	</models>
+  <resources>
+    <ebautomation_setup>
+      <setup>
+        <module>Neo_Ebautomation</module>
+      </setup>
+      <connection>
+        <use>core_setup</use>
+      </connection>
+    </ebautomation_setup>
+    <ebautomation_write>
+      <connection>
+        <use>core_write</use>
+      </connection>
+    </ebautomation_write>
+    <ebautomation_read>
+      <connection>
+        <use>core_read</use>
+      </connection>
+    </ebautomation_read>
+  </resources>
+    <events>
+      
+	   
+        <catalog_product_save_after>
+            <observers>
+                <ebautomation>
+                    <type>singleton</type>
+                    <class>ebautomation/product</class>
+                    <method>productImport</method>
+                </ebautomation>
+            </observers>
+        </catalog_product_save_after> 
+       
+        <!-- <customer_register_success> Don not Open
+          <observers>
+            <ebautomation>
+              <type>singleton</type>
+              <class>ebautomation/customer</class>
+              <method>customerImport</method>
+            </ebautomation>
+          </observers>
+        </customer_register_success> -->
+        <!-- save customer after event commented by Mahesh for debug for loop on 17th Apr 18 -->
+        <customer_save_after>
+          <observers>
+            <ebautomation>
+              <type>singleton</type>
+              <class>ebautomation/customer</class>
+              <method>customerImport</method>
+            </ebautomation>
+          </observers>
+        </customer_save_after>
+        <sales_order_place_after>
+            <observers>
+                <ebautomation>
+                    <type>singleton</type>
+                    <class>ebautomation/observer</class>
+                    <method>customerPlaceOrderLog</method>
+                </ebautomation>
+            </observers>
+        </sales_order_place_after>
+        
+    </events>
+  </global>
+  <admin>
+    <routers>
+      <ebautomation>
+        <use>admin</use>
+          <args>
+            <module>Neo_Ebautomation</module>
+            <frontName>admin_ebautomation</frontName>
+          </args>
+      </ebautomation>
+    </routers>
+  </admin>
+  <adminhtml>
+
+      <events>
+        <adminhtml_customer_save_after>
+          <observers>
+            <ebautomation>
+              <type>singleton</type>
+              <class>ebautomation/customer</class>
+              <method>customerImport</method>
+            </ebautomation>
+          </observers>
+        </adminhtml_customer_save_after>
+        
+      </events>
+      <menu>
+        <ebautomation module="ebautomation">
+          <title>Ebautomation</title>
+          <sort_order>100</sort_order>
+            <children>
+              <priceupdatelog module="ebautomation"> 
+                <title>Manage Priceupdatelog</title>
+                <sort_order>0</sort_order>
+                <action>admin_ebautomation/adminhtml_priceupdatelog</action>
+              </priceupdatelog>
+            </children>
+        </ebautomation>
+      </menu>
+    <acl>
+        <resources>
+            <all>
+                <title>Allow Everything</title>
+            </all>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <ebautomation>
+                                        <title>Ebautomation For Orders</title>
+                                    </ebautomation>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                   <!--  <ebautomation translate="title" module="ebautomation">
+                      <title>Ebautomation</title>
+                      <sort_order>1000</sort_order>
+                      <children>
+                        <priceupdatelog translate="title">
+                        <title>Manage Priceupdatelog</title>
+                        <sort_order>0</sort_order>
+                        </priceupdatelog>
+                      </children>
+                    </ebautomation> -->
+                </children>
+            </admin>
+        </resources>
+    </acl>
+    <layout>
+      <updates>
+      <ebautomation>
+        <file>ebautomation.xml</file>
+      </ebautomation>
+      </updates>
+    </layout>
+</adminhtml>
+ <!-- <crontab>
+        <jobs>
+            <ebautomation>
+                <schedule><cron_expr>* * * * *</cron_expr></schedule>
+                <run><model>ebautomation/observer::setStatus</model></run>
+            </ebautomation>
+        </jobs>
+</crontab> -->
+</config> 

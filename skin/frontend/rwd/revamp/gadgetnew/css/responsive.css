@@ -1,0 +1,50 @@
+@media all and (max-width: 1199px){
+	.container{ width: 100%; }
+	.navbar-default{ width: 68%; }
+	.registration-login-container{ margin-top: -56px; }
+	.benefit-content{ margin-right: 0; }
+	.benefit-container{ border-bottom: 0; }
+	.navbar-default .navbar-nav>li>a { padding-left: 10px; padding-right: 10px;}
+	.mobile-laptop-container .row { margin: 0;}
+}
+
+@media all and (max-width: 767px){
+	.header-container{ margin-top: 2px; }
+	.logo-container{ width: 130px; }
+	.logo-container img{ width: 100%; }
+	.navbar-default{ width: 100%; }
+	.navbar-nav>li { font-size: 18px; border-bottom: 1px solid #e3e3e3;}
+	.navbar-nav>li:last-child{ border-bottom: 0; }
+	.nav-tabs{ width: 100%; }
+	.nav-tabs>li{ font-size: 14px; }
+	.nav>li>a{ padding: 5px 0; }
+	.registration-login-container{ margin-top: -30px; }
+	.registration-login-container .tab-content{ margin-top: 20px; }
+	.registration-login-container p{ font-size: 13px; }
+	.registration-login-container .tab-content ul li, .registration-login-container .tab-content ul.login-container li{ width: 100%; margin-right: 0; margin-bottom: 10px; }
+	.button-container{ margin-top: 10px; }
+	.btnSubmit{ font-size: 15px; padding: 5px 20px; }
+	input[type=checkbox].css-checkbox + label.css-label{ height: inherit; background: url("../images/uncheck.png") no-repeat; }
+	input[type=checkbox].css-checkbox:checked + label.css-label{ background: url("../images/check.png") no-repeat; }
+	.benefit-content{ width: 100%; margin-bottom: 20px; min-height: inherit; }
+	.benefit-container{ padding-top: 20px; padding-bottom: 20px; background-size: cover; padding-bottom: 0; }
+	.benefit-container .row{ display: block; margin: 0; }
+	.benefit-content .icon { position: static;}
+	.benefit-container h1{ font-size: 30px; margin-bottom: 20px; }
+	.benefit-content h5{ font-size: 18px; }
+	.benefit-content p{ padding: 0; font-size: 16px; text-align: center; }
+	.program-container h2{ font-size: 27px; margin-bottom: 20px; }
+	.program-container ul li{ font-size: 16px; margin-bottom: 20px; }
+	.box-container{ width: 100%; min-height: inherit; margin-bottom: 20px; }
+	.box-container:last-child{ margin-bottom: 0; }
+	.mobile-laptop-container .text-container{ font-size: 28px; line-height: 35px; text-align: center; }
+	.box-container .image-container{ position: static; padding: 0; display: block; }
+	.box-container .image-container img{ max-width: 100%; }
+	.program-container h2{ font-size: 20px; padding-bottom: 10px; }
+	.footer-top h4{ text-align: center; font-size: 40px; }
+	.text-container p{ font-size: 24px; text-align: center; }
+	.footer-top .mobile-laptop{ font-size: 33px; line-height: 40px; }
+	.text-container{ float: none; }
+	.available-container{ padding: 0; }
+	.image-container{ float: none; padding: 0; text-align: center; margin-top: 10px; }
+}

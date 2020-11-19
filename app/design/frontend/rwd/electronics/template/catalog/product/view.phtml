@@ -1,0 +1,1044 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     rwd_default
+ * @copyright   Copyright (c) 2014 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+/**
+ * Product view template
+ *
+ * @see Mage_Catalog_Block_Product_View
+ * @see Mage_Review_Block_Product_View
+ */
+?>
+<?php $_helper = $this->helper('catalog/output'); ?>
+<?php $_product = $this->getProduct(); ?>
+<script type="text/javascript">
+    var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
+    jQuery(document).ready(function($) {
+
+        jQuery(".deal-btn").on('click',function(e){
+            e.stopImmediatePropagation();
+            jQuery(".deal-content").toggle("slow");
+            jQuery(".deal-btn").toggleClass("deal-btn-1");
+
+        });
+    })
+</script>
+
+<?php if ($_product->getDealOnActive()) { ?>
+    <?php
+    $deal_on=$_product->getDealOn();
+    $deal_on_products = Mage::getModel('catalog/product')
+        ->getCollection()
+        ->addAttributeToSelect('*')
+        ->addAttributeToFilter('deal_on_active', 1)
+        ->addAttributeToFilter('deal_on',array('eq'=>$deal_on))
+        ->load();
+
+    $count_deal_prod=count($deal_on_products->getAllIds());
+
+    ?>
+    <div class="deal-container">
+        <?php if($count_deal_prod>1){ ?>
+        <span class="deal-btn"><a href="#">Deals</a></span>
+        <?php }?>
+        <div class="deal-content">
+            <div class="side_bar_deals">
+                <h2>Other Exclusive Deals</h2>
+                <ul>
+                    <?php
+                    $i=1;
+
+                    foreach ($deal_on_products as $deal_prod) { ?>
+                        <?php if ($deal_prod->getId() != $_product->getId()) {
+                            if($i%2==0)
+                            {
+                                $class_alt="even";
+                            }else{ $class_alt="odd";}
+
+                            ?>
+                            <li class="<?php echo $class_alt ?>">
+                                <a href="<?php echo $deal_prod->getProductUrl(); ?>" class="product-image">
+                                    <img
+                                        src="<?php echo $this->helper('catalog/image')->init($deal_prod, 'small_image')->resize('100'); ?>"
+                                        alt="<?php echo $deal_prod->getName(); ?>"/>
+                                </a>
+
+                                <div class="product-info">
+                                    <h2 class="product-name"><a title="<?php echo $deal_prod->getName() ?>" href="<?php echo $deal_prod->getProductUrl(); ?>"><?php echo $deal_prod->getName() ?></a>
+                                    </h2>
+
+                                    <div class="price-box">
+                                        <?php if($deal_prod->getSpecialPrice()) {?>
+                                            <p class="old-price">
+                                                <span class="price-label">Regular Price:</span>
+                                    <span class="price"
+                                          id="old-price-645"><?php echo Mage::helper('core')->formatPrice($deal_prod->getPrice(), false); ?></span>
+                                            </p>
+                                        <?php }?>
+
+                                        <p class="special-price">
+                                            <span class="price-label">Special Price</span>
+                                    <span class="price"
+                                          id="product-price-645"><?php echo Mage::helper('core')->formatPrice($deal_prod->getFinalPrice(), false); ?></span>
+                                        </p>
+
+                                    </div>
+
+                                </div>
+                            </li>
+                            <?php
+                            $i++;
+                        } ?>
+                    <?php } ?>
+                </ul>
+            </div></div></div>
+<?php } ?>
+
+
+
+<div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
+<?php echo $this->getChildHtml('ajax-addtocompare'); ?>
+<?php //echo $o = Mage::getModel('review/review')->getReviewUrl(); ?>
+<?php
+$categoryModel = Mage::getModel('catalog/category');
+$_categories = $_product->getCategoryIds();
+?>
+<?php $product_id = $_product->getId(); ?>
+<?php $relatedProductsIds = $_product->getRelatedProductIds(); ?>
+<div class="product-view">
+    <div class="product-essential">
+        <form action="<?php echo $this->getSubmitUrl($_product) ?>" method="post" id="product_addtocart_form"<?php if ($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
+            <?php echo $this->getBlockHtml('formkey') ?>
+            <div class="no-display">
+                <input type="hidden" name="product" value="<?php echo $_product->getName() ?>" />
+                <input type="hidden" name="related_product" id="related-products-field" value="" />
+            </div>
+
+            <div class="product-name">
+                <h1>
+                    <span class="products_name"><?php echo $_product->getName(); ?></span>
+                </h1>
+
+                <?php
+                /*
+                <?php $customblocks_index = new Neo_Customblocks_Block_Index(); ?>
+                <?php $reviews = $customblocks_index->getReviewsForProduct($_product->getId()); ?>
+
+                <?php $product_review = new Neo_Review_Block_Product_View_List(); ?>
+                <?php $ratings = $product_review->RatingCounts($_product->getId()); ?>
+
+                <ul>
+                    <li>
+                        <span class="write-review">
+                            <a class="review_form" href="#form-left-review">Write a Review</a>
+                        </span>
+                    </li>
+                    <?php if (count($reviews) > 0): ?>
+                        <li>
+                            <div class="h4">
+                                <span>
+                                    <?php if ($ratings): ?>
+                                        <?php echo $ratings . " Ratings"; ?>
+                                    <?php endif; ?>
+                                </span>
+                                <?php $avg = $product_review->AggregrateRating($_product->getId()); ?>
+                                <?php if ($avg > 0): ?>
+                                    <div class="ratings">
+                                        <div class="rating-box">
+                                            <div class="rating" style="width: <?php echo ceil($avg); ?>%;"></div>
+                                        </div>
+                                    </div>
+                                <?php endif; ?>
+                            </div>
+                        </li>
+                        <li>
+                            <span>
+                                <?php echo count($reviews) . " reviews" ?>
+                            </span>
+                        </li>
+                    <?php else: ?>
+                        <li>
+                            <span class="write-review">
+                                <a class="review_form" href="#review-form">Be the first to review this product. </a>
+                            </span>
+                        </li>
+                    <?php endif; ?>
+                </ul>
+                */ ?>
+                <div class="clr"></div>
+            </div>
+
+            <div class="product-img-box">
+                <?php if (!$_product->isSaleable()): ?>
+                    <span class="out-of-stock"><span>OUT OF STOCK</span></span> 
+                <?php endif; ?> 
+                <?php
+                /**
+                *Add Deals Offer Tag on Product
+                */
+                $dealCollection = Mage::getModel('multipledeals/multipledeals')->getCollection()->addFieldToFilter('status', array('eq' => 1));
+                $dealproductIds = array();
+                if (count($dealCollection)) {
+                    foreach ($dealCollection as $deal) {
+                        $dealproductIds[] = $deal->getProductId();
+                    }
+                }
+                $product_id = $_product->getId();
+                if (in_array($product_id, $dealproductIds)) {
+                    $customblocks_index = new Neo_Customblocks_Block_Index();
+                    $discount_percent = $customblocks_index->getDealsDiscountPercent($_product->getId());
+                    if ($discount_percent > 0):
+                        ?>
+                        <div class="tag"><p><?php echo $discount_percent; ?>% <span>Off</span></p></div>
+                        <?php
+                    endif;
+                }
+                if ($_product->getDealOnActive())
+                {
+                    $customblocks_index1 = new Neo_Customblocks_Block_Index();
+                    $discount_percent = $customblocks_index1->getDiscountPercent($_product->getId());
+
+                    if ($discount_percent > 0){
+                        ?>
+                        <div class="tag"><p><?php echo $discount_percent; ?>% <span>Off</span></p></div>
+                    <?php   }
+                }
+
+                ?>
+
+                <?php echo $this->getChildHtml('media') ?>
+            </div>
+
+            <div class="product-shop">
+                <div class="product-options-bottom">
+                    <!--<div class="price-info">-->
+                    <?php echo $this->getPriceHtml($_product); ?>
+                    <?php echo $this->getChildHtml('bundle_prices') ?>
+                    <?php echo $this->getTierPriceHtml() ?>
+                    <!--</div>-->
+                    <?php //echo $this->getChildHtml('productvideo');  ?>
+
+                </div>
+                <div class="product-detail-section">
+                    <div class="product-sec">
+                        <?php #echo $this->getChildHtml('product_type_availability');  ?>
+                        <div class="short-description">
+                            <p class="strong">Specification</p>
+                            <div class="std">
+                                <?php echo $_helper->productAttribute($_product, $_product->getShortDescription(), 'short_description') ?>
+                            </div>
+                        </div>
+                        <div class="warranty-section">
+                            <p class="strong">Warranty</p>
+                            <p><?php echo $_product->getWarrenty(); ?></p>
+                        </div>
+                        <?php 
+
+                            /* if($product_id != '3266'):  //if condition is added for one sku told by mandar sir ?>
+                            <?php if(count($relatedProductsIds) > 0): ?>
+                            <div class="compatible-accessories">
+                                <span>
+                                    <a class="text_section" href="javascript:scrollto('#compatible-accessories-form');"><?php echo $this->__('Accessories Recommended'); ?></a>
+                                </span>
+                            </div>
+                            <?php endif;     
+                        ?>
+                        <?php endif; */ ?>
+                        <?php /*if($product_id != '3266'):  //if condition is added for one sku told by mandar sir ?>
+                            <div class="add-sharing">
+                                <?php if (!$this->hasOptions()): ?>
+                                    <?php echo $this->getChildHtml('addto') ?>
+                                    <?php #echo $this->getChildHtml('sharing') ?>
+    								<?php //echo $this->getLayout()->createBlock('sharingtool/share')->setBlockId('addthis_sharetool')->toHtml(); ?>
+                                    <?php echo $this->getChildHtml('extra_buttons') ?>
+                                <?php elseif (!$_product->isSaleable()): ?>
+                                    <?php echo $this->getChildHtml('addto') ?>
+                                    <?php #echo $this->getChildHtml('sharing') ?>
+    								<?php echo $this->getLayout()->createBlock('sharingtool/share')->setBlockId('addthis_sharetool')->toHtml(); ?>
+                                <?php endif; ?>
+                            </div>       
+                        <?php endif; */?> 
+                    </div>
+
+                    <?php $customblocks_index = new Neo_Customblocks_Block_Index();  ?>
+                    <?php $discount_percent = $customblocks_index->getDiscountPercentage($_product->getId()); ?>
+                    <div class="product-bottom-sec">
+                        <div class="quantityTxt"><label>Quantity:</label> <input type="text" class="input-text qty" title="Qty" value="1" maxlength="12" id="qty" name="qty"></div> 
+                        <div class="price-info">
+                            <?php echo $this->getPriceHtml($_product); ?>
+                            <?php echo $this->getChildHtml('bundle_prices') ?>
+                            <?php echo $this->getTierPriceHtml() ?>
+                            <?php if (!empty($discount_percent)): ?>
+                                <?php $currency_code = Mage::app()->getStore()->getCurrentCurrencyCode(); ?>
+                                <span class="tax">Save <span class="percentage"><?php echo Mage::app()->getLocale()->currency($currency_code)->getSymbol() . $discount_percent; ?></span></span>
+                            <?php endif; ?>
+                        </div>
+
+                        <?php $offers = $_product->getOffers(); ?>
+                        <?php if (!empty($offers)): ?>
+                            <div class="offer-sec">
+                                <?php $offers_array = explode(',', $offers); ?>
+                                <?php $product = Mage::getModel('catalog/product'); ?>
+                                <?php $attr = $product->getResource()->getAttribute("offers"); ?>
+                                <?php if ($attr->usesSource()): ?>
+                                    <?php foreach ($offers_array as $offer): ?>
+                                        <?php $offer_label = $attr->getSource()->getOptionText($offer); ?>
+                                        <?php $model = Mage::getModel("offers/offers")->getCollection()->addFieldToFilter('offer', $offer_label)->getFirstItem(); // check once ?>
+                                        <div class="info-icon"><span>Offer</span></div>
+                                        <span class="info-text"><?php echo $model->getData('offer'); ?><span title="<?php echo $model->getData('offer_desc'); ?>">[?]</span></span>
+                                    <?php endforeach; ?>
+                                <?php endif; ?>
+                            </div>
+                        <?php endif; ?>
+
+                        <div class="location-section">
+                            <div class="btn-section">
+                                <?php if ($_product->isSaleable()): ?>
+                                    <?php echo $this->getChildHtml('addtocart') ?>
+                                    <?php /* ?>
+                                    <div class="call-us">
+                                        <span>Or Call Us To Order-</span>
+                                        <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('header-contact-no')->toHtml(); ?>
+                                    </div> <?php */ ?>
+                                <?php endif; ?>
+                            </div>
+
+
+                            <div class="extra-info">
+                                <p class="strong">CHECK AVAILABILITY AT</p>
+                                <span class="stock"><input name="" type="text" placeholder="Enter pincode" class="pincode" value=""><button type="button" title="Buy Now" class="button checkpostcode"><span><span>Check</span></span></button></span>
+                                <span class="pincode_message"></span>
+                                <?php //echo $this->getChildHtml('product_type_availability');  ?>
+                            </div>
+                        </div>
+
+                        <?php if($product_id != '3266'):  //if condition is added for one sku told by mandar sir ?>
+                            <div class="std-options">
+                                <ul>
+                                    <?php if ($_product->getEmiOption()): ?><li class="emi_op"><i class="emi-options">&nbsp;</i><span>EMI Options</span></li><?php endif; ?>
+                                    <?php if ($_product->getCashOnDelivery()): ?><li class="cod"><i class="cash-on-delivery">&nbsp;</i><span class="info-text">Cash on Delivery<span title="<?php echo 'Please check availability of COD for your Pincode.' ?>">[?]</span></span></li><?php endif; ?>                              
+    								<?php if ($_product->getFreeHomeDelivery()): ?><li class="ho_deli"><i class="home-delivery">&nbsp;</i><span>Free Home Delivery</span></li><?php endif; ?>
+                                    <!--li class="vod"><i class="vod-delivery">&nbsp;</i><span class="info-text"><?php echo 'Verify On Delivery'; ?><span title="<?php //echo 'Verify your product on delivery.' ?>">[?]</span></span></li>
+                                    <!--<li class="replacement"><i class="replace-guarantee">&nbsp;</i><span>Replacement Guarantee</span></li>-->
+    				                <div class="clr"></div>
+                                </ul>
+                            </div>
+                        <?php endif; ?>
+                        <?php $brand_yes_no = $_product->getLaptopFreebag(); ?>
+                        <?php
+                        /*
+                        //if(in_array(3,$_categories) && $_product->getBrands() != 7) {
+                        if ($brand_yes_no) {
+                            ?>
+                            <div class="freeProductBlock">
+                                <img src="<?php echo Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA) . 'freebag/free_bag.png'; ?>" class="freeProductBlock_img">
+                                <p>Get a Free Laptop Bag worth upto <span class='free_product_price'>Rs. 1100</span>/-.</p>
+                            </div>
+                            <?php
+                        }
+                         */ ?>
+                    </div>
+                </div>
+
+                <!--<div class="extra-info">
+                <?php //echo $this->getReviewsSummaryHtml($_product, 'default', false) ?>
+                <?php //echo $this->getChildHtml('product_type_availability'); ?>
+                                </div>-->
+
+                <?php //echo $this->getChildHtml('alert_urls')  ?>
+
+                <?php //echo $this->getChildHtml('other'); ?>
+
+                <?php if ($_product->isSaleable() && $this->hasOptions()): ?>
+                    <?php echo $this->getChildChildHtml('container1', '', true, true) ?>
+                <?php endif; ?>
+            </div>
+
+            <div class="add-to-cart-wrapper">
+                <?php echo $this->getChildHtml('product_type_data') ?>
+                <?php echo $this->getChildHtml('extrahint') ?>
+            </div>
+
+            <?php //echo $this->getChildHtml('related_products')  ?>
+
+            <div class="clearer"></div>
+
+            <div class="bundled-optionscss">
+                <?php if ($_product->isSaleable() && $this->hasOptions()): ?>
+                    <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
+                <?php endif; ?>
+            </div>
+        </form>
+        <script type="text/javascript">
+            //<![CDATA[
+            var productAddToCartForm = new VarienForm('product_addtocart_form');
+            productAddToCartForm.submit = function (button, url) {
+                if (this.validator.validate()) {
+                    var form = this.form;
+                    var oldUrl = form.action;
+
+                    if (url) {
+                        form.action = url;
+                    }
+                    var e = null;
+                    try {
+                        this.form.submit();
+                    } catch (e) {
+                    }
+                    this.form.action = oldUrl;
+                    if (e) {
+                        throw e;
+                    }
+
+                    if (button && button != 'undefined') {
+                        button.disabled = true;
+                    }
+                }
+            }.bind(productAddToCartForm);
+
+            productAddToCartForm.submitLight = function (button, url) {
+                if (this.validator) {
+                    var nv = Validation.methods;
+                    delete Validation.methods['required-entry'];
+                    delete Validation.methods['validate-one-required'];
+                    delete Validation.methods['validate-one-required-by-name'];
+                    // Remove custom datetime validators
+                    for (var methodName in Validation.methods) {
+                        if (methodName.match(/^validate-datetime-.*/i)) {
+                            delete Validation.methods[methodName];
+                        }
+                    }
+
+                    if (this.validator.validate()) {
+                        if (url) {
+                            this.form.action = url;
+                        }
+                        this.form.submit();
+                    }
+                    Object.extend(Validation.methods, nv);
+                }
+            }.bind(productAddToCartForm);
+            //]]>
+        </script>
+    </div>
+
+    <?php #$relatedProductsIds = $_product->getRelatedProductIds(); ?>
+    <?php $checkforbundled = "false"; ?>
+    <?php foreach ($relatedProductsIds as $relatedProductsId): ?>
+        <?php $product = Mage::getModel('catalog/product')->load($relatedProductsId); ?>
+        <?php $productType = $product->getTypeID(); ?>
+        <?php if ($productType == "bundle"): ?>
+            <?php global $checkforbundled; ?>
+            <?php $checkforbundled = "true"; ?>
+            <?php break; ?>
+        <?php endif; ?>
+    <?php endforeach; ?>
+
+    <?php /*
+	<div class="taglist">
+		<?php echo $this->getChildHtml("product_tag_list"); ?>
+	</div>
+    */
+    ?>
+	
+    <div class="product-details-bottom">
+        <div class="left_side">
+            <?php if ($checkforbundled == "true"): ?>
+                <div class="recommneded_combos">
+                    <h2>Recommended Combos</h2>
+                    <div class="recommneded_combos_container">
+                        <ul id="combo-items">
+                            <?php foreach ($relatedProductsIds as $relatedProductsId): ?>
+                                <?php $product = Mage::getModel('catalog/product')->load($relatedProductsId); ?>
+                                <?php $productType = $product->getTypeID(); ?>
+                                <?php if ($productType == "bundle"): ?>
+                                    <?php $price_check = $product->getFinalPrice(); ?>
+                                    <?php
+                                    $collection = $product->getTypeInstance(true)->getSelectionsCollection(
+                                            $product->getTypeInstance(true)->getOptionsIds($product), $product);
+                                    $collectioncount = count($collection);
+                                    $i = 1;
+                                    ?>
+                                    <?php
+                                    $bundled_items = array();
+                                    $optionCollection = $product->getTypeInstance()->getOptionsCollection();
+                                    $selectionCollection = $product->getTypeInstance()->getSelectionsCollection($product->getTypeInstance()->getOptionsIds());
+                                    $options = $optionCollection->appendSelections($selectionCollection);
+                                    foreach ($options as $option) {
+                                        $_selections = $option->getSelections();
+                                        foreach ($_selections as $selection) {
+                                            $bundled_items[$option->getOptionId()][] = $selection->getSelectionId();
+                                        }
+                                    }
+                                    ?>
+                                    <li>
+                                        <?php foreach ($collection as $item) { ?>
+                                            <div class="combo-<?php echo $i; ?>">
+                                                <div class="product-image">
+                                                    <div class="product-image-gallery">
+                                                        <img src="<?php echo $this->helper('catalog/image')->init($item, 'small_image')->resize('210'); ?>" alt="<?php echo $item->getName(); ?>" />
+                                                    </div>
+                                                </div>
+                                                <?php if ($price_check): ?>
+                                                    <div class="product-info">
+                                                        <div class="checkbox_sample sample">
+                                                                <!--<input type="checkbox" class="checkbox <?php //echo 'product_'.$product->getId();   ?> checkboxchg" checked="checked" id="combo_<?php //echo $i;   ?>" data-parent="<?php //echo 'product_'.$product->getId();   ?>" data-selectionid="<?php //echo $item->getSelectionId();   ?>" data-combo_<?php //echo $i;   ?>="<?php //echo $item->getSelectionId();   ?>" data-optionid="<?php //echo $item->getOptionId();   ?>" data-selectionpricevalue="<?php //echo $item->getSelectionPriceValue();   ?>" data-liprodid="<?php //echo $product->getId();   ?>" data-parentprice="<?php //echo $product->getPrice();   ?>"/>-->
+                                                            <input type="checkbox" class="checkbox <?php echo 'product_' . $product->getId(); ?>" checked="checked" data-productsku="<?php echo $item->getSku(); ?>" />
+                                                            <label class="css-labels" for="combo_<?php echo $i; ?>"><?php echo $item->getName(); ?></label>
+                                                        </div>
+                                                        <div class="price-info">
+                                                            <div class="price-box">
+                                                                <div class="regular-price">
+                                                                    <span class="price"><?php //echo Mage::helper('core')->currency($item->getPrice());   ?>
+                                                                        <?php echo Mage::helper('core')->currency($item->getPrice()); ?></span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                <?php else: ?>
+                                                    <div class="product-info">
+                                                        <div class="checkbox_sample sample">
+                                                            <input type="checkbox" class="checkbox <?php echo 'product_' . $product->getId(); ?> checkboxchg" checked="checked" id="combo_<?php echo $i; ?>" data-parent="<?php echo 'product_' . $product->getId(); ?>" data-selectionid="<?php echo $item->getSelectionId(); ?>" data-combo_<?php echo $i; ?>="<?php echo $item->getSelectionId(); ?>" data-optionid="<?php echo $item->getOptionId(); ?>" data-selectionpricevalue="<?php echo $item->getSelectionPriceValue(); ?>" data-liprodid="<?php echo $product->getId(); ?>" data-parentprice="<?php echo $product->getPrice(); ?>"/>
+                                                            <label class="css-label" for="combo_<?php echo $i; ?>"><?php echo $item->getName(); ?></label>
+                                                        </div>
+                                                        <div class="price-info">
+                                                            <div class="price-box">
+                                                                <div class="regular-price">
+                                                                    <span class="price" id="<?php echo $item->getId(); ?>"><?php //echo Mage::helper('core')->currency($item->getPrice());   ?>
+                                                                        <?php echo Mage::helper('core')->currency($item->getSelectionPriceValue()); ?></span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                <?php endif; ?>
+                                            </div>
+                                            <?php if ($i < $collectioncount): ?>
+                                                <div class="plus-sec"><span class="plus-icon">+</span></div>
+                                                <?php $i++; ?>
+                                            <?php endif; ?>
+                                        <?php } ?>
+                                        <div class="buy-details buy-details_<?php echo $product->getId(); ?>">
+                                            <?php foreach ($collection as $item): ?>
+                                                <?php $items_price += $item->getSelectionPriceValue(); ?>
+                                            <?php endforeach; ?>
+                                            <span>Buy <?php echo $collectioncount; ?> items at </span>
+                                            <div class="price-info">
+                                                <div class="price-box">
+                                                    <div class="regular-price">
+                                                        <span class="price"><?php echo Mage::helper('core')->currency($product->getPrice() + $items_price); ?></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <?php $product_list_block = new Mage_Catalog_Block_Product_List(); ?>
+                                            <button data-bunid="<?php echo $product->getId(); ?>" class="button <?php
+                                            if ($price_check): echo 'shopping-cart-rule';
+                                            else: echo 'bundle-addto-cart';
+                                            endif;
+                                            ?>" title="Buy Now" type="button" data-prodid="<?php echo $product->getId(); ?>"><span><span>Buy Now</span></span></button>
+                                        </div>
+                                    </li>
+        <?php endif; ?>
+    <?php endforeach; ?>
+                        </ul>
+                    </div>
+                </div>
+            <?php endif; ?>
+            <div id="seealldetails"></div>
+            <?php $setId = $_product->getAttributeSetId(); ?>
+            <?php $attributegroupcollections = array(); ?>
+            <?php
+ 
+                //echo $setId;exit;
+            
+                if ($setId == '9') { 
+                    // this is for the laptops
+                    $attribute_groups_to_show = array('Product Details', 'Processor', 'RAM (Memory)', 'Storage(HDD)', 'Storage(HDD)', 'Display', 'Graphic Card Details', 'OPERATING SYSTEM', 'WARRANTY', 'Optical Drive', 'Power', 'PORTS/SLOTS' , 'Remark', 'Specifications' , 'Input'); 
+                } elseif ($setId == '10') {
+                    // this is for the mobile
+                    $attribute_groups_to_show = array('General Features', 'Camera', 'RAM & Storage', 'Display', 'Internet & Connectivity', 'Battery', 'Platform', 'Other Details', 'Dimensions', 'Warranty');
+                } elseif ($setId == '11') {
+                    // this is for the cameras
+                    $attribute_groups_to_show = array('General Features', 'Technical Spec', 'Lens', 'LCD', 'Sensor', 'Battery', 'Dimensions', 'Warranty', 'In the Box');
+                } elseif ($setId == '19') {
+                    // this is for the all-in-one-desktop
+                    $attribute_groups_to_show = array('Product Details', 'Processor & Chipset', 'RAM (Memory)', 'Storage(HDD)', 'Display', 'Graphics', 'Input Devices', 'Network', 'Operating System', 'Warranty', 'Optical Drive', 'In the Box', 'Webcam', 'PORTS/SLOTS', 'Dimensions');
+                } elseif ($setId == '13') {
+                    // this is for the tablets
+                    $attribute_groups_to_show = array('Storage', 'General Features', 'Platform', 'Display', 'Camera', 'Battery', 'Multimedia', 'Internet & Connectivity', 'Warranty', 'Dimensions');
+                } elseif ($setId == '22') {
+                    // this is for the headsets
+                    $attribute_groups_to_show = array('General Features', 'Microphone Features','Connectivity','Sound Features','Dimensions','Warranty');
+                } elseif ($setId == '23') {
+                    // this is for the storage media
+                    $attribute_groups_to_show = array('General Features', 'Dimensions' ,'Warranty');
+                } elseif ($setId == '25') {
+                    // this is for the monitors
+                    $attribute_groups_to_show = array('General Features', 'Display Features', 'Warranty', 'Power Features', 'Weight', 'Connectivity', 'Mounting Features', 'In the Box', 'System Requirements');
+                } elseif ($setId == '27') {
+                    // this is for the keyboard and mouse
+                    $attribute_groups_to_show = array('General Features', 'Dimensions', 'Warranty');
+                } elseif ($setId == '28') {
+                    // this is for the speakers
+                    $attribute_groups_to_show = array('General Features','Power','Dimensions','Audio Features','Connectivity','Warranty','In the Box','Additional Features');
+                } elseif ($setId == '30') {
+                    // this is for the keyboard and mmc
+                    $attribute_groups_to_show = array('General Features');
+                } elseif ($setId == '32') {
+                    // this is for the power bank
+                    $attribute_groups_to_show = array('General Features', 'Dimensions', 'Warranty', 'In the Box');
+                } elseif ($setId == '33') {
+                    // this is for the tripod
+                    $attribute_groups_to_show = array('General Features', 'Dimensions', 'LEG FEATURES');
+                } elseif ($setId == '34') {
+                    // this is for the camera memory card
+                    $attribute_groups_to_show = array('General Features');
+                } elseif ($setId == '24') {
+                    // this is for the scanner
+                    $attribute_groups_to_show = array('General Feature', 'Scan', 'Copy', 'Dimensions', 'In the Box', 'Warranty', 'System Requirements');
+                } elseif ($setId == '29') {
+                    // this is for the battery adapter
+                    $attribute_groups_to_show = array('General Features', 'Dimensions', 'Warranty');
+                }elseif ($setId == '36') {
+                    // this is for the nd
+                    $attribute_groups_to_show = array('Product Details','Speed','Dimensions','Security','Power','Connectivity','System Requirements','Warranty Summary');
+                }elseif ($setId == '31') {  
+                    // this is for the battery adapter
+                    $attribute_groups_to_show = array('General Features', 'Dimensions', 'Warranty', 'In the Box', 'Technical Spec', 'Lens Features');
+                } elseif ($setId == '26') {
+                    // this is for the printer
+                    $attribute_groups_to_show = array('General Features', 'Dimensions & Weight', 'Scan', 'Compatible Inks/Toners', 'Sales Package', 'Paper Handling', 'Warranty', 'System Requirements', 'Connectivity', 'Print', 'Copy');
+                } elseif ($setId == '37') {
+                    // this is for the bluetoothe
+                    $attribute_groups_to_show = array('General Features','Power and Battery','Sound Feature','Controls','Bluetooth','Wireless','Dimensions','Warranty','Microphone Features','Additional Features','In The Box');
+                } elseif ($setId == '38') {
+                    // this is for the mobile cases and covers
+                    $attribute_groups_to_show = array('General Features','Warranty','Dimensions');
+                }elseif ($setId == '40') {
+                    // this is for the led panel
+                   // $attribute_groups_to_show = array('General Features', 'Display', 'Dimensions', 'Battery', 'Warranty' ,'Connectivity Features' , 'Price');
+                    $attribute_groups_to_show = array('General Features','Power Features', 'Dimensions', 'Warranty');
+                }
+                elseif ($setId == '35') {
+                    // this is for the Laptop Bags
+                    $attribute_groups_to_show = array('General Features','Warranty','Dimensions');
+                }
+                elseif ($setId == '45') {
+                    // this is for the Cases & Covers
+                    $attribute_groups_to_show = array('General Features','Warranty');
+                }
+                elseif ($setId == '43') {
+                    // this is for the Cabels 
+                     
+                    $attribute_groups_to_show = array('General Features','Warranty');
+                }
+                elseif ($setId == '47') {
+                    // this is for the Refurbished   
+                     
+                    $attribute_groups_to_show = array('General Features','Warranty');
+                }
+                else {
+                    $attribute_groups_to_show = array('Specifications');
+                }
+
+                $groups = Mage::getModel('eav/entity_attribute_group')
+                        ->getResourceCollection()
+                        ->setAttributeSetFilter($setId)
+                        ->setSortOrder()
+                        ->load();
+
+                foreach ($groups as $group) {
+                    if (in_array($group->getAttributeGroupName(), $attribute_groups_to_show)) {
+                        $attributegroupcollections[] = $group->getAttributeGroupId();
+                    }
+                }
+            ?>
+
+            <?php $attributegroupcollectionswithname = array(); ?>
+            <?php $attributeSetCollection = Mage::getResourceModel('eav/entity_attribute_group_collection')->load(); ?>
+            <?php foreach ($attributegroupcollections as $attributegroupcollection): ?>
+                <?php
+                foreach ($attributeSetCollection as $id => $attributeGroup) {
+                    if ($attributeGroup->getAttributeGroupId() == $attributegroupcollection):
+                        $attributegroupcollectionswithname[$attributegroupcollection] = $attributeGroup->getAttributeGroupName();
+                    endif;
+                }
+                ?>
+<?php endforeach; ?>
+                <?php if (count($attributegroupcollectionswithname) > 0): ?>
+                <div class="detail-specification">
+                    <h2>Detail Specification of <?php echo $_product->getProMainname(); ?></h2>
+    <?php foreach ($attributegroupcollectionswithname as $key => $value): ?>
+                        <div class="specification-container">
+                            <h2><a class="specification-icon"><?php echo $value; ?></a></h2>
+                            <table border="0" cellspacing="0" cellpadding="0">
+                                <?php $attributesCollections = Mage::getResourceModel('catalog/product_attribute_collection'); ?>
+                                <?php $attributesCollections->setAttributeGroupFilter($key); ?>
+                                <?php foreach ($attributesCollections as $attribute): ?>
+                                    <?php if ($attribute->getFrontendInput() == 'select' || $attribute->getFrontendInput() == 'boolean'): ?>
+                <?php $sel_var_val = $_product->getAttributeText($attribute->getAttributeCode()); ?>
+                <?php if (!empty($sel_var_val)): ?>
+                                            <tr>
+                                                <td><?php echo $attribute->getFrontendLabel(); ?></td>
+                                                <td><?php echo $_product->getAttributeText($attribute->getAttributeCode()); ?></td>
+                                            </tr>
+                                        <?php endif; ?>
+                                    <?php elseif ($attribute->getFrontendInput() == "text"): ?>
+                <?php $text_var_val = $_product->getData($attribute->getAttributeCode()); ?>
+                <?php if (!empty($text_var_val)): ?>
+                                            <tr>
+                                                <td><?php echo $attribute->getFrontendLabel(); ?></td>
+                                                <td><?php echo $_product->getData($attribute->getAttributeCode()); ?></td>
+                                            </tr>
+                                        <?php endif; ?>
+            <?php endif; ?>
+                        <?php endforeach; ?>
+                            </table>
+                        </div>
+                <?php endforeach; ?>
+                </div>
+        <?php endif; ?>
+        </div>
+        <!-- </div> -->        
+		<?php #echo $_product->getAttributeSetId(); ?>
+        <?php #if (count($relatedProductsIds) == 0): ?>
+			<?php $toplevel_categoryid = $customblocks_index->getTopLevelCategoryIfNoRelatedProducts($_product->getCategoryIds()); ?>
+			<?php $products_fromcategory_related = $customblocks_index->getProductsFromCategoryForRelatedProducts($toplevel_categoryid->getId(),$_product->getBrands(),$_product->getPrice(),$_product->getAttributeSetId()); ?>
+			<?php $relatedProductsIds = $products_fromcategory_related; ?>
+		<?php #endif; ?>
+        <?php /*
+        <div class="more-products">
+            <h2>You may be interested in these products also</h2>
+            <div class="more-products-content gadgets related-products-slider">
+                <ul>
+                    <?php #$i = 0;
+                    foreach ($relatedProductsIds as $relatedProductsId):
+                        ?>
+                        <?php $product = Mage::getModel('catalog/product')->load($relatedProductsId); ?>
+    <?php $productType = $product->getTypeID(); ?>
+                        <?php #if ($productType == "simple"): ?>
+                            <?php #if ($i == 5): ?>
+                            <!--/ul>
+                            <ul-->
+            <?php #$i = 0; ?>
+        <?php #endif; ?>
+                            <li>
+                                <a class="product-image" title="<?php echo $product->getName(); ?>" href="<?php echo $product->getProductUrl(); ?>"><img alt="<?php echo $product->getName(); ?>" src="<?php echo Mage::helper('catalog/image')->init($product, 'small_image'); ?>"> </a>
+                                <div class="product-info">
+                                    <h2 class="product-name"><a title="<?php echo $product->getName(); ?>" href="<?php echo $product->getProductUrl(); ?>"><?php echo $product->getName(); ?></a></h2>
+                                    <div class="price-box"><span class="regular-price"><span class="price"><?php echo Mage::helper('core')->currency($product->getFinalPrice()); ?></span> </span></div>
+                                </div>
+                                <div class="clr"></div>
+                            </li>
+        <?php #$i++; ?>
+    <?php #endif; ?>  
+                <?php endforeach; ?>
+                </ul>
+            </div>
+            
+            <!--<div class="taglist">
+<?php //echo $this->getChildHtml("product_tag_list"); ?>
+            </div>-->
+
+        </div> */ ?>
+
+
+        <div class="clr"></div>
+    </div>
+    <?php /*
+	<div id="compatible-accessories-form">
+	    <?php echo $this->getChildHtml('related') ?>
+	 </div>
+    <div class="products-reviews-container">
+        <div class="products-reviews">
+            <h2>Reviews of <?php echo $_product->getName(); ?></h2>
+            <div class="ratings-section">
+<?php $avg = $product_review->AggregrateRatingInFiveStars($_product->getId()); ?>
+<?php $countstars = $product_review->AggregrateRatingStarsCount($_product->getId()); ?>
+                <div class="unit-section">
+                    <div class="big-star">
+                        <span><?php echo $avg; ?></span>
+                    </div>
+                    <div class="unit-content">
+                        <span>Average Rating</span>
+                        <span>
+<?php #echo $avg;   ?>
+<?php $ceil_avg = $product_review->AggregrateRating($_product->getId()); ?>
+<?php if ($ceil_avg > 0): ?>
+                                <div class="ratings">
+                                    <div class="rating-box">
+                                        <div class="rating" style="width: <?php echo ceil($ceil_avg); ?>%;"></div>
+                                    </div>
+                                </div>
+<?php endif; ?>
+                        </span>
+                    </div>
+
+                </div>
+                <div class="unit-ratings-section">
+                    <ul>
+                        <li class="ratings-section-row">
+                            <span>5 star</span>
+                            <div class="rating-bars" id="rating-bars-five"></div>
+                        </li>
+                        <li class="ratings-section-row">
+                            <span>4 star</span>
+                            <div class="rating-bars" id="rating-bars-four"></div>
+                        </li>                          
+                        <li class="ratings-section-row">
+                            <span>3 star</span>
+                            <div class="rating-bars" id="rating-bars-three"></div>
+                        </li>                          
+                        <li class="ratings-section-row">
+                            <span>2 star</span>
+                            <div class="rating-bars" id="rating-bars-two"></div>
+                        </li>                          
+                        <li class="ratings-section-row">
+                            <span>1 star</span>
+                            <div class="rating-bars" id="rating-bars-one"></div>
+                        </li>                          
+                    </ul>
+                </div>
+                <div class="rate-section" id="form-left-review">
+                    <div class="add-ratings-section">
+                        <div class="action-section">
+                            <div class="message">
+                                <p class="ask-review-message">Have you used this product?</p>
+                            </div>
+                            <div class="add-rating">
+                                <a href="#review-form" class="Write-review-btn review_form">Rate it Now</a>
+                                <span><img src="<?php echo $this->getSkinUrl('images/rating_star.png'); ?>" /></span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="Write-review">
+                        <a href="#review-form" class="Write-review-btn review_form">Write a Review</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<?php $review_view_list = new Mage_Review_Block_Product_View_List(); ?>
+<?php $review_count = $review_view_list->getReviewsCollection()->getItems(); ?>
+                <?php $view_all_reviews = $product_review->getReviewLink($_product->getId()); ?>
+        <div class="top-reviews">
+			<?php if (count($review_count) > 0): ?>
+            <div class="top-review-heading">
+                <h2>Top Reviews</h2>
+<?php if (count($review_count) > 2): ?>
+                    <a href="<?php echo $view_all_reviews; ?>" target="_blank">View all Reviews</a>
+                <?php endif; ?>
+            </div>
+			<?php endif; ?>
+            <div class="left-review">
+                <?php echo $this->getChildHtml('product.top.reviews') ?>
+            </div>
+            <div class="right-review">
+            <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('product_reviews_list_right_block')->toHtml() ?>
+            </div>
+            <!--<a name="review_form"><?php //echo $this->getChildHtml('review_form')   ?></a>-->
+<?php //echo $this->getChildHtml('product_additional_data')  ?>
+            <div class="clr"></div>
+        </div>
+    </div>
+
+    */ 
+
+    ?>
+
+    <!--<div class="product-collateral toggle-content tabs">
+<?php //if ($detailedInfoGroup = $this->getChildGroup('detailed_info', 'getChildHtml')):  ?>
+            <dl id="collateral-tabs" class="collateral-tabs">
+<?php //foreach ($detailedInfoGroup as $alias => $html):  ?>
+                    <dt class="tab"><span><?php //echo $this->escapeHtml($this->getChildData($alias, 'title'))  ?></span></dt>
+                    <dd class="tab-container">
+                        <div class="tab-content"><?php //echo $html  ?></div>
+                    </dd>
+    <?php //endforeach;  ?>
+            </dl>
+    <?php //endif;  ?>
+    </div>-->
+<?php //echo $this->getChildHtml('upsell_products')   ?>
+<?php //echo $this->getChildHtml('product_additional_data')  ?>
+<?php echo $this->getChildHtml('product_recently_viewed') ?>
+    <div class="shareurpopup">
+        <div class="share-you-purchase-popup"></div>	
+    </div>
+</div>
+<script type="text/javascript">
+    jQuery(document).on('ready', function () {
+        var onestars = "<?php if($countstars['1']): echo $countstars['1']; else: '0'; endif; ?>";
+        var twostars = "<?php if($countstars['2']): echo $countstars['2']; else: '0'; endif; ?>";
+        var threestars = "<?php if($countstars['3']): echo $countstars['3']; else: '0'; endif; ?>";
+        var fourstars = "<?php if($countstars['4']): echo $countstars['4']; else: '0'; endif; ?>";
+        var fivestars = "<?php if($countstars['5']): echo $countstars['5']; else: '0'; endif; ?>";
+
+        jQuery("#rating-bars-five").progressbar({
+            value: fivestars
+        });
+        jQuery("#rating-bars-four").progressbar({
+            value: fourstars
+        });
+        jQuery("#rating-bars-three").progressbar({
+            value: threestars
+        });
+        jQuery("#rating-bars-two").progressbar({
+            value: twostars
+        });
+        jQuery("#rating-bars-one").progressbar({
+            value: onestars
+        });
+
+        jQuery('.checkpostcode').click(function () {
+            var postcode = jQuery('.pincode').val();
+            jQuery('.opc-ajax-loader').css('display', 'block');
+            if (postcode) {
+                jQuery('.opc-ajax-loader').css('display', 'block');
+                jQuery.ajax({
+                    'url': "<?php echo Mage::getUrl('pincode/index/checkPostcode'); ?>",
+                    'type': "POST",
+                    'dataType': 'json',
+                    'data': {postcode: postcode},
+                    success: function (data) {
+                        jQuery('.opc-ajax-loader').css('display', 'none');
+                        if (data.status == 'ERROR') {
+                            jQuery('.pincode_message').css({color:'red'});
+                            jQuery('.pincode_message').text(data.message);
+                            //alert(data.message);
+                        } else if (data.status == 'SUCCESS') {
+                            jQuery('.pincode_message').css({color:'#458B00'});
+                            jQuery('.pincode_message').text(data.message);
+                        }
+                    }
+                });
+            } else {
+                jQuery('.pincode_message').text("Please Enter Pincode");
+                jQuery('.opc-ajax-loader').css('display', 'none');
+            }
+
+        });
+
+        // jquery to remove empty spec group. changed on the 6th Jan
+        jQuery('.specification-container').each(function () {
+            var len = jQuery(this).find('table tr').length;
+            if (len == 0) {
+                jQuery(this).remove();
+            }
+        });
+
+        jQuery('.checkboxchg').change(function () {
+            jQuery('.opc-ajax-loader').css('display', 'block');
+            var bundproprice = jQuery(this).data('parentprice');
+            var liprodid = jQuery(this).data('liprodid');
+            var selectionprice = [];
+            jQuery(".product_" + liprodid).each(function () {
+                if (jQuery(this).is(':checkbox')) {
+                    if (jQuery(this).is(':checked')) {
+                        selectionprice.push(jQuery(this).attr("data-selectionpricevalue"));
+                    }
+                }
+            });
+
+            jQuery.ajax({
+                'url': "<?php echo Mage::getUrl('customblocks/index/updateBundleproprice'); ?>",
+                'type': "POST",
+                'data': {bundproprice: bundproprice, selectionprice: selectionprice},
+                success: function (data) {
+                    jQuery('.opc-ajax-loader').css('display', 'none');
+                    jQuery('.buy-details_' + liprodid + ' .price-info .price-box .regular-price').html(data);
+                }
+            });
+        });
+
+        jQuery('.shopping-cart-rule').click(function () {
+            jQuery('.opc-ajax-loader').css('display', 'block');
+            var bundid = jQuery(this).data('bunid');
+            var selectionskus = [];
+            jQuery(".product_" + bundid).each(function () {
+                if (jQuery(this).is(':checkbox')) {
+                    if (jQuery(this).is(':checked')) {
+                        selectionskus.push(jQuery(this).data('productsku'));
+                    }
+                }
+            });
+
+            jQuery.ajax({
+                'url': "<?php echo Mage::getUrl('customblocks/index/addShoppingPromoProToCart'); ?>",
+                'type': "POST",
+                'dataType': 'json',
+                'data': {selectionskus: selectionskus},
+                success: function (data) {
+                    if (data.status == 'success')
+                    {
+                        jQuery('.opc-ajax-loader').css('display', 'none');
+                        var base_url = "<?php echo Mage::getBaseUrl() . 'checkout/cart/'; ?>";
+                        location.href = base_url;
+                    } else if (data.status == 'error') {
+                        jQuery('.opc-ajax-loader').css('display', 'none');
+                        alert(data.message);
+                    }
+                }
+            });
+        });
+
+        jQuery('.bundle-addto-cart').click(function () {
+            jQuery('.opc-ajax-loader').css('display', 'block');
+            var bundid = jQuery(this).data('bunid');
+            var selectionids = [];
+            var optionid = [];
+
+            jQuery(".product_" + bundid).each(function () {
+                if (jQuery(this).is(':checkbox')) {
+                    if (jQuery(this).is(':checked')) {
+                        selectionids.push(jQuery(this).attr("data-selectionid"));
+                        optionid.push(jQuery(this).attr("data-optionid"));
+                    }
+                }
+            });
+
+            var option_id = jQuery.unique(optionid);
+
+            var proid = jQuery(this).data('prodid');
+            jQuery.ajax({
+                'url': "<?php echo Mage::getUrl('customblocks/index/addBundledProducttToCart'); ?>",
+                'type': "POST",
+                'dataType': 'json',
+                'data': {proid: proid, selectionids: selectionids, option_id: option_id},
+                success: function (data) {
+                    if (data.status == 'EmptySelectionIds') {
+                        alert(data.message);
+                        jQuery('.opc-ajax-loader').css('display', 'none');
+                    } else if (data.status == 'Success') {
+                        jQuery('.opc-ajax-loader').css('display', 'none');
+                        var base_url = "<?php echo Mage::getBaseUrl() . 'checkout/cart/'; ?>";
+                        location.href = base_url;
+                    }
+                }
+            });
+        });
+    });
+    function scrollto(element){
+		jQuery('html, body').animate({ scrollTop: (jQuery(element).offset().top)-250}, 'slow');
+	}
+</script>

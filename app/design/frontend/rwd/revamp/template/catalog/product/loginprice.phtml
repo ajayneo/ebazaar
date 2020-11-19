@@ -1,0 +1,9 @@
+<?php
+// echo $this->getData('itemid');
+if(Mage::getSingleton('customer/session')->isLoggedIn()){
+	echo $this->getData('itemid');
+	echo "in";
+}else{
+	echo $this->getItemid();
+	echo "out";
+}

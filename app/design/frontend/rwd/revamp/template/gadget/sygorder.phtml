@@ -1,0 +1,57 @@
+<?php $orderdata = $this->getSygOrderList(); ?>
+<div class="my-account my-account-new col2-left-layout-new">
+	<div class="syg-order-list">
+	<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+	<div class="page-title">
+	    <h1><?php echo $this->__('SYG Orders List') ?></h1>
+	</div>
+<?php if(count($orderdata) > 0): ?>
+
+	<div class="table-responsive">
+	<table class="data-table orders" id="my-orders-table">
+	    <col width="1" />
+	    <col width="1" />
+	    <col />
+	    <col width="1" />
+	    <col width="1" />
+	    <col width="1" />
+	    <thead>
+	        <tr>
+	            <th class="number"><?php echo $this->__('Order ID') ?></th>
+	            <th width="15%" class="date"><?php echo $this->__('Date') ?></th>
+	            <!--<th class="ship"><?php //echo $this->__('Ship To') ?></th>-->
+	            <th class="total"><span class="nobr"><?php echo $this->__('Product Name') ?></span></th>
+	            <th width="10%" class="status"><span class="nobr"><?php echo $this->__('Price') ?></span></th>
+	            <th width="10%" class="view"><span class="nobr"><?php echo $this->__('Action') ?></th>
+	        </tr>
+	    </thead>
+	    <tbody>	
+	<?php foreach($orderdata as $data): ?>	
+	      <tr <?php if($data['awb_number'] != ''){ ?> style='background:#00FF00' <?php } ?>>
+            <td class="number"><?php echo $data['id'] ?></td>
+            <td width="15%" class="number"><?php echo date("m/d/Y",strtotime($data['created_at'])); ?></td>
+            <td class="number"><?php echo $data['proname']  ?></td>
+            <td width="10%" class="number"><?php echo str_replace('?','',$data['price'])  ?></td>
+            <td width="10%" class="number"><span class="nobr">
+            	<a style="float: left;" href="<?php echo Mage::getBaseUrl() ?>gadget/index/sygorderview/id/<?php echo $data['id'] ?>" class="link-vieworder" title="View Order"><?php echo $this->__('View Order') ?></a>
+            	<?php if($data['awb_number'] != '' || $data['status'] == 'sellback_request'){ ?>
+            		<?php //echo $data['awb_number']; ?>
+	           		<a style="float: left;" href="<?php echo Mage::getBaseUrl() ?>trackyourorder/index/trackorder?order=<?php echo $data['id'] ?>&email=<?php echo $customerEmail ?>&type=gadget" class="gadget-track-order" title="Track Your Order" target="_blank"><?php echo $this->__('Track Your Order') ?></a>
+ 
+            	<?php }else if($data['status'] == 'confirmed_by_retailer'){ ?>
+            	
+            	<a style="float: left;" href="<?php echo Mage::getBaseUrl() ?>gadget/index/sellBack?id=<?php echo $data['id'] ?>" class="link-track" title="Sell Back"><?php echo $this->__('Sell Back') ?>
+            	</a>
+            	<?php } ?>
+            	</span>
+            </td>
+          </tr>	
+	<?php endforeach; ?>
+    </tbody>
+</table>
+</div>	
+<?php else: ?>
+    <p><?php echo $this->__('Orders records not found.'); ?></p>
+<?php endif ?>
+ </div>
+</div>

@@ -1,0 +1,220 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2014 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+Add Deals Offer Tag on Product
+*/
+// $dealCollection = Mage::getModel('multipledeals/multipledeals')->getCollection()->addFieldToFilter('status', array('eq'=>1));
+// $dealproductIds = array();
+// if (count($dealCollection)) {
+// 	foreach ($dealCollection as $deal) {
+// 			$dealproductIds[] = $deal->getProductId();
+// 	}
+// }
+$countrelatedproducts = $this->getItems()->getSize();
+
+$compare_collection = Mage::helper('catalog/product_compare')->getItemCollection();
+$compare_ids = array();
+foreach ($compare_collection as $comp_prod) {
+    $compare_ids[] = $comp_prod->getId();
+}
+?>
+<?php $product_list_block = new Mage_Catalog_Block_Product_List(); ?>
+<?php if($this->getItems()->getSize()): ?>
+<div class="category-products_test products_homeslider">
+    <h2 class="home-slider-heading"><?php echo $this->__('Related Products') ?> <?php  echo $this->getProduct()->getProMainname(); ?></h2>
+        <ul id="related-items" class="products-grid products-grid--max-4-col first last odd homeproslider2ssssss"> 
+        <?php foreach($this->getItems() as $_item):
+        	//print_r($_item->getData()); ?>             
+            <?php $label = Mage::helper('custombestseller')->getCustomImageLabel($_item->getSku()); ?>
+        	<?php //if($_item->isSaleable()): ?>
+             <li class="item">
+             	<div class="item-wrapper">
+		        <!--div class="product-view" data-pid="<?php //echo $_item->getId(); ?>">
+					<span><a href="javascript:void(0)">Quick View</a></span>
+				</div--> 
+				<?php $label = Mage::helper('custombestseller')->getCustomImageLabel($_item->getSku()); ?>
+				<?php $hasProduct = 0; ?>
+				<?php if(Mage::getSingleton('customer/session')->isLoggedIn()): ?>
+					<?php $customerId = Mage::getSingleton('customer/session')->getCustomerId(); ?>
+					<?php $wishlist = Mage::getModel('wishlist/wishlist')->loadByCustomer($customerId, true); ?>
+					<?php $collection = Mage::getModel('wishlist/item')->getCollection()->addFieldToFilter('wishlist_id', $wishlist->getId())->addFieldToFilter('product_id', $_item->getId()); ?>
+					<?php $item = $collection->getFirstItem(); ?>
+					<?php $hasProduct = $item->getWishlistItemId(); ?>
+				<?php endif; ?>
+				<ul class="add-to-links">
+	                <?php if($hasProduct): ?>
+	                    <li><a href="<?php echo $this->getBaseUrl() ?>wishlist/index/remove/item/<?php echo $hasProduct?>" class="link-wishlist added-to-wishlist"><?php echo $this->__('Remove from Wishlist') ?></a>
+	                    </li>
+	                <?php else: ?>
+	                    <li><a class="link-wishlist" title="Add to Wishlist" onclick="setLocation('<?php echo $product_list_block->getAddToWishlistUrl($_item); ?>')">Add to Wishlist</a>
+	                    </li>
+	                <?php endif; ?>
+	            </ul>
+            	<div class="clr"></div>
+				<a href="<?php echo $_item->getProductUrl() ?>" title="<?php echo $_item->getName(); ?>" class="product-image">
+                    <?php if($label != ''): ?>
+                            <div class="category-name category-<?php echo $label ?>">
+                                <img src="<?php echo $this->getSkinUrl(); ?>images/label/<?php echo $label.'-cat.png'; ?>">
+                            </div>
+                    <?php endif; ?>
+					<?php $special_price = $_item->getSpecialPrice(); ?>
+					<?php $now = date("Y-m-d"); ?>
+					<?php $newsFrom = substr($_item->getData('news_from_date'),0,10); ?>
+					<?php $newsTo =  substr($_item->getData('news_to_date'),0,10); ?>
+					<?php if(!empty($special_price)): ?>
+						<div class="product-offer">
+							<span>Offer</span>
+						</div>
+					<?php elseif(!empty($newsFrom) || !empty($newsTo)):?>
+						<?php if($now>=$newsFrom && $now<=$newsTo): ?> 
+							<div class="product-new">
+								<span>New</span>
+							</div>
+						<?php endif; ?>
+					<?php endif; ?>
+					<?php $_imgSize = 210; ?>
+					<img id="product-collection-image-<?php echo $_item->getId(); ?>" src="<?php echo Mage::helper('catalog/image')->init($_item,'small_image')->resize($_imgSize); ?>" alt="<?php echo $_item->getName(); ?>" />
+					<div class="mask"></div>
+				</a>
+				<?php if($_item->getNewLaunch()) { ?>
+                <div class="coming-soon">Coming Soon</div>
+                <?php }?>
+				<div class="product-info">
+					<h2 class="product-name"><a href="<?php echo $this->getProductUrl($_item) ?>" title="<?php echo $_item->getName(); ?>"><?php echo substr($_item->getName(),0,28); ?><?php if(strlen($_item->getName()) > 28) { echo '...'; } ?></a></h2>
+
+						<?php // if(Mage::helper('customer')->isLoggedin()): ?>
+							<?php echo $this->getPriceHtml($_item, true) ?> 					 	
+	                    <?php /* else: ?>
+							</div>
+	                        <div class="product-info-custom">
+	                            <a class="view-price" href="<?php echo $this->getUrl('customer/account/login');?>">Login to view Price</a>
+	                    <?php endif; */ ?>	
+
+					<!--div class="info-inner">
+						<div class="rating">
+							<?php //$product_review = new Neo_Review_Block_Product_View_List(); ?>
+							<?php //$avg = $product_review->AggregrateRating($_item->getId()); ?>
+							<?php //$ratings = $product_review->RatingCounts($_item->getId()); ?>
+							<?php //if($avg >= 0): ?>
+								<div class="ratings">
+									<div class="rating-box">
+										<div class="rating" style="width: <?php //echo ceil($avg) ; ?>%;"></div>
+									</div>
+								</div>
+							<?php //endif; ?>
+							<?php //if($ratings): ?>
+								<p><?php //echo $ratings; ?> Ratings</p>
+							<?php //endif; ?>
+						</div>
+						<div class="share">
+							<span><a href="javascript:void(0)" class="link-share" data-ppid="<?php //echo $_item->getId(); ?>" >Share</a></span>
+						</div>
+					</div-->
+				</div>
+				<div class="short-description">
+					<div class="c-prod-desc"><?php echo $_item->getImpDesc(); ?></div>
+				</div>
+<!-- 				<div class="gadets-addtocomare"> commented by jp.
+					<?php //$_compareUrl = Mage::helper('catalog/product_compare')->getAddUrl($_item); ?>
+					<div class="checkbox_sample sample">
+						<input <?php //echo in_array($_item->getId(),$compare_ids)? 'checked':'' ?> type="checkbox" class="checkbox" id="<?php //echo "products_".$_item->getId(); ?>" onclick="ajaxCompare('<?php //echo $_compareUrl; ?>','<?php //echo $_item->getId()?>',jQuery(this));" class="link-compare" /><label class="css-label" for="<?php //echo "products_".$_item->getId(); ?>"><?php //echo $this->__('Add to Compare') ?></label>
+					</div>
+				</div> -->
+
+				<?php // added to check wthr product is in the wishlist and add "added-to-wishlist" accordingly by pradeep sanku on 1st April 2015 ?>
+
+				<?php if(!$_item->getNewLaunch()) { ?>
+                
+				<div class="actions">
+					<button class="button btn-cart" title="Add To Cart" type="button" onclick="setLocation('<?php echo $product_list_block->getAddToCartUrl($_item); ?>')"><span><span>Add To Cart</span></span></button>
+					<div class="clr"></div>
+				</div>
+				<?php } ?>
+				<?php
+					// $product_id = $_item->getId();
+					// if(in_array($product_id, $dealproductIds)) {
+					// 	echo '<div class="label-pro-offer">Offer</div>';
+					// }
+				?>
+            </div>
+            </li>
+            <?php //endif; ?>
+        <?php endforeach; ?>
+        </ul>
+</div>
+<?php #endif; ?>
+<script type="text/javascript">
+	var relatedproductcount = "<?php echo $countrelatedproducts; ?>";
+	jQuery(document).ready(function(){
+	var window_width = jQuery(window).width();
+	if((window_width <= 980 && window_width >= 768) && relatedproductcount >= 3){
+		jQuery('#related-items').bxSlider({
+			auto: false,
+			pager: false,
+			slideWidth: 170,
+			slideMargin:28,
+			controls: true,
+			infiniteLoop:false,
+			minSlides: 1,
+			maxSlides: 4,
+			moveSlides: 3,
+			preloadImages:'all'
+		});
+	}
+	else if(window_width < 768){
+		jQuery('#related-items').bxSlider({
+			auto: false,
+			pager: false,
+			slideWidth: 170,
+			slideMargin:28,
+			controls: true,
+			infiniteLoop:false,
+			minSlides: 1,
+			maxSlides: 4,
+			moveSlides: 1,
+			preloadImages:'all'
+		});
+	}
+	else if(relatedproductcount > 4){
+		jQuery('#related-items').bxSlider({
+			auto: false,
+			pager: false,
+			slideWidth: 170,
+			slideMargin:28,
+			controls: true,
+			infiniteLoop:false,
+			minSlides: 1,
+			maxSlides: 4,
+			moveSlides: 4,
+			preloadImages:'all'
+		});
+	}
+	});
+	
+</script>
+<?php endif ?>

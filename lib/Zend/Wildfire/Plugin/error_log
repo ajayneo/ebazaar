@@ -1,0 +1,1 @@
+[08-Oct-2018 16:04:48 Asia/Kolkata] PHP Fatal error:  Interface 'Zend_Wildfire_Plugin_Interface' not found in /home/electronicsbazaa/public_html/lib/Zend/Wildfire/Plugin/FirePhp.php on line 48

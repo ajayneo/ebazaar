@@ -1,0 +1,4 @@
+<?php
+class Neo_Orderreturn_Block_Adminhtml_Return_Edit_Tab_Pickup extends Mage_Adminhtml_Block_Widget_Form
+{
+}

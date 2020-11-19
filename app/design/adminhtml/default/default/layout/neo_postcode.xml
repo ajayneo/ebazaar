@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<layout>
+	<adminhtml_postcode_postcode_index>
+		<reference name="menu">
+			<action method="setActive">
+				<menupath>postcode/manage_postcode</menupath>
+			</action>
+		</reference>
+		<reference name="content">
+			<block type="postcode/adminhtml_postcode" name="postcode"/>
+		</reference>
+	</adminhtml_postcode_postcode_index>
+	
+	<adminhtml_postcode_postcode_grid>
+		<block type="core/text_list" name="root" output="toHtml">
+			<block type="postcode/adminhtml_postcode_grid" name="postcode_grid"/>
+		</block>
+	</adminhtml_postcode_postcode_grid>
+	
+	<adminhtml_postcode_postcode_edit>
+		<reference name="menu">
+			<action method="setActive">
+				<menupath>postcode/manage_postcode</menupath>
+			</action>
+		</reference>
+		<reference name="content">
+			<block type="postcode/adminhtml_postcode_edit" name="postcode_edit" />
+		</reference>
+		<reference name="left">
+            <block type="postcode/adminhtml_postcode_edit_tabs" name="postcode_tabs" />
+        </reference>
+	</adminhtml_postcode_postcode_edit>
+</layout>

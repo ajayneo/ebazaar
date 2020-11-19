@@ -1,0 +1,29 @@
+<div class="gst-popup-contanier" style="display: none;">
+	<form action="<?php echo $this->getUrl('customer/account/savegstin'); ?>" method="POST">
+	<div class="gst-popup-content">
+		<span class="close-button"><a>X</a></span>
+		<h1>GST Identification Number</h1>
+		<ul>
+			<li>
+				<label>Partner Store Name</label>
+				<div class="input-field"><input type="text" name="affliate_store"></div>
+			</li>
+			<li>
+				<label>Email*</label>
+				<div class="input-field"><input type="text" name="email"></div>
+			</li>
+			<li>
+				<label>Mobile No.</label>
+				<div class="input-field"><input type="text" name="mobile"></div>
+			</li>
+			<li>
+				<label>GST Identification Number*</label>
+				<div class="input-field"><input type="text" name="gstin"></div>
+			</li>
+		</ul>
+		<div class="button-container">
+			<button class="bttton submit"><span><span>Submit</span></span></button>
+		</div>
+	</div>
+	</form>
+</div>

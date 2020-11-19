@@ -1,0 +1,119 @@
+<?php $product_list_block = new Mage_Catalog_Block_Product_List(); ?>
+<?php $dealproductIds = $this->getDealProducts(); ?>
+<?php $bestsellingproducts = $this->getBestsellerProducts(); ?>
+<?php $compare_ids = $this->getProductsfromCompare(); ?>
+
+<?php if(count($bestsellingproducts) > 0): ?>
+	<div class="category-products products_homeslider bestseller">
+		<h2 class="home-slider-heading">Best Sellers</h2>
+		<ul class="products-grid products-grid--max-4-col first last odd" id="homeproslider1">
+			<?php $now = date("Y-m-d"); ?>
+			<?php $_imgSize = 210; ?>
+			<?php foreach($bestsellingproducts as $bestsellerproductdetail): ?>
+				<?php $special_price = $bestsellerproductdetail->getSpecialPrice(); ?>
+				<?php $newsFrom = substr($bestsellerproductdetail->getData('news_from_date'),0,10); ?>
+				<?php $newsTo = substr($bestsellerproductdetail->getData('news_to_date'),0,10); ?>
+				<?php $stockItem = $bestsellerproductdetail->getStockItem(); ?>
+				<?php $finalprice = $bestsellerproductdetail->getFinalPrice(); ?>
+				<?php $product_id = $bestsellerproductdetail->getId(); ?>
+				<li class="item">
+					<!--div class="product-view" data-pid="<?php //echo $bestsellerproductdetail->getId(); ?>">
+						<span><a href="javascript:void(0)">Quick View</a></span>
+					</div--> 
+					<div class="clr"></div>
+					<a href="<?php echo $bestsellerproductdetail->getProductUrl(); ?>" title="<?php echo $bestsellerproductdetail->getName(); ?>" class="product-image">
+						<?php if(!empty($special_price)): ?>
+							<div class="product-offer">
+								<span>Offer</span>
+							</div>
+						<?php elseif(!empty($newsFrom) || !empty($newsTo)):?>
+							<?php if($now>=$newsFrom && $now<=$newsTo): ?> 
+								<div class="product-new">
+									<span>New</span>
+								</div>
+							<?php endif; ?>
+						<?php endif; ?>
+	                    <?php if(!$stockItem->getIsInStock()): ?>
+	                        <span class="out-of-stock"><span>Sold Out</span></span>
+	                    <?php endif; ?>
+						<img id="product-collection-image-<?php echo $bestsellerproductdetail->getId(); ?>" src="<?php echo Mage::helper('catalog/image')->init($bestsellerproductdetail,'small_image')->resize($_imgSize); ?>" width="<?php echo $_imgSize; ?>" height="<?php echo $_imgSize; ?>" alt="<?php echo $bestsellerproductdetail->getName(); ?>" />
+						<div class="mask"></div>
+					</a>
+					<div class="product-info">
+						<h2 class="product-name"><a href="<?php echo $bestsellerproductdetail->getProductUrl(); ?>" title="<?php echo $bestsellerproductdetail->getName(); ?>"><?php echo substr($bestsellerproductdetail->getName(),0,24); ?><?php if(strlen($bestsellerproductdetail->getName()) > 24) { echo '...'; } ?></a></h2>
+						<?php if(in_array($product_id, $dealproductIds)): ?>
+							<?php if(!empty($finalprice) && $finalprice>0): ?>
+								<div class="price-info">
+										<div class="price-box">                                 
+											<p class="old-price">
+												<span class="price-label">Regular Price:</span>
+												<span class="price"><?php echo Mage::helper('core')->currency($bestsellerproductdetail->getPrice()); ?></span>
+											</p>
+											<p class="special-price">
+												<span class="price-label">Special Price</span>
+												<span class="price"><?php echo Mage::helper('core')->currency($bestsellerproductdetail->getFinalPrice()); ?></span>
+											</p>
+										</div>
+									</div>
+							<?php else: ?>
+								<div class="price-box">
+									<span class="regular-price">
+										<span class="price"><?php echo Mage::helper('core')->currency($bestsellerproductdetail->getPrice()); ?></span>
+									</span>
+								</div>
+							<?php endif; ?>
+						<?php else: ?>
+							<?php if(!empty($special_price)): ?>
+								<div class="price-info">
+									<div class="price-box">                                            
+										<p class="old-price">
+											<span class="price-label">Regular Price:</span>
+											<span class="price"><?php echo Mage::helper('core')->currency($bestsellerproductdetail->getPrice()); ?></span>
+										</p>
+										<p class="special-price">
+											<span class="price-label">Special Price</span>
+											<span class="price"><?php echo Mage::helper('core')->currency($bestsellerproductdetail->getFinalPrice()); ?></span>
+										</p>
+									</div>
+								</div>
+							<?php else: ?>
+								<div class="price-box">
+									<span class="regular-price">
+										<span class="price"><?php echo Mage::helper('core')->currency($bestsellerproductdetail->getPrice()); ?></span>
+									</span>
+								</div>
+							<?php endif; ?>
+						<?php endif; ?>
+					</div>
+					<div class="short-description">
+						<div class="c-prod-desc"><?php echo $bestsellerproductdetail->getImpDesc(); ?></div>
+					</div>
+					<div class="bottom-gadget">
+						<div class="gadets-addtocomare">
+							<?php $_compareUrl = $this->getProductCompareUrlonHome($bestsellerproductdetail); ?>
+							<div class="checkbox_sample sample">
+								<input <?php echo in_array($bestsellerproductdetail->getId(),$compare_ids)? 'checked':'' ?> type="checkbox" class="checkbox" id="<?php echo "products_".$bestsellerproductdetail->getId(); ?>" onclick="ajaxCompare('<?php echo $_compareUrl; ?>','<?php echo $bestsellerproductdetail->getId()?>',jQuery(this));" class="link-compare" /><label class="css-label" for="<?php echo "products_".$bestsellerproductdetail->getId(); ?>"><?php echo $this->__('Add to Compare') ?></label>
+							</div>
+						</div>
+						<div class="actions">
+							<button class="button btn-cart" title="Buy now" type="button" onclick="setLocation('<?php echo $product_list_block->getAddToCartUrl($bestsellerproductdetail); ?>')"><span><span>Buy now</span></span></button>
+
+							<?php // added to check wthr product is in the wishlist and add "added-to-wishlist" accordingly by pradeep sanku on 1st April 2015 ?>
+							<?php $hasProduct = $this->getIsProductInWishlist($bestsellerproductdetail->getId()); ?>
+							<ul class="add-to-links">
+								<li><a class="link-wishlist <?php if($hasProduct): echo 'added-to-wishlist'; endif;?>" title="Add to Wishlist" onclick="setLocation('<?php echo $product_list_block->getAddToWishlistUrl($bestsellerproductdetail); ?>')">Add to Wishlist</a></li>
+							</ul>
+							<div class="clr"></div>
+						</div>
+					</div>
+					<?php if(in_array($product_id, $dealproductIds)): ?>
+						<?php $discount_percent = $this->getDealsDiscountPercent($product_id); ?>
+						<?php if($discount_percent > 0): ?>
+							<div class="tag"><p><?php echo $discount_percent; ?>% <span>Off</span></p></div>
+						<?php endif; ?>
+					<?php endif; ?>
+				</li>
+			<?php endforeach; ?>
+		</ul>
+	</div><!-- end of the bs -->
+<?php endif; ?>

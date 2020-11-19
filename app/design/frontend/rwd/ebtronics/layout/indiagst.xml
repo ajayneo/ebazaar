@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Magestore
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the Magestore.com license that is
+ * available through the world-wide-web at this URL:
+ * http://www.magestore.com/license-agreement.html
+ * 
+ * DISCLAIMER
+ * 
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ * 
+ * @category 	Magestore
+ * @package 	Magestore_Bannerslider
+ * @copyright 	Copyright (c) 2012 Magestore (http://www.magestore.com/)
+ * @license 	http://www.magestore.com/license-agreement.html
+ */
+-->
+<layout version="0.1.0">
+	<indiagst_index_gstin translate="label">
+		<label>Check GST IN Registered</label>
+        <reference name="root">
+			<action method="setTemplate"><template>page/1column.phtml</template></action>
+        </reference>
+		<reference name="content">
+            <block type="core/template" name="Check GST IN" template="indiagst/checkgstin.phtml" />
+        </reference>
+	</indiagst_index_gstin>
+	<customer_gst_details translate="label">
+		<reference name="head">
+		    <action method="setTitle"><title>GST Electronics Compliance Seller | Get GST Mobile Benefits | Electronics Bazaar
+		    </title></action>
+		    <action method="setKeywords"><title>gst laptop benefits,gst mobile benefits,gst electronics compliance seller,gst benefits electronics,gst smart phone</title></action>
+		    <action method="setDescription"><title>Electronics Bazaar is a GST compliance Seller. Fill in all the details to partner with us. Get GST benefits for mobile, laptops as well as accessories.</title></action>
+		</reference>
+	</customer_gst_details>
+</layout>	

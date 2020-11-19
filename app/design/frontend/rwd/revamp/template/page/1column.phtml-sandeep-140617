@@ -1,0 +1,235 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     rwd_default
+ * @copyright   Copyright (c) 2014 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+/**
+ * Template for Mage_Page_Block_Html
+ */
+?>
+
+<!DOCTYPE html>
+
+<!--[if lt IE 7 ]> <html lang="en" id="top" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" id="top" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" id="top" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" id="top" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" id="top" class="no-js"> <!--<![endif]-->
+
+<head>
+<?php echo $this->getChildHtml('head') ?> 
+<?php /*?>
+<!-- Start Alexa Certify Javascript -->   
+<script type="text/javascript">
+_atrk_opts = { atrk_acct:"X6awo1IWx810V1", domain:"electronicsbazaar.com",dynamic: true};
+(function() { var as = document.createElement('script'); as.type = 'text/javascript'; as.async = true; as.src = "https://d31qbv1cthcecs.cloudfront.net/atrk.js"; var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(as, s); })();
+</script>
+<noscript><img src="https://d5nxst8fruw4z.cloudfront.net/atrk.gif?account=X6awo1IWx810V1" style="display:none" height="1" width="1" alt="" /></noscript>
+<!-- End Alexa Certify Javascript -->  <?php */ ?>
+
+</head>
+<body<?php echo $this->getBodyClass()?' class="'.$this->getBodyClass().'"':'' ?>>
+<?php echo $this->getChildHtml('after_body_start') ?>
+
+<div class="popup-container">
+  <div id="loginregister" class="login-register-container">
+    <span class="close-button"><a>X</a></span>
+    <ul class="login-register-tabs clearfix">
+      <li><a href="#tabs-1">Partner Login</a></li>
+      <li><a href="#tabs-2">Create New Account</a></li>
+    </ul>
+    <div id="tabs-1" class="login-container">
+      <div class="login-content">
+        <ul>
+          <li>
+            <label>Email</label>
+            <div class="input-field"><input type="text" name=""></div>
+          </li>
+          <li>
+            <label>Passowrd</label>
+            <div class="input-field"><input type="password" name=""></div>
+          </li>
+          <li>
+            <label>Business Type</label>
+            <div class="input-field clearfix">
+              <div class="select">
+                <input id="option1" type="radio" name="retailer" value="retailer">
+                  <label for="option1">Laptop Retailer</label>
+              </div>
+              <div class="select">
+                <input id="option2" type="radio" name="retailer" value="retailer">
+                  <label for="option2">Mobile Retailer</label>
+              </div>
+              <div class="select">
+                <input id="option3" type="radio" name="retailer" value="retailer">
+                  <label for="option3">Both</label>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <div class="button-container">
+          <button class="button"><span><span>Login</span></span></button>
+        </div>
+        <div class="clearfix">
+          <!-- <div class="remember-me"><input type="checkbox" name=""> Remember me</div> -->
+          <div id="remember-me-box" class="remember-me control clearfix">
+                <div class="input-box">
+                  <input type="checkbox" class="checkbox" id="remember_me" title="Remember Me">
+              </div>
+              <label for="remember_me">Remember Me</label>
+          </div>
+          <div class="forgot-password"><a href="#">Forgot Password?</a></div>
+        </div>
+      </div>
+      <div class="login-register-image">
+        <img src="http://180.149.246.49/electronicsbazaar/skin/frontend/rwd/ebtronics/images/ebt/login-image.png" />
+      </div>
+    </div>
+
+    <div id="tabs-2" class="register-container">
+      <div class="register-content">
+        <ul class="clearfix">
+          <li>
+            <label>Partner Store Name</label>
+            <div class="input-field"><input type="text" name=""></div>
+          </li>
+          <li>
+            <label>Mobile</label>
+            <div class="input-field"><input type="text" name=""></div>
+          </li>
+          <li>
+            <label>Email</label>
+            <div class="input-field"><input type="text" name=""></div>
+          </li>
+          <li>
+            <label>City</label>
+            <div class="input-field"><input type="text" name=""></div>
+          </li>
+          <li>
+            <label>Referred By</label>
+            <div class="input-field"><input type="text" name=""></div>
+          </li>
+          <li>
+            <label>Password</label>
+            <div class="input-field"><input type="password" name=""></div>
+          </li>
+          <li>
+            <label>Confirm Password</label>
+            <div class="input-field"><input type="password" name=""></div>
+          </li>
+          <li>
+            <label>EB Pin</label>
+            <div class="input-field"><input type="text" name=""></div>
+          </li>
+          <li class="business-type">
+            <label>Business Type</label>
+            <div class="input-field clearfix">
+              <div class="select">
+                <input id="option4" type="radio" name="register-retailer" value="register-retailer">
+                  <label for="option4">Laptop Retailer</label>
+              </div>
+              <div class="select">
+                <input id="option5" type="radio" name="register-retailer" value="register-retailer">
+                  <label for="option5">Mobile Retailer</label>
+              </div>
+              <div class="select">
+                <input id="option6" type="radio" name="register-retailer" value="register-retailer">
+                  <label for="option6">Both</label>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <div class="button-container">
+          <button class="button eb-pin-button"><span><span>Click here to Generate EB Pin<span class="break-line"> for Mobile Verification</span></span></span></button>
+          <button class="button"><span><span>Register</span></span></button>
+        </div>
+      </div>
+      <div class="login-register-image">
+        <img src="http://180.149.246.49/electronicsbazaar/skin/frontend/rwd/ebtronics/images/ebt/register-image.png" />
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+<div class="wrapper">
+    <?php echo $this->getChildHtml('global_notices') ?>
+    <div class="page">
+ 
+        <?php echo $this->getChildHtml('header') ?>
+        <div class="main-container col1-layout">
+		<?php $is_homepage = Mage::getBlockSingleton('page/html_header')->getIsHomePage(); ?>
+		<?php if($is_homepage): ?>
+             
+
+		<?php // echo $this->getLayout()->createBlock('cms/block')->setBlockId('why-electronic-bazaar')->toHtml(); ?>
+        <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('home-page-categories')->toHtml(); ?> 
+		<?php endif; ?>
+            <div class="main">
+            <?php if(Mage::app()->getFrontController()->getRequest()->getRouteName() == 'faq'): ?>
+                <div class="inner-main-container"><!--added for cartgory view-->
+            <?php else : ?>
+                <div>
+            <?php endif ; ?> 
+          
+                    <?php echo $this->getChildHtml('breadcrumbs') ?>
+                    <?php $currentPage_fullaction = Mage::app()->getFrontController()->getAction()->getFullActionName();  //exit; ?>
+                        <?php $inner_div_array = array('cms_page_view'); ?>
+                            <?php if(in_array($currentPage_fullaction,$inner_div_array)): ?>
+                                <?php //if($currentPage_fullaction != 'cms_page_view'): ?>
+                            <div class="inner-main-container"><!--added for cartgory view-->
+                        <?php endif; ?>
+                    <div class="col-main">
+                        <?php echo $this->getChildHtml('global_messages') ?>
+    		    <?php echo $this->getChildHtml('feedback') ?>
+                        <?php echo $this->getChildHtml('content') ?>
+                    
+                    </div>
+                    <?php if(in_array($currentPage_fullaction,$inner_div_array)): ?>
+                        <?php //if($currentPage_fullaction != 'cms_page_view'): ?>
+                        </div><!-- end of inner-main-container -->
+                    <?php endif; ?>
+                </div>
+            </div>
+
+            <?php if($is_homepage): ?>  
+            <?php echo $this->getLayout()->createBlock('core/template')->setTemplate('reports/product_viewed.phtml')->toHtml(); ?>
+
+            <?php echo $this->getLayout()->createBlock('core/template')->setTemplate('brandsliderhome/brand_slider_home.phtml')->toHtml(); ?>    
+
+            <?php endif; ?> 
+
+        </div>
+        <?php echo $this->getChildHtml('footer_before') ?>
+        <?php echo $this->getChildHtml('footer') ?>
+        <?php echo $this->getChildHtml('global_cookie_notice') ?>
+        <?php echo $this->getChildHtml('before_body_end') ?>
+    </div>
+
+</div>
+<?php echo $this->getAbsoluteFooter() ?>
+</body>
+</html>
+

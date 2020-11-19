@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+  <orderreturn_adminhtml_return_index>
+	<reference name="content">
+	  <block type="orderreturn/adminhtml_return" name="return" />
+	</reference>
+  </orderreturn_adminhtml_return_index>
+</layout>

@@ -1,0 +1,73 @@
+<?php
+/**
+ * stock report
+ *
+ * @see CompuindiaCustom_Adminhtml_Block_Report_Custom_Sales_Stock
+ */
+?>
+
+<div class="content-header" style="visibility: visible;">
+    <table cellspacing="0">
+        <tr>
+            <td style="width: 50%;"><h3 class="icon-head head-permissions-role"><?php echo $this->getPageTitle() ?></h3></td>
+            <td class="form-buttons">
+                <button style="" onclick="exportStockForm.submit();return false;" class="scalable save" type="button" id="export_stock"><span><?php echo $this->getButtonTitle() ?></span></button>
+			</td>			
+        </tr>
+		
+    </table>
+</div>
+<form id="export_form" name="export_form" method="post"  action="<?php echo $this->getReturnUrl(); ?>">
+	<input type="hidden" value="<?php echo Mage::getSingleton('core/session')->getFormKey(); ?>" name="form_key">
+	<div class="entry-edit">
+	    <div class="entry-edit-head">
+	        <h4 class="icon-head head-edit-form fieldset-legend"><?php echo $this->getPageTitle() ?></h4>
+	    </div>
+	    
+		<fieldset id="fielset_stores">
+	        <span class="field-row" id="date_container">
+	            <label><?php echo $this->__('From Date') ?></label>
+				<div class="f-left">
+					<div>
+						<input class="input-text no-changes required-entry" type="text" id="from_date" name="from_date" value="<?php echo $this->getTodayDate() ?>" style="width:6em" />
+						<img src="<?php echo $this->getSkinUrl('images/grid-cal.gif') ?>" title="<?php echo $this->__('Select Date') ?>" id="from_date_trig" alt="<?php echo $this->__('Select Date') ?>" class="v-middle"/>
+					</div>
+				</div>
+	        </span>
+	        <span class="field-row" id="date_container">
+	            <label><?php echo $this->__('To Date') ?></label>
+				<div class="f-left">
+					<div>
+						<input class="input-text no-changes required-entry" type="text" id="to_date" name="to_date" value="<?php echo $this->getTodayDate() ?>" style="width:6em" />
+						<img src="<?php echo $this->getSkinUrl('images/grid-cal.gif') ?>" title="<?php echo $this->__('Select Date') ?>" id="to_date_trig" alt="<?php echo $this->__('Select Date') ?>" class="v-middle"/>
+					</div>
+				</div>
+	        </span>
+	    </fieldset>
+	</div>
+</form>
+
+<script type="text/javascript">
+    var exportStockForm = new varienForm('export_form');	
+</script>
+<script type="text/javascript">
+    <!--
+        Calendar.setup({
+			inputField : 'from_date',
+            ifFormat : '%Y-%m-%d',
+            button : 'from_date_trig',
+            align : 'Bl',
+            singleClick : true,
+            electric : false
+        });
+        Calendar.setup({
+			inputField : 'to_date',
+            ifFormat : '%Y-%m-%d',
+            button : 'to_date_trig',
+            align : 'Bl',
+            singleClick : true,
+            electric : false
+        });
+    //-->
+
+</script>

@@ -1,0 +1,146 @@
+<div class="opc-ajax-loader">
+  <div id="floatingCirclesG">
+    <div class="f_circleG" id="frotateG_01"></div>
+    <div class="f_circleG" id="frotateG_02"></div>
+    <div class="f_circleG" id="frotateG_03"></div>
+    <div class="f_circleG" id="frotateG_04"></div>
+    <div class="f_circleG" id="frotateG_05"></div>
+    <div class="f_circleG" id="frotateG_06"></div>
+    <div class="f_circleG" id="frotateG_07"></div>
+    <div class="f_circleG" id="frotateG_08"></div>
+    </div>
+</div>
+
+
+ <div class="footer-container">
+       <div class="footer-content footer-payment clearfix no-display-new">
+              <div class="footer-logo no-display">
+                <a href="https://www.electronicsbazaar.com/"><img src="https://www.electronicsbazaar.com/skin/frontend/rwd/revamp/images/ebt/logo-footer.png" alt="Electronics Bazaar"></a>
+              </div>
+              <div class="payment-method-container clearfix">
+                <!-- <h3>Payment Method</h3> -->
+                <ul class="payment-method clearfix">
+                  <li><img src="https://www.electronicsbazaar.com/skin/frontend/rwd/revamp/images/new-images/visa-logo.png" alt="Visa" /></li>
+                  <li><img src="https://www.electronicsbazaar.com/skin/frontend/rwd/revamp/images/new-images/master-card-logo.png" alt="Master Card" /></li>
+                  <li><img src="https://www.electronicsbazaar.com/skin/frontend/rwd/revamp/images/new-images/cash-on-delivery-logo.png" alt="Master Card" /></li>
+<!--                  <li><img src="https://www.electronicsbazaar.com/skin/frontend/rwd/revamp/images/new-images/easy-emi-logo.png" alt="Easy EMI" /></li>-->
+                  <li><img src="https://www.electronicsbazaar.com/skin/frontend/rwd/revamp/images/new-images/credit-checkout-logo.png" alt="Easy EMI" /></li>
+                 <!-- <li><img src="https://www.electronicsbazaar.com/skin/frontend/rwd/revamp/images/new-images/pay-u-biz-logo.png" alt="PayuBiz" /></li> -->
+                  <li><img src="https://www.electronicsbazaar.com/skin/frontend/rwd/revamp/images/new-images/paytm-logo.png" alt="Paytm" /></li>
+                </ul>
+              </div>
+            </div>
+        <div class="footer-top">
+          <div class="main clearfix">
+           
+
+            
+
+            <div class="footer-content clearfix">
+              <!-- <h3>Connect With Us</h3> -->
+              <div class="footer-signup">
+                <div class="block-title"><strong><span class="title">Subscribe to EB Newsletter</span></strong></div>
+<div class="block block-subscribe">
+    <!--div class="block-title">
+        <strong><span></span></strong>
+    </div-->
+    <form action="https://www.electronicsbazaar.com/newsletter/subscriber/new/" method="post" id="newsletter-validate-detail">
+        <div class="block-content footer-news">
+            <div class="form-subscribe-header">
+                <!--strong><span></span></strong-->
+                <!-- <p>For Alerts on Exclusive Deals and Products from Electronicsbazaar.com</p>/ -->
+            </div>
+            <div class="input-box">
+               <input type="email" autocapitalize="off" autocorrect="off" spellcheck="false" name="email" id="newsletter" title="Your email id" placeholder="Your email id" class="input-text required-entry validate-email" />
+               <div class="validation-advice" id="newsletter_status" style="display:none;"></div>
+            </div>
+            <div class="actions">
+                <input type="button" id="subscribe" title="Subscribe" class="button" value="Sign Up">
+            </div>
+        </div>
+    </form>
+    <script type="text/javascript">
+    //<![CDATA[
+        var newsletterSubscriberFormDetail = new VarienForm('newsletter-validate-detail');
+
+        jQuery("#newsletter").keypress(function(e) {
+            if(e.which == 13) {
+                e.preventDefault();
+                jQuery('#subscribe').focus().click();
+            }
+        });
+        jQuery(document).ready(function() {
+            jQuery('#subscribe').click(function() {
+                if(newsletterSubscriberFormDetail.validator && newsletterSubscriberFormDetail.validator.validate()) {
+                    var url = 'https://www.electronicsbazaar.com/innoviti/payment/newsletter/';
+                    var email = jQuery('#newsletter').val();
+                    jQuery.ajax({
+                        url: url,
+                        data: {email: email},
+                        type: 'POST',
+                        success: function(data) {
+                            jQuery('#newsletter_status').html(data).css('display','block');
+                        }
+                    });
+                } else {
+                    newsletterSubscriberFormDetail.submit();
+                }
+            });
+        });
+    //]]>
+    </script>
+</div>
+ 
+              </div>
+              <div class="social-container clearfix">
+                <ul class="social-list clearfix">
+                    <li><a target="_blank" href="https://www.facebook.com/pages/Electronicsbazaarcom/796505747037072" class="facebook-icon"></a></li>
+                    <li><a target="_blank" href="https://twitter.com/electrosbazaar" class="twitter-icon"></a></li>
+                    <li><a target="_blank" href="https://www.linkedin.com/company/electronicsbazaar/" class="linkedin-icon"></a></li>
+                    <li class="whatsapp-container2"><span class="whatsapp-number2">Whatsapp Us "Hi" for daily deals</span><a target="_blank" alt="whatsapp" class="whatsapp-icon-white"><span>+919930681777</span></a></li> 
+                                       
+                    <li class="whatsapp-container"><span class="whatsapp-number">Add our Whatsapp number <strong>+919930681777</strong> for daily deals!!</span><a target="_blank" alt="whatsapp" class="whatsapp-icon"><span></span></a></li>               
+                   
+                </ul>
+                <ul class="copy-right">
+                    <li class="toll-free-number"><p>Call us @ +91-8291599914</p></li>
+                    <li class="toll-free-number"><p>Copyright © 2018 <a href="https://www.electronicsbazaar.com/" class="eb-text">Electronics Bazaar</a>.</p></li>
+                </ul>
+              </div>                          
+            </div>
+                        
+          </div>
+        </div>
+                <div class="footer-bottom">
+          <div class="main">
+            
+            <p>
+              <a href="https://www.electronicsbazaar.com/about-us/">About Us </a> | 
+              <a href="https://www.electronicsbazaar.com/policies/"> Terms &amp; Policy </a> | 
+              <a href="https://www.electronicsbazaar.com/disclaimer/">Disclaimers   </a> | 
+              <a href="https://www.electronicsbazaar.com/careers/">Culture </a> | 
+              <a href="https://www.electronicsbazaar.com/contacts/">    Contact Us </a></p> 
+          </div>
+        </div>
+      </div>
+<script type="text/javascript">
+  var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ? true : false;
+  if(!isMobile)
+  {
+    var vj = jQuery.noConflict();
+    vj(document).ready(function(){
+      var test = setInterval(function() {
+        vj(".whatsapp-number").hide();
+        vj(".whatsapp-icon").hide();
+      }, 5000);
+      vj(".whatsapp-icon").mouseover(function(){
+          clearInterval(test);
+          vj(".whatsapp-number").show();
+      });
+      vj(".whatsapp-icon").mouseout(function(){          
+          vj(".whatsapp-number").hide();
+          vj(".whatsapp-icon").hide();          
+      });
+    });
+  }
+</script>

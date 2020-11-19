@@ -1,0 +1,233 @@
+<?php
+class Neo_Shippinge_Model_Ecom extends Mage_Core_Model_Abstract
+{
+	
+	public function register($post)
+	{
+		$incrementId = $post["incrementid"];
+		$weight = (float)$post["weight"];
+		$invoice_id     = $post["invoice_id"];
+		$input_array = array();
+		if($incrementId)
+		{
+			$order = Mage::getModel("sales/order")->loadByIncrementId($incrementId);
+			$invoice = Mage::getModel('sales/order_invoice')->load($invoice_id);
+			$shipping_address = $order->getShippingAddress();
+            $customer_name = $order->getCustomerFirstname().' '.$order->getCustomerLastname();
+            $amount = 0 ;
+			$payment_method = $order->getPayment()->getMethodInstance()->getCode();
+			$product = 'PPD';
+			if($payment_method == "cashondelivery") {
+				$product = 'COD';
+				$amount = (int)$invoice->getGrandTotal();
+			}
+			if($amount == 0)
+			{
+				$amount = 1;
+			}
+
+			//echo $amount;exit; 
+			$warehouseAddress = Mage::helper('shippinge')->getWarehouseAddress($invoice->getorder_id());
+			$shipping = $shipping_address->getData();
+			
+			//street character correction
+			$street = $shipping['street'];
+			$street = preg_replace('#\s+#',',',trim($street));
+			
+			$warehouse0 = $warehouseAddress[0];
+			$warehouse1 = $warehouseAddress[1];
+			$warehouse2 = $warehouseAddress[2];
+			$warehouse7 = $warehouseAddress[7];
+			$warehouse8 = $warehouseAddress[8];
+			$city = $shipping['city'];
+			$telephone = $shipping['telephone'];
+			$region = $shipping['region'];
+			$postcode = $shipping['postcode'];
+
+			$wh_postcode = $warehouseAddress[4];
+
+
+			//$username = "compuindiabom";
+			//$username = "compuindiabom";
+			//$password = "c2omp345uindib4om";
+			//$password = "4a5M@i6a7b8l2e5E6lE";
+
+			$username ="amiable92914";
+			$password ="a4m7ia38b6lel2e3c9tr";
+
+			//$username = "amiable92914";
+			//$password = "a5M6i7@A7b8L9e"; 
+			$testusername = 'ecomexpress';
+			$testpassword = 'Ke$3c@4oT5m6h#$';
+			
+			//test url to fecth awb number
+			$awburl = 'http://ecomm.prtouch.com/apiv2/fetch_awb/';
+			$liveawburl = 'http://api.ecomexpress.in/apiv2/fetch_awb/';
+			
+			//extract data from the post
+			$awb_request['username']=$username;
+			$awb_request['password']=$password;
+			$awb_request['count']=1;
+			$awb_request['type']= $product;
+
+			Mage::log($awb_request, 1, 'ecom_op.log', true);
+			//initiate curl call for awb 
+			$awbch = curl_init();                    // initiate curl
+			curl_setopt($awbch, CURLOPT_URL,$liveawburl);
+			curl_setopt($awbch, CURLOPT_POST, true);  // tell curl you want to post something
+			curl_setopt($awbch, CURLOPT_POSTFIELDS, $awb_request); // define what you want to post
+			curl_setopt($awbch, CURLOPT_RETURNTRANSFER, true); // return the output in string format
+			$awb_json = curl_exec($awbch); // execute
+			//close connection
+			curl_close($awbch);
+			Mage::log($awb_json, 1, 'ecom_op.log', true);
+			//get awb number from output
+			$awb_data = json_decode($awb_json,1);
+
+			foreach ($awb_data['awb'] as $key => $val) {
+				$awb_no = $val;
+			}			
+
+			//prepare for shipment call
+			$data['username']=$username;
+			$data['password']=$password;
+			//$wh_postcode = $postcode = 400611;
+			$data['json_input']='[{"AWB_NUMBER":"'.$awb_no.'","ORDER_NUMBER":"'.$incrementId.'","PRODUCT":"'.$product.'","CONSIGNEE":"'.$customer_name.'","CONSIGNEE_ADDRESS1":"'.$street.'","CONSIGNEE_ADDRESS2":"ADD2","CONSIGNEE_ADDRESS3":"ADD3","DESTINATION_CITY":"'.$city.'","PINCODE":"'.$postcode.'","STATE":"'.$region.'","MOBILE":"'.$telephone.'","TELEPHONE":"'.$telephone.'","ITEM_DESCRIPTION":"MOBILE","PIECES":"1","COLLECTABLE_VALUE":"'.$amount.'","DECLARED_VALUE":"'.$amount.'","ACTUAL_WEIGHT":"0.5","VOLUMETRIC_WEIGHT":"0","LENGTH":"10","BREADTH":"10","HEIGHT":"10","PICKUP_NAME":"'.$warehouse0.'","PICKUP_ADDRESS_LINE1":"'.$warehouse1.'","PICKUP_ADDRESS_LINE2":"'.$warehouse2.'","PICKUP_PINCODE":"'.$wh_postcode.'","PICKUP_PHONE":"'.$warehouse7.'","PICKUP_MOBILE":"'.$warehouse8.'","RETURN_PINCODE":"'.$wh_postcode.'","RETURN_NAME":"'.$warehouse0.'","RETURN_ADDRESS_LINE1":"'.$warehouse1.'","RETURN_ADDRESS_LINE2":"'.$warehouse2.'","RETURN_PHONE":"'.$warehouse7.'","RETURN_MOBILE":"'.$warehouse8.'","DG_SHIPMENT":"'.'False'.'"}]';
+
+			//Live URL: 
+			// http://api.ecomexpress.in/apiv2/manifest_awb/
+			$liveurl = 'http://api.ecomexpress.in/apiv2/manifest_awb/';
+			//test url to  send api request
+			$url = 'http://ecomm.prtouch.com/apiv2/manifest_awb/';
+
+			Mage::log($data,null,'ecom_shipment.log'); 
+
+			$ch = curl_init();                    // initiate curl
+			curl_setopt($ch, CURLOPT_URL,$liveurl);
+			curl_setopt($ch, CURLOPT_POST, true);  // tell curl you want to post something
+			curl_setopt($ch, CURLOPT_POSTFIELDS, $data); // define what you want to post
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); // return the output in string format
+			$output = curl_exec($ch); // execute
+            Mage::log($output, 1, 'ecom_op.log', true);
+
+            //close connection
+			curl_close($ch);
+            $output_array = json_decode($output,1);           
+       
+            $success = $output_array['shipments'][0]['success'];
+            $awb_number = $output_array['shipments'][0]['awb'];
+
+            //echo '---';print_r($output_array);exit;
+
+			if($success == 1) {
+			$response = array();
+			$response[] = array(
+					"error" => false,
+					"awb"   =>  $awb_number,
+					"destination"   => $shipping_address->getRegion().' '.$shipping_address->getCity()
+				);
+			} else {
+				$response = array();
+				$response[] = array(
+					"error" => true,
+					"message"   =>  $output_array['shipments'][0]['reason']
+				);
+			}
+			return $response;
+		}
+	}
+
+	public function registerBackup($post)
+	{
+		$incrementId = $post["incrementid"];
+		$weight = (float)$post["weight"];
+		$invoice_id     = $post["invoice_id"];
+
+		if($incrementId)
+		{
+			$order = Mage::getModel("sales/order")->loadByIncrementId($incrementId);
+			$invoice = Mage::getModel('sales/order_invoice')->load($invoice_id);
+			$shipping_address = $order->getShippingAddress();
+            $customer_name = $order->getCustomerFirstname().' '.$order->getCustomerLastname();
+            $amount = (int)$invoice->getGrandTotal();
+			$payment_method = $order->getPayment()->getMethodInstance()->getCode();
+			$product = 'PPD';
+			if($payment_method == "cashondelivery") {
+				$product = 'COD';
+			}
+
+			$warehouseAddress = Mage::helper('shippinge')->getWarehouseAddress($invoice->getorder_id());
+
+			$username = "compuindiabom";
+			$password = "c2omp345uindib4om";
+			 $xml      =
+			"<?xml version='1.0' encoding='UTF-8'?> <ECOMEXPRESS-OBJECTS>   
+			<SHIPMENT> <AWB_NUMBER></AWB_NUMBER>
+			<ORDER_NUMBER>".$incrementId."</ORDER_NUMBER>  
+			<PRODUCT>".$product."</PRODUCT>
+			<CONSIGNEE>".$customer_name."</CONSIGNEE>
+			<CONSIGNEE_ADDRESS1>".$shipping_address->getStreet()."</CONSIGNEE_ADDRESS1>
+			<CONSIGNEE_ADDRESS2></CONSIGNEE_ADDRESS2>
+			<CONSIGNEE_ADDRESS3></CONSIGNEE_ADDRESS3>
+			<DESTINATION_CITY>".$shipping_address->getCity()."</DESTINATION_CITY>
+			<PINCODE>".$shipping_address->getPostcode()."</PINCODE>
+			<STATE>".$shipping_address->getRegion()."</STATE>  
+			<MOBILE></MOBILE>
+			<TELEPHONE>".$shipping_address->getTelephone()."</TELEPHONE>  
+			<ITEM_DESCRIPTION></ITEM_DESCRIPTION>  
+			<PIECES>1</PIECES>  
+			<COLLECTABLE_VALUE>".$amount."</COLLECTABLE_VALUE>  
+			<DECLARED_VALUE>".$amount."</DECLARED_VALUE>
+			<ACTUAL_WEIGHT>".$weight."</ACTUAL_WEIGHT>
+			<VOLUMETRIC_WEIGHT>0</VOLUMETRIC_WEIGHT>  <LENGTH> 10</LENGTH>
+			<BREADTH>10</BREADTH>  <HEIGHT>10</HEIGHT> <VENDOR_ID></VENDOR_ID>
+			<PICKUP_NAME>Electronics Bazaar</PICKUP_NAME>
+			<PICKUP_ADDRESS_LINE1>".$warehouseAddress[1]."</PICKUP_ADDRESS_LINE1>
+			<PICKUP_ADDRESS_LINE2>".$warehouseAddress[2]."</PICKUP_ADDRESS_LINE2>
+			<PICKUP_PINCODE>".$warehouseAddress[4]."</PICKUP_PINCODE>
+			<PICKUP_PHONE>".$warehouseAddress[7]."</PICKUP_PHONE>
+			<PICKUP_MOBILE>".$warehouseAddress[8]."</PICKUP_MOBILE>  </SHIPMENT>
+			</ECOMEXPRESS-OBJECTS>";
+			$postfields["username"] = $username; 
+			$postfields["password"] = $password; 
+			$postfields["xml_input"]      = $xml;
+			$postdata = "username=$username&password=$password&xml_input=".urlencode($xml);
+
+			#Test URL: http://ecomm.prtouch.com/apiv2/manifest_awb/&username=USER NAME&password=PASSWORD&json_input=JSON_INPUT Live URL: http://api.ecomexpress.in/apiv2/manifest_awb/username=USERNA ME&password=PASSWORD&json_input=JSON_INPUT 
+
+			#print $postdata;
+			$url = "http://api.ecomexpress.in/api/api_create_order_to_awb_xml/";
+			$ch = curl_init();
+			curl_setopt($ch, CURLOPT_URL, $url); 
+			curl_setopt($ch, CURLOPT_POST, 1); 
+			curl_setopt($ch, CURLOPT_TIMEOUT, 100);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
+			curl_setopt($ch, CURLOPT_POSTFIELDS, $postdata); 
+			$xml = curl_exec($ch);
+			$res = simplexml_load_string($xml);
+			$awb1 = (array)$res;
+
+
+            $awb2 = (array)$awb1['AIRWAYBILL-OBJECTS'];
+            $awb3 = (array)$awb2['AIRWAYBILL'];
+            $awb = (array)$awb3['airwaybill_number'];
+                       
+			if($awb[0]) {
+			$response = array();
+			$response[] = array(
+					"error" => false,
+					"awb"   =>  $awb[0],
+					"destination"   => $shipping_address->getRegion().' '.$shipping_address->getCity()
+				);
+			} else {
+				$response = array();
+				$response[] = array(
+					"error" => true,
+					"message"   =>  $xml
+				);
+			}
+			return $response;
+		}
+	}
+}
+?>

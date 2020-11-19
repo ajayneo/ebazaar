@@ -1,0 +1,29 @@
+<layout>
+    <adminhtml_sales_order_view>
+        <reference name="order_totals">
+            <block type="adminhtml/sales_order_totals_item" name="emi_interest" template="innoviti/total.phtml" />
+        </reference>
+    </adminhtml_sales_order_view>
+    <!--
+	<adminhtml_sales_order_invoice_new>
+		<reference name="order_totals">
+            <block type="adminhtml/sales_order_totals_item" name="emi_interest" template="innoviti/total.phtml" />
+        </reference>
+	</adminhtml_sales_order_invoice_new>
+	<adminhtml_sales_order_invoice_view>
+		<reference name="order_totals">
+            <block type="adminhtml/sales_order_totals_item" name="emi_interest" template="innoviti/total.phtml" />
+        </reference>
+	</adminhtml_sales_order_invoice_view>
+	<adminhtml_sales_order_creditmemo_new>
+		<reference name="order_totals">
+            <block type="adminhtml/sales_order_totals_item" name="emi_interest" template="innoviti/total.phtml" />
+        </reference>
+	</adminhtml_sales_order_creditmemo_new>
+	<adminhtml_sales_order_creditmemo_view>
+		<reference name="order_totals">
+            <block type="adminhtml/sales_order_totals_item" name="emi_interest" template="innoviti/total.phtml" />
+        </reference>
+	</adminhtml_sales_order_creditmemo_view>
+	-->
+</layout>

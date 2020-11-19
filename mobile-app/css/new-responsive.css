@@ -1,0 +1,155 @@
+@charset "utf-8";
+/* CSS Document */
+
+@media all and (max-width: 979px){
+	.eb-warranty-container{ width: 48%; }
+	.warranty-service-center{ width: 48%; }
+	.eb-warranty-container h2, .warranty-service-center h2{ font-size: 26px; }
+	.warranty-eb-service-content h3{ font-size: 35px; margin: 60px 0 10px 0; }
+	.warranty-container .static-content .warranty-eb-service-content p{ font-size: 22px; }
+}
+
+@media only screen and (max-width: 768px){
+	/*EB Advantages*/
+	.advantage-icon{ width: 18%; height: 200px; }
+	.advantage-content, .advantage-content-inner{ height: 190px; }
+	.advantage-content-inner{ padding-top: 20px; }
+	.advantage-content{ width: 82%; }
+
+	/*Pre Owned Products Guidelines*/
+	.pre-owned-product-container .page-title .title{ padding: 15px 0 0 20px; }
+	.pre-style.certified { font-size: 35px;}
+	.pre-owned-product-container h1{ font-size: 40px; line-height: 50px; }
+	.pre-owned-image{ width: 35%; margin-top: 25px; }
+	.pre-owned-image img{ width: 100%; }
+	.pre-owned-content-container h2{ font-size: 18px; }
+	.pre-owned-content-container p{ font-size: 14px; line-height: 22px; }
+	.journey-content{ font-size: 16px; }
+	.pre-owned-device-journey{ margin: 25px 0 30px 0; }
+	.pre-owned-device-journey li{ margin: 0 2.5% 0 0; width: 18%; }
+	.pre-owned-device-journey li:last-child { margin-right: 0;}
+	.feature-list li{ font-size: 14px; }
+
+	/*Pre Owned Mobile*/
+	.pre-owned-products li{ margin-right: 6px; }
+	.pre-owned-mobile .pre-owned-image{ width: 120px; }
+	.pre-owned-products li{ width: 23%; }
+	.pre-owned-products li img{ width: 100%; }
+	.pre-owned-content-container h3, .pre-owned-content-container h4{ font-size: 16px; }
+	.pre-owned-mobile .pre-style.certified{ font-size: 40px; }
+
+	/*Contact Us*/
+	.contact-info .contact-content, .contact-info .top-contact-info{ padding-left: 30px; }
+	.contact-list img{ width: 360px; bottom: -70px; }
+	.contact-list li textarea{ height: 90px; }
+	.contact-list li{ margin-bottom: 20px; }
+	.contact-info .contact-image{ width: 250px; }
+	.contact-info .contact-image img { width: 100%;}
+}
+
+@media all and (max-width: 767px){
+	.warranty-container .page-title h1, .warranty-container h1{ font-size: 19px; margin: 0; }
+	.eb-warranty-container{ width: 100%; float: none; }
+	.warranty-service-center{ width: 100%; float: none; margin: 40px 0 0 0; }
+	.eb-warranty-container h2, .warranty-service-center h2{ font-size: 22px; margin-bottom: 20px; }
+	.warranty-eb-service-content{ margin-top: 60px; }
+	.warranty-eb-service-content h3{ font-size: 24px; }
+	.warranty-container .static-content .warranty-eb-service-content p { font-size: 18px; margin-bottom: 15px;}
+	.power-safty-warning { margin: 30px 0 0 0;}
+	.warranty-table-container h3{ font-size: 18px; }
+
+	.warranty-container-mobile-app.warranty-container .page-title h1, .warranty-container-mobile-app.warranty-container h1{ margin-bottom: 20px; }
+	.warranty-container-mobile-app .eb-warranty-container h2{ font-size: 16px; }
+	.warranty-table-container h3 { font-size: 16px;}
+	.warranty-container-mobile-app.warranty-container h1 { margin-bottom: 10px; }
+	.warranty-service-list-container h5{ font-size: 16px; }
+
+	/*EB Advantages*/
+	.advantage-icon{ width: 100%; float: none; height: inherit; line-height: inherit; padding: 10px 0; border: none; }
+	.advantage-content{ width: 100%; float: none; height: inherit; }
+	.advantage-content-inner{ height: inherit; box-shadow: 0 1.35px 3.76px 0.24px rgba(0, 0, 0, 0.24); padding: 20px 15px 20px 15px; }
+	.icon { width: 20%; margin: 0 auto;}
+	.advantage-icon img{ width: 100%; }
+
+	/*Pre Owned Products Guidelines*/
+	.pre-owned-device-journey li{ margin-bottom: 30px; }
+
+	/*Pre Owned Mobile*/
+	.pre-owned-mobile .pre-owned-image{ right: 14px; width: 100px; }
+}
+
+@media only screen and (max-width: 600px){
+	/*EB Advantages*/
+	.eb-advantages-content li{ margin-bottom: 60px; }
+	.eb-advantages-container h1{ font-size: 18px; }
+	.advantage-content h2{ font-size: 17px; }
+	.advantage-content p{ font-size: 15px; }
+
+	/*Pre Owned Products Guidelines*/
+	.pre-owned-device-journey li{ width: 44%; margin: 0 12% 20px 0; }
+	.pre-owned-device-journey li:nth-child(2n){ margin-right: 0; }
+	.pre-owned-device-journey li:nth-child(odd) { clear: both;}
+	.journey-content{ margin-top: 5px; line-height: 20px; }
+	.journey-img{ height: inherit; }
+	.journey-img img{ width: 100%; display: block; }
+	.pre-owned-product-container h1{ font-size: 30px; line-height: 38px; }
+	.pre-style.certified{ font-size: 22px; }
+	.pre-owned-product-container .page-title .title{ padding-top: 0; width: 64%; }
+	.pre-owned-mobile .page-title{ padding-bottom: 20px; }
+
+	/*Pre Owned Mobile*/
+	.pre-owned-mobile .pre-style.certified { font-size: 22px;}
+
+	/*Pre Owned Laptop*/
+	.pre-owned-grade-container{ padding: 0 20px; }
+	.pre-owned-products li{ width: 22%; }
+	.pre-owned-laptop .pre-owned-image{ margin-left: 0; margin-top: 12px; margin-bottom: 5px; width: 40%; }
+	.pre-owned-product-container.pre-owned-laptop .page-title .title{ width: 60%; }
+
+	/*Contact Us*/
+	.contact-form .page-title h1{ font-size: 25px; }
+	.contact-list .left{ width: 100%; float: none; }
+	.contact-list .right{ float: none; width: 100%; }
+	.contact-list img{ display: none; } }
+	.contact-info .contact-content, .contact-info .top-contact-info{ padding: 0 10px; width: 100%; }
+	.contact-info .top-contact-info{ padding-bottom: 20px; }
+	.contact-info .contact-content li, .contact-info .top-contact-info li{ padding-left: 58px; font-size: 14px; }
+	.top-contact-info .contact-no label{ font-size: 14px; }
+	.contact-info .contact-image{ position: static; margin: 20px 0 0 0; width: inherit; text-align: right; }
+	.contact-info .contact-image img { width: 250px; display: inline-block;}
+	.contact-info .contact-content p { font-size: 15px; word-wrap: break-word; line-height: 20px; }
+	.top-contact-info li.contact-email a{ word-wrap: break-word; }
+	.contact-list li button.submit{ font-size: 20px; }
+}
+
+@media only screen and (max-width: 480px){
+	/*Pre Owned Products Guidelines*/
+	.pre-owned-content-container { padding: 20px;}
+	.pre-owned-device-journey li{ float: none; width: 100%; }
+	.pre-owned-image{ width: 140px; position: absolute; right: 0; bottom: 0; float: none; }
+	.pre-owned-product-container .page-title .title{ padding-top: 10px; position: relative; z-index: 1; padding-left: 20px; width: 200px; padding-bottom: 15px; }
+	.pre-owned-product-container h1 { font-size: 27px; line-height: 30px;}
+	.pre-style.certified { font-size: 20px;}
+	.pre-owned-product-container .page-title{ position: relative; overflow: hidden; }
+	.pre-owned-content-container h2{ font-size: 17px; font-weight: bold; margin-bottom: 10px; }
+	.pre-owned-content-container p{ font-size: 14px; }
+	.pre-owned-device-journey{ margin-bottom: 20px; }
+	.feature-list li{ font-size: 14px; }
+
+	/*Pre Owned Mobile*/
+	.pre-owned-product-container h1{ font-size: 20px; }
+	.pre-owned-mobile .page-title{ padding-bottom: 5px; }
+	.pre-owned-product-container.pre-owned-mobile .page-title .title{ width: inherit; }
+	.pre-owned-mobile .pre-owned-image{ width: 70px; }
+	.pre-owned-grade-container{ padding: 0 20px; }
+	.pre-owned-products li{ width: 46%; margin-bottom: 5px; }
+	.pre-owned-products li img{ width: 100%; }
+	.pre-owned-content-container h3{ font-size: 17px; margin-bottom: 10px; }
+	.pre-owned-content-container .eb-warranty{ font-size: 17px; }
+	.pre-owned-content-container h4{ font-size: 17px; }
+
+	/*Pre Owned Laptop*/
+	.pre-owned-laptop .pre-owned-image{ width: 80px; bottom: 4px; margin-bottom: 0; }
+	.pre-owned-laptop .page-title .title{ width: inherit; }
+	.pre-owned-laptop .pre-owned-image{ right: 10px; margin: 0; bottom: 10px; }
+}

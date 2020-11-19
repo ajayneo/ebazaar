@@ -1,0 +1,236 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Devinc_Multipledeals>
+            <version>0.1.3</version>
+        </Devinc_Multipledeals>
+    </modules>
+ 	<admin>
+        <routers>
+			<multipledealsadmin>
+				<use>admin</use>
+				<args>
+					<module>Devinc_Multipledeals</module>
+					<frontName>multipledealsadmin</frontName>
+				</args>
+			</multipledealsadmin>
+        </routers>
+    </admin>
+    <frontend>
+        <routers>
+            <multipledeals>
+                <use>standard</use>
+                <args>
+                    <module>Devinc_Multipledeals</module>
+                    <frontName>multipledeals</frontName>
+                </args>
+            </multipledeals>
+        </routers>
+        <layout>
+            <updates>
+                <multipledeals>
+                    <file>multipledeals.xml</file>
+                </multipledeals>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <multipledeals>
+                    <files>
+                        <default>Multipledeals.csv</default>
+                    </files>
+                </multipledeals>
+            </modules>
+        </translate>
+    </frontend>
+    <adminhtml>
+		<menu>
+			<multipledeals module="multipledeals">
+				<title>Multiple Deals</title>
+				<sort_order>71</sort_order>               
+				<children>
+					<add module="multipledeals">
+						<title>Add Deal</title>
+						<sort_order>0</sort_order>
+						<action>multipledealsadmin/adminhtml_multipledeals/new/</action>
+					</add>
+					<items module="multipledeals">
+						<title>Manage Deals</title>
+						<sort_order>1</sort_order>
+						<action>multipledealsadmin/adminhtml_multipledeals/</action>
+					</items>
+					<configuration module="multipledeals">
+						<title>Settings</title>
+						<sort_order>2</sort_order>
+						<action>adminhtml/system_config/edit/section/multipledeals</action>
+					</configuration>
+				</children>
+			</multipledeals>
+		</menu>
+		<acl>
+			<resources>
+				<admin>
+					<children>
+						<multipledeals translate="title" module="multipledeals">
+							<title>Multiple Deals Menu</title>
+							<sort_order>50</sort_order>  							 
+							<children>
+								<add translate="title" module="multipledeals">
+									<title>Add Deal</title>
+									<sort_order>0</sort_order>
+								</add>
+								<items translate="title" module="multipledeals">
+									<title>Manage Deals</title>
+									<sort_order>1</sort_order>
+								</items>
+								<configuration translate="title" module="multipledeals">
+									<title>Settings</title>
+									<sort_order>2</sort_order>
+								</configuration>
+							</children>
+						</multipledeals>
+						<system>
+							<children>
+								<config>
+									<children>
+										<multipledeals translate="title" module="multipledeals">
+											<title>Multiple Deals Settings</title>
+											<sort_order>50</sort_order>
+										</multipledeals>
+									</children>
+								</config>
+							</children>
+						</system>
+					</children>
+				</admin>
+			</resources>		
+		</acl>		
+		<layout>
+			<updates>
+				<multipledeals>
+					<file>multipledeals.xml</file>
+				</multipledeals>
+			</updates>
+		</layout>
+    </adminhtml>   
+    <global>
+		<events> 		  
+		  <catalog_controller_product_delete> 
+			<observers> 
+			  <multipledeals_observer_delete_deal> 
+				<type>singleton</type> 
+				<class>multipledeals/observer</class> 
+				<method>deleteDeal</method> 
+			  </multipledeals_observer_delete_deal> 
+			</observers> 
+		  </catalog_controller_product_delete> 	
+		  	
+		  <http_response_send_before> 
+			<observers> 
+			  <multipledeals_observer_refresh_deals_and_homepage_redirect> 
+				<type>singleton</type> 
+				<class>multipledeals/observer</class> 
+				<method>refreshDealsHomepageRedirect</method> 
+			  </multipledeals_observer_refresh_deals_and_homepage_redirect> 
+			</observers> 
+		  </http_response_send_before>
+		  
+		  <sales_quote_item_qty_set_after> 
+			<observers> 
+			  <multipledeals_observer_cart_review> 
+				<type>singleton</type> 
+				<class>multipledeals/observer</class> 
+				<method>reviewCartItem</method> 
+			  </multipledeals_observer_cart_review> 
+			</observers> 
+		  </sales_quote_item_qty_set_after> 		
+		    	 
+		  <sales_order_place_after> 
+			<observers> 
+			  <multipledeals_observer_update_deal_qty> 
+				<type>singleton</type> 
+				<class>multipledeals/observer</class> 
+				<method>updateDealQty</method> 
+			  </multipledeals_observer_update_deal_qty> 
+			</observers> 
+		  </sales_order_place_after> 
+		  
+		  <catalog_product_get_final_price> 
+			<observers> 
+			  <multipledeals_observer_set_product_price> 
+				<type>singleton</type> 
+				<class>multipledeals/observer</class> 
+				<method>getFinalPrice</method> 
+			  </multipledeals_observer_set_product_price> 
+			</observers> 
+		  </catalog_product_get_final_price> 
+		  
+		  <catalog_product_collection_load_after> 
+			<observers> 
+			  <multipledeals_observer_set_collection_price> 
+				<type>singleton</type> 
+				<class>multipledeals/observer</class> 
+				<method>setCollectionFinalPrice</method> 
+			  </multipledeals_observer_set_collection_price> 
+			</observers> 
+		  </catalog_product_collection_load_after> 
+		</events> 
+        <models>
+            <multipledeals>
+                <class>Devinc_Multipledeals_Model</class>
+                <resourceModel>multipledeals_mysql4</resourceModel>
+            </multipledeals>
+            <multipledeals_mysql4>
+                <class>Devinc_Multipledeals_Model_Mysql4</class>
+                <entities>
+                    <multipledeals>
+                        <table>multipledeals</table>
+                    </multipledeals>
+                </entities>
+            </multipledeals_mysql4>
+        </models>
+        <resources>
+            <multipledeals_setup>
+                <setup>
+                    <module>Devinc_Multipledeals</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </multipledeals_setup>
+            <multipledeals_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </multipledeals_write>
+            <multipledeals_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </multipledeals_read>
+        </resources>
+        <blocks>
+            <multipledeals>
+                <class>Devinc_Multipledeals_Block</class>
+            </multipledeals> 
+			<rss>
+				<rewrite>
+					<catalog_special>Devinc_Multipledeals_Block_Rss_Catalog_Special</catalog_special>
+				</rewrite>
+			</rss>
+        </blocks>
+        <helpers>
+            <multipledeals>
+                <class>Devinc_Multipledeals_Helper</class>
+            </multipledeals>
+        </helpers>
+    </global>
+	<!-- <crontab>
+        <jobs>
+            <multipledeals_refresh>
+                <schedule><cron_expr>* * * * *</cron_expr></schedule> 
+                <run><model>multipledeals/multipledeals::refreshDealsCron</model></run>
+            </multipledeals_refresh>
+        </jobs>
+    </crontab> -->
+</config>

@@ -1,0 +1,115 @@
+.header-language-background, #header, #header-nav, .footer-container{ display:none !important;}
+.microsoft-header-container{ background:#0085c3; padding:10px 0 6px;}
+.microsoft-header-container a { display: inline-block;}
+.microsoft-footer-container{ background:#212121; padding:30px 0; margin-top:20px;}
+.microsoft-container .products-grid li.item .short-description{ height:120px;}
+.bundled-optionscss .product-options { box-sizing: border-box; -moz-box-sizing: border-box; -webkit-box-sizing: border-box; margin: 30px 0 0 !important; width: 100% !important;}
+.product-view .product-shop .btn-section .button{ color: #847204; font-weight: 600;}
+.free-cover {float: right;font-weight: bold;}
+
+
+
+.product-view.microsoft-view .product-shop .location-section { margin: 10px 0 0; position: relative;}
+.microsoft-view #oneclickorder-form-wrapper.catalog_product_view{ width: 100%; }
+.microsoft-view #oneclickorder-form-wrapper .oneclickorder-phone, #oneclickorder-form-wrapper .oneclickorder-email {
+  border: 1px solid #c6c6c6;
+  box-sizing: border-box;
+  height: 30px;
+  padding: 0 10px;
+  width: 100%;
+}
+.microsoft-view #oneclickorder-form-wrapper .oneclickorder-fields {
+  text-align: left;
+  width: 80%;
+  float: left;
+}
+.microsoft-view .oneclickorder-fields .phone-number {
+  float: left;
+  position: relative;
+  width: 49%;
+}
+.microsoft-view #oneclickorder-form-wrapper .oneclickorder-country {
+  background: #fbfbfb;
+  height: 28px;
+  left: 1px;
+  padding: 0 7px;
+  position: absolute;
+  top: 1px;
+  width: auto;
+  line-height: 26px;
+}
+.microsoft-view #oneclickorder-form-wrapper .oneclickorder-phone, .microsoft-view #oneclickorder-form-wrapper .oneclickorder-email {
+  border: 1px solid #c6c6c6;
+  box-sizing: border-box;
+  height: 30px;
+  padding: 0 10px;
+  width: 100%;
+}
+.microsoft-view .oneclickorder-fields .email-id {
+  float: right;
+  width: 49%;
+}
+.microsoft-view #oneclickorder-form .oneclickorder-fields .phone-number .oneclickorder-phone {
+  padding-left: 35px;
+}
+.microsoft-view #oneclickorder-form-wrapper .comment-toggle {
+  display: none;
+}
+.microsoft-view #oneclickorder-form-wrapper .button-wrapper {
+  box-sizing: border-box;
+  float: left;
+  margin: 0;
+  padding: 0 0 0 10px;
+  width: 20%;
+}
+.microsoft-view #oneclickorder-form-wrapper .button {
+  height: 30px;
+  padding: 0;
+  width: 100%;
+}
+.product-view.microsoft-view .product-shop .location-section .extra-info {
+  float: none;
+  position: absolute;
+  right: 0;
+  top: 100px;
+}
+.product-view.microsoft-view .product-shop .location-section .extra-info .stock {
+  float: none;
+  width: 220px;
+}
+.product-view.microsoft-view .product-shop .extra-info .stock input[type="text"] {
+  box-sizing: border-box;
+  height: 30px;
+  padding: 0 10px;
+}
+.product-view.microsoft-view  .product-shop .extra-info .stock button {
+  height: 30px;
+  padding: 0 12px;
+}
+.product-view.microsoft-view .product-essential .product-detail-section .std-options {
+  margin: 0;
+}
+.product-view.microsoft-view .product-essential .product-detail-section .std-options li.emi_op, .product-view.microsoft-view .product-essential .product-detail-section .std-options li.cod, .product-view.microsoft-view .product-essential .product-detail-section .std-options li.ho_deli {
+  width: 115px;
+  margin: 0;
+}
+
+
+
+@media all and(max-width: 680px){
+  .product-view.microsoft-view .product-shop .location-section .extra-info {
+    position: static;
+    right: auto;
+    top: auto;
+  }
+  .product-view.microsoft-view .product-shop .price-info {
+    float: none;
+  }
+  .microsoft-view .free-cover {
+    float: none;
+    margin: 5px 0 0;
+  }
+  .microsoft-view #oneclickorder-form-wrapper .oneclickorder-fields{ width: 100%; float: none; }
+  .microsoft-view #oneclickorder-form-wrapper .button-wrapper{ float: none; padding: 0; }
+  .microsoft-view .oneclickorder-fields .phone-number, .microsoft-view .oneclickorder-fields .email-id{ width: 100%; float: none; margin: 0 0 5px 0; }
+}

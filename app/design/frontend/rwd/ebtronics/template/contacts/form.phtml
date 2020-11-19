@@ -1,0 +1,165 @@
+<?php
+
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     rwd_default
+ * @copyright   Copyright (c) 2014 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+
+<?php $skin = $this->getSkinUrl(); ?>
+<div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
+<div class="breadcrumbs">
+  <ul>
+    <li class="home">
+      <a title="Go to Home Page" href="<?php echo Mage::getBaseUrl(); ?>">Home</a>
+      <span>/ </span>
+    </li>
+    <li class="cms_page">
+      <strong>Contact Us</strong>
+    </li>
+  </ul>
+</div>
+<div class="contact-container">  
+  <div class="contact-content">
+    <div class="contact-form">
+      <div class="page-title">
+        <h1>Contact Us</h1>
+      </div>
+      <div class="contact-information">
+        <ul class="clearfix">
+          <li>
+            <div class="icon-bg"><img src="<?php echo $skin; ?>images/ebt/contact-phone.png" alt="Phone"></div>
+            <h2>Phone</h2>
+            <p>
+              Call us @ Toll Free Number <br>1800-266-4000 <br>Monday - Friday, <br>9:30am - 6:30pm IST
+            </p>
+          </li>
+          <li>
+            <div class="icon-bg"><img src="<?php echo $skin; ?>images/ebt/contact-email.png" alt="Email"></div>
+            <h2>Email</h2>
+            <p>
+              <a href="mailto:support@electronicsbazaar.com">support@electronicsbazaar.com</a>
+            </p>
+          </li>
+          <li>
+            <div class="icon-bg"><img src="<?php echo $skin; ?>images/ebt/contact-address.png" alt="Address"></div>
+            <h2>Address</h2>
+            <p>
+              <span class="eb-blue">Electronics Bazaar</span> <br>
+              <span class="eb-blue">An Unit of Amiable Electronics Pvt Ltd</span> <br>
+              415, Hubtown Solaris, N.S.Phadke Marg, <br>
+              Near East West Flyover Bridge, Andheri East, <br>
+              Mumbai, Maharastra - 400069
+            </p>
+          </li>
+        </ul>
+      </div>
+
+      <!-- <div class="contact-list clearfix">
+      <form action="<?php // echo $this->getFormAction(); ?>" id="contactForm" method="post" onsubmit="return ValidCaptchaContacts();" class="scaffold-form">
+        <div class="left">
+        <ul>
+          <li>
+            <input name="name" id="contacts-name" title="<?php // echo Mage::helper('contacts')->__('Name') ?>" value="<?php // echo $this->escapeHtml($this->helper('contacts')->getUserName()) ?>" class="input-text required-entry" type="text" placeholder="Your Name" />
+          </li>
+          <li>            
+            <input name="email" id="contacts-email"  class="input-text required-entry validate-email" type="text" placeholder="Email" />
+          </li>
+          </ul>
+          <img src="<?php // echo $skin; ?>images/ebt/laptop-mobile.png">
+          </div>
+
+          <div class="right">
+          <ul>
+          <li>
+            <input name="mobile" id="contacts-mobile"  class="input-text required-entry" type="text" placeholder="Mobile" />
+          </li>
+          <li>
+            <textarea class="required-entry" name="comment" id="contacts-email" placeholder="Comments"></textarea>
+          </li>
+          <li>
+            <div class="captcha">
+              <div class="code-div"><span id="txtCaptcha" class="verification-code"></span></div>
+              <div class="input-box">
+                <input type="text" class="input-text required-entry validate-captch-class" title="Verification Code" id="verification_code" name="verification_code" />
+              </div >
+              <input type="text" name="hideit" id="hideit" value="" style="display:none !important;" />
+            </div>
+          </li>
+          <li>
+            <div class="buttons-set">
+              <button type="submit" title="<?php // echo Mage::helper('contacts')->__('Submit') ?>" class="button submit"><span><span><?php // echo Mage::helper('contacts')->__('Submit') ?></span></span></button>
+            </div>
+          </li>
+        </ul>
+        </div>
+      </form>
+    </div> -->
+    </div>
+    <!-- <div class="contact-info clearfix">
+      <?php // echo $this->getLayout()->createBlock('cms/block')->setBlockId('contacts-right')->toHtml(); ?>
+    </div> -->
+  </div>
+  <script type="text/javascript">
+    //<![CDATA[
+      var contactForm = new VarienForm('contactForm', true);
+      Validation.add('validate-captch-class','Captcha doesn\'t match!',function(the_field_value){
+        return ValidCaptchaContacts();
+      });
+    //]]>
+  </script>
+  <script type="text/javascript">
+    //Created / Generates the captcha function    
+    function DrawCaptchaContacts(){
+        var a = Math.ceil(Math.random() * 9)+ '';
+        var b = Math.ceil(Math.random() * 9)+ '';       
+        var c = Math.ceil(Math.random() * 9)+ '';  
+        var d = Math.ceil(Math.random() * 9)+ '';  
+        //var e = Math.ceil(Math.random() * 10)+ '';  
+        //var f = Math.ceil(Math.random() * 10)+ '';  
+        //var g = Math.ceil(Math.random() * 10)+ '';  
+        //var code = a + ' ' + b + ' ' + ' ' + c + ' ' + d + ' ' + e + ' '+ f + ' ' + g;
+        var code = a + ' ' + b + ' ' + ' ' + c + ' ' + d;
+        jQuery("#txtCaptcha").html(code);
+        //document.getElementById("txtCaptcha").value = code
+    }
+
+    // Validate the Entered input aganist the generated security code function   
+    function ValidCaptchaContacts(){
+        var str1 = removeSpaces(jQuery('#txtCaptcha').html());
+        var str2 = removeSpaces(jQuery('#verification_code').val());
+        if (str1 == str2) return true;        
+        return false;
+        
+    }
+
+    // Remove the spaces from the entered and generated code
+    function removeSpacesContacts(string){
+        return string.split(' ').join('');
+    }
+
+    jQuery(document).ready(function(){
+        DrawCaptchaContacts();
+    });
+  </script>
+</div>

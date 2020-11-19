@@ -1,0 +1,4 @@
+[08-Oct-2018 16:04:52 Asia/Kolkata] PHP Warning:  require_once(Varien/Db/Tree/Node/Exception.php): failed to open stream: No such file or directory in /home/electronicsbazaa/public_html/lib/Varien/Db/Tree/Node.php on line 28
+[08-Oct-2018 16:04:52 Asia/Kolkata] PHP Fatal error:  require_once(): Failed opening required 'Varien/Db/Tree/Node/Exception.php' (include_path='.:/opt/cpanel/ea-php54/root/usr/share/pear') in /home/electronicsbazaa/public_html/lib/Varien/Db/Tree/Node.php on line 28
+[08-Oct-2018 16:04:52 Asia/Kolkata] PHP Warning:  require_once(Varien/Db/Exception.php): failed to open stream: No such file or directory in /home/electronicsbazaa/public_html/lib/Varien/Db/Tree/Exception.php on line 28
+[08-Oct-2018 16:04:52 Asia/Kolkata] PHP Fatal error:  require_once(): Failed opening required 'Varien/Db/Exception.php' (include_path='.:/opt/cpanel/ea-php54/root/usr/share/pear') in /home/electronicsbazaa/public_html/lib/Varien/Db/Tree/Exception.php on line 28

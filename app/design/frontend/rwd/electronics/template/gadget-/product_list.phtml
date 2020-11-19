@@ -1,0 +1,93 @@
+<?php
+   //$mediaUrl  = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA);
+   
+   //$productCollection = $this->getProductCollection($brand);
+    
+    $baseUrl = $this->getBaseUrl();
+    $attr = 'gadget';
+    $brand = $this->getRequest()->getActionName();
+    $_product = Mage::getModel('catalog/product');
+    $attr = $_product->getResource()->getAttribute($attr);
+    if ($attr->usesSource()) {
+        $gadgetId = $attr->getSource()->getOptionId($brand); 
+    }
+
+    $products = Mage::getModel('catalog/product')
+    ->getCollection()
+    ->addAttributeToSelect('image')
+    ->addAttributeToSelect('*') 
+    ->addAttributeToFilter($attr, $gadgetId);   
+ 
+?>
+
+
+<div class="gadgetModuleContainer">
+     <h1><?php echo ucfirst(Mage::app()->getRequest()->getActionName()).' '; ?>Phone</h1>
+
+
+        <div class="brandSearch clearfix">
+            <div class="inputField"><input type="text" class="search_box" id="search_box" placeholder="Search brand's products" autocomplete="off"></div>
+            <button class="button" title="Search" type="submit"><i aria-hidden="true" class="fa fa-search"></i></button></div>
+
+        <div id="searchres" class=""></div> 
+
+     <ul class="mobileList"> 
+        <?php foreach($products as $product): ?>
+            <li>
+                <div class="imgContent">
+                    <a href="<?php echo $product->getUrlInStore(); ?>">
+                        <img src="<?php echo (string)Mage::helper('catalog/image')->init($product, 'image'); ?>" alt="<?php echo $product->getName(); ?>" />
+                    </a>
+                </div>
+                <div class="productContent">
+                    <p>
+                        <a href="<?php echo $product->getUrlInStore(); ?>"><?php echo $product->getName(); ?></a>
+                    </p>
+                </div>
+            </li>
+        <?php endforeach; ?>
+     </ul> 
+</div>
+
+
+<script type="text/javascript">
+
+var jqgs = jQuery.noConflict();
+jqgs(document).ready(function()
+{
+    jqgs("#search_box").keyup(
+        function()
+        {
+            var search_string = jqgs("#search_box").val();
+            if(search_string == '')
+            {
+                var searchres = document.getElementById("searchres");
+                searchres.classList.remove("searchres");
+
+                jqgs("#searchres").html('');
+            }
+        else{
+
+            postdata = {'string' : search_string  , 'brand' :  "<?php echo $brand;?>"} 
+
+            jqgs.post("<?php echo $baseUrl.'gadget/index/searchgadget'; ?>",postdata,function(data)
+            {   
+                var searchres = document.getElementById("searchres");
+                searchres.classList.add("searchres");
+
+                jqgs("#searchres").html(data); 
+            });
+        }
+    });
+});
+
+function fillme(name)
+{
+    var searchres = document.getElementById("searchres");
+    searchres.classList.remove("searchres");
+
+    jqgs("#search_box").val(name);
+    jqgs("#searchres").html('');
+}
+
+</script> 

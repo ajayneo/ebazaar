@@ -1,0 +1,183 @@
+.facebookImage {
+    display: inline-block;
+    cursor: pointer ;
+    vertical-align: middle;
+}
+
+.smallFacebookImage {
+    height: 29px;
+    width: 29px;
+    background-image: url("../images/media/fb_logo_29.png");
+}
+
+.normalFacebookImage {
+    height: 50px;
+    width: 50px;
+    background-image: url("../images/media/fb_logo_50.png");
+}
+
+.largeFacebookImage {
+    height: 72px;
+    width: 72px;
+    background-image: url("../images/media/fb_logo_72.png");
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.col-right.sidebar .products-grid {
+    border-bottom: none;
+}
+
+#social_lightbox_box_items {
+    margin: 10px;
+}
+
+#social_lightbox_box_items .product {
+    display: block;
+    border-bottom: 1px solid #ddd;
+}
+
+#social_lightbox_box_items .product .content{
+    height: 145px;
+}
+
+#social_lightbox_box_items .product h2{
+    font-size: 20px;
+    font-weight: 700;
+    margin: 10px;
+}
+
+#social_lightbox_box_items .product img{
+    display: block;
+}
+
+#social_lightbox_box_items .product .image{
+    display: block;
+    float: left;
+    width: 140px;
+}
+
+#social_lightbox_box_items .product .description {
+    display: block;
+    float: left;
+    width: 250px;
+    padding: 0 10px 10px 10px;
+    white-space: normal;   
+}
+
+.social-media-buttons {
+    margin-top: 20px;
+}
+
+.social-media-buttons div.facebook-button, .social-media-buttons div.twitter-button, .social-media-buttons div.pinterest-button {
+    float: left;
+    margin-right: 5px;
+    opacity: 0.9;
+}
+
+.social-media-buttons .products-grid div.facebook-button, .social-media-buttons .products-grid div.twitter-button, 
+.social-media-buttons .products-grid div.pinterest-button {
+    /*clear: both;*/
+    padding-top: 5px;
+}
+
+.social-media-buttons div.facebook-button:hover, .social-media-buttons div.twitter-button:hover, .social-media-buttons div.pinterest-button:hover {
+    opacity: 1;
+}
+
+.social-media-buttons .products-grid {
+    clear: both;
+    margin-top: 25px;
+}
+
+.social-media-buttons .products-grid .product-name {
+    min-height: 34px;
+}
+
+.social-media-buttons .products-grid .actions {
+    position: static;
+}
+
+.social-media-buttons .products-grid li.item {
+    padding: 12px 10px 10px;
+}
+
+.social-media-buttons .twitter-button a {
+    text-indent: -9999em;
+    display: block; 
+}
+
+.social-media-buttons.popup .products-grid {
+    border-bottom: none;
+    background: none;
+    margin-top: 5px;
+    float:right;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.social-media-buttons.icon-set-1 .twitter-button a {
+    background: url(../images/media/twitter-ico.jpg) top left no-repeat;
+    height:20px;
+    width:61px;
+}
+
+.social-media-buttons.icon-set-2 .twitter-button a {
+    background: url(../images/media/twitter-big-ico.jpg) top left no-repeat;
+    height:30px;
+    width:61px;
+}
+
+.social-media-buttons.icon-set-1 .facebook-button .facebookImage {
+    display: block;
+    background: url(../images/media/facebook-ico.jpg) top left no-repeat;
+    height:20px;
+    width: 61px;
+}
+
+.social-media-buttons.icon-set-2 .facebook-button .facebookImage {
+    display: block;
+    background: url(../images/media/facebook-big-ico.jpg) top left no-repeat;
+    height:30px;
+    width:61px;
+}
+
+.social-media-buttons.icon-set-1 .pinterest-button a.custom-style {
+    display: block;
+    background: url(../images/media/pinterest-ico.jpg) top left no-repeat!important;
+    height:30px!important;
+    width: 61px!important;
+}
+
+.social-media-buttons.icon-set-2 .pinterest-button a.custom-style {
+    background: url(../images/media/pinterest-big-ico.jpg) top left no-repeat!important;
+    display: block;
+    height:30px!important;
+    width: 61px!important;
+}
+
+.social-media-buttons h4 {
+    text-align: center;
+    margin-bottom:10px;
+}
+
+.order-share .buttons {
+    overflow: hidden;
+    width: 200px;
+    margin: 0 auto;
+}
+
+.product-share {
+    margin-top: 30px;
+}
+
+.social-media-buttons.popup .product-share {
+    width: 100%;
+    overflow: hidden;
+}
+
+.social-media-buttons.popup, .social-media-buttons.popup .product-share {
+    margin-top: 0;
+}

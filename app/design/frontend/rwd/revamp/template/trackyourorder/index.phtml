@@ -1,0 +1,57 @@
+<style type="text/css">
+	.track-input-container{ margin: 0 0 10px 0; }
+	.track-input-container .input-label { width: 20%; float: left;}
+	.track-input-container .input-field { width: 80%; float: left;}
+	.track-input-container .input-field input[type="text"]{ width: 100%; border: 1px solid #eeeeee; }
+	.track-input-container .input-field select { height: 30px; width: 100%;} 
+</style>
+
+<div class="wishlist-view-section">
+<?php $collection = $this->getCollection();  ?>
+    <div class="page-title title-buttons">
+        <h1><?php echo $this->__('Track Your Order') ?></h1>
+    </div>
+    <?php if(count($collection) === 0){ ?>
+    <p>You have no orders for tracking</p>
+    <?php }else{ ?>
+
+    <div  class="fieldset">
+    		
+		<form id="TrackyourorderForm" name="orderForm" action="<?php echo $this->getTrackyourorderUrl(); ?>" method="POST">
+                <input type="hidden" name="order_mail" value="<?php echo $this->getEmail(); ?>" />
+                
+                <div class="track-input-container clearfix">
+                	<div class="input-label"><label>Select your order number</label></div>
+                	<div class="input-field">
+	                	<select class="required-entry" name="order_id" id='billing:country_id'>
+	                    <option value="">Please Select Order</option>
+	                    <?php foreach($collection as $orderid): ?>
+	                        <option value="<?php echo $orderid->getIncrementId(); ?>"><?php echo $orderid->getIncrementId().' '. Mage::helper('core')->formatDate($orderid->getCreatedAt(),Mage_Core_Model_Locale::FORMAT_TYPE_MEDIUM, false); ?></option>
+	                    <?php endforeach; ?>
+	                	</select>
+                	</div>
+                </div>
+
+                <!--div class="track-input-container clearfix">
+                	<div class="input-label"><label>AWB</label></div>
+                	<div class="input-field"><input class="required-entry" type="text" name="order_awb" value="<?php echo $this->getEmail(); ?>" /></div>
+                </div-->
+
+                <div class="order_form_track">
+                    <button type="submit" id="order_submit" title="track" class="button"><span><span>track</span></span></button>
+                </div>
+                
+                <div class="clr"></div>
+        </form>
+
+    </div>
+
+
+    <?php } ?>
+</div>	
+
+<script type="text/javascript">
+    //<![CDATA[
+        var TrackyourorderForm = new VarienForm('TrackyourorderForm',true);
+    //]]>
+</script>

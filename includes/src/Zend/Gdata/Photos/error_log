@@ -1,0 +1,11 @@
+[08-Oct-2018 16:06:13 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Gdata_Entry' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Gdata/Photos/TagEntry.php on line 55
+[08-Oct-2018 16:06:13 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Gdata_Feed' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Gdata/Photos/UserFeed.php on line 73
+[08-Oct-2018 16:06:13 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Gdata_Query' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Gdata/Photos/UserQuery.php on line 44
+[08-Oct-2018 16:06:13 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Gdata_Feed' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Gdata/Photos/AlbumFeed.php on line 53
+[08-Oct-2018 16:06:13 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Gdata_Entry' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Gdata/Photos/AlbumEntry.php on line 105
+[08-Oct-2018 16:06:13 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Gdata_Photos_UserQuery' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Gdata/Photos/AlbumQuery.php on line 44
+[08-Oct-2018 16:06:13 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Gdata_Entry' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Gdata/Photos/UserEntry.php on line 85
+[08-Oct-2018 16:06:13 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Gdata_Feed' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Gdata/Photos/PhotoFeed.php on line 53
+[08-Oct-2018 16:06:13 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Gdata_Media_Entry' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Gdata/Photos/PhotoEntry.php on line 120
+[08-Oct-2018 16:06:13 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Gdata_Entry' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Gdata/Photos/CommentEntry.php on line 65
+[08-Oct-2018 16:06:13 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Gdata_Photos_AlbumQuery' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Gdata/Photos/PhotoQuery.php on line 44

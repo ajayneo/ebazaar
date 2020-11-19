@@ -1,0 +1,114 @@
+<?php 
+ // $_REQUEST['ticket_id'] = 10311;
+$params = $this->getRequest()->getParams();
+if(!empty($_REQUEST['ticket_id'])){
+$ticket_id = $_REQUEST['ticket_id'];
+	
+}else if(!empty($params)){
+	
+	$ticket_id = $params['order_id'];
+}
+
+// $ticket_id = 10439;
+if($ticket_id){
+	$gadget = Mage::getModel('gadget/request')->load($ticket_id);
+	// print_r($gadget->getData());
+
+	// $queryArray['awb_number'] = 500765422; //return tracking number
+	// $queryArray['awb_number'] = 853801037; //order tracking number
+	$queryArray['awb_number'] = $gadget->getAwbNumber(); //order tracking number
+	// $queryArray['ticket_id'] =  200043676;
+	$queryArray['order_id'] =  $gadget->getId();
+	$queryArray['created_at'] =  date('d M Y', strtotime($gadget->getCreatedAt()));
+
+	$tracking = Mage::getModel('shippinge/ecom')->ecomexpressTracking($queryArray);
+	
+	$statusOptionsArray = Mage::helper('gadget')->getGadgetStatusOptions();
+	// echo "<pre>"; print_r($tracking); echo "</pre>";
+	} ?>
+<?php $skin = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN).'frontend/rwd/ebtronics/'; ?>
+<div class="appTrackingContainer">
+	<div class="trackingStatus">
+		<ul>
+			<li class="clearfix">
+				<div class="statusImage"><img src="<?php echo $skin ?>images/ebt/submitted.png"></div>
+				<div class="statusText">Request Submitted</div>
+			</li>
+			<li class="clearfix">
+				<div class="statusImage">
+				<?php if($gadget->getStatus() == 'processing'){ ?>
+					<img src="<?php echo $skin ?>images/ebt/submitted.png">
+				<?php }else{ ?>
+					<img src="<?php echo $skin ?>images/ebt/in-process.png">
+				<?php } ?>
+				</div>
+				<div class="statusText">In Process</div>
+			</li>
+			<li class="clearfix">
+				<div class="statusImage"><img src="<?php echo $skin ?>images/ebt/complete.png"><img src="<?php echo $skin ?>images/ebt/submitted.png" style="display: none;"></div>
+				<div class="statusText">Complete</div>
+			</li>
+		</ul>
+	</div>
+	<?php $tracking_details = $tracking['status'];
+    if(!empty($tracking_details)){ ?>
+    <div class="trackingDetails">
+      <h3>Reverse Pickup Details</h3>
+      <?php foreach ($tracking_details as $date => $city) {
+            $city_val = array_keys($city);
+            ?>
+            <ul class="trackingInnerDetails">
+            	<li>
+				<h2><?php echo $date.", ".$city_val[0]; ?></h2>
+            	<?php foreach ($city as $key => $actvities) { ?>
+                 <ul class="trackingContent">
+                 <?php foreach ($actvities as $key => $value) {
+                  $time_array = explode(",",$value['date']);
+                  $time = $time_array[2];
+                  $status = $value['status'];
+                  $code = $value['code']; 
+                  $str_time = date("h:i a",strtotime($time)); ?>
+	              <li>
+	                <div class="date"><?php echo $str_time; ?></div>
+	                <div class="detail"><?php echo $status; ?></div>
+	              </li>
+          	<?php } ?>
+          		</ul><?php } ?>
+          		</li>
+          	</ul>
+        <?php  } ?>
+        </div>
+      <?php  } ?>
+</div>
+<style type="text/css">
+	/* Tracking */
+	.clearfix:after{display: block; content: "."; clear: both; font-size: 0; line-height: 0; height: 0; overflow: hidden;}
+.appTrackingContainer h1{ text-align: center; font-size: 20px; color: #4c4d4d; margin: 0 0 20px 0;}
+.trackingDate p{ margin: 0 0 0 0; font-size: 16px; color: #4c4d4d; padding: 0 10px; }
+.trackingDate .date{ font-weight: bold; margin: 0 0 5px 0; }
+.trackingDetails h2{ background: #e1e1e1; font-size: 18px; padding: 5px 10px; margin: 0 0 0 0; }
+.trackingContent .date{ color: #13447e; font-weight: bold; margin: 0 0 5px 0; }
+.trackingContent .detail{ color: #333333; }
+.trackingContent li{ border-bottom: 1px solid #cccccc; padding: 10px; }
+.trackingContent li:last-child{ border-bottom: 0; }
+.trackingStatus{ padding: 0 10px; margin: 0 0 20px 0; }
+.appTrackingContainer ul{ margin: 0; padding: 0; }
+.trackingDate{ margin: 0 0 20px 0; }
+.trackingInnerDetails{ margin: 0; padding: 0; }
+.trackingStatus ul li{ margin: 0 0 35px 0; list-style: none; }
+.statusImage{ float: left; width: 80px; height: 80px; border-radius: 50%; border: 1px solid #d7d7d7; text-align: center; line-height: 115px; position: relative; }
+.statusImage:after {
+    content: "";
+    height: 36px;
+    background: #d7d7d7;
+    width: 1px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: 100%;
+}
+.trackingStatus ul li:last-child .statusImage:after{ display: none; }
+.statusImage img{ height: 50px; margin: 14px auto 0; }
+.statusText{ float: left; font-size: 18px; margin: 24px 0 0 20px; font-weight: bold; color: #4c4d4d; }
+</style>

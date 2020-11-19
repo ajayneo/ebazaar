@@ -1,0 +1,48 @@
+<div class="top-brands-container">
+ <div class="main">
+  <h2>Top Brands</h2>
+  <div class="top-brands-content">
+   <ul class="brands-slider clearfix">
+    <li><a href="http://www.electronicsbazaar.com/catalogsearch/result/?q=HP">HP</a></li>
+    <li><a href="http://www.electronicsbazaar.com/catalogsearch/result/?q=htc">HTC</a></li>
+    <li><a href="http://www.electronicsbazaar.com/catalogsearch/result/?q=lenovo">Lenovo</a></li>
+    <li><a href="http://www.electronicsbazaar.com/catalogsearch/result/?q=nokia">Nokia</a></li>
+    <li><a href="http://www.electronicsbazaar.com/catalogsearch/result/?q=Toshiba">Toshiba</a></li>
+    <li><a href="http://www.electronicsbazaar.com/catalogsearch/result/?q=Samsung">Samsung</a></li>
+    <li><a href="http://www.electronicsbazaar.com/catalogsearch/result/?q=Apple">Apple</a></li>
+    <li><a href="http://www.electronicsbazaar.com/catalogsearch/result/?q=Asus">Asus</a></li>
+    <li><a href="http://www.electronicsbazaar.com/catalogsearch/result/?q=BlackBerry">BlackBerry</a></li>
+    <li><a href="http://www.electronicsbazaar.com/catalogsearch/result/?q=Dell">Dell</a></li>
+    <li><a href="http://www.electronicsbazaar.com/catalogsearch/result/?q=sony">Sony</a></li>
+    <li><a href="http://www.electronicsbazaar.com/catalogsearch/result/?q=intex">Intex</a></li>
+    <li><a href="http://www.electronicsbazaar.com/catalogsearch/result/?q=acer">Acer</a></li>
+    <li><a href="http://www.electronicsbazaar.com/catalogsearch/result/?q=micromax">Micromax</a></li>
+    <li><a href="http://www.electronicsbazaar.com/catalogsearch/result/?q=Alcatel">Alcatel</a></li>
+    <li><a href="http://www.electronicsbazaar.com/catalogsearch/result/?q=Canon">Canon</a></li>
+    <li><a href="http://www.electronicsbazaar.com/catalogsearch/result/?q=iBall">iBall</a></li>
+    <li><a href="http://www.electronicsbazaar.com/catalogsearch/result/?q=Mi">Mi</a></li>
+    <li><a href="http://www.electronicsbazaar.com/catalogsearch/result/?q=Motorola">Motorola</a></li>
+   </ul>
+  </div>
+ </div>
+</div>
+
+<script type="text/javascript">
+	var jq = jQuery.noConflict();
+	jq(document).ready(function(){ 
+	  jq('.brands-slider').bxSlider({
+	     slideWidth: 200,
+		 auto: true, 
+		 speed: 9000, 
+		 pager: false,
+		 controls: false,
+		 pause: 1, 
+         maxSlides: 6,
+         slideMargin:10, 
+         infiniteLoop: true 
+	  });
+	}); 
+ 
+
+
+</script>

@@ -1,0 +1,4 @@
+[08-Oct-2018 16:04:34 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Pdf_Color' not found in /home/electronicsbazaa/public_html/lib/Zend/Pdf/Color/Rgb.php on line 39
+[08-Oct-2018 16:04:34 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Pdf_Color' not found in /home/electronicsbazaa/public_html/lib/Zend/Pdf/Color/Html.php on line 38
+[08-Oct-2018 16:04:34 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Pdf_Color' not found in /home/electronicsbazaa/public_html/lib/Zend/Pdf/Color/Cmyk.php on line 38
+[08-Oct-2018 16:04:34 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Pdf_Color' not found in /home/electronicsbazaa/public_html/lib/Zend/Pdf/Color/GrayScale.php on line 39

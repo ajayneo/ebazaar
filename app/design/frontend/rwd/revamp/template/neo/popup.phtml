@@ -1,0 +1,30 @@
+<?php
+$base = $this->getSkinUrl();
+?>
+<div class="new-gadget-popup-container popup-feedback home-popup">
+    <div class="new-gadget-popup-inner-content">
+	    <span class="new-gadget-close-popup feedback-close-popup">X</span>
+	    <div class="click-link"> 
+	    	<a href="https://www.electronicsbazaar.com/vow-v104-black-blue?utm_campaign=29MARCH18">     		
+	      		<img src="<?php echo $base?>images/vow104.jpg">     
+	      	</a>
+      	</div>
+  	</div>
+</div>
+
+<script type="text/javascript">
+	jQuery(function($) {
+		$('.home-popup .new-gadget-close-popup').click(function(){
+			$('.new-gadget-popup-container.home-popup').hide();
+		});
+		$(document).ready(function() {
+		    var isshow = localStorage.getItem('isshow');
+		    if (isshow == null) {
+		        localStorage.setItem('isshow', 1);
+
+		        $('.new-gadget-popup-container.home-popup').fadeIn('slow').delay(3000).fadeOut('slow');
+		        // $('.new-gadget-popup-container.home-popup').show();
+		    }
+		});
+	});
+</script>

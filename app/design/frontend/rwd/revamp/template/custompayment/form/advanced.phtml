@@ -1,0 +1,62 @@
+<?php $_code=$this->getMethodCode() ?>
+<ul class="form-list" id="payment_form_<?php echo $_code ?>" style="display:none;">
+    <li>
+
+        <label for="<?php echo $_code ?>_order_no" class="required"><em>*</em><?php echo $this->__('Enter Your Cheque UTR No# / Cheque No#') ?></label>
+        <span class="input-box">
+            <input type="text" title="<?php echo $this->__('UTR No#') ?>" class="input-text required-entry" id="<?php echo $_code ?>_utr_no" name="payment[ap_utr_no]" value="<?php echo $this->htmlEscape($this->getInfoData('ap_utr_no')) ?>" onblur="advancepay()"/>
+        </span>
+        <div id="succ-mes" class="succ-mes" name="succ-mes"></div>
+        <div id="err-mes" class="err-mes" name="err-mes"></div>        
+
+        <?php 
+            /*
+                <label for="<?php echo $_code ?>_order_no" class="required"><em>*</em><?php echo $this->__('Enter Your Cheque No#') ?></label>
+                <span class="input-box">
+                    <input type="text" title="<?php echo $this->__('Cheque No#') ?>" class="input-text required-entry" id="<?php echo $_code ?>_check_no" name="payment[ap_check_no]" value="<?php echo $this->htmlEscape($this->getInfoData('ap_check_no')) ?>" />
+                </span>
+            */ 
+        ?>
+
+        <label for="<?php echo $_code ?>_order_no" class="required"><em>*</em><?php echo $this->__('Enter Your Bank Name#') ?></label>
+        <span class="input-box">
+            <input type="text" title="<?php echo $this->__('Bank Name#') ?>" class="input-text required-entry" id="<?php echo $_code ?>_bank_name" name="payment[ap_bank_name]" value="<?php echo $this->htmlEscape($this->getInfoData('ap_bank_name')) ?>" />    
+        </span>
+    </li>
+</ul>
+<script>
+function advancepay() {
+    document.getElementById("succ-mes").innerHTML = '';
+    document.getElementById("err-mes").innerHTML = '';
+    var x = document.getElementById("custompayment_utr_no").value;
+    //alert(x.length);    
+    var reg = /^\d+$/;
+    var regex = new RegExp('^[A-Z]{4}$'); //alert(reg.test(x));      
+    var res = x.slice(0, 4); //alert(regex.test(res));    
+    if(x.length > 5)
+    {   console.log(reg.test(x));
+        if(x.length == 6 && reg.test(x) == false)
+        {
+          //alert('Cheque no not valid.');          
+          document.getElementById("err-mes").innerHTML = 'This '+x+' cheque number not valid.';
+          document.getElementById("custompayment_utr_no").value = '';
+        } 
+        else if(x.length > 6 && regex.test(res) == false)
+        {
+            //alert('UTR number not valid.');            
+            document.getElementById("err-mes").innerHTML = 'This '+x+' UTR number not valid.';
+            document.getElementById("custompayment_utr_no").value = '';
+        }
+        else
+        {
+          //document.getElementById("succ-mes").innerHTML = 'You have entered valid Number';
+        }        
+    }
+    else
+    {
+      document.getElementById("err-mes").innerHTML = 'Please enter valid cheque or UTR number.';
+      document.getElementById("custompayment_utr_no").value = '';        
+    }   
+}
+</script>
+

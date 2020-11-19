@@ -1,0 +1,128 @@
+<?php
+$services = $this->getBlueAvailableService();
+$services = array_merge($services, $this->getFedexAvailableService());
+$services = array_merge($services, $this->getEcomAvailableService());
+$services = array_merge($services, $this->getVexpressAvailableService());
+?>
+
+<div class="entry-edit">
+    <div class="entry-edit-head">
+        <h4 class="fieldset-legend icon-head">Shipping Options</h4>
+    </div>
+    <div class="fieldset">
+        <div>
+            <dl class="shipment_options">
+
+                <dt>
+                <div class="grid">
+                    <table cellspacing="0" class="data">
+                        <colgroup>
+                            <col>
+                            <col>
+                            <col>
+                            <col>
+                            <col width="50">
+                        </colgroup><thead>
+                        <tr class="headings">
+                            <th>Service</th>
+                            <th>Invoice</th>
+                            <th>No of Awb</th>
+                            <th>Weight (Kg)</th>
+                            <th class="last">Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php foreach($services as $code=>$service):?>
+                            <tr>
+                                <td><label id="shipping_label_<?php echo $code?>"><?php echo $service?></label></td>
+                                <td>
+									<select id="shipping_invoice_<?php echo $code?>">
+										<option value="">--Select Invoice--</option>
+										<?php foreach($this->getInvoices() as $invoice_id => $increment_id) { ?>
+											<option value="<?=$invoice_id?>">#<?=$increment_id?></option>
+										<?php } ?>
+									</select>
+                                </td>
+                                <td><input style="width:60px;" id="shipping_option_count_<?php echo $code?>" value="" type="text" title="Qty"></td>
+                                <td><input style="width:60px;" id="shipping_option_weight_<?php echo $code?>" value="" type="text" title="Weight"></td>
+                                <td class="last"><input type="radio" class="shipping_selected_option" name="shipping_selected_option" class="shipping_radio_option" value="<?php echo $code?>"/></td>
+                                <!--td class="last"><a href="#" onclick="shippingOption('<?php //echo $code?>');return false">Add</a></td-->
+                            </tr>
+                        <?php endforeach;?>
+                        </tbody>
+                    </table>
+                </div>
+                </dt>
+
+            </dl>
+            <button title="Create Shipment" type="button" class="scalable " onclick="submit_shipment()"><span><span><span>Create Shipment</span></span></span></button>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    function submit_shipment()
+    {
+        $$('.shipping_selected_option').each(function(item) {
+            if(item.checked){
+               // console.log(item.value);
+                shippingOption(item.value);
+            }
+        });
+    }
+
+    function shippingOption(option)
+    {
+        var awb_count = $("shipping_option_count_"+option).getValue();
+        var weight = $("shipping_option_weight_"+option).getValue();
+        var comment = $("shipment_comment_text").getValue();
+        var invoice_id = $("shipping_invoice_"+option).getValue();
+
+        var reloadurl = "<?php echo Mage::helper("adminhtml")->getUrl("/shippinge/index/");?>";
+        var param = '&invoice_id='+invoice_id+'&incrementid=<?php echo $this->getShipment()->getOrder()->getIncrementId();?>&shipment_comment='+comment+'&weight='+weight+'&no_of_awbs='+awb_count+'&service_type='+option;
+        new Ajax.Request(reloadurl, {
+            method: 'post',
+            parameters: param,
+            onSuccess: function(transport) {
+                //var jSonresponse = transport.responseText;
+                var jSonresponse = transport.responseJSON;
+//console.log(transport);
+//console.log(jSonresponse);
+                function printBr(element, index, array) {
+                    if(!element.error){
+                        //console.log(element.awb);
+                        //var Awb = element.awb;
+						
+                        var containerNo = $("track_row_container").childElements().length
+                        var hidden_invoice_id = document.createElement("INPUT");
+						hidden_invoice_id.setAttribute("type", "hidden");
+						hidden_invoice_id.setAttribute("id", "trackingI"+containerNo);
+						hidden_invoice_id.setAttribute("name", "tracking["+containerNo+"][invoice_id]");
+						hidden_invoice_id.setAttribute("value", invoice_id);
+						
+						var hidden_destination_code = document.createElement("INPUT");
+						hidden_destination_code.setAttribute("type", "hidden");
+						hidden_destination_code.setAttribute("id", "trackingD"+containerNo);
+						hidden_destination_code.setAttribute("name", "tracking["+containerNo+"][destination_code]");
+						hidden_destination_code.setAttribute("value", element.destination);
+						var track_row_container = document.getElementById("track_row_container");
+						track_row_container.appendChild(hidden_invoice_id);
+						track_row_container.appendChild(hidden_destination_code);
+						
+                        //console.log();
+                        trackingControl.add();
+                        $("trackingN"+containerNo).value = element.awb;
+                        //$("trackingT"+containerNo).value = $("shipping_label_bluedart").innerText;
+                        $("trackingT"+containerNo).value = option;
+                    }else{
+                        alert(element.message); 
+                    }
+                }
+                jSonresponse.forEach(printBr);
+
+            }
+        });
+    }
+ //function shippingOption(option){console.log($$("shipping_option_count_"+option).value()); console.log($$("shipping_option_weight_"+option).value()); console.log(option)}
+</script>

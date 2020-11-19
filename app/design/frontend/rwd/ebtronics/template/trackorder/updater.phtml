@@ -1,0 +1,228 @@
+<?php
+	$orderdetails = $this->getOrderdetails();
+?>
+<?php 
+if(Mage::app()->getRequest()->getPost('order_id'))
+{
+	if(Mage::app()->getRequest()->getPost('order_mail') && ($orderdetails->getCustomerEmail() != Mage::app()->getRequest()->getPost('order_mail')) )
+	{
+		?>
+		<div class="response_error validation-advice">
+		<p><span>Error ! Please check the details you have entered .</span></p>
+	</div>
+	<?php
+	}
+	elseif(!($orderdetails->getIncrementId()))
+	{
+		?>
+		<div class="response_error validation-advice">
+		<p><span>Error ! Please check the details you have entered .</span></p>
+	</div>
+		<?php
+	}
+	else {		
+		?>
+		<div class="order-info-summary clearfix">
+		<span><span>Order Id :</span><?php echo $orderdetails->getIncrementId() ?></span>
+		<span><span>Status :</span><strong> <?php echo strtoupper($orderdetails->getStatus()) ?></strong></span>
+		<?php if((int)$orderdetails->getBaseDiscountAmount() != 0) {?>
+			<span><span>Discount :</span><?php echo number_format((float)$orderdetails->getBaseDiscountAmount(),2,'.','') ?></span>
+		<?php } ?>
+		<span><span>Total : </span><?php echo $orderdetails->getBaseCurrencyCode().'  '.number_format((float)$orderdetails->getGrandTotal(),2,'.','') ?></span>
+		</div>
+<div class="address clearfix">
+<div class="billing-address">
+	<h3 class="address-heading">Billing Address</h3>
+	<?php $_billingAddress = $orderdetails->getBillingAddress();?>
+	<p><span><?php echo $_billingAddress->getFirstname().' '.$_billingAddress->getLastname() ?></span></p>
+	<p><span><?php foreach ($_billingAddress->getStreet() as $key => $value) {
+		echo $value;
+	} ?></span></p>
+	<p><span><?php echo $_billingAddress->getCity() ?></span></p>
+	<?php if($_billingAddress->getRegion()){ ?><p><span><?php echo $_billingAddress->getRegion() ?></span></p><?php } ?>
+	<p><span><?php echo $_billingAddress->getPostcode() ?></span></p>
+	<p><span><?php echo $_billingAddress->getTelephone() ?></span></p>
+	<?php if($_billingAddress->getFax()){ ?><p><span><?php echo $_billingAddress->getFax() ?></span></p><?php } ?>
+</div>
+
+<div class="shipping-address">
+	<h3 class="address-heading">Shipping Address</h3>
+	<?php $_ShippingAddress = $orderdetails->getShippingAddress();?>
+	<p><span><?php echo $_ShippingAddress->getFirstname().' '.$_ShippingAddress->getLastname() ?></span></p>
+	<p><span><?php foreach ($_ShippingAddress->getStreet() as $key => $value) {
+		echo $value; } ?></span></p>
+	<p><span><?php echo $_ShippingAddress->getCity() ?></span></p>
+	<?php if($_ShippingAddress->getRegion()){ ?><p><span><?php echo $_ShippingAddress->getRegion() ?></span></p><?php } ?>
+	<p><span><?php echo $_ShippingAddress->getPostcode() ?></span></p>
+	<p><span><?php echo $_ShippingAddress->getTelephone() ?></span></p>
+	<?php if($_ShippingAddress->getFax()){ ?><p><span><?php echo $_ShippingAddress->getFax() ?></span></p><?php } ?>
+</div>
+</div>
+<?php 
+$trackdetails = $this->getTrackerdetails($orderdetails);
+if(count($trackdetails))
+{ ?>
+<div class="tracking-details">
+	<h3>Tracking Details</h3>
+	<table width="100%" border="0" align="left" cellpadding="0" cellspacing="0">
+      <tbody>
+      	<tr>
+        <th align="left" valign="middle">Courier Name</th>
+        <th align="left" valign="middle">Tracking Number</th>
+      </tr>
+		<?php
+		foreach ($trackdetails as $shipment){
+			foreach($shipment->getAllTracks() as $tracknum)
+	        {
+	        	?>			            	
+				<tr>
+					<td align="left" valign="middle"><?php echo $tracknum->getTitle() ?></td>
+					<td align="left" valign="middle"><?php echo $tracknum->getTrackNumber() ?></td>
+				</tr>
+				<?php			
+	        }
+		}
+}
+		?>
+	 </tbody>
+	 </table>
+</div>
+<div class="invoice-info clearfix">
+	<?php 
+	if ($orderdetails->hasInvoices()) { ?>
+<div class="invoice">
+	<h3>Invoice No : #</h3>
+	<?php
+    foreach ($orderdetails->getInvoiceCollection() as $invoice) {
+    	?>
+      <p>
+      	<?php echo $invoice->getIncrementId(); ?>
+      	</p>
+      <?php
+    }
+	?>
+</div>
+<?php } ?>
+
+
+<div class="shipping">
+	<h3>Shipping No : #</h3>
+	<?php 
+	foreach($orderdetails->getShipmentsCollection() as $shipment)
+		{			
+			?>
+			<p>
+	      		<?php 
+			    echo $shipment->getIncrementId();
+				?>
+		</p>
+      <?php
+		}
+	?>
+</div>
+<?php
+/*
+$params = array(
+    'product' => 12,
+    'qty' => 2,
+);
+$cart = Mage::getSingleton('checkout/cart'); 
+$product = new Mage_Catalog_Model_Product();
+$product->load(12); 
+$cart->addProduct($product, $params);
+$cart->save(); 
+Mage::getSingleton('checkout/session')->setCartWasUpdated(true);
+$message = $this->__('Custom message: %s was successfully added to your shopping cart.', $product->getName());
+Mage::getSingleton('checkout/session')->addSuccess($message);
+ * */
+?>
+
+<div class="product-track">
+	<h3>Track Order</h3>
+	<ul class="product-track-list">
+	<?php $i_count = 1;?>
+	<?php foreach($orderdetails->getAllItems() as $item) { ?>
+	<?php
+		$order_data = Mage::getModel('sales/order')->load($item->getOrderId());
+		$sTime = Mage::app()->getLocale()->date(strtotime($order_data->getCreatedAtStoreDate()), null, null, false);
+	?>
+	<?php #print_r($item->getData()); ?>
+		<li <?php if(count($orderdetails->getAllItems()) == $i_count) echo 'class="last"';?>>			
+			<div class="product-tracking">
+				<div class="product-image">
+					<img src="<?php echo Mage::getModel('catalog/product')->load($item->getProductId())->getImageUrl()?>" title="<?php echo $item->getName()?>" height="142px" width="142px" />
+				</div>
+				<div class="product-info">
+					<p><strong>Name :</strong><?php echo $item->getName() ?></p>
+					<p><strong>Qty Ordered :</strong><?php echo (int)$item->getQtyOrdered() ?></p>
+					<p><strong>Status :</strong><?php echo $item->getStatus() ?></p>
+					<p><strong>Original Unit Price :</strong><?php echo number_format((float)$item->getBaseOriginalPrice(),2,'.','') ?></p>
+					<p><strong>Order Date :</strong><?php echo $sTime; ?></p>
+					<p><strong>Qty Invoiced :</strong><?php echo (int)$item->getQtyInvoiced() ?></p>
+					<p><strong>Qty Shipped :</strong><?php echo (int)$item->getQtyShipped() ?></p>
+				</div>
+			</div>
+			<div class="tracking-info">
+	        	<div class="top-tracking">
+	        		<?php 
+	        		if($item->getStatus() == 'Shipped')
+					{ ?>
+						<img src="<?php echo $this->getSkinUrl('images/track-4.png')?> " width="591" height="20" alt="">
+					<?php }
+					elseif ($item->getStatus() == 'Mixed') { ?>
+						<img src="<?php echo $this->getSkinUrl('images/track-3.png')?>" width="591" height="20" alt="">
+					<?php }
+					elseif ($item->getStatus() == 'Invoiced') { ?>
+						<img src="<?php echo $this->getSkinUrl('images/track-2.png')?>" width="591" height="20" alt="">
+					<?php }
+					else { ?>
+						<img src="<?php echo $this->getSkinUrl('images/track-1.png')?>" width="591" height="20" alt="">
+					<?php }
+	        		?>	        		
+	        	</div>
+	        	<div class="tracking-steps clearfix">
+		            <p class="tracking-step step-1">
+		            	<span>Order Placed</span>
+		            </p>
+		            <p class="tracking-step step-2">
+		            	<span>Order Confirmed</span>
+		            </p>
+		            <p class="tracking-step step-3">
+		            	<span>Order Processing</span>
+		            </p>
+		            <p class="tracking-step step-4">
+		            	<span>Order Shipped</span>
+		            </p>
+	            </div>
+	        </div>
+		</li>
+		<?php $i_count++; ?>
+	<?php } ?>
+	</ul>
+</div>
+<?php
+	}
+}
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

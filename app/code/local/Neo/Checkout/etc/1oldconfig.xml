@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Neo_Checkout>
+      <version>0.0.1</version>
+    </Neo_Checkout>
+  </modules>
+  <global>
+	<blocks>
+		<checkout>
+			<rewrite>
+				<cart_sidebar>Neo_Checkout_Block_Cart_Sidebar</cart_sidebar>
+			</rewrite>
+		</checkout>
+	</blocks>
+  </global>
+  <frontend>
+    <routers>
+        <checkout>
+            <args>
+                <modules>
+                    <neo_checkout before="Mage_Checkout">Neo_Checkout</neo_checkout>
+                </modules>
+            </args>
+        </checkout>
+    </routers>
+</frontend>
+</config>

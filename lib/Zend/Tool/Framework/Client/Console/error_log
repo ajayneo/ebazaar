@@ -1,0 +1,2 @@
+[08-Oct-2018 16:06:49 Asia/Kolkata] PHP Fatal error:  Interface 'Zend_Tool_Framework_Registry_EnabledInterface' not found in /home/electronicsbazaa/public_html/lib/Zend/Tool/Framework/Client/Console/Manifest.php on line 61
+[08-Oct-2018 16:06:50 Asia/Kolkata] PHP Fatal error:  Interface 'Zend_Tool_Framework_Registry_EnabledInterface' not found in /home/electronicsbazaa/public_html/lib/Zend/Tool/Framework/Client/Console/ArgumentParser.php on line 40

@@ -1,0 +1,39 @@
+@media only screen and (max-width: 1024px) {
+    
+/*Login page start*/
+.account-login.account-login-new .new-users {margin-right:0;}
+.account-login.account-login-new .registered-users {margin-left:0;}
+
+.account-login.account-login-new .buttons-set .button {width: 100%;}
+.remember-li {width: 41%;margin-left: 0 !important;}
+.forgot-li {width: 57%;}
+/*Login page end*/
+
+}
+
+@media only screen and (max-width: 770px) {
+
+/*Login page start*/
+.account-login.account-login-new .col2-set h2 {font-size: 19px;}
+.account-login.account-login-new .col2-set .col-1 {padding: 15px 10px 15px 15px;}
+.account-login.account-login-new .col2-set .col-2 {padding: 15px 15px 15px 10px;}
+
+.account-login.account-login-new .account-registered, .account-login.account-login-new .account-create{width: 100%;padding: 5%; margin: 0;}
+.remember-li{width: 44%;}
+.forgot-li {width: 54%;}
+/*Login page end*/
+
+}
+
+@media only screen and (max-width: 600px) {
+
+/*Login page start*/
+ .account-login.account-login-new .col-1.registered-users, .account-login.account-login-new .col-2.new-users {width: 100%;}
+ .account-login.account-login-new .col2-set .col-1, .account-login.account-login-new .col2-set .col-2 {padding: 15px;margin-top: 0;}
+/*Login page end*/
+
+}
+
+@media only screen and (max-width: 480px) {
+    
+}

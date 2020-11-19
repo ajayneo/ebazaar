@@ -1,0 +1,1 @@
+[15-Jul-2016 09:28:08 UTC] PHP Fatal error:  Call to undefined method Neo_Asmdetail_Block_Adminhtml_Asmdetail_Grid::getValueArray2() in /home/electronicsbazaa/public_html/app/code/local/Neo/Asmdetail/Block/Adminhtml/Asmdetail/Edit/Tab/Form.php on line 37

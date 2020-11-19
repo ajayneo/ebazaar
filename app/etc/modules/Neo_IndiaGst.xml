@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Neo_IndiaGst>
+      <active>true</active>
+      <codePool>local</codePool>
+      <version>0.1.5</version>
+    </Neo_IndiaGst>
+  </modules>
+</config>

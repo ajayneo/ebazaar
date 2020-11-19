@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Neo_Gadget>
+      <active>true</active>
+      <codePool>local</codePool>
+      <version>0.2.1</version>
+    </Neo_Gadget>
+  </modules>
+</config>

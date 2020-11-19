@@ -1,0 +1,32 @@
+<config>
+	<acl>
+		<resources>
+			<admin>
+				<children>
+					<postcode translate="title" module="postcode">
+						<title>Postcode</title>
+						<children>
+							<manage_postcode translate="title" module="postcode">
+								<title>Manage Postcode</title>
+								<sort_order>1</sort_order>
+							</manage_postcode>
+						</children>
+					</postcode>
+				</children>
+			</admin>
+		</resources>
+	</acl>
+	<menu>
+		<postcode translate="title" module="postcode">
+			<title>Postcode</title>
+			<sort_order>50</sort_order>
+			<children>
+				<manage_postcode translate="title" module="postcode">
+					<title>Manage Postcode</title>
+					<action>adminhtml/postcode_postcode</action>
+					<sort_order>1</sort_order>
+				</manage_postcode>
+			</children>
+		</postcode>
+	</menu>
+</config>

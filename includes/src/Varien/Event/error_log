@@ -1,0 +1,1 @@
+[08-Oct-2018 16:05:10 Asia/Kolkata] PHP Fatal error:  Class 'Varien_Object' not found in /home/electronicsbazaa/public_html/includes/src/Varien/Event/Observer.php on line 36

@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+  <microsoft_adminhtml_microsoft_index>
+	<reference name="content">
+	  <block type="microsoft/adminhtml_microsoft" name="microsoft" />
+	</reference>
+  </microsoft_adminhtml_microsoft_index>
+</layout>

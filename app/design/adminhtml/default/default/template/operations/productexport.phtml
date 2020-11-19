@@ -1,0 +1,321 @@
+<div class="content-header">
+    <table cellspacing="0">
+        <tbody><tr>
+            <td style="width:50%;"><h3 class="icon-head head-adminhtml-index">Product Export</h3></td>
+        </tr>
+    </tbody></table>
+</div>
+<div>
+	<form action='<?php echo Mage::helper("adminhtml")->getUrl("admin_operations/adminhtml_productexport/getProductExportReport");?>' name="productExport" id="productExport" method="post">
+	<input type="hidden" name="form_key" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>">
+	<table style="width: 100%" cellpadding="10px" cellspacing="10px">
+		
+		
+		<tr>
+			<td>Export will contain attribute set, sku, category ids,qty, price, status, name, description</td>
+			<td align="right" colspan="2"><button id="submit" title="Search" type="submit" class="scalable task"><span><span><span>Export Products</span></span></span></button></td>
+		</tr>
+	
+	</table>
+	</form>
+</div>
+
+<div class="content-header">
+    <table cellspacing="0">
+        <tbody><tr>
+            <td style="width:50%;"><h3 class="icon-head head-adminhtml-index">Stock Udpate Report Of Qty Flow From Navision To Magento</h3></td>
+        </tr>
+    </tbody></table>
+</div>
+<div>
+	<form action='<?php echo Mage::helper("adminhtml")->getUrl("admin_operations/adminhtml_productexport/getNavisionStockUpdateReport");?>' name="productExport" id="productExport" method="post">
+	<input type="hidden" name="form_key" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>">
+	<table style="width: 100%" cellpadding="10px" cellspacing="10px">
+		
+		<tr>
+			<?php $dateFormatIso = Mage::app()->getLocale()->getDateTimeFormat(Mage_Core_Model_Locale::FORMAT_TYPE_SHORT); ?>
+			<td>From Date : &nbsp; <input name="from_date" id="_from_date" value="" type="text" style="width: 200px; margin: 0 5px 3px 0px; height: 25px; padding: 2px;"><img title="Select date" id="_from_date_trig" src="<?php echo $this->getSkinUrl('images/calendar.png')?>" class="v-middle"> &nbsp; &nbsp; To Date : &nbsp; <input name="to_date" id="_to_date" value="" type="text" style="width: 200px; margin: 0 5px 3px 0px; height: 25px; padding: 2px;"><img title="Select date" id="_to_date_trig" src="<?php echo $this->getSkinUrl('images/calendar.png')?>" class="v-middle"></td>
+			<script type="text/javascript">
+			//<![CDATA[
+			 Calendar.setup({
+			        inputField : '_from_date',
+			        ifFormat : '%m/%e/%Y',
+			        button : '_from_date_trig',
+			        align : 'Bl',
+			        singleClick : true
+			    });
+
+			 Calendar.setup({
+			        inputField : '_to_date',
+			        ifFormat : '%m/%e/%Y',
+			        button : '_to_date_trig',
+			        align : 'Bl',
+			        singleClick : true
+			    });
+			//]]>
+			</script>
+		</tr>
+		
+		<tr>
+			<td>Export will contain product data of which qty has updated from Navision on selected date. Put blank if needed all updates till date.</td>
+			<td align="right" colspan="2"><button id="submit" title="Search" type="submit" class="scalable task"><span><span><span>Export Stock Udpate Report</span></span></span></button></td>
+		</tr>
+	
+	</table>
+	</form>
+</div>
+
+<div class="content-header">
+    <table cellspacing="0">
+        <tbody><tr>
+            <td style="width:50%;"><h3 class="icon-head head-adminhtml-index">Map Products In Navision</h3></td>
+        </tr>
+    </tbody></table>
+</div>
+<div>
+	<form action='<?php echo Mage::helper("adminhtml")->getUrl("admin_operations/adminhtml_productexport/mapProductsInNavision");?>' name="uploadFile" id="uploadFile" method="post" enctype="multipart/form-data">
+	<input type="hidden" name="form_key" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>">
+	<table style="width: 100%" cellpadding="10" cellspacing="10">
+		
+		<tr>
+			<td colspan="2">
+			<label>Map products in navision if it is newly added or have to update in Navision.<br>
+			Product should be mapped if any of these product attribute gets updated. Attributes are sku, name, short description, brand, product category code, tax class,status.<br>
+			</label>
+			<br>CSV Format : 
+				
+					<table width="200px" border="1" cellpadding="10">
+					<tbody>
+						<tr>
+							<th>sku</th>
+						</tr>
+						<tr>
+							<td>testsku1</td>
+						</tr>
+						<tr>
+							<td>testsku2</td>
+						</tr>
+					</tbody>
+					</table>
+				</td>
+		</tr>
+		<tr>
+			<td><span>Upload File : </span></td>
+		    <td>
+				<input type="file" name="productFiles" id="productFiles" accept=".csv" style="width:100%;">
+				<span style="float: left;width: 50%;">Upload file in .csv format only.</span>
+			</td>
+		</tr>
+		<tr>
+			<td align="right" colspan="2"><button id="id_8900456144c3f02698f60a534df78c68" title="Search" type="submit" class="scalable task"style=""><span><span><span>Submit</span></span></span></button></td>
+		</tr>
+	
+	</table>
+	</form>
+</div>
+
+
+<div class="content-header">
+    <table cellspacing="0">
+        <tbody><tr>
+            <td style="width:50%;"><h3 class="icon-head head-adminhtml-index">Update Product Qty</h3></td>
+        </tr>
+    </tbody></table>
+</div>
+<div>
+	<form action='<?php echo Mage::helper("adminhtml")->getUrl("admin_operations/adminhtml_productexport/updateProductQty");?>' name="uploadFile" id="uploadFile" method="post" enctype="multipart/form-data">
+	<input type="hidden" name="form_key" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>">
+	<table style="width: 100%" cellpadding="10" cellspacing="10">
+		
+		<tr>
+			<td colspan="2">
+			<label>Here, product qty will be increase or decrease by numbers. If you have to decrease qty by 1 then put qty as -1 and if you have to increase qty by 1 then put qty as 1.
+			<br>
+			i.e. <br>If  testsku1 has previous qty 100 and you are updating by -1 then new qty will be 99. <br>
+			if  testsku2 has previous qty 100 and you are updating by 1 then new qty will be 101. </label>
+			<br>CSV Format : 
+				
+					<table width="200px" border="1" cellpadding="10">
+					<tbody>
+						<tr>
+							<td>sku</td>
+							<td>qty</td>
+						</tr>
+						<tr>
+							<td>testsku1</td>
+							<td>-1</td>
+						</tr>
+						<tr>
+							<td>testsku2</td>
+							<td>1</td>
+						</tr>
+					</tbody>
+					</table>
+				</td>
+		</tr>
+		<tr>
+			<td><span>Upload File : </span></td>
+		    <td>
+				<input type="file" name="productFiles" id="productFiles" accept=".csv" style="width:100%;">
+				<span style="float: left;width: 50%;">Upload file in .csv format only.</span>
+			</td>
+		</tr>
+		<tr>
+			<td align="right" colspan="2"><button id="id_8900456144c3f02698f60a534df78c68" title="Search" type="submit" class="scalable task"style=""><span><span><span>Submit</span></span></span></button></td>
+		</tr>
+	
+	</table>
+	</form>
+</div>
+
+<div class="content-header">
+    <table cellspacing="0">
+        <tbody><tr>
+            <td style="width:50%;"><h3 class="icon-head head-adminhtml-index">Replace Product Qty</h3></td>
+        </tr>
+    </tbody></table>
+</div>
+<div>
+	<form action='<?php echo Mage::helper("adminhtml")->getUrl("admin_operations/adminhtml_productexport/replaceProductQty");?>' name="uploadFile" id="uploadFile" method="post" enctype="multipart/form-data">
+	<input type="hidden" name="form_key" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>">
+	<table style="width: 100%" cellpadding="10" cellspacing="10">
+		<tr>
+			<td colspan="2">
+			<label>Here, product qty will be replaced by numbers. If you have to replace 3 by 4 then put qty as 4.
+			<br>
+			i.e. <br>If  testsku1 has previous qty 100 and you are replacing by -1 then new qty will be -1. <br>
+			if  testsku2 has previous qty 100 and you are replacing by 1 then new qty will be 1. </label>
+			<br>CSV Format : 
+				
+					<table width="200px" border="1" cellpadding="10">
+					<tbody>
+						<tr>
+							<td>sku</td>
+							<td>qty</td>
+						</tr>
+						<tr>
+							<td>testsku1</td>
+							<td>-1</td>
+						</tr>
+						<tr>
+							<td>testsku2</td>
+							<td>1</td>
+						</tr>
+					</tbody>
+					</table>
+				</td>
+		</tr>
+		<tr>
+			<td><span>Upload File : </span></td>
+		    <td>
+				<input type="file" name="productFiles" id="productFiles" accept=".csv" style="width:100%;">
+				<span style="float: left;width: 50%;">Upload file in .csv format only.</span>
+			</td>
+		</tr>
+		<tr>
+			<td align="right" colspan="2"><button id="id_8900456144c3f02698f60a534df78c68" title="Search" type="submit" class="scalable task"style=""><span><span><span>Submit</span></span></span></button></td>
+		</tr>
+	
+	</table>
+	</form>
+</div>	
+
+<div class="content-header">
+    <table cellspacing="0">
+        <tbody><tr>
+            <td style="width:50%;"><h3 class="icon-head head-adminhtml-index">Update Product Price</h3></td>
+        </tr>
+    </tbody></table>
+</div>
+<div>
+	<form action='<?php echo Mage::helper("adminhtml")->getUrl("admin_operations/adminhtml_productexport/updateProductPrice");?>' name="uploadFile" id="uploadFile" method="post" enctype="multipart/form-data">
+	<input type="hidden" name="form_key" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>">
+	<table style="width: 100%" cellpadding="10" cellspacing="10">
+		<tr>
+			<td colspan="2">
+			<label>Here, product price will get updated and logs will created for the product price update.<br></label>
+			<br>CSV Format : 
+				
+					<table width="200px" border="1" cellpadding="10">
+					<tbody>
+						<tr>
+							<th>sku</th>
+							<th>price</th>
+						</tr>
+						<tr>
+							<td>testsku1</td>
+							<td>100</td>
+						</tr>
+						<tr>
+							<td>testsku2</td>
+							<td>200.34</td>
+						</tr>
+					</tbody>
+					</table>
+				</td>
+		</tr>
+		<tr>
+			<td><span>Upload File : </span></td>
+		    <td>
+				<input type="file" name="productFiles" id="productFiles" accept=".csv" style="width:100%;">
+				<span style="float: left;width: 50%;">Upload file in .csv format only.</span>
+			</td>
+		</tr>
+		<tr>
+			<td align="right" colspan="2"><button id="id_8900456144c3f02698f60a534df78c68" title="Search" type="submit" class="scalable task"style=""><span><span><span>Submit</span></span></span></button></td>
+		</tr>
+	
+	</table>
+	</form>
+</div>	
+
+
+
+<div class="content-header">
+    <table cellspacing="0">
+        <tbody><tr>
+            <td style="width:50%;"><h3 class="icon-head head-adminhtml-index">Update Product Sku's</h3></td>
+        </tr>
+    </tbody></table>
+</div>
+<div>
+	<form action='<?php echo Mage::helper("adminhtml")->getUrl("admin_operations/adminhtml_productexport/updateProductSku");?>' name="uploadFile" id="uploadFile" method="post" enctype="multipart/form-data">
+	<input type="hidden" name="form_key" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>">
+	<table style="width: 100%" cellpadding="10" cellspacing="10">
+		<tr>
+			<td colspan="2">
+			<label>Here, product sku will get updated and logs will created for this update.<br></label>
+			<br>CSV Format : 
+				
+					<table width="200px" border="1" cellpadding="10">
+					<tbody>
+						<tr>
+							<th>sku</th>
+							<th>new_sku</th>
+						</tr>
+						<tr>
+							<td>testsku1</td>
+							<td>testsku1_new</td>
+						</tr>
+						<tr>
+							<td>testsku2</td>
+							<td>testsku2_new</td>
+						</tr>
+					</tbody>
+					</table>
+				</td>
+		</tr>
+		<tr>
+			<td><span>Upload File : </span></td>
+		    <td>
+				<input type="file" name="productFiles" id="productFiles" accept=".csv" style="width:100%;">
+				<span style="float: left;width: 50%;">Upload file in .csv format only.</span>
+			</td>
+		</tr>
+		<tr>
+			<td align="right" colspan="2"><button id="id_8900456144c3f02698f60a534df78c68" title="Search" type="submit" class="scalable task"style=""><span><span><span>Submit</span></span></span></button></td>
+		</tr>
+	
+	</table>
+	</form>
+</div>	

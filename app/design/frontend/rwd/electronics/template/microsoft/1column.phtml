@@ -1,0 +1,97 @@
+<?php
+  $baseurl = $this->getBaseUrl();
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Microsoft Validation</title> 
+    <link rel="icon" href="<?php echo $baseurl.'media/favicon/default/favicon_1.ico' ?>" type="image/x-icon" />
+    <link rel="shortcut icon" href="<?php echo $baseurl.'media/favicon/default/favicon_1.ico' ?>" type="image/x-icon" />
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="<?php echo $baseurl.'skin/frontend/rwd/electronics/customs/css/microsoft-validation.css' ?>">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<body>
+
+<div id="loading_container" class="loading-container" style="display:none">
+<div class="sk-circle">
+  <div class="sk-circle1 sk-child"></div>
+  <div class="sk-circle2 sk-child"></div>
+  <div class="sk-circle3 sk-child"></div>
+  <div class="sk-circle4 sk-child"></div>
+  <div class="sk-circle5 sk-child"></div>
+  <div class="sk-circle6 sk-child"></div>
+  <div class="sk-circle7 sk-child"></div>
+  <div class="sk-circle8 sk-child"></div>
+  <div class="sk-circle9 sk-child"></div>
+  <div class="sk-circle10 sk-child"></div>
+  <div class="sk-circle11 sk-child"></div>
+  <div class="sk-circle12 sk-child"></div>
+</div>
+</div>
+
+ <div class="microsoft-validation-container">
+    <div class="validation-container">
+        <h1>Welcome to Microsoft Store</h1>
+        <p>Please enter your Corporate Email for validation</p>
+        <div class="input-box">
+            <form action="<?php  echo Mage::getUrl('microsoft-products/');?>" name="microsoft_val" id="microsoft_val" method="POST">
+                <input id="validation_microsoft" type="text" name="validation-microsoft" placeholder="Entery your email ID">
+                <div style="display:none" id="validation-advice" class="validation-advice">Please enter correct email ID</div>
+                <input type="submit" name="" value="Submit" class="btn-submit" onclick="return sendAjax('microsoft_val','<?php  echo Mage::getUrl('microsoft-validation/index/val');?>')" >
+            </form>   
+        </div>  
+    </div> 
+ </div>
+
+ <script type="text/javascript">
+
+    var check = 0;
+
+    function validateEmail($email) {
+      var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+      if(emailReg.test( $email )){
+        document.getElementById('validation-advice').style.display = "none"; 
+      }
+      return emailReg.test( $email );
+    }
+    
+    function sendAjax(frmId,url){
+        
+        var email = $('#validation_microsoft').val();
+
+        if(validateEmail(email) && email!= '' && email.indexOf('@genesisgs.edu.in') !== -1) {
+        	document.getElementById('validation_microsoft').classList.remove('validation-error');
+            document.getElementById('validation-advice').style.display = 'none';
+            document.getElementById('loading_container').style.display = "block";
+            $.ajax({
+                url: url,
+                type: 'POST',
+                data:({
+                    email: email
+                }),
+                success:function(results) {
+                    //$("#gridD").html(results);
+                    check = results;
+                    document.getElementById('loading_container').style.display = "none";
+                    if(check == 'microsoft_validation'){
+                        document.location.href = "<?php  echo Mage::getUrl('microsoft-products/');?>";
+                    }else{
+                      return false;
+                    }
+                }
+            });
+        }else{
+        	document.getElementById('validation_microsoft').classList.add('validation-error');
+            document.getElementById('validation-advice').style.display = 'block';
+            return false;
+        }
+        
+        return false;
+        
+    }
+
+        
+ </script>
+</body> 
+</html>

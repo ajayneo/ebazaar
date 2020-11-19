@@ -1,0 +1,315 @@
+<script type="text/javascript">countryRegions = <?php echo $this->helper('directory')->getRegionJson() ?></script>
+<?php
+echo $this->getDesignStyles();
+$package = Mage::getDesign()->getPackageName();
+$theme = Mage::getDesign()->getTheme('frontend');
+?>
+<div class="opc-wrapper-opc checkout_sec design_package_<?php echo $package;?> design_theme_<?php echo $theme;?>">
+    <!-- code commented by JP. <h2><?php //echo $this->__('ONE STEP CHECKOUT')?></h2>
+	<p class="fill_details"><?php //echo $this->__('Please Fill in the Fields below and please order to complete your purchase!')?></p> -->
+	
+	<?php echo $this->getChildHtml('paypal.button')?>
+	<?php if (!Mage::getSingleton('customer/session')->isLoggedIn()):?>
+		<?php echo $this->getChildHtml('login');?>	
+	<?php endif;?>
+	<div class="clear"></div>
+	
+	<!--div class="opc-menu">
+	            
+    	<div class="right review-menu-block">
+    	  <a class="review-total"><?php #echo Mage::helper('opc')->getGrandTotal()?></a>   
+    	  <span class="polygon"></span>
+    	  <div class="hidden" id="opc-review-block">
+		      <?php #echo $this->_getReviewHtml()?>
+		  </div>
+		</div>
+	   <div class="clear move-columns"></div>
+	</div>
+	
+	<div class="clear"></div-->
+
+    <div class="opc-col-left">
+		<form id="opc-address-form-billing" method="post">
+        	<?php echo $this->getChildHtml('billing')?>
+        </form>
+        	
+        <form id="opc-address-form-shipping" class="hidden" method="post">
+        <?php echo $this->getChildHtml('shipping')?>
+        </form>
+		
+    </div>
+
+    <div class="opc-col-center">
+       <?php if (!$this->getOnepage()->getQuote()->isVirtual()):?>
+    	<div class="shipping-block" style="display:none;">
+        	<h3><?php echo $this->__('Shipping Method')?></h3>
+        	<div id="shipping-block-methods">
+				<?php echo $this->getChildHtml('shipping_method');//$this->_getShippingMethodsHtml();?>
+			</div>
+		</div>
+		<?php endif;?>
+		<div class="payment-block <?php if ($this->getOnepage()->getQuote()->isVirtual()):?>clear-margin<?php endif;?>">
+			<h3><?php echo $this->__('Payment Method')?></h3>
+			<?php echo $this->getChildHtml('payment')//$this->_getPaymentMethodsHtml();?>
+		</div>
+		
+		<?php if(Mage::getSingleton('customer/session')->isLoggedIn()): ?>
+			<?php //echo $this->getChildhtml('neo.affiliaterepcode');?>
+		<?php endif; ?>
+
+		<div id="repcode-block" class="field repcode-block">
+			<h3>Approximate Delivery</h3>
+			<table cellpadding="5" class="opc-data-table">
+				<tbody>
+				<tr class="first">
+		            <th colspan="3" align="left" style="padding-left: 10px;"><span class="pincode_message"></span>
+		            <input type="hidden" name="shippingPincode" id="shippingPincode" value="<?php echo Mage::getSingleton('checkout/session')->getQuote()->getShippingAddress()->getPostcode(); ?>" />
+		            <script type="text/javascript">
+		            		jQuery(document).on('ready', function () {
+		                    	//alert("dsfds");
+		                    	jQuery(".btn-checkout").attr( 'disabled', 'disabled' );
+		                    	jQuery('#shipping-address-select option').each(function() {
+									jQuery(this).removeAttr('selected');
+								});
+
+								jQuery('.billing-postcode').change(function(){
+									var form = jQuery("form"); // or $("form"), or any selector matching an element containing your input fields
+									var method = jQuery("[name='payment[method]']:checked", form).val();
+									getApproxDelivery(jQuery(this).val(),method);
+						        });
+		                    	
+		                    	jQuery('.shipping-postcode').change(function(){
+									var form = jQuery("form"); // or $("form"), or any selector matching an element containing your input fields
+									var method = jQuery("[name='payment[method]']:checked", form).val();
+									getApproxDelivery(jQuery(this).val(),method);
+						        });
+								jQuery('.shipping-postcode').change(function(){
+									var form = jQuery("form"); // or $("form"), or any selector matching an element containing your input fields
+									var method = jQuery("[name='payment[method]']:checked", form).val();
+						            getApproxDelivery(jQuery(this).val(),method);
+								});
+
+								/*jQuery('#shipping-address-select').change(function(){
+									jQuery('#shipping-address-select option[value='+this.value+']').attr('selected','selected');
+									
+									jQuery.ajax({
+			                            'url': "<?php //echo Mage::getUrl('operations/index/getAddressData'); ?>", 
+			                            'type': "POST",
+			                            'dataType': 'json',
+			                            'data': {addressId: this.value},
+			                            success: function (data) {
+
+			                                jQuery('.opc-ajax-loader').css('display', 'none');
+			                                if (data.status == 'SUCCESS') {
+			                                	getApproxDelivery(data.message);
+			                                }
+			                            }
+			                        });
+								});*/
+
+								/*jQuery('form input').change(function(){
+
+									var form = jQuery("form"); // or $("form"), or any selector matching an element containing your input fields
+									var method = jQuery("[name='payment[method]']:checked", form).val();
+									var postcode = jQuery('.shipping-postcode').val();
+						            getApproxDelivery(postcode,method);
+								});*/
+
+								/*var addressId = jQuery('#shipping-address-select').val();
+						        if(addressId != ''){
+						        	var form = jQuery("form"); // or $("form"), or any selector matching an element containing your input fields
+									var method = jQuery("[name='payment[method]']:checked", form).val();
+						            getAddressData(addressId,method);
+						        }else{
+						        	var form = jQuery("form"); // or $("form"), or any selector matching an element containing your input fields
+									var method = jQuery("[name='payment[method]']:checked", form).val();
+						            var postcode = jQuery('.shipping-postcode').val();
+						            getApproxDelivery(postcode,method);
+						        }*/
+
+							});
+
+
+							function getAddressData12(addressId,method = null){
+		        				jQuery.ajax({
+			                            'url': "'<?php echo Mage::getUrl('operations/index/getAddressData'); ?>'", 
+			                            'type': "POST",
+			                            'dataType': 'json',
+			                            'data': {addressId: addressId},
+			                            'async': false,
+
+			                            success: function (data) {
+			                                jQuery('.opc-ajax-loader').css('display', 'none');
+			                                if (data.status == 'SUCCESS') {
+			                                	//return data.message;//getApproxDelivery(data.message,method);
+			                                	jQuery.ajax({
+										            'url': "'<?php echo Mage::getUrl('operations/index/checkPostcode'); ?>'", //pincode/index/checkPostcode
+										            'type': "POST",
+										            'dataType': 'json',
+										            'data': {postcode: data.message,method:method},
+										            'async': false,
+										            success: function (data) {
+										            	jQuery('.opc-ajax-loader').css('display', 'none');
+										                if (data.status == 0) {
+
+										                	jQuery('.pincode_message').css({color:'red'});
+										                    jQuery('.pincode_message').text(data.message);
+										                    IWD.OPC.Checkout.lockPlaceOrder();
+										                    
+										                    return false;
+										                   
+										                } else if (data.status == 1) {
+										                    jQuery('.pincode_message').css({color:'#11b400'});
+										                    jQuery('.pincode_message').text(data.message);
+										                    //jQuery(".btn-checkout").removeAttr( 'disabled', false);
+										                   IWD.OPC.Checkout.unlockPlaceOrder();
+										                   	return true;
+										                    
+										                }
+										            }
+									        	});
+			                                }
+			                            }
+			                    });
+		        			}
+
+
+
+
+							function getApproxDelivery(postcode = null, method = null){
+								// alert(postcode);
+								if(postcode == null){
+									//jQuery(".btn-checkout").attr( 'disabled', true );
+									jQuery('.btn-checkout').addClass( 'disabled' );
+									return false;
+								}
+			                    if (postcode != null) {
+			                        jQuery('.opc-ajax-loader').css('display', 'block');
+			                        jQuery.ajax({
+			                            'url': "<?php echo Mage::getUrl('operations/index/checkPostcode'); ?>", //pincode/index/checkPostcode
+			                            'type': "POST",
+			                            'dataType': 'json',
+			                            'data': {postcode: postcode,method:method},
+			                            'async': false,
+			                            success: function (data) {
+			                            	jQuery('.opc-ajax-loader').css('display', 'none');
+			                                if (data.status == 0) {
+
+			                                	jQuery('.pincode_message').css({color:'red'});
+			                                    jQuery('.pincode_message').text(data.message);
+			                                    IWD.OPC.Checkout.lockPlaceOrder();
+			                                    return false;
+			                                   
+			                                } else if (data.status == 1) {
+			                                    jQuery('.pincode_message').css({color:'#11b400'});
+			                                    jQuery('.pincode_message').text(data.message);
+			                                    IWD.OPC.Checkout.unlockPlaceOrder();
+			                                   	return true;
+			                                    
+			                                }
+			                            }
+			                        });
+			                    }
+							}
+						
+		            </script>
+		            </th>
+		        </tr>
+		        </tbody>
+			</table>
+		</div>
+		
+		<!-- ARM Assisting field Mahesh 09 Apr 2018-->
+		<div class="cd-switch">
+		  <h2>Were you assisted by our ARM(ElectronicsBazaar Sales team) while placing this order?</h2>
+		  <div class="switch"> 
+		    <input class="arm_assisting required" type="radio" name="assisted_by_asm" id="yes" value="1" >
+		    <label for="yes">Yes</label>
+		    <input class="arm_assisting required" type="radio" name="assisted_by_asm" id="no" value="0">
+		    <label class="last" for="no">No</label>
+		    <span class="switchFilter"></span>
+		  </div>
+		  <div class="arm_rror_message"></div>
+		</div>           
+		
+		<div id="review-block">
+			<h3><?php echo $this->__('Review Your Order')?></h3>
+			<div class="opc-review-block" id="opc-review-block">
+			<?php echo $this->_getReviewHtml()?>
+			</div>
+		</div>
+
+
+
+		
+		<?php #if(Mage::helper('opc')->isShowDiscount()):?>
+		<!--div class="discount-block">
+			<h3><?php #echo $this->__('Discount Codes')?><span class='expand_plus'></span></h3>
+			<div  class="collapse-block hidden">
+			     <?php #echo $this->getChildhtml('coupon');?>
+			</div>
+		</div-->
+		<?php #endif;?>
+
+		<?php if(Mage::helper('opc')->isShowComment()):?>
+			<?php echo $this->getChildhtml('customer.comment');?>
+		<?php endif;?>
+    </div>
+
+    <div class="opc-col-right">
+		
+    
+        <?php if (Mage::getConfig()->getModuleConfig('IWD_OnepageCheckoutSignature')->is('active', 'true')): ?>
+            <div class="signature-block">
+                <h3><?php echo $this->__('Signature')?><span class='expand_plus'></span></h3>
+                <div  class="collapse-block hidden">
+                    <?php echo $this->getChildhtml('opcsignature');?>
+                </div>
+            </div>
+        <?php endif;?>
+
+		<!--div class="opc-review-actions" id="checkout-review-submit">
+		      <h5 class="grand_total"><?php #echo $this->__('Grand Total')?><?php #echo Mage::helper('opc')->getGrandTotal()?></h5>
+		      <?php //echo $this->getChildHtml('agreements')?>
+		      <?php //echo $this->getChildHtml('opc.newsletters');?>
+		      <button type="button" title="<?php #echo $this->__('Place Order Now') ?>" class="button btn-checkout opc-btn-checkout"><span><span><?php #echo $this->__('Place Order Now') ?></span></span></button>
+		</div-->
+    </div>
+</div>
+<script>
+	var vopc = '<?php echo Mage::getConfig()->getModuleConfig("IWD_Opc")->version;?>';
+	IWD.OPC.Checkout.config = '<?php echo $this->getJsonConfig()?>';
+	<?php if ($this->getOnepage()->getQuote()->isVirtual()):?>
+	IWD.OPC.Checkout.isVirtual = true;
+	<?php endif;?>	 
+</script>
+
+<script type="text/javascript">
+	//ARM assisting validation error removed on change
+	jQuery('.cd-switch input[type="radio"]').on('change', function(){
+		$j('.arm_rror_message').html('');
+	});
+</script>
+
+<div id="agree_error" style="display:none !important;"><?php echo $this->__('Please agree to all the terms and conditions before placing the order.');?></div>
+<div id="pssm_msg" style="display:none !important;"><?php echo $this->__('Please specify shipping method');?></div>
+<div class="opc-ajax-loader">
+	<div id="floatingCirclesG">
+		<div class="f_circleG" id="frotateG_01"></div>
+		<div class="f_circleG" id="frotateG_02"></div>
+		<div class="f_circleG" id="frotateG_03"></div>
+		<div class="f_circleG" id="frotateG_04"></div>
+		<div class="f_circleG" id="frotateG_05"></div>
+		<div class="f_circleG" id="frotateG_06"></div>
+		<div class="f_circleG" id="frotateG_07"></div>
+		<div class="f_circleG" id="frotateG_08"></div>
+	</div>
+</div>
+<div class="opc-message-wrapper design_package_<?php echo $package;?> design_theme_<?php echo $theme;?>">
+	
+	<div class="opc-messages">
+		<a class="close-message-wrapper"></a>
+		<div class="opc-message-container"></div>
+		<div class="opc-messages-action"><button class="button"><span><span><?php echo $this->__('Close')?></span></span></button></div>
+	</div>
+</div>

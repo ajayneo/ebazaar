@@ -1,0 +1,790 @@
+2018-04-06T04:52:51+00:00 DEBUG (7): init order status
+2018-04-06T04:53:25+00:00 DEBUG (7): SQLSTATE[42S22]: Column not found: 1054 Unknown column 'o.order_id' in 'on clause'
+2018-04-06T04:54:52+00:00 DEBUG (7): init order status
+2018-04-06T04:55:58+00:00 DEBUG (7): count delivered orders =  174
+2018-04-06T04:55:58+00:00 DEBUG (7): try set delivered order #200102042 == shipped
+2018-04-06T04:55:58+00:00 DEBUG (7): set delivered status order #200102042
+2018-04-06T04:55:58+00:00 DEBUG (7): try set delivered order #200102088 == shipped
+2018-04-06T04:55:58+00:00 DEBUG (7): set delivered status order #200102088
+2018-04-06T04:55:58+00:00 DEBUG (7): try set delivered order #200102107 == shipped
+2018-04-06T04:55:59+00:00 DEBUG (7): set delivered status order #200102107
+2018-04-06T04:55:59+00:00 DEBUG (7): try set delivered order #200102169 == shipped
+2018-04-06T04:55:59+00:00 DEBUG (7): set delivered status order #200102169
+2018-04-06T04:55:59+00:00 DEBUG (7): try set delivered order #200102173 == shipped
+2018-04-06T04:55:59+00:00 DEBUG (7): set delivered status order #200102173
+2018-04-06T04:55:59+00:00 DEBUG (7): try set delivered order #200102175 == shipped
+2018-04-06T04:55:59+00:00 DEBUG (7): set delivered status order #200102175
+2018-04-06T04:55:59+00:00 DEBUG (7): try set delivered order #200102238 == shipped
+2018-04-06T04:55:59+00:00 DEBUG (7): set delivered status order #200102238
+2018-04-06T04:55:59+00:00 DEBUG (7): try set delivered order #200102285 == shipped
+2018-04-06T04:55:59+00:00 DEBUG (7): set delivered status order #200102285
+2018-04-06T04:55:59+00:00 DEBUG (7): try set delivered order #200102503 == shipped
+2018-04-06T04:55:59+00:00 DEBUG (7): set delivered status order #200102503
+2018-04-06T04:55:59+00:00 DEBUG (7): try set delivered order #200102566 == shipped
+2018-04-06T04:55:59+00:00 DEBUG (7): set delivered status order #200102566
+2018-04-06T04:55:59+00:00 DEBUG (7): try set delivered order #200102595 == shipped
+2018-04-06T04:55:59+00:00 DEBUG (7): set delivered status order #200102595
+2018-04-06T04:55:59+00:00 DEBUG (7): try set delivered order #200102597 == shipped
+2018-04-06T04:55:59+00:00 DEBUG (7): set delivered status order #200102597
+2018-04-06T04:55:59+00:00 DEBUG (7): try set delivered order #200102598 == shipped
+2018-04-06T04:55:59+00:00 DEBUG (7): set delivered status order #200102598
+2018-04-06T04:55:59+00:00 DEBUG (7): try set delivered order #200102599 == shipped
+2018-04-06T04:55:59+00:00 DEBUG (7): set delivered status order #200102599
+2018-04-06T04:55:59+00:00 DEBUG (7): try set delivered order #200102600 == shipped
+2018-04-06T04:55:59+00:00 DEBUG (7): set delivered status order #200102600
+2018-04-06T04:55:59+00:00 DEBUG (7): try set delivered order #200102654 == shipped
+2018-04-06T04:55:59+00:00 DEBUG (7): set delivered status order #200102654
+2018-04-06T04:55:59+00:00 DEBUG (7): try set delivered order #200102728 == shipped
+2018-04-06T04:55:59+00:00 DEBUG (7): set delivered status order #200102728
+2018-04-06T04:55:59+00:00 DEBUG (7): try set delivered order #200102760 == shipped
+2018-04-06T04:55:59+00:00 DEBUG (7): set delivered status order #200102760
+2018-04-06T04:55:59+00:00 DEBUG (7): try set delivered order #200102767 == shipped
+2018-04-06T04:55:59+00:00 DEBUG (7): set delivered status order #200102767
+2018-04-06T04:55:59+00:00 DEBUG (7): try set delivered order #200102770 == shipped
+2018-04-06T04:55:59+00:00 DEBUG (7): set delivered status order #200102770
+2018-04-06T04:55:59+00:00 DEBUG (7): try set delivered order #200102771 == shipped
+2018-04-06T04:55:59+00:00 DEBUG (7): set delivered status order #200102771
+2018-04-06T04:55:59+00:00 DEBUG (7): try set delivered order #200102799 == shipped
+2018-04-06T04:55:59+00:00 DEBUG (7): set delivered status order #200102799
+2018-04-06T04:55:59+00:00 DEBUG (7): try set delivered order #200102825 == shipped
+2018-04-06T04:55:59+00:00 DEBUG (7): set delivered status order #200102825
+2018-04-06T04:55:59+00:00 DEBUG (7): try set delivered order #200102905 == shipped
+2018-04-06T04:55:59+00:00 DEBUG (7): set delivered status order #200102905
+2018-04-06T04:55:59+00:00 DEBUG (7): try set delivered order #200102940 == shipped
+2018-04-06T04:56:00+00:00 DEBUG (7): set delivered status order #200102940
+2018-04-06T04:56:00+00:00 DEBUG (7): try set delivered order #200102913 == shipped
+2018-04-06T04:56:00+00:00 DEBUG (7): set delivered status order #200102913
+2018-04-06T04:56:00+00:00 DEBUG (7): try set delivered order #200103060 == shipped
+2018-04-06T04:56:00+00:00 DEBUG (7): set delivered status order #200103060
+2018-04-06T04:56:00+00:00 DEBUG (7): try set delivered order #200103062 == shipped
+2018-04-06T04:56:00+00:00 DEBUG (7): set delivered status order #200103062
+2018-04-06T04:56:00+00:00 DEBUG (7): try set delivered order #200103063 == shipped
+2018-04-06T04:56:00+00:00 DEBUG (7): set delivered status order #200103063
+2018-04-06T04:56:00+00:00 DEBUG (7): try set delivered order #200103067 == shipped
+2018-04-06T04:56:00+00:00 DEBUG (7): set delivered status order #200103067
+2018-04-06T04:56:00+00:00 DEBUG (7): try set delivered order #200103080 == shipped
+2018-04-06T04:56:00+00:00 DEBUG (7): set delivered status order #200103080
+2018-04-06T04:56:00+00:00 DEBUG (7): try set delivered order #200103100 == shipped
+2018-04-06T04:56:00+00:00 DEBUG (7): set delivered status order #200103100
+2018-04-06T04:56:00+00:00 DEBUG (7): try set delivered order #200103101 == shipped
+2018-04-06T04:56:00+00:00 DEBUG (7): set delivered status order #200103101
+2018-04-06T04:56:00+00:00 DEBUG (7): try set delivered order #200103138 == shipped
+2018-04-06T04:56:00+00:00 DEBUG (7): set delivered status order #200103138
+2018-04-06T04:56:00+00:00 DEBUG (7): try set delivered order #200103140 == shipped
+2018-04-06T04:56:00+00:00 DEBUG (7): set delivered status order #200103140
+2018-04-06T04:56:00+00:00 DEBUG (7): try set delivered order #200103152 == shipped
+2018-04-06T04:56:00+00:00 DEBUG (7): set delivered status order #200103152
+2018-04-06T04:56:00+00:00 DEBUG (7): try set delivered order #200103171 == shipped
+2018-04-06T04:56:00+00:00 DEBUG (7): set delivered status order #200103171
+2018-04-06T04:56:00+00:00 DEBUG (7): try set delivered order #200103172 == shipped
+2018-04-06T04:56:00+00:00 DEBUG (7): set delivered status order #200103172
+2018-04-06T04:56:00+00:00 DEBUG (7): try set delivered order #200103175 == shipped
+2018-04-06T04:56:00+00:00 DEBUG (7): set delivered status order #200103175
+2018-04-06T04:56:00+00:00 DEBUG (7): try set delivered order #200103182 == shipped
+2018-04-06T04:56:00+00:00 DEBUG (7): set delivered status order #200103182
+2018-04-06T04:56:00+00:00 DEBUG (7): try set delivered order #200103211 == shipped
+2018-04-06T04:56:00+00:00 DEBUG (7): set delivered status order #200103211
+2018-04-06T04:56:00+00:00 DEBUG (7): try set delivered order #200103214 == shipped
+2018-04-06T04:56:00+00:00 DEBUG (7): set delivered status order #200103214
+2018-04-06T04:56:00+00:00 DEBUG (7): try set delivered order #200103218 == shipped
+2018-04-06T04:56:00+00:00 DEBUG (7): set delivered status order #200103218
+2018-04-06T04:56:00+00:00 DEBUG (7): try set delivered order #200103221 == shipped
+2018-04-06T04:56:00+00:00 DEBUG (7): set delivered status order #200103221
+2018-04-06T04:56:00+00:00 DEBUG (7): try set delivered order #200103222 == shipped
+2018-04-06T04:56:00+00:00 DEBUG (7): set delivered status order #200103222
+2018-04-06T04:56:00+00:00 DEBUG (7): try set delivered order #200103223 == shipped
+2018-04-06T04:56:00+00:00 DEBUG (7): set delivered status order #200103223
+2018-04-06T04:56:00+00:00 DEBUG (7): try set delivered order #200103226 == shipped
+2018-04-06T04:56:01+00:00 DEBUG (7): set delivered status order #200103226
+2018-04-06T04:56:01+00:00 DEBUG (7): try set delivered order #200103252 == shipped
+2018-04-06T04:56:01+00:00 DEBUG (7): set delivered status order #200103252
+2018-04-06T04:56:01+00:00 DEBUG (7): try set delivered order #200103274 == shipped
+2018-04-06T04:56:01+00:00 DEBUG (7): set delivered status order #200103274
+2018-04-06T04:56:01+00:00 DEBUG (7): try set delivered order #200103296 == shipped
+2018-04-06T04:56:01+00:00 DEBUG (7): set delivered status order #200103296
+2018-04-06T04:56:01+00:00 DEBUG (7): try set delivered order #200103298 == shipped
+2018-04-06T04:56:01+00:00 DEBUG (7): set delivered status order #200103298
+2018-04-06T04:56:01+00:00 DEBUG (7): try set delivered order #200103299 == shipped
+2018-04-06T04:56:01+00:00 DEBUG (7): set delivered status order #200103299
+2018-04-06T04:56:01+00:00 DEBUG (7): try set delivered order #200103304 == shipped
+2018-04-06T04:56:01+00:00 DEBUG (7): set delivered status order #200103304
+2018-04-06T04:56:01+00:00 DEBUG (7): try set delivered order #200103306 == shipped
+2018-04-06T04:56:01+00:00 DEBUG (7): set delivered status order #200103306
+2018-04-06T04:56:01+00:00 DEBUG (7): try set delivered order #200103310 == shipped
+2018-04-06T04:56:01+00:00 DEBUG (7): set delivered status order #200103310
+2018-04-06T04:56:01+00:00 DEBUG (7): try set delivered order #200103327 == shipped
+2018-04-06T04:56:01+00:00 DEBUG (7): set delivered status order #200103327
+2018-04-06T04:56:01+00:00 DEBUG (7): try set delivered order #200103329 == shipped
+2018-04-06T04:56:01+00:00 DEBUG (7): set delivered status order #200103329
+2018-04-06T04:56:01+00:00 DEBUG (7): try set delivered order #200103334 == shipped
+2018-04-06T04:56:01+00:00 DEBUG (7): set delivered status order #200103334
+2018-04-06T04:56:01+00:00 DEBUG (7): try set delivered order #200103335 == shipped
+2018-04-06T04:56:01+00:00 DEBUG (7): set delivered status order #200103335
+2018-04-06T04:56:01+00:00 DEBUG (7): try set delivered order #200103342 == shipped
+2018-04-06T04:56:01+00:00 DEBUG (7): set delivered status order #200103342
+2018-04-06T04:56:01+00:00 DEBUG (7): try set delivered order #200103343 == shipped
+2018-04-06T04:56:01+00:00 DEBUG (7): set delivered status order #200103343
+2018-04-06T04:56:01+00:00 DEBUG (7): try set delivered order #200103344 == shipped
+2018-04-06T04:56:01+00:00 DEBUG (7): set delivered status order #200103344
+2018-04-06T04:56:01+00:00 DEBUG (7): try set delivered order #200103345 == shipped
+2018-04-06T04:56:01+00:00 DEBUG (7): set delivered status order #200103345
+2018-04-06T04:56:01+00:00 DEBUG (7): try set delivered order #200103346 == shipped
+2018-04-06T04:56:01+00:00 DEBUG (7): set delivered status order #200103346
+2018-04-06T04:56:01+00:00 DEBUG (7): try set delivered order #200103347 == shipped
+2018-04-06T04:56:01+00:00 DEBUG (7): set delivered status order #200103347
+2018-04-06T04:56:01+00:00 DEBUG (7): try set delivered order #200103348 == shipped
+2018-04-06T04:56:01+00:00 DEBUG (7): set delivered status order #200103348
+2018-04-06T04:56:01+00:00 DEBUG (7): try set delivered order #200103349 == shipped
+2018-04-06T04:56:01+00:00 DEBUG (7): set delivered status order #200103349
+2018-04-06T04:56:01+00:00 DEBUG (7): try set delivered order #200103350 == shipped
+2018-04-06T04:56:02+00:00 DEBUG (7): set delivered status order #200103350
+2018-04-06T04:56:02+00:00 DEBUG (7): try set delivered order #200103351 == shipped
+2018-04-06T04:56:02+00:00 DEBUG (7): set delivered status order #200103351
+2018-04-06T04:56:02+00:00 DEBUG (7): try set delivered order #200103352 == shipped
+2018-04-06T04:56:02+00:00 DEBUG (7): set delivered status order #200103352
+2018-04-06T04:56:02+00:00 DEBUG (7): try set delivered order #200103353 == shipped
+2018-04-06T04:56:02+00:00 DEBUG (7): set delivered status order #200103353
+2018-04-06T04:56:02+00:00 DEBUG (7): try set delivered order #200103354 == shipped
+2018-04-06T04:56:02+00:00 DEBUG (7): set delivered status order #200103354
+2018-04-06T04:56:02+00:00 DEBUG (7): try set delivered order #200103362 == shipped
+2018-04-06T04:56:02+00:00 DEBUG (7): set delivered status order #200103362
+2018-04-06T04:56:02+00:00 DEBUG (7): try set delivered order #200103373 == shipped
+2018-04-06T04:56:02+00:00 DEBUG (7): set delivered status order #200103373
+2018-04-06T04:56:02+00:00 DEBUG (7): try set delivered order #200103377 == shipped
+2018-04-06T04:56:02+00:00 DEBUG (7): set delivered status order #200103377
+2018-04-06T04:56:02+00:00 DEBUG (7): try set delivered order #200103379 == shipped
+2018-04-06T04:56:02+00:00 DEBUG (7): set delivered status order #200103379
+2018-04-06T04:56:02+00:00 DEBUG (7): try set delivered order #200103391 == shipped
+2018-04-06T04:56:02+00:00 DEBUG (7): set delivered status order #200103391
+2018-04-06T04:56:02+00:00 DEBUG (7): try set delivered order #200103396 == shipped
+2018-04-06T04:56:02+00:00 DEBUG (7): set delivered status order #200103396
+2018-04-06T04:56:02+00:00 DEBUG (7): try set delivered order #200103399 == shipped
+2018-04-06T04:56:02+00:00 DEBUG (7): set delivered status order #200103399
+2018-04-06T04:56:02+00:00 DEBUG (7): try set delivered order #200103405 == shipped
+2018-04-06T04:56:02+00:00 DEBUG (7): set delivered status order #200103405
+2018-04-06T04:56:02+00:00 DEBUG (7): try set delivered order #200103408 == shipped
+2018-04-06T04:56:02+00:00 DEBUG (7): set delivered status order #200103408
+2018-04-06T04:56:02+00:00 DEBUG (7): try set delivered order #200103409 == shipped
+2018-04-06T04:56:02+00:00 DEBUG (7): set delivered status order #200103409
+2018-04-06T04:56:02+00:00 DEBUG (7): try set delivered order #200103412 == shipped
+2018-04-06T04:56:02+00:00 DEBUG (7): set delivered status order #200103412
+2018-04-06T04:56:02+00:00 DEBUG (7): try set delivered order #200103426 == shipped
+2018-04-06T04:56:02+00:00 DEBUG (7): set delivered status order #200103426
+2018-04-06T04:56:02+00:00 DEBUG (7): try set delivered order #200103428 == shipped
+2018-04-06T04:56:02+00:00 DEBUG (7): set delivered status order #200103428
+2018-04-06T04:56:02+00:00 DEBUG (7): try set delivered order #200103431 == shipped
+2018-04-06T04:56:02+00:00 DEBUG (7): set delivered status order #200103431
+2018-04-06T04:56:02+00:00 DEBUG (7): try set delivered order #200103432 == shipped
+2018-04-06T04:56:02+00:00 DEBUG (7): set delivered status order #200103432
+2018-04-06T04:56:02+00:00 DEBUG (7): try set delivered order #200103433 == shipped
+2018-04-06T04:56:02+00:00 DEBUG (7): set delivered status order #200103433
+2018-04-06T04:56:02+00:00 DEBUG (7): try set delivered order #200103436 == shipped
+2018-04-06T04:56:02+00:00 DEBUG (7): set delivered status order #200103436
+2018-04-06T04:56:02+00:00 DEBUG (7): try set delivered order #200103439 == shipped
+2018-04-06T04:56:02+00:00 DEBUG (7): set delivered status order #200103439
+2018-04-06T04:56:02+00:00 DEBUG (7): try set delivered order #200103440 == shipped
+2018-04-06T04:56:02+00:00 DEBUG (7): set delivered status order #200103440
+2018-04-06T04:56:02+00:00 DEBUG (7): try set delivered order #200103443 == shipped
+2018-04-06T04:56:03+00:00 DEBUG (7): set delivered status order #200103443
+2018-04-06T04:56:03+00:00 DEBUG (7): try set delivered order #200103444 == shipped
+2018-04-06T04:56:03+00:00 DEBUG (7): set delivered status order #200103444
+2018-04-06T04:56:03+00:00 DEBUG (7): try set delivered order #200103445 == shipped
+2018-04-06T04:56:03+00:00 DEBUG (7): set delivered status order #200103445
+2018-04-06T04:56:03+00:00 DEBUG (7): try set delivered order #200103446 == shipped
+2018-04-06T04:56:03+00:00 DEBUG (7): set delivered status order #200103446
+2018-04-06T04:56:03+00:00 DEBUG (7): try set delivered order #200103451 == shipped
+2018-04-06T04:56:03+00:00 DEBUG (7): set delivered status order #200103451
+2018-04-06T04:56:03+00:00 DEBUG (7): try set delivered order #200103476 == shipped
+2018-04-06T04:56:03+00:00 DEBUG (7): set delivered status order #200103476
+2018-04-06T04:56:03+00:00 DEBUG (7): try set delivered order #200103481 == shipped
+2018-04-06T04:56:03+00:00 DEBUG (7): set delivered status order #200103481
+2018-04-06T04:56:03+00:00 DEBUG (7): try set delivered order #200103482 == shipped
+2018-04-06T04:56:03+00:00 DEBUG (7): set delivered status order #200103482
+2018-04-06T04:56:03+00:00 DEBUG (7): try set delivered order #200103487 == shipped
+2018-04-06T04:56:03+00:00 DEBUG (7): set delivered status order #200103487
+2018-04-06T04:56:03+00:00 DEBUG (7): try set delivered order #200103490 == shipped
+2018-04-06T04:56:03+00:00 DEBUG (7): set delivered status order #200103490
+2018-04-06T04:56:03+00:00 DEBUG (7): try set delivered order #200103491 == shipped
+2018-04-06T04:56:03+00:00 DEBUG (7): set delivered status order #200103491
+2018-04-06T04:56:03+00:00 DEBUG (7): try set delivered order #200103492 == shipped
+2018-04-06T04:56:03+00:00 DEBUG (7): set delivered status order #200103492
+2018-04-06T04:56:03+00:00 DEBUG (7): try set delivered order #200103493 == shipped
+2018-04-06T04:56:03+00:00 DEBUG (7): set delivered status order #200103493
+2018-04-06T04:56:03+00:00 DEBUG (7): try set delivered order #200103495 == shipped
+2018-04-06T04:56:03+00:00 DEBUG (7): set delivered status order #200103495
+2018-04-06T04:56:03+00:00 DEBUG (7): try set delivered order #200103517 == shipped
+2018-04-06T04:56:03+00:00 DEBUG (7): set delivered status order #200103517
+2018-04-06T04:56:03+00:00 DEBUG (7): try set delivered order #200103521 == shipped
+2018-04-06T04:56:03+00:00 DEBUG (7): set delivered status order #200103521
+2018-04-06T04:56:03+00:00 DEBUG (7): try set delivered order #200103524 == shipped
+2018-04-06T04:56:03+00:00 DEBUG (7): set delivered status order #200103524
+2018-04-06T04:56:03+00:00 DEBUG (7): try set delivered order #200103528 == shipped
+2018-04-06T04:56:03+00:00 DEBUG (7): set delivered status order #200103528
+2018-04-06T04:56:03+00:00 DEBUG (7): try set delivered order #200103531 == shipped
+2018-04-06T04:56:03+00:00 DEBUG (7): set delivered status order #200103531
+2018-04-06T04:56:03+00:00 DEBUG (7): try set delivered order #200103533 == shipped
+2018-04-06T04:56:03+00:00 DEBUG (7): set delivered status order #200103533
+2018-04-06T04:56:03+00:00 DEBUG (7): try set delivered order #200103534 == shipped
+2018-04-06T04:56:03+00:00 DEBUG (7): set delivered status order #200103534
+2018-04-06T04:56:03+00:00 DEBUG (7): try set delivered order #200103536 == shipped
+2018-04-06T04:56:04+00:00 DEBUG (7): set delivered status order #200103536
+2018-04-06T04:56:04+00:00 DEBUG (7): try set delivered order #200103537 == shipped
+2018-04-06T04:56:04+00:00 DEBUG (7): set delivered status order #200103537
+2018-04-06T04:56:04+00:00 DEBUG (7): try set delivered order #200103539 == shipped
+2018-04-06T04:56:04+00:00 DEBUG (7): set delivered status order #200103539
+2018-04-06T04:56:04+00:00 DEBUG (7): try set delivered order #200103542 == shipped
+2018-04-06T04:56:04+00:00 DEBUG (7): set delivered status order #200103542
+2018-04-06T04:56:04+00:00 DEBUG (7): try set delivered order #200103547 == shipped
+2018-04-06T04:56:04+00:00 DEBUG (7): set delivered status order #200103547
+2018-04-06T04:56:04+00:00 DEBUG (7): try set delivered order #200103548 == shipped
+2018-04-06T04:56:04+00:00 DEBUG (7): set delivered status order #200103548
+2018-04-06T04:56:04+00:00 DEBUG (7): try set delivered order #200103549 == shipped
+2018-04-06T04:56:04+00:00 DEBUG (7): set delivered status order #200103549
+2018-04-06T04:56:04+00:00 DEBUG (7): try set delivered order #200103551 == shipped
+2018-04-06T04:56:04+00:00 DEBUG (7): set delivered status order #200103551
+2018-04-06T04:56:04+00:00 DEBUG (7): try set delivered order #200103560 == shipped
+2018-04-06T04:56:04+00:00 DEBUG (7): set delivered status order #200103560
+2018-04-06T04:56:04+00:00 DEBUG (7): try set delivered order #200103569 == shipped
+2018-04-06T04:56:04+00:00 DEBUG (7): set delivered status order #200103569
+2018-04-06T04:56:04+00:00 DEBUG (7): try set delivered order #200103580 == shipped
+2018-04-06T04:56:04+00:00 DEBUG (7): set delivered status order #200103580
+2018-04-06T04:56:04+00:00 DEBUG (7): try set delivered order #200103607 == shipped
+2018-04-06T04:56:04+00:00 DEBUG (7): set delivered status order #200103607
+2018-04-06T04:56:04+00:00 DEBUG (7): try set delivered order #200103617 == shipped
+2018-04-06T04:56:04+00:00 DEBUG (7): set delivered status order #200103617
+2018-04-06T04:56:04+00:00 DEBUG (7): try set delivered order #200103618 == shipped
+2018-04-06T04:56:04+00:00 DEBUG (7): set delivered status order #200103618
+2018-04-06T04:56:04+00:00 DEBUG (7): try set delivered order #200103619 == shipped
+2018-04-06T04:56:04+00:00 DEBUG (7): set delivered status order #200103619
+2018-04-06T04:56:04+00:00 DEBUG (7): try set delivered order #200103622 == shipped
+2018-04-06T04:56:04+00:00 DEBUG (7): set delivered status order #200103622
+2018-04-06T04:56:04+00:00 DEBUG (7): try set delivered order #200103625 == shipped
+2018-04-06T04:56:04+00:00 DEBUG (7): set delivered status order #200103625
+2018-04-06T04:56:04+00:00 DEBUG (7): try set delivered order #200103626 == shipped
+2018-04-06T04:56:04+00:00 DEBUG (7): set delivered status order #200103626
+2018-04-06T04:56:04+00:00 DEBUG (7): try set delivered order #200103627 == shipped
+2018-04-06T04:56:04+00:00 DEBUG (7): set delivered status order #200103627
+2018-04-06T04:56:04+00:00 DEBUG (7): try set delivered order #200103628 == shipped
+2018-04-06T04:56:04+00:00 DEBUG (7): set delivered status order #200103628
+2018-04-06T04:56:04+00:00 DEBUG (7): try set delivered order #200103638 == shipped
+2018-04-06T04:56:05+00:00 DEBUG (7): set delivered status order #200103638
+2018-04-06T04:56:05+00:00 DEBUG (7): try set delivered order #200103639 == shipped
+2018-04-06T04:56:05+00:00 DEBUG (7): set delivered status order #200103639
+2018-04-06T04:56:05+00:00 DEBUG (7): try set delivered order #200103643 == shipped
+2018-04-06T04:56:05+00:00 DEBUG (7): set delivered status order #200103643
+2018-04-06T04:56:05+00:00 DEBUG (7): try set delivered order #200103646 == shipped
+2018-04-06T04:56:05+00:00 DEBUG (7): set delivered status order #200103646
+2018-04-06T04:56:05+00:00 DEBUG (7): try set delivered order #200103648 == shipped
+2018-04-06T04:56:05+00:00 DEBUG (7): set delivered status order #200103648
+2018-04-06T04:56:05+00:00 DEBUG (7): try set delivered order #200103656 == shipped
+2018-04-06T04:56:05+00:00 DEBUG (7): set delivered status order #200103656
+2018-04-06T04:56:05+00:00 DEBUG (7): try set delivered order #200103657 == shipped
+2018-04-06T04:56:05+00:00 DEBUG (7): set delivered status order #200103657
+2018-04-06T04:56:05+00:00 DEBUG (7): try set delivered order #200103658 == shipped
+2018-04-06T04:56:05+00:00 DEBUG (7): set delivered status order #200103658
+2018-04-06T04:56:05+00:00 DEBUG (7): try set delivered order #200103668 == shipped
+2018-04-06T04:56:05+00:00 DEBUG (7): set delivered status order #200103668
+2018-04-06T04:56:05+00:00 DEBUG (7): try set delivered order #200103673 == shipped
+2018-04-06T04:56:05+00:00 DEBUG (7): set delivered status order #200103673
+2018-04-06T04:56:05+00:00 DEBUG (7): try set delivered order #200103676 == shipped
+2018-04-06T04:56:05+00:00 DEBUG (7): set delivered status order #200103676
+2018-04-06T04:56:05+00:00 DEBUG (7): try set delivered order #200103678 == shipped
+2018-04-06T04:56:05+00:00 DEBUG (7): set delivered status order #200103678
+2018-04-06T04:56:05+00:00 DEBUG (7): try set delivered order #200103681 == shipped
+2018-04-06T04:56:05+00:00 DEBUG (7): set delivered status order #200103681
+2018-04-06T04:56:05+00:00 DEBUG (7): try set delivered order #200103698 == shipped
+2018-04-06T04:56:05+00:00 DEBUG (7): set delivered status order #200103698
+2018-04-06T04:56:05+00:00 DEBUG (7): try set delivered order #200103715 == shipped
+2018-04-06T04:56:05+00:00 DEBUG (7): set delivered status order #200103715
+2018-04-06T04:56:05+00:00 DEBUG (7): try set delivered order #200103728 == shipped
+2018-04-06T04:56:05+00:00 DEBUG (7): set delivered status order #200103728
+2018-04-06T04:56:05+00:00 DEBUG (7): try set delivered order #200103731 == shipped
+2018-04-06T04:56:05+00:00 DEBUG (7): set delivered status order #200103731
+2018-04-06T04:56:05+00:00 DEBUG (7): try set delivered order #200103732 == shipped
+2018-04-06T04:56:05+00:00 DEBUG (7): set delivered status order #200103732
+2018-04-06T04:56:05+00:00 DEBUG (7): try set delivered order #200103733 == shipped
+2018-04-06T04:56:05+00:00 DEBUG (7): set delivered status order #200103733
+2018-04-06T04:56:05+00:00 DEBUG (7): try set delivered order #200103734 == shipped
+2018-04-06T04:56:05+00:00 DEBUG (7): set delivered status order #200103734
+2018-04-06T04:56:05+00:00 DEBUG (7): try set delivered order #200103735 == shipped
+2018-04-06T04:56:05+00:00 DEBUG (7): set delivered status order #200103735
+2018-04-06T04:56:05+00:00 DEBUG (7): try set delivered order #200103755 == shipped
+2018-04-06T04:56:05+00:00 DEBUG (7): set delivered status order #200103755
+2018-04-06T04:56:05+00:00 DEBUG (7): try set delivered order #200103762 == shipped
+2018-04-06T04:56:06+00:00 DEBUG (7): set delivered status order #200103762
+2018-04-06T04:56:06+00:00 DEBUG (7): try set delivered order #200103764 == shipped
+2018-04-06T04:56:06+00:00 DEBUG (7): set delivered status order #200103764
+2018-04-06T04:56:06+00:00 DEBUG (7): try set delivered order #200103820 == shipped
+2018-04-06T04:56:06+00:00 DEBUG (7): set delivered status order #200103820
+2018-04-06T04:56:06+00:00 DEBUG (7): try set delivered order #200103822 == shipped
+2018-04-06T04:56:06+00:00 DEBUG (7): set delivered status order #200103822
+2018-04-06T04:56:06+00:00 DEBUG (7): try set delivered order #200103824 == shipped
+2018-04-06T04:56:06+00:00 DEBUG (7): set delivered status order #200103824
+2018-04-06T04:56:06+00:00 DEBUG (7): try set delivered order #200103828 == shipped
+2018-04-06T04:56:06+00:00 DEBUG (7): set delivered status order #200103828
+2018-04-06T04:56:06+00:00 DEBUG (7): try set delivered order #200103833 == shipped
+2018-04-06T04:56:06+00:00 DEBUG (7): set delivered status order #200103833
+2018-04-06T04:56:06+00:00 DEBUG (7): try set delivered order #200103834 == shipped
+2018-04-06T04:56:06+00:00 DEBUG (7): set delivered status order #200103834
+2018-04-06T04:56:06+00:00 DEBUG (7): try set delivered order #200103854 == shipped
+2018-04-06T04:56:06+00:00 DEBUG (7): set delivered status order #200103854
+2018-04-06T04:56:06+00:00 DEBUG (7): try set delivered order #200103869 == shipped
+2018-04-06T04:56:06+00:00 DEBUG (7): set delivered status order #200103869
+2018-04-06T04:56:06+00:00 DEBUG (7): try set delivered order #200103957 == shipped
+2018-04-06T04:56:06+00:00 DEBUG (7): set delivered status order #200103957
+2018-04-06T04:56:06+00:00 DEBUG (7): try set delivered order #200103961 == shipped
+2018-04-06T04:56:06+00:00 DEBUG (7): set delivered status order #200103961
+2018-04-06T04:56:06+00:00 DEBUG (7): try set delivered order #200103963 == shipped
+2018-04-06T04:56:06+00:00 DEBUG (7): set delivered status order #200103963
+2018-04-06T04:56:06+00:00 DEBUG (7): try set delivered order #200103955 == shipped
+2018-04-06T04:56:06+00:00 DEBUG (7): set delivered status order #200103955
+2018-04-06T04:56:06+00:00 DEBUG (7): try set delivered order #200103958 == shipped
+2018-04-06T04:56:06+00:00 DEBUG (7): set delivered status order #200103958
+2018-04-06T04:56:06+00:00 DEBUG (7): try set delivered order #200103916 == shipped
+2018-04-06T04:56:06+00:00 DEBUG (7): set delivered status order #200103916
+2018-04-06T04:56:06+00:00 DEBUG (7): try set delivered order #200103898 == shipped
+2018-04-06T04:56:06+00:00 DEBUG (7): set delivered status order #200103898
+2018-04-06T04:56:06+00:00 DEBUG (7): try set delivered order #200104021 == shipped
+2018-04-06T04:56:06+00:00 DEBUG (7): set delivered status order #200104021
+2018-04-06T04:56:06+00:00 DEBUG (7): try set delivered order #200104022 == shipped
+2018-04-06T04:56:06+00:00 DEBUG (7): set delivered status order #200104022
+2018-04-06T04:56:06+00:00 DEBUG (7): try set delivered order #200104048 == shipped
+2018-04-06T04:56:06+00:00 DEBUG (7): set delivered status order #200104048
+2018-04-06T04:56:06+00:00 DEBUG (7): Execution time : 74.7420299053 seconds
+2018-04-06T05:02:06+00:00 DEBUG (7): init order status
+2018-04-06T05:02:59+00:00 DEBUG (7): SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '))' at line 1
+2018-04-06T05:07:11+00:00 DEBUG (7): init order status
+2018-04-06T05:08:16+00:00 DEBUG (7): count delivered orders =  3
+2018-04-06T05:08:16+00:00 DEBUG (7): try set delivered order #200103051 == shipped
+2018-04-06T05:08:17+00:00 DEBUG (7): set delivered status order #200103051
+2018-04-06T05:08:17+00:00 DEBUG (7): try set delivered order #200103623 == shipped
+2018-04-06T05:08:17+00:00 DEBUG (7): set delivered status order #200103623
+2018-04-06T05:08:17+00:00 DEBUG (7): try set delivered order #200103624 == shipped
+2018-04-06T05:08:17+00:00 DEBUG (7): set delivered status order #200103624
+2018-04-06T05:08:17+00:00 DEBUG (7): Execution time : 65.8160719872 seconds
+2018-04-06T05:11:28+00:00 DEBUG (7): init order status
+2018-04-06T05:12:42+00:00 DEBUG (7): out for delivery count = 100
+2018-04-06T05:12:42+00:00 DEBUG (7): sms sent to mobile #9009109537
+2018-04-06T05:12:43+00:00 DEBUG (7): email sent to order #200102127
+2018-04-06T05:12:43+00:00 DEBUG (7): set out for delivery order #200102127
+2018-04-06T05:12:43+00:00 DEBUG (7): sms sent to mobile #9869142313
+2018-04-06T05:12:43+00:00 DEBUG (7): email sent to order #200102271
+2018-04-06T05:12:43+00:00 DEBUG (7): set out for delivery order #200102271
+2018-04-06T05:12:43+00:00 DEBUG (7): sms sent to mobile #9869142313
+2018-04-06T05:12:43+00:00 DEBUG (7): email sent to order #200102273
+2018-04-06T05:12:43+00:00 DEBUG (7): set out for delivery order #200102273
+2018-04-06T05:12:43+00:00 DEBUG (7): sms sent to mobile #9869142313
+2018-04-06T05:12:43+00:00 DEBUG (7): email sent to order #200102277
+2018-04-06T05:12:43+00:00 DEBUG (7): set out for delivery order #200102277
+2018-04-06T05:12:43+00:00 DEBUG (7): sms sent to mobile #9827113167
+2018-04-06T05:12:44+00:00 DEBUG (7): email sent to order #200102492
+2018-04-06T05:12:44+00:00 DEBUG (7): set out for delivery order #200102492
+2018-04-06T05:12:44+00:00 DEBUG (7): sms sent to mobile #9827113167
+2018-04-06T05:12:44+00:00 DEBUG (7): email sent to order #200102493
+2018-04-06T05:12:44+00:00 DEBUG (7): set out for delivery order #200102493
+2018-04-06T05:12:44+00:00 DEBUG (7): sms sent to mobile #9827113167
+2018-04-06T05:12:44+00:00 DEBUG (7): email sent to order #200102494
+2018-04-06T05:12:44+00:00 DEBUG (7): set out for delivery order #200102494
+2018-04-06T05:12:44+00:00 DEBUG (7): sms sent to mobile #9303090033
+2018-04-06T05:12:44+00:00 DEBUG (7): email sent to order #200102719
+2018-04-06T05:12:44+00:00 DEBUG (7): set out for delivery order #200102719
+2018-04-06T05:12:44+00:00 DEBUG (7): sms sent to mobile #9303090033
+2018-04-06T05:12:44+00:00 DEBUG (7): email sent to order #200102720
+2018-04-06T05:12:44+00:00 DEBUG (7): set out for delivery order #200102720
+2018-04-06T05:12:44+00:00 DEBUG (7): sms sent to mobile #9303090033
+2018-04-06T05:12:44+00:00 DEBUG (7): email sent to order #200102721
+2018-04-06T05:12:45+00:00 DEBUG (7): set out for delivery order #200102721
+2018-04-06T05:12:45+00:00 DEBUG (7): sms sent to mobile #9912164616
+2018-04-06T05:12:45+00:00 DEBUG (7): email sent to order #200102724
+2018-04-06T05:12:45+00:00 DEBUG (7): set out for delivery order #200102724
+2018-04-06T05:12:45+00:00 DEBUG (7): sms sent to mobile #9367652030
+2018-04-06T05:12:45+00:00 DEBUG (7): email sent to order #200102900
+2018-04-06T05:12:45+00:00 DEBUG (7): set out for delivery order #200102900
+2018-04-06T05:12:45+00:00 DEBUG (7): sms sent to mobile #9981144228
+2018-04-06T05:12:45+00:00 DEBUG (7): email sent to order #200103094
+2018-04-06T05:12:45+00:00 DEBUG (7): set out for delivery order #200103094
+2018-04-06T05:12:45+00:00 DEBUG (7): sms sent to mobile #8102655399
+2018-04-06T05:12:45+00:00 DEBUG (7): email sent to order #200103176
+2018-04-06T05:12:45+00:00 DEBUG (7): set out for delivery order #200103176
+2018-04-06T05:12:45+00:00 DEBUG (7): sms sent to mobile #9899448910
+2018-04-06T05:12:46+00:00 DEBUG (7): email sent to order #200103193
+2018-04-06T05:12:46+00:00 DEBUG (7): set out for delivery order #200103193
+2018-04-06T05:12:46+00:00 DEBUG (7): sms sent to mobile #9899448910
+2018-04-06T05:12:46+00:00 DEBUG (7): email sent to order #200103194
+2018-04-06T05:12:46+00:00 DEBUG (7): set out for delivery order #200103194
+2018-04-06T05:12:46+00:00 DEBUG (7): sms sent to mobile #8086151582
+2018-04-06T05:12:46+00:00 DEBUG (7): email sent to order #200103204
+2018-04-06T05:12:46+00:00 DEBUG (7): set out for delivery order #200103204
+2018-04-06T05:12:46+00:00 DEBUG (7): sms sent to mobile #9161964570
+2018-04-06T05:12:46+00:00 DEBUG (7): email sent to order #200103213
+2018-04-06T05:12:46+00:00 DEBUG (7): set out for delivery order #200103213
+2018-04-06T05:12:46+00:00 DEBUG (7): sms sent to mobile #9161964570
+2018-04-06T05:12:47+00:00 DEBUG (7): email sent to order #200103215
+2018-04-06T05:12:47+00:00 DEBUG (7): set out for delivery order #200103215
+2018-04-06T05:12:47+00:00 DEBUG (7): sms sent to mobile #8086151582
+2018-04-06T05:12:47+00:00 DEBUG (7): email sent to order #200103355
+2018-04-06T05:12:47+00:00 DEBUG (7): set out for delivery order #200103355
+2018-04-06T05:12:47+00:00 DEBUG (7): sms sent to mobile #8086151582
+2018-04-06T05:12:47+00:00 DEBUG (7): email sent to order #200103356
+2018-04-06T05:12:47+00:00 DEBUG (7): set out for delivery order #200103356
+2018-04-06T05:12:47+00:00 DEBUG (7): sms sent to mobile #9981144228
+2018-04-06T05:12:47+00:00 DEBUG (7): email sent to order #200103369
+2018-04-06T05:12:47+00:00 DEBUG (7): set out for delivery order #200103369
+2018-04-06T05:12:47+00:00 DEBUG (7): sms sent to mobile #9981144228
+2018-04-06T05:12:48+00:00 DEBUG (7): email sent to order #200103370
+2018-04-06T05:12:48+00:00 DEBUG (7): set out for delivery order #200103370
+2018-04-06T05:12:48+00:00 DEBUG (7): sms sent to mobile #9888012888
+2018-04-06T05:12:48+00:00 DEBUG (7): email sent to order #200103389
+2018-04-06T05:12:48+00:00 DEBUG (7): set out for delivery order #200103389
+2018-04-06T05:12:48+00:00 DEBUG (7): sms sent to mobile #7276389024
+2018-04-06T05:12:48+00:00 DEBUG (7): email sent to order #200103425
+2018-04-06T05:12:48+00:00 DEBUG (7): set out for delivery order #200103425
+2018-04-06T05:12:48+00:00 DEBUG (7): sms sent to mobile #8574338220
+2018-04-06T05:12:48+00:00 DEBUG (7): email sent to order #200103437
+2018-04-06T05:12:48+00:00 DEBUG (7): set out for delivery order #200103437
+2018-04-06T05:12:48+00:00 DEBUG (7): sms sent to mobile #8574338220
+2018-04-06T05:12:48+00:00 DEBUG (7): email sent to order #200103438
+2018-04-06T05:12:49+00:00 DEBUG (7): set out for delivery order #200103438
+2018-04-06T05:12:49+00:00 DEBUG (7): sms sent to mobile #7204777443
+2018-04-06T05:12:49+00:00 DEBUG (7): email sent to order #200103459
+2018-04-06T05:12:49+00:00 DEBUG (7): set out for delivery order #200103459
+2018-04-06T05:12:49+00:00 DEBUG (7): sms sent to mobile #9133442581
+2018-04-06T05:12:49+00:00 DEBUG (7): email sent to order #200103470
+2018-04-06T05:12:49+00:00 DEBUG (7): set out for delivery order #200103470
+2018-04-06T05:12:49+00:00 DEBUG (7): sms sent to mobile #7731887999
+2018-04-06T05:12:49+00:00 DEBUG (7): email sent to order #200103478
+2018-04-06T05:12:49+00:00 DEBUG (7): set out for delivery order #200103478
+2018-04-06T05:12:49+00:00 DEBUG (7): sms sent to mobile #8080752523
+2018-04-06T05:12:49+00:00 DEBUG (7): email sent to order #200103484
+2018-04-06T05:12:49+00:00 DEBUG (7): set out for delivery order #200103484
+2018-04-06T05:12:49+00:00 DEBUG (7): sms sent to mobile #7012058854
+2018-04-06T05:12:49+00:00 DEBUG (7): email sent to order #200103526
+2018-04-06T05:12:50+00:00 DEBUG (7): set out for delivery order #200103526
+2018-04-06T05:12:50+00:00 DEBUG (7): sms sent to mobile #9885420737
+2018-04-06T05:12:50+00:00 DEBUG (7): email sent to order #200103529
+2018-04-06T05:12:50+00:00 DEBUG (7): set out for delivery order #200103529
+2018-04-06T05:12:50+00:00 DEBUG (7): sms sent to mobile #8840937366
+2018-04-06T05:12:50+00:00 DEBUG (7): email sent to order #200103530
+2018-04-06T05:12:50+00:00 DEBUG (7): set out for delivery order #200103530
+2018-04-06T05:12:50+00:00 DEBUG (7): sms sent to mobile #7206447355
+2018-04-06T05:12:50+00:00 DEBUG (7): email sent to order #200103535
+2018-04-06T05:12:50+00:00 DEBUG (7): set out for delivery order #200103535
+2018-04-06T05:12:50+00:00 DEBUG (7): sms sent to mobile #9710974043
+2018-04-06T05:12:50+00:00 DEBUG (7): email sent to order #200103563
+2018-04-06T05:12:50+00:00 DEBUG (7): set out for delivery order #200103563
+2018-04-06T05:12:50+00:00 DEBUG (7): sms sent to mobile #9303090033
+2018-04-06T05:12:51+00:00 DEBUG (7): email sent to order #200103571
+2018-04-06T05:12:51+00:00 DEBUG (7): set out for delivery order #200103571
+2018-04-06T05:12:51+00:00 DEBUG (7): sms sent to mobile #9827907862
+2018-04-06T05:12:51+00:00 DEBUG (7): email sent to order #200103572
+2018-04-06T05:12:51+00:00 DEBUG (7): set out for delivery order #200103572
+2018-04-06T05:12:51+00:00 DEBUG (7): sms sent to mobile #8090074900
+2018-04-06T05:12:51+00:00 DEBUG (7): email sent to order #200103576
+2018-04-06T05:12:51+00:00 DEBUG (7): set out for delivery order #200103576
+2018-04-06T05:12:51+00:00 DEBUG (7): sms sent to mobile #9981965383
+2018-04-06T05:12:51+00:00 DEBUG (7): email sent to order #200103577
+2018-04-06T05:12:51+00:00 DEBUG (7): set out for delivery order #200103577
+2018-04-06T05:12:51+00:00 DEBUG (7): sms sent to mobile #9264227269
+2018-04-06T05:12:51+00:00 DEBUG (7): email sent to order #200103583
+2018-04-06T05:12:51+00:00 DEBUG (7): set out for delivery order #200103583
+2018-04-06T05:12:51+00:00 DEBUG (7): sms sent to mobile #9042092089
+2018-04-06T05:12:52+00:00 DEBUG (7): email sent to order #200103584
+2018-04-06T05:12:52+00:00 DEBUG (7): set out for delivery order #200103584
+2018-04-06T05:12:52+00:00 DEBUG (7): sms sent to mobile #9453051766
+2018-04-06T05:12:52+00:00 DEBUG (7): email sent to order #200103585
+2018-04-06T05:12:52+00:00 DEBUG (7): set out for delivery order #200103585
+2018-04-06T05:12:52+00:00 DEBUG (7): sms sent to mobile #9059999967
+2018-04-06T05:12:52+00:00 DEBUG (7): email sent to order #200103586
+2018-04-06T05:12:52+00:00 DEBUG (7): set out for delivery order #200103586
+2018-04-06T05:12:52+00:00 DEBUG (7): sms sent to mobile #8423257858
+2018-04-06T05:12:52+00:00 DEBUG (7): email sent to order #200103588
+2018-04-06T05:12:52+00:00 DEBUG (7): set out for delivery order #200103588
+2018-04-06T05:12:52+00:00 DEBUG (7): sms sent to mobile #9680002577
+2018-04-06T05:12:52+00:00 DEBUG (7): email sent to order #200103590
+2018-04-06T05:12:52+00:00 DEBUG (7): set out for delivery order #200103590
+2018-04-06T05:12:52+00:00 DEBUG (7): sms sent to mobile #9059999967
+2018-04-06T05:12:53+00:00 DEBUG (7): email sent to order #200103592
+2018-04-06T05:12:53+00:00 DEBUG (7): set out for delivery order #200103592
+2018-04-06T05:12:53+00:00 DEBUG (7): sms sent to mobile #9598121121
+2018-04-06T05:12:53+00:00 DEBUG (7): email sent to order #200103596
+2018-04-06T05:12:53+00:00 DEBUG (7): set out for delivery order #200103596
+2018-04-06T05:12:53+00:00 DEBUG (7): sms sent to mobile #8690765070
+2018-04-06T05:12:53+00:00 DEBUG (7): email sent to order #200103605
+2018-04-06T05:12:53+00:00 DEBUG (7): set out for delivery order #200103605
+2018-04-06T05:12:53+00:00 DEBUG (7): sms sent to mobile #9455560061
+2018-04-06T05:12:53+00:00 DEBUG (7): email sent to order #200103615
+2018-04-06T05:12:53+00:00 DEBUG (7): set out for delivery order #200103615
+2018-04-06T05:12:53+00:00 DEBUG (7): sms sent to mobile #9455560061
+2018-04-06T05:12:53+00:00 DEBUG (7): email sent to order #200103616
+2018-04-06T05:12:53+00:00 DEBUG (7): set out for delivery order #200103616
+2018-04-06T05:12:53+00:00 DEBUG (7): sms sent to mobile #8667039364
+2018-04-06T05:12:54+00:00 DEBUG (7): email sent to order #200103636
+2018-04-06T05:12:54+00:00 DEBUG (7): set out for delivery order #200103636
+2018-04-06T05:12:54+00:00 DEBUG (7): sms sent to mobile #9956422422
+2018-04-06T05:12:54+00:00 DEBUG (7): email sent to order #200103637
+2018-04-06T05:12:54+00:00 DEBUG (7): set out for delivery order #200103637
+2018-04-06T05:12:54+00:00 DEBUG (7): sms sent to mobile #9838483420
+2018-04-06T05:12:54+00:00 DEBUG (7): email sent to order #200103647
+2018-04-06T05:12:54+00:00 DEBUG (7): set out for delivery order #200103647
+2018-04-06T05:12:54+00:00 DEBUG (7): sms sent to mobile #7012058854
+2018-04-06T05:12:54+00:00 DEBUG (7): email sent to order #200103649
+2018-04-06T05:12:54+00:00 DEBUG (7): set out for delivery order #200103649
+2018-04-06T05:12:54+00:00 DEBUG (7): sms sent to mobile #7012058854
+2018-04-06T05:12:54+00:00 DEBUG (7): email sent to order #200103650
+2018-04-06T05:12:54+00:00 DEBUG (7): set out for delivery order #200103650
+2018-04-06T05:12:54+00:00 DEBUG (7): sms sent to mobile #7860248607
+2018-04-06T05:12:55+00:00 DEBUG (7): email sent to order #200103659
+2018-04-06T05:12:55+00:00 DEBUG (7): set out for delivery order #200103659
+2018-04-06T05:12:55+00:00 DEBUG (7): sms sent to mobile #8574338220
+2018-04-06T05:12:55+00:00 DEBUG (7): email sent to order #200103660
+2018-04-06T05:12:55+00:00 DEBUG (7): set out for delivery order #200103660
+2018-04-06T05:12:55+00:00 DEBUG (7): sms sent to mobile #8574338220
+2018-04-06T05:12:55+00:00 DEBUG (7): email sent to order #200103661
+2018-04-06T05:12:55+00:00 DEBUG (7): set out for delivery order #200103661
+2018-04-06T05:12:56+00:00 DEBUG (7): sms sent to mobile #9944821611
+2018-04-06T05:12:56+00:00 DEBUG (7): email sent to order #200103670
+2018-04-06T05:12:56+00:00 DEBUG (7): set out for delivery order #200103670
+2018-04-06T05:12:56+00:00 DEBUG (7): sms sent to mobile #9043810706
+2018-04-06T05:12:56+00:00 DEBUG (7): email sent to order #200103690
+2018-04-06T05:12:57+00:00 DEBUG (7): set out for delivery order #200103690
+2018-04-06T05:12:57+00:00 DEBUG (7): sms sent to mobile #9042116167
+2018-04-06T05:12:57+00:00 DEBUG (7): email sent to order #200103559
+2018-04-06T05:12:57+00:00 DEBUG (7): set out for delivery order #200103559
+2018-04-06T05:12:57+00:00 DEBUG (7): sms sent to mobile #8102450816
+2018-04-06T05:12:57+00:00 DEBUG (7): email sent to order #200103717
+2018-04-06T05:12:57+00:00 DEBUG (7): set out for delivery order #200103717
+2018-04-06T05:12:57+00:00 DEBUG (7): sms sent to mobile #8102450816
+2018-04-06T05:12:57+00:00 DEBUG (7): email sent to order #200103719
+2018-04-06T05:12:57+00:00 DEBUG (7): set out for delivery order #200103719
+2018-04-06T05:12:57+00:00 DEBUG (7): sms sent to mobile #8466851591
+2018-04-06T05:12:57+00:00 DEBUG (7): email sent to order #200103721
+2018-04-06T05:12:57+00:00 DEBUG (7): set out for delivery order #200103721
+2018-04-06T05:12:57+00:00 DEBUG (7): sms sent to mobile #8102450816
+2018-04-06T05:12:57+00:00 DEBUG (7): email sent to order #200103722
+2018-04-06T05:12:57+00:00 DEBUG (7): set out for delivery order #200103722
+2018-04-06T05:12:57+00:00 DEBUG (7): sms sent to mobile #9952202963
+2018-04-06T05:12:58+00:00 DEBUG (7): email sent to order #200103724
+2018-04-06T05:12:58+00:00 DEBUG (7): set out for delivery order #200103724
+2018-04-06T05:12:58+00:00 DEBUG (7): sms sent to mobile #9937225699
+2018-04-06T05:12:58+00:00 DEBUG (7): email sent to order #200103726
+2018-04-06T05:12:58+00:00 DEBUG (7): set out for delivery order #200103726
+2018-04-06T05:12:58+00:00 DEBUG (7): sms sent to mobile #8963806217
+2018-04-06T05:12:58+00:00 DEBUG (7): email sent to order #200103729
+2018-04-06T05:12:58+00:00 DEBUG (7): set out for delivery order #200103729
+2018-04-06T05:12:58+00:00 DEBUG (7): sms sent to mobile #8963806217
+2018-04-06T05:12:58+00:00 DEBUG (7): email sent to order #200103737
+2018-04-06T05:12:58+00:00 DEBUG (7): set out for delivery order #200103737
+2018-04-06T05:12:58+00:00 DEBUG (7): sms sent to mobile #8122551012
+2018-04-06T05:12:58+00:00 DEBUG (7): email sent to order #200103742
+2018-04-06T05:12:58+00:00 DEBUG (7): set out for delivery order #200103742
+2018-04-06T05:12:59+00:00 DEBUG (7): sms sent to mobile #9710974043
+2018-04-06T05:12:59+00:00 DEBUG (7): email sent to order #200103774
+2018-04-06T05:12:59+00:00 DEBUG (7): set out for delivery order #200103774
+2018-04-06T05:12:59+00:00 DEBUG (7): sms sent to mobile #9600829205
+2018-04-06T05:12:59+00:00 DEBUG (7): email sent to order #200103783
+2018-04-06T05:12:59+00:00 DEBUG (7): set out for delivery order #200103783
+2018-04-06T05:12:59+00:00 DEBUG (7): sms sent to mobile #9575861861
+2018-04-06T05:12:59+00:00 DEBUG (7): email sent to order #200103813
+2018-04-06T05:12:59+00:00 DEBUG (7): set out for delivery order #200103813
+2018-04-06T05:12:59+00:00 DEBUG (7): sms sent to mobile #9844008003
+2018-04-06T05:12:59+00:00 DEBUG (7): email sent to order #200103815
+2018-04-06T05:12:59+00:00 DEBUG (7): set out for delivery order #200103815
+2018-04-06T05:12:59+00:00 DEBUG (7): sms sent to mobile #9844008003
+2018-04-06T05:13:00+00:00 DEBUG (7): email sent to order #200103823
+2018-04-06T05:13:00+00:00 DEBUG (7): set out for delivery order #200103823
+2018-04-06T05:13:00+00:00 DEBUG (7): sms sent to mobile #7200927080
+2018-04-06T05:13:00+00:00 DEBUG (7): email sent to order #200103837
+2018-04-06T05:13:00+00:00 DEBUG (7): set out for delivery order #200103837
+2018-04-06T05:13:00+00:00 DEBUG (7): sms sent to mobile #7002614711
+2018-04-06T05:13:00+00:00 DEBUG (7): email sent to order #200103843
+2018-04-06T05:13:00+00:00 DEBUG (7): set out for delivery order #200103843
+2018-04-06T05:13:00+00:00 DEBUG (7): sms sent to mobile #9949499439
+2018-04-06T05:13:00+00:00 DEBUG (7): email sent to order #200103846
+2018-04-06T05:13:00+00:00 DEBUG (7): set out for delivery order #200103846
+2018-04-06T05:13:00+00:00 DEBUG (7): sms sent to mobile #9966118143
+2018-04-06T05:13:00+00:00 DEBUG (7): email sent to order #200103847
+2018-04-06T05:13:01+00:00 DEBUG (7): set out for delivery order #200103847
+2018-04-06T05:13:01+00:00 DEBUG (7): sms sent to mobile #7708886668
+2018-04-06T05:13:01+00:00 DEBUG (7): email sent to order #200103857
+2018-04-06T05:13:01+00:00 DEBUG (7): set out for delivery order #200103857
+2018-04-06T05:13:01+00:00 DEBUG (7): sms sent to mobile #9894503575
+2018-04-06T05:13:01+00:00 DEBUG (7): email sent to order #200103866
+2018-04-06T05:13:01+00:00 DEBUG (7): set out for delivery order #200103866
+2018-04-06T05:13:01+00:00 DEBUG (7): sms sent to mobile #9677851073
+2018-04-06T05:13:01+00:00 DEBUG (7): email sent to order #200103867
+2018-04-06T05:13:01+00:00 DEBUG (7): set out for delivery order #200103867
+2018-04-06T05:13:01+00:00 DEBUG (7): sms sent to mobile #9894503575
+2018-04-06T05:13:01+00:00 DEBUG (7): email sent to order #200103868
+2018-04-06T05:13:01+00:00 DEBUG (7): set out for delivery order #200103868
+2018-04-06T05:13:01+00:00 DEBUG (7): sms sent to mobile #9848326299
+2018-04-06T05:13:01+00:00 DEBUG (7): email sent to order #200103877
+2018-04-06T05:13:02+00:00 DEBUG (7): set out for delivery order #200103877
+2018-04-06T05:13:02+00:00 DEBUG (7): sms sent to mobile #9901401203
+2018-04-06T05:13:02+00:00 DEBUG (7): email sent to order #200103879
+2018-04-06T05:13:02+00:00 DEBUG (7): set out for delivery order #200103879
+2018-04-06T05:13:02+00:00 DEBUG (7): sms sent to mobile #8559807000
+2018-04-06T05:13:02+00:00 DEBUG (7): email sent to order #200103928
+2018-04-06T05:13:02+00:00 DEBUG (7): set out for delivery order #200103928
+2018-04-06T05:13:02+00:00 DEBUG (7): sms sent to mobile #8559807000
+2018-04-06T05:13:02+00:00 DEBUG (7): email sent to order #200103923
+2018-04-06T05:13:02+00:00 DEBUG (7): set out for delivery order #200103923
+2018-04-06T05:13:02+00:00 DEBUG (7): sms sent to mobile #9849996767
+2018-04-06T05:13:02+00:00 DEBUG (7): email sent to order #200103945
+2018-04-06T05:13:02+00:00 DEBUG (7): set out for delivery order #200103945
+2018-04-06T05:13:02+00:00 DEBUG (7): sms sent to mobile #9304771724
+2018-04-06T05:13:03+00:00 DEBUG (7): email sent to order #200103949
+2018-04-06T05:13:03+00:00 DEBUG (7): set out for delivery order #200103949
+2018-04-06T05:13:03+00:00 DEBUG (7): sms sent to mobile #7002614711
+2018-04-06T05:13:03+00:00 DEBUG (7): email sent to order #200104032
+2018-04-06T05:13:03+00:00 DEBUG (7): set out for delivery order #200104032
+2018-04-06T05:13:03+00:00 DEBUG (7): sms sent to mobile #9575861861
+2018-04-06T05:13:03+00:00 DEBUG (7): email sent to order #200104069
+2018-04-06T05:13:03+00:00 DEBUG (7): set out for delivery order #200104069
+2018-04-06T05:13:03+00:00 DEBUG (7): sms sent to mobile #9575861861
+2018-04-06T05:13:03+00:00 DEBUG (7): email sent to order #200104072
+2018-04-06T05:13:03+00:00 DEBUG (7): set out for delivery order #200104072
+2018-04-06T05:13:03+00:00 DEBUG (7): sms sent to mobile #8660123698
+2018-04-06T05:13:04+00:00 DEBUG (7): email sent to order #200104085
+2018-04-06T05:13:04+00:00 DEBUG (7): set out for delivery order #200104085
+2018-04-06T05:13:04+00:00 DEBUG (7): sms sent to mobile #9448791226
+2018-04-06T05:13:04+00:00 DEBUG (7): email sent to order #200104111
+2018-04-06T05:13:04+00:00 DEBUG (7): set out for delivery order #200104111
+2018-04-06T05:13:04+00:00 DEBUG (7): sms sent to mobile #7030309011
+2018-04-06T05:13:04+00:00 DEBUG (7): email sent to order #200104114
+2018-04-06T05:13:04+00:00 DEBUG (7): set out for delivery order #200104114
+2018-04-06T05:13:04+00:00 DEBUG (7): sms sent to mobile #8080752523
+2018-04-06T05:13:04+00:00 DEBUG (7): email sent to order #200104144
+2018-04-06T05:13:04+00:00 DEBUG (7): set out for delivery order #200104144
+2018-04-06T05:13:04+00:00 DEBUG (7): sms sent to mobile #9730444367
+2018-04-06T05:13:04+00:00 DEBUG (7): email sent to order #200104196
+2018-04-06T05:13:04+00:00 DEBUG (7): set out for delivery order #200104196
+2018-04-06T05:13:05+00:00 DEBUG (7): sms sent to mobile #7208070805
+2018-04-06T05:13:05+00:00 DEBUG (7): email sent to order #200104237
+2018-04-06T05:13:05+00:00 DEBUG (7): set out for delivery order #200104237
+2018-04-06T05:13:05+00:00 DEBUG (7): sms sent to mobile #8080752523
+2018-04-06T05:13:05+00:00 DEBUG (7): email sent to order #200104257
+2018-04-06T05:13:05+00:00 DEBUG (7): set out for delivery order #200104257
+2018-04-06T05:13:05+00:00 DEBUG (7): Execution time : 97.4107589722 seconds
+2018-04-06T05:20:03+00:00 DEBUG (7): init order status
+2018-04-06T05:20:29+00:00 DEBUG (7): delivered count = 0
+2018-04-06T05:20:29+00:00 DEBUG (7): SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '))' at line 1
+2018-04-06T05:23:41+00:00 DEBUG (7): init order status
+2018-04-06T05:23:56+00:00 DEBUG (7): delivered count = 0
+2018-04-06T05:23:56+00:00 DEBUG (7): SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '))' at line 1
+2018-04-06T05:31:38+00:00 DEBUG (7): init order status
+2018-04-06T05:31:47+00:00 DEBUG (7): out for delivery count = 11
+2018-04-06T05:31:47+00:00 DEBUG (7): sms sent to mobile #9826610080
+2018-04-06T05:31:47+00:00 DEBUG (7): email sent to order #200102095
+2018-04-06T05:31:47+00:00 DEBUG (7): set out for delivery order #200102095
+2018-04-06T05:31:47+00:00 DEBUG (7): sms sent to mobile #9754861613
+2018-04-06T05:31:47+00:00 DEBUG (7): email sent to order #200102114
+2018-04-06T05:31:48+00:00 DEBUG (7): set out for delivery order #200102114
+2018-04-06T05:31:48+00:00 DEBUG (7): sms sent to mobile #9826610080
+2018-04-06T05:31:48+00:00 DEBUG (7): email sent to order #200102126
+2018-04-06T05:31:48+00:00 DEBUG (7): set out for delivery order #200102126
+2018-04-06T05:31:48+00:00 DEBUG (7): sms sent to mobile #9754861613
+2018-04-06T05:31:48+00:00 DEBUG (7): email sent to order #200102134
+2018-04-06T05:31:48+00:00 DEBUG (7): set out for delivery order #200102134
+2018-04-06T05:31:48+00:00 DEBUG (7): sms sent to mobile #9754861613
+2018-04-06T05:31:48+00:00 DEBUG (7): email sent to order #200102136
+2018-04-06T05:31:48+00:00 DEBUG (7): set out for delivery order #200102136
+2018-04-06T05:31:48+00:00 DEBUG (7): sms sent to mobile #7206447355
+2018-04-06T05:31:48+00:00 DEBUG (7): email sent to order #200103538
+2018-04-06T05:31:48+00:00 DEBUG (7): set out for delivery order #200103538
+2018-04-06T05:31:48+00:00 DEBUG (7): sms sent to mobile #9303778940
+2018-04-06T05:31:48+00:00 DEBUG (7): email sent to order #200103336
+2018-04-06T05:31:49+00:00 DEBUG (7): set out for delivery order #200103336
+2018-04-06T05:31:49+00:00 DEBUG (7): sms sent to mobile #9235365555
+2018-04-06T05:31:49+00:00 DEBUG (7): email sent to order #200103858
+2018-04-06T05:31:49+00:00 DEBUG (7): set out for delivery order #200103858
+2018-04-06T05:31:49+00:00 DEBUG (7): sms sent to mobile #9235365555
+2018-04-06T05:31:49+00:00 DEBUG (7): email sent to order #200103863
+2018-04-06T05:31:49+00:00 DEBUG (7): set out for delivery order #200103863
+2018-04-06T05:31:49+00:00 DEBUG (7): sms sent to mobile #9840999778
+2018-04-06T05:31:49+00:00 DEBUG (7): email sent to order #200104166
+2018-04-06T05:31:49+00:00 DEBUG (7): set out for delivery order #200104166
+2018-04-06T05:31:49+00:00 DEBUG (7): sms sent to mobile #9551155223
+2018-04-06T05:31:49+00:00 DEBUG (7): email sent to order #200104175
+2018-04-06T05:31:49+00:00 DEBUG (7): set out for delivery order #200104175
+2018-04-06T05:31:49+00:00 DEBUG (7): Execution time : 11.01054883 seconds for updating 11 orders
+2018-04-06T06:29:15+00:00 DEBUG (7): init order status
+2018-04-06T06:29:23+00:00 DEBUG (7): out for delivery count = 23
+2018-04-06T06:29:23+00:00 DEBUG (7): sms sent to mobile #7869676357
+2018-04-06T06:29:24+00:00 DEBUG (7): email sent to order #200102868
+2018-04-06T06:29:24+00:00 DEBUG (7): set out for delivery order #200102868
+2018-04-06T06:29:24+00:00 DEBUG (7): sms sent to mobile #8104223084
+2018-04-06T06:29:24+00:00 DEBUG (7): email sent to order #200103173
+2018-04-06T06:29:24+00:00 DEBUG (7): set out for delivery order #200103173
+2018-04-06T06:29:24+00:00 DEBUG (7): sms sent to mobile #8104223084
+2018-04-06T06:29:24+00:00 DEBUG (7): email sent to order #200103174
+2018-04-06T06:29:24+00:00 DEBUG (7): set out for delivery order #200103174
+2018-04-06T06:29:24+00:00 DEBUG (7): sms sent to mobile #8602193112
+2018-04-06T06:29:24+00:00 DEBUG (7): email sent to order #200103501
+2018-04-06T06:29:24+00:00 DEBUG (7): set out for delivery order #200103501
+2018-04-06T06:29:24+00:00 DEBUG (7): sms sent to mobile #8602652316
+2018-04-06T06:29:24+00:00 DEBUG (7): email sent to order #200103503
+2018-04-06T06:29:25+00:00 DEBUG (7): set out for delivery order #200103503
+2018-04-06T06:29:25+00:00 DEBUG (7): sms sent to mobile #9485239329
+2018-04-06T06:29:25+00:00 DEBUG (7): email sent to order #200103550
+2018-04-06T06:29:25+00:00 DEBUG (7): set out for delivery order #200103550
+2018-04-06T06:29:25+00:00 DEBUG (7): sms sent to mobile #9880645601
+2018-04-06T06:29:25+00:00 DEBUG (7): email sent to order #200103709
+2018-04-06T06:29:25+00:00 DEBUG (7): set out for delivery order #200103709
+2018-04-06T06:29:25+00:00 DEBUG (7): sms sent to mobile #8359897786
+2018-04-06T06:29:25+00:00 DEBUG (7): email sent to order #200103718
+2018-04-06T06:29:25+00:00 DEBUG (7): set out for delivery order #200103718
+2018-04-06T06:29:25+00:00 DEBUG (7): sms sent to mobile #9880645601
+2018-04-06T06:29:25+00:00 DEBUG (7): email sent to order #200103727
+2018-04-06T06:29:25+00:00 DEBUG (7): set out for delivery order #200103727
+2018-04-06T06:29:25+00:00 DEBUG (7): sms sent to mobile #9302223334
+2018-04-06T06:29:25+00:00 DEBUG (7): email sent to order #200103741
+2018-04-06T06:29:25+00:00 DEBUG (7): set out for delivery order #200103741
+2018-04-06T06:29:25+00:00 DEBUG (7): sms sent to mobile #9880782444
+2018-04-06T06:29:26+00:00 DEBUG (7): email sent to order #200103746
+2018-04-06T06:29:26+00:00 DEBUG (7): set out for delivery order #200103746
+2018-04-06T06:29:26+00:00 DEBUG (7): sms sent to mobile #9880782444
+2018-04-06T06:29:26+00:00 DEBUG (7): email sent to order #200103749
+2018-04-06T06:29:26+00:00 DEBUG (7): set out for delivery order #200103749
+2018-04-06T06:29:26+00:00 DEBUG (7): sms sent to mobile #9488522856
+2018-04-06T06:29:26+00:00 DEBUG (7): email sent to order #200103784
+2018-04-06T06:29:26+00:00 DEBUG (7): set out for delivery order #200103784
+2018-04-06T06:29:26+00:00 DEBUG (7): sms sent to mobile #9685143420
+2018-04-06T06:29:26+00:00 DEBUG (7): email sent to order #200103880
+2018-04-06T06:29:26+00:00 DEBUG (7): set out for delivery order #200103880
+2018-04-06T06:29:26+00:00 DEBUG (7): sms sent to mobile #9710666892
+2018-04-06T06:29:26+00:00 DEBUG (7): email sent to order #200103920
+2018-04-06T06:29:26+00:00 DEBUG (7): set out for delivery order #200103920
+2018-04-06T06:29:26+00:00 DEBUG (7): sms sent to mobile #9811397934
+2018-04-06T06:29:27+00:00 DEBUG (7): email sent to order #200103962
+2018-04-06T06:29:27+00:00 DEBUG (7): set out for delivery order #200103962
+2018-04-06T06:29:27+00:00 DEBUG (7): sms sent to mobile #9811397934
+2018-04-06T06:29:27+00:00 DEBUG (7): email sent to order #200103964
+2018-04-06T06:29:27+00:00 DEBUG (7): set out for delivery order #200103964
+2018-04-06T06:29:27+00:00 DEBUG (7): sms sent to mobile #9811397934
+2018-04-06T06:29:27+00:00 DEBUG (7): email sent to order #200104018
+2018-04-06T06:29:27+00:00 DEBUG (7): set out for delivery order #200104018
+2018-04-06T06:29:27+00:00 DEBUG (7): sms sent to mobile #9644645436
+2018-04-06T06:29:27+00:00 DEBUG (7): email sent to order #200104083
+2018-04-06T06:29:27+00:00 DEBUG (7): set out for delivery order #200104083
+2018-04-06T06:29:27+00:00 DEBUG (7): sms sent to mobile #9514528251
+2018-04-06T06:29:27+00:00 DEBUG (7): email sent to order #200104086
+2018-04-06T06:29:27+00:00 DEBUG (7): set out for delivery order #200104086
+2018-04-06T06:29:27+00:00 DEBUG (7): sms sent to mobile #9514528251
+2018-04-06T06:29:27+00:00 DEBUG (7): email sent to order #200104090
+2018-04-06T06:29:28+00:00 DEBUG (7): set out for delivery order #200104090
+2018-04-06T06:29:28+00:00 DEBUG (7): sms sent to mobile #9514528251
+2018-04-06T06:29:28+00:00 DEBUG (7): email sent to order #200104130
+2018-04-06T06:29:28+00:00 DEBUG (7): set out for delivery order #200104130
+2018-04-06T06:29:28+00:00 DEBUG (7): sms sent to mobile #9514528251
+2018-04-06T06:29:28+00:00 DEBUG (7): email sent to order #200104131
+2018-04-06T06:29:28+00:00 DEBUG (7): set out for delivery order #200104131
+2018-04-06T06:29:28+00:00 DEBUG (7): Execution time : 12.9789068699 seconds for updating 23 orders
+2018-04-06T06:45:02+00:00 DEBUG (7): init order status
+2018-04-06T06:45:54+00:00 DEBUG (7): out for delivery count = 4
+2018-04-06T06:45:54+00:00 DEBUG (7): sms sent to mobile #9940412916
+2018-04-06T06:50:02+00:00 DEBUG (7): init order status
+2018-04-06T06:50:08+00:00 DEBUG (7): out for delivery count = 4
+2018-04-06T06:50:08+00:00 DEBUG (7): sms sent to mobile #9940412916
+2018-04-06T06:55:01+00:00 DEBUG (7): init order status
+2018-04-06T06:56:37+00:00 DEBUG (7): out for delivery count = 4
+2018-04-06T06:56:37+00:00 DEBUG (7): sms sent to mobile #9940412916

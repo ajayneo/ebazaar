@@ -1,0 +1,35 @@
+<div class="content-header">
+    <table cellspacing="0">
+        <tbody><tr>
+            <td style="width:50%;"><h3 class="icon-head head-adminhtml-index">Cancel Orders</h3></td>
+            
+        </tr>
+    </tbody></table>
+</div>
+<div>
+	<form action='<?php echo Mage::helper("adminhtml")->getUrl("admin_operations/adminhtml_operationsbackend/cancelOrder");?>' name="cancelOrder" id="cancelOrder" method="post">
+	<input type="hidden" name="form_key" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>">
+	<table cellspacing="0" style="width: 100%">
+		<tr>
+			<td><span>Put Order Ids : </span></td>
+		    <td>
+				<textarea name="increment_ids" id="increment_ids" style="width:50%;height:100px" class="required-entry input-text"></textarea>
+				<span style="float: left;width: 50%;">You can put comma seperated order ids for multiple cancelation at a time. <br>For ex: 200011111,200011112,200011113,..</span>
+			</td>
+		</tr>
+		<tr>
+			<td><span>Remarks : </span></td>
+			<td><textarea name="remarks" id="remarks" style="width:50%;height:100px" class="required-entry input-text"></textarea></td>
+		</tr>
+		<tr>
+			<td align="right" colspan="2"><button id="id_8900456144c3f02698f60a534df78c68" title="Search" type="submit" class="scalable task"style=""><span><span><span>Submit</span></span></span></button></td>
+		</tr>
+	
+	</table>
+	</form>
+</div>
+<script type="text/javascript">
+    //< ![CDATA[
+        var cancelOrder = new VarienForm('cancelOrder', true);
+    //]]>
+</script>

@@ -1,0 +1,1 @@
+[08-Oct-2018 16:06:10 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Rest_Exception' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Rest/Server/Exception.php on line 39

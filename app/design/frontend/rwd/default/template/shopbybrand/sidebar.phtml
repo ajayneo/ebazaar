@@ -1,0 +1,83 @@
+<?php 
+    /* edit by Peter */
+    $shopbybrands = $this->getBrandSort();
+    /* end edit by Peter */
+    $display = $this->getDisplaySidebar();
+    $max = $this->getMaximumSidebar();
+    $displayModule = $this->getDisplayModule();
+?>
+
+<?php if($displayModule): ?>
+<?php if($display==1): ?>
+<div class="block shopbybrand_sidebar">
+    <div class="block-title">
+        <strong><span><?php echo $this->__('Brands') ?></span></strong>
+    </div>
+        <div class="block-content">
+            <ul>
+                <?php
+                    $show = $this->getOptionDisplay();
+                    $setlink = Mage::getStoreConfig('shopbybrand/general/router');
+                    $file = Mage::getBaseUrl('media') . 'brands/no-image.png';
+                    //$displayConfig = TRUE;
+                    if (count($shopbybrands) && $show == 1 ) {
+                        if ($display) {
+                            $i = 0;
+                            foreach ($shopbybrands as $brand) {
+                                echo("<li class='brands-item'><a href='" . $this->getBrandUrl($brand) . "'>
+                                       <span class='brand-name'>" . $brand->getData('name') . "</span></a></li>");
+                                $i++;
+                                if ($i == $max)
+                                    break;
+                            }
+                        }
+                    }
+                    if (count($shopbybrands) && $show == 0 ) {
+                        if ($display) {
+                            $i = 0;
+                            foreach ($shopbybrands as $brand) {
+                                $url = Mage::helper('shopbybrand')->getUrlLogo($brand->getId()) . '/' . $brand->getThumbnailImage();
+                                if ($brand->getThumbnailImage() != null) {
+                                    echo("<li class='brands-item'><a href='" . $this->getBrandUrl($brand) . "'>
+                                        <img width='70' height='50'  src='" . $url . "' class='brands-item-list-image'>
+                                        <span class='brand-name'>" . $brand->getData('name') . "<span>
+                                   </a></li>");
+                                } else {
+                                    echo("<li class='brands-item'><a href='" . $this->getBrandUrl($brand) . "'>
+                                        <img width='70' height='50'  src='" . $file . "' class='brands-item-list-image'>
+                                        <span class='brand-name'>" . $brand->getData('name') . "</span>
+                                   </a></li>");
+                                }
+                                $i++;
+                                if ($i == $max)
+                                    break;
+                            }
+                        }
+                    }
+                    if (count($shopbybrands) && $show == 2 ) {
+                        if ($display) {
+                            $i = 0;
+                            foreach ($shopbybrands as $brand) {
+                                $url = Mage::helper('shopbybrand')->getUrlLogo($brand->getId()) . '/' . $brand->getThumbnailImage();
+                                if ($brand->getThumbnailImage() != null) {
+                                    echo("<li class='brands-item'><a href='" . $this->getBrandUrl($brand) . "'>
+                                        <img width='70' height='50'  src='" . $url . "' class='brands-item-list-image'></a></li>");
+                                } else {
+                                    echo("<li class='brands-item'><a href='" . $this->getBrandUrl($brand) . "'>
+                                        <img width='90' height='70'  src='" . $file . "' class='brands-item-list-image'></a></li>");
+                                }
+                                $i++;
+                                if ($i == $max)
+                                    break;
+                            }
+                        }
+                    }
+                ?>
+            </ul>
+            <div class="actions">
+            <a href="<?php echo $this->getUrl($setlink, array()) ?>"><?php echo $this->__('View all') ?></a>
+            </div>
+        </div>    
+</div>
+<?php endif;?>
+<?php endif;?>

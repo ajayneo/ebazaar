@@ -1,0 +1,147 @@
+<div class="main-new-banner-container clearfix">
+
+<?php
+  $result = $this->getBlockData();
+  $banners = $result['banners'];
+
+?>
+
+
+
+
+  <div class="flashy-banner clearfix">
+    <ul class="new-slider-banner clearfix">
+
+ 
+
+      <?php foreach ($banners as $banner) : ?>
+        <?php if($banner['bannerslider_id'] == 2):  ?>
+        <li onclick="ga('send', 'event', { eventCategory: 'home-banner', eventAction: 'click', eventLabel:'<?php echo $banner['name']?>'});">
+          <a href="<?php echo $banner['click_url'] ?>" target="_blank">
+            <img src="<?php echo $this->getBannerImage($banner['image']);?>">
+          </a>
+        </li>
+        <?php endif; ?>
+      <?php endforeach; ?>
+
+    </ul>   
+  </div>
+
+
+ 
+  
+
+  <div class="right-side-panel">
+  <div onclick="ga('send', 'event', { eventCategory: 'home-banner', eventAction: 'click', eventLabel: 'just-live-offers'});" class="exciting-offers">
+  <a href="https://www.electronicsbazaar.com/deals/" target="_blank">
+  <img src="https://www.electronicsbazaar.com/skin/frontend/rwd/electronics/customs/images/exciting-offers-new.png" alt="deals of the day"></div>  
+  </a>
+
+
+  <div class="partnerprogram">
+   <a href="http://180.149.246.49/electronicsbazaar/partner_program" ><img src="https://www.electronicsbazaar.com/skin/frontend/rwd/electronics/customs/images/partner-program.jpg" alt="partner program"/> </a> 
+   
+  </div>
+
+  <div class="coupon-code-container hourlydeals">
+  <a href="https://www.electronicsbazaar.com/warranty" >
+   <img src="https://electronicsbazaar.com/skin/frontend/rwd/electronics/customs/images/warranty.jpg" alt="warranty"/>
+   </a>
+   
+  </div>
+  
+ </div>
+</div>   
+
+
+<div  class="bottom-banner-container clearfix">
+
+<div class="small-banner-container">
+  
+   
+  <ul class="clearfix">
+   <li>
+   <a href="https://www.electronicsbazaar.com/laptops/unboxed-units" target="_blank"><img src="https://www.electronicsbazaar.com/neweb/skin/frontend/rwd/electronics/customs/images/new-banner/open-box-laptop-new.jpg" alt="openbox laptops"></a>
+    </li>
+    <li>
+   <a href="https://www.electronicsbazaar.com/mobiles/smartphones/open-box" target="_blank"><img src="https://www.electronicsbazaar.com/neweb/skin/frontend/rwd/electronics/customs/images/new-banner/open-box-mobile-new.jpg" alt="openbox mobiles"></a>  
+    </li>
+   <li>
+   <a href="https://www.electronicsbazaar.com/laptops/refurbished" target="_blank"><img src="https://www.electronicsbazaar.com/neweb/skin/frontend/rwd/electronics/customs/images/new-banner/pre-owned-laptop-new.jpg" alt="prewoned laptop"></a>  
+    </li>
+     
+     <li>
+   <a href="https://www.electronicsbazaar.com/mobiles/smartphones/pre-owned-ref" target="_blank"><img src="https://www.electronicsbazaar.com/neweb/skin/frontend/rwd/electronics/customs/images/new-banner/pre-owned-mobile-new.jpg" alt="prewoned mobile"></a>
+    </li>
+   
+    </ul>  
+   
+</div>  
+
+
+<div class="bottom-right-container">
+<div class="coupon-code-container">
+   <a onclick="ga('send', 'event', { eventCategory: 'home-banner', eventAction: 'click', eventLabel: 'register-now'});" href="https://www.electronicsbazaar.com/customer/account/login/" target="_blank">
+    <img src="https://www.electronicsbazaar.com/skin/frontend/rwd/electronics/customs/images/200off.jpg" />
+   </a>
+  </div>
+
+<div class="app-order-container">
+    <a href="https://www.electronicsbazaar.com/download-app/" target="_blank"><span class="getextra">Get Extra</span>
+    <span class="app-amount">0.5%<span class="amount-off">Off</span></span>
+    <span class="allorders">for all orders through Mobile App only</span>
+    <span class="download-now">Download Now!!!</span> </a>
+    <a onclick="ga('send', 'event', { eventCategory: 'home-banner', eventAction: 'click', eventLabel: 'download-now'});" href="https://play.google.com/store/apps/details?id=com.electronicsbazaar.electronicsbazaar" target="_blank"><img src="https://www.electronicsbazaar.com/skin/frontend/rwd/electronics/customs/images/google-play-new.png"></a>
+      <a href="https://itunes.apple.com/us/app/electronicsbazaar.com/id1064879270?ls=1&mt=8" target="_blank"><img src="https://www.electronicsbazaar.com/skin/frontend/rwd/electronics/customs/images/app-store-new.png"></a>
+  </div>
+
+  </div>
+
+</div>
+  
+<script type="text/javascript"> 
+
+var jqcs = jQuery.noConflict();
+ jqcs('.newDealsSlider').bxSlider({
+    auto: true, 
+    speed: 500,
+    pause: 2000
+ });
+</script>
+
+<script type="text/javascript"> 
+var jqcs = jQuery.noConflict();
+ jqcs('.new-slider-banner').bxSlider({
+    auto: true,
+    speed: 2000,
+    pause: 7000,
+    pager: true,
+ controls: true 
+ });
+</script>
+
+<?php 
+/*
+$templateId = 'navisionexport_hourly_email_template';
+$templateId = 'navisionexport_salesreport_template';
+// $sender = array('name'=>'Mahesh', 'email'=>'info@electronicsbazaar.com');
+$recepientEmail = $email = 'web.maheshgurav@gmail.com';
+$recepientName = $emailName = 'Mahesh Gurav';
+$vars = array();
+$storeId = Mage::app()->getStore()->getId();
+$var = array();
+$senderName = Mage::getStoreConfig('trans_email/ident_support/name');
+    $senderEmail = Mage::getStoreConfig('trans_email/ident_support/email');        
+    $sender = array('name' => $senderName,
+                'email' => $senderEmail);
+$translate  = Mage::getSingleton('core/translate');
+$translate->setTranslateInline(false);
+$mailTemp = Mage::getModel('core/email_template')
+        ->setDesignConfig(array('area' => 'frontend'))
+        ->sendTransactional($templateId, $sender, $recepientEmail, $recepientName, $vars, $storeId);
+$mailTemp->send();
+$translate->setTranslateInline(true);  
+
+echo "<pre>"; print_r($mailTemp->getData());    */ 
+
+?>

@@ -1,0 +1,109 @@
+<?php $product_review = new Neo_Review_Block_Product_View_List(); ?>
+<?php $_product = $this->getProduct(); ?>
+<?php $countstars = $product_review->AggregrateRatingStarsCount($_product->getId()); ?>
+<?php //$_product = Mage::getModel('catalog/product')->load($productId); ?>
+<div class="products-reviews-container">
+		<div class="products-reviews">
+            <h1>Reviews of <?php echo $_product->getName(); ?></h1>
+            <div class="ratings-section">
+                <?php $avg = $product_review->AggregrateRatingInFiveStars($_product->getId()); ?>
+		    	<?php $countstars = $product_review->AggregrateRatingStarsCount($_product->getId()); ?>
+                <div class="unit-section">
+                    <div class="big-star">
+                        <span><?php echo $avg; ?></span>
+                    </div>
+                    <div class="unit-content">
+                        <span>Average Rating</span>
+                    </div>
+                </div>
+				<div class="unit-ratings-section">
+					<ul>
+						<li class="ratings-section-row">
+							<span>5 star</span>
+                            <div class="rating-bars" id="rating-bars-five"></div>
+                        </li>
+                        <li class="ratings-section-row">
+                            <span>4 star</span>
+                            <div class="rating-bars" id="rating-bars-four"></div>
+                        </li>                          
+                        <li class="ratings-section-row">
+                            <span>3 star</span>
+                            <div class="rating-bars" id="rating-bars-three"></div>
+                        </li>                          
+                        <li class="ratings-section-row">
+                            <span>2 star</span>
+                            <div class="rating-bars" id="rating-bars-two"></div>
+                        </li>                          
+                        <li class="ratings-section-row">
+                            <span>1 star</span>
+                            <div class="rating-bars" id="rating-bars-one"></div>
+                        </li>                          
+                    </ul>
+                </div>
+                <div class="add-ratings-section">
+                    <div class="action-section">
+                        <div class="message">
+                            <p class="ask-review-message">Have you used this product? <a href="#review-form" class="Write-review-btn review_form">Rate it Now</a></p>
+                        </div>
+                        <div class="add-rating">
+                            <img src="<?php echo $this->getSkinUrl('images/rating_star.png'); ?>" />
+                        </div>
+                    </div>
+                </div>
+				<div class="Write-review">
+                    <a href="#review-form" class="Write-review-btn review_form">Write a Review</a>
+                </div>
+            </div>
+        </div>
+
+        <?php $view_all_reviews = $product_review->getReviewLink($_product->getId()); ?>
+     	<div class="top-reviews">
+	    	<div class="top-review-heading">
+				<h1>Top Reviews</h1>
+	    	</div>
+	    	<div class="left-review">
+				<?php echo $this->getChildHtml('product.all.reviews') ?>
+                                <div class="holder"></div>
+	    	</div>
+	    	<div class="right-review">
+				<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('reviews_list_right_block')->toHtml() ?>
+	    	</div>
+	    	<!--<a name="review_form"><?php //echo $this->getChildHtml('review_form') ?></a>-->
+	    	<?php //echo $this->getChildHtml('product_additional_data') ?>
+       		<div class="clr"></div>
+     	</div>
+   	</div>
+<script type="text/javascript">
+    jQuery(document).on('ready',function(){
+	var onestars = <?php echo $countstars['1']; ?>;
+        var twostars = <?php echo $countstars['2']; ?>;
+        var threestars = <?php echo $countstars['3']; ?>;
+        var fourstars = <?php echo $countstars['4']; ?>;
+        var fivestars = <?php echo $countstars['5']; ?>;
+	
+	jQuery("#rating-bars-five").progressbar({
+            value: fivestars
+	});
+	jQuery("#rating-bars-four").progressbar({
+	    value: fourstars
+	});
+	jQuery("#rating-bars-three").progressbar({
+	    value: threestars
+	});
+	jQuery("#rating-bars-two").progressbar({
+	    value: twostars
+	});
+	jQuery("#rating-bars-one").progressbar({
+	    value: onestars
+	});
+                
+        jQuery('.review_form').click(function(){
+            jQuery('.form-add').css('display','block');
+        });
+        
+        jQuery("div.holder").jPages({
+            containerID : "content",
+            perPage: 1
+        });
+    });
+</script>

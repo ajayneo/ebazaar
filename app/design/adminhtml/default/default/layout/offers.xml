@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+  <offers_adminhtml_offers_index>
+	<reference name="content">
+	  <block type="offers/adminhtml_offers" name="offers" />
+	</reference>
+  </offers_adminhtml_offers_index>
+</layout>

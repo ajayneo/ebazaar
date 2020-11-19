@@ -1,0 +1,60 @@
+<?php $jobs = $this->getJobs(); ?>
+<div class="page-title default-title">
+    <h2><?php echo $this->__('CULTURE'); ?></h2>
+</div>
+<div class="static-content">
+    <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('career')->toHtml(); ?>
+<?php if($jobs->getSize() > 0): ?>
+    <div class="careers-listing new-careers-listing">
+        
+        <h1><?php echo $this->__('Job Openings'); ?></h1>
+        <div class="tab">
+            <?php $flag = 1;?>
+            <?php foreach($jobs as $job): ?>
+              <button class="tablinks" onclick="openCity(event, 'tab-<?php echo $flag;?>')"><?php echo $job->getTitle(); ?></button>
+            <?php $flag = $flag + 1; endforeach; ?>
+        </div>
+        <ul>
+            <?php $counter=1;?>
+            <?php foreach($jobs as $job): ?>
+                <li id="tab-<?php echo $counter?>" class="tabcontent  cms-page-view">
+                    <div class="left-job new-static-content">
+<!--                        <h2 class="job-title"><?php // echo 'Job Description'; ?></h2>-->
+                        <div class="job-des"><?php echo $job->getJde(); ?></div>
+                        <p class="no-position"><?php echo $this->__('No of positions') ?>: <span><?php echo $job->getNumPositions(); ?></span></p>
+                        <p class="exp-required"><?php echo $this->__('Experience required'); ?>: <span><?php echo $job->getExperience(); ?></span></p>
+                    </div>
+                    <div class="right-button">
+                        <a class="button btn-address" href="mailto:<?php echo $job->getEmail(); ?>?subject=Application%20for%20<?php echo $job->getTitle(); ?>">Apply Now</a>
+                    </div>
+                </li>
+            <?php $counter = $counter +1;  endforeach; ?>
+        </ul>
+    </div>
+<?php else: ?>
+    <p><?php echo $this->__('There are currently no job openings.'); ?></p>
+<?php endif; ?>
+
+</div>
+
+
+<script>
+    jQuery(function($){
+        $(document).ready(function(){
+            openCity(event, 'tab-1');
+        });
+    });
+function openCity(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+</script>

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+  <deliveryvalidator_adminhtml_deliveryvalidatorbackend_index>
+	<reference name="content">
+	  <block type="deliveryvalidator/adminhtml_deliveryvalidatorbackend" name="deliveryvalidatorbackend" template="deliveryvalidator/deliveryvalidatorbackend.phtml"/>
+	</reference>
+  </deliveryvalidator_adminhtml_deliveryvalidatorbackend_index>
+  <deliveryvalidator_adminhtml_deliveryvalidator_index>
+	<reference name="content">
+	  <block type="deliveryvalidator/adminhtml_deliveryvalidator" name="deliveryvalidator" />
+	</reference>
+  </deliveryvalidator_adminhtml_deliveryvalidator_index>
+</layout>

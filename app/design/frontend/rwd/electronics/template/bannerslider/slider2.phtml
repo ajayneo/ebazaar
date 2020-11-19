@@ -1,0 +1,39 @@
+<?php
+$block_data = $this->getBlockData();
+$blocks = $block_data['block'];
+$banners = $block_data['banners'];
+$click_url = $this->getUrl('bannerslider/index/click');
+?>
+<link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('css/jquery.bxslider.css') ?>">
+<script type="text/javascript" src="<?php echo $this->getSkinUrl('js/jquery.bxslider.min.js') ?>"></script>
+
+
+
+<div class="slideshow banner"><!-- slideshow starts --> 
+            <ul class="bxslider">
+				<?php foreach ($banners as $banner): ?>
+				<li>
+					<img src="<?php echo $this->getBannerImage($banner['image']); ?>" title="<?php echo $banner['name']; ?>" alt="MyGetwell store" /></li>
+				
+				<?php endforeach; ?>   
+            </ul>
+            <div class="banner_button"><a href="#" title="Shop Now">shop now</a></div>
+</div><!-- slideshow ends -->
+
+<script type="text/javascript">	
+	 jQuery('.bxslider').bxSlider({
+  		mode: 'fade',
+  		captions: true,
+		pager:false,
+		auto:true
+	 });
+	 jQuery('.bxslider2').bxSlider({
+  		mode: 'fade',
+  		captions: false,
+		pager:false,
+		auto:true,
+		controls:false
+	 });
+</script>
+	 
+	 

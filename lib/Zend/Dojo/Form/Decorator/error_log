@@ -1,0 +1,10 @@
+[08-Oct-2018 16:05:43 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Dojo_Form_Decorator_DijitContainer' not found in /home/electronicsbazaa/public_html/lib/Zend/Dojo/Form/Decorator/DijitForm.php on line 39
+[08-Oct-2018 16:05:43 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Dojo_Form_Decorator_DijitContainer' not found in /home/electronicsbazaa/public_html/lib/Zend/Dojo/Form/Decorator/AccordionPane.php on line 37
+[08-Oct-2018 16:05:43 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Dojo_Form_Decorator_DijitContainer' not found in /home/electronicsbazaa/public_html/lib/Zend/Dojo/Form/Decorator/TabContainer.php on line 37
+[08-Oct-2018 16:05:43 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Form_Decorator_ViewHelper' not found in /home/electronicsbazaa/public_html/lib/Zend/Dojo/Form/Decorator/DijitElement.php on line 44
+[08-Oct-2018 16:05:43 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Dojo_Form_Decorator_DijitContainer' not found in /home/electronicsbazaa/public_html/lib/Zend/Dojo/Form/Decorator/ContentPane.php on line 37
+[08-Oct-2018 16:05:44 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Dojo_Form_Decorator_DijitContainer' not found in /home/electronicsbazaa/public_html/lib/Zend/Dojo/Form/Decorator/StackContainer.php on line 37
+[08-Oct-2018 16:05:44 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Dojo_Form_Decorator_DijitContainer' not found in /home/electronicsbazaa/public_html/lib/Zend/Dojo/Form/Decorator/SplitContainer.php on line 37
+[08-Oct-2018 16:05:44 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Form_Decorator_Abstract' not found in /home/electronicsbazaa/public_html/lib/Zend/Dojo/Form/Decorator/DijitContainer.php on line 43
+[08-Oct-2018 16:05:44 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Dojo_Form_Decorator_DijitContainer' not found in /home/electronicsbazaa/public_html/lib/Zend/Dojo/Form/Decorator/AccordionContainer.php on line 37
+[08-Oct-2018 16:05:44 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Dojo_Form_Decorator_DijitContainer' not found in /home/electronicsbazaa/public_html/lib/Zend/Dojo/Form/Decorator/BorderContainer.php on line 37

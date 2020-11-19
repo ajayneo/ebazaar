@@ -1,0 +1,1 @@
+[08-Oct-2018 16:06:19 Asia/Kolkata] PHP Fatal error:  Interface 'Zend_Queue_Stomp_FrameInterface' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Queue/Stomp/Frame.php on line 39

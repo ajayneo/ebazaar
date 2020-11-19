@@ -1,0 +1,46 @@
+<script type="text/javascript" charset="utf-8">
+    $(document).observe('dom:loaded', function() {
+        new FancyZoom('social_lightbox');
+                $('social_lightbox').click();
+    });
+</script>
+
+<a href="#social_lightbox_box" id="social_lightbox"></a>
+<div id="social_lightbox_box">
+    <div id="social_lightbox_box_items">
+        <?php $productCounter = 0; ?>
+        <?php
+        foreach ($this->getProducts() as $item) :
+            if ($productCounter++ == 5) {
+                break;
+            }
+            $product = Mage::getModel('catalog/product')->load($item->getProductId());
+            ?>
+            <div class="product">
+                <h2><?php echo $product->getName(); ?></h2>
+
+                <div class="content">
+                    <div class="image">
+                        <?php
+                        $_helper = $this->helper('catalog/output');
+                        $_img = '<img src="' . $this->helper('catalog/image')->init($product, 'image')->resize(140) . '"  />';
+                        echo $_helper->productAttribute($product, $_img, 'image');
+                        ?>
+                    </div>
+                    <div class="description">
+                        <?php echo Mage::helper('core/string')->truncate($product->getShortDescription(), 200); ?>
+                    </div>
+                </div>
+                <div class="social-media-buttons popup <?php echo $this->helper('shareyourpurchase')->getIconsStyleClass() ?>">
+                    <div class="product-share">
+                        <ul class="products-grid">
+                            <?php echo $this->getChildHtml('social.facebook'); ?>
+                            <?php echo $this->getChildHtml('social.twitter'); ?>
+                            <?php echo $this->getChildHtml('social.pinterest'); ?>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    </div>
+</div>

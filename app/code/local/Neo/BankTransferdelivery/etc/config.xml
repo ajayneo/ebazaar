@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Neo_BankTransferdelivery>
+      <version>0.1.0</version>
+    </Neo_BankTransferdelivery>
+  </modules>
+  <global>
+    <helpers>
+      <banktransferdelivery>
+        <class>Neo_BankTransferdelivery_Helper</class>
+      </banktransferdelivery>
+    </helpers>
+	<blocks>
+	  <banktransferdelivery>
+		<class>Neo_BankTransferdelivery_Block</class>
+	  </banktransferdelivery>
+	</blocks>
+	<models>
+	  <banktransferdelivery>
+		<class>Neo_BankTransferdelivery_Model</class>
+		<resourceModel>banktransferdelivery_mysql4</resourceModel>
+	  </banktransferdelivery>
+	  <banktransferdelivery_mysql4>
+		<class>Neo_BankTransferdelivery_Model_Mysql4</class>
+		<entities>		  
+			  <delivery>
+				<table>neo_bank_transfer_delivery</table>
+			  </delivery>
+        </entities>
+	  </banktransferdelivery_mysql4>
+	</models>
+
+	<resources>
+	  <banktransferdelivery_setup>
+		<setup>
+		  <module>Neo_BankTransferdelivery</module>
+		</setup>
+		<connection>
+		  <use>core_setup</use>
+		</connection>
+	  </banktransferdelivery_setup>
+	  <banktransferdelivery_write>
+		<connection>
+		  <use>core_write</use>
+		</connection>
+	  </banktransferdelivery_write>
+	  <banktransferdelivery_read>
+		<connection>
+		  <use>core_read</use>
+		</connection>
+	  </banktransferdelivery_read>
+	</resources>
+
+		<events>
+            <sales_order_place_after>
+                <observers>
+                    <delivery_sales_order_observer>
+                        <type>singleton</type>
+                        <class>Neo_BankTransferdelivery_Model_Observer</class>
+                        <method>export_new_order</method>
+                    </delivery_sales_order_observer>
+                </observers>
+            </sales_order_place_after> 
+        </events>
+  </global>
+  <admin>
+	<routers>
+	  <banktransferdelivery>
+	    <use>admin</use>
+		<args>
+		  <module>Neo_BankTransferdelivery</module>
+		  <frontName>admin_banktransferdelivery</frontName>
+		</args>
+	  </banktransferdelivery>
+	</routers>
+  </admin>
+  <adminhtml>
+	<menu>
+	  <banktransferdelivery module="banktransferdelivery">
+		<title>BankTransferdelivery</title>
+		<sort_order>100</sort_order>
+		<children>
+		  <delivery module="banktransferdelivery">
+		    <title>Manage Delivery</title>
+			<sort_order>0</sort_order>
+			<action>admin_banktransferdelivery/adminhtml_delivery</action>
+		  </delivery>
+		</children>
+	  </banktransferdelivery>
+	</menu>
+	<acl>
+	  <resources>
+		<all>
+		  <title>Allow Everything</title>
+		</all>
+		<admin>
+		  <children>
+			<banktransferdelivery translate="title" module="banktransferdelivery">
+			  <title>BankTransferdelivery</title>
+			  <sort_order>1000</sort_order>
+			  <children>
+		  <delivery translate="title">
+			<title>Manage Delivery</title>
+			<sort_order>0</sort_order>
+		  </delivery>
+			  </children>
+			</banktransferdelivery>
+		  </children>
+		</admin>
+	  </resources>
+	</acl>
+	<layout>
+	  <updates>
+		<banktransferdelivery>
+		  <file>banktransferdelivery.xml</file>
+		</banktransferdelivery>
+	  </updates>
+	</layout>
+  </adminhtml>
+</config> 

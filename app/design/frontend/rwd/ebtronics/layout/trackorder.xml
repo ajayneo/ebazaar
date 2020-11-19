@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+	<default>
+    </default>
+    <trackorder_order_index>
+    	<reference name="root">
+			<action method="setTemplate"><template>page/1column.phtml</template></action>
+		</reference>
+		<reference name="head">
+			<action method="setData" translate="title"><key>title</key><value>Track Order</value></action>
+		</reference>
+		<reference name="breadcrumbs">
+            <action method="addCrumb">
+                <crumbName>Home</crumbName>
+                <crumbInfo>
+                    <label>Home</label>
+                    <title>Home</title>
+                    <link>/</link>
+                </crumbInfo>
+            </action>
+            
+            <action method="addCrumb">
+                <crumbName>trackorder</crumbName>
+                <crumbInfo>
+                    <label>Track Your Order</label>
+                    <title>Track Your Order</title>
+                </crumbInfo>
+            </action>
+        </reference>
+		<reference name="content">
+            <block type="trackorder/details" name="track.order" template="trackorder/form.phtml">
+			</block>
+            <block type="customblocks/index" name="ajax-addtocompare" as="ajax-addtocompare" template="customblocks/addtocompare.phtml" />
+	    <block type="reports/product_viewed" name="track_recently_viewed" as="track_recently_viewed" template="reports/product_viewed.phtml" />
+        </reference>
+        <reference name="right">		
+			<block type="core/template" name="facebook_box" before="-" template="cms/facebook_box.phtml" />
+    		<block type="newsletter/subscribe" name="right.newsletter" template="newsletter/subscribe.phtml"/>
+    	</reference>
+    </trackorder_order_index>
+    <trackorder_order_ajax>
+		<block type="trackorder/details" name="root" template="trackorder/updater.phtml" />
+    </trackorder_order_ajax>
+</layout>

@@ -1,0 +1,1 @@
+[08-Oct-2018 16:04:52 Asia/Kolkata] PHP Fatal error:  Class 'Varien_Image_Adapter_Abstract' not found in /home/electronicsbazaa/public_html/lib/Varien/Image/Adapter/Gd2.php on line 29

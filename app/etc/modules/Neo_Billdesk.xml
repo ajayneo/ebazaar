@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config>
+    <modules>
+        <Neo_Billdesk>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Neo_Billdesk>
+    </modules>
+</config>

@@ -1,0 +1,249 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     default_default
+ * @copyright   Copyright (c) 2014 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+
+<?php if (is_array($this->getChild('diagrams')->getTabsIds())) : ?>
+<script type="text/javascript">
+//<![CDATA[
+function changeDiagramsPeriod(periodObj) {
+    periodParam = periodObj.value ? 'period/' + periodObj.value + '/' : '';
+<?php foreach ($this->getChild('diagrams')->getTabsIds() as $tabId): ?>
+    ajaxBlockParam = 'block/tab_<?php echo $tabId ?>/';
+    ajaxBlockUrl = '<?php echo $this->getUrl('*/*/ajaxBlock', array('_current' => true, 'block' => '', 'period' => '')) ?>' + ajaxBlockParam + periodParam;
+    new Ajax.Request(ajaxBlockUrl, {
+        parameters: {isAjax: 'true', form_key: FORM_KEY},
+        onSuccess: function(transport) {
+            tabContentElementId = '<?php echo $this->getChild('diagrams')->getId() ?>_<?php echo $tabId ?>_content';
+            try {
+                if (transport.responseText.isJSON()) {
+                    var response = transport.responseText.evalJSON()
+                    if (response.error) {
+                        alert(response.message);
+                    }
+                    if(response.ajaxExpired && response.ajaxRedirect) {
+                        setLocation(response.ajaxRedirect);
+                    }
+                } else {
+                    $(tabContentElementId).update(transport.responseText);
+                }
+            }
+            catch (e) {
+                $(tabContentElementId).update(transport.responseText);
+            }
+        }
+    });
+<?php endforeach; ?>
+    ajaxBlockUrl = '<?php echo $this->getUrl('*/*/ajaxBlock', array('_current' => true, 'block' => 'totals', 'period' => '')) ?>' + periodParam;
+    new Ajax.Request(ajaxBlockUrl, {
+        parameters: {isAjax: 'true', form_key: FORM_KEY},
+        onSuccess: function(transport) {
+            tabContentElementId = 'dashboard_diagram_totals';
+            try {
+                if (transport.responseText.isJSON()) {
+                    var response = transport.responseText.evalJSON()
+                    if (response.error) {
+                        alert(response.message);
+                    }
+                    if(response.ajaxExpired && response.ajaxRedirect) {
+                        setLocation(response.ajaxRedirect);
+                    }
+                } else {
+                    $(tabContentElementId).replace(transport.responseText);
+                }
+            }
+            catch (e) {
+                $(tabContentElementId).replace(transport.responseText);
+            }
+        }
+    });
+}
+
+function toggleCal(id) {
+    $('dashboard_'+id+'_cal_div').toggle();
+    $('dashboard_'+id+'_range_div').toggle();
+}
+//]]>
+</script>
+<?php endif; ?>
+<div class="content-header">
+    <table cellspacing="0">
+        <tr>
+            <td><h3 class="head-dashboard"><?php echo $this->__('Dashboard') ?></h3></td>
+        </tr>
+    </table>
+</div>
+<div class="dashboard-container">
+    <?php echo $this->getChildHtml('store_switcher') ?>
+    <table cellspacing="25" width="100%">
+        <tr>
+            <td><?php //echo $this->getChildHtml('sales') ?>
+                <div class="entry-edit">
+                    <div class="entry-edit-head"><h4><?php echo $this->__('Daily Sales Totals') ?></h4></div>
+                    <fieldset class="a-center bold"><span class="nowrap" style="font-size:18px;">
+                            <span class="price"><?php echo $this->helper('neo_sidebanner')->dailyOrderValue(); ?></span>
+                    </fieldset>
+                </div>
+                <div class="entry-edit">
+                    <div class="entry-edit-head"><h4><?php echo $this->__('Total User Registered Today') ?></h4></div>
+                    <fieldset class="a-center bold"><span class="nowrap" style="font-size:18px;">
+                            <span class="price"><?php echo $this->helper('neo_sidebanner')->getRegisterUser(); ?></span>
+                    </fieldset>
+                </div>
+                <div class="entry-edit">
+                    <?php $topFiveAffiliate = $this->helper('neo_sidebanner')->getTopFiveAffiliate(); ?>
+                    <div class="entry-edit-head"><h4><?php echo $this->__('Top 5 Affiliate Of The Day') ?></h4></div>
+                    <fieldset class="np">
+                        <div class="grid np">
+                        <table cellspacing="0" style="border:0;" id="lastOrdersGrid_table">
+                                <colgroup>
+                                    <col>
+                                    <col width="100">
+                                    <col width="100">
+                                </colgroup>
+                                <thead>
+                                    <tr class="headings">
+                                        <th class=" no-link"><span class="nobr">Customer</span></th>
+                                        <th class=" no-link last"><span class="nobr">Total Payable</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($topFiveAffiliate as $key => $value): ?>
+                                        <tr title="" class="pointer">
+                                            <td class=" "><?php echo $key ?></td>
+                                            <td class="a-right a-right last"><?php echo $this->helper('neo_sidebanner')->amountformat($value) ?></td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                        </table>
+                        </div>
+                    </fieldset>  
+                </div>
+                <div class="entry-edit">
+                    <div class="entry-edit-head"><h4><?php echo $this->__('No of unique partner billed') ?></h4></div>
+                    <fieldset class="a-center bold"><span class="nowrap" style="font-size:18px;">
+                            <span class="price"><?php echo $this->helper('neo_sidebanner')->noOfUniquePartherBilled() ?></span>
+                    </fieldset>
+                </div>
+                <div class="entry-edit">
+                    <div class="entry-edit-head"><h4><?php echo $this->__('No of unique partner billed In this month') ?></h4></div>
+                    <fieldset class="a-center bold"><span class="nowrap" style="font-size:18px;">
+                            <span class="price"><?php echo $this->helper('neo_sidebanner')->noOfUniquePartherBilledMonth() ?></span>
+                    </fieldset>
+                </div>
+                <div class="entry-edit">
+                    <?php $topFiveBillingCity = $this->helper('neo_sidebanner')->topFiveBillingCity(); ?>
+                    <div class="entry-edit-head"><h4><?php echo $this->__('Top 5 billing cities') ?></h4></div>
+                    <fieldset class="np">
+                        <div class="grid np">
+                        <table cellspacing="0" style="border:0;" id="lastOrdersGrid_table">
+                                <colgroup>
+                                    <col>
+                                    <col width="100">
+                                    <col width="100">
+                                </colgroup>
+                                <thead>
+                                    <tr class="headings">
+                                        <th class=" no-link"><span class="nobr">City</span></th>
+                                        <th class=" no-link"><span class="nobr">State</span></th>
+                                        <th class=" no-link last"><span class="nobr">Total Payable</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($topFiveBillingCity as $key => $value): ?>
+                                        <?php $cityState = explode(',', $key); ?>
+                                        <tr title="" class="pointer">
+                                            <td class=" "><?php echo $cityState[0] ?></td>
+                                            <td class=" "><?php echo $cityState[1] ?></td>
+                                            <td class="a-right a-right last"><?php echo $this->helper('neo_sidebanner')->amountformat($value) ?></td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                        </table>
+                        </div>
+                    </fieldset>  
+                </div>
+                <div class="entry-edit">
+                    <?php $topFivebrandsunboxed = $this->helper('neo_sidebanner')->topFivebrandsunboxed(); ?>
+                    <div class="entry-edit-head"><h4><?php echo $this->__('Top 5 selling brands') ?></h4></div>
+                    <fieldset class="np">
+                        <div class="grid np">
+                        <table cellspacing="0" style="border:0;" id="lastOrdersGrid_table">
+                                <colgroup>
+                                    <col>
+                                    <col width="100">
+                                    <col width="100">
+                                </colgroup>
+                                <thead>
+                                    <tr class="headings">
+                                        <th class=" no-link"><span class="nobr">Brands</span></th>
+                                        <th class=" no-link"><span class="nobr">Qty</span></th>
+                                        <th class=" no-link last"><span class="nobr">Item</span></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php foreach ($topFivebrandsunboxed as $key => $value): ?>
+                                        <tr title="" class="pointer">
+                                            <td class=" "><?php echo $value['brands'] ?></td>
+                                            <td class=" "><?php echo (int) $value['qty'] ?></td>
+                                            <td class="a-right a-right last"><?php echo $value['item'] ?></td>
+                                        </tr>
+                                    <?php endforeach; ?>
+                                </tbody>
+                        </table>
+                        </div>
+                    </fieldset>  
+                </div>
+                <div class="entry-edit">
+                    <div class="entry-edit-head"><h4><?php echo $this->__('Last 5 Orders') ?></h4></div>
+                    <fieldset class="np"><?php echo $this->getChildHtml('lastOrders'); ?></fieldset>
+                </div>
+                <div class="entry-edit">
+                    <div class="entry-edit-head"><h4><?php echo $this->__('Last 5 Search Terms') ?></h4></div>
+                    <fieldset class="np"><?php echo $this->getChildHtml('lastSearches'); ?></fieldset>
+                </div>
+                <div class="entry-edit">
+                    <div class="entry-edit-head"><h4><?php echo $this->__('Top 5 Search Terms') ?></h4></div>
+                    <fieldset class="np"><?php echo $this->getChildHtml('topSearches'); ?></fieldset>
+                </div>
+            </td>
+            <td>
+                <div class="entry-edit" style="border:1px solid #ccc;">
+                    <?php echo $this->getChildHtml('diagrams') ?>
+                    <?php if (is_array($this->getChild('diagrams')->getTabsIds())) : ?>
+                        <div id="diagram_tab_content"></div>
+                    <?php endif; ?>
+                    <div style="margin:20px;">
+                        <?php echo $this->getChildHtml('totals') ?>
+                    </div>
+                    <div style="margin:20px;">
+                        <?php echo $this->getChildHtml('grids') ?>
+                        <div id="grid_tab_content"></div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>

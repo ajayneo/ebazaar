@@ -1,0 +1,60 @@
+[08-Oct-2018 16:01:04 Asia/Kolkata] PHP Fatal error:  Class 'Zend_View_Abstract' not found in /home/electronicsbazaa/public_html/includes/src/Zend_View.php on line 38
+[08-Oct-2018 16:01:04 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Date_DateObject' not found in /home/electronicsbazaa/public_html/includes/src/Zend_Date.php on line 40
+[08-Oct-2018 16:01:04 Asia/Kolkata] PHP Fatal error:  Interface 'Zend_Validate_Interface' not found in /home/electronicsbazaa/public_html/includes/src/Zend_Form.php on line 34
+[08-Oct-2018 16:01:05 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Mime_Message' not found in /home/electronicsbazaa/public_html/includes/src/Zend_Mail.php on line 53
+[08-Oct-2018 16:01:05 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Gdata_App' not found in /home/electronicsbazaa/public_html/includes/src/Zend_Gdata.php on line 45
+[08-Oct-2018 16:01:05 Asia/Kolkata] PHP Fatal error:  Class 'Varien_Object' not found in /home/electronicsbazaa/public_html/includes/src/Varien_Event.php on line 36
+[08-Oct-2018 16:01:05 Asia/Kolkata] PHP Fatal error:  Class 'Mage_Core_Helper_Abstract' not found in /home/electronicsbazaa/public_html/includes/src/__cms.php on line 32
+[08-Oct-2018 16:01:05 Asia/Kolkata] PHP Fatal error:  Class 'Mage_Core_Block_Template' not found in /home/electronicsbazaa/public_html/includes/src/__catalog.php on line 36
+[08-Oct-2018 16:01:05 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Session_Abstract' not found in /home/electronicsbazaa/public_html/includes/src/Zend_Session.php on line 50
+[08-Oct-2018 16:01:05 Asia/Kolkata] PHP Fatal error:  Class 'Mage_Core_Model_Abstract' not found in /home/electronicsbazaa/public_html/includes/src/__checkout.php on line 57
+[08-Oct-2018 16:01:05 Asia/Kolkata] PHP Fatal error:  The script "class.JavaScriptPacker.php" is required. Please see: http://code.google.com/p/minify/source/browse/trunk/min/lib/Minify/Packer.php in /home/electronicsbazaa/public_html/includes/src/Minify_Packer.php on line 22
+[08-Oct-2018 16:01:05 Asia/Kolkata] PHP Fatal error:  Interface 'Zend_Tag_Taggable' not found in /home/electronicsbazaa/public_html/includes/src/Zend_Tag_Item.php on line 36
+[08-Oct-2018 16:01:06 Asia/Kolkata] PHP Fatal error:  Class 'Varien_Io_Abstract' not found in /home/electronicsbazaa/public_html/includes/src/Varien_Io_Ftp.php on line 36
+[08-Oct-2018 16:01:06 Asia/Kolkata] PHP Warning:  require_once(/home/electronicsbazaa/public_html/downloader/pearlib/php/PEAR.php): failed to open stream: No such file or directory in /home/electronicsbazaa/public_html/includes/src/Varien_Pear.php on line 60
+[08-Oct-2018 16:01:06 Asia/Kolkata] PHP Fatal error:  require_once(): Failed opening required '/home/electronicsbazaa/public_html/downloader/pearlib/php/PEAR.php' (include_path='.:/home/electronicsbazaa/public_html/downloader/pearlib/php:/opt/cpanel/ea-php54/root/usr/share/pear') in /home/electronicsbazaa/public_html/includes/src/Varien_Pear.php on line 60
+[08-Oct-2018 16:01:06 Asia/Kolkata] PHP Fatal error:  Interface 'Zend_Acl_Role_Interface' not found in /home/electronicsbazaa/public_html/includes/src/Zend_Acl_Role.php on line 36
+[08-Oct-2018 16:01:06 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Loader' not found in /home/electronicsbazaa/public_html/includes/src/Varien_Db_Tree.php on line 38
+[08-Oct-2018 16:01:06 Asia/Kolkata] PHP Warning:  require_once(SOAP/Base.php): failed to open stream: No such file or directory in /home/electronicsbazaa/public_html/includes/src/PEAR_SOAP_WSDL.php on line 25
+[08-Oct-2018 16:01:06 Asia/Kolkata] PHP Fatal error:  require_once(): Failed opening required 'SOAP/Base.php' (include_path='.:/opt/cpanel/ea-php54/root/usr/share/pear') in /home/electronicsbazaa/public_html/includes/src/PEAR_SOAP_WSDL.php on line 25
+[08-Oct-2018 16:01:06 Asia/Kolkata] PHP Fatal error:  Class 'Varien_Io_Abstract' not found in /home/electronicsbazaa/public_html/includes/src/Varien_Io_File.php on line 36
+[08-Oct-2018 16:01:06 Asia/Kolkata] PHP Warning:  include_once(PEAR5.php): failed to open stream: No such file or directory in /home/electronicsbazaa/public_html/includes/src/PEAR_PEAR_PEAR.php on line 730
+[08-Oct-2018 16:01:06 Asia/Kolkata] PHP Warning:  include_once(): Failed opening 'PEAR5.php' for inclusion (include_path='.:/opt/cpanel/ea-php54/root/usr/share/pear') in /home/electronicsbazaa/public_html/includes/src/PEAR_PEAR_PEAR.php on line 730
+[08-Oct-2018 16:01:06 Asia/Kolkata] PHP Fatal error:  Class 'Varien_Io_Abstract' not found in /home/electronicsbazaa/public_html/includes/src/Varien_Io_Sftp.php on line 37
+[08-Oct-2018 16:01:06 Asia/Kolkata] PHP Warning:  require_once(Mail/mimePart.php): failed to open stream: No such file or directory in /home/electronicsbazaa/public_html/includes/src/PEAR_Mail_mime.php on line 74
+[08-Oct-2018 16:01:06 Asia/Kolkata] PHP Fatal error:  require_once(): Failed opening required 'Mail/mimePart.php' (include_path='.:/opt/cpanel/ea-php54/root/usr/share/pear') in /home/electronicsbazaa/public_html/includes/src/PEAR_Mail_mime.php on line 74
+[08-Oct-2018 16:01:06 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Config' not found in /home/electronicsbazaa/public_html/includes/src/Zend_Config_Xml.php on line 36
+[08-Oct-2018 16:01:06 Asia/Kolkata] PHP Fatal error:  Interface 'Zend_Server_Interface' not found in /home/electronicsbazaa/public_html/includes/src/Zend_Amf_Server.php on line 59
+[08-Oct-2018 16:01:06 Asia/Kolkata] PHP Warning:  require_once(SOAP/Base.php): failed to open stream: No such file or directory in /home/electronicsbazaa/public_html/includes/src/PEAR_SOAP_Value.php on line 25
+[08-Oct-2018 16:01:06 Asia/Kolkata] PHP Fatal error:  require_once(): Failed opening required 'SOAP/Base.php' (include_path='.:/opt/cpanel/ea-php54/root/usr/share/pear') in /home/electronicsbazaa/public_html/includes/src/PEAR_SOAP_Value.php on line 25
+[08-Oct-2018 16:01:06 Asia/Kolkata] PHP Fatal error:  Class 'Minify' not found in /home/electronicsbazaa/public_html/includes/src/SpeedsterMinify.php on line 4
+[08-Oct-2018 16:01:06 Asia/Kolkata] PHP Strict Standards:  Redefining already defined constructor for class XML_Parser in /home/electronicsbazaa/public_html/includes/src/PEAR_XML_Parser.php on line 227
+[08-Oct-2018 16:01:06 Asia/Kolkata] PHP Deprecated:  Assigning the return value of new by reference is deprecated in /home/electronicsbazaa/public_html/includes/src/PEAR_XML_Parser.php on line 616
+[08-Oct-2018 16:01:06 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Config' not found in /home/electronicsbazaa/public_html/includes/src/Zend_Config_Ini.php on line 36
+[08-Oct-2018 16:01:07 Asia/Kolkata] PHP Fatal error:  Class 'Mage_System_Ftp' not found in /home/electronicsbazaa/public_html/includes/src/Mage_Connect_Ftp.php on line 35
+[08-Oct-2018 16:01:07 Asia/Kolkata] PHP Warning:  include_once(/home/lib/Varien/Autoload.php): failed to open stream: No such file or directory in /home/electronicsbazaa/public_html/includes/src/Varien_Autoload.php on line 9
+[08-Oct-2018 16:01:07 Asia/Kolkata] PHP Warning:  include_once(): Failed opening '/home/lib/Varien/Autoload.php' for inclusion (include_path='.:/opt/cpanel/ea-php54/root/usr/share/pear') in /home/electronicsbazaa/public_html/includes/src/Varien_Autoload.php on line 9
+[08-Oct-2018 16:01:07 Asia/Kolkata] PHP Fatal error:  Class 'Varien_Autoload' not found in /home/electronicsbazaa/public_html/includes/src/Varien_Autoload.php on line 10
+[08-Oct-2018 16:01:07 Asia/Kolkata] PHP Fatal error:  Interface 'Zend_Server_Interface' not found in /home/electronicsbazaa/public_html/includes/src/Zend_Soap_Server.php on line 45
+[08-Oct-2018 16:01:07 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Config' not found in /home/electronicsbazaa/public_html/includes/src/Zend_Config_Yaml.php on line 36
+[08-Oct-2018 16:01:07 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Db_Select' not found in /home/electronicsbazaa/public_html/includes/src/Varien_Db_Select.php on line 54
+[08-Oct-2018 16:01:07 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Config' not found in /home/electronicsbazaa/public_html/includes/src/Zend_Config_Json.php on line 41
+[08-Oct-2018 16:01:07 Asia/Kolkata] PHP Fatal error:  Class 'Varien_Data_Form_Abstract' not found in /home/electronicsbazaa/public_html/includes/src/Varien_Data_Form.php on line 35
+[08-Oct-2018 16:01:07 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Exception' not found in /home/electronicsbazaa/public_html/includes/src/Zend_Xml_Exception.php on line 36
+[08-Oct-2018 16:01:07 Asia/Kolkata] PHP Fatal error:  Class 'Mage_Catalog_Model_Api_Resource' not found in /home/electronicsbazaa/public_html/includes/src/Mage_Tag_Model_Api.php on line 35
+[08-Oct-2018 16:01:07 Asia/Kolkata] PHP Warning:  require_once(SOAP/Base.php): failed to open stream: No such file or directory in /home/electronicsbazaa/public_html/includes/src/PEAR_SOAP_Parser.php on line 25
+[08-Oct-2018 16:01:07 Asia/Kolkata] PHP Fatal error:  require_once(): Failed opening required 'SOAP/Base.php' (include_path='.:/opt/cpanel/ea-php54/root/usr/share/pear') in /home/electronicsbazaa/public_html/includes/src/PEAR_SOAP_Parser.php on line 25
+[08-Oct-2018 16:01:07 Asia/Kolkata] PHP Warning:  require_once(SOAP/Value.php): failed to open stream: No such file or directory in /home/electronicsbazaa/public_html/includes/src/PEAR_SOAP_Client.php on line 26
+[08-Oct-2018 16:01:07 Asia/Kolkata] PHP Fatal error:  require_once(): Failed opening required 'SOAP/Value.php' (include_path='.:/opt/cpanel/ea-php54/root/usr/share/pear') in /home/electronicsbazaa/public_html/includes/src/PEAR_SOAP_Client.php on line 26
+[08-Oct-2018 16:01:07 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Cache_Core' not found in /home/electronicsbazaa/public_html/includes/src/Varien_Cache_Core.php on line 28
+[08-Oct-2018 16:01:07 Asia/Kolkata] PHP Fatal error:  Class 'Mage_Backup_Snapshot' not found in /home/electronicsbazaa/public_html/includes/src/Mage_Backup_Media.php on line 35
+[08-Oct-2018 16:01:07 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Captcha_Base' not found in /home/electronicsbazaa/public_html/includes/src/Zend_Captcha_Word.php on line 38
+[08-Oct-2018 16:01:07 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Validate_Abstract' not found in /home/electronicsbazaa/public_html/includes/src/Zend_Captcha_Base.php on line 40
+[08-Oct-2018 16:01:07 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Captcha_Word' not found in /home/electronicsbazaa/public_html/includes/src/Zend_Captcha_Dumb.php on line 38
+[08-Oct-2018 16:01:07 Asia/Kolkata] PHP Fatal error:  Interface 'Zend_Acl_Resource_Interface' not found in /home/electronicsbazaa/public_html/includes/src/Zend_Acl_Resource.php on line 36
+[08-Oct-2018 16:01:08 Asia/Kolkata] PHP Fatal error:  Class 'Mage_Tag_Model_Tag' not found in /home/electronicsbazaa/public_html/includes/src/Neo_Tag_Model_Tag.php on line 2
+[08-Oct-2018 16:01:08 Asia/Kolkata] PHP Warning:  require_once(Net/Socket.php): failed to open stream: No such file or directory in /home/electronicsbazaa/public_html/includes/src/PEAR_HTTP_Request.php on line 54
+[08-Oct-2018 16:01:08 Asia/Kolkata] PHP Fatal error:  require_once(): Failed opening required 'Net/Socket.php' (include_path='.:/opt/cpanel/ea-php54/root/usr/share/pear') in /home/electronicsbazaa/public_html/includes/src/PEAR_HTTP_Request.php on line 54
+[08-Oct-2018 16:01:08 Asia/Kolkata] PHP Fatal error:  Class 'Mage_Core_Exception' not found in /home/electronicsbazaa/public_html/includes/src/Mage_Tax_Exception.php on line 29
+[08-Oct-2018 16:01:08 Asia/Kolkata] PHP Fatal error:  Class 'Mage_Core_Model_Abstract' not found in /home/electronicsbazaa/public_html/includes/src/Mage_Tag_Model_Tag.php on line 46
+[08-Oct-2018 16:01:08 Asia/Kolkata] PHP Fatal error:  Interface 'Varien_Io_Interface' not found in /home/electronicsbazaa/public_html/includes/src/Varien_Io_Abstract.php on line 36

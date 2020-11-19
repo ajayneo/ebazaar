@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Neo_Salesrulevalidato>
+      <version>0.1.0</version>
+    </Neo_Salesrulevalidato>
+  </modules>
+  <global>
+    <helpers>
+      <salesrulevalidato>
+        <class>Neo_Salesrulevalidato_Helper</class>
+      </salesrulevalidato>
+    </helpers>
+	<models>
+	  <salesrulevalidato>
+		<class>Neo_Salesrulevalidato_Model</class>
+		<resourceModel>salesrulevalidato_mysql4</resourceModel>
+	  </salesrulevalidato>
+	</models>
+    <events>
+	  <salesrule_validator_process> <!-- identifier of the event we want to catch -->
+        <observers>
+          <salesrule_validator_process_handler> <!-- identifier of the event handler -->
+            <type>model</type> <!-- class method call type; valid are model, object and singleton -->
+            <class>salesrulevalidato/observer</class> <!-- observers class alias -->
+            <method>salesruleValidatorProcess</method>  <!-- observer's method to be called -->
+            <args></args> <!-- additional arguments passed to observer -->
+          </salesrule_validator_process_handler>
+        </observers>
+      </salesrule_validator_process>
+    </events>
+  </global>
+</config> 

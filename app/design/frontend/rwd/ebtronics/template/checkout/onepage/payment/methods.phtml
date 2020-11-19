@@ -1,0 +1,136 @@
+<?php
+/**
+ * One page checkout payment methods
+ *
+ * @var $this Mage_Checkout_Block_Onepage_Payment_Methods
+ */
+?>
+<?php
+    $methods = $this->getMethods();
+    // print_r($methods);
+    
+
+    $show_credit_limit = false;
+    $flag_cod = false;
+    if(Mage::getSingleton('customer/session')){
+      $customer = Mage::getSingleton('customer/session')->getCustomer();
+      if($customer){
+        $cart = Mage::getModel('checkout/cart')->getQuote();
+        $user_id = $customer->getId();
+        $credit = Mage::getModel('customapiv6/customer')->getCreditLimit($user_id);            
+        if($credit !== null){
+          $bal_credit = $credit['balance_credit'];
+          $over_due = $credit['overdue_credit'];
+          $grand_total = $cart->getGrandTotal();
+          if($credit['total_credit'] == 1){
+          	$show_credit_limit = false;
+          }else if($bal_credit > $grand_total && $credit['total_credit'] !== 1 && $over_due <= 0){
+            $show_credit_limit = true;
+          }else if($over_due > 0){
+          	$show_credit_limit = false;
+          }else{
+          	$show_credit_limit = false;
+          }
+        }
+
+        foreach ($cart->getAllItems() as $item) {
+          $productName = $item->getProduct()->getDisableCod();//Dell Optiplex 3020MT Mini Tower
+         
+          $produt_id = $item->getProductId();
+          $_prod = Mage::getModel('catalog/product')->load($produt_id);
+          if($_prod->getDisableCod()){
+              $flag_cod = true;
+              break;
+          }
+        }
+      }
+    }
+
+
+    
+
+/*var_dump($flag_cod);
+exit;*/
+
+    $oneMethod = count($methods) <= 1;
+?>
+
+
+<?php if (empty($methods)): ?>
+    <dt>
+        <?php echo $this->__('No Payment Methods') ?>
+    </dt>
+<?php else:
+    foreach ($methods as $_method):
+      $_code = $_method->getCode();
+      if($_code=='cashondelivery')
+      {
+         
+            ?>
+                <dt>
+                <?php if(!$oneMethod): ?>
+                    <input id="p_method_<?php echo $_code ?>" value="<?php echo $_code ?>" type="radio" name="payment[method]" title="<?php echo $this->htmlEscape($_method->getTitle()) ?>" onclick="payment.switchMethod('<?php echo $_code ?>')"<?php if($this->getSelectedMethodCode()==$_code): ?> checked="checked"<?php endif; ?> class="radio" />
+                <?php else: ?>
+                    <span class="no-display"><input id="p_method_<?php echo $_code ?>" value="<?php echo $_code ?>" type="radio" name="payment[method]" checked="checked" class="radio" /></span>
+                    <?php $oneMethod = $_code; ?>
+                <?php endif; ?>
+                    <label for="p_method_<?php echo $_code ?>"><?php echo $this->getMethodTitle($_method) ?> <?php echo $this->getMethodLabelAfterHtml($_method) ?></label>
+                </dt>
+            
+      <?php } //if
+      else if($_code == 'banktransfer'){?>
+
+      <dt>
+    <?php if(!$oneMethod && $show_credit_limit === true): ?>
+        <input id="p_method_<?php echo $_code ?>" value="<?php echo $_code ?>" type="radio" name="payment[method]" title="<?php echo $this->htmlEscape($_method->getTitle()) ?>" onclick="payment.switchMethod('<?php echo $_code ?>')"<?php if($this->getSelectedMethodCode()==$_code): ?> checked="checked"<?php endif; ?> class="radio" />
+      <?php elseif(!$show_credit_limit): ?>
+        <input type="radio" name="" class="radio" disabled/>
+    <?php else: ?>
+        <span class="no-display"><input id="p_method_<?php echo $_code ?>" value="<?php echo $_code ?>" type="radio" name="payment[method]" checked="checked" class="radio" /></span>
+        <?php $oneMethod = $_code; ?>
+    <?php endif; ?>
+
+    <?php if($show_credit_limit === true){ ?>
+        <label for="p_method_<?php echo $_code ?>"><?php echo $this->getMethodTitle($_method) ?> <?php echo $this->getMethodLabelAfterHtml($_method) ?> </label>
+
+    <?php  }else{ ?>
+
+        <label for="p_method_<?php echo $_code ?>">Credit Days (This payment method is not applicable for this transaction)</label>
+    <?php    } ?>
+    </dt>
+
+    <?php }else
+        {
+
+    ?>
+    <dt>
+    <?php if(!$oneMethod): ?>
+        <input id="p_method_<?php echo $_code ?>" value="<?php echo $_code ?>" type="radio" name="payment[method]" title="<?php echo $this->htmlEscape($_method->getTitle()) ?>" onclick="payment.switchMethod('<?php echo $_code ?>')"<?php if($this->getSelectedMethodCode()==$_code): ?> checked="checked"<?php endif; ?> class="radio" />
+    <?php else: ?>
+        <span class="no-display"><input id="p_method_<?php echo $_code ?>" value="<?php echo $_code ?>" type="radio" name="payment[method]" checked="checked" class="radio" /></span>
+        <?php $oneMethod = $_code; ?>
+    <?php endif; ?>
+        <label for="p_method_<?php echo $_code ?>"><?php echo $this->getMethodTitle($_method) ?> <?php echo $this->getMethodLabelAfterHtml($_method) ?></label>
+    </dt>
+    <?php } ?>
+    <?php if ($html = $this->getPaymentMethodFormHtml($_method)): ?>
+    <dd>
+        <?php echo $html; ?>
+    </dd>
+    <?php //endif;
+    endif; 
+    ?>
+<?php endforeach;
+    
+    endif;
+?>  
+<?php echo $this->getChildChildHtml('additional'); ?>
+<script type="text/javascript">
+    //<![CDATA[
+    <?php echo $this->getChildChildHtml('scripts'); ?>
+    payment.init();
+    <?php if (is_string($oneMethod)): ?>
+    payment.switchMethod('<?php echo $oneMethod ?>');
+        <?php endif; ?>
+    //]]>
+</script>

@@ -1,0 +1,10 @@
+[08-Oct-2018 16:06:50 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Search_Lucene_Search_Query' not found in /home/electronicsbazaa/public_html/lib/Zend/Search/Lucene/Search/Query/Term.php on line 36
+[08-Oct-2018 16:06:50 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Search_Lucene_Search_Query' not found in /home/electronicsbazaa/public_html/lib/Zend/Search/Lucene/Search/Query/Fuzzy.php on line 36
+[08-Oct-2018 16:06:50 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Search_Lucene_Search_Query' not found in /home/electronicsbazaa/public_html/lib/Zend/Search/Lucene/Search/Query/Range.php on line 36
+[08-Oct-2018 16:06:50 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Search_Lucene_Search_Query' not found in /home/electronicsbazaa/public_html/lib/Zend/Search/Lucene/Search/Query/Empty.php on line 36
+[08-Oct-2018 16:06:50 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Search_Lucene_Search_Query' not found in /home/electronicsbazaa/public_html/lib/Zend/Search/Lucene/Search/Query/Phrase.php on line 38
+[08-Oct-2018 16:06:51 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Search_Lucene_Search_Query' not found in /home/electronicsbazaa/public_html/lib/Zend/Search/Lucene/Search/Query/Boolean.php on line 36
+[08-Oct-2018 16:06:51 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Search_Lucene_Search_Query' not found in /home/electronicsbazaa/public_html/lib/Zend/Search/Lucene/Search/Query/Wildcard.php on line 36
+[08-Oct-2018 16:06:51 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Search_Lucene_Search_Query' not found in /home/electronicsbazaa/public_html/lib/Zend/Search/Lucene/Search/Query/MultiTerm.php on line 36
+[08-Oct-2018 16:06:51 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Search_Lucene_Search_Query' not found in /home/electronicsbazaa/public_html/lib/Zend/Search/Lucene/Search/Query/Preprocessing.php on line 40
+[08-Oct-2018 16:06:51 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Search_Lucene_Search_Query' not found in /home/electronicsbazaa/public_html/lib/Zend/Search/Lucene/Search/Query/Insignificant.php on line 38

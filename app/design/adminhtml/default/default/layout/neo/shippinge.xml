@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+
+<layout>
+    <adminhtml_sales_order_shipment_new>
+        <reference name="form">
+            <block type="neo_shippinge_block_adminhtml_shipment" name="shipment_options" template="neo/sales/shipping.phtml"/>
+        </reference>
+    </adminhtml_sales_order_shipment_new>
+</layout>

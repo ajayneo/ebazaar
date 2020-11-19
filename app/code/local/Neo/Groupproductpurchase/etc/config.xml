@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Neo_Groupproductpurchase>
+      <version>0.1.0</version>
+    </Neo_Groupproductpurchase>
+  </modules>
+  <global>
+    <helpers>
+      <groupproductpurchase>
+        <class>Neo_Groupproductpurchase_Helper</class>
+      </groupproductpurchase>
+    </helpers>
+	<models>
+	  <groupproductpurchase>
+		<class>Neo_Groupproductpurchase_Model</class>
+		<resourceModel>groupproductpurchase_mysql4</resourceModel>
+	  </groupproductpurchase>
+	</models>
+    <events>
+	  
+	  <sales_quote_remove_item> 
+        <observers>
+          <!--<sales_quote_remove_item_handler> 
+            <type>model</type> 
+            <class>groupproductpurchase/observer</class> 
+            <method>salesQuoteRemoveItem</method>  
+            <args></args> 
+          </sales_quote_remove_item_handler> -->
+        </observers>
+      </sales_quote_remove_item>
+	  <checkout_cart_product_add_after> <!-- identifier of the event we want to catch -->
+        <observers>
+          <!-- <checkout_cart_product_add_after_handler> 
+            <type>model</type> 
+            <class>groupproductpurchase/observer</class> 
+            <method>checkoutCartProductAddAfter</method>  
+            <args></args> 
+          </checkout_cart_product_add_after_handler> -->
+          <!--<checkout_cart_product_add_after_handler> 
+            <type>model</type> 
+            <class>groupproductpurchase/observer</class> 
+            <method>checkoutProductAddAfter</method>  
+            <args></args> 
+          </checkout_cart_product_add_after_handler> -->
+        </observers>
+      </checkout_cart_product_add_after>
+    </events>
+  </global>
+  <frontend>
+    <events>    
+      <checkout_cart_product_add_after>
+            <observers>
+                <enableduplicateproductstatus>
+                    <type>singleton</type>
+                    <class>groupproductpurchase/observer</class>
+                    <method>cartlimit</method>
+                </enableduplicateproductstatus>  
+            </observers>
+        </checkout_cart_product_add_after>
+
+        <checkout_cart_product_add_before>
+            <observers>
+                <enableduplicateproductstatus>
+                    <type>singleton</type>
+                    <class>groupproductpurchase/observer</class>
+                    <method>cartlimitbefore</method>
+                </enableduplicateproductstatus>  
+            </observers>
+        </checkout_cart_product_add_before>
+        
+      <sales_order_place_before> <!-- identifier of the event we want to catch -->
+          <observers>
+            <sales_order_place_before_handler> <!-- identifier of the event handler -->
+              <type>model</type> <!-- class method call type; valid are model, object and singleton -->
+              <class>groupproductpurchase/observer</class> <!-- observers class alias -->
+              <method>salesOrderPlaceBefore</method>  <!-- observer's method to be called -->
+              <args></args> <!-- additional arguments passed to observer -->
+            </sales_order_place_before_handler>
+          </observers>
+        </sales_order_place_before> 
+    </events>
+  </frontend>
+</config> 

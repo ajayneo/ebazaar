@@ -1,0 +1,309 @@
+<!--<link rel="stylesheet" type="text/css" href="http://eb.php-dev.in/skin/frontend/base/default/css/iwd/opc/opc.css" media="all" />-->
+<?php $emailID = ''; $mobile = '';?>
+<?php if (Mage::getSingleton('customer/session')->isLoggedIn()): ?>
+<?php $customer = Mage::getSingleton('customer/session')->getCustomer(); ?>
+<?php $emailID = $customer->getEmail();  ?>
+<?php $mobile = $customer->getMobile();  ?>
+<?php endif; ?>
+<div class="track-container">
+        <div class="track-container-main product-track-order-form">
+          <div class="default-title">
+           <h2>Track order</h2>
+           </div>
+            <div class="top-track my-account my-account-new">
+                
+                    <form id="orderForm" name="orderForm">
+                        <div class="order_form_id">
+                            <label for="orderId" class="required">Order ID</label>
+                            <div class="input-box">
+                                <input type="text" name="order_id" value="" placeholder="500000001" maxlength="9" class="input-text required-entry" id="order_id"/>
+                                <span class="sub-text"><span class="remainingtext">9</span> characters</span>
+                            </div>
+                        </div>
+                        <div class="order_form_email">
+                            <label for="email">Email</label>
+                            <div class="input-box">                                                                
+                                <input type="text" name="order_mail" value="<?php echo $emailID ?>" placeholder="name@example.com" class="input-text validate-email" />
+                                <span class="sub-text">Enter Email ID used to place the order</span>
+                            </div>
+                        </div>
+                        <div class="or-div"><span>OR</span></div>
+                        <div class="order_form_mobile">
+                            <label for="mobile">Mobile</label>
+                            <div class="input-box">                                                                
+                                <input type="text" name="order_mobile" maxlength="10" value="<?php echo $mobile ?>" class="input-text"/>
+                                <span class="sub-text">Enter Mobile Number used to place the order</span>
+                            </div>
+                        </div>
+                        
+                        <!--<?php //if(!Mage::getSingleton("customer/session")->isLoggedIn()) { ?>
+                        
+                        <p><span>Order Id :</span><input type="text" name="order_id" value="" class="input-text required-entry" /></p>
+                        <p><span>Email :</span><input type="text" name="order_mail" value="" class="input-text required-entry validate-email" /></p>
+                        
+                        
+                        <?php //} 
+                            //else { ?>
+                        <select name="order_id" id="order_id" class="input-text required-entry validate-select" title="Select order Id">
+                            <option value="">Select Order</option>
+                            <?php //$orderCollection = $this->getCustomerOrderId();
+                            //foreach($orderCollection AS $order_row)
+                            //{
+                            ?>
+                            <option value="<?php //echo $order_row->getIncrementId() ?>"><?php //echo $order_row->getIncrementId() ?></option>
+                            <?php
+                            //}
+                            ?>
+                        </select>
+                        <?php //} ?>-->
+                        <div class="order_form_track">
+                            <button type="button" id="order_submit" title="track" class="button btn-address"><span><span>track</span></span></button>
+                        </div>
+                        <div class="clr"></div>
+                    </form>
+                </div>
+                <?php if(!Mage::getSingleton("customer/session")->isLoggedIn()) { ?>
+                <div class="divider-or"><span>OR</span></div>
+                <div class="right-login-section">
+                    <h4>Login and do more!</h4>
+                    <div class="login-list">
+                        <ul>
+                            <li>Track individual Orders</li>
+                            <li>View your entire Order history</li>
+                            <li>Cancel individual Orders</li>
+                            <li>Conveniently review products and sellers</li>
+                            <li>
+                                <a href="<?php echo Mage::getUrl('customer/account/login') ?>" class="button btn-address">
+                                    <span>Login</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <?php } ?>
+
+<?php /*
+<!-- <div class="md-modal md-effect-7 login-popup" id="modal-login">
+	<div class="md-content">
+			<div class="md-modal-header">
+				<button type="button" class="close">&times;</button>
+				<h4><?php echo $this->__('Login to your Account')?></h4>
+			</div>
+			<div class="login-sec">	
+				<div class="md-content-wrapper">
+                                <form action="<?php echo Mage::getUrl('customer/account/loginPost/'); ?>" method="post" id="login-form">
+			      		<?php echo $this->getBlockHtml('formkey'); ?>
+				        <div>
+							<ul class="form-list">
+								<li>
+									<label for="email" class="required"><em>*</em><?php echo $this->__('Email Address') ?></label>
+									<div class="input-box">
+										<input type="text" name="login[username]" value="<?php echo $this->escapeHtml($this->getUsername()) ?>" id="email" class="input-text required-entry validate-email" title="<?php echo $this->__('Email Address') ?>" />
+									</div>
+								</li>
+							<li>
+								<label for="pass" class="required"><em>*</em><?php echo $this->__('Password') ?></label>
+								<div class="input-box">
+									<input type="password" name="login[password]" class="input-text required-entry validate-password" id="pass" title="<?php echo $this->__('Password') ?>" />
+								</div>
+							</li>
+							
+							</ul>				
+						</div>
+						<input name="context" type="hidden" value="checkout" />
+						<div class="login-button-set">
+						<input type ="submit" value="Login" name="submit">
+						<a href="<?php echo $this->getForgotPasswordUrl() ?>" class="f-left restore-account"><?php echo $this->__('Forgot Your Password?') ?></a>	        
+						</div>
+					</form>
+					
+
+						
+
+					                                <form action="<?php echo Mage::getUrl('customer/account/forgotpasswordpost/'); ?>" method="post" id="form-validate-email" style="display:none">
+                                	<?php echo $this->getBlockHtml('formkey'); ?>
+									<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>       
+        <p class="restore-account"><?php echo $this->__('Please enter your email address below. You will receive a link to reset your password.') ?></p>
+        <ul class="form-list">
+            <li>
+                <label for="email_address" class="required"><em>*</em><?php echo $this->__('Email') ?></label>
+                <div class="input-box">
+                    <input type="text" name="email" alt="email" id="email_address" class="input-text required-entry validate-email" value="<?php echo $this->htmlEscape($this->getEmailValue()) ?>" />
+                </div>
+            </li>
+        </ul>
+       
+       <div id="forgotpassword-button-set" class="forgotpassword-button">		        	
+       <input type ="submit" value="Submit" name="submit">
+      <p class="back-link"><a href="<?php echo $this->helper('customer')->getLoginUrl() ?>"><small>&laquo; </small><?php echo $this->__('Back to Login') ?></a></p>
+	</div> --> */ ?>
+</form>
+<script type="text/javascript">
+//<![CDATA[
+    var dataForm2 = new VarienForm('form-validate-email', true);
+//]]>
+</script>
+
+				
+	</div>
+</div>
+<div class="md-overlay"></div>	
+	
+	
+<script type="text/javascript">
+    //<![CDATA[
+        var dataForm121 = new VarienForm('login-form',true);
+    //]]>
+</script>
+<div class="clear move-columns"></div>
+
+                
+
+
+
+
+                <div id="loading-mask" style="left: -2px; top: 0px; width: 1351px; height: 1077px; display: none;">
+                    <p class="loader" id="loading_mask_loader"><img src="<?php echo Mage::getUrl().'skin/adminhtml/default/default/images/ajax-loader-tr.gif' ?>" alt="Loading..."><br>Please wait...</p>
+                </div>
+                <div id="order_details"></div>
+        </div>
+    <?php /*  }else{ ?>
+        <div class="track-container-main product-track-order-form account-login account-login-new text-left">
+            <div class="top-track">
+                <?php $customerData = Mage::getSingleton('customer/session')->getCustomer(); ?>
+                <?php $collection = Mage::getModel('sales/order')->getCollection()
+                                    ->addAttributeToSelect('increment_id', $oid)
+                                    ->addAttributeToFilter('customer_email', $customerData->getEmail());
+                ?>
+                <form id="orderForm" name="orderForm">
+                    <input type="hidden" name="order_mail" value="<?php echo $customerData->getEmail(); ?>" />
+                    <div class="input-box">
+                        <select class="required-entry" name="order_id" id='billing:country_id'>
+                            <option value="">Please Select Order</option>
+                            <?php foreach($collection as $orderid): ?>
+                                <option value="<?php echo $orderid->getIncrementId(); ?>"><?php echo $orderid->getIncrementId(); ?></option>
+                            <?php endforeach; ?>
+                        </select>                        
+                    </div>
+                    <div class="order_form_track">
+                            <button type="button" id="order_submit" title="track" class="button btn-address"><span><span>track</span></span></button>
+                        </div>
+                        <div class="clr"></div>
+                </form>
+            </div>
+            <div id="loading-mask" style="left: -2px; top: 0px; width: 1351px; height: 1077px; display: none;">
+                <p class="loader" id="loading_mask_loader"><img src="<?php echo Mage::getUrl().'skin/adminhtml/default/default/images/ajax-loader-tr.gif' ?>" alt="Loading..."><br>Please wait...</p>
+            </div>
+            <div id="order_details"></div>
+        </div>    
+    <?php } */  ?>
+</div>
+<div class="shareurpopup">
+	<div class="share-you-purchase-popup">
+	</div>	
+</div>
+<script type="text/javascript">
+    var orderForm = new VarienForm('orderForm', true);
+    jQuery('input[name=order_id]').keyup(function(){
+        var entered_char = jQuery(this).val().length;
+        var remained_char = 9 - entered_char;
+        if(remained_char >= 0){
+            jQuery('span.remainingtext').text(remained_char);
+        }
+    });
+
+    jQuery('#login-button-set .btn').click(function(){
+    	var dataForm = new VarienForm('login-form', true);
+		if (!dataForm.validator.validate()){
+    		return;
+		}
+		jQuery('.opc-ajax-loader').css('display','block');
+		jQuery.post(
+    		'<?php echo $this->getUrl("customblocks/index/loginpost") ?>',
+    		jQuery("#login-form").serialize(),
+    		function(data){
+    			jQuery('.opc-ajax-loader').css('display','none');	
+    			var result = eval("(" + data + ")");
+    			if (result.logined){
+        			location.reload();
+    			}else{
+        			// Login failed.
+        			alert("Login failed");
+
+    			}
+			});
+    });
+
+    jQuery('#forgotpassword-button-set .btn').click(function(){
+    	var dataForm = new VarienForm('form-validate-email', true);
+		if (!dataForm.validator.validate()){
+    		return;
+		}
+		jQuery('#form-validate-email').submit();
+    });
+
+    jQuery('#order_submit').click(function() {		
+        if (orderForm.validator.validate()) {
+        	//console.log(jQuery('#orderForm').serialize());
+                // jQuery('.opc-ajax-loader').css('display','block');
+            //jQuery('#loading-mask').show();
+            // jQuery.ajax({
+            //     //url : 'order/ajax',
+            //     url : 'ajax',
+            //     type : 'POST',
+            //     data : jQuery('#orderForm').serialize(),
+            //     success : function(data)
+            //     {
+            //         //console.log(data);
+            //         jQuery('.opc-ajax-loader').css('display','none');
+            //         //jQuery('#loading-mask').hide();
+            //         jQuery('#order_details').html(data);
+            //         jQuery('html,body').animate({
+            //             scrollTop: jQuery(".track-container").offset().top
+            //             }, 1000);
+            //     }
+            // });
+            if(jQuery("input[name=order_mobile]").val() || jQuery("input[name=order_mail]").val()){                
+                var url = '<?php echo Mage::getBaseUrl(); ?>trackyourorder/index/trackorder?order=' + jQuery("input[name=order_id]").val() + '&email=' + jQuery("input[name=order_mail]").val() + '&mobile=' + jQuery("input[name=order_mobile]").val();
+                window.location.href = url;
+            }
+            else{
+                alert('Please enter eighter email or mobile no.');
+            }
+        }
+    });    
+
+
+
+
+    jQuery('.login-trigger').click(function(e){
+				e.preventDefault();
+				jQuery('#modal-login').addClass('md-show');
+			});
+			
+			jQuery(document).on('click','.md-modal .close', function(e){
+				e.preventDefault();
+				jQuery('.md-modal').removeClass('md-show');
+			});
+			
+			jQuery(document).on('click', '.restore-account', function(e){
+				e.preventDefault();
+				jQuery('#login-form').hide();jQuery('#login-button-set').hide();
+				jQuery('#form-validate-email').fadeIn();jQuery('#forgotpassword-button-set').show();
+			});
+			
+			
+			/*jQuery('#forgotpassword-button-set .btn').click(function(){
+				var form = jQuery('#form-validate-email').serializeArray();
+				IWD.OPC.Checkout.showLoader();
+				IWD.OPC.Checkout.xhr = jQuery.post(IWD.OPC.Checkout.config.baseUrl + 'onepage/json/forgotpassword',form, IWD.OPC.Login.prepareResponse,'json');
+			});*/
+			
+			
+			jQuery('#forgotpassword-button-set .back-link').click(function(e){
+				e.preventDefault();
+				jQuery('#form-validate-email').hide();jQuery('#forgotpassword-button-set').hide();
+				jQuery('#login-form').fadeIn();jQuery('#login-button-set').show();
+				
+			});
+</script>

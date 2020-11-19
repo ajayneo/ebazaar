@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <tabs>
+        <shipmentdelete translate="label" module="custom">
+            <label>Neo Shipment</label>
+            <sort_order>110</sort_order>
+        </shipmentdelete>
+    </tabs>
+    <sections>
+        <shipmentdelete_section translate="label" module="custom">
+            <label>Delete Shipment</label>
+            <tab>shipmentdelete</tab>
+            <sort_order>1000</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <shipmentdelete_group translate="label" module="custom">
+                    <label>Delete shipment</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1100</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <shipmentdelete_enabled translate="label">
+                            <label>Enabled: </label>
+                            <comment>Source model provider Magento's default Yes/No values</comment>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </shipmentdelete_enabled>
+                        <shipmentdelete_orderno translate="label">
+                            <label>Enter Order number: </label>
+                            <comment>Incremental order number</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </shipmentdelete_orderno>
+                    </fields>
+                </shipmentdelete_group>
+            </groups>
+        </shipmentdelete_section>
+    </sections>
+</config>

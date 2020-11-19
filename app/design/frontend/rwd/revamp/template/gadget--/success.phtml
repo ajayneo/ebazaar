@@ -1,0 +1,38 @@
+<?php Mage::getSingleton('core/session')->unsSygform(); ?>
+<?php 
+$path = null;
+$domain = null;
+$secure = null;
+$httponly = null;
+Mage::getModel('core/cookie')->delete('syghome', $path, $domain, $secure, $httponly); 
+Mage::getModel('core/cookie')->delete('syg-pincode', $path, $domain, $secure, $httponly); 
+  $group_id = 0;
+  if(Mage::getSingleton('customer/session')){
+      $_customer = Mage::getSingleton('customer/session')->getCustomer();
+      $group_id = $_customer->getGroupId();
+  }
+?>
+<div class="new-gadget-container new-gadget-home-page">
+	<div class="new-gadget-content">
+		<div class="gadget-brand-whitebox-bg2 gadget-thank-you-page">
+        <img class="thank-you-img" src="https://www.electronicsbazaar.com/skin/frontend/rwd/ebtronics/images/ebt/thank-you-img.png" alt="Thank You !">
+        <div class="gadget-thank-you-page__text">
+        	<p>Your details have been submitted successfully.</p>
+        	<div class="order-id-container">Your Ticket ID is  <span class="thank-you-page__text__order-id"><?php echo Mage::getSingleton('core/session')->getOrderId() ?></span></div>
+        	<p>Please refer to your Email for Invoicing and Packaging instructions</p>
+            <p><b>            
+            <?php //if($group_id == '5'){ ?>
+<!--             <a href="https://www.electronicsbazaar.com/gadget/lenovo/"> Go to Home Page</a> -->
+            <?php //}else{ ?>
+<!--             <a href="<?php //echo $this->getUrl('gadget'); ?>"> Go to Home Page</a> -->
+            <?php //} ?>
+          </b></p>          
+      	</div>
+      	<div class="gadget-icon-bg-btm"><img src="https://www.electronicsbazaar.com/skin/frontend/rwd/ebtronics/images/ebt/gadget-mobile-laptop-icon.png"></div>
+        
+        <!-- <div class="successImg"></div>
+        <p>Please refer your email for Invoicing and Packaging Instruction</p>
+        <a href="http://www.electronicsbazaar.com/gadget/" > GO BACK </a> --> 
+    </div>
+  </div>
+</div>

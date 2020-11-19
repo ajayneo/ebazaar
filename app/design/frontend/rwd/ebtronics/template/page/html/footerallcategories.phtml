@@ -1,0 +1,10 @@
+<?php 
+$index_block = new Neo_Customblocks_Block_Index();
+$categories = $index_block->getAllCategories(); 
+?>
+<div class="block-title"><strong><span>Shop By Category</span></strong></div>
+<ul>
+<?php foreach($categories as $category): ?>
+	<li><a title="<?php echo $category->getName(); ?>" href="<?php echo $category->getUrl(); ?>"><?php echo $category->getName(); ?></a></li>
+<?php endforeach; ?>
+</ul>

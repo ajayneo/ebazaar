@@ -1,0 +1,11 @@
+[08-Oct-2018 16:04:35 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Pdf_Destination_Explicit' not found in /home/electronicsbazaa/public_html/lib/Zend/Pdf/Destination/Fit.php on line 50
+[08-Oct-2018 16:04:35 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Pdf_Destination_Explicit' not found in /home/electronicsbazaa/public_html/lib/Zend/Pdf/Destination/Zoom.php on line 50
+[08-Oct-2018 16:04:35 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Pdf_Destination' not found in /home/electronicsbazaa/public_html/lib/Zend/Pdf/Destination/Explicit.php on line 40
+[08-Oct-2018 16:04:35 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Pdf_Destination_Explicit' not found in /home/electronicsbazaa/public_html/lib/Zend/Pdf/Destination/Unknown.php on line 36
+[08-Oct-2018 16:04:35 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Pdf_Destination' not found in /home/electronicsbazaa/public_html/lib/Zend/Pdf/Destination/Named.php on line 46
+[08-Oct-2018 16:04:35 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Pdf_Destination_Explicit' not found in /home/electronicsbazaa/public_html/lib/Zend/Pdf/Destination/FitRectangle.php on line 50
+[08-Oct-2018 16:04:35 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Pdf_Destination_Explicit' not found in /home/electronicsbazaa/public_html/lib/Zend/Pdf/Destination/FitVertically.php on line 48
+[08-Oct-2018 16:04:35 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Pdf_Destination_Explicit' not found in /home/electronicsbazaa/public_html/lib/Zend/Pdf/Destination/FitBoundingBox.php on line 50
+[08-Oct-2018 16:04:35 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Pdf_Destination_Explicit' not found in /home/electronicsbazaa/public_html/lib/Zend/Pdf/Destination/FitHorizontally.php on line 48
+[08-Oct-2018 16:04:35 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Pdf_Destination_Explicit' not found in /home/electronicsbazaa/public_html/lib/Zend/Pdf/Destination/FitBoundingBoxHorizontally.php on line 49
+[08-Oct-2018 16:04:35 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Pdf_Destination_Explicit' not found in /home/electronicsbazaa/public_html/lib/Zend/Pdf/Destination/FitBoundingBoxVertically.php on line 48

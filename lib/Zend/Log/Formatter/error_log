@@ -1,0 +1,4 @@
+[08-Oct-2018 16:04:35 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Log_Formatter_Abstract' not found in /home/electronicsbazaa/public_html/lib/Zend/Log/Formatter/Xml.php on line 35
+[08-Oct-2018 16:04:35 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Log_Formatter_Abstract' not found in /home/electronicsbazaa/public_html/lib/Zend/Log/Formatter/Firebug.php on line 34
+[08-Oct-2018 16:04:35 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Log_Formatter_Abstract' not found in /home/electronicsbazaa/public_html/lib/Zend/Log/Formatter/Simple.php on line 35
+[08-Oct-2018 16:04:35 Asia/Kolkata] PHP Fatal error:  Interface 'Zend_Log_Formatter_Interface' not found in /home/electronicsbazaa/public_html/lib/Zend/Log/Formatter/Abstract.php on line 38

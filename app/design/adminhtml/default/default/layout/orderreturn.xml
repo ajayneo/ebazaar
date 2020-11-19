@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+  <orderreturn_adminhtml_return_index>
+	<reference name="content">
+	  <block type="orderreturn/adminhtml_return" name="return" />
+	  <!-- <block type="orderreturn/adminhtml_return" name="return">
+	  	<block type="orderreturn/adminhtml_return_edit_tab_form" name="return_edit_tab_form">
+	  </block> -->
+	</reference>
+  </orderreturn_adminhtml_return_index>
+</layout>

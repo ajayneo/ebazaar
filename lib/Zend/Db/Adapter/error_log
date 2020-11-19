@@ -1,0 +1,5 @@
+[08-Oct-2018 16:04:31 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Db_Adapter_Abstract' not found in /home/electronicsbazaa/public_html/lib/Zend/Db/Adapter/Db2.php on line 47
+[08-Oct-2018 16:04:31 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Db_Adapter_Abstract' not found in /home/electronicsbazaa/public_html/lib/Zend/Db/Adapter/Sqlsrv.php on line 41
+[08-Oct-2018 16:04:31 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Db_Adapter_Abstract' not found in /home/electronicsbazaa/public_html/lib/Zend/Db/Adapter/Mysqli.php on line 53
+[08-Oct-2018 16:04:31 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Db_Adapter_Abstract' not found in /home/electronicsbazaa/public_html/lib/Zend/Db/Adapter/Oracle.php on line 41
+[08-Oct-2018 16:04:31 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Db_Exception' not found in /home/electronicsbazaa/public_html/lib/Zend/Db/Adapter/Exception.php on line 36

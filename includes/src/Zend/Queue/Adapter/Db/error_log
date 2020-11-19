@@ -1,0 +1,2 @@
+[08-Oct-2018 16:07:09 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Db_Table_Abstract' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Queue/Adapter/Db/Message.php on line 36
+[08-Oct-2018 16:07:09 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Db_Table_Abstract' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Queue/Adapter/Db/Queue.php on line 36

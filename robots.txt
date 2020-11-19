@@ -1,0 +1,161 @@
+User-agent: *
+
+# Paths (clean URLs)
+Disallow: /ebteam
+Disallow: /wishlist/
+Disallow: /js/
+Disallow: /media/catalog/
+Disallow: /skin/
+Disallow: /admin/
+Disallow: /catalogsearch/
+Disallow: /review/
+Disallow: /includes/
+Disallow: /lib/
+Disallow: /l/
+Disallow: /neweb/
+Disallow: /admin_microsoft/
+Disallow: /microsoft-validation/
+Disallow: /lenovo/
+Disallow: /lenovoprogram/
+
+# Paths (No clean URLs)
+Disallow: /*?brands=*
+Disallow: /*?price=*
+Disallow: /*?dir=*
+Disallow: /*?cat=*
+Disallow: /*?sim_type=*
+Disallow: /*?resolution=*
+Disallow: /*?storage_capacity=*
+Disallow: /*?ram=*
+Disallow: /*?SID=*
+Disallow: /*?expandable_storage_capacity=*
+Disallow: /*?screen_size=*
+Disallow: /*?operating_system=*
+Disallow: /*?warranty=*
+Disallow: /*?screen_details=*
+Disallow: /*?cpu=*
+Disallow: /*?limit=*
+Disallow: /*?android=*
+Disallow: /*?optical_drive=*
+
+# Files
+Disallow: / api.php
+Disallow: / cron.php
+Disallow: / cron.sh
+Disallow: / error_log
+Disallow: / get.php
+Disallow: / install.php
+Disallow: / LICENSE.html
+Disallow: / LICENSE.txt
+Disallow: / LICENSE_AFL.txt
+Disallow: / README.txt
+Disallow: / RELEASE_NOTES.txt
+
+# Alexa
+User-agent: ia_archiver
+Disallow: /ebteam
+Disallow: /wishlist/
+Disallow: /js/
+Disallow: /media/catalog/
+Disallow: /skin/
+Disallow: /admin/
+Disallow: /catalogsearch/
+Disallow: /review/
+Disallow: /includes/
+Disallow: /lib/
+Disallow: /l/
+Disallow: /*?brands=*
+Disallow: /*?price=*
+Disallow: /*?dir=*
+Disallow: /*?cat=*
+Disallow: /*?sim_type=*
+Disallow: /*?resolution=*
+Disallow: /*?storage_capacity=*
+Disallow: /*?ram=*
+Disallow: /*?SID=*
+Disallow: /*?expandable_storage_capacity=*
+Disallow: /*?screen_size=*
+Disallow: /*?operating_system=*
+Disallow: /*?warranty=*
+Disallow: /*?screen_details=*
+Disallow: /*?cpu=*
+Disallow: /*?limit=*
+Disallow: /*?android=*
+Disallow: /*?optical_drive=*
+Disallow: / api.php
+Disallow: / cron.php
+Disallow: / cron.sh
+Disallow: / error_log
+Disallow: / get.php
+Disallow: / install.php
+Disallow: / LICENSE.html
+Disallow: / LICENSE.txt
+Disallow: / LICENSE_AFL.txt
+Disallow: / README.txt
+Disallow: / RELEASE_NOTES.txt
+Disallow: /neweb/
+Disallow: /admin_microsoft/
+Disallow: /microsoft-validation/
+Disallow: /lenovo/
+Disallow: /lenovoprogram/
+
+User-agent: alexabot
+Disallow: /ebteam
+Disallow: /wishlist/
+Disallow: /js/
+Disallow: /media/catalog/
+Disallow: /skin/
+Disallow: /admin/
+Disallow: /catalogsearch/
+Disallow: /review/
+Disallow: /includes/
+Disallow: /lib/
+Disallow: /l/
+Disallow: /*?brands=*
+Disallow: /*?price=*
+Disallow: /*?dir=*
+Disallow: /*?cat=*
+Disallow: /*?sim_type=*
+Disallow: /*?resolution=*
+Disallow: /*?storage_capacity=*
+Disallow: /*?ram=*
+Disallow: /*?SID=*
+Disallow: /*?expandable_storage_capacity=*
+Disallow: /*?screen_size=*
+Disallow: /*?operating_system=*
+Disallow: /*?warranty=*
+Disallow: /*?screen_details=*
+Disallow: /*?cpu=*
+Disallow: /*?limit=*
+Disallow: /*?android=*
+Disallow: /*?optical_drive=*
+Disallow: / api.php
+Disallow: / cron.php
+Disallow: / cron.sh
+Disallow: / error_log
+Disallow: / get.php
+Disallow: / install.php
+Disallow: / LICENSE.html
+Disallow: / LICENSE.txt
+Disallow: / LICENSE_AFL.txt
+Disallow: / README.txt
+Disallow: / RELEASE_NOTES.txt
+Disallow: /neweb/
+Disallow: /admin_microsoft/
+Disallow: /microsoft-validation/
+Disallow: /lenovo/
+Disallow: /lenovoprogram/
+Disallow: /microsoft-products/
+Disallow: /microsoft-products/
+Disallow: /microsoft-products/
+Disallow: /microsoft-products/
+Disallow: /microsoft-products/
+Disallow: /microsoft-products/
+
+#sitemap: https://www.electronicsbazaar.com/sitemap.xml
+Sitemap: http://www.electronicsbazaar.com/sitemap.xml
+
+User-agent: Googlebot
+Disallow:
+User-agent: Googlebot-image
+Disallow:

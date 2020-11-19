@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config>
+    <modules>
+        <Neo_SMS>
+            <version>0.0.1</version>
+        </Neo_SMS>
+    </modules>
+    <global>
+        <models>
+            <sms>
+                <class>Neo_SMS_Model</class>
+            </sms>
+        </models>
+        <helpers>
+            <sms>
+                <class>Neo_SMS_Helper</class>
+            </sms>
+        </helpers>
+        <events>
+            <sales_order_status_after>
+                <observers>
+                    <send_sms_on_confirmation_of_order>
+                        <type>singleton</type>
+                        <class>Neo_SMS_Model_Observer</class>
+                        <method>confirmation_of_order</method>
+                    </send_sms_on_confirmation_of_order>
+                </observers>
+                <observers>
+                    <send_sms_on_confirmation_of_shipment>
+                        <type>singleton</type>
+                        <class>Neo_SMS_Model_Observer</class>
+                        <method>confirmation_of_shipment</method>
+                    </send_sms_on_confirmation_of_shipment>
+                </observers>
+            </sales_order_status_after>
+            <checkout_onepage_controller_success_action>
+                <observers>
+                    <send_sms_on_order_success>
+                        <type>singleton</type>
+                        <class>Neo_SMS_Model_Observer</class>
+                        <method>order_success</method>
+                    </send_sms_on_order_success>
+                </observers>
+            </checkout_onepage_controller_success_action>
+        </events>
+    </global>
+    <crontab>
+        <jobs>
+            <send_dob_sms>
+                <schedule>
+                    <!--<cron_expr>*/5 * * * *</cron_expr>-->
+                    <cron_expr>0 1 * * *</cron_expr>
+                </schedule>
+                <run>
+                    <model>sms/observer::send_dob_wish_sms</model>
+                </run>
+            </send_dob_sms>
+        </jobs>
+    </crontab>
+</config>

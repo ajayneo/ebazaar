@@ -1,0 +1,48 @@
+<div class="facebook-button">
+    <script src='https://connect.facebook.net/en_US/all.js'></script>
+    <div class="socialContainer">
+        <a class="pointer" onclick='postToFeed(); return false;'>
+            <span title="<?php echo $this->__('Post to Facebook Feed') ?>"class="facebookImage"></span>
+        </a>
+    </div>
+</div>
+<script type="text/javascript">
+    FB.init({appId: "<?php echo $this->getAppId(); ?>", status: true, cookie: true});
+
+    function saveFacebookStatistics() {
+        var orderIncrementId = undefined;
+        
+        <?php $orderIncrementId = $this->getLayout()->getBlock('social')->getOrderIncrementId(); ?>
+        <?php if ($orderIncrementId): ?>
+        var orderIncrementId = <?php echo $orderIncrementId; ?>;
+        <?php endif; ?>
+            
+        var productName = '<?php echo $this->getProductName(); ?>';
+        new Ajax.Request("<?php echo $this->getUrl('social/statistics/save'); ?>", {
+            method: "post",
+            parameters: {orderIncrementId: orderIncrementId, provider: 'Facebook', productName: productName}
+        });
+    }
+
+    function postToFeed() {
+        var obj = {
+            method: 'feed',
+            redirect_uri: '<?php echo $this->getRedirectUrl() ?>',
+            link: '<?php echo $this->getAttachedLink() ?>',
+            picture: '<?php echo $this->getPictureUrl() ?>',
+            name: '<?php echo $this->getMainText() ?>',
+            caption: '<?php echo $this->getCaption() ?>',
+            description: '<?php echo $this->getDescription() ?>'
+        };
+
+        function callback(response) {
+            window.close();
+            saveFacebookStatistics();
+        }
+
+        FB.ui(obj, callback);
+    }
+  
+</script>
+
+

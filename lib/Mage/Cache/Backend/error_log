@@ -1,0 +1,2 @@
+[08-Oct-2018 16:04:50 Asia/Kolkata] PHP Fatal error:  Class 'Cm_Cache_Backend_Redis' not found in /home/electronicsbazaa/public_html/lib/Mage/Cache/Backend/Redis.php on line 68
+[08-Oct-2018 16:04:50 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Cache_Backend_File' not found in /home/electronicsbazaa/public_html/lib/Mage/Cache/Backend/File.php on line 66

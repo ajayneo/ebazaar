@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+  <vexpressawb_adminhtml_vexpress_index>
+	<reference name="content">
+	  <block type="vexpressawb/adminhtml_vexpress" name="vexpress" />
+	</reference>
+  </vexpressawb_adminhtml_vexpress_index>
+</layout>

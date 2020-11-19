@@ -1,0 +1,15 @@
+<?php
+// Retrieve order
+$getSession =Mage::getSingleton('core/session')->getMsg();
+$getChecksum =Mage::getSingleton('core/session')->getChecksum();
+$urlto_submit = Mage::getStoreConfig('payment/billdesk_ccdc_net/urlto_submit');
+
+Mage::log("Message at the form ".$getSession,null,'neo_billdesk.log');
+//Mage::log($getChecksum,null,'sessionr.log');
+?>
+<form name='billdeskform' method='POST' action='<?php echo $urlto_submit; ?>'>
+    <input type='hidden' name='msg' value='<?php echo $getSession; ?>' />
+</form>
+<script type="text/javascript">
+document.billdeskform.submit();
+</script>

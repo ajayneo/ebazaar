@@ -1,0 +1,63 @@
+<?php 
+$_code = $this->getMethodCode();
+$banks = $this->getBanks();
+?>
+<ul class="form-list" id="payment_form_<?php echo $_code ?>" style="display:none;">
+	<li>
+		<span class="input-box">
+			<select name="payment[bankcode]" onchange="displayplans(this.value)" style="width: 200px;" id="emi_available_banks" class="validate-select required-entry">
+				<option value="" name="------Select Bank------" style="font-weight: bold; text-align: center; font-style: normal;">------Select your bank------</option>
+				<?php foreach($banks as $code => $name) { ?>
+					<option value="<?=$code?>"><?=$name?></option>
+				<?php } ?>
+			</select>
+		</span>
+	</li>
+	<?php foreach($banks as $code => $name) { $tenures = $this->getBankEmi($code);?>
+	<li class="emi_plans" id="bank_code_<?=$code?>" style="display:none;max-width:300px;overflow-x:scroll;">
+	<span style="font-size: 10px;">Please Note: the interest % shown below is an annualized rates. Actual EMI charges depend on your tenure</span>
+		<table cellpadding="50" cellspacing="50" style="width: 550px;">
+			<tr style="height:30px;">
+				<td>&nbsp;</td>
+				<td style="width: 70px;"><h5>Months</h5></td>
+				<td><h5>Interest(%)</h5></td>
+				<td style="width: 85px;"><h5>Interest Amount(INR)</h5></td>
+				<td style="width: 85px;"><h5>Processing Fee(%)</h5></td>
+				<td style="width: 65px;"><h5>EMI(INR)</h5></td>
+				<td><h5>Transaction Amount</h5></td>
+				<td style="width: 85px;"><h5>Total Amount(INR)</h5></td>
+			</tr>
+			<?php foreach($tenures as $tenureCode => $tenure) {
+				if($tenure['interest'] == 0) { continue; }?>
+				<tr style="height:30px;">
+					<td><input class="validate-one-required-by-name" type="radio" checked="checked" name="payment[tenurecode]" value="<?=$tenureCode?>"></td>
+					<td><h5><?=$tenure['duration']?></h5></td>
+					<td><?=$tenure['interest']?></td>
+					<td><?=$tenure['interest_amount']?></td>
+					<td><?=$tenure['processingFee']?></td>
+					<td><?=$tenure['installment']?></td>
+					<td><?=$tenure['transaction_amount']?></td>
+					<td><?=$tenure['including_inr']?></td>
+				</tr>
+			<?php } ?>
+			</script>
+		</table>
+		<span style="font-size: 10px;">*Taxes will be applicable on the interest paid to bank.</span>
+	</li>
+	<?php } ?>
+</ul>
+<div>
+    <?php // echo $this->getMethod()->getConfigData('message');?>
+</div>
+<script>
+	function displayplans(banks) 
+	{
+		jQuery('.emi_plans').css('display','none');
+		jQuery('li [bank_code='+banks+']').css('display','block');
+	}
+	jQuery(document).on('change', '#emi_available_banks', function() {
+		jQuery('.emi_plans').css('display','none');
+		//jQuery('li.emi_plans [bank_code='+this.value+']').css('display','block');
+		document.getElementById('bank_code_'+this.value).style.display = 'block';
+	});
+</script>

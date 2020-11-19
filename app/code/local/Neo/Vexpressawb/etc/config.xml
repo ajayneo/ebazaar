@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Neo_Vexpressawb>
+      <version>0.1.0</version>
+    </Neo_Vexpressawb>
+  </modules>
+  <global>
+    <helpers>
+      <vexpressawb>
+        <class>Neo_Vexpressawb_Helper</class>
+      </vexpressawb>
+    </helpers>
+	<blocks>
+	  <vexpressawb>
+		<class>Neo_Vexpressawb_Block</class>
+	  </vexpressawb>
+	</blocks>
+	<models>
+	  <vexpressawb>
+		<class>Neo_Vexpressawb_Model</class>
+		<resourceModel>vexpressawb_mysql4</resourceModel>
+	  </vexpressawb>
+	  <vexpressawb_mysql4>
+		<class>Neo_Vexpressawb_Model_Mysql4</class>
+		<entities>		  
+			  <vexpress>
+				<table>neo_vexpress_awb_no</table>
+			  </vexpress>
+        </entities>
+	  </vexpressawb_mysql4>
+	</models>
+	<resources>
+	  <vexpressawb_setup>
+		<setup>
+		  <module>Neo_Vexpressawb</module>
+		</setup>
+		<connection>
+		  <use>core_setup</use>
+		</connection>
+	  </vexpressawb_setup>
+	  <vexpressawb_write>
+		<connection>
+		  <use>core_write</use>
+		</connection>
+	  </vexpressawb_write>
+	  <vexpressawb_read>
+		<connection>
+		  <use>core_read</use>
+		</connection>
+	  </vexpressawb_read>
+	</resources>
+  </global>
+  <admin>
+	<routers>
+	  <vexpressawb>
+	    <use>admin</use>
+		<args>
+		  <module>Neo_Vexpressawb</module>
+		  <frontName>admin_vexpressawb</frontName>
+		</args>
+	  </vexpressawb>
+	</routers>
+  </admin>
+  <adminhtml>
+	<menu>
+	  <vexpressawb module="vexpressawb">
+		<title>V-Express Awb</title>
+		<sort_order>100</sort_order>
+		<children>
+		  <vexpress module="vexpressawb">
+		    <title>Manage V-Express Awb Numbers</title>
+			<sort_order>0</sort_order>
+			<action>admin_vexpressawb/adminhtml_vexpress</action>
+		  </vexpress>
+		</children>
+	  </vexpressawb>
+	</menu>
+	<acl>
+	  <resources>
+		<all>
+		  <title>Allow Everything</title>
+		</all>
+		<admin>
+		  <children>
+			<vexpressawb translate="title" module="vexpressawb">
+			  <title>V-Express Awb</title>
+			  <sort_order>1000</sort_order>
+			  <children>
+		  <vexpress translate="title">
+			<title>Manage Vexpress</title>
+			<sort_order>0</sort_order>
+		  </vexpress>
+			  </children>
+			</vexpressawb>
+		  </children>
+		</admin>
+	  </resources>
+	</acl>
+	<layout>
+	  <updates>
+		<vexpressawb>
+		  <file>vexpressawb.xml</file>
+		</vexpressawb>
+	  </updates>
+	</layout>
+  </adminhtml>
+</config> 

@@ -1,0 +1,183 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     base_default
+ * @copyright   Copyright (c) 2012 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<!-- ############# Start code for confirm OTP form (Code by JP)############## -->
+  <?php 
+  $mobile     = '';
+  $pay_method = Mage::getSingleton('checkout/session')->getQuote()->getPayment()->getMethodInstance()->getTitle();
+  if(Mage::getSingleton('customer/session')->isLoggedIn()) {
+     $customerData = Mage::getSingleton('customer/session')->getCustomer();
+     $mobile = $customerData->getMobile();
+  } 
+  //code for get the session.
+  $show_otp_flag = 'Yes';
+  $show = 'none'; 
+  $session_orderpin = Mage::getSingleton('core/session')->getEBPin();
+  Mage::log('EB Pin', null, 'order-confirm.log', true);
+  Mage::log($session_orderpin, null, 'order-confirm.log', true);
+  $count = 0;  
+  $count = Mage::getSingleton('core/session')->getCountEBPin();
+  Mage::log('OTP Count :'.$count, null, 'order-confirm.log', true);
+  if(!empty($session_orderpin) && $pay_method == 'Cash On Delivery')
+   {
+     $show_otp_flag = 'No';
+     $show = 'block'; 
+   }
+   if($count >= 2)
+   {
+     $show = 'none';
+   }     
+  ?>
+  <input type="hidden" name="confirm_otp_flag" id="confirm_otp_flag" value="<?php echo $show_otp_flag; ?>" />      
+  <input type="hidden" name="confirm_otp_mobile" id="confirm_otp_mobile" value="<?php echo $mobile; ?>" />
+  <input type="hidden" name="otp_count" id="otp_count" value="<?php echo $count; ?>" />
+<div class="new-gadget-popup-container order-otp" style="display:<?php echo $show; ?>;">
+    <div class="new-gadget-popup-inner-content">
+      <span class="new-gadget-close-popup order-otp-close-popup">X</span>
+  <div class="order-otp-form order-confirm">                        
+  <div class="default-title">
+      <h1>Please enter your EB PIN sent to you via SMS and Email</h1>
+  </div>
+  <div id="succ-mes1" class="succ-mes1" name="succ-mes1"></div>
+  <div id="err-mes1" class="err-mes1" name="err-mes1"></div>
+  <div id="otp-input-box" name="otp-input-box">
+  <input type="text" name="confirm_otp" id="confirm_otp" placeholder="Enter your EB Pin here..."></input>
+  </div> 
+    <div class="order-otp-button-container">
+        <button type="button" class="button btn-address" id="order-confirm-btn" onclick="return submitConfirmOtp()" title="<?php echo $this->__('Confirm EB Pin') ?>" ><span><span>Confirm</span></span></button>
+        <button type="button" class="button btn-address" id="order-resend-btn" onclick="return resendOtp()" title="<?php echo $this->__('Resend EB Pin') ?>" ><span><span>Resend</span></span></button>
+    </div>
+  </div>
+  <div class="opc-ajax-loader">
+  <div id="floatingCirclesG">
+  <div class="f_circleG" id="frotateG_01"></div>
+  <div class="f_circleG" id="frotateG_02"></div>
+  <div class="f_circleG" id="frotateG_03"></div>
+  <div class="f_circleG" id="frotateG_04"></div>
+  <div class="f_circleG" id="frotateG_05"></div>
+  <div class="f_circleG" id="frotateG_06"></div>
+  <div class="f_circleG" id="frotateG_07"></div>
+  <div class="f_circleG" id="frotateG_08"></div>
+  </div>
+</div>
+ </div>
+</div>
+<!-- ############# End code for comfirm OTP form (Code by JP) ############## -->
+<script>
+function submitConfirmOtp()
+{  
+    jQuery('#succ-mes1').html('');
+    jQuery('#err-mes1').html('');
+    jQuery('.opc-btn-checkout').addClass('button-disabled');    
+    //jQuery('#order-confirm-btn').addClass('button-disabled');
+    var url = "<?php echo $this->getUrl('onepage/json/confirmorderotp') ?>";        
+    var confirm_otp = jQuery('#confirm_otp').val(); 
+    var confirm_otp_mobile = jQuery('#confirm_otp_mobile').val();
+              
+    if(confirm_otp == ''){
+        jQuery('#err-mes1').html('EB Pin can not be empty');
+        return false;
+    }
+    if(isNaN(confirm_otp)){
+        jQuery('#err-mes1').html('Please enter number only');
+        return false;
+    }    
+    jQuery.ajax({
+        url: url,
+        data: {confirm_otp:confirm_otp,confirm_otp_mobile:confirm_otp_mobile},   
+        type: 'POST',
+        dataType: 'json',
+        beforeSend: function(){ //alert('test');
+            jQuery('.order-otp').css('display', 'none');            
+            jQuery('.opc-ajax-loader').css('display', 'block');                
+        },          
+        success: function(data) {
+            console.log(data);
+            if(data.status){
+	              jQuery('.opc-btn-checkout').removeClass('button-disabled');
+                jQuery('#confirm_otp_flag').val('No');                 
+                //jQuery('#succ-mes1').html(data.message);
+                jQuery('.opc-btn-checkout').click();		
+            }
+            else
+            {
+	             jQuery('.opc-btn-checkout').addClass('button-disabled');
+               //jQuery('#order-confirm-btn').removeClass('button-disabled');
+               jQuery('.order-otp').css('display', 'block');
+               jQuery('#err-mes1').html(data.message);
+	             return false;
+            }
+        },
+      complete: function(){          
+          jQuery('.opc-ajax-loader').css('display', 'none');                          
+      }         
+    }); 
+}
+
+function resendOtp()
+{	
+  var url = "<?php echo $this->getUrl('ebpin/index/sendOrderEbPin') ?>";
+  var mobile = jQuery('#confirm_otp_mobile').val();
+  var count  = jQuery('#otp_count').val();
+  if(count >= 2)
+  {
+    jQuery('#err-mes1').html('You have exceeded max number of tries');
+    return false;
+  }
+  else
+  {
+    var total_count = ++count;
+    jQuery('#otp_count').val(total_count);
+  }
+  jQuery.ajax({
+      url: url,
+      data: {mobile: mobile},   
+      type: 'POST',
+      dataType: 'json',
+      beforeSend: function(){ //alert('test');
+          jQuery('.order-otp').css('display', 'none');            
+          jQuery('.opc-ajax-loader').css('display', 'block');                
+      },        
+      success: function(data) {
+  	// console.log(data);
+  	if(data.status){
+  	    // alert(data.message);		    
+  	    }
+      },
+      complete: function(){          
+          jQuery('.opc-ajax-loader').css('display', 'none');                          
+          jQuery('.order-otp').css('display', 'block');
+      }           
+  });
+ }
+
+jQuery( document ).ready(function() {
+  jQuery(".order-otp-close-popup").click(function(){
+      jQuery(".order-otp").fadeOut("slow");
+      jQuery('.opc-btn-checkout').removeClass('button-disabled');
+  });
+});
+</script>

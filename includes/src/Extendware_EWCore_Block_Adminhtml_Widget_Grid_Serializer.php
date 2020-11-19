@@ -1,0 +1,6 @@
+<?php
+
+class Extendware_EWCore_Block_Adminhtml_Widget_Grid_Serializer extends Extendware_EWCore_Block_Mage_Adminhtml_Widget_Grid_Serializer
+{
+
+}

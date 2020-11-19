@@ -1,0 +1,139 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @category   Biztech
+ * @package    Biztech_Ecommercetracking
+ * @author     ModuleCreator
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ -->
+<config>
+    <modules>
+        <Biztech_Ecommercetracking>
+            <version>0.1.0</version>
+        </Biztech_Ecommercetracking>
+    </modules>
+    <frontend>
+        <routers>
+            <ecommercetracking>
+                <use>standard</use>
+                <args>
+                    <module>Biztech_Ecommercetracking</module>
+                    <frontName>ecommercetracking</frontName>
+                </args>
+            </ecommercetracking>
+        </routers>
+        <layout>
+            <updates>
+                <ecommercetracking>
+                    <file>ecommercetracking.xml</file>
+                </ecommercetracking>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+        <routers>
+			<ecommercetracking>
+				<use>admin</use>
+				<args>
+					<module>Biztech_Ecommercetracking</module>
+					<frontName>ecommercetracking</frontName>
+				</args>
+			</ecommercetracking>
+        </routers>
+    </admin>
+    <adminhtml>
+	<!--	<menu>
+			<ecommercetracking module="ecommercetracking">
+				<title>Ecommercetracking</title>
+				<sort_order>71</sort_order>               
+				<children>
+					<items module="ecommercetracking">
+						<title>Manage Items</title>
+						<sort_order>0</sort_order>
+						<action>ecommercetracking/adminhtml_ecommercetracking</action>
+					</items>
+				</children>
+			</ecommercetracking>
+		</menu>-->
+		<acl>
+			<resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+				<admin>
+					<children>
+						<Biztech_Ecommercetracking>
+							<title>Ecommercetracking Module</title>
+							<sort_order>10</sort_order>
+						</Biztech_Ecommercetracking>
+                         <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <ecommercetracking>
+                                            <title>Ecommerce Tracking</title>
+                                        </ecommercetracking>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+		<layout>
+			<updates>
+				<ecommercetracking>
+					<file>ecommercetracking.xml</file>
+				</ecommercetracking>
+			</updates>
+		</layout>
+    </adminhtml>   
+    <global>
+        <models>
+            <ecommercetracking>
+                <class>Biztech_Ecommercetracking_Model</class>
+                <resourceModel>ecommercetracking_mysql4</resourceModel>
+            </ecommercetracking>
+            <ecommercetracking_mysql4>
+                <class>Biztech_Ecommercetracking_Model_Mysql4</class>
+                <entities>
+                    <ecommercetracking>
+                        <table>ecommercetracking</table>
+                    </ecommercetracking>
+                </entities>
+            </ecommercetracking_mysql4>
+        </models>
+        <resources>
+            <ecommercetracking_setup>
+                <setup>
+                    <module>Biztech_Ecommercetracking</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </ecommercetracking_setup>
+            <ecommercetracking_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </ecommercetracking_write>
+            <ecommercetracking_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </ecommercetracking_read>
+        </resources>
+        <blocks>
+            <ecommercetracking>
+                <class>Biztech_Ecommercetracking_Block</class>
+            </ecommercetracking>
+        </blocks>
+        <helpers>
+            <ecommercetracking>
+                <class>Biztech_Ecommercetracking_Helper</class>
+            </ecommercetracking>
+        </helpers>
+    </global>
+</config>

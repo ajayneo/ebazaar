@@ -1,0 +1,6 @@
+[08-Oct-2018 16:07:03 Asia/Kolkata] PHP Fatal error:  Interface 'Zend_Tool_Framework_Manifest_Interface' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Tool/Framework/Manifest/Indexable.php on line 30
+[08-Oct-2018 16:07:03 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Tool_Framework_Exception' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Tool/Framework/Manifest/Exception.php on line 35
+[08-Oct-2018 16:07:03 Asia/Kolkata] PHP Fatal error:  Interface 'Zend_Tool_Framework_Registry_EnabledInterface' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Tool/Framework/Manifest/Repository.php on line 35
+[08-Oct-2018 16:07:03 Asia/Kolkata] PHP Fatal error:  Interface 'Zend_Tool_Framework_Manifest_Interface' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Tool/Framework/Manifest/ActionManifestable.php on line 35
+[08-Oct-2018 16:07:03 Asia/Kolkata] PHP Fatal error:  Interface 'Zend_Tool_Framework_Manifest_Interface' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Tool/Framework/Manifest/MetadataManifestable.php on line 35
+[08-Oct-2018 16:07:03 Asia/Kolkata] PHP Fatal error:  Interface 'Zend_Tool_Framework_Manifest_Interface' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Tool/Framework/Manifest/ProviderManifestable.php on line 35

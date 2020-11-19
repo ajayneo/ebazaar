@@ -1,0 +1,13 @@
+[08-Oct-2018 16:06:15 Asia/Kolkata] PHP Fatal error:  Class 'Zend_XmlRpc_Value_Collection' not found in /home/electronicsbazaa/public_html/includes/src/Zend/XmlRpc/Value/Array.php on line 38
+[08-Oct-2018 16:06:15 Asia/Kolkata] PHP Fatal error:  Class 'Zend_XmlRpc_Value_Scalar' not found in /home/electronicsbazaa/public_html/includes/src/Zend/XmlRpc/Value/Nil.php on line 38
+[08-Oct-2018 16:06:15 Asia/Kolkata] PHP Fatal error:  Class 'Zend_XmlRpc_Value_Collection' not found in /home/electronicsbazaa/public_html/includes/src/Zend/XmlRpc/Value/Struct.php on line 38
+[08-Oct-2018 16:06:15 Asia/Kolkata] PHP Fatal error:  Class 'Zend_XmlRpc_Value_Scalar' not found in /home/electronicsbazaa/public_html/includes/src/Zend/XmlRpc/Value/Double.php on line 38
+[08-Oct-2018 16:06:15 Asia/Kolkata] PHP Fatal error:  Class 'Zend_XmlRpc_Value' not found in /home/electronicsbazaa/public_html/includes/src/Zend/XmlRpc/Value/Scalar.php on line 38
+[08-Oct-2018 16:06:15 Asia/Kolkata] PHP Fatal error:  Class 'Zend_XmlRpc_Value_Scalar' not found in /home/electronicsbazaa/public_html/includes/src/Zend/XmlRpc/Value/Base64.php on line 38
+[08-Oct-2018 16:06:15 Asia/Kolkata] PHP Fatal error:  Class 'Zend_XmlRpc_Value_Scalar' not found in /home/electronicsbazaa/public_html/includes/src/Zend/XmlRpc/Value/String.php on line 36
+[08-Oct-2018 16:06:15 Asia/Kolkata] PHP Fatal error:  Class 'Zend_XmlRpc_Value_Scalar' not found in /home/electronicsbazaa/public_html/includes/src/Zend/XmlRpc/Value/Integer.php on line 38
+[08-Oct-2018 16:06:15 Asia/Kolkata] PHP Fatal error:  Class 'Zend_XmlRpc_Value_Scalar' not found in /home/electronicsbazaa/public_html/includes/src/Zend/XmlRpc/Value/Boolean.php on line 38
+[08-Oct-2018 16:06:15 Asia/Kolkata] PHP Fatal error:  Class 'Zend_XmlRpc_Exception' not found in /home/electronicsbazaa/public_html/includes/src/Zend/XmlRpc/Value/Exception.php on line 38
+[08-Oct-2018 16:06:15 Asia/Kolkata] PHP Fatal error:  Class 'Zend_XmlRpc_Value_Integer' not found in /home/electronicsbazaa/public_html/includes/src/Zend/XmlRpc/Value/BigInteger.php on line 37
+[08-Oct-2018 16:06:15 Asia/Kolkata] PHP Fatal error:  Class 'Zend_XmlRpc_Value_Scalar' not found in /home/electronicsbazaa/public_html/includes/src/Zend/XmlRpc/Value/DateTime.php on line 38
+[08-Oct-2018 16:06:15 Asia/Kolkata] PHP Fatal error:  Class 'Zend_XmlRpc_Value' not found in /home/electronicsbazaa/public_html/includes/src/Zend/XmlRpc/Value/Collection.php on line 38

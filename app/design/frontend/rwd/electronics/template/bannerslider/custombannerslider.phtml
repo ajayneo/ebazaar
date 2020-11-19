@@ -1,0 +1,194 @@
+<div class="main-new-banner-container clearfix">
+
+<?php
+  $result = $this->getBlockData();
+  $banners = $result['banners'];
+  $skin_url = Mage::getDesign()->getSkinUrl();
+?>
+<?php /*?>
+<div class="flashy-banner clearfix"> 
+  <div class="big-sale-banner clearfix">
+   <a onClick="ga('send', 'event', { eventCategory: 'home-banner', eventAction: 'click', eventLabel: 'good-friday-2017'});" href="https://www.electronicsbazaar.com/deals/">
+    <span class="good-friday-sale-container"><span class="friday-sale"><img src="http://180.149.246.49/electronicsbazaar/skin/frontend/rwd/electronics/customs/images/happy-good-friday-sale.png"></span>
+    <span class="certified-text"><img src="http://180.149.246.49/electronicsbazaar/skin/frontend/rwd/electronics/customs/images/certified.png"></span>
+    <span class="preowned-text"><img src="http://180.149.246.49/electronicsbazaar/skin/frontend/rwd/electronics/customs/images/preowned-text.png"></span>
+    <span class="eb-warranty">**All Pre-Owned Products carries 1 year EB Warranty**</span></span>
+    <span class="shop-great-deals animated"><img src="http://180.149.246.49/electronicsbazaar/skin/frontend/rwd/electronics/customs/images/shop-great-deals.png"></span>
+    <span class="sale-product"><img src="http://180.149.246.49/electronicsbazaar/skin/frontend/rwd/electronics/customs/images/products.png"></span>
+   </a>
+  </div>
+  <div class="mobile-banner-container">
+   <a href="https://www.electronicsbazaar.com/deals/">
+   <img src="http://180.149.246.49/electronicsbazaar/skin/frontend/rwd/electronics/customs/images/good-friday-sale.jpg" alt="Happy Good Friday Sale" />
+   </a>
+  </div>   
+ </div>
+<?php */ ?>
+
+
+  <div class="flashy-banner clearfix">
+    <ul class="new-slider-banner clearfix">
+
+ 
+
+      <?php foreach ($banners as $banner) : ?>
+        <?php if($banner['bannerslider_id'] == 2):  ?>
+        <li onclick="ga('send', 'event', { eventCategory: 'home-banner', eventAction: 'click', eventLabel:'<?php echo $banner['image_alt']?>'});">
+        <?php if($banner['click_url']){ ?>
+          <a href="<?php echo $banner['click_url'] ?>" target="_blank">
+        <?php } ?>  
+            <img src="<?php echo $this->getBannerImage($banner['image']);?>">
+        <?php if($banner['click_url']){ ?>  
+          </a>
+        <?php } ?>  
+        </li>
+        <?php endif; ?>
+      <?php endforeach; ?>
+
+    </ul>   
+  </div> 
+
+
+
+   <?php /* ?>
+<div class="flashy-banner clearfix">
+  <div class="big-sale-banner clearfix">
+   <a onclick="ga('send', 'event', { eventCategory: 'home-banner', eventAction: 'click', eventLabel: 'Big-Day-Sale-25Apr17'});" href="https://www.electronicsbazaar.com/deals/">
+    <span class="good-friday-sale-container"><span class="friday-sale"><img src="<?php echo $skin_url; ?>customs/images/new-banner/25-04-2017/big-day-sale.png"></span>
+
+    <span class="certified-text"><img src="<?php echo $skin_url; ?>customs/images/new-banner/25-04-2017/certified.png"></span>
+    <span class="preowned-text"><img src="<?php echo $skin_url; ?>customs/images/new-banner/25-04-2017/shadow.png"></span>
+    <span class="eb-warranty">**All Pre Owned Products carries 1 year EB Warranty**</span></span>
+    <span class="shop-great-deals animated"><img src="<?php echo $skin_url; ?>customs/images/new-banner/25-04-2017/shop-now.png"></span>
+    <span class="sale-product"><img src="<?php echo $skin_url; ?>customs/images/new-banner/25-04-2017/brands-new1.png"></span>
+   </a>
+  </div>
+  <div class="mobile-banner-container">
+   <a href="https://www.electronicsbazaar.com/deals/"><img src="<?php echo $skin_url; ?>customs/images/new-banner/25-04-2017/sale-final-banner.jpg" alt="Big Day Sale" /></a>
+  </div>   
+ </div>
+ <?php */ ?>
+  
+
+  <div class="right-side-panel">
+  
+ <!-- <div onclick="ga('send', 'event', { eventCategory: 'home-banner', eventAction: 'click', eventLabel: 'Big-Day-Sale-25Apr17'});" class="exciting-offers">
+  <a href="https://www.electronicsbazaar.com/deals/">
+    <img src="<?php //echo $skin_url; ?>customs/images/new-banner/25-04-2017/web-sticker-25-april-2017.png" alt="deals of the day">
+  </a>
+  </div> -->
+
+  <!-- Deals banner -->
+  
+  <div onclick="ga('send', 'event', { eventCategory: 'home-banner', eventAction: 'click', eventLabel: 'just-live-offers'});" class="exciting-offers">
+    <a href="https://www.electronicsbazaar.com/deals/" target="_blank" title="deals">
+      <img src="https://www.electronicsbazaar.com/skin/frontend/rwd/electronics/customs/images/new-banner/deals.png" alt="deals">
+      <?php /*?><img src="https://www.electronicsbazaar.com/skin/frontend/rwd/electronics/customs/images/exciting-offers-new.png" alt="deals"><?php */?>
+    </a>
+  </div> 
+
+  <!-- Good Friday sticker -->
+<?php /*?>
+  <div onclick="ga('send', 'event', { eventCategory: 'home-banner', eventAction: 'click', eventLabel: 'good-friday-2017'});" class="exciting-offers">
+    <a href="https://www.electronicsbazaar.com/deals/" target="_blank" title="deals">
+      <img src="https://www.electronicsbazaar.com/skin/frontend/rwd/electronics/images/web-sticker-140417.png" alt="deals">
+    </a>
+  </div>
+  <?php */ ?>
+
+  <!-- Good friday sticker -->
+
+  <!-- <div onclick="ga('send', 'event', { eventCategory: 'home-banner', eventAction: 'click', eventLabel: 'big-sale-11Apr17'});" class="exciting-offers">
+    <a href="https://www.electronicsbazaar.com/deals/" target="_blank" title="deals">
+      <img src="https://www.electronicsbazaar.com/skin/frontend/rwd/electronics/customs/images/web_sticker_bigday.png" alt="deals">
+    </a>
+  </div>  --> 
+
+  <!-- Big Day Sale Banner -->
+  <!-- <div onclick="ga('send', 'event', { eventCategory: 'home-banner', eventAction: 'click', eventLabel: 'big-day-sale-24Mar17'});" class="exciting-offers"><a href="https://www.electronicsbazaar.com/deals/"><img src="https://www.electronicsbazaar.com/skin/frontend/rwd/electronics/customs/images/big-sale-web.png"></a>
+  </div> -->
+  
+
+
+  <div class="partnerprogram">
+   <a href="https://www.electronicsbazaar.com/partner_program" title="partner program"><img src="https://www.electronicsbazaar.com/skin/frontend/rwd/electronics/customs/images/partner-program.jpg" alt="partner program"/> </a> 
+   
+  </div>
+
+  <div class="coupon-code-container hourlydeals">
+  <a href="https://www.electronicsbazaar.com/warranty" title="warranty">
+   <img src="https://electronicsbazaar.com/skin/frontend/rwd/electronics/customs/images/new-banner/eb-warranty.jpg" alt="warranty"/>
+   <?php /*?><img src="https://electronicsbazaar.com/skin/frontend/rwd/electronics/customs/images/warranty.jpg" alt="warranty"/><?php */ ?>
+   </a>
+   
+  </div>
+  
+ </div>
+</div>   
+
+
+<div  class="bottom-banner-container clearfix">
+
+<div class="small-banner-container">
+  
+   
+  <ul class="clearfix">
+   <li>
+   <a href="https://www.electronicsbazaar.com/laptops/unboxed-units" target="_blank" title="Open Box Laptop"><img src="https://www.electronicsbazaar.com/neweb/skin/frontend/rwd/electronics/customs/images/new-banner/open-box-laptop-new.jpg" alt="Open Box Laptop"></a>
+    </li>
+    <li>
+   <a href="https://www.electronicsbazaar.com/mobiles/smartphones/open-box" target="_blank" title="Open Box Mobile"><img src="https://www.electronicsbazaar.com/neweb/skin/frontend/rwd/electronics/customs/images/new-banner/open-box-mobile-new.jpg" alt="Open Box Mobile"></a>  
+    </li>
+   <li>
+   <a href="https://www.electronicsbazaar.com/laptops/refurbished" target="_blank" title="Pre Owned Laptop"><img src="https://www.electronicsbazaar.com/neweb/skin/frontend/rwd/electronics/customs/images/new-banner/pre-owned-laptop-new.jpg" alt="Pre Owned Laptop"></a>  
+    </li>
+     
+     <li>
+   <a href="https://www.electronicsbazaar.com/mobiles/smartphones/pre-owned-ref" target="_blank" title="Pre Owned Mobile"><img src="https://www.electronicsbazaar.com/neweb/skin/frontend/rwd/electronics/customs/images/new-banner/pre-owned-mobile-new.jpg" alt="Pre Owned Mobile"></a>
+    </li>
+   
+    </ul>  
+   
+</div>  
+
+
+<div class="bottom-right-container">
+<div class="coupon-code-container">
+   <a onclick="ga('send', 'event', { eventCategory: 'home-banner', eventAction: 'click', eventLabel: 'register-now'});" href="https://www.electronicsbazaar.com/customer/account/login/" target="_blank" title="sign up">
+    <img src="https://www.electronicsbazaar.com/skin/frontend/rwd/electronics/customs/images/200off.jpg" alt="sign up"/>
+   </a>
+  </div>
+
+<div class="app-order-container">
+   <!-- <span class="getextra">Get Extra</span> -->
+    <!-- <span class="app-amount">0.5%<span class="amount-off">Off</span></span> -->
+    <span class="allorders">Click here to download</span>
+    <span class="download-now">Mobile App now!!!</span>
+    <a onclick="ga('send', 'event', { eventCategory: 'home-banner', eventAction: 'click', eventLabel: 'download-now'});" href="https://play.google.com/store/apps/details?id=com.electronicsbazaar.electronicsbazaar" target="_blank"><img src="https://www.electronicsbazaar.com/skin/frontend/rwd/electronics/customs/images/google-play-new.png"></a>
+      <a href="https://itunes.apple.com/us/app/electronicsbazaar.com/id1064879270?ls=1&mt=8" target="_blank"><img src="https://www.electronicsbazaar.com/skin/frontend/rwd/electronics/customs/images/app-store-new.png"></a>
+  </div>
+
+  </div>
+
+</div>
+  
+<script type="text/javascript"> 
+
+var jqcs = jQuery.noConflict();
+ jqcs('.newDealsSlider').bxSlider({
+    auto: true, 
+    speed: 500,
+    pause: 2000
+ });
+</script>
+
+<script type="text/javascript"> 
+var jqcs = jQuery.noConflict();
+ jqcs('.new-slider-banner').bxSlider({
+    auto: true,
+    speed: 2000,
+    pause: 7000,
+    pager: true,
+ controls: true 
+ });
+</script>

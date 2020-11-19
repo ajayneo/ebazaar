@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+	<config>
+		<acl>
+			<resources>
+				<admin>
+					<children>
+						<system>
+							<children>
+								<config>
+									<children>
+										<neoasm_section translate="title" module="asm">
+											<title>ASM Email Ids for Invoices and Shipments Section</title>
+											<sort_order>100</sort_order>
+										</neoasm_section>
+									</children>
+								</config>
+							</children>
+						</system>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+	</config>

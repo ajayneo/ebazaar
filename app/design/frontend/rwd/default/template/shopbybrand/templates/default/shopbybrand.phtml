@@ -1,0 +1,356 @@
+<link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('css/shopbybrand/templates/default/default.css'); ?>" media="all" />
+<script language="javascript" src="<?php echo $this->getSkinUrl('css/shopbybrand/templates/default/jquery1.9.0.min.js'); ?>"> </script>
+
+<?php
+    $categoryId = $this->getRequest()->getParam('category');
+    $lists = $this->getListCharacterBegin();    
+    
+    $store = Mage::app()->getStore()->getId();
+    
+    $showFeaturedBrands = Mage::getStoreConfig('shopbybrand/brand_list/display_featured_brand',$store);
+    $showBrandCategories = Mage::getStoreConfig('shopbybrand/brand_list/display_brand_category',$store);
+    $showCharatersList = Mage::getStoreConfig('shopbybrand/brand_list/display_brand_character_list',$store);
+    $showSearchBox = Mage::getStoreConfig('shopbybrand/brand_list/display_brand_search_box',$store);
+    $showLogoImage = Mage::getStoreConfig('shopbybrand/brand_list/display_brand_image',$store);
+    $brandsListStyle = Mage::getStoreConfig('shopbybrand/brand_list/display_brand_group_by_name',$store);
+    $logo_width = Mage::getStoreConfig('shopbybrand/brand_list/brand_logo_width',$store);
+    $logo_height = Mage::getStoreConfig('shopbybrand/brand_list/brand_logo_height',$store);
+    $showNumberOfProducts = Mage::getStoreConfig('shopbybrand/brand_list/display_product_number', $storeId);
+?>
+
+<div class="shopbybrand-list">
+    
+    <!-- Featured Brands box BEGIN -------------------------------------------->
+    <?php 
+        if ($showFeaturedBrands) {
+            echo Mage::app()->getLayout()
+                        ->createBlock('shopbybrand/featuredbrand')
+                        ->setTemplate('shopbybrand/featuredbrand.phtml')
+                        ->toHtml();
+        }
+    ?>
+    <!-- Featured Brands box END ---------------------------------------------->
+    
+    <!-- Brands Categories END ------------------------------------------------>
+    <?php 
+        if ($showBrandCategories) {
+            echo Mage::app()->getLayout()
+                        ->createBlock('shopbybrand/brandcategories')
+                        ->setTemplate('shopbybrand/brandcategories.phtml')
+                        ->toHtml();
+        }
+    ?>
+    <!-- Brands Categories END ------------------------------------------------>
+    
+    <!-- Filter bar & Search box BEGIN ---------------------------------------->
+    <div class="filterbar col" id="filterbar">
+        
+        <!-- Character bar END-->
+        <?php if ($showCharatersList) :?>
+        <div id="charaters-list" class="filter">
+            <ul>
+                <li class="charlist first">
+                    <strong><a href="#filterbar" onclick="clickToAllFilter()">ALL</a></strong>
+                </li>
+                <li class="charlist first"
+                    <?php 
+                        $shopbybrands = Mage::helper('shopbybrand')->getBrandsBeginByNumber($categoryId);
+                        if (!count($shopbybrands)) {
+                            echo 'style="opacity: 0.2; pointer-events: none;"';
+                        }
+                    ?>
+                >
+                    <a href="javascript:void(0)" onclick="clickToNumberFilter()">0-9</a>
+                </li>
+                <?php 
+                    foreach ($lists as $char):
+                        $shopbybrands = Mage::helper('shopbybrand')->getBrandsBeginByCharacter($char, $categoryId);
+                ?>                
+                <li class="charlist" 
+                    <?php 
+                        if (!count($shopbybrands)) {
+                            echo 'style="opacity: 0.2; pointer-events: none;"';
+                        }
+                    ?>
+                >
+                    <a href="javascript:void(0)" onclick="clickToFilter('<?php echo $char;?>')"><?php echo $char;?></a>
+                </li>
+                <?php endforeach;?>
+            </ul>
+            <script type="text/javascript">
+            //&lt;![CDATA[
+                var listchars = <?php echo json_encode($lists); ?>;
+                function clickToAllFilter() {
+                    for (var i = 0; i<listchars.length; i++)
+                    {
+                        if (document.getElementById(listchars[i]) === null)
+                            continue;
+                        document.getElementById(listchars[i]).style.display="block";
+                    }
+                    
+                    if (document.getElementById('#') !== null)
+                        document.getElementById('#').style.display="block";
+                }
+                
+                function clickToFilter(char) {
+                    for (var i = 0; i<listchars.length; i++)
+                    {
+                        if (document.getElementById(listchars[i]) === null)
+                            continue;
+                        if (listchars[i] === char)
+                            document.getElementById(char).style.display="block";
+                        else
+                            document.getElementById(listchars[i]).style.display="none";
+                    }
+                    if (document.getElementById('#') !== null)
+                        document.getElementById('#').style.display="none";
+                }
+                
+                function clickToNumberFilter() {
+                    for (var i = 0; i<listchars.length; i++)
+                    {
+                        if (document.getElementById(listchars[i]) === null)
+                            continue;
+                        document.getElementById(listchars[i]).style.display="none";
+                    }
+                    
+                    if (document.getElementById('#') !== null)
+                        document.getElementById('#').style.display="block";
+                }
+            //]]&gt;
+            </script>
+        </div>
+        <?php endif;?>
+        <!-- Character bar END-->
+        
+        <!-- Search box BEGIN -->
+        <?php 
+            if ($showSearchBox) { 
+                echo $this->getLayout()
+                        ->createBlock('shopbybrand/searchbox')
+                        ->setTemplate('shopbybrand/searchbox.phtml')
+                        ->toHtml();
+            } 
+        ?>
+        <!-- Search box END -->
+    </div>
+    <!-- Filter bar & Search box END ------------------------------------------>
+    
+    <!-- Listing brands BEGIN ------------------------------------------------->
+    <?php if ($brandsListStyle) :?>
+    <!-- group brands by begin labels -->
+    <div class="brands">
+        <ul>
+            <li class="brandslist col" id="<?php echo "#" ;?>" >
+                <?php 
+                    $shopbybrands = Mage::helper('shopbybrand')->getBrandsBeginByNumber($categoryId);
+                    if (count($shopbybrands)) :
+                ?>
+                <div>
+                    <div class="brand-begin-label">
+                        <strong><?php echo "0-9" ?></strong>
+                    </div>
+                    <div class="list">
+                        <ul>                
+                        <?php
+                            foreach ($shopbybrands as $brand) :
+                                if ($showLogoImage) :
+                        ?>
+                            <!-- Listing brands with image logos    ----------->
+                            <li class="list_1" style="text-align: center; height: <?php echo $logo_height+30;?>px">
+                                <a href="<?php echo $this->getBrandUrl($brand) ?>">
+                                    <?php
+                                        $path = 'brands/thumbnail' . DS . $brand->getId();
+                                        $img = Mage::helper('shopbybrand/image')
+                                                        ->init($brand, $path)
+                                                        ->resizeThumbnail($logo_width, $logo_height);
+                                    ?>
+                                    <div style="max-width: 90%; height: <?php echo $logo_height;?>px; align-items: center; display: inline-flex;">
+                                        <img src="<?php echo $img; ?>" style="width: 100%" />
+                                    </div>
+                                    <div style="display: block;">
+                                        <?php echo $brand->getData('name') ?>
+                                        <?php if ($showNumberOfProducts) echo '('.$this->getNumberProductsOfBrand($brand).')';?>
+                                    </div>
+                                </a>
+                            </li>
+                            <?php else : ?>
+                            <!-- Listing brands without image logos    -------->
+                            <li class="list_1">
+                                <a href="<?php echo $this->getBrandUrl($brand) ?>">
+                                    <div>
+                                        <?php echo $brand->getData('name') ?>
+                                        <?php if ($showNumberOfProducts) echo '('.$this->getNumberProductsOfBrand($brand).')';?>
+                                    </div>
+                                </a>
+                            </li>
+                        <?php 
+                                endif;
+                            endforeach;
+                        ?>
+                        </ul>
+                    </div>
+                </div>
+                <?php endif;?>
+            </li>
+            
+        <?php
+            foreach ($lists as $value) :
+                $shopbybrands = Mage::helper('shopbybrand')->getBrandsBeginByCharacter($value, $categoryId);
+                if (count($shopbybrands)) :
+        ?>
+            <li class="brandslist col
+                        <?php if($value=='Z'): ?>last<?php endif;?> 
+                        <?php if($value=='A'): ?>first<?php endif;?>
+                      " 
+                id="<?php echo $value ;?>"
+            >
+                <div>
+                    <div class="brand-begin-label">
+                        <strong><?php echo $value ?></strong>
+                    </div>
+                    <div class="list">
+                        <ul>                
+                        <?php
+                            foreach ($shopbybrands as $brand) :
+                                if ($showLogoImage) :
+                        ?>
+                            <!-- Listing brands with image logos    ----------->
+                            <li class="list_1" style="text-align: center; height: <?php echo $logo_height+30;?>px;">
+                                <a href="<?php echo $this->getBrandUrl($brand) ?>">
+                                    <?php
+                                        $path = 'brands/thumbnail' . DS . $brand->getId();
+                                        $img = Mage::helper('shopbybrand/image')
+                                                        ->init($brand, $path)
+                                                        ->resizeThumbnail($logo_width, $logo_height);
+                                    ?>
+                                    <div style="max-width: 90%; height: <?php echo $logo_height;?>px; align-items: center; display: inline-flex;">
+                                        <img src="<?php echo $img; ?>" style="width: 100%" />
+                                    </div>
+                                    <div style="display: block;">
+                                        <?php echo $brand->getData('name') ?>
+                                        <?php if ($showNumberOfProducts) echo '('.$this->getNumberProductsOfBrand($brand).')';?>
+                                    </div>
+                                </a>
+                            </li>
+                            <?php else : ?>
+                            <!-- Listing brands without image logos    -------->
+                            <li class="list_1">
+                                <a href="<?php echo $this->getBrandUrl($brand) ?>">
+                                    <div>
+                                        <?php echo $brand->getData('name') ?>
+                                        <?php if ($showNumberOfProducts) echo '('.$this->getNumberProductsOfBrand($brand).')';?>
+                                    </div>
+                                </a>
+                            </li>
+                        <?php 
+                                endif;
+                            endforeach;
+                        ?>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <?php 
+                endif;
+            endforeach; 
+            ?>
+        </ul>
+    </div>
+    <?php else:?>
+    <!-- list all brands by columns -->
+    <div class="brands">
+        <ul class="col" style="width: 100%">
+            <?php 
+                $shopbybrands = Mage::helper('shopbybrand')->getBrandsBeginByNumber($categoryId);
+                if (count($shopbybrands)) :
+            ?>
+            <div id="<?php echo '#' ;?>" >
+                <?php
+                    foreach ($shopbybrands as $brand) :
+                        if ($showLogoImage) :
+                ?>
+                    <!-- Listing brands with image logos    ----------->
+                    <li class="list_1" style="text-align: center; float: left; height: <?php echo $logo_height+30;?>px;">
+                        <a href="<?php echo $this->getBrandUrl($brand) ?>">
+                            <?php
+                                $path = 'brands/thumbnail' . DS . $brand->getId();
+                                $img = Mage::helper('shopbybrand/image')
+                                                ->init($brand, $path)
+                                                ->resizeThumbnail($logo_width, $logo_height);
+                            ?>
+                            <div style="max-width: 90%; height: <?php echo $logo_height;?>px; align-items: center; display: inline-flex;">
+                                <img src="<?php echo $img; ?>" style="width: 100%" />
+                            </div>
+                            <div style="display: block;">
+                                <?php echo $brand->getData('name') ?>
+                                <?php if ($showNumberOfProducts) echo '('.$this->getNumberProductsOfBrand($brand).')';?>
+                            </div>
+                        </a>
+                    </li>
+                    <?php else : ?>
+                    <!-- Listing brands without image logos    -------->
+                    <li class="list_1" style="float: left">
+                        <a href="<?php echo $this->getBrandUrl($brand) ?>">
+                            <div>
+                                <?php echo $brand->getData('name') ?>
+                                <?php if ($showNumberOfProducts) echo '('.$this->getNumberProductsOfBrand($brand).')';?>
+                            </div>
+                        </a>
+                    </li>
+                <?php 
+                        endif;
+                    endforeach;
+                ?>
+            </div>
+            <?php endif;?>
+            
+            <?php
+                foreach ($lists as $value) :
+                    $shopbybrands = Mage::helper('shopbybrand')->getBrandsBeginByCharacter($value, $categoryId);
+                    if (count($shopbybrands)) :
+            ?>
+            <div id="<?php echo $value ;?>" >
+                <?php
+                    foreach ($shopbybrands as $brand) :
+                        if ($showLogoImage) :
+                ?>
+                    <!-- Listing brands with image logos    ----------->
+                    <li class="list_1" style="text-align: center; float: left; height: <?php echo $logo_height+30;?>px;">
+                        <a href="<?php echo $this->getBrandUrl($brand) ?>">
+                            <?php
+                                $path = 'brands/thumbnail' . DS . $brand->getId();
+                                $img = Mage::helper('shopbybrand/image')
+                                                ->init($brand, $path)
+                                                ->resizeThumbnail($logo_width, $logo_height);
+                            ?>
+                            <div style="max-width: 90%; height: <?php echo $logo_height;?>px; align-items: center; display: inline-flex;">
+                                <img src="<?php echo $img; ?>" style="width: 100%" />
+                            </div>
+                            <div style="display: block;">
+                                <?php echo $brand->getData('name') ?>
+                                <?php if ($showNumberOfProducts) echo '('.$this->getNumberProductsOfBrand($brand).')';?>
+                            </div>
+                        </a>
+                    </li>
+                    <?php else : ?>
+                    <!-- Listing brands without image logos    -------->
+                    <li class="list_1" style="float: left">
+                        <a href="<?php echo $this->getBrandUrl($brand) ?>">
+                            <div>
+                                <?php echo $brand->getData('name'); ?>
+                                <?php if ($showNumberOfProducts) echo '('.$this->getNumberProductsOfBrand($brand).')';?>
+                            </div>
+                        </a>
+                    </li>
+                <?php 
+                        endif;
+                    endforeach;
+                ?>
+            </div>
+            <?php endif; endforeach;?>
+        </ul>
+    </div>
+    <?php endif;?>
+    <!-- Listing brands END --------------------------------------------------->
+</div>

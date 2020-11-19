@@ -1,0 +1,80 @@
+<?php
+	// $data = $this->showservicedatalist();
+  $collection = Mage::getModel('showservicedata/servicecentre')->getCollection();
+?>
+
+
+
+<div class="service-center-container">
+   <div class="default-title">
+    <h2>Service Center</h2>
+    </div>
+    <div class="service-center-search clearfix new-service-center-search">
+        <div class="search-field"><input id="myInput" onkeyup="myFunction()" type="text" name="" placeholder="Enter your city" />
+        <button type="submit" title="Go" class="button">
+            <i class="fa fa-search" aria-hidden="true"></i>
+        </button>
+        </div>
+        <!-- <button class="search-btn"><span>Search</span></button> -->
+    </div>
+    <form>
+        <div class="service-center-content">
+            <table class="service-center-table new-service-center-table" cellspacing="0" cellpadding="0" id="myTable">
+                <thead>
+                    <tr>
+                        <th>Sr. No.</th>
+                        <th>Type</th>
+                        <th>ASP Name</th>
+                        <th>Address</th>
+                        <th>Contact Person</th>
+                        <th>Contact Number</th>
+                        <th>Email ID</th>
+                        <th>Pin Code</th>
+                        <th>City/Town</th>
+                        <th>State</th>
+                        <th>Region</th>
+                    </tr>
+                </thead>
+                <tbody>
+                	<?php  foreach ($collection as $data): $value = $data->getData(); ?>
+	                    <tr>
+	                        <td><?php echo $value['id'] ?></td>
+	                        <td><?php echo $value['type'] ?></td>
+	                        <td><?php echo $value['asp_name'] ?></td>
+	                        <td><?php echo $value['address'] ?></td>
+	                        <td><?php echo $value['contact_person'] ?></td>
+	                        <td><?php echo $value['contact_number'] ?></td>
+	                        <td><?php echo $value['mail_id'] ?></td>
+	                        <td><?php echo $value['pincode'] ?></td>
+	                        <td><?php echo $value['city'] ?></td>
+	                        <td><?php echo $value['state'] ?></td>
+	                        <td><?php echo $value['region'] ?></td>
+	                    </tr>
+	                <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+    </form>
+</div>
+<script type="text/javascript">
+    function myFunction() {
+      var input, filter, table, tr, td, i, city;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("myTable");
+      tr = table.getElementsByTagName("tr");
+      for (i = 0; i < tr.length; i++) {
+        city = tr[i].getElementsByTagName("td")[8];
+        // pincode = tr[i].getElementsByTagName("td")[7];
+        if (city) {
+          if (city.innerHTML.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }
+       
+      }
+    }
+</script>
+

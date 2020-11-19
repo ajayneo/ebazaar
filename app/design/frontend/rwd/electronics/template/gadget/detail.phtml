@@ -1,0 +1,38 @@
+<?php $order = $this->getOrder(); 
+$options = json_decode($order->getOptions(),1);
+//print_r($order->getData()); ?>
+<div class="order-detail-container">
+	<div class="title"><h1>View Details</h1></div>
+	<div class="order-detail-content">
+		<div class="order-number">Order No #<?php echo $order->getId(); ?></div>
+		<div class="order-detail clearfix">
+			<div class="left">
+				<h2><?php echo $order->getProname();?></h2>
+				<!-- <p><span class="answer">What is the condition of the item ? -</span> Good</p>
+				<p><span class="answer">Are the compatible charger and battery included ?</span> - Yes</p> -->
+				<?php foreach($options as $que=>$ans){ 
+					echo '<p><span class="answer">'.$que.':</span> '.$ans.'</p>';
+				} ?>
+
+			</div>
+			<div class="right">
+				<h2>Address</h2>
+				<p><?php echo $order->getAddress() ? $order->getAddress(): 'Not Available'; ?></p>
+			</div>
+		</div>
+		<div class="order-detail clearfix">
+			<div class="left">
+				<h2>Price</h2>
+				<p><span class="answer"><?php echo Mage::helper('core')->currency($order->getPrice(), true, false); ?></span></p>
+			</div>
+			<div class="right">
+				<h2>Status</h2>
+				<?php if($order->getStatus() == 'pending'){ ?>
+				<p><span class="answer pending">Pending</span></p>
+				<?php }else{ ?>
+				<p><span class="answer success">Closed</span></p>
+				<?php } ?>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+  <gadget_adminhtml_gadget_index>
+	<reference name="content">
+	  <block type="gadget/adminhtml_gadget" name="gadget" />
+	</reference>
+  </gadget_adminhtml_gadget_index>
+
+    <gadget_adminhtml_request_index>
+	<reference name="content">
+	  <block type="gadget/adminhtml_request" name="request" />
+	</reference>
+  </gadget_adminhtml_request_index>
+  
+</layout> 

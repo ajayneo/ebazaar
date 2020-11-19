@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Lenovo Program</title>
+	<meta name="viewport" content="width=device-width,  user-scalable=no" />
+	<link rel="stylesheet" type="text/css" href="https://www.electronicsbazaar.com/skin/frontend/rwd/electronics/gadgetnew/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="https://www.electronicsbazaar.com/skin/frontend/rwd/electronics/gadgetnew/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="https://www.electronicsbazaar.com/skin/frontend/rwd/electronics/gadgetnew/css/style.css">
+	
+    <script src="https://www.electronicsbazaar.com/skin/frontend/rwd/electronics/gadgetnew/js/jquery.min.js"></script>
+    <script src="https://www.electronicsbazaar.com/skin/frontend/rwd/electronics/gadgetnew/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://www.electronicsbazaar.com/skin/frontend/rwd/electronics/gadgetnew/css/responsive.css">
+</head>  
+<body> 
+ 
+<div class="wrapper">
+	<header> 
+		<div class="header-container"> 
+		<div class="container">
+		<div class="logo-container"><a href="#"><img src="https://www.electronicsbazaar.com/skin/frontend/rwd/electronics/gadgetnew/images/logo.jpg"></a></div>
+		<nav class="navbar navbar-default navbar-static" id="navbar-example"> 
+		<div class="container-fluid"> <div class="navbar-header"> <button class="collapsed navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-example-js-navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button> </div> <div class="collapse navbar-collapse bs-example-js-navbar-collapse"> 
+		<ul class="nav navbar-nav">
+			<li><a class="program-qualification-link">Program Qualifications</a></li> 
+			<li><a class="benefit-link">Program Benefits</a></li>
+			<li><a class="packaging-instruction-link">Packaging Instructions</a></li>
+			<li><a class="contact-link">Contact Us</a></li>
+		</ul>  
+		</div> </div> </nav>
+		</div>
+		</div>
+	</header>
+
+
+	<div class="banner-container">
+		<img src="https://www.electronicsbazaar.com/skin/frontend/rwd/electronics/gadgetnew/images/banner.jpg">
+	</div>
+
+<?php //var_dump(Mage::getSingleton('customer/session'));
+	if(Mage::getSingleton('customer/session') && Mage::getSingleton('customer/session')->isLoggedIn()){
+		$customer = Mage::getSingleton('customer/session')->getCustomer();
+				
+
+}else{
+ ?>  
+<div class="registration-login-container">
+		<div class="container">
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" ><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Register</a></li>
+    <li role="presentation" class="active"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Login</a></li>
+  </ul>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane " id="home">
+    	<p>Please fill up the following details to create your account(*) indicates mandatory fields.</p>
+    	
+    		<ul class="clearfix">
+    			<li>
+    				<div class="label-container"><label>First Name<em>*</em></label></div>
+    				<div class="input-container"><input type="text" name=""></div>
+    			</li>
+    			<li>
+    				<div class="label-container"><label>Last Name<em>*</em></label></div>
+    				<div class="input-container"><input type="text" name=""></div>
+    			</li>
+    			<li>
+    				<div class="label-container"><label>Email Id<em>*</em></label></div>
+    				<div class="input-container"><input type="text" name=""></div>
+    			</li>
+    			<li>
+    				<div class="label-container"><label>Store Name<em>*</em></label></div>
+    				<div class="input-container"><input type="text" name=""></div>
+    			</li>
+    			<li>
+    				<div class="label-container"><label>Store Address</label></div>
+    				<div class="input-container"><input type="text" name=""></div>
+    			</li>
+    			<li>
+    				<div class="label-container"><label>Mobile Number</label></div>
+    				<div class="input-container"><input type="text" name=""></div>
+    			</li>
+    			<li>
+    				<div class="label-container"><label>State<em>*</em></label></div>
+    				<div class="input-container"><input type="text" name=""></div>
+    			</li>
+    			<li>
+    				<div class="label-container"><label>City<em>*</em></label></div>
+    				<div class="input-container"><input type="text" name=""></div>
+    			</li>
+    			<li>
+    				<div class="label-container"><label>Pin Code<em>*</em></label></div>
+    				<div class="input-container"><input type="text" name=""></div>
+    			</li>
+    		</ul>
+
+    		<div class="checkbox-container">
+    			<input type="checkbox" name="checkboxG1" id="checkboxG1" class="css-checkbox" />
+<label for="checkboxG1" class="css-label"><a href="#">Yes, e-mail me new product information and special offers from the Lenovo Buy Back Program. Your privacy is important to us and will not 
+be used for any commercial purpose.</a></label>
+    		</div>
+
+    		<div class="button-container">
+    			<button type="button" class="btnSubmit">
+                        <span>
+                            <span>Submit</span>
+                        </span>
+                    </button>
+    		</div>
+    	    
+    </div>
+  
+    <div role="tabpanel" class="tab-pane active" id="profile">
+<form action="https://www.electronicsbazaar.com/customer/account/loginPostLenovo/" method="POST"> 
+
+<div><input name="form_key" type="hidden" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>" /></div>
+
+    	<ul class="login-container clearfix">
+    			<li>
+    				<div class="label-container"><label>Email<em>*</em></label></div>
+    				<div class="input-container"><input type="text" name="login[username]"></div>
+    			</li>
+    			<li>
+    				<div class="label-container"><label>Password<em>*</em></label></div>
+    				<div class="input-container"><input type="password" name="login[password]"></div>
+    			</li>
+    		</ul>
+
+    	<div class="button-container">
+    			<button type="submit" class="btnSubmit">
+                        <span>
+                            <span>Submit</span>
+                        </span>
+                    </button>
+    		</div>
+</form>
+
+    </div>
+   
+  </div>
+		</div>
+	</div>
+
+<?php } ?> 
+	
+
+	<div class="price-grid-container">
+		<div class="container">
+			<h3>Price Grid</h3>
+			<div class="price-grid">
+				<table cellspacing="0" cellpadding="0">
+					<thead>
+						<tr>
+							<th>Processor</th>
+							<th>RAM</th>
+							<th>Storage</th>
+							<th>Price</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>PDC/PQC/C2D/CDC</td>
+							<td>1 GB &amp; Above</td>
+							<td>250 GB &amp; Above</td>
+							<td>3,000</td>
+						</tr>
+						<tr>
+							<td>Core i3</td>
+							<td>2 GB &amp; Above</td>
+							<td>250 GB &amp; Above</td>
+							<td>3,000</td>
+						</tr>
+						<tr>
+							<td>Core i3 Graphics</td>
+							<td>2 GB &amp; Above</td>
+							<td>250 GB &amp; Above</td>
+							<td>7,000</td>
+						</tr>
+						<tr>
+							<td>Core i3</td>
+							<td>8 GB &amp; Above</td>
+							<td>250 GB &amp; Above</td>
+							<td>9,000</td>
+						</tr>
+						<tr>
+							<td>Core i5</td>
+							<td>4 GB &amp; Above</td>
+							<td>500 GB &amp; Above</td>
+							<td>9,000</td>
+						</tr>
+						<tr>
+							<td>Core i7</td>
+							<td>4 GB &amp; Above</td>
+							<td>500 GB &amp; Above</td>
+							<td>11,000</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+
+
+	<div class="mobile-laptop-container">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6 box-container clearfix">
+					<a href="https://www.electronicsbazaar.com/gadget/?list=mobile">
+					<span class="text-container">Trade-In your<br> old Mobile</span>
+					<span class="image-container"><img src="https://www.electronicsbazaar.com/skin/frontend/rwd/electronics/gadgetnew/images/mobile.png"></span>
+					</a>
+				</div>
+				<div class="col-sm-6 box-container clearfix">
+					<a href="https://www.electronicsbazaar.com/gadget/?list=laptop"><span class="text-container">Trade-In your<br> old Laptop</span>
+					<span class="image-container"><img src="https://www.electronicsbazaar.com/skin/frontend/rwd/electronics/gadgetnew/images/laptop.png"></span>
+					</a>
+				</div>
+			</div>
+		</div> 
+	</div>
+
+	
+
+	<div class="program-container program-qualification">
+		<div class="container">
+			<h2>Program Qualifications for working devices</h2>
+			<ul>
+				<li>Device should turn on, with the charger plugged in &amp; reach the windows home screen</li>
+				<li>Password/personal data if any, should be removed</li>
+				<li>Operational charger should be provided with the device</li>
+				<li>Device should have no physical damage and all components intact</li>
+				<li>Display panel, Display hinges and keyboard keys should not be damaged, broken or missing</li>
+				<li>Minor dents/scratches are acceptable; Cracks on body, broken parts are not acceptable</li>
+				<li>Device should have no screen damage (physical, water damage, lines on screen, dead pixels etc...)</li>
+			</ul>
+		</div>
+	</div>
+
+
+	<div class="benefit-container">
+		<div class="container">
+			<h1>Program Benefits</h1>
+			<div class="row">
+				<div class="col-sm-4 benefit-content">
+					<div class="icon"><img src="https://www.electronicsbazaar.com/skin/frontend/rwd/electronics/gadgetnew/images/door-step-pickup.png"></div>
+					<h5>Doorstep Pickup</h5>
+					<p>Get speedy pick up of your order, right at your doorstep.</p>
+				</div>
+				<div class="col-sm-4 benefit-content">
+					<div class="icon"><img src="https://www.electronicsbazaar.com/skin/frontend/rwd/electronics/gadgetnew/images/easy.png"></div>
+					<h5>Easy trade-in</h5>
+					<p>Get the best price &amp; easy way to trade-in your old product.</p>
+				</div>
+				<div class="col-sm-4 benefit-content">
+					<div class="icon"><img src="https://www.electronicsbazaar.com/skin/frontend/rwd/electronics/gadgetnew/images/payment.png"></div>
+					<h5>Payment</h5>
+					<p>Quick processing of payment.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	
+
+	<div class="program-container packaging-instruction">
+  <div class="container">
+   <h2>Packaging Instructions</h2>
+   <ul>
+    <li>Choose a material that is impact resistant and durable enough considering the weight of the item</li>
+    <li>Remove old address labels, bar codes and Special Handling indications</li>
+    <li>Leave enough space on the wrapping for the address label</li>
+    <li>Insert an address slip with your and the recipient's contact details inside the item</li>
+    <li>See to it that the package is definitely undamaged</li>
+    <li>The package must not contain empty space and must withstand 4-5 times its own weight</li>
+    <li>If necessary, use expanded polystyrene, Styrofoam or bubble wrap as filling</li>
+    <li>Check that each item in the batch is furnished with an address label</li>
+    <li>Provide your and the recipient’s information in full</li>
+   </ul>
+  </div>
+</div>
+
+	<footer class="footer-container"> 
+		<div class="footer-top">
+			<span class="red-corner"><img src="https://www.electronicsbazaar.com/skin/frontend/rwd/electronics/gadgetnew/images/red-corner.jpg"></span>
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-5"><h4>Best Offer</h4></div>
+					<div class="col-sm-7 available-container clearfix">
+						<div class="text-container"><p><a href="https://www.electronicsbazaar.com/gadget">Available for Non-working<span class="mobile-laptop">Mobiles &amp; Laptops</span></a></p></div>
+						<div class="image-container"><img src="https://www.electronicsbazaar.com/skin/frontend/rwd/electronics/gadgetnew/images/laptop-mobile.png"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer-middle">
+			<div class="container">
+				<div class="row">
+				<div class="col-sm-4">
+					<h3>Links</h3>
+					<ul class="links-container">
+					      <li><a class="program-qualification-link">Program Qualifications</a></li>
+						<li><a class="benefit-link">Program Benefits</a></li>
+					      <li><a class="packaging-instruction-link">Packaging Instruction</a></li>
+					      <li><a class="contact-link">Contact Us</a></li>
+					</ul>
+				</div> 
+				<div class="col-sm-4">  
+					<h3>Contact Us:</h3>
+					<ul class="contact-container">
+						<li class="email-address"><a href="mailto:sellyourgadget@electronicsbazaar.com">sellyourgadget@electronicsbazaar.com </a></li>
+						<li class="address">Electronics Bazaar,<br> 415, Hubtown Solaris, N.S.Phadke Marg,<br> Andheri East, Mumbai 400069. </li>
+						<li class="phone-number">1800-266-4000</li>
+					</ul>
+				</div>
+				<div class="col-sm-4">
+					<h3>Social Links</h3>
+					<ul class="social-container">
+						<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+						<!-- <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li> -->
+						<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+						<!-- <li><a href="#"><i class="fa fa-rss" aria-hidden="true"></i></a></li> -->
+					</ul>
+				</div>
+			</div>
+			</div>
+		</div>
+		<div class="footer-bottom">
+			<div class="container"><p>Terms &amp; Conditions</p></div>
+		</div>
+	</footer>
+
+</div>
+
+<script type="text/javascript">
+	$('#myTabs a').click(function (e) {
+  e.preventDefault()
+  $(this).tab('show')
+})
+</script> 
+
+<script type="text/javascript">
+ $(".benefit-link").click(function() {
+     $('html, body').animate({
+         scrollTop: $(".benefit-container").offset().top
+     }, 2000);
+ });
+ $(".program-qualification-link").click(function() {
+     $('html, body').animate({
+         scrollTop: $(".program-qualification").offset().top
+     }, 2000);
+ });
+ $(".packaging-instruction-link").click(function() {
+     $('html, body').animate({
+         scrollTop: $(".packaging-instruction").offset().top
+     }, 2000);
+ });
+ $(".contact-link").click(function() {
+     $('html, body').animate({
+         scrollTop: $(".footer-container").offset().top
+     }, 2000);
+ });
+</script>
+</body>
+</html>

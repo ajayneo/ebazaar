@@ -1,0 +1,6 @@
+[08-Oct-2018 16:07:03 Asia/Kolkata] PHP Fatal error:  Interface 'Zend_Soap_Wsdl_Strategy_Interface' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Soap/Wsdl/Strategy/AnyType.php on line 38
+[08-Oct-2018 16:07:03 Asia/Kolkata] PHP Fatal error:  Interface 'Zend_Soap_Wsdl_Strategy_Interface' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Soap/Wsdl/Strategy/Abstract.php on line 38
+[08-Oct-2018 16:07:03 Asia/Kolkata] PHP Fatal error:  Interface 'Zend_Soap_Wsdl_Strategy_Interface' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Soap/Wsdl/Strategy/Composite.php on line 38
+[08-Oct-2018 16:07:03 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Soap_Wsdl_Strategy_Abstract' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Soap/Wsdl/Strategy/DefaultComplexType.php on line 38
+[08-Oct-2018 16:07:03 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Soap_Wsdl_Strategy_DefaultComplexType' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Soap/Wsdl/Strategy/ArrayOfTypeComplex.php on line 38
+[08-Oct-2018 16:07:03 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Soap_Wsdl_Strategy_DefaultComplexType' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Soap/Wsdl/Strategy/ArrayOfTypeSequence.php on line 37

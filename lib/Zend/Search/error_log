@@ -1,0 +1,2 @@
+[08-Oct-2018 16:03:41 Asia/Kolkata] PHP Fatal error:  Interface 'Zend_Search_Lucene_Interface' not found in /home/electronicsbazaa/public_html/lib/Zend/Search/Lucene.php on line 96
+[08-Oct-2018 16:03:41 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Exception' not found in /home/electronicsbazaa/public_html/lib/Zend/Search/Exception.php on line 36

@@ -1,0 +1,132 @@
+<?php // refund then uploading the return doc
+// return then update order id and imei
+?>
+<?php $request_id = $this->getRequest()->getParam("id"); 
+$requestData = Mage::helper('orderreturn')->getAdminImeiList($request_id);
+$dropdown_status = Mage::helper('orderreturn')->getStatusLabel();
+$dropdown_return_action = Mage::helper('orderreturn')->getReturn();
+
+// print_r($dropdown_status);
+// print_r($dropdown_return_action);
+
+
+$imei_list = $requestData['imei_list'];
+
+// print_r($imei_list);
+$table_str = '';
+foreach ($imei_list as $key => $value) {
+    $imei_no = $key;
+    $reason = $value['reason'];
+    $return = $value['return_action'];
+    $replace_increment_id = $value['replace_increment_id'];
+    $imei_status = $value['status'];
+    $docket_no = $value['docket_no'];
+
+    $return_action_options = '';
+    // print_r($value);
+    foreach ($dropdown_return_action as $key => $value) {
+        if($value == $return){
+            $return_action = $value;
+            // $return_action_options .='<option selected="selected" value="'.$key.'">'.$value.'</option>';
+        }
+        // else{
+        //     $return_action_options .='<option value="'.$key.'">'.$value.'</option>';
+        // }
+    }
+
+    $status_options = '';
+    foreach ($dropdown_status as $key => $value) {
+        if($value == $imei_status){
+            //$status_options .='<option selected="selected" value="'.$key.'">'.$value.'</option>';
+            $request_status = $value;
+        }//else{
+            //$status_options .='<option value="'.$key.'">'.$value.'</option>';
+        //}
+    }
+
+    $table_str .= '<tr class="border">';
+    $table_str .= '<td>'.$imei_no.'</td>';
+    $table_str .= '<td>'.$reason.'</td>';
+    //$table_str .= '<td><select name="return_action['.$imei_no.']">';
+    //$table_str .= $return_action_options;
+    //$table_str .='</select></td>';
+    $table_str .= '<td>'.$return_action.'</td>';
+    $table_str .= '<td>'.$request_status.'</td>';
+
+    if($docket_no){
+        $table_str .='<td>'.$docket_no.'</td>';
+    }else{
+    $table_str .= '<td><input type="text" name="docket_no['.$imei_no.']"/></td>';
+    }
+    //$table_str .= '<td><select name="status['.$imei_no.']">';
+    //$table_str .= $status_options;
+    //$table_str .='</select></td>';
+    
+
+    if($return == "Refund"){
+        $table_str .='<td><input type="file" name="refund_filepath['.$imei_no.']" /></td>';
+        $table_str .='<td>Not Applicable</td>';
+    }else{
+    	$table_str .='<td>Not Applicable</td>';
+        if($replace_increment_id){
+            $table_str .='<td>'.$replace_increment_id.'</td>';
+        }else{
+            $table_str .='<td><input type="text" name=return_increment_id['.$imei_no.'] /></td>';
+        }
+    }
+    $table_str .= '</tr>';
+}
+
+?>
+<div class="entry-edit-head">
+    <h4 class="icon-head head-edit-form fieldset-legend">Refund Information</h4>
+    <div class="form-buttons"></div>
+</div>
+
+<div class="grid np">
+    <div class="hor-scroll">
+        <table class="data order-tables">
+            <thead>
+                <tr class="headings">
+                    <th>IMEI</th>
+                    <th>Reason</th>
+                    <th>Return Action</th>
+                    <th>Status</th>
+                    <th>Docket No</th>
+                    <th>Upload UTR File</th>
+                    <th>Return Increment ID</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php echo $table_str; ?>
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- 
+<div class="fieldset " id="_refund_fieldset">
+    <div class="hor-scroll">
+        <table cellspacing="0" class="form-list">
+        <tbody>
+            <tr>
+                <td>
+                <div class="store-scope">
+                    <table>
+                        <tr>
+                            <th>IMEI</th>
+                            <th>Reason</th>
+                            <th>Return Action</th>
+                            <th>Status</th>
+                            <th>Upload UTR File</th>
+                            <th>Return Increment ID</th>
+                        </tr>
+                        <?php echo $table_str; ?>
+                    </table>
+                </div>
+                </td>
+            </tr>
+        </tbody>
+        </table>
+    </div>
+</div>
+ -->

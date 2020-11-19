@@ -1,0 +1,64 @@
+<config>
+	<modules>
+		<Neo_Customapiv4>
+			<version>0.1.0</version>
+		</Neo_Customapiv4>
+	</modules>
+	<frontend>
+		<routers>
+			<customapiv4>
+				<use>standard</use>
+				<args>
+					<module>Neo_Customapiv4</module>
+					<frontName>customapiv4</frontName>
+				</args>
+			</customapiv4>
+		</routers>
+	</frontend>
+	<global>
+		<models>
+			<customapiv4>
+				<class>Neo_Customapiv4_Model</class>
+			</customapiv4>
+		</models>
+		<events>
+			<customer_register_success>
+				<observers>
+					<customer_register_success>
+						<class>Neo_Customapiv4_Model_Observer</class>
+						<method>saveEncodedMd5Token</method>
+					</customer_register_success>
+				</observers>
+			</customer_register_success>
+			<adminhtml_customer_prepare_save>
+				<observers>
+					<adminhtml_customer_prepare_save>
+						<class>Neo_Customapiv4_Model_Observer</class>
+						<method>saveEncodedMd5Token</method>
+					</adminhtml_customer_prepare_save>
+				</observers>
+			</adminhtml_customer_prepare_save>
+		</events>
+	</global>
+	<!-- <adminhtml>
+		<acl>
+			<resources>
+				<admin>
+					<children>
+						<system>
+							<children>
+								<config>
+									<children>
+										<neo_api_section module="core">
+											<title>Neo Api Setting</title>
+										</neo_api_section>
+									</children>
+								</config>
+							</children>
+						</system>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+	</adminhtml> -->
+</config>

@@ -1,0 +1,238 @@
+<?php $session = Mage::getSingleton('core/session'); ?>
+<?php $imei_list = array(); ?>
+<?php $session->getData('vow_mobile_order_flag'); ?>
+<?php $reason_label = Mage::helper('orderreturn')->getReason(); ?>
+<?php $imei_list = $session->getData('imei_list'); ?>
+<div class="vow-delight-container">    
+  <div class="form-container">
+      <div class="default-title">
+        <h1>VOW DELIGHT</h1>
+      </div>      
+        <div id="succ-mes" class="succ-mes" name="succ-mes"></div>
+        <div id="err-mes" class="err-mes" name="err-mes"></div>       
+      <div class="form-content three-columns clearfix">
+        <ul class="vow-delight-form-list clearfix">
+            <li class="imei-number-li">
+               <label class="required">IMEI number<em>*</em></label>
+               <div class="input-box">
+                <input type="text" name="imei" id="imei" value="" placeholder="eg. 253125462123547" class="input-text required-entry" title="IMEI number" maxlength="15">         
+                <div class="help-icon help-vow"><img src="<?php echo $this->getSkinUrl(); ?>images/ebt/help-icon.png"></div>
+               </div>               
+            </li>   
+            <li>
+               <label class="required">Order number<em>*</em></label>
+               <div class="input-box">
+                <input type="text" name="order_no" id="order_no" value="" placeholder="Enter order nunber" class="input-text required-entry" title="Order number">         
+               </div>
+            </li>            
+            <li>
+               <label class="required">Reason<em>*</em></label>
+               <div class="input-box">
+                    <select id="reason" name="reason" title="Reason" class="validate-select">
+                        <?php foreach($reason_label as $key => $value): ?>
+                        <option value="<?php echo $value; ?>"><?php echo $value; ?></option>
+                    <?php endforeach; ?>
+                    </select>
+               </div>
+            </li>
+            <li class="vow-delight-comment">
+               <label class="required">Comment</label>
+               <div class="input-box">
+                    <input type="textarea" name="comment" id="comment" value="" placeholder="Enter your comment" class="input-text" title="Comment">
+               </div>
+            </li>
+         </ul>
+       </div>
+        <div class="vow-mobile-button-container">
+          <button type="button" class="button btn-address" onclick="return submitImei()" title="<?php echo $this->__('ADD') ?>" <span><span><?php echo $this->__('Add') ?></span></span></button>
+        </div>
+    </div>
+    <?php $check = ''; $check = (count($imei_list) > 0 ? 'block':'none'); ?>
+    <div id="imei-table-list" class="imei-table-list" style="display:<?php echo $check ?>;">
+        <div id="succ-mes-list" class="succ-mes" name="succ-mes-list"></div>
+        <div id="err-mes-list" class="err-mes" name="err-mes-list"></div>    
+        <div class="vow-delight-table-container">        
+            <table class="vow-delight-table" cellspacing="0" cellpadding="0" id="myTable">
+                <thead>
+                    <tr class="imeitr" id='123'>                        
+                        <th width="23%">IMEI number</th>
+                        <th width="23%">Order number</th>
+                        <th width="23%">Reason</th>
+                        <th width="23%">Comments</th>
+                        <th width="12%">Action</th>                        
+                    </tr>
+                </thead>
+                <tbody>                                    
+                    <?php foreach($imei_list as $key => $value): ?>
+                    <tr class="imeitr" id='<?php echo $key; ?>'>
+                        <td><?php echo $key; ?></td>
+                        <td><?php echo $value['oldorderno']; ?></td>                        
+                        <td><?php echo $value['reason']; ?></td>
+                        <td><?php echo $value['comment']; ?></td>
+                        <td width="8%" onclick="removeImei('<?php echo $key; ?>');"><span class="nobr link-delete-order" title="Remove">Remove</span></td></tr>
+                <?php endforeach; ?> 
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="vow-mobile-button-container">
+              <button type="button" class="button btn-address" onclick="return svaeImei()" title="<?php echo $this->__('ADD') ?>" <span><span><?php echo $this->__('Submit') ?></span></span></button>
+        </div>
+    </div>        
+
+</div>     	   
+
+<script>
+
+    function submitImei()
+    {   
+        jQuery('#succ-mes').html('');
+        jQuery('#err-mes').html('');
+        jQuery('#succ-mes-list').html('');
+        jQuery('#err-mes-list').html('');        
+        var url          = "<?php echo $this->getUrl('vowdelight/index/searchimei') ?>";        
+        var order_no     = jQuery('#order_no').val(); //alert(imei.toString().length);               
+        var imei         = jQuery('#imei').val(); //alert(imei.toString().length);       
+        var reason       = jQuery('#reason').val();//alert(reason);
+        var comment      = jQuery('#comment').val();
+               
+        if(imei == ''){            
+            jQuery('#err-mes').html('IMEI number field can not be empty.');
+            return false;
+        }
+        if(isNaN(imei)){
+            jQuery('#err-mes').html('Please enter only numbers in IMEI Number field.');
+            return false;
+        }
+        if(imei.toString().length < 15)
+        {
+            jQuery('#err-mes').html('IMEI number should not be less than 15 digits.');
+            return false;            
+        }
+        if(order_no == ''){            
+            jQuery('#err-mes').html('Order number field can not be empty.');
+            return false;
+        }
+        if(isNaN(order_no)){            
+            jQuery('#err-mes').html('Please enter only numbers in Order Number filed.');
+            return false;
+        }         
+        if(reason == '')
+        {
+            jQuery('#err-mes').html('Please select valid Reason.');
+            return false;            
+        }          
+        jQuery.ajax({
+            url: url,
+            data: {order_no:order_no,imei:imei,reason:reason,comment:comment},   
+            type: 'POST',
+            beforeSend: function(){ //alert('test');
+                jQuery('.opc-ajax-loader').css('display', 'block');                
+            },             
+            success: function(response) {
+                //jQuery('#email_address').html(data).css('display','block');
+                var data = JSON.parse(response);//alert(data);
+                // console.log();
+                if(data.status){                                      
+                    jQuery('#succ-mes').html(data.message);
+                    jQuery('#imei-table-list').show();
+                    jQuery('#order_no').val(''); //alert(feedback);
+                    jQuery('#imei').val(''); //alert(feedback);                           
+                    jQuery('#comment').val('');                    
+                    jQuery('#myTable').append('<tr class="imeitr" id='+data.imei+'><td>'+data.imei+'</td><td>'+data.oldorderno+'</td><td>'+data.reason+'</td><td>'+data.comment+'</td><td width="8%" onclick="removeImei('+data.imei+');"><span class="nobr link-delete-order" title="Remove">Remove</span></td></tr>');                                       
+                }
+                else
+                {
+                   jQuery('#err-mes').html(data.message);                                  
+                }
+            },
+            complete: function(){
+                jQuery('.opc-ajax-loader').css('display', 'none');                
+            }            
+        }); 
+ 
+        //return false;  
+    }
+
+    function removeImei(imeiid)
+    {   
+       jQuery('#succ-mes').html('');
+       jQuery('#err-mes').html('');
+       jQuery('#succ-mes-list').html('');
+       jQuery('#err-mes-list').html('');         
+       var url = "<?php echo $this->getUrl('vowdelight/index/removeimei') ?>";
+       jQuery.ajax({
+            url: url,
+            data: {imeiid:imeiid},   
+            type: 'POST',
+            beforeSend: function(){ //alert('test');
+                jQuery('.opc-ajax-loader').css('display', 'block');                
+            },             
+            success: function(response) {
+                //jQuery('#email_address').html(data).css('display','block');
+                var data = JSON.parse(response);//alert(data.count);
+                // console.log();
+                if(data.status)
+                {                                      
+                    jQuery('#succ-mes-list').html(data.message);
+                    jQuery('#'+imeiid).remove();
+                    if(data.count == 1)
+                    {
+                      jQuery('#imei-table-list').hide();                        
+                    }                    
+                }
+                else
+                {
+                   jQuery('#err-mes-list').html(data.message);               
+                }
+            },
+            complete: function(){
+                jQuery('.opc-ajax-loader').css('display', 'none');                
+            }            
+        });      
+    }
+
+    function svaeImei()
+    {   
+        jQuery('#succ-mes').html('');
+        jQuery('#err-mes').html('');
+        jQuery('#succ-mes-list').html('');
+        jQuery('#err-mes-list').html('');        
+        var url = "<?php echo $this->getUrl('vowdelight/index/saveimei') ?>";               
+        jQuery.ajax({
+            url: url,
+            //data: {imei:imei,reason:reason,comment:comment},   
+            type: 'POST',
+            beforeSend: function(){ //alert('test');
+                jQuery('.opc-ajax-loader').css('display', 'block');                
+            },             
+            success: function(response) {
+                //jQuery('#email_address').html(data).css('display','block');
+                var data = JSON.parse(response);//alert(data);
+                // console.log();
+                if(data.status){                                      
+                    //jQuery('#succ-mes').html(data.message);                                     
+                    window.location = '<?php echo Mage::getBaseUrl() ?>vowdelight/index/success';
+                }
+                else
+                {
+                   jQuery('#err-mes').html(data.message);                                  
+                }
+            },
+            complete: function(){
+                jQuery('.opc-ajax-loader').css('display', 'none');                
+            }            
+        }); 
+ 
+        //return false;  
+    }  
+
+    jQuery(".help-vow").click(function(){
+    jQuery(".popup-vow").fadeIn("slow");
+    });
+
+    jQuery(".new-gadget-close-popup").click(function(){
+    jQuery(".popup-vow").fadeOut("slow");
+    });
+
+</script>

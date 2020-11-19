@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+  <affiliatelimit_adminhtml_limit_index>
+	<reference name="content">
+	  <block type="affiliatelimit/adminhtml_limit" name="limit" />
+	</reference>
+  </affiliatelimit_adminhtml_limit_index>
+</layout>

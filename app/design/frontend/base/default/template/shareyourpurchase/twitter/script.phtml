@@ -1,0 +1,26 @@
+<script>
+function saveTwitterStatistics(productName) {
+    var orderIncrementId = undefined;
+        
+        <?php $orderIncrementId = $this->getLayout()->getBlock('social')->getOrderIncrementId(); ?>
+        
+        <?php if ($orderIncrementId): ?>
+        var orderIncrementId = <?php echo $orderIncrementId; ?>;
+        <?php endif; ?>
+        
+        new Ajax.Request("<?php echo $this->getUrl('social/statistics/save'); ?>", {
+        method: "post",
+        parameters: {orderIncrementId: orderIncrementId, provider: 'Twitter', productName: productName}
+    });
+}
+
+twttr.ready(function (twttr) {
+    twttr.events.bind('tweet', function (event) {        
+        var socialProduct = event.target.parentNode.parentNode;
+
+        var product = socialProduct.getElementsByClassName('product-name');
+
+        saveTwitterStatistics(product[0].innerHTML);
+    });
+});
+</script>

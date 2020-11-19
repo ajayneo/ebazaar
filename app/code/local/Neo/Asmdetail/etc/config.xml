@@ -1,0 +1,132 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Neo_Asmdetail>
+      <version>0.1.3</version>
+    </Neo_Asmdetail>
+  </modules>
+  <global>
+    <helpers>
+      <asmdetail>
+        <class>Neo_Asmdetail_Helper</class>
+      </asmdetail>
+    </helpers>
+	<blocks>
+	  <asmdetail>
+		<class>Neo_Asmdetail_Block</class>
+	  </asmdetail>
+	</blocks>
+	<models>
+	  <asmdetail>
+		<class>Neo_Asmdetail_Model</class>
+		<resourceModel>asmdetail_mysql4</resourceModel>
+	  </asmdetail>
+	  <asmdetail_mysql4>
+		<class>Neo_Asmdetail_Model_Mysql4</class>
+		<entities>		  
+			  <asmdetail>
+				<table>neo_asmdetail</table>
+			  </asmdetail>
+			  <asm>
+				<table>neo_asmdetail_arm</table>
+			  </asm>
+			  <rsm>
+				<table>neo_asmdetail_crm</table>
+			  </rsm>
+        </entities>
+	  </asmdetail_mysql4>
+	</models>
+	<resources>
+	  <asmdetail_setup>
+		<setup>
+		  <module>Neo_Asmdetail</module>
+		</setup>
+		<connection>
+		  <use>core_setup</use>
+		</connection>
+	  </asmdetail_setup>
+	  <asmdetail_write>
+		<connection>
+		  <use>core_write</use>
+		</connection>
+	  </asmdetail_write>
+	  <asmdetail_read>
+		<connection>
+		  <use>core_read</use>
+		</connection>
+	  </asmdetail_read>
+	</resources>
+  </global>
+  <admin>
+	<routers>
+	  <asmdetail>
+	    <use>admin</use>
+		<args>
+		  <module>Neo_Asmdetail</module>
+		  <frontName>admin_asmdetail</frontName>
+		</args>
+	  </asmdetail>
+	</routers>
+  </admin>
+  <adminhtml>
+	<menu>
+	  <asmdetail module="asmdetail">
+		<title>ASM Detail</title>
+		<sort_order>100</sort_order>
+		<children>
+		  <asmdetail module="asmdetail">
+		    <title>Manage ASM Detail</title>
+			<sort_order>0</sort_order>
+			<action>admin_asmdetail/adminhtml_asmdetail</action>
+		  </asmdetail>
+		  <asm module="asmdetail">
+		    <title>Manage Asm</title>
+			<sort_order>0</sort_order>
+			<action>admin_asmdetail/adminhtml_asm</action>
+		  </asm>
+		  <rsm module="asmdetail">
+		    <title>Manage Rsm</title>
+			<sort_order>0</sort_order>
+			<action>admin_asmdetail/adminhtml_rsm</action>
+		  </rsm>
+		</children>
+	  </asmdetail>
+	</menu>
+	<acl>
+	  <resources>
+		<all>
+		  <title>Allow Everything</title>
+		</all>
+		<admin>
+		  <children>
+			<asmdetail translate="title" module="asmdetail">
+			  <title>ASM Detail</title>
+			  <sort_order>1000</sort_order>
+			  <children>
+		  <asmdetail translate="title">
+			<title>Manage ASM Detail</title>
+			<sort_order>0</sort_order>
+		  </asmdetail>
+		  <asm translate="title">
+			<title>Manage Asm</title>
+			<sort_order>0</sort_order>
+		  </asm>
+		  <rsm translate="title">
+			<title>Manage Rsm</title>
+			<sort_order>0</sort_order>
+		  </rsm>
+			  </children>
+			</asmdetail>
+		  </children>
+		</admin>
+	  </resources>
+	</acl>
+	<layout>
+	  <updates>
+		<asmdetail>
+		  <file>asmdetail.xml</file>
+		</asmdetail>
+	  </updates>
+	</layout>
+  </adminhtml>
+</config> 

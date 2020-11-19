@@ -1,0 +1,206 @@
+<?php
+$mediaUrl = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA);
+$baseUrl = $this->getBaseUrl();
+$id = $this->getRequest()->getParam('id');
+
+$product = $this->getProduct($id);
+
+
+?>
+
+<form action="<?php echo $baseUrl.'gadget/index/gadgetpost/id/'.$id;?>" id="gadget" method="post" >
+    <div class="productContainer">  
+        <h1> 
+            <?php echo $product['name']; ?>
+            <input type="hidden" name="name" value="<?php echo $product['name']; ?>" />
+            <input type="hidden" name="brand" value="<?php echo $product['brand']; ?>" />
+            <input type="hidden" name="reference_id" value="<?php echo $product['id']; ?>" />
+            <input type="hidden" id="price" name="price" value="" />
+        </h1>
+        <ul class="stepsList clearfix">
+            <li id="stepfirst" class="clearfix active">
+                <div class="stepContainer clearfix">
+                    <span class="stepNumber">1</span>
+                    <span class="stepContent"><a href="#">Select Gadget Condition</a></span>
+                </div>
+                <div class="stepArrow"></div>
+            </li>
+            <li id="stepsecond" class="clearfix">
+                <div class="stepContainer clearfix">
+                    <span class="stepNumber">2</span>
+                    <span class="stepContent"><a href="#">Provide Contact Information</a></span>
+                </div>
+                <div class="stepArrow"></div>
+            </li>
+            <li id="stepthird" class="clearfix"> 
+                <div class="stepContainer clearfix">
+                    <span class="stepNumber">3</span>
+                    <span class="stepContent"><a href="#">Get a Quote</a></span>
+                </div>
+            </li>
+        </ul>
+
+        <div class="productDetailsContainer">
+            <div id="steponebody" class="steps active">
+                <div class="clearfix">
+                    <div class="stepProductImg">
+                        <img src="<?php echo $mediaUrl . $product['image']; ?>" title="<?php echo $product['name']; ?>" alt="<?php echo $product['name']; ?>" />
+                    </div>
+                    <div class="productDetails">
+                        <h2>Select Gadget Condition</h2>
+                        <div class="detailsQues">
+                            <div class="ques">Does the Mobile Switch On? <span class="mandatory">*</span></div>
+                            <div class="ans">
+                                <span class="radioBtn">
+                                    <input id="working" name="switch" type="radio" value="yes" /> Yes
+                                </span> 
+                                <span class="radioBtn">
+                                    <input id="notworking" class="validate-one-required-by-name" name="switch" type="radio" value="no" /> No
+                                    <div style="display:none" id="advice-validate-one-required-by-name-notworking" class="validation-advice">Please select one of the options.</div>
+                                </span>
+                            </div>
+                            <div class="errorField"><p>This is a required field.</p></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="btnContainer">
+                    <!--button onclick="return firstNextButton()" type="submit" class="btnNext"><span><span>Next</span></span></button-->
+                    <input type="button" value="Next" class="btnNext" onclick="return firstNextButton()" />
+                </div>
+            </div>
+
+            <div id="steptwobody" class="steps">
+                <div class="clearfix">
+                    <div>
+                        <h2>Condition</h2>
+                        <div class="ques">Does the mobile switch on?</div>
+                        <div id="answer" class="ans">Yes</div>
+                    </div>
+
+                    <div class="contactInfo">
+                        <h2>Contact Information</h2>
+                        <ul class="contactInformation clearfix">
+                            <li>
+                                <!--<label>Pincode*</label>-->
+                                <input id="Pincode" type="text" name="pincode" class="required-entry" value="" placeholder="Pincode*" />
+                            </li>
+                            <li>
+                                <!--<label>City*</label>-->
+                                <input id="City" type="text" name="city" class="required-entry"  value="" placeholder="City*" />
+                            </li>
+                            <li>
+                                <!--<label>Email Id*</label>-->
+                                <input id="email" type="text" name="email" class="required-entry"  value="" placeholder="Email Id*" />
+                            </li>
+                            <li>
+                                <!--<label>Mobile Number*</label>-->
+                                <input id="Mobile" type="text" name="mobile" class="required-entry"  value="" placeholder="Mobile Number*" />
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="btnContainer">
+                    <p>
+                        <!--button onclick="return firstPreviousButton()" type="submit" class="btnPrevious"><span><span>Previous</span></span></button-->
+                        <input type="button" value="Previous" class="btnPrevious" onclick="return firstPreviousButton()" />
+                    </p>
+                    
+                    <p>
+                        <button onclick="return secondNextButton()" type="submit" class="btnNext"><span><span>Next</span></span></button>
+                        <!--input type="button" value="Next" class="btnNext" onclick="return secondNextButton()" /-->
+                    </p>
+                </div>
+            </div>
+
+            <div id="stepthreebody" class="steps quoteContainer">
+                <h3>The quoted value is based on the condition of the gadget mentioned by you.<br /> Please refer to our T &amp; Cs </h3>
+                <div class="quoteAmount"><span id="product_price_given">1,500/-</span></div>
+                <div class="btnContainer">
+                    <!--input type="button" value="Sell it &amp; Schedule a Pick up" class="btnSubmit" /-->
+                    <button type="submit" class="btnSubmit"><span><span>Sell it &amp; Schedule a Pick up</span></span></button>
+                </div>
+                <div class="btnContainer">
+                    <!--button onclick="return secondPreviousButton()" type="submit" class="btnPrevious"><span><span>Previous</span></span></button-->
+                    <input type="button" value="Previous" class="btnPrevious" onclick="return secondPreviousButton()" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</form>
+
+<script type="text/javascript">
+    //<![CDATA[
+    var working_price = "<?php  echo substr(Mage::helper('core')->currency($product['working_price'], true, false), 3); ?>";
+    var non_working_price = "<?php  echo substr(Mage::helper('core')->currency($product['non_working_price'], true, false), 3); ?>";
+
+    var contactForm = new VarienForm('gadget', true);
+
+    var stepsecond = document.getElementById("stepsecond");
+    var stepthird = document.getElementById("stepthird");
+
+    var steponebody = document.getElementById("steponebody");
+    var steptwobody = document.getElementById("steptwobody");
+    var stepthreebody = document.getElementById("stepthreebody");
+
+    var price = document.getElementById("product_price_given");
+    var answer = document.getElementById("answer");
+    var price_given = document.getElementById("price");
+
+    function firstNextButton()
+    {
+        if (document.getElementById('working').checked) {
+            //Yes radio button is checked
+            stepsecond.classList.add("active");
+            steponebody.classList.remove("active");
+            steptwobody.classList.add("active");
+            price.innerHTML = working_price;
+            answer.innerHTML = 'Yes';
+            price_given.value = working_price;
+            return false;
+        } else if (document.getElementById('notworking').checked) {
+            //No radio button is checked
+            stepsecond.classList.add("active");
+            steponebody.classList.remove("active");
+            steptwobody.classList.add("active");
+            price.innerHTML = non_working_price;
+            answer.innerHTML = 'No';
+            price_given.value = non_working_price;
+            return false;
+        }else{
+            document.getElementById("advice-validate-one-required-by-name-notworking").style.display = 'block';
+        }
+    }
+
+    function firstPreviousButton()
+    {
+        document.getElementById("advice-validate-one-required-by-name-notworking").style.display = 'none';
+    	stepsecond.classList.remove("active");
+    	steptwobody.classList.remove("active");
+    	steponebody.classList.add("active");
+    	return false;
+    }
+
+    function secondNextButton()
+    {
+        if(document.getElementById('Pincode').value !='' && document.getElementById('City').value !='' && document.getElementById('email').value !='' && document.getElementById('Mobile').value !='') {
+            //Yes radio button is checked
+            stepthird.classList.add("active");
+            steptwobody.classList.remove("active");
+            stepthreebody.classList.add("active");
+            return false;
+        }
+    	
+    	//return false;
+    }
+
+    function secondPreviousButton()
+    {
+        stepthird.classList.remove("active");
+        steptwobody.classList.add("active");
+        stepthreebody.classList.remove("active");
+        return false;
+    }
+
+    //]]>
+</script>

@@ -1,0 +1,214 @@
+<?php
+/**
+ * Magento 
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     rwd_default
+ * @copyright   Copyright (c) 2014 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<div class="opc-ajax-loader">
+  <div id="floatingCirclesG">
+    <div class="f_circleG" id="frotateG_01"></div>
+    <div class="f_circleG" id="frotateG_02"></div>
+    <div class="f_circleG" id="frotateG_03"></div>
+    <div class="f_circleG" id="frotateG_04"></div>
+    <div class="f_circleG" id="frotateG_05"></div>
+    <div class="f_circleG" id="frotateG_06"></div>
+    <div class="f_circleG" id="frotateG_07"></div>
+    <div class="f_circleG" id="frotateG_08"></div>
+    </div>
+</div>
+<?php /*?><p id="back-top" class="back-top"><a href="#top"><span></span>Back to Top</a></p> <?php */?>
+<?php /* ?>
+<div class="footer-container">
+  <div class="footer">
+    
+
+      <div class="footer-top-sec clearfix">
+
+
+
+          <div class="links"> 
+            <?php echo $this->getChildHtml('eb_footer_links'); ?>
+          </div> 
+
+          <div class="payment-option-container">
+                        <h2>Payment Options</h2>
+                        <ul>
+                                <li class="payment-method1"></li>
+                                <li class="payment-method2"></li>
+                                <li class="payment-method3"></li>
+                                <li class="payment-method4"></li>
+                                <li class="payment-method5"></li>
+                        </ul>
+                </div>
+
+          <?php
+            /**
+              <div class="links sign-up-content">
+                <?php echo $this->getChildHtml('newsletter'); ?> 
+              </div>
+
+            *//*
+          ?>
+
+          <div class="links last clearfix">
+            <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('connect-with-us')->toHtml(); ?>
+          </div>
+
+
+
+      </div>
+    </div>
+    <div class="footer-bottom"> 
+
+    
+
+    <div class="footer copyright-main clearfix"> 
+        
+        <div class="address-content">
+ 
+          <address class="copyright">
+            Copyright © <?php echo date("Y") ?>  <a href="<?php echo $this->getBaseUrl(); ?>"><span>Electronics Bazaar</span></a>. Online Electronics Shopping Store in India. All Rights Reserved. <a href="http://www.electronicsbazaar.com/privacy-policy"><span>Privacy Policy</span></a>
+          </address>
+        </div>
+
+
+      
+          
+
+        <span class="design">Designed at <a href="http://neosofttech.com/" target="_blank">NeoSoft Technologies</a></span>
+      </div>
+      
+    </div>
+
+</div>
+ <?php */ ?>
+
+
+ <div class="footer-container">
+       <div class="footer-content footer-payment clearfix no-display-new">
+              <div class="footer-logo no-display">
+                <a href="<?php echo $this->getUrl(); ?>"><img src="<?php echo $this->getSkinUrl(); ?>images/ebt/logo-footer.png" alt="Electronics Bazaar"></a>
+              </div>
+              <div class="payment-method-container clearfix">
+                <!-- <h3>Payment Method</h3> -->
+                <ul class="payment-method clearfix">
+                  <li><img src="<?php echo $this->getSkinUrl(); ?>images/new-images/visa-logo.png" alt="Visa" /></li>
+                  <li><img src="<?php echo $this->getSkinUrl(); ?>images/new-images/master-card-logo.png" alt="Master Card" /></li>
+                  <li><img src="<?php echo $this->getSkinUrl(); ?>images/new-images/cash-on-delivery-logo.png" alt="Master Card" /></li>
+<!--                  <li><img src="<?php echo $this->getSkinUrl(); ?>images/new-images/easy-emi-logo.png" alt="Easy EMI" /></li>-->
+                  <li><img src="<?php echo $this->getSkinUrl(); ?>images/new-images/credit-checkout-logo.png" alt="Easy EMI" /></li>
+                 <!-- <li><img src="<?php echo $this->getSkinUrl(); ?>images/new-images/pay-u-biz-logo.png" alt="PayuBiz" /></li> -->
+                  <li><img src="<?php echo $this->getSkinUrl(); ?>images/new-images/paytm-logo.png" alt="Paytm" /></li>
+                </ul>
+              </div>
+            </div>
+        <div class="footer-top">
+          <div class="main clearfix">
+           
+
+            
+
+            <div class="footer-content clearfix">
+              <!-- <h3>Connect With Us</h3> -->
+              <div class="footer-signup">
+                <?php echo $this->getChildHtml('newsletter'); ?> 
+              </div>
+              <div class="social-container clearfix">
+                <ul class="social-list clearfix">
+                    <li><a target="_blank" href="https://www.facebook.com/pages/Electronicsbazaarcom/796505747037072" class="facebook-icon"></a></li>
+                    <li><a target="_blank" href="https://twitter.com/electrosbazaar" class="twitter-icon"></a></li>
+                    <li><a target="_blank" href="https://www.linkedin.com/company/electronicsbazaar/" class="linkedin-icon"></a></li>
+                    <li class="whatsapp-container2"><span class="whatsapp-number2">Whatsapp Us "Hi" for daily deals</span><a target="_blank" alt="whatsapp" class="whatsapp-icon-white"><span>+919930681777</span></a></li> 
+                                       
+                    <li class="whatsapp-container"><span class="whatsapp-number">Add our Whatsapp number <strong>+919930681777</strong> for daily deals!!</span><a target="_blank" alt="whatsapp" class="whatsapp-icon"><span></span></a></li>               
+                   
+                </ul>
+                <ul class="copy-right">
+                    <li class="toll-free-number"><p>Call us @ +91-8291599914</p></li>
+                    <li class="toll-free-number"><p>Copyright © 2018 <a href="<?php echo $this->getUrl(); ?>" class="eb-text">Electronics Bazaar</a>.</p></li>
+                </ul>
+              </div>                          
+            </div>
+            <?php /*
+             <div class="footer-content">
+              <!-- <h3>Quick Links</h3> -->
+              <div class="quick-links clearfix">
+                <ul>
+                  <li><a href="<?php echo $this->getUrl('about-us'); ?>">About Us</a></li>
+                  <li><a href="<?php echo $this->getUrl('laptops'); ?>">Laptops</a></li>
+                  <li><a href="<?php echo $this->getUrl('mobiles'); ?>">Mobiles</a></li>
+                  <li><a href="<?php echo $this->getUrl('accesories'); ?>">Accessories</a></li>
+                  <!-- <li><a href="<?php // echo $this->getUrl('shipping-packaging'); ?>">Shiping &amp; Packaging</a></li> -->
+                  <!-- <li><a href="<?php // echo $this->getUrl('payments'); ?>">Easy Payments</a></li> -->
+                  <li><a href="<?php echo $this->getUrl('warranty'); ?>">Warranty</a></li>
+                  <li><a href="<?php echo $this->getUrl('policies'); ?>">Policies</a></li>
+                  <li><a href="<?php echo $this->getUrl('careers'); ?>">Careers</a></li>
+                  <li><a href="<?php echo $this->getUrl('customer/account/login'); ?>">Login</a></li>
+                  <li><a href="<?php echo $this->getUrl('contacts'); ?>">Contact Us</a></li>
+                </ul>                
+              </div>
+            </div>
+
+            */ ?>
+            
+          </div>
+        </div>
+        <?php /* ?>
+        <div class="footer-bottom">
+          <div class="main">
+            <p>Copyright © 2017 <a href="<?php echo $this->getUrl(); ?>">Electronics Bazaar</a>. Online Electronics Shopping Store in India. All Rights Reserved. <a href="<?php echo $this->getUrl('privacy-policy'); ?>">Privacy Policy</a></p>
+          </div>
+        </div><?php */ ?>
+        <div class="footer-bottom">
+          <div class="main">
+            
+            <p>
+              <a href="<?php echo $this->getUrl().'about-us/'; ?>">About Us </a> | 
+              <a href="<?php echo $this->getUrl().'policies/'; ?>"> Terms &amp; Policy </a> | 
+              <a href="<?php echo $this->getUrl().'disclaimer/'; ?>">Disclaimers   </a> | 
+              <a href="<?php echo $this->getUrl().'careers/'; ?>">Culture </a> | 
+              <a href="<?php echo $this->getUrl().'contacts/'; ?>">    Contact Us </a></p> 
+          </div>
+        </div>
+      </div>
+<script type="text/javascript">
+  var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent) ? true : false;
+  if(!isMobile)
+  {
+    var vj = jQuery.noConflict();
+    vj(document).ready(function(){
+      var test = setInterval(function() {
+        vj(".whatsapp-number").hide();
+        vj(".whatsapp-icon").hide();
+      }, 5000);
+      vj(".whatsapp-icon").mouseover(function(){
+          clearInterval(test);
+          vj(".whatsapp-number").show();
+      });
+      vj(".whatsapp-icon").mouseout(function(){          
+          vj(".whatsapp-number").hide();
+          vj(".whatsapp-icon").hide();          
+      });
+    });
+  }
+</script>

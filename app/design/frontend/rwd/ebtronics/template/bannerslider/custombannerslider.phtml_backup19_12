@@ -1,0 +1,45 @@
+<div class="main-new-banner-container clearfix">
+<div onclick="ga('send', 'event', { eventCategory: 'home-banner', eventAction: 'click', eventLabel: 'seal-packed'});" class="deals-list-container">
+  <ul class="clearfix newDealsSlider">
+    <li><a href="http://www.electronicsbazaar.com/albright-rockman-s-ipx5-portable-shock-waterproof-bluetooth-speaker-orange" target="_blank"><img src="http://cdn.electronicsbazaar.com/skin/frontend/rwd/electronics/customs/images/left-banners/banner1-1.jpg"></a></li>
+    <li><a href="http://www.electronicsbazaar.com/albright-rockman-x-stander-bluetooth-speaker-with-the-stand-function-blue" target="_blank"><img src="http://cdn.electronicsbazaar.com/skin/frontend/rwd/electronics/customs/images/left-banners/banner1-2.jpg"></a></li>
+    <li><a href="http://www.electronicsbazaar.com/albright-bt002-wireless-bluetooth-headset-black-brown" target="_blank"><img src="http://cdn.electronicsbazaar.com/skin/frontend/rwd/electronics/customs/images/left-banners/banner1-3.jpg"></a></li>
+    <li><a href="http://www.electronicsbazaar.com/albright-l4-wireless-bluetooth-headset-orange-white" target="_blank"><img src="http://cdn.electronicsbazaar.com/skin/frontend/rwd/electronics/customs/images/left-banners/banner1-4.jpg"></a></li>
+   </ul>
+</div>
+
+<script type="text/javascript">
+
+var jqcs = jQuery.noConflict();
+ jqcs('.newDealsSlider').bxSlider({
+    auto: true,
+    speed: 500,
+    pause: 2000
+ });
+</script>
+<!-- <div class="flashy-banner clearfix">
+<a href="http://www.electronicsbazaar.com/deals/" target="_blank"><img src="images/flash-sale-new.jpg"></a> 
+</div> -->
+
+<div class="flashy-banner clearfix">
+  <a href="http://www.electronicsbazaar.com/deals" target="_blank">
+    <span onclick="ga('send', 'event', { eventCategory: 'home-banner', eventAction: 'click', eventLabel: 'big-bang'});" class="bigbang-wrapper">
+    	<span class="big-bang-sale-banner-heading"><img src="http://cdn.electronicsbazaar.com/skin/frontend/rwd/electronics/customs/images/big-bang-sale-banner-heading.png"></span>
+   		<span class="big-bang-date"><img src="http://cdn.electronicsbazaar.com/skin/frontend/rwd/electronics/customs/images/date.png"></span>
+   		<span class="yellow-bg"><img src="http://cdn.electronicsbazaar.com/skin/frontend/rwd/electronics/customs/images/banner-bg-patch.png"></span>
+   		<span class="buyNow"><img src="http://cdn.electronicsbazaar.com/skin/frontend/rwd/electronics/customs/images/buy-now.png"></span>
+    </span>
+    <span class="banner-logos">
+	    <span onclick="ga('send', 'event', { eventCategory: 'home-banner', eventAction: 'click', eventLabel: 'catalog-search'});" class="banner-logo-content banner-logo1"><img src="http://cdn.electronicsbazaar.com/skin/frontend/rwd/electronics/customs/images/banner-logo1.png"></span>
+	    <span class="banner-logo-content banner-logo2"><img src="http://cdn.electronicsbazaar.com/skin/frontend/rwd/electronics/customs/images/banner-logo2.png"></span>
+	    <span onclick="ga('send', 'event', { eventCategory: 'home-banner', eventAction: 'click', eventLabel: 'refurbished'});"
+         class="banner-logo-content banner-logo3"><img src="http://cdn.electronicsbazaar.com/skin/frontend/rwd/electronics/customs/images/banner-logo3.png"></span>
+	    <span onclick="ga('send', 'event', { eventCategory: 'home-banner', eventAction: 'click', eventLabel: 'unboxed'});"
+         class="banner-logo-content banner-logo4"><img src="http://cdn.electronicsbazaar.com/skin/frontend/rwd/electronics/customs/images/banner-logo4.png"></span>
+   </span>
+  </a>
+ </div> 
+  <div class="responsive-bigbangsale"><a href="http://www.electronicsbazaar.com/deals" target="_blank"><img src="http://cdn.electronicsbazaar.com/skin/frontend/rwd/electronics/customs/images/bigbangsale.jpg"></a></div>
+</div> 
+
+

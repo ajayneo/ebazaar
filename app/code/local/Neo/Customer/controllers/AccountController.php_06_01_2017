@@ -1,0 +1,148 @@
+<?php
+	require_once 'Mage/Customer/controllers/AccountController.php';
+    class Neo_Customer_AccountController extends Mage_Customer_AccountController
+    {
+    	/**
+	     * Create customer account action
+		 * overridden for Update redirection to login page itself when their is any error
+		 * overridden by pradeep sanku
+		 * On 26th March 2015
+	     */
+	    public function createPostAction()
+	    {
+	        /** @var $session Mage_Customer_Model_Session */
+	        $session = $this->_getSession();
+	        if ($session->isLoggedIn()) {
+	            $this->_redirect('*/*/');
+	            return;
+	        }
+	        $session->setEscapeMessages(true); // prevent XSS injection in user input
+	        if (!$this->getRequest()->isPost()) {
+	            $errUrl = $this->_getUrl('*/*', array('_secure' => true)); // changed line
+	            $this->_redirectError($errUrl);
+	            return;
+	        }
+	
+	        $customer = $this->_getCustomer();
+	
+	        try {
+	            $errors = $this->_getCustomerErrors($customer);
+	
+	            if (empty($errors)) {
+	            	$customerData = $this->getRequest()->getPost();
+
+	            	if($customerData['group_id'] == 4) 
+	            	{
+	            		$customerCount = Mage::getModel('customer/customer')->getCollection()->addFieldToFilter('mobile',$customerData['mobile']);
+ 
+						if(count($customerCount) > 0)
+						{
+							$session->setCustomerFormData($this->getRequest()->getPost());
+							$error = Mage::helper('customer')->__('There is already an account with this mobile number.');
+							Mage::throwException($error);
+						}
+
+						$session_ebpin = Mage::getSingleton('core/session')->getEBPin();
+
+						if($session_ebpin[$customerData['mobile']] != $customerData['cus_otp'])    
+						{
+							$session->setCustomerFormData($this->getRequest()->getPost());
+							
+	               			$error = Mage::helper('customer')->__('EB PIN Entered by you is not correct.');
+							Mage::throwException($error);
+						}
+
+
+	            		for ($randomNumber = mt_rand(1, 9), $i = 1; $i < 10; $i++) {  
+		    				$randomNumber .= mt_rand(0, 9);
+						}
+
+		            	$customer->setGroupId($customerData['group_id']);
+		            	$customer->setAsmMap($customerData['asm_id']); 
+
+		            	$customer->setCusCountry('IN');  
+		            	$customer->setCusState($customerData['cus_state']);  
+		            	$customer->setCusCity($customerData['cus_city']);  
+		            	$customer->setAffiliateStore($customerData['affiliate_store']);  
+		            	$customer->setLandmark($customerData['landmark']);  
+		            	//$customer->setAffiliateStore('TEST STORE');
+		            	$customer->setIsaffiliate(1);
+		            	$customer->setRepcode('Aff_'.$customerData['firstname'].'_'.$randomNumber);
+	            	} 
+	                $customer->save();
+	                $this->_dispatchRegisterSuccess($customer);
+	                $this->_successProcessRegistration($customer);
+	                return;
+	            } else {
+	                $this->_addSessionError($errors);
+	            }
+	        } catch (Mage_Core_Exception $e) {
+	            $session->setCustomerFormData($this->getRequest()->getPost());
+	            if ($e->getCode() === Mage_Customer_Model_Customer::EXCEPTION_EMAIL_EXISTS) {
+	                $url = $this->_getUrl('customer/account/forgotpassword');
+	                $message = $this->__('There is already an account with this email address. If you are sure that it is your email address, <a href="%s">click here</a> to get your password and access your account.', $url);
+	                $session->setEscapeMessages(false);
+	            } else {
+	                $message = $e->getMessage();
+	            }
+	            $session->addError($message);
+	        } catch (Exception $e) {
+	            $session->setCustomerFormData($this->getRequest()->getPost())
+	                ->addException($e, $this->__('Cannot save the customer.'));
+	        }
+	        $errUrl = $this->_getUrl('*/*', array('_secure' => true)); // changed line
+	        $this->_redirectError($errUrl);
+	    }
+
+	    /**
+     * Login post action
+     */
+    public function loginPostAction()
+    {
+        if (!$this->_validateFormKey()) {
+            $this->_redirect('*/*/');
+            return;
+        }
+
+        if ($this->_getSession()->isLoggedIn()) {
+            $this->_redirect('*/*/');
+            return;
+        }
+        $session = $this->_getSession();
+
+        if ($this->getRequest()->isPost()) {
+            $login = $this->getRequest()->getPost('login');
+            
+            if (!empty($login['username']) && !empty($login['password'])) {
+                try {
+                    
+                    $session->login($login['username'], $login['password']); 
+                    if ($session->getCustomer()->getIsJustConfirmed()) {
+                        $this->_welcomeCustomer($session->getCustomer(), true);
+                    }
+                } catch (Mage_Core_Exception $e) {  
+                    switch ($e->getCode()) {
+                        case Mage_Customer_Model_Customer::EXCEPTION_EMAIL_NOT_CONFIRMED:
+                            $value = $this->_getHelper('customer')->getEmailConfirmationUrl($login['username']);
+                            $message = $this->_getHelper('customer')->__('This account is not confirmed. <a href="%s">Click here</a> to resend confirmation email.', $value);
+                            break;
+                        case Mage_Customer_Model_Customer::EXCEPTION_INVALID_EMAIL_OR_PASSWORD:
+                            $message = $e->getMessage();
+                            break;
+                        default:
+                            $message = $e->getMessage();
+                    }
+                    $session->addError($message);
+                    $session->setUsername($login['username']);
+                } catch (Exception $e) {
+                    // Mage::logException($e); // PA DSS violation: this exception log can disclose customer password
+                }
+            } else {
+                $session->addError($this->__('Login and password are required.'));
+            }
+        }
+
+        $this->_loginPostRedirect();
+    }
+    }
+?>

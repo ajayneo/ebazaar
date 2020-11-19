@@ -1,0 +1,1 @@
+[08-Oct-2018 16:06:58 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Db_Table_Exception' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Db/Table/Rowset/Exception.php on line 36

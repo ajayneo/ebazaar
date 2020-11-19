@@ -1,0 +1,79 @@
+<div class="wishlist-view-section">
+	<div class="page-title title-buttons">
+		<?php $customer = Mage::getSingleton('customer/session')->getCustomer(); 
+				$gadgetCollection = Mage::getModel('gadget/request')->getCollection();
+				$gadgetCollection->addFieldToFilter('email',$customer->getEmail());
+				$orders = $gadgetCollection->getData();
+				//print_r($orders);
+     
+		?>
+	
+		<h1>Trade (<?php echo count($orders); ?> Orders)</h1>
+    </div>
+    <div class="fieldset">
+    	<?php if(!empty($orders)){ ?>
+    <div class="wishlist-list">
+    <ul>
+    <?php foreach($orders as $order): ?>
+    	<?php //echo $order['image']; 
+    	//print_r($order);
+    	$image_paths = explode('media', $order['image']);
+    	$image = $image_paths[1];
+    	
+
+    	$pos = strrpos($image, '/');
+		$id = $pos === false ? $image : substr($image, $pos + 1);
+		//var_dump($id);
+		//43415
+    	$imageName = 'apple-iphone-6s-plus-1_1_2.png';
+    	$imagePath = 'catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/a/p';
+    	$width = 150;
+    	$height = 200;
+    	//echo '<br>'.$newimage = Mage::helper('gadget')->resizeImage($imageName, $width, $height, $imagePath);
+    	//break;
+
+    	?>
+    	<li>
+	    	<div class="product-image">
+		        <a href=""><img height=200 width=150  src="<?php echo $order['image']; ?>"></a>
+		    </div>
+		    <div class="product-info">
+		        <h2 class="product-name"><?php echo "Order #".$order['id']; ?></h3>
+		        <h3 class="product-name"><a href=""><?php echo $order['proname']; ?></a></h3>
+		        <?php $options = json_decode($order['options'],1); ?>
+		        <ul>
+		        <?php foreach($options as $label => $value ){ ?>
+	        	<?php if($label === 0){
+        			foreach ($value as $key => $dump) {
+        				echo "<li><b>".$key.":</b> ".$dump."</li>";
+        			}
+        		}else{ ?>
+			        <li><b><?php echo $label; ?>:</b> <?php echo $value; ?></li>
+        		<?php	} ?>
+		        <?php } ?>
+		        </ul>          
+	        <div class="product-bottom-sec">
+	        	<div class="price-box">
+		            <span class="regular-price">
+			                <span class="price">Rs. <?php echo $order['price']; ?></span>
+		            </span>
+		        </div>
+		        <div class="btn-section">
+			        <button class="button btn-cart" title="Buy now" type="button" onclick="<?php echo Mage::getUrl('gadget/index/detail'); ?>">
+			        <span>
+			        <span>View Invoice</span>
+			        </span>
+			        </button>
+			        </div>
+			        </div>
+			        
+			    	</div>
+			</li>
+		<?php endforeach; ?>
+    		</ul>		
+    	<?php }else{ ?>
+    		<p class="wishlist-empty"><?php echo $this->__('You have no items in your trade.') ?></p>
+    	<?php } ?>
+    	</div>
+    </div>
+</div>

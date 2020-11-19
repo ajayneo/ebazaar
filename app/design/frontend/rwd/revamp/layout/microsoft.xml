@@ -1,0 +1,14 @@
+<?xml version="1.0"?>   
+<layout version="0.1.0">   
+  <microsoft_index_index>  
+    <remove name="footer"/> 
+    <remove name="header"/>
+    <remove name="feedback"/>
+    <reference name="head">
+        <action method="addCss"><stylesheet>microsoft/css/microsoft-validation.css</stylesheet></action>
+    </reference> 
+    <reference name="root">   
+      <action method="setTemplate"><template>microsoft/1column.phtml</template></action>   
+    </reference>      
+  </microsoft_index_index>  
+</layout>

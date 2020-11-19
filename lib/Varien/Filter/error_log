@@ -1,0 +1,6 @@
+[08-Oct-2018 16:03:49 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Filter' not found in /home/electronicsbazaa/public_html/lib/Varien/Filter/Array.php on line 29
+[08-Oct-2018 16:03:49 Asia/Kolkata] PHP Fatal error:  Interface 'Zend_Filter_Interface' not found in /home/electronicsbazaa/public_html/lib/Varien/Filter/Money.php on line 29
+[08-Oct-2018 16:03:49 Asia/Kolkata] PHP Fatal error:  Interface 'Zend_Filter_Interface' not found in /home/electronicsbazaa/public_html/lib/Varien/Filter/Email.php on line 29
+[08-Oct-2018 16:03:49 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Filter' not found in /home/electronicsbazaa/public_html/lib/Varien/Filter/Object.php on line 29
+[08-Oct-2018 16:03:49 Asia/Kolkata] PHP Fatal error:  Interface 'Zend_Filter_Interface' not found in /home/electronicsbazaa/public_html/lib/Varien/Filter/Sprintf.php on line 29
+[08-Oct-2018 16:03:49 Asia/Kolkata] PHP Fatal error:  Interface 'Zend_Filter_Interface' not found in /home/electronicsbazaa/public_html/lib/Varien/Filter/Template.php on line 36

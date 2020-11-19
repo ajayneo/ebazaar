@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <CronJob_DisabledBanner>
+      <version>0.1.0</version>
+    </CronJob_DisabledBanner>
+  </modules>
+  <frontend>
+      <routers>
+          <disabledbanner>
+              <use>standard</use>
+              <args>
+                  <module>CronJob_DisabledBanner</module>
+                  <frontName>disabledbanner</frontName>
+              </args>
+          </disabledbanner>
+      </routers>
+  </frontend>
+  <global>
+    <helpers>
+      <disabledbanner>
+        <class>CronJob_DisabledBanner_Helper</class>
+      </disabledbanner>
+    </helpers>
+	<models>
+	  <disabledbanner>
+		<class>CronJob_DisabledBanner_Model</class>
+		<resourceModel>disabledbanner_mysql4</resourceModel>
+	  </disabledbanner>
+	</models>
+  </global>    
+    <crontab>
+        <jobs>            
+			<disabledbanner_sendbannerdisabledemail>
+                <schedule><cron_expr>0 1 * * *</cron_expr></schedule>
+                <run><model>disabledbanner/cron::sendBannerDisabledEmail</model></run>
+            </disabledbanner_sendbannerdisabledemail>
+        </jobs>
+    </crontab>
+</config> 

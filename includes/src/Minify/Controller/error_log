@@ -1,0 +1,5 @@
+[08-Oct-2018 16:05:09 Asia/Kolkata] PHP Fatal error:  Class 'Minify_Controller_Base' not found in /home/electronicsbazaa/public_html/includes/src/Minify/Controller/Page.php on line 14
+[08-Oct-2018 16:05:09 Asia/Kolkata] PHP Fatal error:  Class 'Minify_Controller_Base' not found in /home/electronicsbazaa/public_html/includes/src/Minify/Controller/Files.php on line 27
+[08-Oct-2018 16:05:09 Asia/Kolkata] PHP Fatal error:  Class 'Minify_Controller_Base' not found in /home/electronicsbazaa/public_html/includes/src/Minify/Controller/MinApp.php on line 13
+[08-Oct-2018 16:05:09 Asia/Kolkata] PHP Fatal error:  Class 'Minify_Controller_Base' not found in /home/electronicsbazaa/public_html/includes/src/Minify/Controller/Version1.php on line 17
+[08-Oct-2018 16:05:09 Asia/Kolkata] PHP Fatal error:  Class 'Minify_Controller_Base' not found in /home/electronicsbazaa/public_html/includes/src/Minify/Controller/Groups.php on line 29

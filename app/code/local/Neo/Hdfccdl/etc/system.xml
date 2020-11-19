@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+<config>
+  <sections>
+    <payment>
+      <groups>
+        <hdfc_cdl translate="label comment" module="hdfccdl">
+          <label>HDFC CDL</label>
+          <frontend_type>text</frontend_type>
+          <sort_order>101</sort_order>
+          <show_in_default>1</show_in_default>
+          <show_in_website>1</show_in_website>
+          <show_in_store>1</show_in_store>
+          <fields>
+            <active translate="label">
+              <label>Enabled</label>
+              <frontend_type>select</frontend_type>
+              <source_model>adminhtml/system_config_source_yesno</source_model>
+              <sort_order>1</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>0</show_in_store>
+            </active>
+            <title translate="label">
+              <label>Title</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>2</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </title>
+            <merchant_id>
+              <label>Merchant Id:</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>3</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </merchant_id>
+            <currency_type>
+      	      <label>Currency Type:</label>
+      	      <frontend_type>text</frontend_type>
+      	      <sort_order>4</sort_order>
+      	      <show_in_default>1</show_in_default>
+      	      <show_in_website>1</show_in_website>
+      	      <show_in_store>1</show_in_store>
+	          </currency_type>
+      	    <user_id>
+      	      <label>User Id:</label>
+      	      <frontend_type>text</frontend_type>
+      	      <sort_order>5</sort_order>
+      	      <show_in_default>1</show_in_default>
+      	      <show_in_website>1</show_in_website>
+      	      <show_in_store>1</show_in_store>
+      	    </user_id>
+      	    <return_url>
+      	      <label>Return Url:</label>
+      	      <frontend_type>text</frontend_type>
+      	      <sort_order>6</sort_order>
+      	      <show_in_default>1</show_in_default>
+      	      <show_in_website>1</show_in_website>
+      	      <show_in_store>1</show_in_store>
+      	    </return_url>
+      	    <checksum_key>
+      	      <label>Checksum Key:</label>
+      	      <frontend_type>text</frontend_type>
+      	      <sort_order>7</sort_order>
+      	      <show_in_default>1</show_in_default>
+      	      <show_in_website>1</show_in_website>
+      	      <show_in_store>1</show_in_store>
+      	    </checksum_key>
+            <urlto_submit>
+            	<label>Payment Gateway Url</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>8</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>1</show_in_store>
+            </urlto_submit>
+            <order_status translate="label">
+              <label>New Order Status</label>
+              <frontend_type>select</frontend_type>
+              <source_model>adminhtml/system_config_source_order_status</source_model>
+              <sort_order>9</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>0</show_in_store>
+            </order_status>
+            <allowspecific translate="label">
+              <label>Payment Applicable From</label>
+              <frontend_type>select</frontend_type>
+              <sort_order>10</sort_order>
+              <source_model>adminhtml/system_config_source_payment_allspecificcountries</source_model>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>0</show_in_store>
+            </allowspecific>
+            <specificcountry translate="label">
+              <label>Countries Payment Applicable From</label>
+              <frontend_type>multiselect</frontend_type>
+              <sort_order>11</sort_order>
+              <source_model>adminhtml/system_config_source_country</source_model>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>0</show_in_store>
+              <depends>
+                <allowspecific>1</allowspecific>
+              </depends>
+            </specificcountry>
+            <sort_order translate="label">
+              <label>Sort Order</label>
+              <frontend_type>text</frontend_type>
+              <sort_order>12</sort_order>
+              <show_in_default>1</show_in_default>
+              <show_in_website>1</show_in_website>
+              <show_in_store>0</show_in_store>
+            </sort_order>
+          </fields>
+        </hdfc_cdl>
+      </groups>
+    </payment>
+  </sections>
+</config>

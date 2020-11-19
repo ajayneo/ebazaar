@@ -1,0 +1,11 @@
+<?php 
+/**
+* @author Amasty Team
+* @copyright Copyright (c) 2013 Amasty (http://www.amasty.com)
+* @package Amasty_Cart
+*/  
+if(Mage::getStoreConfig('amcart/general/enable')): ?>
+<script type="text/javascript">
+    var AmAjaxObj = new AmAjax(<?php echo Mage::helper('amcart')->jsParam($this)?>);
+</script>
+ <?php endif; ?>        

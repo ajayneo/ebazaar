@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Neo_IBMSale>
+      <version>0.1.0</version>
+    </Neo_IBMSale>
+  </modules>
+  <global>
+    <helpers>
+      <ibmsale>
+        <class>Neo_IBMSale_Helper</class>
+      </ibmsale>
+    </helpers>
+  </global>
+</config> 

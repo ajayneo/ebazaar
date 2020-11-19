@@ -1,0 +1,9 @@
+[08-Oct-2018 16:05:46 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Gdata_Extension' not found in /home/electronicsbazaa/public_html/lib/Zend/Gdata/Books/Extension/Review.php on line 39
+[08-Oct-2018 16:05:47 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Gdata_Extension' not found in /home/electronicsbazaa/public_html/lib/Zend/Gdata/Books/Extension/Viewability.php on line 39
+[08-Oct-2018 16:05:47 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Gdata_Books_Extension_BooksLink' not found in /home/electronicsbazaa/public_html/lib/Zend/Gdata/Books/Extension/InfoLink.php on line 39
+[08-Oct-2018 16:05:47 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Gdata_App_Extension_Link' not found in /home/electronicsbazaa/public_html/lib/Zend/Gdata/Books/Extension/BooksLink.php on line 39
+[08-Oct-2018 16:05:47 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Gdata_Books_Extension_BooksLink' not found in /home/electronicsbazaa/public_html/lib/Zend/Gdata/Books/Extension/ThumbnailLink.php on line 40
+[08-Oct-2018 16:05:47 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Gdata_Books_Extension_BooksLink' not found in /home/electronicsbazaa/public_html/lib/Zend/Gdata/Books/Extension/PreviewLink.php on line 40
+[08-Oct-2018 16:05:47 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Gdata_App_Extension_Category' not found in /home/electronicsbazaa/public_html/lib/Zend/Gdata/Books/Extension/BooksCategory.php on line 40
+[08-Oct-2018 16:05:47 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Gdata_Extension' not found in /home/electronicsbazaa/public_html/lib/Zend/Gdata/Books/Extension/Embeddability.php on line 39
+[08-Oct-2018 16:05:47 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Gdata_Books_Extension_BooksLink' not found in /home/electronicsbazaa/public_html/lib/Zend/Gdata/Books/Extension/AnnotationLink.php on line 40

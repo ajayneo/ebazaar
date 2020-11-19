@@ -1,0 +1,32 @@
+<?php $pincode = $this->getRequest()->getParam('pincode'); ?>
+<!-- <?php $value = Mage::getStoreConfig('delivery_validator/pincode_validator/pincodes'); ?>
+<?php $results=explode(",",$value); ?>
+<?php $expr='/^[0-9-]+$/';?>
+<?php if (!preg_match($expr, $pincode)) : ?>
+<?php echo '<span class="notavailable">Invalid pincode</span>';?>
+<?php else: ?>
+<?php if (in_array($pincode,$results)): ?>
+	<?php echo "<span class='available'>Delivery Avaliable</span>"; ?>
+<?php else: ?>
+	<?php echo "<span class='notavailable'>Delivery Not Avaliable</span>"; ?>
+<?php endif; ?>
+<?php endif;?> -->
+<?php $pincollect = Mage::getModel('deliveryvalidator/deliveryvalidator')->getCollection()->addFieldToFilter('status',array('eq' => 0));
+			//echo "<pre>";
+			//$postpin='200845';
+			foreach ($pincollect as $data) {
+				$pinarr=explode(',', $data['pincodes']);
+				if(in_array($pincode, $pinarr)){
+					$set='1';
+					echo "<span class='available'>Delivery done in ".$data['rules']." days</span>";
+					break;
+				}
+				else{
+					continue;
+				}
+				
+			}
+			if($set!='1'){
+				echo "<span class='notavailable'>Delivery Not Avaliable</span>";
+			}			
+?>

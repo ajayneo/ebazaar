@@ -1,0 +1,12 @@
+[08-Oct-2018 16:06:15 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Filter_Word_SeparatorToCamelCase' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Filter/Word/DashToCamelCase.php on line 34
+[08-Oct-2018 16:06:16 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Filter_Word_Separator_Abstract' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Filter/Word/DashToSeparator.php on line 34
+[08-Oct-2018 16:06:16 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Filter_Word_SeparatorToSeparator' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Filter/Word/SeparatorToDash.php on line 34
+[08-Oct-2018 16:06:16 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Filter_Word_CamelCaseToSeparator' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Filter/Word/CamelCaseToDash.php on line 34
+[08-Oct-2018 16:06:16 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Filter_Word_SeparatorToSeparator' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Filter/Word/UnderscoreToDash.php on line 34
+[08-Oct-2018 16:06:16 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Filter_Word_SeparatorToSeparator' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Filter/Word/DashToUnderscore.php on line 34
+[08-Oct-2018 16:06:16 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Filter_PregReplace' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Filter/Word/SeparatorToSeparator.php on line 34
+[08-Oct-2018 16:06:16 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Filter_Word_CamelCaseToSeparator' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Filter/Word/CamelCaseToUnderscore.php on line 34
+[08-Oct-2018 16:06:16 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Filter_Word_Separator_Abstract' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Filter/Word/CamelCaseToSeparator.php on line 34
+[08-Oct-2018 16:06:16 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Filter_Word_Separator_Abstract' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Filter/Word/SeparatorToCamelCase.php on line 34
+[08-Oct-2018 16:06:16 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Filter_Word_SeparatorToSeparator' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Filter/Word/UnderscoreToSeparator.php on line 34
+[08-Oct-2018 16:06:16 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Filter_Word_SeparatorToCamelCase' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Filter/Word/UnderscoreToCamelCase.php on line 34

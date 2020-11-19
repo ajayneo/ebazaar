@@ -1,0 +1,3 @@
+[08-Oct-2018 16:05:56 Asia/Kolkata] PHP Fatal error:  Class 'Mage_Core_Controller_Front_Action' not found in /home/electronicsbazaa/public_html/includes/src/Neo/CustomAjax/controllers/AjaxController_backup.php on line 3
+[08-Oct-2018 16:05:56 Asia/Kolkata] PHP Fatal error:  Class 'Mage_Core_Controller_Front_Action' not found in /home/electronicsbazaa/public_html/includes/src/Neo/CustomAjax/controllers/AjaxController.php on line 3
+[08-Oct-2018 16:05:56 Asia/Kolkata] PHP Fatal error:  Class 'Mage_Core_Controller_Front_Action' not found in /home/electronicsbazaa/public_html/includes/src/Neo/CustomAjax/controllers/IndexController.php on line 2

@@ -1,0 +1,1 @@
+[08-Oct-2018 16:05:44 Asia/Kolkata] PHP Fatal error:  Interface 'Zend_Tool_Framework_Manifest_ProviderManifestable' not found in /home/electronicsbazaa/public_html/lib/Zend/Tool/Framework/System/Manifest.php on line 39

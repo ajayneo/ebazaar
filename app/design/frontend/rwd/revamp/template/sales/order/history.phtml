@@ -1,0 +1,101 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     rwd_default
+ * @copyright   Copyright (c) 2014 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<?php $_orders = $this->getOrders(); ?>
+<div class="page-title">
+    <h1><?php echo $this->__('Purchase History') ?></h1>
+</div>
+<?php echo $this->getChildHtml('info');?>
+<?php echo $this->getPagerHtml(); ?>
+<?php if($_orders->getSize()): ?>
+<div class="table-responsive">
+<table class="data-table orders" id="my-orders-table">
+    <col width="1" />
+    <col width="1" />
+    <col />
+    <col width="1" />
+    <col width="1" />
+    <col width="1" />
+    <thead>
+        <tr>
+            <th class="number"><?php echo $this->__('Order ID') ?></th>
+            <th class="date"><?php echo $this->__('Date') ?></th>
+            <!--<th class="ship"><?php //echo $this->__('Ship To') ?></th>-->
+            <th class="total"><span class="nobr"><?php echo $this->__('Total Amount') ?></span></th>
+            <th class="status"><span class="nobr"><?php echo $this->__('Payment Status') ?></span></th>
+            <th class="view"><span class="nobr"><?php echo $this->__('Invoice') ?></th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php $_odd = ''; ?>
+        <?php foreach ($_orders as $_order): 
+            $updated_at = $_order->getUpdatedAt();
+            $order_status = array('replace','returned_and_refunded','replaced','returned','holded','closed','canceled');
+            $increment_id = $_order->getIncrementId();
+            // $imei_list = Mage::helper('orderreturn')->getInvoicedOrder($increment_id);
+	        $array_params = array("order"=>$increment_id, "email" => $_order->getCustomerEmail(), "mobile"=>$_order->getShippingAddress()->getTelephone());
+	 ?>
+
+        <tr>
+            <td class="number"><?php echo $_order->getRealOrderId() ?></td>
+            <td class="date"><span class="nobr"><?php echo $this->formatDate($_order->getCreatedAtStoreDate()) ?></span></td>
+            <!--<td class="ship"><?php //echo $_order->getShippingAddress() ? $this->escapeHtml($_order->getShippingAddress()->getName()) : '&nbsp;' ?></td>-->
+            <td class="total"><?php echo $_order->formatPrice($_order->getGrandTotal()) ?></td>
+            <td class="status"><em><?php echo $_order->getStatusLabel() ?></em></td>
+            <td class="a-center view">
+                <span class="nobr"><a href="<?php echo $this->getViewUrl($_order) ?>" class="link-vieworder" title="View Order"><?php echo $this->__('View Order') ?></a>
+                    <?php /*<span class="separator">|</span><a href="<?php echo $this->getTrackUrl($_order) ?>"><?php echo $this->__('Track Order') ?></a>&nbsp;*/ ?>
+                     <?php if($_order->hasShipments() && $_order->getStatusLabel() !== 'Cancelled'){ ?>
+                     <span class="separator">|</span>
+                        <a href="<?php echo $this->getUrl('trackyourorder/index/trackorder',$array_params) ?>" class="link-track" title="Track Shipment"><?php echo $this->__('Track Order') ?></a>
+                    <?php } ?>    
+                    <?php if ($this->helper('sales/reorder')->canReorder($_order)) : ?>
+                        <span class="separator">|</span>
+                        <a href="<?php echo $this->getReorderUrl($_order) ?>" class="link-reorder" title="Reorder"><?php echo $this->__('Reorder') ?></a>
+                    <?php endif ?>
+                    
+                    <?php if($this->helper('orderreturn')->canReturn($_order->getRealOrderId())): ?>
+                        <span class="separator">|</span>
+                        <a href="<?php echo $this->getUrl('order_return?order_id='.$this->helper('orderreturn')->encrypt($_order->getRealOrderId())) ?>" class="link-return" title="Return Order"><?php echo $this->__('Return') ?></a> 
+                    <?php endif;?>
+
+                    <?php if (!$_order->hasShipments()) : //$this->helper('cancelorder/customer')->canCancel($_order) ?>
+                    <span class="separator">|</span> <a onclick="return confirm('Are you sure you would like to cancel your order?');" href="<?php echo $this->getUrl('sales/order/cancel', array('order_id' => $_order->getId())) ?>" class="link-cancel" title="Cancel Order"><?php echo $this->__('Cancel Order') ?></a>
+                    <?php endif ?>
+
+                </span>
+            </td> 
+        </tr> 
+        <?php endforeach; ?>
+    </tbody>
+</table>
+</div>
+<script type="text/javascript">decorateTable('my-orders-table');</script>
+<?php echo $this->getPagerHtml(); ?>
+<?php else: ?>
+    <p><?php echo $this->__('You have placed no orders.'); ?></p>
+<?php endif ?>

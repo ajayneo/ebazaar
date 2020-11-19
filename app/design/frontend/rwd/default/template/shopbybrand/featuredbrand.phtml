@@ -1,0 +1,130 @@
+<?php
+    $store = Mage::app()->getStore()->getId();
+    $featuredBrands = $this->getFeaturedBrands();
+    $showAsSlider = Mage::getStoreConfig('shopbybrand/brand_list/show_featured_brand_as_slider',$store);
+    $logo_width = Mage::getStoreConfig('shopbybrand/brand_list/brand_logo_width',$store);
+    $logo_height = Mage::getStoreConfig('shopbybrand/brand_list/brand_logo_height',$store);
+?>
+
+<?php if (count($featuredBrands)):?>
+<?php if (!$showAsSlider) :?>
+<style type="text/css" media="screen">
+    .brand-logo {
+        height: <?php echo $logo_height;?>px;
+        align-items: center;
+        display: inline-flex;
+        max-width: 90%;
+    }
+</style>
+<div class="featuredbrands col">
+    <div class="page-title">
+        <h1><?php echo $this->__('Featured Brands');?></h1>
+    </div>
+    <div class="content">
+        <ul class="featuredbrands-list">
+        <?php foreach ($featuredBrands as $featuredBrand) { ?>
+            <?php
+                $path = 'brands/thumbnail' . DS . $featuredBrand->getId();
+                $img = Mage::helper('shopbybrand/image')
+                                ->init($featuredBrand, $path)->resizeThumbnail($logo_width, $logo_height);
+            ?>
+            <li class="span_1"  style="height: <?php echo $logo_height+30;?>px;">
+                <a href="<?php echo $this->getBrandUrl($featuredBrand); ?>">
+                    <div class="brand-logo">
+                        <img src="<?php echo $img; ?>" style="width: 100%" />
+                    </div>
+                    <div style="display: block;">
+                    <?php echo $featuredBrand->getName(); ?>
+                    </div>
+                </a>
+            </li>
+        <?php } ?>
+        </ul>
+    </div>
+    <script type="text/javascript">
+        var FeB = jQuery.noConflict();
+        var countFeaturedBrands = <?php echo count($featuredBrands);?>;
+        var featuredbrandsWidth = FeB('.featuredbrands').innerWidth();
+        var numberofbrand = Math.floor(featuredbrandsWidth/<?php echo $logo_width;?>);
+        if (numberofbrand < 1) numberofbrand = 1;
+        FeB('.span_1').css('width',(100/numberofbrand)+'%');
+        FeB('.featuredbrands-list').css('height',Math.ceil(countFeaturedBrands/numberofbrand)*<?php echo $logo_height+30;?>);
+        
+        window.onresize = resize;
+        function resize()
+        {
+            var featuredbrandsWidth = FeB('.featuredbrands').innerWidth();
+            var numberofbrand = Math.floor(featuredbrandsWidth/<?php echo $logo_width;?>);
+            if (numberofbrand < 1) numberofbrand = 1;
+            FeB('.span_1').css('width',(100/numberofbrand)+'%');
+            FeB('.featuredbrands-list').css('height',Math.ceil(countFeaturedBrands/numberofbrand)*<?php echo $logo_height+30;?>);
+        }
+    </script>
+</div>
+<?php else:?>
+
+<script language="javascript" src="<?php echo $this->getSkinUrl('css/shopbybrand/templates/default/jquery.min.js')?>"></script>
+<script language="javascript" src="<?php echo $this->getSkinUrl('css/shopbybrand/templates/default/jquery.easing.1.3.js'); ?>"> </script>
+<script language="javascript" src="<?php echo $this->getSkinUrl('css/shopbybrand/templates/default/jquery.mousewheel.js'); ?>"> </script>
+<script language="javascript" src="<?php echo $this->getSkinUrl('css/shopbybrand/templates/default/jquery.contentcarousel.js'); ?>"> </script>
+
+<link rel="stylesheet" type="text/css" href="<?php echo $this->getSkinUrl('css/shopbybrand/templates/default/sliderstyle.css'); ?>" media="all" />
+
+<style type="text/css" media="screen">
+    .ca-container{
+        height: <?php echo $logo_height+35;?>px;
+    }    
+    .ca-container .brand-logo {
+        height: <?php echo $logo_height;?>px;
+    }
+</style>
+
+<div class="featuredbrands col">
+    <div class="page-title">
+        <h1><?php echo $this->__('Featured Brands');?></h1>
+    </div>
+    <div id="ca-container" class="ca-container">
+        <div class="ca-wrapper">
+            <?php 
+                $i = 0;
+                foreach ($featuredBrands as $featuredBrand) : 
+                    $i++;
+                    $path = 'brands/thumbnail' . DS . $featuredBrand->getId();
+                    $img = Mage::helper('shopbybrand/image')
+                                ->init($featuredBrand, $path)->resizeThumbnail($logo_width, $logo_height);
+            ?>
+            <div class="ca-item ca-item-<?php echo $i;?>">
+                <div class="ca-item-main">
+                    <a href="<?php echo $this->getBrandUrl($featuredBrand); ?>">
+                        <div class="brand-logo" style="margin-bottom: 5px;">
+                            <img src="<?php echo $img; ?>" />
+                        </div>
+                        <div style="display: block;">
+                        <?php echo $featuredBrand->getName(); ?>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <?php endforeach;?>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var FeB = jQuery.noConflict();
+        var featuredbrandsWidth = FeB('.featuredbrands').innerWidth();
+        var numberofbrand = Math.floor((featuredbrandsWidth-20)/220);
+		if (numberofbrand < 1) numberofbrand = 1;
+        FeB('#ca-container').css('width',numberofbrand*220);
+        
+        window.onresize = resize;
+        function resize()
+        {
+            var featuredbrandsWidth = FeB('.featuredbrands').innerWidth();
+			var numberofbrand = Math.floor((featuredbrandsWidth-20)/220);
+			if (numberofbrand < 1) numberofbrand = 1;
+			FeB('#ca-container').css('width',numberofbrand*220);
+        }
+        FeB('#ca-container').contentcarousel();
+    </script>
+</div>
+<?php endif; ?>
+<?php endif; ?>

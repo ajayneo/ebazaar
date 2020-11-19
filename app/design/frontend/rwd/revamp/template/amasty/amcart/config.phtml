@@ -1,0 +1,24 @@
+<?php
+	$route = Mage::app()->getFrontController()->getRequest()->getRouteName();
+
+    $action = Mage::app()->getFrontController()->getRequest()->getActionName();
+
+	if($route == 'cms' && $action == 'index'):
+?>
+	<?php //echo $this->getLayout()->createBlock('customblocks/index')->setTemplate('homepage/hot_deals.phtml')->toHtml(); ?>
+	<?php //echo $this->getLayout()->createBlock('custombestseller/bestseller')->setTemplate('neo/bestseller.phtml')->toHtml(); ?>
+	<?php //echo $this->getLayout()->createBlock('customblocks/index')->setTemplate('homepage/featured_products.phtml')->toHtml(); ?>
+
+<?php endif; ?>
+<?php 
+/**
+* @author Amasty Team
+* @copyright Copyright (c) 2013 Amasty (http://www.amasty.com)
+* @package Amasty_Cart
+*/  
+if(Mage::getStoreConfig('amcart/general/enable')): ?>
+<script type="text/javascript">
+    var AmAjaxObj = new AmAjax(<?php echo Mage::helper('amcart')->jsParam($this)?>);
+</script>
+ <?php endif; ?>        
+   

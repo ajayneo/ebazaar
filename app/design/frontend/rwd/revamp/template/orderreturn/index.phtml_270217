@@ -1,0 +1,138 @@
+<?php
+    $encrypt = $this->getRequest()->getParam('order_id');
+    $orderId = $this->helper('orderreturn')->decrypt($encrypt);
+    $returnData = $this->helper('orderreturn')->returnData($orderId);
+    $order = $this->helper('orderreturn')->getOrderImei($orderId);
+?>	
+
+<div class="order-container">
+    <h1>Return Your Order</h1>
+    <form action="<?php echo $this->getUrl('order_return/index/submit/') ?>" id="returnForm" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="order_number" value="<?php echo $encrypt ?>">
+        <div class="order-label">
+            <label>Order No.</label>
+            <div class="input-txt"><?php echo $orderId ?></div>
+        </div>    
+        <div class="order-list-container">
+            <table class="order-list-table" cellspacing="0" cellpadding="0">
+                <thead>
+                    <tr>
+                        <th>Sr. No.</th>
+                        <th>SKU</th>
+                        <th>Product Name</th>
+                        <th>IMEI</th>
+                        <th>Quantity</th>
+                        <th>Return</th>
+                        <th>Reason</th>
+                        <th>Image of Damage Product</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php $i = 0 ?>
+                    <?php foreach ($order->getInvoiceCollection() as $inv): ?>
+                        <?php $items = $inv->getItemsCollection()->getData(); ?>
+                        <?php foreach ($items as $item): ?>
+                            <?php $imeiNumbers = explode(' ', $item['serial']); ?>
+                            <?php foreach ($imeiNumbers as $imei): ?> 
+                                <tr>
+                                    <td><?php echo ++$i; ?></td>
+                                    <td><?php echo $item['sku']; ?></td>
+                                    <td><?php echo $item['name']; ?></td>
+                                    <td><?php echo $imei; ?></td>  
+                                    <td align="center">1</td>
+                                    <td align="center">
+                                        <?php if (array_key_exists($imei, $returnData)): ?>
+                                            <input id="return_<?php echo $i; ?>" onclick="return false" name="imei[]" type="checkbox" value="<?php echo $imei; ?>"  checked="checked"  readonly="readonly"> 
+                                        <?php else: ?>
+                                            <input id="return_<?php echo $i; ?>" onclick="addRequiredClass('<?php echo $i; ?>')" name="imei[]" type="checkbox" value="<?php echo $imei; ?>">
+                                        <?php endif; ?>
+                                    </td>
+                                    <td>
+                                        <?php if (array_key_exists($imei, $returnData)): ?>
+
+                                            <input id="reason_<?php echo $i; ?>" name="reason[]" type="text" class="input-text" value="<?php echo $returnData[$imei]; ?>" readonly="readonly">
+
+                                            <!--select id="reason_<?php //echo $i; ?>" name="reason[]" class="" value="<?php //echo $returnData[$imei]; ?>" readonly="readonly">
+                                                <option value=""></option>   
+                                                <option <?php //if($returnData[$imei] == 'Bekar Product Hai'): ?> selected <?php //endif ?> value="Bekar Product Hai">Bekar Product Hai</option>
+                                                <option <?php //if($returnData[$imei] == 'Faltu roduct Hai'): ?> selected <?php //endif ?> value="Faltu roduct Hai">Faltu roduct Hai</option>
+                                                <option <?php //if($returnData[$imei] == 'Damage Product'): ?> selected <?php //endif ?> value="Damage Product">Damage Product</option>
+                                            </select-->
+
+                                        <?php else: ?>
+                                    <!--input id="reason_<?php //echo $i; ?>" name="reason[]" type="text" class="input-text"--> 
+                                            <select id="reason_<?php echo $i; ?>" name="reason[]" class="" onclick="addRequiredClassFile('<?php echo $i; ?>')">
+                                                <option value=""></option>
+                                                <option value="Bekar Product Hai">Bekar Product Hai</option>
+                                                <option value="Faltu roduct Hai">Faltu roduct Hai</option>
+                                                <option value="Damage Product">Damage Product</option>
+                                            </select>
+
+                                        <?php endif; ?>
+                                    </td>
+                                    <td style="text-align: center;" >
+                                            <?php if (array_key_exists($imei, $returnData)): 
+                                                $directory = Mage::getBaseDir('media') . DS . 'order_return' . DS . $imei . DS;
+                                                $files = scandir ($directory);
+                                                $firstFile = Mage::getBaseUrl('media') . DS . 'order_return' . DS . $imei . DS . $files[2];
+                                            ?>
+
+                                                <?php if($files[2] && $returnData[$imei] == 'Damage Product'): ?>
+                                                    <img style="margin:0 auto" height="50px" width="50px" src="<?php echo $firstFile ?>">
+
+                                                    <a href="<?php echo $this->getUrl('order_return/index/delete/').'imei/'.$imei.'/order_id/'.$encrypt ?>" title="Delete Image">
+                                                        Delete Image 
+                                                    </a>
+                                                <?php else: ?> 
+                                                    <?php if($returnData[$imei] == 'Damage Product'): ?>
+                                                        <input id="image_<?php echo $i; ?>" class="required-entry" type="file" name="<?php echo $imei ?>" accept="image/*">
+                                                    <?php else: ?>
+
+                                                    <?php endif; ?>
+                                                <?php endif; ?>    
+                                            <?php else: ?> 
+
+                                            <input style="display:none;" id="image_<?php echo $i; ?>" class="" type="file" name="<?php echo $imei ?>" accept="image/*">                                      
+                                          <?php endif; ?>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>  
+                        <?php endforeach; ?>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+        <input class="btn-return" type="submit" name="Submit" value="Submit" />
+    </form>
+</div>
+
+<script type="text/javascript">
+    //<![CDATA[
+    var returnForm = new VarienForm('returnForm', true);
+    //]]>
+</script>
+<script type="text/javascript">
+    var id;
+
+    function addRequiredClass(id)
+    {
+        if (document.getElementById('return_' + id).checked) {
+            document.getElementById('reason_' + id).classList.add("required-entry");
+        } else {
+            document.getElementById('reason_' + id).classList.remove("required-entry");
+        }
+
+    }
+
+    function addRequiredClassFile(id)
+    {   
+        val = document.getElementById('reason_' + id).value;
+        if (val == 'Damage Product') {
+            document.getElementById('image_' + id).style.display = "block";
+            document.getElementById('image_' + id).classList.add("required-entry");
+        } else {
+            document.getElementById('image_' + id).style.display = "none";
+            document.getElementById('image_' + id).classList.remove("required-entry");
+        }
+    }
+</script>

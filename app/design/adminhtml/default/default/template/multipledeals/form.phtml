@@ -1,0 +1,208 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     default_default
+ * @copyright   Copyright (c) 2010 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<div class="entry-edit">
+    <?php echo $this->getFormHtml();?>
+</div>
+<?php echo $this->getChildHtml('form_after');?>
+
+<style type="text/css">	
+	.grid tr.on-mouse-over { background:#fcf5dd; cursor:pointer; }
+</style>
+
+<script type="text/javascript">			
+	if ($('product_id').value!='') {
+		setProduct($('product_id').value);
+	} else {
+		//add Select a Product row if no product selected
+		var tdLabel = new Element('td', { "class": "label" });
+		tdLabel.innerHTML = '<label for="prod_select"><?php echo $this->__('Product'); ?> <span class="required">*</span></label>';		
+		var tdValue = new Element('td', { "class": "value" });
+		tdValue.innerHTML = '<span><a href="javascript:void(0);" onClick="showProductsTab()"><?php echo $this->__('Select a Product'); ?></a></span>';
+		
+		$('prod_select').appendChild(tdLabel);
+		$('prod_select').appendChild(tdValue);
+	}
+	
+	//select the product and add it's info to the Deal Settings tab
+	function setProduct(product_id) {		
+		//deselect previous product 	
+		if ($('products_grid_radio'+$('product_id').value)) {
+			$('products_grid_radio'+$('product_id').value).checked = false;
+			var prevProductRow = $('products_grid_radio'+$('product_id').value).parentNode.parentNode;
+			prevProductRow.removeClassName('on-mouse-over');
+		}
+		
+		//reset product info	
+		clearElement('prod_name');
+		clearElement('prod_price');
+		clearElement('prod_qty');
+		clearElement('prod_edit_value');
+		
+		//reset deal qty field and add note tag
+		$('deal_qty').disabled = false;
+		if ($('note_deal_qty')) {
+			clearElement('note_deal_qty');
+		} else {
+			var dealQtyParent = $('deal_qty').parentNode;		    		
+			var dealQtyNoteElement = new Element('p', { "class": "note", id: "note_deal_qty" });
+			dealQtyParent.appendChild(dealQtyNoteElement);
+		}
+		
+		//reset deal price field and add note tag
+		$('deal_price').disabled = false;
+		if ($('note_deal_price')) {
+			clearElement('note_deal_price');
+		} else {
+			var dealPriceParent = $('deal_price').parentNode;		    		
+			var dealPriceNoteElement = new Element('p', { "class": "note", id: "note_deal_price" });
+			dealPriceParent.appendChild(dealPriceNoteElement);
+		}
+				
+		//set new value to product_id field
+		$('product_id').value = product_id;
+		
+		//select product		
+		$('products_grid_radio'+product_id).checked = true;
+		var productRow = $('products_grid_radio'+product_id).parentNode.parentNode;
+		productRow.addClassName('on-mouse-over');
+		
+		//get product values
+	    var selectedProductColumns = productRow.getElementsByTagName("td");	 
+	    var prod_name = selectedProductColumns[2].firstChild.data;	
+	    var prod_type = selectedProductColumns[3].firstChild.data.replace(/^\s+|\s+$/g,"");	 
+	    var prod_price = selectedProductColumns[6].firstChild.data;	 
+	    var prod_qty = selectedProductColumns[7].firstChild.data;	
+	
+		//add Product Name 
+		var tdLabel = new Element('td', { "class": "label" });
+		tdLabel.innerHTML = '<label for="prod_name"><?php echo $this->__('Product Name'); ?></label>';		
+		var tdValue = new Element('td', { "class": "value" });
+		tdValue.innerHTML = '<span id="prod_name">' + prod_name + '</span>';		
+		$('prod_name').appendChild(tdLabel);
+		$('prod_name').appendChild(tdValue);
+	
+		//add Product Price
+		var tdLabel = new Element('td', { "class": "label" });
+		tdLabel.innerHTML = '<label for="prod_price"><?php echo $this->__('Product Price'); ?></label>';		
+		var tdValue = new Element('td', { "class": "value" });
+		tdValue.innerHTML = '<span id="prod_price">' + prod_price + '</span>';		
+		$('prod_price').appendChild(tdLabel);
+		$('prod_price').appendChild(tdValue);
+	
+		//add Product Qty
+		var tdLabel = new Element('td', { "class": "label" });
+		tdLabel.innerHTML = '<label for="prod_qty"><?php echo $this->__('Product Qty'); ?></label>';		
+		var tdValue = new Element('td', { "class": "value" });
+		tdValue.innerHTML = '<span id="prod_qty">' + prod_qty + '</span>';		
+		$('prod_qty').appendChild(tdLabel);
+		$('prod_qty').appendChild(tdValue);
+		
+		//add Product Edit options
+		var prodEditElement = new Element('p', { "class": "note", id: 'prot_note'});
+		prodEditElement.innerHTML = '<span><a href="javascript:void(0);" onClick="showProductsTab()"><?php echo $this->__('Change Product'); ?></a> || <a onclick="getProductUrl()" href="javascript:void(0);"><?php echo $this->__('Edit Product'); ?></a></span>';
+		$('prod_edit_value').appendChild(prodEditElement);
+		
+		//add notes and disable fields depending on Product Types
+		if (prod_type=='<?php echo $this->__('Configurable Product'); ?>') {
+			clearElement('prod_qty');
+		    $('deal_qty').disabled = true;		    
+		    $('note_deal_qty').innerHTML = "<span><?php echo $this->__('Qty cannot be set for Configurable Products since it varies for each of it\'s Associated Products.'); ?></span>";
+		}
+		
+		if (prod_type=='<?php echo $this->__('Bundle Product'); ?>') {
+			clearElement('prod_price');
+		    $('deal_price').disabled = true;
+		    $('note_deal_price').innerHTML = "<span><?php echo $this->__('Price cannot be set for Bundle Products since it is Dynamic.'); ?></span>";
+		    
+			clearElement('prod_qty');
+		    $('deal_qty').disabled = true;
+		    $('note_deal_qty').innerHTML = "<span><?php echo $this->__('Qty cannot be set for Bundle Products since it varies for each of it\'s Bundle Items.'); ?></span>";
+		}
+		
+		if (prod_type=='<?php echo $this->__('Grouped Product'); ?>') {
+		   clearElement('prod_price');
+		    $('deal_price').disabled = true;
+		    $('note_deal_price').innerHTML = "<span><?php echo $this->__('Price cannot be set for Grouped Products since it depends on the Associated Products.'); ?></span>";
+		    
+			clearElement('prod_qty');
+		    $('deal_qty').disabled = true;
+		    $('note_deal_qty').innerHTML = "<span><?php echo $this->__('Qty cannot be set for Grouped Products since it varies for each of it\'s Associated Products.'); ?></span>";	
+		}
+		clearElement('prod_select');
+	}
+	
+	//remove elements content
+	function clearElement(id) {
+		Event.stopObserving(id);	
+		$(id).update();	
+	}
+	
+	//retrieves the url of the selected product
+	function getProductUrl() {
+    	var productTemplateSyntax = /(^|.|\r|\n)({{(\w+)}})/;
+        var template = new Template('<?php echo $this->_getProductUrl(); ?>', productTemplateSyntax);
+        window.open(template.evaluate({product_id:$('product_id').value}), '_blank');
+    }    
+    
+    //display the products tab
+	function showProductsTab() {
+		$('multipledeals_tabs_settings_section').removeClassName('active'); 
+		$('multipledeals_tabs_products_section').addClassName('active');
+		Element.show('multipledeals_tabs_products_section_content');
+		Element.hide('multipledeals_tabs_settings_section_content');
+	}
+	
+	//select product when clicking on row in products grid
+    function productRowClick(grid, event){
+        var trElement = Event.findElement(event, 'tr');
+        var isInput   = Event.element(event).tagName == 'INPUT';
+        if(trElement){
+            var checkbox = Element.getElementsBySelector(trElement, 'input');
+            if(checkbox[0] && !checkbox[0].checked){
+                var checked = isInput ? checkbox[0].checked : !checkbox[0].checked;
+                productGridJsObject.setCheckboxChecked(checkbox[0], checked);
+				setProduct(checkbox[0].value);				
+            }
+        }
+    }	
+	
+	//select product in products grid on ajax reloads
+	function initGridAjaxCustom() {
+        productGridJsObject.initGrid();
+        productGridJsObject.initGridRows();
+		
+		productId = $('product_id').value;
+		if ($('products_grid_radio'+productId)) {
+			$('products_grid_radio'+productId).checked = true;
+			$('products_grid_radio'+productId).parentNode.parentNode.addClassName('on-mouse-over');
+		}
+    }
+	
+    productGridJsObject.initGridAjax = initGridAjaxCustom;
+    productGridJsObject.rowClickCallback = productRowClick;
+
+</script>

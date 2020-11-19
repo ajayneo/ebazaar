@@ -1,0 +1,22 @@
+<?xml version="1.0"?>   
+<layout version="0.1.0">   
+  <supersale_index_index>   
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="supersale/index" name="supersale_index" template="supersale/index.phtml"/>   
+    </reference>   
+  </supersale_index_index> 
+
+  <supersale_index_oooh>    
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="supersale/index" name="supersale_index_oooh" template="supersale/error.phtml"/>   
+    </reference>   
+  </supersale_index_oooh>
+
+</layout>     
+	

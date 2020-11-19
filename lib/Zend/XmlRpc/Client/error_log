@@ -1,0 +1,4 @@
+[08-Oct-2018 16:04:39 Asia/Kolkata] PHP Fatal error:  Class 'Zend_XmlRpc_Exception' not found in /home/electronicsbazaa/public_html/lib/Zend/XmlRpc/Client/Exception.php on line 40
+[08-Oct-2018 16:04:39 Asia/Kolkata] PHP Fatal error:  Class 'Zend_XmlRpc_Client_Exception' not found in /home/electronicsbazaa/public_html/lib/Zend/XmlRpc/Client/HttpException.php on line 41
+[08-Oct-2018 16:04:39 Asia/Kolkata] PHP Fatal error:  Class 'Zend_XmlRpc_Client_Exception' not found in /home/electronicsbazaa/public_html/lib/Zend/XmlRpc/Client/FaultException.php on line 38
+[08-Oct-2018 16:04:39 Asia/Kolkata] PHP Fatal error:  Class 'Zend_XmlRpc_Client_Exception' not found in /home/electronicsbazaa/public_html/lib/Zend/XmlRpc/Client/IntrospectException.php on line 40

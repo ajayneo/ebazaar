@@ -1,0 +1,6 @@
+[08-Oct-2018 16:05:50 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Search_Lucene_Document' not found in /home/electronicsbazaa/public_html/lib/Zend/Search/Lucene/Document/Html.php on line 38
+[08-Oct-2018 16:05:50 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Search_Lucene_Exception' not found in /home/electronicsbazaa/public_html/lib/Zend/Search/Lucene/Document/Exception.php on line 36
+[08-Oct-2018 16:05:50 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Search_Lucene_Document_OpenXml' not found in /home/electronicsbazaa/public_html/lib/Zend/Search/Lucene/Document/Pptx.php on line 37
+[08-Oct-2018 16:05:50 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Search_Lucene_Document' not found in /home/electronicsbazaa/public_html/lib/Zend/Search/Lucene/Document/OpenXml.php on line 38
+[08-Oct-2018 16:05:50 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Search_Lucene_Document_OpenXml' not found in /home/electronicsbazaa/public_html/lib/Zend/Search/Lucene/Document/Docx.php on line 35
+[08-Oct-2018 16:05:50 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Search_Lucene_Document_OpenXml' not found in /home/electronicsbazaa/public_html/lib/Zend/Search/Lucene/Document/Xlsx.php on line 37

@@ -1,0 +1,82 @@
+<?php 
+ // $_REQUEST['ticket_id'] = 10311;
+$params = $this->getRequest()->getParams();
+if(!empty($_REQUEST['ticket_id'])){
+$ticket_id = $_REQUEST['ticket_id'];
+	
+}else if(!empty($params)){
+	
+	$ticket_id = $params['order_id'];
+}
+
+// $ticket_id = 10439;
+if($ticket_id){
+	$gadget = Mage::getModel('gadget/request')->load($ticket_id);
+	// print_r($gadget->getData());
+
+	// $queryArray['awb_number'] = 500765422; //return tracking number
+	// $queryArray['awb_number'] = 853801037; //order tracking number
+	$queryArray['awb_number'] = $gadget->getAwbNumber(); //order tracking number
+	// $queryArray['ticket_id'] =  200043676;
+	$queryArray['order_id'] =  $gadget->getId();
+	$queryArray['created_at'] =  date('d M Y', strtotime($gadget->getCreatedAt()));
+
+	$tracking = Mage::getModel('shippinge/ecom')->ecomexpressTracking($queryArray);
+	
+	$statusOptionsArray = Mage::helper('gadget')->getGadgetStatusOptions();
+	// echo "<pre>"; print_r($tracking); echo "</pre>";
+	} ?>
+<?php $skin = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_SKIN).'frontend/rwd/ebtronics/'; ?>
+<div class="appTrackingContainer">
+	<div class="trackingStatus">
+		<ul>
+			<li class="clearfix">
+				<div class="statusImage"><img src="<?php echo $skin ?>images/ebt/submitted.png"></div>
+				<div class="statusText">Request Submitted</div>
+			</li>
+			<li class="clearfix">
+				<div class="statusImage">
+				<?php if($gadget->getStatus() == 'processing'){ ?>
+					<img src="<?php echo $skin ?>images/ebt/submitted.png">
+				<?php }else{ ?>
+					<img src="<?php echo $skin ?>images/ebt/in-process.png">
+				<?php } ?>
+				</div>
+				<div class="statusText">In Process</div>
+			</li>
+			<li class="clearfix">
+				<div class="statusImage"><img src="<?php echo $skin ?>images/ebt/complete.png"><img src="<?php echo $skin ?>images/ebt/submitted.png" style="display: none;"></div>
+				<div class="statusText">Complete</div>
+			</li>
+		</ul>
+	</div>
+	<?php $tracking_details = $tracking['status'];
+    if(!empty($tracking_details)){ ?>
+    <div class="trackingDetails">
+      <h3>Reverse Pickup Details</h3>
+      <?php foreach ($tracking_details as $date => $city) {
+            $city_val = array_keys($city);
+            ?>
+            <ul class="trackingInnerDetails">
+            	<li>
+				<h2><?php echo $date.", ".$city_val[0]; ?></h2>
+            	<?php foreach ($city as $key => $actvities) { ?>
+                 <ul class="trackingContent">
+                 <?php foreach ($actvities as $key => $value) {
+                  $time_array = explode(",",$value['date']);
+                  $time = $time_array[2];
+                  $status = $value['status'];
+                  $code = $value['code']; 
+                  $str_time = date("h:i a",strtotime($time)); ?>
+	              <li>
+	                <div class="date"><?php echo $str_time; ?></div>
+	                <div class="detail"><?php echo $status; ?></div>
+	              </li>
+          	<?php } ?>
+          		</ul><?php } ?>
+          		</li>
+          	</ul>
+        <?php  } ?>
+        </div>
+      <?php  } ?>
+</div>

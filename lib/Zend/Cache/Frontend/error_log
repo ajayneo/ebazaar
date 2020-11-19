@@ -1,0 +1,6 @@
+[08-Oct-2018 16:04:40 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Cache_Core' not found in /home/electronicsbazaa/public_html/lib/Zend/Cache/Frontend/Class.php on line 36
+[08-Oct-2018 16:04:40 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Cache_Core' not found in /home/electronicsbazaa/public_html/lib/Zend/Cache/Frontend/Output.php on line 37
+[08-Oct-2018 16:04:40 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Cache_Core' not found in /home/electronicsbazaa/public_html/lib/Zend/Cache/Frontend/Page.php on line 37
+[08-Oct-2018 16:04:40 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Cache_Core' not found in /home/electronicsbazaa/public_html/lib/Zend/Cache/Frontend/File.php on line 37
+[08-Oct-2018 16:04:40 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Cache_Core' not found in /home/electronicsbazaa/public_html/lib/Zend/Cache/Frontend/Function.php on line 37
+[08-Oct-2018 16:04:40 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Cache_Core' not found in /home/electronicsbazaa/public_html/lib/Zend/Cache/Frontend/Capture.php on line 37

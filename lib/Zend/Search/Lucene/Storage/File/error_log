@@ -1,0 +1,2 @@
+[08-Oct-2018 16:06:50 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Search_Lucene_Storage_File' not found in /home/electronicsbazaa/public_html/lib/Zend/Search/Lucene/Storage/File/Memory.php on line 34
+[08-Oct-2018 16:06:50 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Search_Lucene_Storage_File' not found in /home/electronicsbazaa/public_html/lib/Zend/Search/Lucene/Storage/File/Filesystem.php on line 34

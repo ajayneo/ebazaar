@@ -1,0 +1,40 @@
+<div class="top-brands-container">
+<div class="main">
+ <h2>Top Brands</h2>
+    <div class="top-brands-content">
+     	<ul class="brands-slider clearfix">
+     		<?php 
+     			$attributeId = Mage::getResourceModel('eav/entity_attribute')->getIdByCode('catalog_product','gadget');
+    			$attr = Mage::getModel('catalog/resource_eav_attribute')->load($attributeId);
+    			
+    			$attributeOptions = $attr ->getSource()->getAllOptions();
+    			foreach ($attributeOptions as $option):
+    			$curattributeid = $option['value'];
+    			$label = $option['label'];
+                $_img = $this->helper('attributeimage')->getAttributeThumb($curattributeid);
+    			if($_img): 
+     		?>
+         		<li style="margin-right:0 !important;backface-visibility: hidden"><a href="<?php echo $label; ?>"><span><img src="<?php echo $_img ?>" alt="<?php echo $label; ?>" /></span></a></li> 
+         		<?php endif; ?>
+         	<?php endforeach; ?>
+        </ul> 
+    </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+	var jq = jQuery.noConflict();
+	jq(document).ready(function(){ 
+	  jq('.brands-slider').bxSlider({
+	     slideWidth: 200,
+		 auto: true,
+		 speed: 4000, 
+		 pager: false,
+		 controls: false,
+		 pause: 1, 
+         maxSlides: 6,
+         slideMargin:10, 
+         infiniteLoop: true 
+	  });
+	}); 
+</script>

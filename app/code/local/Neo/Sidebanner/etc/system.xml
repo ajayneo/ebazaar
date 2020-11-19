@@ -1,0 +1,416 @@
+<?xml version="1.0"?>
+<config>
+	<tabs>
+		<sidebanner_tab translate='label' module='customer'>
+			<label>Side Banner Images</label>
+			<sort_order>100</sort_order>
+		</sidebanner_tab>
+	</tabs>
+	<sections>
+		<sidebanner_section translate='label' module='customer'>
+			<label>Side Banner Section</label>
+			<sort_order>100</sort_order>
+			<tab>sidebanner_tab</tab>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+			<groups>
+				<readme translate='label'>
+					<label>Information about Vertical and Horizontal Side Banner</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>-1</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<information>
+							<label>Note:</label>
+							<comment>
+								<![CDATA[<strong>For Vetical Banner upload the image of size 235px * 110px </strong><br><strong>For Horizontal Banner upload the image of size 318px * 172px </strong>]]>
+							</comment>
+							<frontend_type>label</frontend_type>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</information>
+					</fields>
+				</readme>
+				<verticalbanner1 translate='label'>
+					<label>Vertical Banner 1</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>1</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<image>
+							<label>Image</label>
+							<comment><![CDATA[Upload an image from your computer]]></comment>
+							<frontend_type>image</frontend_type>
+							<backend_model>adminhtml/system_config_backend_image</backend_model>
+							<upload_dir config="system/filesystem/media" scope_info="1">homepagebanner/images</upload_dir>
+							<base_url type="media" scope_info="1">homepagebanner/images</base_url>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</image>
+						<link>
+							<label>Link</label>
+							<comment><![CDATA[Link on the Image]]></comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>2</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</link>
+						<title translate="label comment">
+                            <label>Text</label>
+                            <comment>
+                                <![CDATA[Text on the Image]]>
+                            </comment>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </title>
+					</fields>
+				</verticalbanner1>
+				<verticalbanner2 translate='label'>
+					<label>Vertical Banner 2</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>2</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<image>
+							<label>Image</label>
+							<comment><![CDATA[Upload an image from your computer]]></comment>
+							<frontend_type>image</frontend_type>
+							<backend_model>adminhtml/system_config_backend_image</backend_model>
+							<upload_dir config="system/filesystem/media" scope_info="1">homepagebanner/images</upload_dir>
+							<base_url type="media" scope_info="1">homepagebanner/images</base_url>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</image>
+						<link>
+							<label>Link</label>
+							<comment><![CDATA[Link on the Image]]></comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>2</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</link>
+						<title translate="label comment">
+                            <label>Text</label>
+                            <comment>
+                                <![CDATA[Text on the Image]]>
+                            </comment>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </title>
+					</fields>
+				</verticalbanner2>
+				<verticalbanner3 translate='label'>
+					<label>Vertical Banner 3</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>3</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<image>
+							<label>Image</label>
+							<comment><![CDATA[Upload an image from your computer]]></comment>
+							<frontend_type>image</frontend_type>
+							<backend_model>adminhtml/system_config_backend_image</backend_model>
+							<upload_dir config="system/filesystem/media" scope_info="1">homepagebanner/images</upload_dir>
+							<base_url type="media" scope_info="1">homepagebanner/images</base_url>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</image>
+						<link>
+							<label>Link</label>
+							<comment><![CDATA[Link on the Image]]></comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>2</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</link>
+						<title translate="label comment">
+                            <label>Text</label>
+                            <comment>
+                                <![CDATA[Text on the Image]]>
+                            </comment>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </title>
+					</fields>
+				</verticalbanner3>
+				<horizontalbanner1 translate='label'>
+					<label>Horizontal Banner 1</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>4</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<image>
+							<label>Image</label>
+							<comment><![CDATA[Upload an image from your computer]]></comment>
+							<frontend_type>image</frontend_type>
+							<backend_model>adminhtml/system_config_backend_image</backend_model>
+							<upload_dir config="system/filesystem/media" scope_info="1">homepagebanner/images</upload_dir>
+							<base_url type="media" scope_info="1">homepagebanner/images</base_url>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</image>
+						<link>
+							<label>Link</label>
+							<comment><![CDATA[Link on the Image]]></comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>2</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</link>
+						<title translate="label comment">
+                            <label>Text</label>
+                            <comment>
+                                <![CDATA[Text on the Image]]>
+                            </comment>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </title>
+					</fields>
+				</horizontalbanner1>
+				<horizontalbanner2 translate='label'>
+					<label>Horizontal Banner 2</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>5</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<image>
+							<label>Image</label>
+							<comment><![CDATA[Upload an image from your computer]]></comment>
+							<frontend_type>image</frontend_type>
+							<backend_model>adminhtml/system_config_backend_image</backend_model>
+							<upload_dir config="system/filesystem/media" scope_info="1">homepagebanner/images</upload_dir>
+							<base_url type="media" scope_info="1">homepagebanner/images</base_url>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</image>
+						<link>
+							<label>Link</label>
+							<comment><![CDATA[Link on the Image]]></comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>2</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</link>
+						<title translate="label comment">
+                            <label>Text</label>
+                            <comment>
+                                <![CDATA[Text on the Image]]>
+                            </comment>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </title>
+					</fields>
+				</horizontalbanner2>
+				<horizontalbanner3 translate='label'>
+					<label>Horizontal Banner 3</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>6</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<image>
+							<label>Image</label>
+							<comment><![CDATA[Upload an image from your computer]]></comment>
+							<frontend_type>image</frontend_type>
+							<backend_model>adminhtml/system_config_backend_image</backend_model>
+							<upload_dir config="system/filesystem/media" scope_info="1">homepagebanner/images</upload_dir>
+							<base_url type="media" scope_info="1">homepagebanner/images</base_url>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</image>
+						<link>
+							<label>Link</label>
+							<comment><![CDATA[Link on the Image]]></comment>
+							<frontend_type>text</frontend_type>
+							<sort_order>2</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</link>
+						<title translate="label comment">
+                            <label>Text</label>
+                            <comment>
+                                <![CDATA[Text on the Image]]>
+                            </comment>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </title>
+					</fields>
+				</horizontalbanner3>
+				<deals translate='label'>
+					<label>Deals Page</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>7</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<image>
+							<label>Deals Top Image</label>
+							<comment><![CDATA[Upload an image from your computer]]></comment>
+							<frontend_type>image</frontend_type>
+							<backend_model>adminhtml/system_config_backend_image</backend_model>
+							<upload_dir config="system/filesystem/media" scope_info="1">homepagebanner/images</upload_dir>
+							<base_url type="media" scope_info="1">homepagebanner/images</base_url>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+						</image>
+						<open translate="label comment">
+                            <label>Open Box Mobile Product Id's</label>
+                            <comment>
+                                <![CDATA[Products Ids]]>
+                            </comment>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Open Box Mobile Product Id's Comma Saperated</comment>                            	
+                        </open>  
+						<seal translate="label comment">
+                            <label>Seal Packed Mobile Product Id's</label>
+                            <comment>
+                                <![CDATA[Products Ids]]>
+                            </comment>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Seal Packed Mobile Product Id's Comma Saperated</comment>      
+                        </seal>                        
+
+                        <preownmob translate="label comment">
+                            <label>Pre – Owned Mobile Product Id's</label>
+                            <comment>
+                                <![CDATA[Products Ids]]>
+                            </comment>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Pre – Owned Mobile Product Id's Comma Saperated</comment>      
+                        </preownmob>
+
+                        <preownlap translate="label comment">
+                            <label>Pre – Owned Laptops Product Id's</label>
+                            <comment>
+                                <![CDATA[Products Ids]]>
+                            </comment>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Pre – Owned Laptops Mobile Product Id's Comma Saperated</comment>      
+                        </preownlap>
+
+                        <access translate="label comment">
+                            <label>Accessories Product Id's</label>
+                            <comment>
+                                <![CDATA[Products Ids]]>
+                            </comment>
+                            <frontend_type>textarea</frontend_type>
+                            <sort_order>6</sort_order> 
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Accessories Product Id's Comma Saperated</comment>      
+                        </access>
+					</fields>
+				</deals>
+				<dashboard translate='label'>
+					<label>Dashboard</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>10</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>
+						<dailysales>
+							<label>Dashboard Daily Sales</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>2</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Last Order</comment>
+						</dailysales>
+						<customer>
+							<label>Customer Register Today</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>3</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Last Customer</comment>
+						</customer>
+						<weeklysale>
+							<label>Dashboard Weekly Sales</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>4</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<comment>Weekly Last Order</comment>
+						</weeklysale>
+					</fields>
+				</dashboard> 
+			</groups>
+		</sidebanner_section>
+	</sections>
+</config>

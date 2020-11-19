@@ -1,0 +1,8 @@
+<config>
+	<modules>
+		<Neo_Customapi>
+			<active>true</active>
+			<codePool>local</codePool>
+		</Neo_Customapi>
+	</modules>
+</config>

@@ -1,0 +1,29 @@
+<div class="gst-popup-inner-container gst-popup-contanier">
+	<form id="gadgets-other" action="<?php echo $this->getUrl();?>gadget/other/save/" method="POST">
+	<div class="gst-popup-content">
+		<h1>Sell Your Gadget Details</h1>
+		<ul class="clearfx">
+			<li>
+				<label>Brand*</label>
+				<div class="input-field"><input type="text" placeholder="Enter Brand" class="required-entry" name="brand" /></div>
+			</li>
+			<li>
+				<label>Model*</label>
+				<div class="input-field"><input type="text" placeholder="Enter Model" class="required-entry" name="model" /></div>
+			</li>
+			<li>
+				<label>Description*</label>
+				<div class="input-field"><textarea placeholder="Enter Description" name="description" class="required-entry"></textarea> </div>
+			</li>
+		</ul>
+		<div class="button-container">
+			<button class="bttton submit"><span><span>Send Email</span></span></button>
+		</div>
+	</div>
+	</form>
+	<script type="text/javascript">
+    //< ![CDATA[
+        var gstForm = new VarienForm('gadgets-other');
+    //]]>
+	</script>
+</div>

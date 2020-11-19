@@ -1,0 +1,1 @@
+[08-Oct-2018 16:05:51 Asia/Kolkata] PHP Fatal error:  Class 'Zend_OpenId_Provider_User' not found in /home/electronicsbazaa/public_html/lib/Zend/OpenId/Provider/User/Session.php on line 45

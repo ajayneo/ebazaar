@@ -1,0 +1,202 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     rwd_default
+ * @copyright   Copyright (c) 2014 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php $customerblock = new Neo_Customblocks_Block_Customer(); ?>
+<div class="page-title">
+    <h1><?php echo $this->__('Account Information') ?></h1>
+</div>
+<!--<h2 class="legend"><?php //echo $this->__('Account Information') ?></h2>-->
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<form action="<?php echo $this->getUrl('customer/account/editPost') ?>" method="post" autocomplete="off" id="form-validate" class="scaffold-form" enctype="multipart/form-data">
+    <div class="fieldset clearfix account_info_fields clearfix">
+        <?php echo $this->getBlockHtml('formkey')?>
+        <p class="required"><?php echo $this->__('* Required Fields') ?></p>
+        <ul class="form-list account_info">
+        	<li class="fields prefix">
+            	<?php $lin = new Mage_Customer_Block_Widget_Name(); ?>
+            	<label class="required" for="<?php echo $this->getFieldId('prefix')?>"<?php if ($lin->isPrefixRequired()) echo ' class="required"' ?>><?php if ($lin->isPrefixRequired()) echo '<em>*</em>' ?><?php echo "Prefix"; //echo $this->getStoreLabel('prefix') ?></label>
+            	<div class="input-box">
+            		<?php foreach ($lin->getPrefixOptions() as $_option): ?>
+            			<?php if(!empty($_option)): ?>
+		            		<span>
+			            		<input type="radio" id="prefix" value="<?php echo $_option?>" name="prefix" title="Prefix" class="css-checkbox" <?php if($this->getCustomer()->getPrefix() == $_option): ?>checked="checked"<?php endif; ?> />
+								<label for="radio1" class="css-label radGroup1"><?php echo $this->__($_option)?></label>
+							</span>
+            			<?php endif; ?>
+            		<?php endforeach; ?>
+            	</div>
+			</li>
+            <li class="fields">
+                <?php echo $this->getLayout()->createBlock('customer/widget_name')->setObject($this->getCustomer())->toHtml() ?>
+            </li>
+            <?php //echo "<pre>"; print_r($this->getCustomer()->getData()); exit; ?>
+            <li>
+                <label for="email" class="required"><?php echo $this->__('Email') ?><em>*</em></label>
+                <div class="input-box">
+                    <input type="email" autocapitalize="off" autocorrect="off" spellcheck="false" name="email" id="email" value="<?php echo $this->escapeHtml($this->getCustomer()->getEmail()) ?>" title="<?php echo $this->__('Email Address') ?>" class="input-text required-entry validate-email" />
+                </div>
+            </li>
+            <li>
+                <label for="cus_country" class="required"><?php echo $this->__('Country') ?><em>*</em></label>
+                <div class="input-box">
+                	<?php $countries = $customerblock->getCountries();
+                   //echo "<pre>"; print_r($this->getCustomer()->getData());
+                    ?>
+                	<select name="cus_country" class="required-entry">
+                        <option value="">--Please Select--</option>
+                		<?php foreach($countries as $country): ?>
+                			<option value="<?php echo $country['value']; ?>" <?php if($this->getCustomer()->getCusCountry() == $country['value']):?>selected="selected"<?php endif; ?> ><?php echo $country['label']; ?></option>
+                		<?php endforeach; ?>
+                	</select>
+                </div>
+            </li>
+            <li>
+                <label for="cus_state" class="required"><?php echo $this->__('State') ?><em>*</em></label>
+                <div class="input-box">
+                	<?php
+                    $states = $customerblock->getCountryRegions(); ?>
+                	<select name="cus_state" class="required-entry">
+
+                		<?php foreach($states as $state):
+
+                            ?>
+                			<option value="<?php echo $state['value']; ?>" <?php if($this->getCustomer()->getCusState() == $state['value']):?>selected="selected"<?php endif; ?> ><?php echo $state['label']; ?></option>
+
+                        <?php
+
+                        endforeach; ?>
+                	</select>
+                </div>
+            </li>
+            <li>
+                <label for="cus_city" class="required"><?php echo $this->__('City') ?><em>*</em></label>
+                <div class="input-box">
+                    <input type="text" name="cus_city" id="cus_city" value="<?php echo $this->escapeHtml($this->getCustomer()->getCusCity()) ?>" title="<?php echo $this->__('City') ?>" class="input-text required-entry" />
+                </div>
+            </li>
+            <li>
+                <label for="landmark" class="required"><?php echo $this->__('Landmark') ?><em>*</em></label>
+                <div class="input-box">
+                    <input type="text" name="landmark" id="landmark" value="<?php echo $this->escapeHtml($this->getCustomer()->getLandmark()) ?>" title="<?php echo $this->__('Landmark') ?>" class="input-text required-entry" />
+                </div>
+            </li>
+            <li>
+                <label for="mobile" class="required"><?php echo $this->__('Mobile') ?><em>*</em></label>
+                <div class="input-box">
+                    <input type="text" name="mobile" id="mobile" value="<?php echo $this->escapeHtml($this->getCustomer()->getMobile()) ?>" title="<?php echo $this->__('Mobile') ?>" class="input-text required-entry validate-length maximum-length-10 minimum-length-10 validate-digits" />
+                </div>
+            </li>
+            <li>
+                <label for="cus_telephone" class="required"><?php echo $this->__('Telephone') ?><em>*</em></label>
+                <div class="input-box">
+                    <input type="text" name="cus_telephone" id="cus_telephone" value="<?php echo $this->escapeHtml($this->getCustomer()->getCusTelephone()) ?>" title="<?php echo $this->__('Telephone') ?>" class="input-text required-entry validate-digits" />
+                </div>
+            </li>
+            <?php $_dob = $this->getLayout()->createBlock('customer/widget_dob') ?>
+        <?php if ($_dob->isEnabled()): ?>
+            <li><?php echo $_dob->setDate($this->getCustomer()->getDob())->toHtml() ?></li>
+        <?php endif ?>
+        <?php $_taxvat = $this->getLayout()->createBlock('customer/widget_taxvat') ?>
+        <?php if ($_taxvat->isEnabled()): ?>
+            <li><?php echo $_taxvat->setTaxvat($this->getCustomer()->getTaxvat())->toHtml() ?></li>
+        <?php endif ?>
+        <?php $_gender = $this->getLayout()->createBlock('customer/widget_gender') ?>
+        <?php if ($_gender->isEnabled()): ?>
+            <li><?php echo $_gender->setGender($this->getCustomer()->getGender())->toHtml() ?></li>
+        <?php endif ?>
+            <li class="control">
+                <input type="checkbox" name="change_password" id="change_password" value="1" onclick="setPasswordForm(this.checked)" title="<?php echo $this->__('Change Password') ?>"<?php if($this->getCustomer()->getChangePassword()==1): ?> checked="checked"<?php endif; ?> class="checkbox" /><label for="change_password" class="css-label"><?php echo $this->__('Change Password') ?></label>
+            </li>
+        </ul>
+    </div>
+    <div class="fieldset clearfix change_pass_fields" style="display:none;">
+        <h2 class="legend"><?php echo $this->__('Change Password') ?></h2>
+        <ul class="form-list change_pass">
+            <li>
+                <label for="current_password" class="required"><?php echo $this->__('Current Password') ?><em>*</em></label>
+                <div class="input-box">
+                    <!-- This is a dummy hidden field to trick firefox from auto filling the password -->
+                    <input type="text" class="input-text no-display" name="dummy" id="dummy" />
+                    <input type="password" title="<?php echo $this->__('Current Password') ?>" class="input-text" name="current_password" id="current_password" />
+                </div>
+            </li>
+            <li class="fields">
+                <div class="field">
+                    <label for="password" class="required"><?php echo $this->__('New Password') ?><em>*</em></label>
+                    <div class="input-box">
+                        <input type="password" title="<?php echo $this->__('New Password') ?>" class="input-text validate-password" name="password" id="password" />
+                    </div>
+                </div>
+                <div class="field">
+                    <label for="confirmation" class="required"><?php echo $this->__('Confirm New Password') ?><em>*</em></label>
+                    <div class="input-box">
+                        <input type="password" title="<?php echo $this->__('Confirm New Password') ?>" class="input-text validate-cpassword" name="confirmation" id="confirmation" />
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="buttons-set account-info-button">
+        <!--<p class="back-link"><a href="<?php //echo $this->escapeUrl($this->getBackUrl()) ?>"><small>&laquo; </small><?php //echo $this->__('Back') ?></a></p>-->
+        <button type="submit" title="<?php echo $this->__('Save') ?>" class="button"><span><span><?php echo $this->__('Save') ?></span></span></button>
+    </div>
+</form>
+<script type="text/javascript">
+//<![CDATA[
+		document.querySelector("#mobile").addEventListener("keypress", function (evt) {
+			if (evt.which < 48 || evt.which > 57)
+			{
+				evt.preventDefault();
+			}
+		});
+		document.querySelector("#cus_telephone").addEventListener("keypress", function (evt) {
+			if (evt.which < 48 || evt.which > 57)
+			{
+				evt.preventDefault();
+			}
+		});
+		
+    var dataForm = new VarienForm('form-validate', true);
+    function setPasswordForm(arg){
+        if(arg){
+            $('current_password').up(3).show();
+            $('current_password').addClassName('required-entry');
+            $('password').addClassName('required-entry');
+            $('confirmation').addClassName('required-entry');
+
+        }else{
+            $('current_password').up(3).hide();
+            $('current_password').removeClassName('required-entry');
+            $('password').removeClassName('required-entry');
+            $('confirmation').removeClassName('required-entry');
+        }
+    }
+
+    <?php if($this->getCustomer()->getChangePassword()): ?>
+        setPasswordForm(true);
+    <?php endif; ?>
+//]]>
+</script>

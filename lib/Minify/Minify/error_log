@@ -1,0 +1,4 @@
+[08-Oct-2018 16:03:43 Asia/Kolkata] PHP Fatal error:  The script "class.JavaScriptPacker.php" is required. Please see: http://code.google.com/p/minify/source/browse/trunk/min/lib/Minify/Packer.php in /home/electronicsbazaa/public_html/lib/minify/Minify/Packer.php on line 22
+[08-Oct-2018 16:03:43 Asia/Kolkata] PHP Warning:  require(JSMin.php): failed to open stream: No such file or directory in /home/electronicsbazaa/public_html/lib/minify/Minify/Javascript.php on line 7
+[08-Oct-2018 16:03:43 Asia/Kolkata] PHP Warning:  require(JSMin.php): failed to open stream: No such file or directory in /home/electronicsbazaa/public_html/lib/minify/Minify/Javascript.php on line 7
+[08-Oct-2018 16:03:43 Asia/Kolkata] PHP Fatal error:  require(): Failed opening required 'JSMin.php' (include_path='.:/opt/cpanel/ea-php54/root/usr/share/pear') in /home/electronicsbazaa/public_html/lib/minify/Minify/Javascript.php on line 7

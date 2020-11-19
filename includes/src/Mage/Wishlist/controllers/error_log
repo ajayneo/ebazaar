@@ -1,0 +1,2 @@
+[08-Oct-2018 16:06:00 Asia/Kolkata] PHP Fatal error:  Class 'Mage_Wishlist_Controller_Abstract' not found in /home/electronicsbazaa/public_html/includes/src/Mage/Wishlist/controllers/IndexController.php on line 36
+[08-Oct-2018 16:06:00 Asia/Kolkata] PHP Fatal error:  Class 'Mage_Wishlist_Controller_Abstract' not found in /home/electronicsbazaa/public_html/includes/src/Mage/Wishlist/controllers/SharedController.php on line 36

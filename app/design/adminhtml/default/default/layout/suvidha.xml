@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+  <suvidha_adminhtml_creditsuvidha_index>
+	<reference name="content">
+	  <block type="suvidha/adminhtml_creditsuvidha" name="creditsuvidha" />
+	</reference>
+  </suvidha_adminhtml_creditsuvidha_index>
+</layout>

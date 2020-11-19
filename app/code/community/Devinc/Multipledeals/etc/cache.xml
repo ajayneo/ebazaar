@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+  <placeholders>
+      <multipledeals_multipledeals>
+	      <block>multipledeals/multipledeals</block>
+	      <placeholder>MULTIPLEDEALS_MULTIPLEDEALS</placeholder>
+	      <container>Devinc_Multipledeals_Model_Container_Multipledeals</container>
+	      <cache_lifetime>86400</cache_lifetime>
+      </multipledeals_multipledeals>
+      
+      <multipledeals_sidedeals>
+	      <block>multipledeals/list_sidedeals</block>
+	      <placeholder>MULTIPLEDEALS_SIDEDEALS</placeholder>
+	      <container>Devinc_Multipledeals_Model_Container_Sidedeals</container>
+	      <cache_lifetime>86400</cache_lifetime>
+      </multipledeals_sidedeals>   
+      
+      <!--
+<catalog_list>
+	      <block>catalog/product_list</block>
+	      <placeholder>CATALOG_LIST</placeholder>
+	      <container>Devinc_Multipledeals_Model_Container_List</container>
+	      <cache_lifetime>86400</cache_lifetime>
+      </catalog_list>  
+      
+      <catalog_layer>
+	      <block>catalog/layer_view</block>
+	      <placeholder>CATALOG_LAYER</placeholder>
+	      <container>Devinc_Multipledeals_Model_Container_Layer</container>
+	      <cache_lifetime>86400</cache_lifetime>
+      </catalog_layer>   
+      
+      <catalog_layer_search>
+	      <block>enterprise_search/catalog_layer_view</block>
+	      <placeholder>CATALOG_LAYER</placeholder>
+	      <container>Devinc_Multipledeals_Model_Container_Layer</container>
+	      <cache_lifetime>86400</cache_lifetime>
+      </catalog_layer_search>   
+-->  
+  </placeholders>
+</config>

@@ -1,0 +1,30 @@
+<?php $jobs = $this->getJobs(); ?>
+<div class="page-title">
+    <h1><?php echo $this->__('Careers'); ?></h1>
+</div>
+<div class="static-content">
+    <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('career')->toHtml(); ?>
+<?php if($jobs->getSize() > 0): ?>
+    <div class="careers-listing">
+        <h2><?php echo $this->__('Jobs Openings'); ?></h2>
+        <ul>
+            <?php foreach($jobs as $job): ?>
+                <li>
+                    <div class="left-job">
+                        <h3 class="job-title"><?php echo $job->getTitle(); ?></h3>
+                        <p class="job-des"><?php echo $job->getJde(); ?></p>
+                        <p class="no-position"><?php echo $this->__('No of positions') ?>: <span><?php echo $job->getNumPositions(); ?></span></p>
+                        <p class="exp-required"><?php echo $this->__('Experience required'); ?>: <span><?php echo $job->getExperience(); ?></span></p>
+                    </div>
+                    <div class="right-button">
+                        <a href="mailto:<?php echo $job->getEmail(); ?>?subject=Application%20for%20<?php echo $job->getTitle(); ?>"><img src="<?php echo $this->getSkinUrl('images/apply-now.jpg'); ?>" /></a>
+                    </div>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+<?php else: ?>
+    <p><?php echo $this->__('There are currently no job openings.'); ?></p>
+<?php endif; ?>
+
+</div>

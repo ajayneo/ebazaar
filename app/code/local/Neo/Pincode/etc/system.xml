@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config>
+    <tabs>
+		<pincodeconfig translate="label" module="pincode">
+            <label>Pincode Config</label>
+            <sort_order>100</sort_order>
+        </pincodeconfig>
+    </tabs>
+    <sections>
+        <pincode_options translate="label" module="pincode">
+            <label>Pincode Config Options</label>
+            <tab>pincodeconfig</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>1</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <pincode_check translate="label">
+                    <label>Pincode Validator</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                    	<pincode>
+				            <label>Pincode:</label>
+				            <frontend_type>textarea</frontend_type>
+				            <sort_order>1</sort_order>
+				            <show_in_default>1</show_in_default>
+				            <show_in_website>1</show_in_website>
+				            <show_in_store>1</show_in_store>
+						</pincode>
+    				</fields>
+                </pincode_check>
+            </groups>
+        </pincode_options>
+    </sections>
+</config>

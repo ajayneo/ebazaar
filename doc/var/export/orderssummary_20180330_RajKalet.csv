@@ -1,0 +1,4 @@
+"Order Id",SKU,"Product Name","Store Name","Amount Total",Qty,Discount,"Net Sale",Category,City,State,"ASM Name","RSM Name","Payment Method","Customer Email"
+200103370,OPNBNTF0118,"Dell Inspiron 15 3543 Laptop (5th Gen Core i5-5200U/4GB/1TB/2GB Graphics/Win 10/15.6"" Touch)","Aviraaj Sales",25600.0000,1.0000,0.0000,25600.0000,Openbox,RAIPUR,Chhattisgarh,"Raj Kalet","Birendra Kumar",cashondelivery,nishibhatia32@gmail.com
+200103419,NEWMOB00036,"Moto M (Gold, 64 GB)","Maruti Mobile",10499.0000,1.0000,0.0000,10499.0000,New,RAIPUR,Chhattisgarh,"Raj Kalet","Birendra Kumar",banktransfer,suyashchandrakar7@gmail.com
+200103420,REFMOB0012,"Samsung Galaxy J7 Pro (Black, 64 GB) (Brand Refurbished Mobile)","Maruti Mobile",12900.0000,1.0000,0.0000,12900.0000,RefurbishedMobiles,RAIPUR,Chhattisgarh,"Raj Kalet","Birendra Kumar",banktransfer,suyashchandrakar7@gmail.com

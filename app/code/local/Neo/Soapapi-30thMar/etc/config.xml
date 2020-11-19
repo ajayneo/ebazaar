@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Neo_Soapapi>
+      <version>0.1.0</version>
+    </Neo_Soapapi>
+  </modules>
+  <global>
+    <helpers>
+      <soapapi>
+        <class>Neo_Soapapi_Helper</class>
+      </soapapi>
+    </helpers>
+	<models>
+	  <soapapi>
+		<class>Neo_Soapapi_Model</class>
+		<resourceModel>soapapi_mysql4</resourceModel>
+	  </soapapi>
+	</models>
+  </global>
+   <api>
+        <models>
+            <soapapi>
+                <!-- ** verify naming convention(?) ** -->
+                <class>Neo_Soapapi_Model_Api</class>
+            </soapapi>
+        </models>
+    </api>
+</config> 

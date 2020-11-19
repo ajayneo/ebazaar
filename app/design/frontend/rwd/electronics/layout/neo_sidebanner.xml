@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Neo_Sidebanner>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Neo_Sidebanner>
+    </modules>
+</config> 

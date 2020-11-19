@@ -1,0 +1,237 @@
+<?php   
+class Neo_Customblocks_Block_Index extends Mage_Core_Block_Template{
+	
+	public function getIsHomeCategories()
+	{
+		$categories = Mage::getModel('catalog/category')->getCollection()
+    				->addAttributeToSelect('*')
+    				->addAttributeToFilter('level', 2)
+    				->addAttributeToFilter('is_active', 1)
+				->addAttributeToFilter('is_home',1);
+		
+		return $categories;
+	}
+	
+	public function getAllCategories()
+	{
+		$categories = Mage::getModel('catalog/category')->getCollection()
+    				->addAttributeToSelect('*')
+    				->addAttributeToFilter('level', 2)
+    				->addAttributeToFilter('is_active', 1);
+		
+		return $categories;
+	}
+	
+	public function getCategoryDetails($id)
+	{
+		$categorydetails = Mage::getModel('catalog/category')->load($id)
+					->getImage();
+		$final_url = Mage::getBaseUrl('media').'catalog/category/'.$categorydetails;
+		return $final_url;
+	}
+	
+	public function getCategoryProducts($id)
+	{
+		$productCollection = Mage::getModel('catalog/category')->load($id)
+ 					->getProductCollection()
+ 					->addAttributeToSelect('*') // add all attributes - optional
+ 					->addAttributeToFilter('status', 1) // enabled
+ 					->addAttributeToFilter('visibility', 4) //visibility in catalog,search
+					->setPageSize(4) // added
+ 					->setOrder('price', 'ASC');//sets the order by price
+ 		return $productCollection;
+	}
+
+	public function getCategoryProductsForIpad($id){
+		$productCollection = Mage::getModel('catalog/category')->load($id)
+ 					->getProductCollection()
+ 					->addAttributeToSelect('*') // add all attributes - optional
+ 					->addAttributeToFilter('status', 1) // enabled
+ 					->addAttributeToFilter('visibility', 4) //visibility in catalog,search
+ 					->setOrder('price', 'ASC') //sets the order by price
+ 					->setPageSize(3);
+ 		return $productCollection;	
+	}
+	
+	public function getProductsDetails($sku)
+	{
+		$product = Mage::getModel('catalog/product')->loadByAttribute('sku',$sku);
+		return $product;
+	}
+	
+	public function getNewArrivals()
+	{
+		$productsCollection = Mage::getModel('catalog/product')->getCollection()
+					->addAttributeToFilter('status', 1) // added enabled
+					->addAttributeToFilter('visibility', 4)
+					->addAttributeToSort("entity_id","DESC")
+					->setPageSize(15);
+
+		return $productsCollection;
+	}
+
+	// Featured Products
+	public function getCustomeFeaturedProducts()
+	{
+		$customfeapro = Mage::getModel('catalog/product')->getCollection()
+						->addAttributeToFilter('price',array('gt' => '7000'))->addAttributeToFilter('status',1);
+
+		// code to have filter to show only instock products
+		$customfeapro->joinField(
+			'is_in_stock',
+            'cataloginventory/stock_item',
+			'is_in_stock',
+			'product_id=entity_id',
+			'{{table}}.stock_id=1',
+			'left'
+		)->addAttributeToFilter('is_in_stock', array('eq' => 1));
+
+		$customfeapro->getSelect()->order('Rand()');
+		$customfeapro->getSelect()->limit(15);
+
+		return $customfeapro;
+	}
+	
+	public function getProductDetails($id)
+	{
+		$product = Mage::getModel('catalog/product')->load($id);
+		return $product;
+	}
+	
+	public function getBestsellerProducts()
+	{
+		$storeId = Mage::app()->getStore()->getId();
+
+		$products = Mage::getResourceModel('reports/product_collection')
+				->addOrderedQty()
+				->addAttributeToSelect('*')
+				->addAttributeToFilter('status', 1) // added enabled
+				->addAttributeToFilter('visibility', 4) // added
+				->addAttributeToFilter('price',array('gt' => '1000')) //added for high value product
+				->setStoreId($storeId)
+				->addStoreFilter($storeId)
+				->setOrder('ordered_qty', 'desc')
+				->setPageSize(15);
+
+		// code to have filter to show only instock products
+		$products->joinField(
+			'is_in_stock',
+            'cataloginventory/stock_item',
+			'is_in_stock',
+			'product_id=entity_id',
+			'{{table}}.stock_id=1',
+			'left'
+		)->addAttributeToFilter('is_in_stock', array('eq' => 1));
+		
+		return $products;
+		
+	}
+	
+	public function getRandomProducts()
+	{
+		$_productCollection = Mage::getModel('catalog/product')->getCollection()
+								->addAttributeToFilter('status', 1) // added enabled
+								->addAttributeToFilter('visibility',4);
+                $_productCollection->getSelect()->order(new Zend_Db_Expr('RAND()'));
+                $_productCollection->setPage(1, 5);
+		
+		return $_productCollection;
+	}
+	
+	public function getDiscountPercentage($id){
+		$product = Mage::getModel('catalog/product')->load($id);
+		$price = $product->getPrice();
+		$specialprice = $product->getSpecialPrice();
+		/*if(!empty($specialprice) && $specialprice < $price){
+			$discountpercent = (($price-$specialprice)/$price)*100;
+			return round($discountpercent);
+		}*/
+		if(!empty($specialprice) && $specialprice < $price){
+			$saveprice = $price - $specialprice;
+			return $saveprice;
+		}
+		
+		
+	}
+
+	public function getDiscountPercent($id){
+		$product = Mage::getModel('catalog/product')->load($id);
+		$price = $product->getPrice();
+		$specialprice = $product->getSpecialPrice();
+		$nowprice = $product->getFinalPrice();
+		if(!empty($specialprice) && $specialprice < $price){
+			$beforeprice = $specialprice;
+		}else{
+			$beforeprice = $price;
+		}
+		
+		//if(!empty($specialprice) && $specialprice < $price){
+			$discountpercent = (($beforeprice-$nowprice)/$beforeprice)*100;
+			return round($discountpercent);
+		//}
+	}
+	
+	public function getDealsDiscountPercent($id){
+		$product = Mage::getModel('catalog/product')->load($id);
+		$price = $product->getPrice();
+		$specialprice = $product->getSpecialPrice();
+		$nowprice = $product->getFinalPrice();
+		
+		if(!empty($specialprice) && $specialprice < $price){
+			$price_to = $specialprice; 
+		}elseif(!empty($specialprice) && $specialprice > $price){
+			$price_to = $price;
+		}elseif(empty($specialprice)){
+			$price_to = $price;
+		}
+		
+			$discountpercent = (($price_to-$nowprice)/$price_to)*100;
+			return round($discountpercent);
+		}
+		
+	public function getTopLevelCategoryIfNoRelatedProducts($ids){
+		$topCategory = Mage::getResourceModel('catalog/category_collection')
+				->addIdFilter($ids)
+    				->setOrder('level', 'ASC')
+    				->setPage(1,1)
+    				->getFirstItem();
+		return $topCategory;
+	}
+	
+	public function getProductsFromCategoryForRelatedProducts($id){
+		$products = Mage::getModel('catalog/category')->load($id)
+				->getProductCollection()
+				->addAttributeToSelect('*')
+ 				->addAttributeToFilter('status', 1)
+ 				->addAttributeToFilter('visibility', 4)
+ 				->setOrder('price', 'ASC')
+ 				->setPageSize(5);
+		$product_ids = array();
+		foreach($products as $product):
+			$product_ids[] = $product->getId();
+		endforeach;
+		return $product_ids;
+	}
+	
+	public function getReviewsForProduct($id){
+		$reviews = Mage::getModel('review/review')
+				->getResourceCollection()
+				->addStoreFilter(Mage::app()->getStore()->getId()) 
+				->addEntityFilter('product',$id)
+				->addStatusFilter(Mage_Review_Model_Review::STATUS_APPROVED)
+				->setDateOrder()
+				->addRateVotes();
+		return $reviews;
+	}
+	
+	public function getDealProducts() {
+		$dealCollection = Mage::getModel('multipledeals/multipledeals')->getCollection()->addFieldToFilter('status', array('eq'=>1));
+		$dealproductIds = array();
+		if (count($dealCollection)) {
+			foreach ($dealCollection as $deal) {
+					$dealproductIds[] = $deal->getProductId();
+			}
+		}
+		return $dealproductIds;
+	}
+}

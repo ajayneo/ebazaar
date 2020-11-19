@@ -1,0 +1,51 @@
+<config>
+	<tabs>
+		<neo_api_tab module="core">
+			<label>Neo Api</label>
+			<sort_order>100</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_store>0</show_in_store>
+			<show_in_website>0</show_in_website>
+		</neo_api_tab>
+	</tabs>
+	
+	<sections>
+		<neo_api_section module="core">
+			<label>Custom Api Settings</label>
+			<tab>neo_api_tab</tab>
+			<frontend_type>text</frontend_type>
+			<sort_order>110</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_store>1</show_in_store>
+			<show_in_website>1</show_in_website>
+			<groups>
+				<neo_api_group module="core">
+					<label>Api Credentials</label>
+					<frontend_type>text</frontend_type>
+					<show_in_default>1</show_in_default>
+					<show_in_website>0</show_in_website>
+					<show_in_store>0</show_in_store>
+					<fields>
+						<http_auth_username>
+							<label>Http Auth Username</label>
+							<frontend_type>text</frontend_type>
+							<sort_order>1</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>0</show_in_website>
+							<show_in_store>0</show_in_store>
+						</http_auth_username>
+						<http_auth_password>
+							<label>Http Auth Password</label>
+							<frontend_type>text</frontend_type>
+							<backend_model>adminhtml/system_config_backend_encrypted</backend_model>
+							<sort_order>2</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>0</show_in_website>
+							<show_in_store>0</show_in_store>
+						</http_auth_password>
+					</fields>
+				</neo_api_group>
+			</groups>
+		</neo_api_section>
+	</sections>
+</config>

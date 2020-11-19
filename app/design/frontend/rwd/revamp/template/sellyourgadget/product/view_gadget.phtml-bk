@@ -1,0 +1,1154 @@
+<style>
+	.product-view.gadget-view .required > em {
+	    display: none;
+	}
+</style>
+<?php
+/**  
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * @category    design
+ * @package     rwd_default
+ * @copyright   Copyright (c) 2014 Magento Inc. (http://www.magentocommerce.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+/**
+ * Product view template
+ *
+ * @see Mage_Catalog_Block_Product_View
+ * @see Mage_Review_Block_Product_View
+ */ 
+?>
+<?php $_helper = $this->helper('catalog/output'); ?>
+<?php $_product = $this->getProduct(); ?>
+<script type="text/javascript">
+    var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
+</script>
+<div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
+<?php echo $this->getChildHtml('ajax-addtocompare'); ?>
+<?php //echo $o = Mage::getModel('review/review')->getReviewUrl(); ?>
+<?php
+$categoryModel = Mage::getModel('catalog/category');
+$_categories = $_product->getCategoryIds();
+?>
+<?php $product_id = $_product->getId(); ?>
+<?php $relatedProductsIds = $_product->getRelatedProductIds(); ?>
+<?php $_session = Mage::getSingleton('core/session')->getSygform(); 
+
+if($_session['product_id'] !== $product_id){
+    Mage::getSingleton('core/session')->unsSygform();
+    $_session = array();    
+}
+
+$is_customer_loggedin = false;
+$group_id = 0;
+if(!Mage::getSingleton('customer/session')->isLoggedIn()){
+    //not logged in
+    $is_customer_loggedin = false;
+}else{
+    // logged in
+    $is_customer_loggedin = true;
+
+    if(Mage::getSingleton('customer/session')){
+        $_customer = Mage::getSingleton('customer/session')->getCustomer();
+        $group_id = $_customer->getGroupId();
+    }
+}
+
+$show_details = true;
+if(!empty($_session) && !$is_customer_loggedin){
+    $show_details = false;
+}
+
+$data = unserialize($_COOKIE['syghome']);
+$selected_brand = $data['selected-li'];
+$brands = explode("-", $selected_brand);
+$brand = $brands[1];
+
+// print_r($_SESSION);
+
+?>
+
+<div class="product-view gadget-view new-gadget-tab-content">
+        
+
+    <form action="<?php echo $this->getSubmitUrl($_product) ?>" method="post" id="product_addtocart_form"<?php if ($_product->getOptions()): ?> enctype="multipart/form-data"<?php endif; ?>>
+        <div id="product_essential" style="<?php echo (!empty($_session)  && $show_details) ? "display: none" : "display: block"; ?>">
+                <div class="gadget-brand-apple new-gadget-brand-form gadget-mobile-brand-content clearfix active">
+                <?php echo $this->getBlockHtml('formkey') ?>
+                <div class="no-display">
+                    <input type="text" name="syg_product_url" value="<?php echo Mage::helper('core/url')->getCurrentUrl(); ?>" />
+                    <input type="hidden" name="product" value="<?php echo $_product->getName() ?>" />
+                    <input type="hidden" name="related_product" id="related-products-field" value="" />
+                    <input type="hidden" name="product_price" id="product_price" value="" />
+                    <input type="hidden" name="product_id" id="product_id" value="<?php echo $product_id; ?>" />
+                </div>
+
+                <?php /* ?>
+                <div class="product-img-box">
+                    <?php if (!$_product->isSaleable()): ?>
+                        <span class="out-of-stock"><span>Sold Out</span></span>
+                    <?php endif; ?>
+                    <?php echo $this->getChildHtml('media') ?>
+                </div>
+                <?php */ ?>
+
+                <div class="gadget-brand--content__left">
+                    <?php if($group_id == 6){?>
+                 <div class="bundled-optionscss clearfix">   
+                <div class="product-options" id="product-options-wrapper">
+    
+    <?php 
+    $atom_price = 9000 - $_product->getPrice();
+    $core_i3 = 12500 - $_product->getPrice();
+    $core_i5 = 15000 - $_product->getPrice();
+    $core_i7 = 20000 - $_product->getPrice();
+    ?>
+        <script type="text/javascript">
+            //<![CDATA[
+            Product.Options = Class.create();
+            Product.Options.prototype = {
+                initialize : function(config) {
+                    this.config = config;
+                    this.reloadPrice();
+                    document.observe("dom:loaded", this.reloadPrice.bind(this));
+                },
+                reloadPrice : function() {
+                    var config = this.config;
+                    var skipIds = [];
+                    $$('body .product-custom-option').each(function(element){
+                        var optionId = 0;
+                        element.name.sub(/[0-9]+/, function(match){
+                            optionId = parseInt(match[0], 10);
+                        });
+                        if (config[optionId]) {
+                            var configOptions = config[optionId];
+                            var curConfig = {price: 0};
+                            if (element.type == 'checkbox' || element.type == 'radio') {
+                                if (element.checked) {
+                                    if (typeof configOptions[element.getValue()] != 'undefined') {
+                                        curConfig = configOptions[element.getValue()];
+                                    }
+                                }
+                            } else if(element.hasClassName('datetime-picker') && !skipIds.include(optionId)) {
+                                dateSelected = true;
+                                $$('.product-custom-option[id^="options_' + optionId + '"]').each(function(dt){
+                                    if (dt.getValue() == '') {
+                                        dateSelected = false;
+                                    }
+                                });
+                                if (dateSelected) {
+                                    curConfig = configOptions;
+                                    skipIds[optionId] = optionId;
+                                }
+                            } else if(element.type == 'select-one' || element.type == 'select-multiple') {
+                                if ('options' in element) {
+                                    $A(element.options).each(function(selectOption){
+                                        if ('selected' in selectOption && selectOption.selected) {
+                                            if (typeof(configOptions[selectOption.value]) != 'undefined') {
+                                                curConfig = configOptions[selectOption.value];
+                                            }
+                                        }
+                                    });
+                                }
+                            } else {
+                                if (element.getValue().strip() != '') {
+                                    curConfig = configOptions;
+                                }
+                            }
+                            if(element.type == 'select-multiple' && ('options' in element)) {
+                                $A(element.options).each(function(selectOption) {
+                                    if (('selected' in selectOption) && typeof(configOptions[selectOption.value]) != 'undefined') {
+                                        if (selectOption.selected) {
+                                            curConfig = configOptions[selectOption.value];
+                                        } else {
+                                            curConfig = {price: 0};
+                                        }
+                                        optionsPrice.addCustomPrices(optionId + '-' + selectOption.value, curConfig);
+                                        optionsPrice.reload();
+                                    }
+                                });
+                            } else {
+                                optionsPrice.addCustomPrices(element.id || optionId, curConfig);
+                                optionsPrice.reload();
+                            }
+                        }
+                    });
+                }
+            }
+            function validateOptionsCallback(elmId, result) {
+                var container = $(elmId).up('ul.options-list');
+                if (result == 'failed') {
+                    container.removeClassName('validation-passed');
+                    container.addClassName('validation-failed');
+                } else {
+                    container.removeClassName('validation-failed');
+                    container.addClassName('validation-passed');
+                }
+            }
+            var opConfig = new Product.Options(
+                {"1286":{"3195":{"price":0,"oldPrice":0,"priceValue":"00.0000","type":"fixed","excludeTax":0,"includeTax":0},"3196":{"price":0,"oldPrice":0,"priceValue":"0.0000","type":"fixed","excludeTax":0,"includeTax":0}},
+                
+                "1285":{"3193":{"price":0,"oldPrice":0,"priceValue":"0.0000","type":"fixed","excludeTax":0,"includeTax":0},
+                    "3194":{"price":0,"oldPrice":0,"priceValue":"0.0000","type":"fixed","excludeTax":0,"includeTax":0}},
+                
+                "1311":{"3233":{"price":0,"oldPrice":0,"priceValue":"0.0000","type":"fixed","excludeTax":0,"includeTax":0},
+                    "3234":{"price":0,"oldPrice":0,"priceValue":"0.0000","type":"fixed","excludeTax":0,"includeTax":0}},
+                
+                "5115":{"1121":{"price":<?php echo $atom_price ?>,"oldPrice":<?php echo $atom_price ?>,"priceValue":"<?php echo $atom_price ?>","type":"fixed","excludeTax":<?php echo $atom_price ?>,"includeTax":<?php echo $atom_price ?>},"1122":{"price":<?php echo $atom_price ?>,"oldPrice":<?php echo $atom_price ?>,"priceValue":"<?php echo $atom_price ?>","type":"fixed","excludeTax":<?php echo $atom_price ?>,"includeTax":<?php echo $atom_price ?>},
+                    "1123":{"price":<?php echo $core_i3 ?>,"oldPrice":<?php echo $core_i3 ?>,"priceValue":"<?php echo $core_i3 ?>","type":"fixed","excludeTax":<?php echo $core_i3 ?>,"includeTax":<?php echo $core_i3 ?>},
+                    "1124":{"price":<?php echo $core_i5 ?>,"oldPrice":<?php echo $core_i5 ?>,"priceValue":"<?php echo $core_i5 ?>","type":"fixed","excludeTax":<?php echo $core_i5 ?>,"includeTax":<?php echo $core_i5 ?>},
+                    "1125":{"price":<?php echo $core_i7 ?>,"oldPrice":<?php echo $core_i7 ?>,"priceValue":"<?php echo $core_i7 ?>","type":"fixed","excludeTax":<?php echo $core_i7 ?>,"includeTax":<?php echo $core_i7 ?>}},
+
+                "1289":{"price":0,"oldPrice":0,"priceValue":"0.0000","type":"fixed","excludeTax":0,"includeTax":0},
+                "1290":{"price":0,"oldPrice":0,"priceValue":"0.0000","type":"fixed","excludeTax":0,"includeTax":0},
+
+                "5116":{"2121":{"price":0,"oldPrice":0,"priceValue":"0.0000","type":"fixed","excludeTax":0,"includeTax":0},
+                    "2122":{"price":0,"oldPrice":0,"priceValue":"0.0000","type":"fixed","excludeTax":0,"includeTax":0},
+                    "2123":{"price":0,"oldPrice":0,"priceValue":"0.0000","type":"fixed","excludeTax":0,"includeTax":0},
+                    "2124":{"price":0,"oldPrice":0,"priceValue":"0.0000","type":"fixed","excludeTax":0,"includeTax":0}}
+
+                });
+            //]]>
+        </script>
+        <dl class="last">
+
+        	<?php if($_product->getName() == 'Other'): ?>
+        		<!-- <dt><label class="required"><em>*</em>Other Brand Name</label></dt>
+	            <dd class="last">
+	                <div class="input-box">
+	                <input type="text" onchange="opConfig.reloadPrice()" id="options_1290_text" class="input-text required-entry product-custom-option" name="options[1290]" value="">
+	                </div>
+	            </dd> -->
+        	<?php else: ?>
+				<dt><label class="required"><em>*</em>Brand</label></dt>
+	            <dd>
+	                <div class="input-box">
+	                <label class="select-option"><select name="options[5116]" id="select_5116" class=" required-entry product-custom-option" title="Processor" onchange="opConfig.reloadPrice()">
+	                <option value="">-- Please Select --</option>
+	                <option value="2121" price="0" <?php echo ($_product->getName() == 'Apple') ? "selected='selected'" : "";?>>Apple</option>
+	                <option value="2122" price="0" <?php echo ($_product->getName() == 'Dell') ? "selected='selected'" : "";?>>Dell</option>
+	                <option value="2123" price="0"<?php echo ($_product->getName() == 'HP') ? "selected='selected'" : "";?> >HP</option>
+	                <option value="2124" price="0"<?php echo ($_product->getName() == 'Lenovo') ? "selected='selected'" : "";?> >Lenovo</option>
+	                </select>
+	                </label></div>
+	            </dd>        	
+        	<?php endif; ?>	
+
+            <dt><label class="required"><em>*</em>Processor</label></dt>
+            <dd>
+                <div class="input-box">
+                <label class="select-option"><select name="options[5115]" id="select_5115" class=" required-entry product-custom-option" title="Processor" onchange="opConfig.reloadPrice()">
+                <option value="">-- Please Select --</option>
+                <option value="1121" price="0">Atom</option>
+                <option value="1122" price="0">AMD</option>
+                <option value="1123" price="0">Core i3</option>
+                <option value="1124" price="0">Core i5</option>
+                <option value="1125" price="0" selected="selected">Core i7</option>
+                </select>
+                </label></div>
+            </dd>
+            
+            <dt>
+                <label class="required"><em>*</em>RAM</label>
+            </dt>
+            <dd>
+                <div class="input-box">
+                <label class="select-option"><select name="options[1286]" id="select_1286" class=" required-entry product-custom-option ram" title="" onchange="opConfig.reloadPrice()"><option value="">-- Please Select --</option><option value="3195" price="0">8 GB and above</option><option value="3196" price="0">Below 8 GB</option></select> </label></div>
+            </dd>
+                    
+            <dt>
+            	<label class="required"><em>*</em>Is the compatible charger included ?</label>
+            </dt>
+            <dd>
+                <div class="input-box">
+                <label class="select-option"><select name="options[1311]" id="select_1311" class=" required-entry product-custom-option are the compatible charger and battery included ?" title="" onchange="opConfig.reloadPrice()"><option value="">-- Please Select --</option><option value="3233" price="0">Yes</option><option value="3234" price="0">No</option></select> </label>
+                </div>
+            </dd>
+
+            <dt><label class="required"><em>*</em>Serial</label></dt>
+            <dd class="last">
+                <div class="input-box">
+                <input type="text" onchange="opConfig.reloadPrice()" id="options_1289_text" class="input-text required-entry  validate-length minimum-length-6 product-custom-option" name="options[1289]" value="">
+                <div class="help-icon help-laptop"><img src="<?php echo Mage::getSkinUrl(); ?>images/ebt/help-icon.png"></div>
+                <p class="note">Minimum number of characters: <strong>6</strong></p>
+                </div>
+            </dd>
+        </dl>
+        <p class="required">* Required Fields</p>
+        </div>
+        </div>
+                    
+                    <?php }else{?>
+                    <div class="bundled-optionscss clearfix">
+                        <?php if ($_product->isSaleable() && $this->hasOptions() ): ?>
+                            <?php echo $this->getChildChildHtml('container2', '', true, true) ?>
+                        <?php endif; ?>
+                    </div>
+                    <?php } ?>
+
+                    <?php //if(Mage::helper('customer')->isLoggedIn()){ ?>
+                    <?php if($group_id == 6){ ?>
+                        <div class="btnContainer gadget-brand-form-button" onclick="return corpPayment()">   
+                            <!-- <button class="submit-btn gadget-btn-proceed">Submit</button> -->
+                            <input type="button" value="submit" class="submit-btn gadget-btn-proceed" />
+                        </div>
+                    <?php  }else{ ?>
+                        <div class="btnContainer gadget-brand-form-button" onclick="return putPayment()">   
+                            <button class="submit-btn gadget-btn-proceed">Submit</button>
+                        </div>
+                    <?php } ?>
+                    
+                    <?php //} else{ ?> 
+
+                    <?php //} ?>
+                    <?php //if ($_product->isSaleable() && $this->hasOptions()): ?>
+                        <?php //echo $this->getChildChildHtml('container1', '', true, true) ?>
+                    <?php //endif; ?>
+                </div>
+
+                <div class="product-options-bottom nnn gadget-brand--content__right">
+                    <div class="brand-offer-detail">
+                        <span class="brand-get-upto">Get upto</span>
+                        <span class="brand-prices"><?php 
+                            if($group_id == 6){ ?>
+                                <span class="brand-prices"><div class="price-box">
+                                    <span class="regular-price" id="product-price-<?php echo $_product->getId()?>">
+                                    <span class="price newgadprice corp_price">₹20,000</span></span>
+                                </div>
+                            </span>
+                            <?php }else{
+                                $new = str_replace('class="price"', 'class="price newgadprice"', $this->getPriceHtml($_product));
+                                echo $new;
+                            } ?>
+                        </span>
+                    </div>
+                </div>
+                <!-- 
+                <div class="add-to-cart-wrapper">
+                    <?php //echo $this->getChildHtml('product_type_data') ?>
+                    <?php //echo $this->getChildHtml('extrahint') ?>
+                </div> -->
+            </div>
+        </div><!-- product essential-->
+    
+    
+    <div id="checkout_container" style="<?php echo (!empty($_session)  && $show_details) ? "display: block" : "display: none"; ?>">
+        <div class="new-gadget-container new-gadget-bank-details">
+        <div class="new-gadget-title"><h1>Your Device</h1></div>
+        <div class="bank-details-inner-container clearfix">
+            <div id="ticket-details" class="bank-details-content clearfix">
+
+			<?php if(!empty($_session)): 
+                if(!empty($_session['corporate_options'])){
+                    echo "<ul>";
+                    foreach ($_session['corporate_options'] as $key => $value) { ?>
+                    <li class="clearfix">
+                        <label><?php echo $key;?></label><div class="description"><?php echo $value; ?></div>      
+                    </li>
+                <?php    
+                    }
+                    echo "</ul>";
+                }else{ ?>
+            <ul>
+                <?php 
+			$_productModel = Mage::getModel('catalog/product')->load($product_id);
+			$_options = $_productModel->getOptions(); ?>
+
+            <?php if($_session['processor']): ?>
+                <li class="clearfix">
+                    <label>Processor</label><div class="description"><?php echo $_session['processor']; ?></div>      
+                </li>
+            <?php endif; ?>
+
+			<?php if($_session['generation']): ?>
+				<li class="clearfix">
+	            	<label>Generation</label><div class="description"><?php echo $_session['generation']; ?></div>      
+	            </li>
+        	<?php endif; ?>
+
+            <?php if(strpos($_productModel->getSku, 'SYGMOB') > 0) :?>
+    			<li class="clearfix">
+                <label>Model</label><div class="description"><?php echo $_productModel->getName(); ?></div>      
+                </li>
+            <?php endif; ?>
+
+            <?php foreach ($_options as $value) {
+				$option_id = $value->getOptionId();
+				if(in_array($option_id, array_keys($_session['options']))){ ?>
+				<li class="clearfix">
+				<?php 
+					//option label
+                    $title = $value->getTitle();
+                    if(strrpos($value->getTitle(), 'condition')){ 
+                        $title = 'Condition';
+                    }
+
+                    if(strrpos($value->getTitle(), 'compatible charger')){ 
+                        $title = 'Is the compatible charger included ?';
+                    }
+					echo '<label>'.$title.'</label>';
+					$session_option_type_id = $_session['options'][$option_id];
+					// Getting Values if it has option values, case of select,dropdown,radio,multiselect
+					$values = $value->getValues();
+					if(in_array($title, array("Your Brand Name","IMEI","Serial"))){
+						// print_r($value); break;
+						echo '<div class="description">'.$session_option_type_id.'</div>';
+					}
+					foreach ($values as $values) {
+					// print_r($values->getData());
+						$option_type_id = $values['option_type_id'];
+						//option value label
+						if($session_option_type_id == $option_type_id){
+							$option_title = $values['default_title'];
+							echo '<div class="description">'.$option_title.'</div>';
+						}
+					} ?>
+				</li>
+			<?php	}
+
+				}//endforeach
+			?>
+                </ul>
+            <?php } ?>    
+            <?php endif; ?>
+            </div>
+            <div class="your-device-right">
+                <?php if($group_id == 6): ?>
+                    <div class="input-box internal_order_id input-field">
+                        <label for="internal_order_id">Internal Order Id<span>*</span></label> 
+                        <input class="required-entry" type="text" class="text-field" name="internal_order_id" />
+                    </div>
+                    <div class="input-box new-processor">
+                        <label for="new_processor">Select processor of New Device</label> 
+                        <select class="select_new_processor" name="new_processor" onchange="getNewVal(this)">
+                            <option value="Core i3">Core i3</option>
+                            <option value="Core i5">Core i5</option>
+                            <option value="Core i7">Core i7</option>
+                        </select>
+                    </div>
+                <?php endif; ?>
+                <?php //if(!empty($_session['product_price'])):?>
+                <div class="bank-price-content">
+                    <div class="brand-get-upto">Your Device Price</div>
+                    <div id="device-price" class="device-prices"><?php echo $_session['product_price']; ?></div>
+                </div>
+            	<?php //endif; ?>
+            </div>
+
+            <div class="gadget-icon"><img src="<?php echo $this->getSkinUrl(); ?>images/ebt/gadget-laptop-icon.png"></div>
+        </div>                  
+    </div>
+    <div class="checkout-container new-gadget-container new-gadget-bank-details" > 
+            <?php $validate_length_class = '';
+
+            if (strpos($_product->getSku(), 'SYGLAP') !== false) {
+                $validate_length_class = 'minimum-length-6';
+            }else{
+                $validate_length_class = 'minimum-length-15 maximum-length-15';
+            }
+            ?>
+
+        <!-- <div class="title"><h1>Enter Your Details</h1></div> -->
+        <div class="clearfix">
+        <?php /*?>
+            <div class="imei-number">
+                <input class="input-text required-entry validate-length <?php echo $validate_length_class; ?>" type="text" name="serial_number" placeholder="Serial / IMEI #">
+            </div><?php */ ?>
+            <div class="bank-container"> 
+                <div class="new-gadget-title"><h1>Bank Details</h1></div>
+                    <ul class="clearfix">
+                        <li class="clearfix">
+                            <label>Customer Name:</label>
+                            <div class="input-field"><input class="required-entry" placeholder="As per Bank Records" type="text" name="customer_name"></div>
+                        </li>
+                        <li class="clearfix">
+                            <label>Bank Name:</label>
+                            <div class="input-field"><input class="required-entry" placeholder="E.g. HDFC Bank" type="text" name="bank_name"></div>
+                        </li>
+                        <li class="clearfix">
+                            <label>Account Number:</label>
+                            <div class="input-field"><input class="required-entry" placeholder="E.g. A/c 345931234568524" type="text" name="account_number"></div>
+                        </li>
+                        <li class="clearfix">
+                            <label>IFSC Code:</label>
+                            <div class="input-field"><input class="required-entry" placeholder="E.g. HDFC000005" type="text" name="ifsc_code"></div>
+                        </li>
+                    </ul>
+            </div> 
+
+            
+            <?php //new address ?>
+            <div class="address-container"> 
+                <div class="new-gadget-title"><h1>Address</h1></div>
+                        <?php $address_list = Mage::getModel('customer/customer')->addressList(); ?>
+                        <ul class="clearfix">
+                        <?php if($address_list): ?>
+                            <li>
+                                    <div class="checkout-details">
+                                        <div class="checkout-details-form checkout-address">
+                                            <label>We will arrange pickup on your existing shipping address</label>
+                                            <div id="accordion" class="clearfix">
+                                                <h3>Select your Pick up Address</h3>
+                                                <div class="input-box">
+                                                    <ul class="options-list clearfix">  
+                                                        <?php $i = 1;
+                                                        foreach($address_list as $key=>$address): ?> 
+                                                            <li>
+                                                                <input class="magento-checkbox-validation address_lines" type="radio" class="radio" name="default_address" id="address<?php echo $i; ?>" value="<?php echo $key; ?>">
+                                                                <span class="label"><label for="address<?php echo $i; ?>"><?php echo $address; ?></label></span>
+                                                            </li>
+                                                        <?php $i++; endforeach; ?>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                            </li>
+                            <li class="detail-or">OR</li>
+                            <?php endif; ?>
+                            <li id="new_address"  class="clearfix add-address">
+                                <label>Add Address</label>
+                                <div class="input-field">
+                                    <input class="required-entry" type="text" name="customer_name" placeholder="Name">
+                                    <input class="required-entry" type="text" name="street" placeholder="Street:">
+                                    <input class="required-entry validate-number validate-minlength-6 validate-maxlength-6" type="text" name="postcode" placeholder="Pincode:">
+                                    <input class="required-entry" type="text" name="city" placeholder="City:">
+                                </div>
+                            </li>      
+                            <li>
+                                 <input type="checkbox" name="checkboxG1" id="checkboxG1" class="css-checkbox required-entry" />
+                                    <label for="checkboxG1" class="css-label">
+                                        I agree to the <a href="<?php echo $this->getUrl(); ?>gadget_terms_and_conditions" target="_blank">Terms and Conditions</a>
+                                    </label>
+                            </li>                                            
+                        </ul>
+                
+        </div>
+
+        <?php //submit button?>
+        
+    </div>
+    	<?php if($group_id == 6): ?>
+    		<div class="btnContainer btn-submit button-container" onclick="return corpPaymentsave()">       
+                <!-- <button type="submit" class="btnSubmit btn-submit">
+                    <span>
+                        <span>Sell Now</span>
+                    </span>
+                </button> -->
+                <input type="button" class="btnSubmit btn-submit" value="Sell Now"/>
+            </div>
+    	<?php else: ?>
+    		<div class="btnContainer btn-submit button-container" onclick="return putPaymentsave()">       
+                <button type="submit" class="btnSubmit validation-passed btn-submit">
+                    <span>
+                        <span>Sell Now</span>
+                    </span>
+                </button>
+            </div>	
+    	<?php endif; ?>	
+                 
+
+        </div>
+    </div>
+
+        <script>
+          jQuery( function() {
+            jQuery( "#accordion" ).accordion({
+              collapsible: true
+            });
+          } );
+          </script>
+          
+    </form>
+    <script type="text/javascript">
+    	jQuery(document).ready(function(){
+    		<?php if(!empty($_session)){
+    			foreach ($_session['options'] as $key => $value) { ?>
+
+    				// jQuery('[name="options[1261]"][value="3199"]').prop('checked', 'checked');
+    				jQuery('[name="options[<?php echo $key; ?>]"][value="<?php echo $value; ?>"]').prop('checked', 'checked');
+    				jQuery('[name="options[<?php echo $key; ?>]"]').val('<?php echo $value; ?>');
+
+    		<?php	}
+    		}?>
+    	});
+
+    </script>
+        <script type="text/javascript">
+            //<![CDATA[
+            var productAddToCartForm = new VarienForm('product_addtocart_form');
+            productAddToCartForm.submit = function (button, url) {
+                if (this.validator.validate()) {
+                    var form = this.form;
+                    var oldUrl = form.action;
+
+                    if (url) {
+                        form.action = url;
+                    }
+                    var e = null;
+                    try {
+                        this.form.submit();
+                    } catch (e) {
+                    }
+                    this.form.action = oldUrl;
+                    if (e) {
+                        throw e;
+                    }
+
+                    if (button && button != 'undefined') {
+                        button.disabled = true;
+                    }
+                }
+            }.bind(productAddToCartForm);
+
+            productAddToCartForm.submitLight = function (button, url) {
+                if (this.validator) {
+                    var nv = Validation.methods;
+                    delete Validation.methods['required-entry'];
+                    delete Validation.methods['validate-one-required'];
+                    delete Validation.methods['validate-one-required-by-name'];
+                    // Remove custom datetime validators
+                    for (var methodName in Validation.methods) {
+                        if (methodName.match(/^validate-datetime-.*/i)) {
+                            delete Validation.methods[methodName];
+                        }
+                    }
+
+                    if (this.validator.validate()) {
+                        if (url) {
+                            this.form.action = url;
+                        }
+                        this.form.submit();
+                    }
+                    Object.extend(Validation.methods, nv);
+                }
+            }.bind(productAddToCartForm);
+            //]]>
+        </script>
+    
+<script type="text/javascript">
+    jQuery(document).on('ready', function () {
+        var onestars = "<?php if($countstars['1']): echo $countstars['1']; else: '0'; endif; ?>";
+        var twostars = "<?php if($countstars['2']): echo $countstars['2']; else: '0'; endif; ?>";
+        var threestars = "<?php if($countstars['3']): echo $countstars['3']; else: '0'; endif; ?>";
+        var fourstars = "<?php if($countstars['4']): echo $countstars['4']; else: '0'; endif; ?>";
+        var fivestars = "<?php if($countstars['5']): echo $countstars['5']; else: '0'; endif; ?>";
+
+        jQuery("#rating-bars-five").progressbar({
+            value: fivestars
+        });
+        jQuery("#rating-bars-four").progressbar({
+            value: fourstars
+        });
+        jQuery("#rating-bars-three").progressbar({
+            value: threestars
+        });
+        jQuery("#rating-bars-two").progressbar({
+            value: twostars
+        });
+        jQuery("#rating-bars-one").progressbar({
+            value: onestars
+        });
+
+        jQuery('.checkpostcode').click(function () {
+            var postcode = jQuery('.pincode').val();
+            jQuery('.opc-ajax-loader').css('display', 'block');
+            if (postcode) {
+                jQuery('.opc-ajax-loader').css('display', 'block');
+                jQuery.ajax({
+                    'url': "<?php echo Mage::getUrl('pincode/index/checkPostcode'); ?>",
+                    'type': "POST",
+                    'dataType': 'json',
+                    'data': {postcode: postcode},
+                    success: function (data) {
+                        jQuery('.opc-ajax-loader').css('display', 'none');
+                        if (data.status == 'ERROR') {
+                            jQuery('.pincode_message').css({color:'red'});
+                            jQuery('.pincode_message').text(data.message);
+                            //alert(data.message);
+                        } else if (data.status == 'SUCCESS') {
+                            jQuery('.pincode_message').css({color:'#458B00'});
+                            jQuery('.pincode_message').text(data.message);
+                        }
+                    }
+                });
+            } else {
+                jQuery('.pincode_message').text("Please Enter Pincode");
+                jQuery('.opc-ajax-loader').css('display', 'none');
+            }
+
+        });
+
+        // jquery to remove empty spec group. changed on the 6th Jan
+        jQuery('.specification-container').each(function () {
+            var len = jQuery(this).find('table tr').length;
+            if (len == 0) {
+                jQuery(this).remove();
+            }
+        });
+
+        jQuery('.checkboxchg').change(function () {
+            jQuery('.opc-ajax-loader').css('display', 'block');
+            var bundproprice = jQuery(this).data('parentprice');
+            var liprodid = jQuery(this).data('liprodid');
+            var selectionprice = [];
+            jQuery(".product_" + liprodid).each(function () {
+                if (jQuery(this).is(':checkbox')) {
+                    if (jQuery(this).is(':checked')) {
+                        selectionprice.push(jQuery(this).attr("data-selectionpricevalue"));
+                    }
+                }
+            });
+
+            jQuery.ajax({
+                'url': "<?php echo Mage::getUrl('customblocks/index/updateBundleproprice'); ?>",
+                'type': "POST",
+                'data': {bundproprice: bundproprice, selectionprice: selectionprice},
+                success: function (data) {
+                    jQuery('.opc-ajax-loader').css('display', 'none');
+                    jQuery('.buy-details_' + liprodid + ' .price-info .price-box .regular-price').html(data);
+                }
+            });
+        });
+
+        jQuery('.shopping-cart-rule').click(function () {
+            jQuery('.opc-ajax-loader').css('display', 'block');
+            var bundid = jQuery(this).data('bunid');
+            var selectionskus = [];
+            jQuery(".product_" + bundid).each(function () {
+                if (jQuery(this).is(':checkbox')) {
+                    if (jQuery(this).is(':checked')) {
+                        selectionskus.push(jQuery(this).data('productsku'));
+                    }
+                }
+            });
+
+            jQuery.ajax({
+                'url': "<?php echo Mage::getUrl('customblocks/index/addShoppingPromoProToCart'); ?>",
+                'type': "POST",
+                'dataType': 'json',
+                'data': {selectionskus: selectionskus},
+                success: function (data) {
+                    if (data.status == 'success')
+                    {
+                        jQuery('.opc-ajax-loader').css('display', 'none');
+                        var base_url = "<?php echo Mage::getBaseUrl() . 'checkout/cart/'; ?>";
+                        location.href = base_url;
+                    } else if (data.status == 'error') {
+                        jQuery('.opc-ajax-loader').css('display', 'none');
+                        alert(data.message);
+                    }
+                }
+            });
+        });
+
+        jQuery('.bundle-addto-cart').click(function () {
+            jQuery('.opc-ajax-loader').css('display', 'block');
+            var bundid = jQuery(this).data('bunid');
+            var selectionids = [];
+            var optionid = [];
+
+            jQuery(".product_" + bundid).each(function () {
+                if (jQuery(this).is(':checkbox')) {
+                    if (jQuery(this).is(':checked')) {
+                        selectionids.push(jQuery(this).attr("data-selectionid"));
+                        optionid.push(jQuery(this).attr("data-optionid"));
+                    }
+                }
+            });
+
+            var option_id = jQuery.unique(optionid);
+
+            var proid = jQuery(this).data('prodid');
+            jQuery.ajax({
+                'url': "<?php echo Mage::getUrl('customblocks/index/addBundledProducttToCart'); ?>",
+                'type': "POST",
+                'dataType': 'json',
+                'data': {proid: proid, selectionids: selectionids, option_id: option_id},
+                success: function (data) {
+                    if (data.status == 'EmptySelectionIds') {
+                        alert(data.message);
+                        jQuery('.opc-ajax-loader').css('display', 'none');
+                    } else if (data.status == 'Success') {
+                        jQuery('.opc-ajax-loader').css('display', 'none');
+                        var base_url = "<?php echo Mage::getBaseUrl() . 'checkout/cart/'; ?>";
+                        location.href = base_url;
+                    }
+                }
+            });
+        });
+    });
+    function scrollto(element){
+		jQuery('html, body').animate({ scrollTop: (jQuery(element).offset().top)-250}, 'slow');
+	}
+
+    function putPayment(){
+        nodes = document.getElementsByClassName('newgadprice');
+        var price = nodes[0].innerHTML.substr(nodes[0].innerHTML.indexOf(" ") + 1);
+        document.getElementById('product_price').value = price; 
+        var formToValidate = $('product_addtocart_form');
+        var validator = new Validation(formToValidate);
+        if(validator.validate()) {
+            jQuery('.brand-get-upto').text('');
+            jQuery('.brand-get-upto').text('Your device value');            
+            var serialize_values = $("product_addtocart_form").serialize();
+            var xhr;
+            if(xhr && xhr.readyState != 4){
+                xhr.abort();
+            }
+            xhr = jQuery.ajax({
+                url: '<?php echo $this->getUrl("gadget/index/serialize");?>',
+                data:'request='+serialize_values,
+                type:'POST',
+                dataType: "json",
+                beforeSend: function() {
+                    jQuery("#loading-image").show();
+                    // jQuery(".pincode-field-narration").remove();
+                    // jQuery("#category").hide();
+                },
+                success: function(data) {
+                    if(data.status == 1){
+                        document.getElementById('product_essential').style = 'display:none';
+                        document.getElementById('checkout_container').style = 'display:block';
+                        jQuery('#ticket-details').html(data.message);
+                        jQuery('#device-price').html(data.price);
+                    }
+
+                    if(data.status == 0){
+                        //alert
+                        var base_url = "<?php echo Mage::getBaseUrl() . 'customer/account/login'; ?>";
+                        location.href = base_url;
+                    }
+                    return false;
+                }
+            });
+            
+            return false;
+        }else{
+            jQuery('.validation-passed').show();
+        }
+    }
+
+
+    function corpPayment(){ 
+        // alert('here'); return false;
+        nodes = document.getElementsByClassName('newgadprice');
+        var price = nodes[0].innerHTML.substr(nodes[0].innerHTML.indexOf(" ") + 1);
+        document.getElementById('product_price').value = price; 
+        var formToValidate = $('product_addtocart_form');
+        var validator = new Validation(formToValidate);
+        if(validator.validate()) {
+            jQuery('.brand-get-upto').text('');
+            jQuery('.brand-get-upto').text('Your device value');            
+            var serialize_values = $("product_addtocart_form").serialize();
+            // alert(serialize_values); return false;
+            var xhr;
+            if(xhr && xhr.readyState != 4){
+                xhr.abort();
+            }
+            xhr = jQuery.ajax({
+                url: '<?php echo $this->getUrl("gadget/index/serialize");?>',
+                data:'request='+serialize_values,
+                type:'POST',
+                dataType: "json",
+                beforeSend: function() {
+                    jQuery("#loading-image").show();
+                    // jQuery(".pincode-field-narration").remove();
+                    // jQuery("#category").hide();
+                },
+                success: function(data) {
+                    if(data.status == 1){
+                    	// location.reload();
+                        document.getElementById('product_essential').style = 'display:none';
+                        document.getElementById('checkout_container').style = 'display:block';
+                        jQuery('#ticket-details').html(data.message);
+                        jQuery('#device-price').html(data.price);
+                    }
+
+                    if(data.status == 0){
+                        //alert
+                        // var base_url = "<?php echo Mage::getBaseUrl() . 'customer/account/login'; ?>";
+                        // location.href = base_url;
+                    }
+                    return false;
+                }
+            });
+            
+            return false;
+        }else{
+            jQuery('.validation-passed').show();
+        }
+    }
+    function putPaymentsave(){
+        nodes = document.getElementsByClassName('newgadprice');
+        var price = nodes[0].innerHTML.substr(nodes[0].innerHTML.indexOf(" ") + 1);
+        document.getElementById('product_price').value = price; 
+
+        var formToValidate = $('product_addtocart_form');
+        var validator = new Validation(formToValidate);
+        if(validator.validate()) {
+            //document.getElementById('product_essential').style = 'display:none';
+            //document.getElementById('checkout_container').style = 'display:block';
+            //return false;
+        }else{
+            //alert(2);
+        }
+    }
+
+    //hide new address if address radio button selected
+    jQuery(document).ready(function(){
+        jQuery('.address_lines').click(function() {
+           if(jQuery(this).is(':checked')) { 
+            // console.log('checked address');
+            // jQuery("#new_address").css('display','none'); 
+             jQuery('#new_address').find('input:text').val('').removeClass("required-entry");
+             jQuery('#new_address').find('input:text').removeClass("validation-failed");
+             jQuery('#new_address').find('.validation-advice').remove();
+        }
+        });
+    });
+
+    //back button control
+    jQuery(document).ready(function($) {
+
+      if (window.history && window.history.pushState) {
+
+        $(window).on('popstate', function() {
+          var hashLocation = location.hash;
+          var hashSplit = hashLocation.split("#!/");
+          var hashName = hashSplit[1];
+            console.log('hash split: '+hashName);
+
+          if (hashName !== '') {
+            var hash = window.location.hash;
+            console.log('window location: '+hash);
+            if (hash === '') {
+              // alert('Back button was pressed.');
+              if(jQuery("#checkout_container").is(':visible')){
+                document.getElementById('product_essential').style = 'display:block';
+                document.getElementById('checkout_container').style = 'display:none';
+                jQuery('.validation-passed').show();
+              }else{
+                window.location='<?php echo $this->getUrl('gadget');?>';
+              }
+
+                return false;
+            }
+          }
+        });
+
+        // window.history.pushState('forward', null, './#forward');
+        window.history.pushState('forward', null, '');
+      }
+
+      //address sections 
+
+        jQuery('input[name="postcode"]').keyup(function() {
+            // alert( "Handler for .keyup() called." );
+            
+            var pincode_len = jQuery(this).val().length;
+            this.value = this.value.replace(/[^0-9\.]/g,'');
+            // console.log(pincode);
+            if(pincode_len == 6){
+            jQuery('#new_address').find('input:text').removeClass('required-entry').addClass('required-entry');
+                var pincode = jQuery(this).val();
+                jQuery(".magento-checkbox-validation").prop('checked',false);
+                jQuery(".pincode-field-narration").remove();
+
+                var zipRegex = /^\d{6}$/;
+
+                if (!zipRegex.test(pincode))
+                {
+                    // trigger error
+                    jQuery('#postcode').after('<span class="pincode-field-narration error-msg">Please enter valid pincode</span>');
+                    jQuery('#postcode').val('');
+                    return false;
+                }
+                else
+                {
+                    // success!
+                }
+                jQuery.ajax({
+                    'url': "<?php echo Mage::getUrl('gadget/index/checkPostcode'); ?>",
+                    'type': "POST",
+                    'dataType': 'json',
+                    'data': {postcode: pincode},
+                    beforeSend: function() {
+                        jQuery('.opc-ajax-loader').css('display', 'block');
+                        jQuery(".pincode-field-narration").remove();
+                        // jQuery("#category").hide();
+                    },
+                    success: function (response) {
+                        jQuery('.opc-ajax-loader').css('display', 'none');
+                        if (response.status == 1) {
+                            // alert(response.data.ecom_qc+response.data.city);
+                            if(response.data.ecom_qc == 1){
+                              // jQuery('input[name="city"]').val(response.data.city)
+                              //postcode
+                              jQuery('input[name="postcode"]').after('<span class="pincode-field-narration successful-msg">We service this pincode</span>');
+                         
+                            }else{
+                                // jQuery('input[name="city"]').val(response.data.city)
+                                jQuery('input[name="postcode"]').after('<span class="pincode-field-narration successful-msg">Sorry! We yet to service this pincode</span>');
+                            }
+                            //alert(data.message);
+                        } else if (data.status == 0) {
+                            // jQuery('input[name="city"]').val(response.data.city)
+                            jQuery('input[name="postcode"]').after('<span class="pincode-field-narration successful-msg">Sorry! No data found for this pincode</span>');
+                        }
+                    }
+                });
+            }
+        });
+
+        // jQuery('#select_1262').removeAttr('onchange').change(function(){
+        //     var price=50; //add var declaration
+        //     optionsPrice.changePrice('opConfig',price);
+        //     optionsPrice.reload();
+        // }); //close the change binding
+
+        // jQuery("input[type='radio']").each(function(){
+        //     alert(jQuery(this).attr('class'));
+        // });
+
+        // jQuery(".storage").each(function(){
+
+        // });
+/*
+        jQuery("input[type='radio']").on('change', function() {
+           // alert(jQuery(this).closest('span').html()); 
+           // var labeltext = jQuery(this).closest('span').find("label").text();
+           // var labeltext = jQuery(this).attr('name').closest('span > label').text();
+           var val = jQuery(this).val();
+           var text_id = jQuery(this).attr('id');
+           var html = jQuery("label[for='"+text_id+"']").text();
+           var price_div = jQuery(".newgadprice").text();
+           var arr = price_div.split('.');
+           // var iNum = parseInt(arr[1]);
+           var replacestr = arr[1].replace(",", "");
+           // alert(replacestr);
+           var price_change = 2000 - parseInt(replacestr);
+            if (html.indexOf("Not Working") >= 0){
+                optionsPrice.changePrice('opConfig',price_change);
+                optionsPrice.reload();
+            }
+
+        });*/
+
+
+        jQuery(".product-custom-option.brand option").each(function() {
+		  var theText = '<?php echo $brand; ?>';
+          
+          
+          if(jQuery(this).text().toLowerCase() == theText.toLowerCase()) {
+            jQuery(this).attr('selected', 'selected'); 
+          }
+          
+            
+		});
+
+        var theBrand = '<?php echo $brand; ?>';
+        var brand_text = '<div id="other-laptop-brand"><dt><label class="required"><em>*</em>Enter Brand Name</label></dt><dd><div class="input-box"><input type="text" onchange="opConfig.reloadPrice()" class="input-text required-entry  validate-length maximum-length-100 product-custom-option" name="other_brand_name" value=""><p class="note">Maximum number of characters: <strong>100</strong></p></div></dd></div>';
+        if(theBrand == 'other'){
+            jQuery("dl.last").prepend(brand_text);   
+        }
+
+    });
+
+    //code for change final price text.
+    jQuery(document).ready(function(){    
+            var text_imei_id = jQuery(".input-box").find('input[type="text"]').attr("id");
+            jQuery("#"+text_imei_id).blur(function(){
+                var text_imei_value = jQuery('#'+text_imei_id).val();
+                if(text_imei_value != '')
+                {
+                   jQuery('.brand-get-upto').text('');
+                   jQuery('.brand-get-upto').text('Your device value');
+                }
+                else
+                {
+                   jQuery('.brand-get-upto').text('Get upto');
+                }
+            });
+
+
+    });
+
+    function getNewVal(item)
+    {
+        // console.log(jQuery(item).val());
+        var new_laptop_val = jQuery(item).val();
+        var old_laptop_val = '<?php echo $_session['corporate_options']['Processor']?>';
+        // console.log(old_laptop_val);
+        
+        jQuery.ajax({
+            'url': "<?php echo Mage::getUrl('gadget/index/corporatePrice'); ?>",
+            'type': "POST",
+            'data': {new_laptop: new_laptop_val, old_laptop: old_laptop_val},
+            'dataType': "json",
+            beforeSend: function(){
+                jQuery('.opc-ajax-loader').css('display', 'block');
+            },
+            success: function (data) {
+                // console.log("new price = "+(data.price));
+                jQuery("#device-price").text('₹ '+data.price);
+            },
+            complete: function(){
+                jQuery('.opc-ajax-loader').css('display', 'none');
+            }
+        });
+    }
+
+    function corpPaymentsave(){
+        nodes = document.getElementsByClassName('device-prices');
+        var price = nodes[0].innerHTML.substr(nodes[0].innerHTML.indexOf(" ") + 1);
+        document.getElementById('product_price').value = price; 
+        var formToValidate = $('product_addtocart_form');
+        var validator = new Validation(formToValidate);
+        if(validator.validate()) {
+            var serialize_values = $("product_addtocart_form").serialize();
+            var xhr;
+            if(xhr && xhr.readyState != 4){
+                xhr.abort();
+            }
+            xhr = jQuery.ajax({
+                url: '<?php echo $this->getUrl("gadget/index/ticketsubmit");?>',
+                data:'request='+serialize_values,
+                type:'POST',
+                dataType: "json",
+                beforeSend: function() {
+                	jQuery('.opc-ajax-loader').css('display', 'block');
+                },
+                success: function(data) {
+                    location.href = data.base_url;
+                    return false;
+                },
+	            complete: function(){
+	                jQuery('.opc-ajax-loader').css('display', 'none');
+	            }
+            });
+            
+            return false;
+        }else{
+            //alert(2);
+        }
+    }
+
+</script>  

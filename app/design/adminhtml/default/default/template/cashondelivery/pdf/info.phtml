@@ -1,0 +1,23 @@
+<?php
+
+?>
+<?php echo $this->htmlEscape($this->getMethod()->getTitle()) ?>
+    {{pdf_row_separator}}
+<?php if ($this->getMethod()->getCustomText()): ?>
+    <?php echo $this->htmlEscape($this->getMethod()->getCustomText()) ?><br />
+<?php endif; ?>
+    {{pdf_row_separator}}
+    <?php        
+        $_extra_fee_excl = $this->getCodFeeExclTax();
+        $_extra_fee_incl = $this->getCodFeeInclTax();
+        if (!is_null($_extra_fee_excl)):
+            $_codFeeStr = $_extra_fee_excl;
+            if ($this->helper('cashondelivery')->displayCodBothPrices() && ($_extra_fee_incl != $_extra_fee_excl)) {
+                        $_codFeeStr .= ' ('.$this->__('Incl. Tax').' '.$_extra_fee_incl.')';
+            }
+    ?>
+
+    <?php if((float)$this->getRawCodFee() || Mage::getStoreConfig('payment/cashondelivery/display_zero_fee')): ?>
+    <?php echo $this->__('Cash on Delivery fee %s', $_codFeeStr) ?>
+    <?php endif; ?>
+<?php endif; ?>

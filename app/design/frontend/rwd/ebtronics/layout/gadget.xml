@@ -1,0 +1,1029 @@
+<?xml version="1.0"?>   
+<layout version="0.1.0"> 
+
+  <gadget_laptops_dell>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_list_apple" template="gadget/product_list_laptop.phtml">  
+      
+      </block>   
+    </reference>   
+  </gadget_laptops_dell> 
+
+  <gadget_laptops_lenovo>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_list_apple" template="gadget/product_list_laptop.phtml">  
+      
+      </block>   
+    </reference>   
+  </gadget_laptops_lenovo> 
+
+  <gadget_laptops_hp>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_list_apple" template="gadget/product_list_laptop.phtml">  
+      
+      </block>   
+    </reference>   
+  </gadget_laptops_hp> 
+
+<gadget_laptops_acer>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_list_apple" template="gadget/product_list_laptop.phtml">  
+      
+      </block>   
+    </reference>   
+  </gadget_laptops_acer> 
+
+  <gadget_laptops_asus>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_list_apple" template="gadget/product_list_laptop.phtml">  
+      
+      </block>   
+    </reference>   
+  </gadget_laptops_asus> 
+
+  <gadget_index_index>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="gadget_index" template="gadget/index.phtml">   
+        
+      </block>
+    </reference>   
+  </gadget_index_index>  
+
+  <gadget_index_mobile>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>     
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="gadget_brand" template="gadget/brand_list.phtml">   
+        
+      </block>
+    </reference>   
+  </gadget_index_mobile> 
+
+  <gadget_mobile_apple>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_list_apple" template="gadget/product_list.phtml">
+      
+      </block>   
+    </reference>   
+  </gadget_mobile_apple> 
+
+  <gadget_mobile_applephone>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_apple" template="gadget/product.phtml">
+      
+      </block>   
+    </reference>   
+  </gadget_mobile_applephone> 
+
+  <gadget_mobile_asus>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_list_asus" template="gadget/product_list.phtml">
+        
+      </block>   
+    </reference>   
+  </gadget_mobile_asus> 
+
+  <gadget_mobile_asusphone>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_asus" template="gadget/product.phtml">
+        
+      </block>   
+    </reference>   
+  </gadget_mobile_asusphone> 
+
+  <gadget_mobile_blackberry>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_list_blackberry" template="gadget/product_list.phtml">
+      
+      </block>   
+    </reference>   
+  </gadget_mobile_blackberry> 
+
+  <gadget_mobile_blackberryphone>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_blackberry" template="gadget/product.phtml">
+      
+      </block>   
+    </reference>   
+  </gadget_mobile_blackberryphone>
+
+  <gadget_mobile_gionee>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_list_gionee" template="gadget/product_list.phtml">
+      
+      </block>   
+    </reference>   
+  </gadget_mobile_gionee> 
+
+  <gadget_mobile_gioneephone>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_gionee" template="gadget/product.phtml">
+      
+      </block>   
+    </reference>   
+  </gadget_mobile_gioneephone>
+
+  <gadget_mobile_google>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_list_google" template="gadget/product_list.phtml">
+      
+      </block>   
+    </reference>   
+  </gadget_mobile_google> 
+
+  <gadget_mobile_googlephone>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_google" template="gadget/product.phtml">
+      
+      </block>   
+    </reference>   
+  </gadget_mobile_googlephone>
+
+  <gadget_mobile_htc>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_list_htc" template="gadget/product_list.phtml">
+      
+      </block>   
+    </reference>   
+  </gadget_mobile_htc> 
+
+  <gadget_mobile_htcphone>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_htc" template="gadget/product.phtml">
+      
+      </block>   
+    </reference>   
+  </gadget_mobile_htcphone>
+
+  <gadget_mobile_huawei>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_list_huawei" template="gadget/product_list.phtml">
+      
+      </block>   
+    </reference>   
+  </gadget_mobile_huawei> 
+
+  <gadget_mobile_huaweiphone>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_huawei" template="gadget/product.phtml">
+      
+      </block>   
+    </reference>   
+  </gadget_mobile_huaweiphone>
+
+  <gadget_mobile_intex>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_list_intex" template="gadget/product_list.phtml">
+      
+      </block>   
+    </reference>   
+  </gadget_mobile_intex> 
+
+  <gadget_mobile_intexphone>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_intex" template="gadget/product.phtml">
+      
+      </block>   
+    </reference>   
+  </gadget_mobile_intexphone>
+
+  <gadget_mobile_karbonn>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_list_karbonn" template="gadget/product_list.phtml">
+      
+      </block>   
+    </reference>   
+  </gadget_mobile_karbonn> 
+
+  <gadget_mobile_karbonnphone>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_karbonn" template="gadget/product.phtml">
+      
+      </block>   
+    </reference>   
+  </gadget_mobile_karbonnphone>
+
+  <gadget_mobile_lava>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_list_lava" template="gadget/product_list.phtml">
+      
+      </block>   
+    </reference>   
+  </gadget_mobile_lava> 
+
+  <gadget_mobile_lavaphone>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_lava" template="gadget/product.phtml">
+      
+      </block>   
+    </reference>   
+  </gadget_mobile_lavaphone>
+
+  <gadget_mobile_lenovo>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_list_lenovo" template="gadget/product_list.phtml">
+      
+      </block>   
+    </reference>   
+  </gadget_mobile_lenovo> 
+
+  <gadget_mobile_lenovophone>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_lenovo" template="gadget/product.phtml">
+      
+      </block>   
+    </reference>   
+  </gadget_mobile_lenovophone>
+
+  <gadget_mobile_lg>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_list_lg" template="gadget/product_list.phtml">
+      
+      </block>   
+    </reference>   
+  </gadget_mobile_lg> 
+
+  <gadget_mobile_lgphone>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_lg" template="gadget/product.phtml">
+      
+      </block>   
+    </reference>   
+  </gadget_mobile_lgphone>
+
+  <gadget_mobile_meizu>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_list_meizu" template="gadget/product_list.phtml">
+      
+      </block>   
+    </reference>   
+  </gadget_mobile_meizu> 
+
+  <gadget_mobile_meizuphone>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_meizu" template="gadget/product.phtml">
+      
+      </block>   
+    </reference>   
+  </gadget_mobile_meizuphone>
+
+  <gadget_mobile_micromax>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_list_micromax" template="gadget/product_list.phtml">
+      
+      </block>   
+    </reference>   
+  </gadget_mobile_micromax> 
+
+  <gadget_mobile_micromaxphone>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_micromax" template="gadget/product.phtml">
+      
+      </block>   
+    </reference>   
+  </gadget_mobile_micromaxphone>
+
+  <gadget_mobile_motorola>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_list_motorola" template="gadget/product_list.phtml">
+      
+      </block>   
+    </reference>   
+  </gadget_mobile_motorola> 
+
+  <gadget_mobile_motorolaphone>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_motorola" template="gadget/product.phtml">
+      
+      </block>   
+    </reference>   
+  </gadget_mobile_motorolaphone>
+
+  <gadget_mobile_nokia>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_list_nokia" template="gadget/product_list.phtml">
+      
+      </block>   
+    </reference>   
+  </gadget_mobile_nokia> 
+
+  <gadget_mobile_nokiaphone>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_nokia" template="gadget/product.phtml">
+      
+      </block>   
+    </reference>   
+  </gadget_mobile_nokiaphone>
+
+  <!-- <gadget_mobile_oneplus>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_list_oneplus" template="gadget/product_list.phtml">
+      
+      </block>   
+    </reference>   
+  </gadget_mobile_oneplus> --> 
+
+  <gadget_mobile_oneplusphone>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_oneplus" template="gadget/product.phtml">
+      
+      </block>   
+    </reference>   
+  </gadget_mobile_oneplusphone>
+
+  <gadget_mobile_oppo>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_list_oppo" template="gadget/product_list.phtml">
+      
+      </block>   
+    </reference>   
+  </gadget_mobile_oppo> 
+
+  <gadget_mobile_oppophone>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_oppo" template="gadget/product.phtml">
+      
+      </block>   
+    </reference>   
+  </gadget_mobile_oppophone>
+
+  <gadget_mobile_panasonic>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_list_panasonic" template="gadget/product_list.phtml">
+      
+      </block>   
+    </reference>   
+  </gadget_mobile_panasonic> 
+
+  <gadget_mobile_panasonicphone>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_panasonic" template="gadget/product.phtml">
+      
+      </block>   
+    </reference>   
+  </gadget_mobile_panasonicphone>
+
+  <gadget_mobile_samsung>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_list_samsung" template="gadget/product_list.phtml">
+      
+      </block>   
+    </reference>   
+  </gadget_mobile_samsung> 
+
+  <gadget_mobile_samsungphone>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_samsung" template="gadget/product.phtml">
+      
+      </block>   
+    </reference>   
+  </gadget_mobile_samsungphone>
+
+  <gadget_mobile_sony>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_list_sony" template="gadget/product_list.phtml">
+      
+      </block>   
+    </reference>   
+  </gadget_mobile_sony> 
+
+  <gadget_mobile_sonyphone>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_sony" template="gadget/product.phtml">
+      
+      </block>   
+    </reference>   
+  </gadget_mobile_sonyphone>
+
+  <gadget_mobile_xiaomi>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_list_xiaomi" template="gadget/product_list.phtml">
+      
+      </block>   
+    </reference>   
+  </gadget_mobile_xiaomi> 
+
+  <gadget_mobile_xiaomiphone>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_xiaomi" template="gadget/product.phtml">
+      
+      </block>   
+    </reference>   
+  </gadget_mobile_xiaomiphone>
+
+  <gadget_mobile_xolo>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_list_xolo" template="gadget/product_list.phtml">
+      
+      </block>   
+    </reference>   
+  </gadget_mobile_xolo> 
+
+  <gadget_mobile_xolophone>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_xolo" template="gadget/product.phtml">
+      
+      </block>   
+    </reference>   
+  </gadget_mobile_xolophone>
+
+  <gadget_mobile_alcatel>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_list_alcatel" template="gadget/product_list.phtml">
+      
+      </block>   
+    </reference>   
+  </gadget_mobile_alcatel> 
+
+  <gadget_mobile_alcatelphone>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_alcatel" template="gadget/product.phtml">
+      
+      </block>   
+    </reference>   
+  </gadget_mobile_alcatelphone>
+
+  <gadget_mobile_honor>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_list_honor" template="gadget/product_list.phtml">
+      
+      </block>   
+    </reference>   
+  </gadget_mobile_honor> 
+
+  <gadget_mobile_honorphone>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_honor" template="gadget/product.phtml">
+      
+      </block>   
+    </reference>   
+  </gadget_mobile_honorphone>
+
+  <gadget_mobile_microsoft>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_list_microsoft" template="gadget/product_list.phtml">
+      
+      </block>   
+    </reference>   
+  </gadget_mobile_microsoft> 
+
+  <gadget_mobile_microsoftphone>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_microsoft" template="gadget/product.phtml">
+      
+      </block>   
+    </reference>   
+  </gadget_mobile_microsoftphone>
+
+  <gadget_mobile_yota>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_list_yota" template="gadget/product_list.phtml">
+      
+      </block>   
+    </reference>   
+  </gadget_mobile_yota> 
+
+  <gadget_mobile_yotaphone>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_yota" template="gadget/product.phtml">
+      
+      </block>   
+    </reference>   
+  </gadget_mobile_yotaphone>
+
+   <gadget_index_success>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_success" template="gadget/success.phtml">
+      
+      </block>   
+    </reference>    
+  </gadget_index_success>
+
+  <gadget_index_failure>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_failure" template="gadget/failure.phtml">
+          
+      </block>   
+    </reference>   
+  </gadget_index_failure>
+
+  <gadget_mobile_coolpad>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_list_coolpad" template="gadget/product_list.phtml">
+        
+      </block>   
+    </reference>   
+  </gadget_mobile_coolpad>
+
+  <gadget_mobile_xiaomi>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_list_xiomi" template="gadget/product_list.phtml">
+        
+      </block>   
+    </reference>   
+  </gadget_mobile_xiaomi>
+
+  <gadget_mobile_oneplus>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_list_oneplus" template="gadget/product_list.phtml">
+        
+      </block>   
+    </reference>   
+  </gadget_mobile_oneplus>
+
+  <gadget_mobile_others>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_list_mobile_other" template="gadget/other.phtml">
+        
+      </block>   
+    </reference>   
+  </gadget_mobile_others>
+
+  <gadget_laptops_other>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_list_laptops_other" template="gadget/other.phtml">
+      </block>   
+    </reference>   
+  </gadget_laptops_other> 
+    <customer_account>
+
+      <!-- Neo_Gadget -->
+      <reference name="customer_account_navigation">
+          <action method="addLink" translate="label" module="gadget"><name>sell your gadget</name><path>gadget/index/list</path><label>Sales History</label></action>
+      </reference>
+  </customer_account>
+   <gadget_index_list translate="label">
+
+        <reference name="root">
+            <action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+        </reference>
+        <label>Trade Order List</label>
+        <!--  -->
+        <update handle="customer_account" />
+        <reference name="my.account.wrapper">
+            <block type="gadget/trade" name="trade" template="gadget/tradelist.phtml">
+                <action method="setTitle" translate="title">
+                    <title>Trade Orders</title>
+                </action>
+                <!--<block type="wishlist/customer_wishlist_items" name="customer.wishlist.items" as="items" template="wishlist/item/list.phtml">
+                    <block type="wishlist/customer_wishlist_item_column_image" name="customer.wishlist.item.image" template="wishlist/item/column/image.phtml" />
+                    <block type="wishlist/customer_wishlist_item_column_comment" name="customer.wishlist.item.info" template="wishlist/item/column/info.phtml">
+                        <action method="setTitle" translate="title">
+                            <title>Product Details and Comment</title>
+                        </action>
+                    </block>
+                    <block type="wishlist/customer_wishlist_item_column_cart" name="customer.wishlist.item.cart" template="wishlist/item/column/cart.phtml">
+                        <action method="setTitle" translate="title">
+                            <title>Add to Cart</title>
+                        </action>
+                        <block type="wishlist/customer_wishlist_item_options" name="customer.wishlist.item.options" />
+                    </block>
+                    <block type="wishlist/customer_wishlist_item_column_remove" name="customer.wishlist.item.remove" template="wishlist/item/column/remove.phtml" />
+                </block>-->
+                
+            </block>
+        </reference>
+    </gadget_index_list>
+
+    <gadget_index_detail>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/detail" name="order_detail" template="gadget/detail.phtml">
+          <block type="core/template" name="order_detail_track" template="gadget/track.phtml" />
+      </block>   
+    </reference>   
+  </gadget_index_detail>
+
+  <gadget_index_new>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="gadget_index" template="gadget/new.phtml" />   
+    </reference> 
+  </gadget_index_new>
+  <gadget_lenovo_index>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="gadget_lenovo" template="gadget/lenovo.phtml">
+      </block>  
+    </reference>   
+  </gadget_lenovo_index>
+</layout>   
+   

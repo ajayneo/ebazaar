@@ -1,0 +1,224 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Neo_Microsoft>
+      <version>0.1.0</version>
+    </Neo_Microsoft>
+  </modules>
+  <frontend>
+    <routers>
+      <microsoft>
+        <use>standard</use>
+          <args>
+            <module>Neo_Microsoft</module>
+            <frontName>microsoft-validation</frontName>
+          </args>
+      </microsoft>
+    </routers>
+		<layout>
+		  <updates>
+			<microsoft>
+			  <file>microsoft.xml</file>
+			</microsoft>
+		  </updates>
+		</layout>
+  </frontend>
+  <global>
+    <helpers>
+      <microsoft>
+        <class>Neo_Microsoft_Helper</class>
+      </microsoft>
+    </helpers>
+	<blocks>
+	  <microsoft>
+		<class>Neo_Microsoft_Block</class>
+	  </microsoft>
+	</blocks>
+	<models>
+	  <microsoft>
+		<class>Neo_Microsoft_Model</class>
+		<resourceModel>microsoft_mysql4</resourceModel>
+	  </microsoft>
+	  <microsoft_mysql4>
+		<class>Neo_Microsoft_Model_Mysql4</class>
+		<entities>		  
+			  <microsoft>
+				<table>neo_microsoft</table>
+			  </microsoft>
+        </entities>
+	  </microsoft_mysql4>
+	</models>
+	<resources>
+	  <microsoft_setup>
+		<setup>
+		  <module>Neo_Microsoft</module>
+		</setup>
+		<connection>
+		  <use>core_setup</use>
+		</connection>
+	  </microsoft_setup>
+	  <microsoft_write>
+		<connection>
+		  <use>core_write</use>
+		</connection>
+	  </microsoft_write>
+	  <microsoft_read>
+		<connection>
+		  <use>core_read</use>
+		</connection>
+	  </microsoft_read>
+	  <salesattribute1472154672_setup>
+		<setup>
+		  <module>Neo_Microsoft</module>
+		  <class>Mage_Sales_Model_Mysql4_Setup</class>
+		</setup>
+		<connection>
+		  <use>core_setup</use>
+		</connection>
+	  </salesattribute1472154672_setup>
+	  <salesattribute1472154672_write>
+		<connection>
+		  <use>core_write</use>
+		</connection>
+	  </salesattribute1472154672_write>
+	  <salesattribute1472154672_read>
+		<connection>
+		  <use>core_read</use>
+		</connection>
+	  </salesattribute1472154672_read>
+	</resources>
+    <events>
+    	<checkout_cart_product_add_after>
+            <observers>
+                <enableduplicateproductstatus>
+                    <type>singleton</type>
+                    <class>microsoft/observer</class> 
+                    <method>cartlimit</method>
+                </enableduplicateproductstatus>
+            </observers>
+        </checkout_cart_product_add_after> 
+        <checkout_cart_add_product_complete>
+            <observers>
+                <enableduplicateproductstatusredirecttocheckout>
+                    <type>singleton</type>
+                    <class>microsoft/observer</class>
+                    <method>redirectToCheckout</method>
+                </enableduplicateproductstatusredirecttocheckout>
+            </observers>
+        </checkout_cart_add_product_complete> 
+	  <sales_order_place_before> <!-- identifier of the event we want to catch -->
+        <observers>
+          <sales_order_place_before_handler> <!-- identifier of the event handler -->
+            <type>model</type> <!-- class method call type; valid are model, object and singleton -->
+            <class>microsoft/observer</class> <!-- observers class alias -->
+            <method>salesOrderPlaceBefore</method>  <!-- observer's method to be called -->
+            <args></args> <!-- additional arguments passed to observer -->
+          </sales_order_place_before_handler>
+        </observers>
+      </sales_order_place_before>
+	<checkout_type_onepage_save_order_after> <!-- identifier of the event we want to catch -->
+        <observers>
+          <checkout_type_onepage_save_order_after_microsoftdiscount_handler> <!-- identifier of the event handler -->
+            <type>model</type> <!-- class method call type; valid are model, object and singleton -->
+            <class>microsoft/newordertotalobserver</class> <!-- observers class alias -->
+            <method>saveMicrosoftdiscountTotal</method>  <!-- observer's method to be called -->
+            <args></args> <!-- additional arguments passed to observer -->
+          </checkout_type_onepage_save_order_after_microsoftdiscount_handler>
+	    </observers>
+      </checkout_type_onepage_save_order_after>		
+	<checkout_type_multishipping_create_orders_single> <!-- identifier of the event we want to catch -->
+        <observers>		
+          <checkout_type_multishipping_create_orders_single_microsoftdiscount_handler> <!-- identifier of the event handler -->
+            <type>model</type> <!-- class method call type; valid are model, object and singleton -->
+            <class>microsoft/newordertotalobserver</class> <!-- observers class alias -->
+            <method>saveMicrosoftdiscountTotalForMultishipping</method>  <!-- observer's method to be called -->
+            <args></args> <!-- additional arguments passed to observer -->
+          </checkout_type_multishipping_create_orders_single_microsoftdiscount_handler>		
+        </observers>
+      </checkout_type_multishipping_create_orders_single>
+    </events>	
+	 <sales>
+		<quote>
+			<totals>				
+	            <microsoftdiscount_total>
+					<class>microsoft/quote_address_total_microsoftdiscount</class>
+					<after>subtotal,freeshipping,tax_subtotal,shipping</after>
+					<before>grand_total</before>
+				</microsoftdiscount_total> 
+			</totals>
+		</quote>
+            <order_invoice>
+                <totals>				
+	            <microsoftdiscount_total>
+					<class>microsoft/order_invoice_total_microsoftdiscount</class>
+					<after>subtotal,freeshipping,tax_subtotal,shipping</after>
+					<before>grand_total</before>
+				</microsoftdiscount_total> 
+                </totals>
+            </order_invoice>
+            <order_creditmemo>
+                <totals>				
+	            <microsoftdiscount_total>
+					<class>microsoft/order_creditmemo_total_microsoftdiscount</class>
+					<after>subtotal,freeshipping,tax_subtotal,shipping</after>
+					<before>grand_total</before>
+				</microsoftdiscount_total> 
+                </totals>
+            </order_creditmemo>
+	</sales>
+  </global>
+  <admin>
+	<routers>
+	  <microsoft>
+	    <use>admin</use>
+		<args>
+		  <module>Neo_Microsoft</module>
+		  <frontName>admin_microsoft</frontName>
+		</args>
+	  </microsoft>
+	</routers>
+  </admin>
+  <adminhtml>
+	<!--menu>
+	  <microsoft module="microsoft">
+		<title>Microsoft</title>
+		<sort_order>100</sort_order>
+		<children>
+		  <microsoft module="microsoft">
+		    <title>Manage Microsoft</title>
+			<sort_order>0</sort_order>
+			<action>admin_microsoft/adminhtml_microsoft</action>
+		  </microsoft>
+		</children>
+	  </microsoft>
+	</menu>
+	<acl>
+	  <resources>
+		<all>
+		  <title>Allow Everything</title>
+		</all>
+		<admin>
+		  <children>
+			<microsoft translate="title" module="microsoft">
+			  <title>Microsoft</title>
+			  <sort_order>1000</sort_order>
+			  <children>
+		  <microsoft translate="title">
+			<title>Manage Microsoft</title>
+			<sort_order>0</sort_order>
+		  </microsoft>
+			  </children>
+			</microsoft>
+		  </children>
+		</admin>
+	  </resources>
+	</acl-->
+	<layout>
+	  <updates>
+		<microsoft>
+		  <file>microsoft.xml</file>
+		</microsoft>
+	  </updates>
+	</layout>
+  </adminhtml>
+</config> 

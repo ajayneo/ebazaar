@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Devinc_Multipledeals>
+            <active>false</active>
+            <codePool>community</codePool>
+            <depends>
+                <Devinc_License/>
+            </depends>
+        </Devinc_Multipledeals>
+    </modules>
+</config> 

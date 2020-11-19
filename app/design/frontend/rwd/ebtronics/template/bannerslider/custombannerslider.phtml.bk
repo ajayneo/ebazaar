@@ -1,0 +1,98 @@
+<?php
+/**
+ * Magestore
+ * 
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the Magestore.com license that is
+ * available through the world-wide-web at this URL:
+ * http://www.magestore.com/license-agreement.html
+ * 
+ * DISCLAIMER
+ * 
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ * 
+ * @category 	Magestore
+ * @package 	Magestore_Bannerslider
+ * @copyright 	Copyright (c) 2012 Magestore (http://www.magestore.com/)
+ * @license 	http://www.magestore.com/license-agreement.html
+ */
+/**
+ * bannerslider template
+ * 
+ * @see Magestore_Bannerslider_Block_Bannerslider
+ */
+?>
+<?php
+$result = $this->getBlockData();
+$banners = $result['banners'];
+#print_r($banners);die;
+?>
+<?php
+$media_path = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_MEDIA);
+$i=0;
+$slider1 = '';
+$url1 = '#';
+$content1='';
+?>
+
+<div id="main" class="slider-container">
+	<div class="image_thumb">
+		<ul>
+			<?php 
+			foreach ($banners as $banner) {
+				$iconid = $banner['iconid'];
+				$icon = Mage::getModel('bannericon/bannericon')->load($banner['iconid']);
+				$image = $banner['image'];
+				$iconImageName = $icon->getFilename();
+				if($i==0) {
+					$slider1 = $media_path.'wysiwyg/'.$image;
+					if(!empty($banner['click_url'])) {
+						$url1 = $banner['click_url'];
+					}
+					if(empty($banner['iconcontent'])) {
+						$content1 = $icon->getContent();
+					}
+					else {
+						$content1 = $banner['iconcontent'];
+					}
+					$i=1;
+				}
+				$media = $media_path.'wysiwyg/'.$image;
+				$media_icon = $media_path.'bannericon/'.$iconImageName;
+				$url = $banner['click_url'];
+			?>
+			<li>
+				<div class="icons">
+					<a href="<?php echo $media; ?>" data-target="<?php echo $url; ?>">
+						<img src="<?php echo $media_icon; ?>" alt="" />
+					</a>
+				</div>
+				<div class="block">
+					<?php
+						if(empty($banner['iconcontent'])) {
+							echo $icon->getContent();
+						}
+						else{
+							echo $banner['iconcontent'];
+						}
+					?>
+				</div>
+			</li>
+			<?php
+				}
+			?>
+		</ul>
+	</div>
+	
+	<div class="main_image">
+		<a href="<?php echo $url1; ?>" target="_blank"><img src="<?php echo $slider1; ?>" alt="- banner1" /></a>
+		<div class="desc">
+			<a class="collapse" href="#">Close Me!</a>
+			<div class="block">
+				<?php echo $content1; ?>
+			</div>
+		</div>
+	</div>
+</div>

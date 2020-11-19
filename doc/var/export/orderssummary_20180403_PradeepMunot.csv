@@ -1,0 +1,4 @@
+"Order Id",SKU,"Product Name","Store Name","Amount Total",Qty,Discount,"Net Sale",Category,City,State,"ASM Name","RSM Name","Payment Method","Customer Email"
+200103985,QCMBB000072,"MOTOROLA E 2ND GEN (8GB)",Abhilash,29992.0000,20.0000,299.0000,29693.0000,Preowned,COIMBATORE,"Tamil Nadu","Pradeep Munot","Sathish Vittal",paytm_cc,saranyasweets1103@gmail.com
+200104017,NEWMOB00048,"Moto G5s (Fine Gold, 32GB)",Rakhiwala,47253.0000,5.0000,422.0000,46831.0000,New,CHENNAI,"Tamil Nadu","Pradeep Munot","Sathish Vittal",custompayment,rakhiwala@hotmail.com
+200104095,NEWMOB00364,"Apple iPhone 7 (Gold, 32 GB) ","EASY CELL CITY",83400.0000,2.0000,745.0000,82655.0000,New,CHENNAI,"Tamil Nadu","Pradeep Munot","Sathish Vittal",custompayment,easycellcity@gmail.com

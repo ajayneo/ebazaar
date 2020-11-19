@@ -1,0 +1,618 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<layout>
+	<default>
+		<reference name="head">
+			<action method="addItem">
+				<type>skin_js</type>
+				<name>js/jquery-noconflict.js</name>
+			</action>
+			<action method="addItem">
+				<type>skin_js</type>
+				<name>js/jquery.bxslider.min.js</name>
+			</action>
+			<!--<action method="addItem">
+				<type>skin_js</type>
+				<name>js/jquery.carouFredSel-6.2.1-packed.js</name>
+			</action>-->
+			<!--action method="addItem">
+				<type>skin_js</type>
+				<name>js/jquery.carouFredSel-6.2.1-packed.min.js</name>
+			</action-->
+			<!--<action method="addItem">
+				<type>skin_js</type>
+				<name>js/jquery.flexslider.js</name>
+			</action>-->
+			<!--action method="addItem">
+				<type>skin_js</type>
+				<name>js/jquery.flexslider.min.js</name>
+			</action-->
+			<!--<action method="addItem">
+				<type>skin_js</type>
+				<name>js/jquery-ui-1.10.4.custom.js</name>
+			</action>-->
+			<action method="addItem">
+				<type>skin_js</type>
+				<name>js/jquery-ui-1.10.4.custom.min.js</name>
+			</action>
+			<action method="addItem">
+				<type>skin_js</type>
+				<name>js/fancybox/jquery.fancybox.pack.js</name>
+			</action>
+			<action method="addItem">
+				<type>skin_js</type>
+				<name>js/srka.review.stars.min.js</name>
+			</action>
+			<action method="addItem">
+				<type>skin_css</type>
+				<file>css/fancybox/jquery.fancybox.css</file>
+			</action>
+			<action method="addItem">
+				<type>skin_css</type>
+				<file>css/srka.review.stars.css</file>
+			</action>
+			<action method="addItem">
+				<type>skin_css</type>
+				<file>css/jquery-ui-1.10.4.custom.css</file>
+			</action>
+			<!--<action method="addItem">
+				<type>skin_js</type>
+				<name>js/customdropdown.js</name>
+			</action>-->
+			<!-- <action method="addItem">
+				<type>skin_js</type>
+				<name>js/customdropdown.min.js</name>
+			</action> -->
+			<action method="addItem">
+				<type>skin_css</type>
+				<file>css/jquery.bxslider.css</file>
+			</action>
+			<action method="addItem">
+				<type>skin_js</type>
+				<name>js/slider.js</name>
+			</action>
+			<action method="addItem">
+				<type>skin_css</type>
+				<file>css/slider.css</file>
+			</action>
+			<action method="addItem">
+				<type>skin_js</type>
+				<name>js/eb.js</name>
+			</action>
+			<action method="addItem">
+				<type>skin_js</type>
+				<name>js/jquery-ui.js</name>
+			</action>
+			<action method="addItem">
+				<type>skin_js</type>
+				<name>js/custom.js</name>
+			</action>
+		</reference>
+		<reference name="content">
+			<block type="core/template" name="feedback" as="feedback" template="catalog/product/customblocks/feedback.phtml"></block>
+		</reference>
+		<reference name="footer">
+			<block type="newsletter/subscribe" name="newsletter" as="newsletter" template="newsletter/subscribe.phtml" before="-" />
+		</reference>
+		<reference name="right">
+			<remove name="right.reports.product.compared"/>
+			<remove name="wishlist_sidebar"/>
+			<!--<remove name="right.permanent.callout"/>-->
+			<!--<remove name="catalog.compare.sidebar"/>-->
+			<!--<remove name="left.reports.product.viewed"/>-->
+			<!--<action method="unsetChild"><name>sale.reorder.sidebar</name></action>>-->
+			<!--<action method="unsetChild"><name>wishlist_sidebar</name></action>-->
+			<!--<action method="unsetChild"><name>right.reports.product.viewed</name></action>-->
+			<!--<remove name="cart_sidebar"/>-->
+		</reference>
+		<remove name="catalog.compare.sidebar" />
+		<remove name="shopbybrand_left" /> <!-- shop by brand -->
+		<remove name="checkout.cart.methods.multishipping" />
+		<remove name="right.reports.product.viewed" />
+		<remove name="sale.reorder.sidebar" />
+		<!--<remove name="sale.reorder.sidebar"></remove>-->
+		<reference name="after_body_start">
+			<!-- <block type="customer/form_login" name="signin_popup" template="persistent/customer/form/login_popup.phtml"  before="-">
+				<block type="customer/form_register" name="customer_form_register" template="customer/form/register_popup.phtml">
+	            	<block type="page/html_wrapper" name="customer.form.register.fields.before" as="form_fields_before" translate="label">
+	                	<label>Form Fields Before</label>
+	            	</block>
+	        	</block>
+			</block> -->
+			<!-- <block type="core/template" name="gstin_popup" template="customer/form/gstinform.phtml"  after="signin_popup" /> -->
+			<!-- <block type="customer/form_login" name="customer_form_login" template="customer/form/login.phtml">
+	        	<block type="customer/form_register" name="customer_form_register" template="customer/form/register.phtml">
+	            	<block type="page/html_wrapper" name="customer.form.register.fields.before" as="form_fields_before" translate="label">
+	                	<label>Form Fields Before</label>
+	            	</block>
+	        	</block>	
+	        </block> -->
+		</reference>
+	</default>
+	<cms_index_index>
+		<reference name="head">
+			<action method="addItem">
+				<type>skin_js</type>
+				<name>js/homepagejs.js</name>
+			</action>
+			<!--action method="addItem">
+				<type>skin_js</type>
+				<name>js/homepagejs.min.js</name>
+			</action-->
+		</reference>
+	</cms_index_index>
+	<cms_page>
+		<reference name="head">
+			<action method="addItem">
+				<type>skin_css</type>
+				<file>css/iwd/opc/opc.css</file>
+			</action>
+			<action method="addItem">
+				<type>skin_js</type>
+				<name>js/ajaxaddtocomparejs.js</name>
+			</action>
+           <!-- <action method="addItem">
+                <type>skin_js</type>
+                <name>js/ajaxaddtocomparejs.min.js</name>
+            </action>-->
+			<action method="addItem">
+				<type>skin_js</type>
+				<name>js/productlistmouseover.js</name>
+			</action>
+			<!--action method="addItem">
+				<type>skin_js</type>
+				<name>js/productlistmouseover.min.js</name>
+			</action-->
+		</reference>
+	</cms_page>
+	<shopbybrand_index_view>
+		<reference name="head">
+			<action method="addItem">
+				<type>skin_js</type>
+				<name>js/ajaxaddtocomparejs.js</name>
+			</action>
+			<!--<action method="addItem">
+                <type>skin_js</type>
+                <name>js/ajaxaddtocomparejs.min.js</name>
+            </action>-->
+			<action method="addItem">
+				<type>skin_css</type>
+				<file>css/iwd/opc/opc.css</file>
+			</action>
+			<!--<action method="addItem">
+				<type>skin_js</type>
+				<name>js/productlistmouseover.js</name>
+			</action>-->
+			<action method="addItem">
+				<type>skin_js</type>
+				<name>js/productlistmouseover.min.js</name>
+			</action>
+			<!--<action method="addItem">
+				<type>skin_js</type>
+				<name>js/pulginjs.js</name>
+			</action>-->
+		</reference>
+	</shopbybrand_index_view>
+	<trackorder_order_index>
+		<reference name="head">
+			<action method="addItem">
+				<type>skin_css</type>
+				<file>css/iwd/opc/opc.css</file>
+			</action>
+			<!--<action method="addItem">
+				<type>skin_js</type>
+				<name>js/productlistmouseover.js</name>
+			</action>-->
+			<action method="addItem">
+				<type>skin_js</type>
+				<name>js/productlistmouseover.min.js</name>
+			</action>
+			<action method="addItem"><type>skin_js</type><name>js/iwd/opc/orderbha.js</name></action>
+			<action method="addItem">
+				<type>skin_js</type>
+				<name>js/ajaxaddtocomparejs.js</name>
+			</action>
+			<!--<action method="addItem">
+                <type>skin_js</type>
+                <name>js/ajaxaddtocomparejs.min.js</name>
+            </action>-->
+		</reference>
+	</trackorder_order_index>
+	<catalog_category_view>
+		<reference name="head">
+			<action method="addItem">
+				<type>skin_css</type>
+				<file>css/iwd/opc/opc.css</file>
+			</action>
+			<action method="addItem">
+				<type>skin_js</type>
+				<name>js/ajaxaddtocomparejs.js</name>
+			</action>
+			<!--<action method="addItem">
+                <type>skin_js</type>
+                <name>js/ajaxaddtocomparejs.min.js</name>
+            </action>-->
+			<!--<action method="addItem">
+				<type>skin_js</type>
+				<name>js/productlistmouseover.js</name>
+			</action>-->
+			<action method="addItem">
+				<type>skin_js</type>
+				<name>js/productlistmouseover.min.js</name>
+			</action>
+		</reference>
+	</catalog_category_view>
+	<catalog_product_view>
+		<reference name="head">
+			<action method="addItem">
+				<type>skin_css</type>
+				<file>css/iwd/opc/opc.css</file>
+			</action>
+			<!--<action method="addItem">
+				<type>skin_js</type>
+				<name>js/productlistmouseover.js</name>
+			</action>-->
+			<action method="addItem">
+				<type>skin_js</type>
+				<name>js/productlistmouseover.min.js</name>
+			</action>
+			<action method="addItem">
+				<type>skin_js</type>
+				<name>js/ajaxaddtocomparejs.js</name>
+			</action>
+			<!--<action method="addItem">
+                <type>skin_js</type>
+                <name>js/ajaxaddtocomparejs.min.js</name>
+            </action>-->
+			<action method="addItem">
+				<type>skin_js</type>
+				<name>js/productviewpagejs.js</name>
+			</action>
+		</reference>
+		<reference name='product.info'>
+			<block type="catalog/product_list_related" name="catalog.product.related" as="related" template="catalog/product/list/related.phtml"/>
+		</reference>
+	</catalog_product_view>
+	<catalogsearch_result_index translate="label">
+		<reference name="root">
+			<action method="setTemplate"><template>page/2columns-left.phtml</template></action>
+		</reference>
+		<reference name="head">
+			<action method="addItem">
+				<type>skin_css</type>
+				<file>css/iwd/opc/opc.css</file>
+			</action>
+			<action method="addItem">
+				<type>skin_js</type>
+				<name>js/productlistmouseover.js</name>
+			</action>
+			<action method="addItem">
+				<type>skin_js</type>
+				<name>js/ajaxaddtocomparejs.js</name>
+			</action>
+			<!--action method="addItem">
+				<type>skin_js</type>
+				<name>js/productlistmouseover.min.js</name>
+			</action-->
+			<!--<action method="addItem">
+                <type>skin_js</type>
+                <name>js/ajaxaddtocomparejs.min.js</name>
+            </action>-->
+		</reference>
+	</catalogsearch_result_index>
+	<review_product_list>
+		<reference name="head">
+			<action method="addItem">
+				<type>skin_js</type>
+				<name>js/pagination/jquery.pages.js</name>
+			</action>
+		</reference>
+	</review_product_list>
+	<catalog_product_compare_index>
+		<reference name="head">
+			<action method="addItem">
+				<type>skin_css</type>
+				<file>css/iwd/opc/opc.css</file>
+			</action>
+			<!-- Sets viewport meta tag using text block -->
+                <block type="core/text" name="head.viewport">
+                    <action method="setText"><text><![CDATA[<meta name="viewport" content="width=device-width,  user-scalable=no" />]]>&#10;</text></action>
+                </block>
+		</reference>
+	</catalog_product_compare_index>
+	<checkout_cart_index>
+		<!-- Removes estimate shipping and cost on cart page -->
+		<remove name="checkout.cart.shipping"/>
+		<reference name="head">
+			<!-- Sets viewport meta tag using text block --><!-- added Pradeep on 02-09-2015 -->
+            <block type="core/text" name="head.viewport">
+            	<action method="setText"><text><![CDATA[<meta name="viewport" content="width=device-width,  user-scalable=no" />]]>&#10;</text></action>
+            </block>
+		</reference>
+		<reference name="content">
+			<remove name="checkout.cart.shipping"/>
+			<remove name="checkout.cart.coupon"/>
+			<!-- commented this because their was a error in exception.log -->
+	    	<!--<block name="checkout.cart">
+				<remove name="checkout.cart.shipping"/>
+				<remove name="checkout.cart.coupon"/>
+		</block>-->
+		</reference>
+	</checkout_cart_index>
+	<catalog_category_view>
+    	<reference name="root">
+	        <action method="setTemplate">
+	            <tpl>page/2columns-left.phtml</tpl>
+	        </action>
+    	</reference>
+    	<reference name="product_list">
+ 			<action method="setColumnCount"><columns>3</columns></action>
+ 		</reference>
+	</catalog_category_view>
+	
+	<!-- load collection in asc order -->
+	<catalog_category_layered>
+		<reference name="product_list">
+            <action method="setDefaultDirection"><dir>asc</dir></action>
+        </reference>
+	</catalog_category_layered>
+	
+	<contacts_index_index>
+		<reference name="head">
+			<action method="setTitle" translate="title"><title>Contact Us : Electronicsbazaar.com</title></action>
+			<action method="setDescription" translate="description"><description>Contact Electronicsbazaar support by email or phone. You can contact us to know more about order entries, product information etc.</description></action>
+			<action method="setKeywords" translate="keywords"><keywords>Contact Us</keywords></action>
+		</reference>
+	</contacts_index_index>
+	<career_index_index>
+		<reference name="head">
+			<action method="setTitle" translate="title"><title>Careers at Electronicsbazaar.com</title></action>
+			<action method="setDescription" translate="description"><description>Electronicsbazaar.com offers wide range of career opportunities, we invite you to realize your career goals with us. Visit or call us for more information.</description></action>
+			<action method="setKeywords" translate="keywords"><keywords>Careers</keywords></action>
+		</reference>
+	</career_index_index>
+	<wishlist_index_index>
+		<reference name="head">
+			<action method="setTitle" translate="title"><title>My Wishlist : Electronicsbazaar.com</title></action>
+			<action method="setDescription" translate="description"><description>Add product into your wishlist which you would like to buy. You can check your added product here.</description></action>
+			<action method="setKeywords" translate="keywords"><keywords>My Wishlist</keywords></action>
+		</reference>
+	</wishlist_index_index>
+	<checkout_cart_index>
+		<reference name="head">
+			<!--<action method="setTitle" translate="title"><title>My Shopping Cart : Electronicsbazaar.com</title></action>-->
+			<action method="setDescription" translate="description"><description>Checkout your your added product in my shopping cart, you can include and exclude product from here before you proceed to checkout.</description></action>
+			<action method="setKeywords" translate="keywords"><keywords>Shopping Cart</keywords></action>
+		</reference>
+	</checkout_cart_index>
+	<opc_index_index>
+		<reference name="head">
+			<action method="setForcedTitle" translate="title"><title>Checkout  : Electronicsbazaar.com</title></action>
+			<action method="setDescription" translate="description"><description>You are one step away from buying products, fill all simple details and proceed to place your order.</description></action>
+			<action method="setKeywords" translate="keywords"><keywords>Checkout form</keywords></action>
+		</reference>
+	</opc_index_index>
+	<trackorder_order_index>
+		<reference name="head">
+			<action method="setTitle" translate="title"><title>Track your Orders and Order History :  Electronicsbazaar.com</title></action>
+			<action method="setDescription" translate="description"><description>Visit page to track your individual Orders, entire Order history. Also you can Cancel your individual Orders. Visit for more information.</description></action>
+			<action method="setKeywords" translate="keywords"><keywords>Track your Orders, Order History</keywords></action>
+		</reference>
+	</trackorder_order_index>
+	<cms_index_index>
+		<reference name="head">
+			<action method="setForcedTitle" translate="title"><title>Best Mobiles and Laptops Store | Refurbished Electronics India | Mobile Phones Wholesale | Electronicsbazaar</title></action>
+		</reference>
+	</cms_index_index>
+	<faq_index_index>
+		<reference name="head">
+			<action method="setTitle" translate="title"><title>Frequently Asked Questions</title></action>
+			<action method="setDescription" translate="description"><description>If you have any queries or issues while online shopping, then check out our FAQs section. You will get all solutions here related to online shopping.</description></action>
+			<action method="setKeywords" translate="keywords"><keywords>frequently asked questions, faqs</keywords></action>
+		</reference>
+	</faq_index_index>
+	<shopbybrand_index_index>
+		<reference name="head">
+			<action method="setTitle" translate="title"><title>Shop by Brand</title></action>
+			<action method="setDescription" translate="description"><description>Shop by All Brands at Electronicsbazaar.com. Find your favorite Electronics brands you love and Shop today.</description></action>
+			<action method="setKeywords" translate="keywords"><keywords>shop by brand</keywords></action>
+		</reference>
+	</shopbybrand_index_index>
+	<customer_account_login>
+		<reference name="head">
+			<action method="setTitle" translate="title"><title>Login or Create Account : Electronicsbazaar.com</title></action>
+			<action method="setDescription" translate="description"><description>Create account or login if you already have electronicsbazaar account to shop online for various electronics product and accessories.</description></action>
+			<action method="setKeywords" translate="keywords"><keywords>Login, create account</keywords></action>
+		</reference>
+	</customer_account_login>
+	
+	<customer_account_login translate="label">
+		<reference name="breadcrumbs">
+			<action method="addCrumb">
+				<crumbName>Home</crumbName>
+				<crumbInfo>
+					<label>Home</label>
+					<title>Home</title>
+					<link>/</link>
+				</crumbInfo>
+			</action>
+			<action method="addCrumb">
+				<crumbName>Login</crumbName>
+				<crumbInfo>
+					<label>Login</label>
+					<title>Login</title>
+					<link>/customer/account/login/</link>
+				</crumbInfo>
+			</action>
+		</reference>
+	</customer_account_login>
+	<customer_account translate="label">
+		<reference name="breadcrumbs">
+			<action method="addCrumb">
+				<crumbName>Home</crumbName>
+				<crumbInfo>
+					<label>Home</label>
+					<title>Home</title>
+					<link>/</link>
+				</crumbInfo>
+			</action>
+			<action method="addCrumb">
+				<crumbName>My Account</crumbName>
+				<crumbInfo>
+					<label>My Account</label>
+					<title>My Account</title>
+					<link>/customer/account/</link>
+				</crumbInfo>
+			</action>
+		</reference>
+	</customer_account>
+	<customer_account_index translate="label">
+		<reference name="breadcrumbs">
+			<action method="addCrumb">
+				<crumbName>Account Dashboard</crumbName>
+				<crumbInfo>
+					<label>Account Dashboard</label>
+					<title>Account Dashboard</title>
+				</crumbInfo>
+			</action>
+		</reference>
+	</customer_account_index>
+	<customer_account_edit translate="label">
+		<reference name="breadcrumbs">
+			<action method="addCrumb">
+				<crumbName>Account Information</crumbName>
+				<crumbInfo>
+					<label>Account Information</label>
+					<title>Account Information</title>
+				</crumbInfo>
+			</action>
+		</reference>
+	</customer_account_edit>
+	<checkout_cart_index translate="label">
+		<reference name="breadcrumbs">
+			<action method="addCrumb">
+				<crumbName>Home</crumbName>
+				<crumbInfo>
+					<label>Home</label>
+					<title>Home</title>
+					<link>/</link>
+				</crumbInfo>
+			</action>
+			<action method="addCrumb">
+				<crumbName>Cart</crumbName>
+				<crumbInfo>
+					<label>Cart</label>
+					<title>Cart</title>
+					<link>/checkout/cart/</link>
+				</crumbInfo>
+			</action>
+		</reference>
+	</checkout_cart_index>
+	<opc_index_index translate="label">
+		<reference name="breadcrumbs">
+			<action method="addCrumb">
+				<crumbName>Home</crumbName>
+				<crumbInfo>
+					<label>Home</label>
+					<title>Home</title>
+					<link>/</link>
+				</crumbInfo>
+			</action>
+			<action method="addCrumb">
+				<crumbName>Checkout</crumbName>
+				<crumbInfo>
+					<label>Checkout</label>
+					<title>Checkout</title>
+					<link>/onepage/</link>
+				</crumbInfo>
+			</action>
+		</reference>
+	</opc_index_index>
+	<sales_order_history translate="label">
+		<reference name="breadcrumbs">
+			<action method="addCrumb">
+				<crumbName>My Orders</crumbName>
+				<crumbInfo>
+					<label>My Orders</label>
+					<title>My Orders</title>
+				</crumbInfo>
+			</action>
+		</reference>
+	</sales_order_history>
+	<wishlist_index_index translate="label">
+		<reference name="breadcrumbs">
+			<action method="addCrumb">
+				<crumbName>My Wishlist</crumbName>
+				<crumbInfo>
+					<label>My Wishlist</label>
+					<title>My Wishlist</title>
+				</crumbInfo>
+			</action>
+		</reference>
+	</wishlist_index_index>
+	
+	<customblocks_index_getbrandproductdetails>
+		<reference name="content">
+			<block type="catalog/product_compare_list" name="catalog.compare.list" template="catalog/product/compare/list.phtml"/>
+		</reference>
+	</customblocks_index_getbrandproductdetails>
+	
+	<customblocks_index_cancelitemfromcomparelist>
+		<reference name="content">
+			<block type="catalog/product_compare_list" name="catalog.compare.list" template="catalog/product/compare/list.phtml"/>
+		</reference>
+	</customblocks_index_cancelitemfromcomparelist>
+	
+	<checkout_onepage_success>
+		<reference name="head">
+			<action method="setData" translate="title"><key>title</key><value>Checkout Onepage Success</value></action>
+		</reference>
+	</checkout_onepage_success>
+	
+	<customer_account_logoutsuccess>
+		<reference name="head">
+			<action method="setData" translate="title"><key>title</key><value>Successfully Logged Out</value></action>
+		</reference>
+	</customer_account_logoutsuccess>
+	
+	<review_product_list translate="label">
+        <reference name="root">
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
+        </reference>
+	</review_product_list>
+	<sales_order_view>
+		<remove name="social" /> <!-- removed share your purchase block -->
+	</sales_order_view>
+	<cms_index_index>
+		<reference name="root">
+            <action method="setTemplate"><template>page/homepage.phtml</template></action>
+        </reference>
+        <reference name="content">
+        	<!-- <block type="bannerslider/default" name="bannser_slider">
+        		<action method="setTemplate"><template>bannerslider/custombannerslider.phtml/></action>
+        		<action method="setData"><name>bannerslider_id</name><value>1</value></action>
+        	</block> -->
+        	<block type="bannerslider/default" name="bannser_slider" template="bannerslider/custombannerslider.phtml" bannersliderId="1" before="-"/>
+        	<block type="core/template" name="hotselling" template="bannerslider/hotselling.phtml"  after="bannser_slider"/>
+        	<block type="core/template" name="recently_viewed" template="bannerslider/recently_viewed.phtml"  after="featuredproducts.list.homepage"/>
+        	<block type="reports/product_viewed" name="product.recently.viewed" as="product_recently_viewed" template="reports/product_viewed.phtml" after="recently_viewed"/>
+        	<block type="core/template" name="brandslider" template="brandsliderhome/brand_slider_home.phtml"  after="product.recently.viewed"/>
+        </reference>
+	</cms_index_index>
+
+	<!-- <customer_gst_details>
+		<reference name="root">
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
+        </reference>
+        <reference name="content">
+        	<block type="core/template" name="gst_details" template="customer/gst_details.phtml"/>
+        </reference>
+	</customer_gst_details> -->
+	<customer_gst_details>
+		<reference name="root">
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
+        </reference>
+        <reference name="content">
+        	<block type="indiagst/details" name="gst_details" template="customer/gst_details.phtml"/>
+        </reference>
+	</customer_gst_details>
+</layout>

@@ -1,0 +1,40 @@
+<?php $allbrands = $this->getAllBrands()->addFieldToFilter('status', 1); ?>
+<?php //Mage::log("allbrands".print_r($allbrands->getData(),1), null, 'allbrands.log'); //echo count($allbrands); ?>
+<?php //$r = new Magestore_Shopbybrand_Block_Brandcategories(); ?>
+<?php //$s = $r->getAllCategories(); ?>
+<?php //echo "<pre>"; print_r($s); exit; ?>
+<?php //$tb = array(); ?>
+<?php //foreach($allbrands as $brand): ?>
+	<?php //echo $top = $this->getNumberProductsOfBrand($brand)?>
+	<?php //$tb?>
+<?php //endforeach; ?>
+
+	<div class="block-title">
+		<strong><span>Shop By Brands</span></strong>
+	</div>
+	<div class="by_brand">
+		<?php $i = 0; ?>
+		<?php
+			$a = '';
+			$b = '';
+		?>
+		<?php foreach($allbrands as $brand): ?>
+			<?php if($i < 6): ?>
+			<?php	
+				$a .= '<li><a href="'.$this->getBrandUrl($brand).'" title="'.$brand->getName().'">'.$brand->getName().'</a></li>';
+			?>
+			<?php elseif($i == 10): ?>
+				<?php break; ?>
+			<?php else: ?>
+			<?php	$b .= '<li><a href="'.$this->getBrandUrl($brand).'" title="'.$brand->getName().'">'.$brand->getName().'</a></li>'; ?>
+			<?php endif; ?>
+			<?php $i++; ?>
+		<?php endforeach; ?>
+		<ul>
+			<?php echo $a; ?>
+		</ul>
+		<ul>
+			<?php echo $b; ?>
+			<li><a href="<?php echo Mage::getBaseUrl().'brand'; ?>" title="View All Brands">View All Brands</a></li>
+		</ul>	
+	</div>

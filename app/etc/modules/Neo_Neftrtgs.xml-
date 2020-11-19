@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Neo_Neftrtgs>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Neo_Neftrtgs>
+    </modules>
+</config>

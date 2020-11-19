@@ -1,0 +1,11 @@
+[08-Oct-2018 16:05:46 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Gdata_Extension' not found in /home/electronicsbazaa/public_html/lib/Zend/Gdata/Exif/Extension/Iso.php on line 44
+[08-Oct-2018 16:05:46 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Gdata_Extension' not found in /home/electronicsbazaa/public_html/lib/Zend/Gdata/Exif/Extension/Time.php on line 44
+[08-Oct-2018 16:05:46 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Gdata_Extension' not found in /home/electronicsbazaa/public_html/lib/Zend/Gdata/Exif/Extension/Tags.php on line 94
+[08-Oct-2018 16:05:46 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Gdata_Extension' not found in /home/electronicsbazaa/public_html/lib/Zend/Gdata/Exif/Extension/Make.php on line 44
+[08-Oct-2018 16:05:46 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Gdata_Extension' not found in /home/electronicsbazaa/public_html/lib/Zend/Gdata/Exif/Extension/Model.php on line 44
+[08-Oct-2018 16:05:46 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Gdata_Extension' not found in /home/electronicsbazaa/public_html/lib/Zend/Gdata/Exif/Extension/Flash.php on line 44
+[08-Oct-2018 16:05:46 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Gdata_Extension' not found in /home/electronicsbazaa/public_html/lib/Zend/Gdata/Exif/Extension/FStop.php on line 44
+[08-Oct-2018 16:05:46 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Gdata_Extension' not found in /home/electronicsbazaa/public_html/lib/Zend/Gdata/Exif/Extension/Distance.php on line 44
+[08-Oct-2018 16:05:46 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Gdata_Extension' not found in /home/electronicsbazaa/public_html/lib/Zend/Gdata/Exif/Extension/Exposure.php on line 44
+[08-Oct-2018 16:05:46 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Gdata_Extension' not found in /home/electronicsbazaa/public_html/lib/Zend/Gdata/Exif/Extension/ImageUniqueId.php on line 44
+[08-Oct-2018 16:05:46 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Gdata_Extension' not found in /home/electronicsbazaa/public_html/lib/Zend/Gdata/Exif/Extension/FocalLength.php on line 44

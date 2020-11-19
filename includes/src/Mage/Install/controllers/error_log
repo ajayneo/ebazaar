@@ -1,0 +1,2 @@
+[08-Oct-2018 16:06:00 Asia/Kolkata] PHP Fatal error:  Class 'Mage_Install_Controller_Action' not found in /home/electronicsbazaa/public_html/includes/src/Mage/Install/controllers/IndexController.php on line 36
+[08-Oct-2018 16:06:00 Asia/Kolkata] PHP Fatal error:  Class 'Mage_Install_Controller_Action' not found in /home/electronicsbazaa/public_html/includes/src/Mage/Install/controllers/WizardController.php on line 31

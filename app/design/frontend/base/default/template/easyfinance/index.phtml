@@ -1,0 +1,40 @@
+<form name="easyfinance" id="easy-finance" method="post" action="<?php echo Mage::getUrl('easyfinance/index/save'); ?>">
+	<div class="field">
+        <label for="firstname" class="required">First Name<em>*</em></label>
+        <div class="input-box">
+            <input type="text" id="first_name" name="first_name" value="" title="First Name" maxlength="100" class="input-text required-entry">
+        </div>
+    </div>
+    <div class="field">
+        <label for="lastname" class="required">Last Name<em>*</em></label>
+        <div class="input-box">
+            <input type="text" id="last_name" name="last_name" value="" title="Last Name" maxlength="255" class="input-text required-entry">
+        </div>
+    </div>
+    <div class="field">
+        <label for="email" class="required">Email Address<em>*</em></label>
+        <div class="input-box">
+            <input type="text" id="email" name="email" value="" title="Email Address" maxlength="255" class="input-text required-entry">
+        </div>
+    </div>
+    <div class="field">
+        <label for="phone" class="required">Phone<em>*</em></label>
+        <div class="input-box">
+            <input type="text" id="phone" name="phone" value="" title="Phone" maxlength="255" class="input-text required-entry">
+        </div>
+    </div>
+    <div class="field">
+        <label for="city" class="required">City<em>*</em></label>
+        <div class="input-box">
+            <input type="text" id="city" name="city" value="" title="City" maxlength="255" class="input-text required-entry">
+        </div>
+    </div>
+	<div class="buttons-set">
+		<button type="submit" title="Submit" class="button"><span><span>Submit</span></span></button>
+	</div>
+</form>
+<script type="text/javascript">
+    //< ![CDATA[
+        var customForm = new VarienForm('easy-finance');
+    //]]>
+</script>

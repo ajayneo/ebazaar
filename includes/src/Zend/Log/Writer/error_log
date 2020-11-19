@@ -1,0 +1,9 @@
+[08-Oct-2018 16:06:05 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Log_Writer_Abstract' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Log/Writer/Db.php on line 35
+[08-Oct-2018 16:06:06 Asia/Kolkata] PHP Fatal error:  Interface 'Zend_Log_FactoryInterface' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Log/Writer/Abstract.php on line 35
+[08-Oct-2018 16:06:06 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Log_Writer_Abstract' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Log/Writer/Mail.php on line 47
+[08-Oct-2018 16:06:06 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Log_Writer_Abstract' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Log/Writer/Mock.php on line 35
+[08-Oct-2018 16:06:06 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Log_Writer_Abstract' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Log/Writer/Firebug.php on line 45
+[08-Oct-2018 16:06:06 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Log_Writer_Abstract' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Log/Writer/Syslog.php on line 39
+[08-Oct-2018 16:06:06 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Log_Writer_Abstract' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Log/Writer/Stream.php on line 38
+[08-Oct-2018 16:06:06 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Log_Writer_Abstract' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Log/Writer/ZendMonitor.php on line 35
+[08-Oct-2018 16:06:06 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Log_Writer_Abstract' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Log/Writer/Null.php on line 35

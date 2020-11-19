@@ -1,0 +1,2 @@
+[08-Oct-2018 16:06:57 Asia/Kolkata] PHP Fatal error:  Class 'Mage_XmlConnect_Controller_Action' not found in /home/electronicsbazaa/public_html/includes/src/Mage/XmlConnect/controllers/Paypal/MepController.php on line 35
+[08-Oct-2018 16:06:58 Asia/Kolkata] PHP Fatal error:  Class 'Mage_XmlConnect_Controller_Action' not found in /home/electronicsbazaa/public_html/includes/src/Mage/XmlConnect/controllers/Paypal/MeclController.php on line 35

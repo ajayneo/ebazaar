@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Hashtag_DetailPage>
+            <version>0.1.0</version>
+        </Hashtag_DetailPage>
+    </modules>
+    <global>
+        <helpers>
+            <detailpage>
+                <class>Hashtag_DetailPage_Helper</class>
+            </detailpage>
+        </helpers>
+    
+        <blocks>
+            <detailpage>
+                <class>Hashtag_DetailPage_Block</class>
+            </detailpage>
+            <tag>
+                <rewrite>
+                    <product_result>Hashtag_DetailPage_Block_Product_Result</product_result>
+                </rewrite>
+                <rewrite>
+                    <product_list>Hashtag_DetailPage_Block_Product_List</product_list>
+                </rewrite>
+            </tag>
+        </blocks>
+        <models>
+            <detailpage>
+                <class>Hashtag_DetailPage_Model</class>
+            </detailpage>
+        </models>
+        
+        <helpers>
+            <detailpage>
+                <class>Hashtag_DetailPage_Helper</class>
+            </detailpage>
+        </helpers>
+        <resources>
+            <hashtag_detailpage_setup>
+                <setup>
+                    <module>Hashtag_DetailPage</module>
+                    <class>Mage_Eav_Model_Entity_Setup</class>
+                </setup>
+            </hashtag_detailpage_setup>
+        </resources>
+    </global>
+    <admin>
+        <routers>
+            <detailPage>
+                <use>admin</use>
+                <args>
+                    <frontName>addtags</frontName>
+                    <modules>
+                        <Hashtag_DetailPage before="Mage_Adminhtml">Hashtag_DetailPage_Adminhtml</Hashtag_DetailPage>
+                    </modules>
+                </args>
+            </detailPage>
+        </routers>
+    </admin>
+</config> 

@@ -1,0 +1,59 @@
+{
+	"Request": {
+		"Shipper": {
+			"OriginArea": "BOM",
+			"CustomerCode": "390353",
+			"CustomerName": "GNG ELECTRONICS PVT LTD- PREPI",
+			"CustomerAddress1": "Amiable Electronics Pvt Ltd, M",
+			"CustomerAddress2": "2nd Floor, Plot no: D-141, TTC",
+			"CustomerAddress3": "MIDC, Shirawane, Nerul, Navi M",
+			"CustomerPincode": "400706",
+			"CustomerTelephone": "7219873385",
+			"CustomerMobile": "7219873385",
+			"CustomerEmailID": "cng@gmail.com",
+			"Sender": "",
+			"isToPayCustomer": "false"
+		},
+		"Consignee": {
+			"ConsigneeName": " BAJAJ .",
+			"ConsigneeAddress1": "Shop No:-105, Backside petrol ",
+			"ConsigneeAddress2": "bunk Edi bazaar hyderabad",
+			"ConsigneeAddress3": "HYDERABAD, Telangana",
+			"ConsigneePincode": "500023",
+			"ConsigneeTelephone": "8328240015",
+			"ConsigneeMobile": "8328240015",
+			"ConsigneeAttention": ""
+		},
+		"Services": {
+			"ProductCode": "A",
+			"SubProductCode": "P",
+			"ProductType": "Dutiables",
+			"PieceCount": 1,
+			"ActualWeight": 14.5,
+			"InvoiceNo": "500080524",
+			"SpecialInstruction": null,
+			"DeclaredValue": "52003.00",
+			"CollectableAmount": 0,
+			"CreditReferenceNo": "CR170013500080524",
+			"PickupDate": "2018-06-07",
+			"PickupTime": "1700",
+			"Dimensions": {
+				"Length": 10,
+				"Breadth": 10,
+				"Height": 10,
+				"Count": 1
+			},
+			"Commodity": {
+				"CommodityDetail1": "A",
+				"CommodityDetail2": "A",
+				"CommodityDetail3": "A"
+			}
+		}
+	},
+	"Profile": {
+		"LoginID": "BOM05099",
+		"LicenceKey": "6aee7d9b4b6e3ce84f0e52f80ddfae66",
+		"Api_type": "S",
+		"Version": "1.3"
+	}
+}

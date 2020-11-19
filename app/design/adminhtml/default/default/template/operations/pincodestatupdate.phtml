@@ -1,0 +1,40 @@
+<div class="content-header">
+    <table cellspacing="0">
+        <tbody><tr>
+            <td style="width:50%;"><h3 class="icon-head head-adminhtml-index">Manage Shipment Pincodes TAT</h3></td>
+            
+        </tr>
+    </tbody></table>
+</div>
+<div>
+	<form action='<?php echo Mage::helper("adminhtml")->getUrl("admin_operations/adminhtml_pincodestatupdate/updatePincodesTAT");?>' name="uploadFile" id="uploadFile" method="post" enctype="multipart/form-data">
+	<input type="hidden" name="form_key" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>">
+	<table cellspacing="20" style="width: 100%">
+		<!-- <tr>
+			<td><span>Select Tracking Partner : </span></td>
+			<td><select name="tracking_partner" id="tracking_partner" class="required-entry">
+					<option value="" selected="selected">--Select Tracking Partner -- </option>
+					<option value="ecom">Ecom</option>
+					<option value="vexpress">Vexpress</option>
+					<option value="bluedart">Bluedart</option>
+			</select></td>
+		</tr> -->
+		<tr>
+			<td><span>Upload File : </span></td>
+			<td>
+				<input type="file" name="file" id="file" accept=".csv" style="width:100%;" class="required-entry">
+				<span style="float: left;width: 50%;">Upload file in .csv format only.</span>
+			</td>
+		</tr>
+		<tr>
+			<td align="right" colspan="2"><button id="id_8900456144c3f02698f60a534df78c68" title="Search" type="submit" class="scalable task"style=""><span><span><span>Submit</span></span></span></button></td>
+		</tr>
+	
+	</table>
+	</form>
+</div>
+<script type="text/javascript">
+    //< ![CDATA[
+        var uploadFile = new VarienForm('uploadFile', true);
+    //]]>
+</script>

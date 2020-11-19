@@ -1,0 +1,59 @@
+<div class="my-account my-account-new col2-left-layout-new">
+	<div class="syg-order-view syg-order-sellback">
+		<div class="page-title">
+		    <h1><?php echo $this->__('Order View') ?></h1>
+		    <span class="syg-odr-selbck-btn">
+            <button type="button" class="button btn-address" onclick="window.history.go(-1); return false;">
+                <span>
+                    <span>Back</span>
+                </span>
+            </button>
+        </span>
+		</div>
+<?php
+$cid = '';
+if(Mage::getSingleton('customer/session')->isLoggedIn()) {
+     $customerData = Mage::getSingleton('customer/session')->getCustomer();
+     $cid = $customerData->getId();
+ }
+ ?>
+<?php $orderdata = $this->getOrderData(); ?>
+<?php foreach($orderdata as $data): ?>
+<?php $optionsdata = ''; ?>	
+<?php $options = explode('"',$data['options']); ?>
+<?php 
+$optionsdata = '
+<ul class="syg-order-view-list">
+<li>'.$options[1].  ' : '. $options[3]. '</li>
+<li>'.$options[5].  ' : ' .$options[7] .'</li>
+<li>'.$options[9] . ' : '.$options[11].'</li>
+</ul>';
+?>
+<div class="syg-order-view-img"><img src="<?php echo $data['image']  ?>" height="100" width="100"></div>
+<div class="syg-order-view-details">
+<p><label>Status : <span class="success"><?php echo Mage::helper('gadget')->getGadgetStatusOptions($data['status']); ?></span></label></p>
+<p><label>Product Name </label>: <?php echo $data['proname'] ?></p>
+<p><label>Price </label> : <?php echo str_replace('?','',$data['price']) ?></p>
+<p><label>Brand </label> : <?php echo $data['brand'] ?></p>
+<p><label>Options </label> : <?php echo $optionsdata ?></p>
+<p><label>Address </label> : <?php echo $data['address']  ?></p>
+<p><label>Pincode </label> : <?php echo $data['pincode']  ?></p>
+<p><label>City </label> : <?php echo $data['city']  ?></p>
+<p><label>Email </label> : <?php echo $data['email']  ?></p>
+<p><label>Created Date </label> : <?php echo $data['created_at']  ?></p>
+<?php if($data['awb_number'] != '' || $data['status'] == 'sellback_request'){ ?>
+<p><h1><?php echo $this->__('Bank Details') ?></h1></p>
+<p><label>Customer Name </label> : <?php echo $data['confrm_by_retailer_name_in_bank']  ?></p>	
+<p><label>Bank Name </label> : <?php echo $data['confrm_by_retailer_bank_name']  ?></p>
+<p><label>Bank Account No </label> : <?php echo $data['confrm_by_retailer_acct_number']  ?></p>
+<p><label>Bank IFSC </label> : <?php echo $data['confrm_by_retailer_ifsc_code']  ?></p>
+<p><label>Pick Up Address</label> : <br><?php echo $this->getCustomerAddress($data['confrm_by_retailer_address_id']);?> </p>
+<?php } ?>
+</div>
+
+<?php endforeach; ?>
+ </div>
+</div>
+
+
+

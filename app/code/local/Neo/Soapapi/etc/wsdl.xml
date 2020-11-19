@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns:typens="urn:{{var wsdl.name}}" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" 
+             xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+             xmlns="http://schemas.xmlsoap.org/wsdl/"
+             name="{{var wsdl.name}}" targetNamespace="urn:{{var wsdl.name}}">
+    <types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:Magento">
+            <import namespace="http://schemas.xmlsoap.org/soap/encoding/" schemaLocation="http://schemas.xmlsoap.org/soap/encoding/" />
+            <complexType name="updatePriceInfo">
+                <sequence>
+                    <element name="sku" type="xsd:string"/>
+                    <element name="price" type="xsd:string"/>
+                    <element name="special_price" type="xsd:string"/>
+                    <element name="special_from_date" type="xsd:string"/>
+                    <element name="special_to_date" type="xsd:string"/>
+                </sequence>
+            </complexType>
+            <complexType name="updatePriceInfoResult">
+                <sequence>
+                    <element name='result' type="xsd:boolean"></element>
+                </sequence>
+            </complexType>
+            <complexType name="updateStockInfo">
+                <sequence>
+                    <element name="sku" type="xsd:string"/>
+                    <element name="qty" type="xsd:string"/>
+                    <element name="reason" type="xsd:string"/>
+                </sequence>
+            </complexType>
+            <complexType name="updateStockInfoResult">
+                <sequence>
+                    <element name='result' type="xsd:boolean"></element>
+                </sequence>
+            </complexType>
+        </schema>
+    </types>
+    <message name="updateProductsPriceRequest">
+        <part name="sessionId" type="xsd:string" />
+        <part name="sku" type="xsd:string"/>
+        <part name="price" type="xsd:string"/>
+        <part name="special_price" type="xsd:string"/>
+        <part name="special_from_date" type="xsd:string"/>
+        <part name="special_to_date" type="xsd:string"/>
+    </message>
+    <message name="updateProductsPriceResponse">
+        <part name="result" type="xsd:boolean" />
+    </message>
+    <message name="updateProductsStockRequest">
+        <part name="sessionId" type="xsd:string" />
+        <part name="sku" type="xsd:string"/>
+        <part name="qty" type="xsd:string"/>
+        <part name="reason" type="xsd:string"/>
+    </message>
+    <message name="updateProductsStockResponse">
+        <part name="result" type="xsd:boolean" />
+    </message>
+    <portType name="{{var wsdl.handler}}PortType">
+        <operation name="updateProductsPrice">
+            <documentation>Product Price</documentation>
+            <input message="typens:updateProductsPriceRequest" />
+            <output message="typens:updateProductsPriceResponse" />
+        </operation>
+        <operation name="updateProductsStock">
+            <documentation>Product Stock</documentation>
+            <input message="typens:updateProductsStockRequest" />
+            <output message="typens:updateProductsStockResponse" />
+        </operation>
+    </portType>
+    <binding name="{{var wsdl.handler}}Binding" type="typens:{{var wsdl.handler}}PortType">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http" />
+        <operation name="updateProductsPrice">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+        <operation name="updateProductsStock">
+            <soap:operation soapAction="urn:{{var wsdl.handler}}Action" />
+            <input>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </input>
+            <output>
+                <soap:body namespace="urn:{{var wsdl.name}}" use="encoded" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+            </output>
+        </operation>
+    </binding>
+    <service name="{{var wsdl.name}}Service">
+        <port name="{{var wsdl.handler}}Port" binding="typens:{{var wsdl.handler}}Binding">
+            <soap:address location="{{var wsdl.url}}" />
+        </port>
+    </service>
+</definitions>

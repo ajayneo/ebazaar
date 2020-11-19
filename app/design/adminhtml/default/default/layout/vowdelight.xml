@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+  <vowdelight_adminhtml_vowdelightbackend_index>
+	<reference name="content">
+	  <block type="vowdelight/adminhtml_vowdelightbackend" name="vowdelightbackend" template="vowdelight/vowdelightbackend.phtml"/>
+	</reference>
+  </vowdelight_adminhtml_vowdelightbackend_index>
+  <vowdelight_adminhtml_vowdelight_index>
+	<reference name="content">
+	  <block type="vowdelight/adminhtml_vowdelight" name="vowdelight" />
+	</reference>
+  </vowdelight_adminhtml_vowdelight_index>
+</layout>

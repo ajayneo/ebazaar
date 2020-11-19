@@ -1,0 +1,41 @@
+
+<div class="nav-bar">
+<!-- menu start -->
+<ul id="nav">
+<li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="  parent level0"> <a href="#"  onclick="return false" class=""><span>Sales</span></a>
+<ul >
+<li  class="  level1"> <a href="https://www.electronicsbazaar.com/index.php/ebsbackend/sales_order/index/key/$sales_order/index$/"   class=""><span>Orders</span></a>
+</li>
+<li  class="  level1"> <a href="https://www.electronicsbazaar.com/index.php/ebsbackend/sales_invoice/index/key/$sales_invoice/index$/"   class=""><span>Invoices</span></a>
+</li>
+<li  class="  level1"> <a href="https://www.electronicsbazaar.com/index.php/ebsbackend/sales_shipment/index/key/$sales_shipment/index$/"   class=""><span>Shipments</span></a>
+</li>
+<li  class="  last level1"> <a href="https://www.electronicsbazaar.com/index.php/ebsbackend/sales_creditmemo/index/key/$sales_creditmemo/index$/"   class=""><span>Credit Memos</span></a>
+</li>
+</ul>
+</li>
+<li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="  parent level0"> <a href="#"  onclick="return false" class=""><span>Catalog</span></a>
+<ul >
+<li  class="  last level1"> <a href="https://www.electronicsbazaar.com/index.php/ebsbackend/catalog_product/index/key/$catalog_product/index$/"   class=""><span>Manage Products</span></a>
+</li>
+</ul>
+</li>
+<li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class=" active  parent level0"> <a href="#"  onclick="return false" class="active"><span>System</span></a>
+<ul >
+<li  class="  last level1"> <a href="https://www.electronicsbazaar.com/index.php/ebsbackend/system_config/index/key/$system_config/index$/"   class=""><span>Configuration</span></a>
+</li>
+</ul>
+</li>
+<li onmouseover="Element.addClassName(this,'over')" onmouseout="Element.removeClassName(this,'over')" class="  parent level0"> <a href="#"  onclick="return false" class=""><span>Order Return</span></a>
+<ul >
+<li  class="  last level1"> <a href="https://www.electronicsbazaar.com/index.php/admin_orderreturn/adminhtml_return/index/key/$adminhtml_return/index$/"   class=""><span>Manage Return</span></a>
+</li>
+</ul>
+</li>
+</ul>
+<!-- menu end -->
+
+    <a id="page-help-link" href="http://www.magentocommerce.com/gethelp/en_US/Mage_Adminhtml/system_config/edit/order_export/">Get help for this page</a>
+    <script type="text/javascript">$('page-help-link').target = 'magento_page_help'</script>
+
+</div>

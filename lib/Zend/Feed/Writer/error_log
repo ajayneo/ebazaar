@@ -1,0 +1,2 @@
+[08-Oct-2018 16:04:36 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Feed_Writer_Feed_FeedAbstract' not found in /home/electronicsbazaa/public_html/lib/Zend/Feed/Writer/Feed.php on line 66
+[08-Oct-2018 16:04:36 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Feed_Writer_Feed_FeedAbstract' not found in /home/electronicsbazaa/public_html/lib/Zend/Feed/Writer/Source.php on line 31

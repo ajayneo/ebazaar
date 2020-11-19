@@ -1,0 +1,149 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Neo_Suvidha>
+      <version>0.1.5</version>
+    </Neo_Suvidha>
+  </modules>
+  <frontend>
+    <routers>
+      <suvidha>
+        <use>standard</use>
+          <args>
+            <module>Neo_Suvidha</module>
+            <frontName>shubhlabh</frontName>
+          </args>
+      </suvidha>
+    </routers>
+		<layout>
+		  <updates>
+			<suvidha>
+			  <file>suvidha.xml</file>
+			</suvidha>
+		  </updates>
+		</layout>
+  </frontend>
+  <global>
+    <helpers>
+      <suvidha>
+        <class>Neo_Suvidha_Helper</class>
+      </suvidha>
+    </helpers>
+	<blocks>
+	  <suvidha>
+		<class>Neo_Suvidha_Block</class>
+	  </suvidha>
+	</blocks>
+	<models>
+	  <suvidha>
+		<class>Neo_Suvidha_Model</class>
+		<resourceModel>suvidha_mysql4</resourceModel>
+	  </suvidha>
+	  <suvidha_mysql4>
+		<class>Neo_Suvidha_Model_Mysql4</class>
+		<entities>		  
+			  <creditsuvidha>
+				<table>creditsuvidha</table>
+			  </creditsuvidha>
+        </entities>
+	  </suvidha_mysql4>
+	</models>
+	<resources>
+	  <suvidha_setup>
+		<setup>
+		  <module>Neo_Suvidha</module>
+		</setup>
+		<connection>
+		  <use>core_setup</use>
+		</connection>
+	  </suvidha_setup>
+	  <suvidha_write>
+		<connection>
+		  <use>core_write</use>
+		</connection>
+	  </suvidha_write>
+	  <suvidha_read>
+		<connection>
+		  <use>core_read</use>
+		</connection>
+	  </suvidha_read>
+	</resources>
+	<template>
+        <email>
+            <suvidha_welcome_email_template translate="label" module="suvidha">
+                <label>Suvidha Welcome</label>
+                <file>suvidha_welcome.html</file>
+                <type>html</type>
+            </suvidha_welcome_email_template>
+        </email>
+        <email>
+            <suvidha_credit_approve_email_template translate="label" module="suvidha">
+                <label>Suvidha Credit Approve</label>
+                <file>suvidha_credit_approve.html</file>
+                <type>html</type>
+            </suvidha_credit_approve_email_template>
+        </email>
+        <email>
+            <suvidha_credit_reject_email_template translate="label" module="suvidha">
+                <label>Suvidha Credit Reject</label>
+                <file>suvidha_credit_reject.html</file>
+                <type>html</type>
+            </suvidha_credit_reject_email_template>
+        </email>
+    </template>
+  </global>
+  <admin>
+	<routers>
+	  <suvidha>
+	    <use>admin</use>
+		<args>
+		  <module>Neo_Suvidha</module>
+		  <frontName>admin_suvidha</frontName>
+		</args>
+	  </suvidha>
+	</routers>
+  </admin>
+  <adminhtml>
+	<menu>
+	  <suvidha module="suvidha">
+		<title>Suvidha</title>
+		<sort_order>100</sort_order>
+		<children>
+		  <creditsuvidha module="suvidha">
+		    <title>Manage Creditsuvidha</title>
+			<sort_order>0</sort_order>
+			<action>admin_suvidha/adminhtml_creditsuvidha</action>
+		  </creditsuvidha>
+		</children>
+	  </suvidha>
+	</menu>
+	<acl>
+	  <resources>
+		<all>
+		  <title>Allow Everything</title>
+		</all>
+		<admin>
+		  <children>
+			<suvidha translate="title" module="suvidha">
+			  <title>Suvidha</title>
+			  <sort_order>1000</sort_order>
+			  <children>
+		  <creditsuvidha translate="title">
+			<title>Manage Creditsuvidha</title>
+			<sort_order>0</sort_order>
+		  </creditsuvidha>
+			  </children>
+			</suvidha>
+		  </children>
+		</admin>
+	  </resources>
+	</acl>
+	<layout>
+	  <updates>
+		<suvidha>
+		  <file>suvidha.xml</file>
+		</suvidha>
+	  </updates>
+	</layout>
+  </adminhtml>
+</config> 

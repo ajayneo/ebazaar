@@ -1,0 +1,1 @@
+[08-Oct-2018 16:01:02 Asia/Kolkata] PHP Fatal error:  Class 'Mandrill_Mandrill' not found in /home/electronicsbazaa/public_html/lib/Mandrill/Message.php on line 10

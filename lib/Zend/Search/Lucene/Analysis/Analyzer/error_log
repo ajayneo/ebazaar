@@ -1,0 +1,1 @@
+[08-Oct-2018 16:06:51 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Search_Lucene_Analysis_Analyzer' not found in /home/electronicsbazaa/public_html/lib/Zend/Search/Lucene/Analysis/Analyzer/Common.php on line 55

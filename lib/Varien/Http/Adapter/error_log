@@ -1,0 +1,1 @@
+[08-Oct-2018 16:04:52 Asia/Kolkata] PHP Fatal error:  Interface 'Zend_Http_Client_Adapter_Interface' not found in /home/electronicsbazaa/public_html/lib/Varien/Http/Adapter/Curl.php on line 35

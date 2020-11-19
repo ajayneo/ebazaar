@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<config>
+	<modules>
+		<Neo_BilldeskConfig>
+			<version>0.0.1</version>
+		</Neo_BilldeskConfig>
+	</modules>
+	<frontend>
+		<routers>
+			<billdeskconfig>
+				<use>standard</use>
+				<args>
+					<module>Neo_BilldeskConfig</module>
+					<frontName>billdeskconfig</frontName>
+				</args>
+			</billdeskconfig>
+		</routers>
+	</frontend>
+	<global>
+		<models>
+            <billdeskconfig>
+                <class>Neo_BilldeskConfig_Model</class>
+            </billdeskconfig>
+        </models>
+        <helpers>
+            <billdeskconfig>
+                <class>Neo_BilldeskConfig_Helper</class>
+            </billdeskconfig>
+        </helpers>
+     </global>
+     <adminhtml>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <billdeskconfig_options>
+                                            <title>Store Billdesk Config Module Section</title>
+                                        </billdeskconfig_options>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+</config>

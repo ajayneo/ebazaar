@@ -1,0 +1,11 @@
+<?xml version="1.0"?>   
+<!--<layout version="0.1.0">   
+  <customblocks_index_index>   
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="customblocks/index" name="customblocks_index" template="customblocks/index.phtml"/>   
+    </reference>   
+  </customblocks_index_index>   
+</layout>-->

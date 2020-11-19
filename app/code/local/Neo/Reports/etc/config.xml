@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config>
+	<global>
+        <models>
+            <neo_reports>
+                <class>neo_Reports_Model</class>
+                <resourceModel>neo_reports_mysql4</resourceModel>
+            </neo_reports>
+			
+             <neo_reports_mysql4>
+                <class>neo_Reports_Model_Mysql4</class>
+            </neo_reports_mysql4>
+        </models>
+	</global>
+</config>

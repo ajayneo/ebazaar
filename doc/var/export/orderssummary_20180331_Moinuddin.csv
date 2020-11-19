@@ -1,0 +1,4 @@
+"Order Id",SKU,"Product Name","Store Name","Amount Total",Qty,Discount,"Net Sale",Category,City,State,"ASM Name","RSM Name","Payment Method","Customer Email"
+200103516,NEWMOB00410,"Redmi Note 4   4GB (Dark Grey 64GB)","Mobile India Store",10700.0000,1.0000,0.0000,10700.0000,New,PATNA,Bihar,Moinuddin,"Ravi Vattikonda",cashondelivery,vivek.rajnokia510@gmail.com
+200103516,NEWMOB00454,"VOW V104 (Black + Blue)","Mobile India Store",5253.0000,10.0000,0.0000,5253.0000,New,PATNA,Bihar,Moinuddin,"Ravi Vattikonda",cashondelivery,vivek.rajnokia510@gmail.com
+200103516,REFMOB0011,"Samsung Galaxy J7 Pro (Gold, 64 GB) (Brand Refurbished Mobile)","Mobile India Store",12900.0000,1.0000,0.0000,12900.0000,RefurbishedMobiles,PATNA,Bihar,Moinuddin,"Ravi Vattikonda",cashondelivery,vivek.rajnokia510@gmail.com

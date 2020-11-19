@@ -1,0 +1,5 @@
+Wed Feb 25 10:02:20 UTC 2015:- <?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns1="http://fedex.com/ws/track/v9"><SOAP-ENV:Body><ns1:TrackRequest><ns1:WebAuthenticationDetail><ns1:UserCredential><ns1:Key>5EMoZnGbSWzRI0Ro</ns1:Key><ns1:Password>nqu2n2U7njiMLXjLWD9sQYMfy</ns1:Password></ns1:UserCredential></ns1:WebAuthenticationDetail><ns1:ClientDetail><ns1:AccountNumber>510087208</ns1:AccountNumber><ns1:MeterNumber>118670661</ns1:MeterNumber></ns1:ClientDetail><ns1:TransactionDetail><ns1:CustomerTransactionId>*** Track Request using PHP ***</ns1:CustomerTransactionId></ns1:TransactionDetail><ns1:Version><ns1:ServiceId>trck</ns1:ServiceId><ns1:Major>9</ns1:Major><ns1:Intermediate>1</ns1:Intermediate><ns1:Minor>0</ns1:Minor></ns1:Version><ns1:SelectionDetails><ns1:PackageIdentifier><ns1:Type>TRACKING_NUMBER_OR_DOORTAG</ns1:Type><ns1:Value>772504131992</ns1:Value></ns1:PackageIdentifier></ns1:SelectionDetails></ns1:TrackRequest></SOAP-ENV:Body></SOAP-ENV:Envelope>
+
+
+

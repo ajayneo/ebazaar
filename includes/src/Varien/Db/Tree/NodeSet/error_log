@@ -1,0 +1,1 @@
+[08-Oct-2018 16:07:11 Asia/Kolkata] PHP Fatal error:  Class 'Varien_Db_Tree_Exception' not found in /home/electronicsbazaa/public_html/includes/src/Varien/Db/Tree/NodeSet/Exception.php on line 29

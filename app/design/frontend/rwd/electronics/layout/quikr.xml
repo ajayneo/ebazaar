@@ -1,0 +1,51 @@
+<?xml version="1.0"?>   
+<layout version="0.1.0"> 
+
+  <quikr_index_index>   
+     <reference name="head"> 
+        <action method="addCss"><stylesheet>customs/css/new-design-quikr.css</stylesheet></action>
+    </reference>  
+
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="quikr/index" name="quikr_index" template="quikr/index.phtml"/>   
+    </reference>   
+  </quikr_index_index> 
+ 
+  <quikr_index_success>      
+    <reference name="head">
+        <action method="addCss"><stylesheet>customs/css/new-design-quikr2.css</stylesheet></action>        
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+        <action method="addCss"><stylesheet>customs/css/new-design-quikr.css</stylesheet></action>  
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>     
+    <reference name="content">   
+      <block type="gadget/index" name="product_success" template="quikr/success.phtml">
+      
+      </block>   
+    </reference>       
+  </quikr_index_success> 
+
+  <quikr_index_failure>  
+    <reference name="head">
+        <action method="addCss"><stylesheet>customs/css/new-design-quikr2.css</stylesheet></action>        
+        <action method="addCss"><stylesheet>gadget/css/gadget.css</stylesheet></action>
+        <action method="addCss"><stylesheet>customs/css/new-design-quikr.css</stylesheet></action>  
+    </reference>  
+    <reference name="root">   
+      <action method="setTemplate"><template>page/1column.phtml</template></action>   
+    </reference>   
+    <reference name="content">   
+      <block type="gadget/index" name="product_failure" template="quikr/failure.phtml">
+          
+      </block>   
+    </reference>   
+  </quikr_index_failure>
+
+
+</layout>   
+	

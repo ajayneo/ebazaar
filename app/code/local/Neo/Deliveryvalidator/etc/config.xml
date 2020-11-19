@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Neo_Deliveryvalidator>
+      <version>0.1.0</version>
+    </Neo_Deliveryvalidator>
+  </modules>
+  <frontend>
+    <routers>
+      <deliveryvalidator>
+        <use>standard</use>
+          <args>
+            <module>Neo_Deliveryvalidator</module>
+            <frontName>deliveryvalidator</frontName>
+          </args>
+      </deliveryvalidator>
+    </routers>
+		<layout>
+		  <updates>
+			<deliveryvalidator>
+			  <file>deliveryvalidator.xml</file>
+			</deliveryvalidator>
+		  </updates>
+		</layout>
+  </frontend>
+  <global>
+    <helpers>
+      <deliveryvalidator>
+        <class>Neo_Deliveryvalidator_Helper</class>
+      </deliveryvalidator>
+    </helpers>
+	<blocks>
+	  <deliveryvalidator>
+		<class>Neo_Deliveryvalidator_Block</class>
+	  </deliveryvalidator>
+	</blocks>
+	<models>
+	  <deliveryvalidator>
+		<class>Neo_Deliveryvalidator_Model</class>
+		<resourceModel>deliveryvalidator_mysql4</resourceModel>
+	  </deliveryvalidator>
+	  <deliveryvalidator_mysql4>
+		<class>Neo_Deliveryvalidator_Model_Mysql4</class>
+		<entities>		  
+			  <deliveryvalidator>
+				<table>pincoderules</table>
+			  </deliveryvalidator>
+        </entities>
+	  </deliveryvalidator_mysql4>
+	</models>
+	<resources>
+	  <deliveryvalidator_setup>
+		<setup>
+		  <module>Neo_Deliveryvalidator</module>
+		</setup>
+		<connection>
+		  <use>core_setup</use>
+		</connection>
+	  </deliveryvalidator_setup>
+	  <deliveryvalidator_write>
+		<connection>
+		  <use>core_write</use>
+		</connection>
+	  </deliveryvalidator_write>
+	  <deliveryvalidator_read>
+		<connection>
+		  <use>core_read</use>
+		</connection>
+	  </deliveryvalidator_read>
+	</resources>
+  </global>
+  <admin>
+	<routers>
+	  <deliveryvalidator>
+	    <use>admin</use>
+		<args>
+		  <module>Neo_Deliveryvalidator</module>
+		  <frontName>deliveryvalidator</frontName>
+		</args>
+	  </deliveryvalidator>
+	</routers>
+  </admin>
+  <adminhtml>
+	<menu>
+		<sales module="sales">
+			<children>
+			  <deliveryvalidator module="deliveryvalidator">
+				<title>Deliveryvalidator</title>
+				<sort_order>100</sort_order>
+				<children>
+				  <deliveryvalidatorbackend module="deliveryvalidator">
+					<title>Backend Page Title</title>
+					<sort_order>0</sort_order>
+					<action>deliveryvalidator/adminhtml_deliveryvalidatorbackend</action>
+				  </deliveryvalidatorbackend>
+				  <deliveryvalidator module="deliveryvalidator">
+				    <title>Manage Deliveryvalidator</title>
+					<sort_order>0</sort_order>
+					<action>deliveryvalidator/adminhtml_deliveryvalidator</action>
+				  </deliveryvalidator>
+				</children>
+			  </deliveryvalidator>
+	      </children>
+	  </sales>
+	</menu>
+	<acl>
+	  <resources>
+		<all>
+		  <title>Allow Everything</title>
+		</all>
+		<admin>
+		  <children>
+			<deliveryvalidator translate="title" module="deliveryvalidator">
+			  <title>Deliveryvalidator</title>
+			  <sort_order>1000</sort_order>
+			  <children>
+		  <deliveryvalidatorbackend translate="title">
+			<title>Backend Page Title</title>
+		  </deliveryvalidatorbackend>
+		  <deliveryvalidator translate="title">
+			<title>Manage Deliveryvalidator</title>
+			<sort_order>0</sort_order>
+		  </deliveryvalidator>
+			  </children>
+			</deliveryvalidator>
+		  </children>
+		</admin>
+	  </resources>
+	</acl>
+	<layout>
+	  <updates>
+		<deliveryvalidator>
+		  <file>deliveryvalidator.xml</file>
+		</deliveryvalidator>
+	  </updates>
+	</layout>
+  </adminhtml>
+</config> 

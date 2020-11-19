@@ -1,0 +1,1 @@
+[08-Oct-2018 16:08:21 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Pdf_Resource_Font_Simple_Parsed' not found in /home/electronicsbazaa/public_html/includes/src/Zend/Pdf/Resource/Font/Simple/Parsed/TrueType.php on line 46

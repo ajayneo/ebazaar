@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Neo_Orderreturn>
+      <active>true</active>
+      <codePool>local</codePool>
+      <version>0.1.7</version>
+    </Neo_Orderreturn>
+  </modules>
+</config>

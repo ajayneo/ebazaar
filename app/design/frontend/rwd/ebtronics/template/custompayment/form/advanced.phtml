@@ -1,0 +1,26 @@
+<?php $_code=$this->getMethodCode() ?>
+<ul class="form-list" id="payment_form_<?php echo $_code ?>" style="display:none;">
+    <li>
+
+        <label for="<?php echo $_code ?>_order_no" class="required"><em>*</em><?php echo $this->__('Enter Your Cheque UTR No# / Cheque No#') ?></label>
+        <span class="input-box">
+            <input type="text" title="<?php echo $this->__('UTR No#') ?>" class="input-text required-entry" id="<?php echo $_code ?>_utr_no" name="payment[ap_utr_no]" value="<?php echo $this->htmlEscape($this->getInfoData('ap_utr_no')) ?>" />
+        </span>
+
+        <?php 
+            /*
+                <label for="<?php echo $_code ?>_order_no" class="required"><em>*</em><?php echo $this->__('Enter Your Cheque No#') ?></label>
+                <span class="input-box">
+                    <input type="text" title="<?php echo $this->__('Cheque No#') ?>" class="input-text required-entry" id="<?php echo $_code ?>_check_no" name="payment[ap_check_no]" value="<?php echo $this->htmlEscape($this->getInfoData('ap_check_no')) ?>" />
+                </span>
+            */ 
+        ?>
+
+        <label for="<?php echo $_code ?>_order_no" class="required"><em>*</em><?php echo $this->__('Enter Your Bank Name#') ?></label>
+        <span class="input-box">
+            <input type="text" title="<?php echo $this->__('Bank Name#') ?>" class="input-text required-entry" id="<?php echo $_code ?>_bank_name" name="payment[ap_bank_name]" value="<?php echo $this->htmlEscape($this->getInfoData('ap_bank_name')) ?>" />    
+        </span>
+    </li>
+</ul>
+
+

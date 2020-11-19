@@ -1,0 +1,1 @@
+[08-Oct-2018 16:04:49 Asia/Kolkata] PHP Fatal error:  Class 'Zend_Validate_Abstract' not found in /home/electronicsbazaa/public_html/lib/Zend/Validate/Ldap/Dn.php on line 34

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Neo_Microsoft>
+      <active>true</active>
+      <codePool>local</codePool>
+      <version>0.1.0</version>
+    </Neo_Microsoft>
+  </modules>
+</config>

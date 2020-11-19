@@ -1,0 +1,121 @@
+<?php
+
+    $brand = $this->getRequest()->getActionName(); 
+    $catagory = $this->getRequest()->getRouteName(); 
+
+    $products = $this->helper('gadget')->getBrandedGadgetsCollection(ucfirst($brand),ucfirst($catagory));
+    
+?>
+
+
+<div class="gadgetModuleContainer brand-list-container">
+     <h1><?php echo ucfirst(Mage::app()->getRequest()->getActionName()).' '; ?>Mobiles</h1>
+
+
+    <div class="brandSearch clearfix">
+        <div class="inputField">
+            <input type="text" class="search_box" id="search_box" placeholder="Search brand's products" autocomplete="off">
+        </div>
+        <button class="button" title="Search" type="submit">
+            <i aria-hidden="true" class="fa fa-search"></i>
+        </button>
+    </div>
+
+    <div id="searchres" class=""></div> 
+
+    <ul class="mobileList">
+    <!-- Start mobileList -->
+        <?php foreach($products as $product): ?>
+           <li>
+              <div class="imgContent">
+                 <!-- Start imgContent -->
+                 <a href="<?php echo $product->getUrlInStore(); ?>">
+                 <span><img src="<?php echo (string)Mage::helper('catalog/image')->init($product, 'image'); ?>" alt="<?php echo $product->getName(); ?>"></span>
+                 </a>
+              </div>
+              <!-- End imgContent -->
+              <div class="productContent">
+                 <!-- Start productContent -->
+                 <div class="title clearfix">
+                    <!-- Start title -->
+                    <div class="icon"><img src="https://www.electronicsbazaar.com/neweb/skin/frontend/rwd/electronics/customs/images/sell-gadget/sell.png"></div>
+                    <div class="heading">
+                       <h2><a href="<?php echo $product->getUrlInStore(); ?>"><?php echo $product->getName(); ?></a></h2>
+                    </div>
+                 </div>
+                 <!-- End title -->
+                <div class="brand-price-content">Get Upto 
+                    <span id="product-price" class="brand-price">
+                        <?php echo number_format($product->getPrice(),2); ?>                        
+                    </span>  
+                </div>
+
+                <div class="storage-container">
+                    <!-- Start storage-container -->
+                    <ul class="options-list clearfix">
+                        <!-- Sart options-list -->
+                        <li class="clearfix">
+                            <input type="radio" class="radio product-custom-option" name="options[255]" value="920">
+                            <span class="label">
+                                <label for="options_255_2">4 GB</label>
+                            </span>
+                        </li>
+
+                       <li class="clearfix"><input type="radio" class="radio product-custom-option" name="options[255]" value="921"><span class="label"><label for="options_255_3">8 GB</label></span></li>
+                       <li class="clearfix"><input type="radio" class="radio product-custom-option" name="options[255]" value="922"><span class="label"><label for="options_255_4">16 GB</label></span></li>
+                       <li class="clearfix"><input type="radio" class="radio product-custom-option" name="options[255]" value="919"><span class="label"><label for="options_255_5">32 GB</label></span></li>
+                    </ul>
+                    <!-- End options-list -->
+                 </div>
+                 <!-- End storage-container -->
+                </div>
+              <!-- End productContent -->
+           </li>
+        <?php endforeach; ?>
+    </ul>
+    <!-- End mobileList -->
+
+</div>
+
+
+<script type="text/javascript">
+
+var jqgs = jQuery.noConflict();
+jqgs(document).ready(function()
+{
+    jqgs("#search_box").keyup(
+        function()
+        {
+            var search_string = jqgs("#search_box").val();
+            if(search_string == '')
+            {
+                var searchres = document.getElementById("searchres");
+                searchres.classList.remove("searchres");
+
+                jqgs("#searchres").html('');
+            }
+        else{
+
+            postdata = {'string' : search_string  , 'brand' :  "<?php echo $brand;?>"} 
+
+            jqgs.post("<?php echo $baseUrl.'gadget/index/searchgadget'; ?>",postdata,function(data)
+            {   
+                var searchres = document.getElementById("searchres");
+                searchres.classList.add("searchres");
+
+                jqgs("#searchres").html(data); 
+            });
+        }
+    });
+});
+
+function fillme(name)
+{
+    var searchres = document.getElementById("searchres");
+    searchres.classList.remove("searchres");
+
+    jqgs("#search_box").val(name);
+    jqgs("#searchres").html('');
+}
+
+</script> 

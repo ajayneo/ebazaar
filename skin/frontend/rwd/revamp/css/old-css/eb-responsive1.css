@@ -1,0 +1,662 @@
+@media only screen and (max-width: 1024px) {
+/*    purchase history*/
+    .order-items.order-details.new-order-details {
+        overflow-x: scroll;
+    }
+    body.sales-order-history.customer-account .col2-left-layout .pager {
+        width: 100%;
+    }
+    /*    contact us*/
+    .new-contact-information ul li {
+        padding: 25px 0 0 18px;
+        display: inline-block;
+    }
+    .new-contact-information {
+        width: 54%;
+    }
+    .new-padding-left ul {
+        margin-left: 0;
+    }
+    /*    download app*/
+    .new-download-mobile-app-container h1,
+    .new-download-mobile-app-container h1 span {
+        font-size: 20px;
+    }
+    .download-mobile-app-container .page-title .title {
+        width: 100%;
+        text-align: left;
+    }
+    .new-download-mobile-app-container .new-mobile-app-download h2 {
+        font-size: 14.55px;
+        text-align: left;
+    }
+    .download-mobile-app-container .mobile-app-download {
+        width: 100%;
+        text-align: left;
+    }
+    .download-mobile-app-container .mobile-app-download ul li {
+        width: auto;
+        margin-right: auto;
+    }
+    .download-app-hand img {
+        width: 75%;
+    }
+    .new-download-mobile-app-content ul li {
+        padding: 8px 20px;
+    }
+    .new-download-mobile-app-container {
+        padding: 25px;
+    }
+/*pre owned product detail*/
+    .pre-owned-device-journey.clearfix.no-list-style1::before{
+        display: none;
+    }
+    .pre-owned-device-journey.clearfix.no-list-style1{
+        margin-left: 0;
+    }
+    .pre-owned-device-journey.clearfix.no-list-style.no-list-style1 li{
+        width: 33.33%;
+/*        margin-bottom: 35px;*/
+    }
+    ul.pre-owned-device-journey.clearfix.no-list-style.no-list-style1 .journey-content {
+        margin: 15px 0;
+    }
+
+/*    warranty */
+/*
+    .eb-warranty-container,.warranty-service-center{
+        width: 100%;
+    }
+*/
+    .warranty-table-container.new-warranty-table-container ul li {
+        padding-left: 0;
+    }
+/*
+    .warranty-service-center,.warranty-eb-service-content{
+        margin-top: 35px;
+    }
+*/
+/*    careers*/
+    .tab button{
+        padding: 0 28px;
+        margin-bottom: 5px;
+    }
+    .careers-listing li{width: 100%;}
+    
+    
+    
+}
+@media only screen and (max-width: 1024px) and (min-width:771px) {
+/*    warranty*/
+    .eb-center-icon.new-eb-center-icon {
+        margin-left: 0;
+        width: 100%;
+    }
+    .eb-center-icon.new-eb-center-icon img {
+        margin: auto;
+    }
+    .new-center-txt {
+        width: 100%;
+        text-align: center;
+    }
+    eb-service-content h3 {
+        margin-top: 35px;
+    }    
+    .warranty-eb-service-content.new-warranty-eb-service-content p {
+        text-align: center;
+    }
+/*    eb-advantages*/
+    .new-advantage-content .advantage-content-inner{
+        padding-left: 60px;
+        padding-right: 10px
+    }
+    .static-page-content.new-static-page-content .eb-advantages-content {
+        padding: 0;
+    }
+    .new-advantage-content .advantage-content-inner,.advantage-icon.new-advantage-icon{min-height: 250px;}
+/*    career*/
+    .tab button {
+        margin-bottom: 5px;
+    }
+/*    laptop pre-owned*/
+    .journey-img img{
+        width: 110px;
+    }
+    .col-left.sidebar.col-left-first .block-account {
+        padding: 0 0 0 30px;
+    }
+/*    sale history details*/
+    .bank-details-content .gadget-order-details label, .bank-details-content .gadget-order-details .description{
+        font-size: 13px;
+    }
+    .bank-details-content .sales-history-list.clearfix label:after{top: 0;}
+    .new-gadget-bank-details .sales-history-list.clearfix label,.bank-details-content .sales-history-list.clearfix .description{font-size: 15px;}
+    
+    
+    .free-ship-box {padding: 30px 45px 0;}
+    .free-ship-box-right{width: 30%;}
+    .free-ship-box-left img {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width:980px){
+    /*    dashboard */
+    .data-table .nobr a.link-vieworder,.data-table .nobr a.link-reorder {
+        margin-bottom: 8px;
+    }    
+    .data-table .nobr a.link-cancel{
+        margin-right: 5px;
+    }
+    .col-main.my-account-pg .my-account .new-account-info .form-list > li{
+        width:100% ;
+        margin-right: 0;
+    }
+    
+    .customer-address-form .col-main.my-account-pg .my-account.my-account-new li.fields .field {margin:0; width: 47.5%;}
+    .customer-address-form .col-main.my-account-pg .my-account.my-account-new li.fields .field + .field {margin-left: 5%;}
+    .order-list-container{overflow-x: scroll;}
+}
+@media only screen and (max-width: 770px) {
+/*    freeshiping & cod*/
+    .free-ship-box-left{
+        width: 100%;
+    }
+    .free-ship-box{
+        padding: 10px;
+    }
+    .free-ship-box-right{
+        width: 100%;
+        float: none;
+        display: inline-block;
+    }
+    .free-ship-box-left img{
+    width: 100%;
+}
+    .free-ship-box-right ul li {
+    width: 50%;
+    float: left;
+}
+/*    sell ur gadget*/
+    .new-gadget-container h1{padding-bottom: 15px;margin-bottom: 0;}
+    .your-device-right {
+        width: 100%;
+    }
+    .new-gadget-bank-details .your-device-right label {
+        width: 100%;
+    }
+    /*    contact us*/
+    .new-contact-information {
+        width: 100%;
+    }
+    .contact-information ul li {
+        border-bottom: none;
+    }
+    .icon-line::before {
+        display: none;
+    }
+    .contact-laptop {
+        bottom: -35px;
+        width: 100%;
+    }
+    .cms-page-view .inner-main-container {
+        width: 100%;
+    }
+    /*    download app*/
+    .new-download-mobile-app-container {
+        padding: 25px 15px;
+    }
+    .new-download-mobile-app-container .new-page-title {
+        width: 100%;
+    }
+    .download-mobile-app-container .page-title .title,
+    .new-download-mobile-app-container .new-mobile-app-download h2,
+    .download-mobile-app-container .mobile-app-download {
+        text-align: center;
+    }
+    .download-mobile-app-container .mobile-app-download ul li {
+        margin-right: 5%;
+    }
+    .new-download-mobile-app-content {
+        width: 100%;
+        margin-top: 25px;
+        clear: both;
+        display: inline-block;
+    }
+    .new-download-mobile-app-content ul li {
+        margin-bottom: 0;
+    }
+    .download-app-hand img {
+        opacity: 0.2;
+    }
+/*    track order*/
+    .track-container .divider-or span{
+        left: 0;
+        top: 0;
+        right: 0;
+        margin: auto;
+    }
+    .track-container .my-account.my-account-new{
+        width: 100%;
+        padding-top: 0;
+        
+    }
+    .product-track-order-form .input-box{
+        width: 81%;
+    }
+    .product-track-order-form .divider-or {
+        height: 32px;
+        margin: 20px auto;
+        width: 100%;
+        background: url(../images/divider-or-2.jpg) repeat-x scroll center center rgba(0, 0, 0, 0);
+    }
+    .right-login-section {
+        width: 98%;
+    }
+/*    pre owned product detail*/
+    ul.pre-owned-device-journey.clearfix.no-list-style.no-list-style1 .journey-content{
+        min-height: 40px;
+        line-height: 20px;
+        margin-bottom: 0;
+    }
+    .journey-img {
+        margin-bottom:0;
+    }
+    
+    .pre-owned-device-journey.clearfix.no-list-style li{
+        padding-left: 0;
+        margin:10px 0 0 0;
+    }
+/*    laptop*/
+    ul.pre-owned-device-journey.clearfix.no-list-style li {
+        width: 33.33%;
+        padding-bottom: 25px;
+    }
+/*    eb-advantages*/
+    .static-page-content.new-static-page-content .eb-advantages-content {
+        padding: 0;
+    }
+    li.col-half.clearfix {
+        width: 100%;
+    }
+    /*    service center*/
+    .service-center-search.new-service-center-search {
+        width: 285px;
+    }
+/*    dashboard*/
+    .main-container .col-left.sidebar.col-left-first{
+        display: inline-block;
+        float: left;
+        width: 25%;
+        margin: 0;
+    }
+    .customer-account .col-main.my-account-pg{
+        display: inline-block;
+        width: 75%!important;
+        margin: 0;
+        padding-right: 0;
+    }
+    .sidebar .block:not(.block-layered-nav) .block-title > strong{
+        padding-left: 0;
+    }
+    
+    .dashboard .box-account.box-recent {
+        overflow-x: scroll;
+    }
+    .my-account.my-account-new .dashboard .box .billing-address,.my-account.my-account-new .dashboard .shipping-address{
+        border: none;
+    }
+    .main-container .block-account .block-title span{
+        font-size: 20px;
+    }
+/*    address book*/
+    .addresses-list .item,.my-account .addresses-list .col-1 li.item{
+        width: 100%;
+    }
+    body.customer-account.sales-order-view .my-account.my-account-new .title-buttons {
+       
+        margin-top: 6%;
+    }
+    .reorder-order {
+        position: absolute;
+        right: 0;
+        top: 15px;
+        width: auto;
+        text-align: center;
+        left: 0;
+    }
+/*    whishlist*/
+    .wishlist-view-section .wishlist-list .product-image{
+        width: 32%;
+    }
+    .wishlist-view-section .wishlist-list ul li:last-child{
+        border-bottom: 1px solid #ddd;
+    }
+/*    wishlist share*/
+    .col2-left-layout .col-main {
+        width: 75%;
+        float: right;
+        margin: 0;
+    }
+/*    sale history*/
+    .col2-left-layout .col2-left-layout-new .pager{
+        width: 100%;
+    }
+/*    sale history details*/
+    .sales-history-container .bank-details-content .gadget-order-details ul li ,.sales-history-container .bank-details-content ul li{
+        width: 100%;
+    }
+    .bank-details-content .gadget-order-details label, .bank-details-content .gadget-order-details .description,.new-gadget-bank-details label,.bank-details-content .description{font-size: 15px;}
+    .new-gadget-bank-details.sales-history-container label,.new-gadget-bank-details.sales-history-container .bank-details-content .description{width: 50%;vertical-align: top;}
+    .new-gadget-bank-details{padding: 20px 15px;}
+    
+/*    forgot password*/
+    .account-forgot.my-account.my-account-new.new-account-forgot{
+        margin-top: 25px;
+    }
+}
+
+
+@media only screen and (max-width: 600px) {
+/*    forgot password*/
+    .account-forgot.my-account.my-account-new.new-account-forgot {
+        border: 1px solid #e1e1e1;
+    }
+/*    thank you*/
+     .checkout-onepage-success h1.thank-you {
+     font-size: 25px;
+    }
+
+    /*    contact us*/
+    .new-contact-information {
+        width: 100%;
+    }
+
+    .contact-form .page-title h1 {
+        font-size: 22px;
+        line-height: 24px;
+    }
+    .new-contact-information ul li {
+        padding-left: 0;
+    }
+    .contact-laptop {
+        bottom: 0;
+    }
+    .new-static-content {
+        padding: 0;
+    }
+/*    download app*/
+    .download-mobile-app-container h1{
+        line-height: 25px;
+    }
+/*    track order*/
+    .product-track-order-form{
+        width: 100%;
+    }
+    .divider-or span{
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+    .product-track-order-form .input-box {
+        width: 100%;
+    }
+/*    track order after login*/
+    .account-login.account-login-new {
+        margin-bottom: 30px;
+    }
+/*    pre owned product */
+    .pre-owned-device-journey.clearfix.no-list-style li{
+        margin-bottom: 15px;
+    }
+    .pre-owned-device-journey.clearfix.no-list-style li .journey-img img{
+        width: 110px;
+    }
+    .pre-owned-device-journey.clearfix.no-list-style li .journey-img{
+        height: auto;
+    }
+    ul.pre-owned-device-journey.clearfix.no-list-style.no-list-style1 .journey-content{
+        min-height: 40px;
+    }
+/*    warranty*/
+    .warranty-eb-service-content{
+        padding: 10px 0;
+    }
+    .warranty-inner-eb-seriver-content{
+        padding: 0;
+    }
+    .warranty-table-container .warranty-category, .warranty-period {
+        padding: 10px 15px;
+    }    
+/*    disclaimers*/
+    .new-padding-left ul li {
+        padding-left: 20px;
+        background-position: 3px 7px;    
+    }
+/*    policy*/
+    .static-content.new-static-content p {
+        margin-top: 10px;
+    }
+/*    pre-owned product*/
+    hr{
+        margin: 0;
+    }
+/*    dashboard*/
+    .main-container .col-left.sidebar.col-left-first{
+        width: 100%;
+    }
+    .block.block-account.block-account-new ul {
+        border: 1px solid #e1e1e1;
+    }
+    .block-account .block-title, .block-cms-menu .block-title{
+        background-color: #fff;
+    }
+    .my-account.my-account-new{
+        margin: 0;
+    }
+    .customer-account .col-main.my-account-pg{
+        padding: 20px 0;
+        width: 100%!important;
+    }
+/*    wishlist*/
+    .wishlist-index-index .inner-main-container .col-main.my-account-pg,.wishlist-view-section .wishlist-list ul li{
+        width: 100%!important;
+    }
+    .col-main.my-account-pg .my-account .buttons-set button.button{
+        margin-bottom: 10px;
+    }
+    .wishlist-view-section .wishlist-list .product-image{width: 150px;}
+/*    share wishlist*/
+    .col2-left-layout .col-main{
+        padding: 50px 0 0 0;
+    }
+    .col2-left-layout .col-main{width: 100%;}
+    body.wishlist-index-share.customer-account .col2-left-layout .col-main {
+        padding-top: 20px;
+    }
+/*    careers*/
+    .tab button {
+        padding: 0;
+        width: 49%;
+        font-size: 13px;
+        margin-bottom: 10px;
+    }
+}
+@media only screen and (max-width: 480px) {
+/*    cod & shipping*/
+    .free-ship-box-right ul li {
+        width: 100%;
+        text-align: center;
+    }
+/*    LOHIN RADIO BTN*/
+    .account-login.account-login-new .sale-ur-gadget-radio-btn .input-box{
+        margin-left: 5%;
+    }
+    .col-main.my-account-pg .my-account .fieldset{overflow-x: scroll;}
+    /*    contact us*/
+    .contact-laptop img {
+        width: 95%;
+    }
+    .new-download-mobile-app-container .new-mobile-app-download h2{
+        font-size: 14px;
+    }
+    .download-mobile-app-container .mobile-app-download ul li{
+        width: 115px;
+    }
+    .contact-information.new-contact-information .icon-content p a {
+        word-break: break-all;
+    }
+    /*    download app*/
+    .new-download-mobile-app-container h1,
+    .new-download-mobile-app-container h1 span {
+        font-size: 19px;
+        line-height: 34px;
+    }
+/*    pre owned product detail*/
+    
+    .pre-owned-device-journey.clearfix.no-list-style.no-list-style1 li{
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .pre-owned-device-journey.clearfix.no-list-style li .journey-img img{
+        width: 110px;
+        margin: auto;
+    }
+    ul.pre-owned-device-journey.clearfix.no-list-style.no-list-style1 .journey-content{
+        min-height: auto;
+    }
+/*    laptop*/
+    ul.pre-owned-device-journey.clearfix.no-list-style li {
+        width: 100%;
+        padding-bottom: 00;
+    }
+/*    warranty*/
+    .warranty-2 {
+        margin-top: 50px;
+    }    
+    .eb-center-icon.new-eb-center-icon{
+        margin-left: 0;
+        width: 100%;
+    }
+    .eb-center-icon img {
+        width: auto;
+        margin: auto;
+    }
+    .new-center-txt {
+        width: 100%;
+        text-align: center;
+    }
+    .warranty-eb-service-content.new-warranty-eb-service-content h3 {
+        margin-top: 35px;
+    }
+    .warranty-eb-service-content.new-warranty-eb-service-content p {
+        text-align: center;
+    }
+    .warranty-table-container.new-warranty-table-container .warranty-category,.warranty-table-container .warranty-category, .warranty-period{
+        padding: 5px;
+    }
+    .default-title h2 {
+        line-height: 26px;
+    }
+/*    eb-advantages*/
+    .static-page-content.new-static-page-content .eb-advantages-content li.col-half{
+        padding: 0;
+        margin-bottom: 0;
+    }
+    .static-page-content.new-static-page-content .eb-advantages-content li+li{
+            margin: 60px 0 0 0;
+    }
+    .new-advantage-content .advantage-content-inner{
+        min-height: auto;
+        padding: 70px 10px 10px;
+        margin-right: 0;
+        text-align: center;
+    }
+    .new-advantage-content .advantage-content-inner h2{width: 100%;}
+    .advantage-icon.new-advantage-icon img {
+        position: absolute;
+        top: -25%;
+        right: 0;
+        margin: auto;
+        left: 0;
+        max-height: inherit;
+        bottom: auto;
+    }
+    .static-page-content.new-static-page-content .eb-advantages-content {
+        margin-top: 70px;
+    }
+    .eb-advantages-content.clearfix ul {
+        margin: 0;
+    }
+    
+/*    service center*/
+    .service-center-search.new-service-center-search {
+        width: 100%;
+    }
+/*    dashboard*/
+    .col-main.my-account-pg .my-account{
+        padding: 20px;
+    }
+    body.customer-account .my-account .page-title h1{
+        text-transform: uppercase;
+    }
+    .my-account.my-account-new .dashboard .box-account p, .my-account.my-account-new .dashboard .box-account address{
+    font-size: 15px;
+        line-height: 22px;
+    }
+    .data-table.orders td.view {
+        text-align: left;
+    }
+    .my-account.my-account-new .dashboard .box .billing-address, .my-account.my-account-new .dashboard .shipping-address{
+        padding: 20px 0;
+    }
+/*    address book*/
+    .customer-address-index .col2-set.new-addresses-list .col-1, .customer-address-index .col2-set.new-addresses-list .col-2{
+        width: 100%;
+        margin-bottom: 25px;
+    }
+    .addresses-list .item, .my-account .addresses-list .col-1 li.item{
+        border: none;
+        margin-bottom: 25px;
+    }
+/*    edit address*/
+    .fieldset p.required {
+        margin-top: -80px;
+    }
+    .customer-address-form .col-main.my-account-pg .my-account.my-account-new li.fields .field{width: 100%;}
+    .customer-address-form .col-main.my-account-pg .my-account.my-account-new li.fields .field + .field {margin-left: 0;margin-top:25px;}
+    .customer-address-form .col-main.my-account-pg .my-account.my-account-new li.wide {
+        height: auto;
+    }
+/*    sale history*/
+    .col2-left-layout .col2-left-layout-new  .pager .pages {
+        width: 100%;
+    }
+/*    sale history details*/
+    .appTrackingContainer{
+        width: 100%;
+    }
+    .appTrackingContainer .statusText{
+        font-size: 14px;
+        margin-left: 14px;
+    }
+/*    careers*/
+    .tab button{
+        border-right: none;
+        width: 100%;
+        padding: 9px 0;
+        border-bottom: 1px solid #ddd;
+    }
+    .careers-listing ul ul {
+        margin: 0 0 15px 10px;
+    }
+    .careers-listing li {
+        padding: 0 15px;
+        width: auto;
+        font-size: 15px;
+    }
+/*    thank you*/
+     .checkout-onepage-success button.button.btn-address {
+         width: auto;
+     }
+}

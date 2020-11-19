@@ -1,0 +1,36 @@
+<div class="content-header">
+    <table cellspacing="0">
+        <tbody><tr>
+            <td style="width:50%;"><h3 class="icon-head head-adminhtml-index">Update Customer's Asm</h3></td>
+            
+        </tr>
+    </tbody></table>
+</div>
+<div>
+	<form action='<?php echo Mage::helper("adminhtml")->getUrl("admin_operations/adminhtml_customerupdate/uploadCustomers");?>' name="uploadFile" id="uploadFile" method="post" enctype="multipart/form-data">
+	<input type="hidden" name="form_key" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>">
+	<table style="width: 100%" cellpadding="10" cellspacing="10">
+		<tr>
+			<td>Select field to update : </td>
+			<td>
+				<select name="field">
+					<option value="">-- Select Field --</option>
+					<option value="asm_map">ASM</option>
+					<option value="zone">Zone</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td><span>Upload File : </span></td>
+		    <td>
+				<input type="file" name="customerFiles" id="customerFiles" accept=".csv" style="width:100%;">
+				<span style="float: left;width: 50%;">Upload file in .csv format only.</span>
+			</td>
+		</tr>
+		<tr>
+			<td align="right" colspan="2"><button id="id_8900456144c3f02698f60a534df78c68" title="Search" type="submit" class="scalable task"style=""><span><span><span>Submit</span></span></span></button></td>
+		</tr>
+	
+	</table>
+	</form>
+</div>

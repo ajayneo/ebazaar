@@ -1,0 +1,397 @@
+<?php
+class NeoCustom_CustomAjax_AjaxController extends Mage_Core_Controller_Front_Action 
+{
+	public function indexAction() 
+	{
+		$this->loadLayout();
+		$this->renderLayout();
+	}
+		
+	public function addtobasketAction() 
+	{
+		$this->loadLayout();
+		$this->renderLayout();
+	}
+	
+	public function priceupdateAction() 
+	{
+		$this->loadLayout();
+		$this->renderLayout();		
+	}
+	
+	public function setidforcollectionajaxAction() 
+	{
+		$this->loadLayout();
+		$this->renderLayout();		
+	}
+
+	public function addwishlisttocartajaxAction() 
+	{
+		$productids = Mage::app()->getRequest()->getParam('prod_ids');
+		$wishids = Mage::app()->getRequest()->getParam('wishids');
+		$test = array_combine($wishids, $productids);
+		foreach($test as $key => $value ):
+			$my_product = Mage::getModel('catalog/product')->load($value);
+			$cart = Mage::getSingleton('checkout/cart');
+			$cart->init();
+			$cart->addProduct($my_product, array('qty' => 1));
+			$cart->save();
+			Mage::getSingleton('checkout/session')->setCartWasUpdated(true);
+			Mage::getModel('wishlist/item')->load($key)->delete();
+			endforeach;
+	}
+	
+	public function removeitemajaxAction() 
+	{
+		$this->loadLayout();
+		$this->renderLayout();		
+	}
+	
+	public function validatepincodeajaxAction() 
+	{
+		$this->loadLayout();
+		$this->renderLayout();		
+	}
+	
+	public function removeorderajaxAction() 
+	{
+		$this->loadLayout();
+		$this->renderLayout();		
+	}
+	
+	public function prodpriceupdateAction()
+   	{
+   		$price 	=	 Mage::app()->getRequest()->getParam('price');
+		$quantity	=	Mage::app()->getRequest()->getParam('qty');
+		$old_price	=	Mage::app()->getRequest()->getParam('oldprice');
+		$old_price	=	$old_price	*	$quantity;
+		$total 	= 	$price * $quantity;
+		$total_price = number_format($total, '2', '.', ',');
+		$old_price = number_format($old_price,'2','.',',');
+		echo json_encode(array(
+			'total_price'=>$total_price,
+			'old_price'=>$old_price
+		));			
+    }
+	
+	public function relatedprodpriceupdateAction()
+   	{
+   		$price 	=	 Mage::app()->getRequest()->getParam('price');
+		$quantity	=	Mage::app()->getRequest()->getParam('qty');
+		$total 	= 	$price * $quantity;
+		$total_price = number_format($total, '2', '.', ',');
+		echo json_encode(array(
+			'total_price'=>$total_price,
+		));			
+    }
+
+	public function billingsaveajaxAction()
+	{
+		$billarea 			= Mage::app()->getRequest()->getParam('selectedregion');
+		$cus_email			= Mage::app()->getRequest()->getParam('cus_email');
+		$itemsCollection 	= Mage::getSingleton('checkout/session')->getQuote()->getItemsCollection();
+	    $itemsVisible 		= Mage::getSingleton('checkout/session')->getQuote()->getAllVisibleItems();
+	    $items 				= Mage::getSingleton('checkout/session')->getQuote()->getAllItems();
+	    
+		$res_prods = array();
+		$res_prod_msg;
+		$count = 0;
+		
+	    foreach($items as $item)
+		{
+			$shipmentrestriction = Mage::getModel('shipmentrestriction/shipmentrestriction')
+									->getCollection()
+									->addFieldToFilter('shipment_restriction_amount',array('lteq' => $item->getPrice()));
+									
+			if($shipmentrestriction->count())
+			{
+				foreach($shipmentrestriction as $shi)
+				{
+		        	$states = explode(',',$shi->getShipmentRestrictionState());
+					if($billarea)
+		            {
+		            	if(in_array($billarea,$states))
+		                {    
+							$res_prod_msg = 'We are not shipping if any particular cart item exceeds '.$shi->getShipmentRestrictionAmount().' to your region.if you want to ship to different address.Or Provide few Docs to Ship to your region';
+							$res_prods[] = $item->getData('product_id');
+							$count++;
+						}
+					}
+				}
+			}
+		}
+
+		if($count > 0):
+			$res_prods = array_filter($res_prods);
+
+			if(!empty($res_prods)):
+
+				$products_names = array();
+                foreach($res_prods as $res_prod):
+                    $_product = Mage::getModel('catalog/product')->load($res_prod);
+                    $products_names[] = $_product->getName();
+                endforeach;
+                $mail = new Zend_Mail();
+    
+                // create an instance of Zend_Filter_StripTags to use
+                $stripTags = new Zend_Filter_StripTags();
+                $body = "Hi"."<br/>";
+                $body .= "The customer with " . $cus_email . " email trying to purchase product(s) ";
+                $count = count($products_names);
+                $i = 0;
+                foreach($products_names as $products_name):
+                    $i++;
+                    $body .= $products_name;
+                    if($i == $count):
+                        $body .= '.';
+                    else:
+                        $body .= ',';
+                    endif;
+                endforeach;
+                $region = Mage::getModel('directory/region')->load($billarea);
+                $body .= " to " . $region->getName() .' which is not able to allow because of shippment restrictions.';
+                $mail->setBodyText($body) ;
+                $mail->setBodyHtml(nl2br($body));
+
+                $mail->setFrom('support@spaces-home.com');
+                $mail->addTo('support@spaces-home.com','Spaces-Home');
+                $mail->setSubject('Shippment Restriction');
+                $mail->send();
+
+				foreach($res_prods as $res_prod):
+					$cartHelper = Mage::helper('checkout/cart');
+				    $items = $cartHelper->getCart()->getItems();
+					foreach($items as $item):
+				    	if($item->getProduct()->getId() == $res_prod):
+				        	$itemId = $item->getItemId();
+				            $cartHelper->getCart()->removeItem($itemId)->save();
+						endif;
+					endforeach;
+				endforeach;
+			endif;
+			
+			echo json_encode(array(
+				'restrict_value' => '1', 
+				'restrict_message' => $res_prod_msg  
+			));
+			exit;
+		else:
+			echo json_encode(array(
+				'restrict_value' => '0',
+			));
+			exit;
+		endif;
+	}
+
+	public function shippingsaveajaxAction() 
+	{
+		$shiparea 			= Mage::app()->getRequest()->getParam('selectedregion');
+		$itemsCollection 	= Mage::getSingleton('checkout/session')->getQuote()->getItemsCollection();
+	    $itemsVisible 		= Mage::getSingleton('checkout/session')->getQuote()->getAllVisibleItems();
+	    $items 				= Mage::getSingleton('checkout/session')->getQuote()->getAllItems();
+	    
+		//$myStatus = Mage::getSingleton('customer/session')->isLoggedIn();
+		$session=Mage::getSingleton('customer/session', array('name'=>'frontend') );
+		if($session->isLoggedIn())
+		{
+			$customer			= Mage::getSingleton('customer/session')->getCustomer();
+			$cus_email			= $customer->getEmail();
+		}
+		else
+		{
+			$def_address        = Mage::getSingleton('checkout/session')->getQuote();
+			$address			= $def_address->getBillingAddress();
+			$cus_email          = $address->getEmail();
+		}
+		
+		$res_prods = array();
+		$res_prod_msg;
+		$count = 0;
+		
+	    foreach($items as $item)
+		{
+			$shipmentrestriction = Mage::getModel('shipmentrestriction/shipmentrestriction')
+									->getCollection()
+									->addFieldToFilter('shipment_restriction_amount',array('lteq' => $item->getPrice()));
+
+			if($shipmentrestriction->count())
+			{
+				foreach($shipmentrestriction as $shi)
+				{
+					$states = explode(',',$shi->getShipmentRestrictionState());
+		            if($shiparea)
+		            {
+						if(in_array($shiparea,$states))
+						{
+							$res_prod_msg = 'We are not shipping if any particular cart item exceeds '.$shi->getShipmentRestrictionAmount().' to your region.if you want to ship to different address.Or Provide few Docs to Ship to your region';
+							$res_prods[] = $item->getData('product_id');
+							$count++;
+						}
+		            }
+				}
+			}
+		}
+		if($count > 0):
+			$res_prods = array_filter($res_prods);
+			if(!empty($res_prods)):
+
+				$products_names = array();
+                foreach($res_prods as $res_prod):
+                    $_product = Mage::getModel('catalog/product')->load($res_prod);
+                    $products_names[] = $_product->getName();
+                endforeach;
+                $mail = new Zend_Mail();
+    
+                // create an instance of Zend_Filter_StripTags to use
+                $stripTags = new Zend_Filter_StripTags();
+                $body = "Hi"."<br/>";
+                $body .= "The customer with " . $cus_email . " email trying to purchase product(s) ";
+                $count = count($products_names);
+                $i = 0;
+                foreach($products_names as $products_name):
+                    $i++;
+                    $body .= $products_name;
+                    if($i == $count):
+                        $body .= '.';
+                    else:
+                        $body .= ',';
+                    endif;
+                endforeach;
+                $region = Mage::getModel('directory/region')->load($shiparea);
+                $body .= " to " . $region->getName() .' which is not able to allow because of shippment restrictions.';
+                $mail->setBodyText($body) ;
+                $mail->setBodyHtml(nl2br($body));
+
+                $mail->setFrom($cus_email);
+                $mail->addTo('support@spaces-home.com','Spaces');
+                $mail->setSubject('Shippment Restriction');
+                $mail->send();
+
+				foreach($res_prods as $res_prod):
+					$cartHelper = Mage::helper('checkout/cart');
+				    $items = $cartHelper->getCart()->getItems();
+					foreach($items as $item):
+				    	if($item->getProduct()->getId() == $res_prod):
+				        	$itemId = $item->getItemId();
+				            $cartHelper->getCart()->removeItem($itemId)->save();
+						endif;
+					endforeach;
+				endforeach;
+			endif;
+			
+			echo json_encode(array(
+				'restrict_value' => '1', 
+				'restrict_message' => $res_prod_msg  
+			));
+			exit;
+		else:
+			echo json_encode(array(
+				'restrict_value' => '0',
+			));
+			exit;
+		endif;
+	}
+	
+	public function getsessionrestrictionAction()
+	{		
+		$res_prods = Mage::getSingleton('customer/session')->getMyShipmentRestrictionProd();
+		$res_prods = array_filter($res_prods);
+		if(!empty($res_prods)):
+
+			$products_names = array();
+                foreach($res_prods as $res_prod):
+                    $_product = Mage::getModel('catalog/product')->load($res_prod);
+                    $products_names[] = $_product->getName();
+                endforeach;
+                $mail = new Zend_Mail();
+    
+                // create an instance of Zend_Filter_StripTags to use
+                $stripTags = new Zend_Filter_StripTags();
+                $body = "Hi"."<br/>";
+				$customer = Mage::getSingleton('customer/session')->getCustomer();
+				$cus_email = $customer->getEmail();
+
+                $body .= "The customer with " . $cus_email . " email trying to purchase product(s) ";
+                $count = count($products_names);
+                $i = 0;
+                foreach($products_names as $products_name):
+                    $i++;
+                    $body .= $products_name;
+                    if($i == $count):
+                        $body .= '.';
+                    else:
+                        $body .= ',';
+                    endif;
+                endforeach;
+				$customerAddressId = Mage::getSingleton('customer/session')->getCustomer()->getDefaultShipping();
+				$address = Mage::getModel('customer/address')->load($customerAddressId);
+                $region = Mage::getModel('directory/region')->load($address->getData('region_id'));
+                $body .= " to " . $region->getName() .' which is not able to allow because of shippment restrictions.';
+                $mail->setBodyText($body) ;
+                $mail->setBodyHtml(nl2br($body));
+
+                $mail->setFrom('support@spaces-home.com');
+                $mail->addTo('support@spaces-home.com','Spaces');
+                $mail->setSubject('Shippment Restriction');
+                $mail->send();
+
+				
+			foreach($res_prods as $res_prod):
+				$cartHelper = Mage::helper('checkout/cart');
+    			$items = $cartHelper->getCart()->getItems();
+				foreach($items as $item):
+            		if($item->getProduct()->getId() == $res_prod):
+                		$itemId = $item->getItemId();
+                		$cartHelper->getCart()->removeItem($itemId)->save();
+					endif;
+				endforeach;
+			endforeach;
+			Mage::getSingleton('customer/session')->unsMyShipmentRestrictionProd();
+		//else:
+			//echo 'else'; exit;
+		endif;
+		
+		echo json_encode(array(
+			'session_value' => Mage::getSingleton('customer/session')->getMyShipmentRestriction(), 
+			'session_message' => Mage::getSingleton('customer/session')->getMyCusMessage()
+		));
+	}
+	public function addrelatedproductAction()
+	{
+		 	$this->loadLayout();
+			$this->renderLayout();		
+	}	
+	
+	/**
+	 * to update collection page price on chnage of quantity
+	 * 
+	 */
+	 public function qtyupdateAction() {
+	 	$qty = $this->getRequest()->getParam('qty');
+		$sku = $this->getRequest()->getParam('productsku');
+		$product = Mage::getModel('catalog/product')->loadByAttribute('sku',$sku);
+
+		if($product->getSpecialPrice()):
+			echo $price = $product->getSpecialPrice();
+		elseif(Mage::getModel('catalogrule/rule')->calcProductPriceRule($product,$product->getPrice())):
+			echo $price = Mage::getModel('catalogrule/rule')->calcProductPriceRule($product,$product->getPrice());
+		else:
+			echo $price = $product->getPrice();//number_format($product->getPrice(), '2', '.', ',');
+		endif;
+		//echo $product_sku;
+		//exit;
+	 }
+	 
+	 /**
+	  *  to update the price on the product view page
+	  * 
+	  */
+	  public function updatePriceOnProductView() {
+	  	$id  = $this->getRequest()->getParam('id');
+		$qty = $this->getRequest()->getParam('qty');
+		
+		$product	= Mage::getModel('catalog/product')->load($id);
+		echo $product->getFinalPrice();
+		exit;
+	  } 
+}

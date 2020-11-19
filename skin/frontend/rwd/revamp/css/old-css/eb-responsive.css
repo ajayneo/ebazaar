@@ -1,0 +1,1171 @@
+@media only screen and (max-width: 1115px){
+	.cms-home .main-navigation .main, .cms-home .banners-container .main, .cms-home .featured-products-container-inner .main, .brands-container, .eb-buying-advantage-container, .category-container, .cms-home .footer-container .main, .cms-home .guidelines-container .main, .cms-home .recently-viewed-container .main, .cms-home .top-brands-container .main, .top-brands .main{ width: 100%; padding: 0 20px; }
+	.page-header-container{ width: 100%; padding: 0 20px; max-width: 100%; }
+	.header-right{ width: 75%; }
+	.header-language-background .header-language-container{ max-width: 100%; padding: 0 20px; }
+	.eb-buying-advantage-container ul, .footer-payment{ width: 100%; max-width: 100%; }
+	/* .page-header-container{ padding-left: 20px; padding-right: 20px; } */
+	#header-nav{ width: 77%; }
+	/* #header-search{ width: 38%; } */
+	.nav-input.UI-NAV-INPUT{ width: 87%; }
+	/* .nav-inner nav > ul > li > a{ padding: 10px 15px 10px 45px; background: no-repeat 15px center; }
+	.nav-inner nav > ul > li.open-box > a{ padding-left: 65px; }
+	.nav-inner nav > ul > li.pre-owned > a{ padding-left: 70px; }
+	.nav-inner nav > ul > li.category2 > a{ padding-left: 68px; }
+	.nav-inner nav > ul > li.category3 > a{ padding-left: 60px; }
+	.nav-inner nav > ul > li.category4 > a{ padding-left: 55px; } */
+	.advantage-content p{ font-size: 18px; }
+	.footer-top h3{ font-size: 18px; }
+	.eb-buying-heading{ padding: 18px 0 0 15px; }
+	.eb-buying-heading h1{ font-size: 34px; line-height: 38px; }
+	.eb-buying-advantage-container ul li{ padding: 0 3%; font-size: 14px; }
+	.recently-viewed-container .products-grid li.item{ width: 240px !important; }
+	.guidelines-container li{ width: 36%; margin: 0 2% 0 0; }
+	.guidelines-container li:first-child{ width: 24%; }
+	.guidelines-container img{ width: 100%; }
+	.register-now-text{ font-size: 20px; }
+	.off-text{ font-size: 16px; }
+	.on-your-purchase{ font-size: 14px; }
+	.newsignup{ width: 124px; font-size: 12px; }
+	.brand-new-scheme{ font-size: 10px; }
+	.download-app-container .download-app-left{ width: 60%; }
+	.download-text{ font-size: 19px; }
+	.deals-text{ line-height: 12px; }
+	.download-app-container .download-app-right{ padding-right: 15px; }
+	.download-app-right img { width: 100%;}
+	.register-right{ padding-left: 20px; }
+	.eb-buying-advantage-container { padding: 0; width: 96%;}
+	.brands-heading::before, .brands-heading::after{ width: 100%; }
+	.recently-viewed-container .bx-viewport .products-grid .actions button.btn-cart:hover, .bx-viewport .products-grid .actions button.btn-cart:hover{ /* background-image: none; background-color: #3292d0; */ color: #ffffff; }
+
+	.category-container .upto-off{ width: 90px; height: 90px; padding: 20px 0 0 25px; line-height: 20px; font-size: 14px; }
+	.category-container .off-amt{ font-size: 20px; }
+	.category-container .text{ font-size: 16px; }
+	.category-container ul li a:hover .text{ bottom: 20px; }
+
+	/*Sell your gadget*/
+	.productContent{ width: 67%; }
+	.brand-price-content .brand-price { display: block; margin-left: 0;}
+
+	/*Download Mobile App*/
+	.download-mobile-app-container{ background-size: cover; }
+
+	/*Contact Us*/
+/*	.contact-information ul li{ width: 41%; }*/
+/*	.contact-information ul li:nth-child(2){ width: 31%; }*/
+/*	.contact-information ul li:first-child { width: 28%;}*/
+/*    new-contact css*/
+    .new-contact-information {
+        width: 67%;
+        float: left;
+    }    
+    /*    new-contact css ends*/
+
+	.apple-dealer-list-container .search-container{ width: 80%; }
+}
+
+@media only screen and (max-width: 1080px){
+	.main{ width: 100%; padding: 0 20px; }
+	.cms-home .main{ padding: 0; }
+	.cms-prepaid-off .main-container .main{ padding: 0; }
+	.prepaid-container .static-content{ width: 90%; margin: 20px auto 0; }
+	.stock-price-list-container-inner{ overflow-x: scroll; }
+	.cms-index-index.cms-home .banners-container .bx-wrapper .bx-next{ right: 20px; }
+	.cms-index-index.cms-home .banners-container .bx-wrapper .bx-prev{ left: 20px; }
+	/*Tracking*/
+	.shipment-tracking-content{ width: 80%; }
+}
+
+@media only screen and (max-width: 1024px){
+	/*Deals*/
+	.deals-heading{ top: -15px; }
+	.deals-heading img{ width: 420px; }
+	.deals-container .deals-list-content li{ width: 49%; }
+	.deals-container .deals-list-content li:nth-child(3n){ margin-right: 2%; }
+	.deals-container .deals-list-content li:nth-child(2n){ margin-right: 0; }
+
+	/*Contact Us*/
+	.contact-list img{ width: 500px; }
+	.contact-list li{ margin-bottom: 30px; }
+	.contact-list li textarea{ height: 120px; }
+
+	/*Download Mobile App*/
+	.download-mobile-app-container .page-title .title{ width: 50%; }
+	.download-mobile-app-container .mobile-app-download{ width: 40%; }
+	.download-mobile-app-container h1{ font-size: 60px; }
+	.download-mobile-app-container h1 span{ font-size: 45px; }
+	.download-mobile-app-container .mobile-app-download h2{ font-size: 35px; }
+	.download-mobile-app-container .mobile-app-download ul li{ width: 47%; margin-right: 5%; }
+	.download-mobile-app-container .mobile-app-download ul li:last-child{ margin-right: 0; }
+	.download-mobile-app-container .mobile-app-download ul li img{ width: 100%; }
+	.download-mobile-app-image{ padding-top: 50px; }
+	.download-mobile-app-content ul li{ font-size: 16px; }
+	.download-mobile-app-content-container{ margin-top: 20px; }
+
+	/*Gadget*/
+	.gadgetModuleContainer{ padding: 20px 0; }
+	ul.gadgetList li { margin: 0 1% 10px; width: 31%;}
+	ul.gadgetList li img{ width: 100%; }
+
+	/*Footer*/
+	.footer-content:nth-child(2n){ width: 100%; }
+	.quick-links ul li{ padding: 0 8px; }
+	.footer-logo{ float: none; margin: 0; padding: 0; border: 0; text-align: center; }
+	.footer-logo img{ display: inline-block; }
+	.payment-method-container{ float: none; width: 655px; margin: 15px auto 0; }
+
+	.banner-right li.eb-warranty-banner{ margin-bottom: 10px; }
+	.one-yr{ width: 32px; margin: 0 0 0 9px; }
+	.eb-warranty-for-all{ font-size: 16px; line-height: 20px; padding: 1px 0 0 15px; }
+	.warranty-preowned-products{ font-size: 16px; padding: 3px 0 10px 0; }
+	.banner-right .shop-now{ padding: 3px 0; margin: 3px auto; }
+	.lenovo-motorola-banner{ margin-bottom: 10px; }
+	.lenovo-smartphone .lenovo{ font-size: 16px; line-height: 20px; padding: 0 0 0 12px; }
+	.lenovo-smartphone .smart-phone{ margin: 0; }
+	.lenovo-shop-now{ padding: 5px 0 5px 10px; }
+	.buy-2-units{ width: 61%; }
+
+	.brands-content-container .brands-content .brand-title{ font-size: 20px; background: rgba(255,255,255,0.6); }
+}
+
+@media only screen and (max-width: 1023px){
+	.open-box-moto-container .pPrice{ float: none; margin: 0 0 10px 0; }
+	.open-box-moto-container .pButton{ float: none; }
+	.gadget-tabs li h2{ font-size: 30px; }
+}
+
+@media only screen and (min-width: 771px){
+	.logo{ width: 25%; max-width: inherit; }
+}
+
+@media only screen and (max-width: 770px){
+	.responsive-menu-icon{ display: block; float: left; margin: 1px 0 0 0; }
+	.more-links{ display: block; float: right; }
+	.page-header{ box-shadow: 0 0 5px rgba(0,0,0,0.3); }
+	.top-links{ display: none; background: #0e496a; position: absolute; width: 170px; top: 100%; right: 0; box-shadow: 0px 0px 10px rgba(0,0,0,0.5); z-index: 1;}
+	.header-language-background{ position: relative; }
+	.top-links li{ float: none; border: 0; padding: 10px 20px; border-bottom: 1px solid #156c9d; }
+	.top-links li:last-child { border-bottom: 0;}
+	.top-links li a{ padding-left: 30px; background-position: 2px 0; }
+	.top-links li.logout a{ padding-left: 30px; }
+	.page-header-container{ padding-top: 8px; padding-bottom: 4px; }
+	.logo{ width: 90px; }
+	.brand-logo{ width: 75px; }
+	.brand-logo ul li{ margin: 0; }
+	.brand-logo ul li img{ width: 100%; }
+
+	.apple-dealer-logo{ width: 70px; margin-top: 3px; }
+	.apple-dealer-logo img{ width: 100% }
+	.apple-dealer-list-container .search-container{ width: 100%; }
+	.apple-dealer-list-container .search-container input[type="text"]{ width: 92%; }
+
+	#nav ul li.menu-active > a{ background-color: #ffde12; color: #000000; }
+	#nav ul li.nav-1.menu-active > a{ background-image: url("../images/ebt/mobile-new-active.png"); }
+	#nav ul li.nav-2.menu-active > a{ background-image: url("../images/ebt/laptop-new-active.png"); }
+	#nav ul li.nav-3.menu-active > a{ background-image: url("../images/ebt/accessories-new-active.png"); }
+
+	.search-links{ display: block; }
+	.searchautocomplete{ top: 0; }
+	#nav .close-button { display: block;}
+	#header-nav{ background: rgba(0,0,0,.8); position: fixed; top: 0; left: 0; width: 100%; height: 100%; padding: 0; z-index: 100; }
+	.nav-inner nav .close-button { color: #3292d0; background: #ffffff; border-radius: 50%; width: 35px; height: 35px; text-align: center; line-height: 36px; right: -16px; box-shadow: 0 0 10px rgba(0,0,0,.3);}
+	.nav-inner nav{ width: 250px; background: #3292d0; height: 100%; padding: 50px 0 0 0; position: absolute; left: -250px; transition: 0.5s ease-in; }
+	.nav-inner nav.active{ left: 0; transition: 0.5s ease-out; }
+	.nav-inner nav > ul > li{ float: none; background: none; border-bottom: 1px solid #3db3ff; }
+	.nav-inner nav > ul > li > a{ padding-left: 60px; }
+	.nav-inner nav > ul > li.open-box > a{ padding-left: 70px; }
+	.nav-inner nav > ul > li.new > a{ background-position: 19px center; }
+	.nav-inner nav > ul > li.deals > a{ background-position: 19px center; }
+	.nav-inner nav > ul > li.nav-1 > a{ background-position: 27px center; }
+	.nav-inner nav > ul > li.nav-2 > a{ padding-left: 60px; }
+	.nav-inner nav > ul > li.nav-3 > a{ background-position: 21px center; padding-left: 60px; }
+	.nav-inner nav > ul > li.nav-4 > a{ background-position: 23px center; }
+	.nav-inner nav .submenu{ position: static; width: 100%; top: inherit; left: inherit; padding-left: 70px; }
+	.nav-primary .menu-active > ul.level0, .nav-primary li.level0 li.sub-menu-active > ul{ position: static; width: 100%; }
+	.nav-primary li.parent.sub-menu-active > a:after, .nav-primary li.parent.menu-active > a:after, .nav-primary li.parent > a:after{ border: 0; }
+	#header-search .nav{ margin-top: 0; border-radius: 0; }
+	#header-search { display: block; position: absolute; top: 30px; width: 100%; left: 0; box-shadow: 0 0 10px rgba(0,0,0,0.2); transform:scale(0,0); transition: 0.5s ease-in;}
+	#header-search.active{ transform:scale(1,1); transition: 0.5s ease-out; }
+	.nav-input.UI-NAV-INPUT{ width: 85%; }
+
+	.banner-left{ width: 100%; float: none; }
+	.banner-right{ width: 100%; float: none; margin-top: 10px; }
+	.banner-top-container .bx-pager.bx-default-pager{ bottom: 0; }
+	/*.eb-warranty-desktop{ display: none; }*/
+	.eb-warranty-mobile{ display: block; }
+	.banner-right li{ float: left; width: 32%; margin-right: 2%; margin-bottom: 0; }
+	.banner-right li.eb-warranty-banner{ margin-right: 2%; }
+	.banner-right li:last-child{ margin-right: 0; }
+	.banners-container{ margin-bottom: 10px; }
+
+	.brands-content-container .brands-content, .brands-content-container.hot-selling-1 .brands-content, .brands-content-container.hot-selling-2 .brands-content, .brands-content-container.hot-selling-3 .brands-content{ width: 100%; float: none; border: 0; }
+	.eb-buying-heading h1{ font-size: 22px; line-height: 28px; margin-top: 20px; }
+	.eb-buying-heading{ padding: 9px 0 0 10px; }
+	.eb-buying-advantage-container ul li{ padding: 0 2%; font-size: 14px; }
+	/* .cms-home .recently-viewed-container .main{ padding: 0; } */
+	.recently-viewed-container .bx-wrapper{ width: 93%; margin: 0 auto; }
+	.brands-container{ padding: 0; }
+	.cms-home .top-brands-container .main{ padding: 0; }
+	.top-brands-content, .top-brands-content .brands-slider{ width: 93%; margin: 0 auto; }
+
+	.category-container .upto-off{ width: 80px; height: 80px; line-height: 18px; font-size: 13px; padding: 18px 0 0 22px; }
+	.category-container .off-amt{ font-size: 22px; }
+	.category-container .text{  font-size: 15px; bottom: 10px; }
+
+	.main-container{ padding-top: 95px; }
+	.breadcrumbs li{ font-size: 12px; }
+	.deals-container{ margin-top: 20px; }
+
+	/*return order*/
+	.bank-details, .shipping-address{ float: none; width: 100%; }
+	.shipping-address{ margin: 20px 0 0 0; }
+	.address-field textarea{ height: 100px; }
+	.order-list-container { overflow-y: hidden;}
+	.order-container .form-list label{ float: none; width: 100%; }
+	.order-container .form-list .input-box{ float: none; width: 100%; margin: 5px 0 0 0; }
+
+	/*product*/
+	/* .product-section-left{ float: none; width: 100%; } */
+	/* .product-section-right{ float: none; width: 100%; margin: 20px 0 0 0; } */
+	.grade-container{ margin: 20px 0 0 0; }
+	.specification-content-container ul li{ width: 100%; float: none; padding: 0; border: 0; margin: 0 0 10px 0; }
+	.specification-content-container ul li:nth-child(2n){ padding: 0; border-left: 0; margin-left: 0; }
+	.catalog-category-view .col2-left-layout .col-left{ margin: 0 0 20px 0; width: 100%; }
+	.toolbar{ padding: 0; margin: 0; }
+	.sorter label{ margin: 0 10px 0 0; }
+
+	/*Listing page*/
+	.catalogsearch-result-index .block-title { display: none;}
+	.catalogsearch-result-index .page-title{ padding: 0; }
+	body.catalogsearch-result-index .page-title h1{ font-size: 14px; padding: 0; text-transform: none;}
+	.catalogsearch-result-index .block-layered-nav .block-content{ float: none; }
+	.catalogsearch-result-index .col-left.sidebar.col-left-first{ margin-bottom: 10px; }
+	.catalogsearch-result-index .page-title{ margin-bottom: 10px; }
+	.products-grid .product-name a, .products-list .product-name a{ font-size: 14px; }
+	.toolbar-bottom .pager{ margin-bottom: 0; }
+
+	/*category*/
+	.block-layered-nav .block-content > dl > dt:after{ border-left:4px solid #707070; }
+	.catalog-category-view .block-layered-nav .block-title{ display: none; }
+	.block-layered-nav .block-subtitle--filter{ background: #ffde12; color: #333333; font-weight: bold; text-transform: uppercase; }
+	.block-layered-nav .block-subtitle--filter:after{ border-left: 4px solid #333333; }
+
+	/*Warranty*/
+	.eb-warranty-container{ width: 48%; }
+	.warranty-service-center{ width: 48%; }
+	.eb-warranty-container h2, .warranty-service-center h2{ font-size: 26px; }
+	.warranty-eb-service-content h3{ font-size: 35px; margin: 60px 0 10px 0; }
+	.warranty-container .static-content .warranty-eb-service-content p{ font-size: 22px; }
+	.warranty-inner-eb-seriver-content{ padding: 0 10px; }
+
+	.warranty-container .page-title h1, .warranty-container h1{ font-size: 19px; margin: 0; }
+	.eb-warranty-container{ width: 100%; float: none; }
+	.warranty-service-center{ width: 100%; float: none; margin: 40px 0 0 0; }
+	.eb-warranty-container h2, .warranty-service-center h2{ font-size: 22px; margin-bottom: 20px; }
+	.warranty-eb-service-content{ margin-top: 60px; }
+	.warranty-eb-service-content h3{ font-size: 24px; }
+	.warranty-container .static-content .warranty-eb-service-content p { font-size: 18px; margin-bottom: 15px;}
+	.power-safty-warning { margin: 30px 0 20px 0;}
+	.warranty-table-container h3{ font-size: 18px; }
+
+	.warranty-container-mobile-app.warranty-container .page-title h1, .warranty-container-mobile-app.warranty-container h1{ margin-bottom: 20px; }
+	.warranty-container-mobile-app .eb-warranty-container h2{ font-size: 20px; }
+	.warranty-table-container h3 { font-size: 15px;}
+	.warranty-container-mobile-app.warranty-container h1 { margin-bottom: 10px; }
+	.warranty-service-list-container h5{ font-size: 16px; }
+
+	/*EB Service Center*/
+	.service-center-search{ width: 100%; }
+	.service-center-search .search-btn{ width: 25%; }
+	.service-center-content{ overflow-x: scroll; }
+
+	/*Contact Us*/
+	.contact-info .contact-content, .contact-info .top-contact-info{ padding-left: 30px; }
+	.contact-list img{ width: 360px; bottom: -70px; }
+	.contact-list li textarea{ height: 90px; }
+	.contact-list li{ margin-bottom: 20px; }
+	.contact-info .contact-image{ width: 250px; }
+	.contact-info .contact-image img { width: 100%;}
+
+	/*Gadget*/
+	ul.mobileList li, .apple-dealer-list-container ul.mobileList li{ width: 45%; margin-right: 3%; }
+	ul.mobileList > li:nth-child(3n), .apple-dealer-list-container ul.mobileList > li:nth-child(3n){ margin-right: 3%; }
+	ul.mobileList li:nth-child(2n), .apple-dealer-list-container ul.mobileList li:nth-child(2n){ margin-right: 0; }
+	.productContent{ width: 72%; }
+	.gadget-view .storage .label label{ min-width: inherit; }
+
+	/*Footer*/
+	.footer-top h3{ font-size: 16px; }
+	.payment-method-container{ width: 100%; }
+
+	/*Privacy Policy*/
+	.cms-privacy-policy h1{ padding: 0; }
+
+	.col-1.registered-users, .col-2.new-users{ width: 100%; }
+
+	/*Contact Us*/
+	.contact-information ul li{ width: 100%; float: none; border-right: 0; border-bottom: 1px solid #b6b6b6; min-height: inherit; padding: 20px; }
+	.contact-information ul li:first-child, .contact-information ul li:nth-child(2){ width: 100%; }
+	.contact-information ul li:last-child{ border-bottom: 0; }
+	.contact-information p { font-size: 14px; }
+	.contact-information h2{ font-size: 16px; }
+
+	/*Prepaid off*/
+	.cms-prepaid-off .main-container{ padding-top: 72px; }
+	.cms-prepaid-off .main-container .main{ padding: 0; }
+	.prepaid-container .static-content{ width: 90%; }
+
+	/*Tracking*/
+	.shipment-tracking-content{ width: 100%; }
+	.shipemnt-delivered h2{ font-size: 14px; }
+	.shipment-tracking-content-container{ clear: both; }
+	.ordered-date{ float: none; margin: 0 0 10px 0; }
+	.shipped-date{ float: none; margin: 0 0 10px 0; }
+	.shipment-tracking-address{ float: none; text-align: left; width: 100%; }
+	.shipment-bar{ float: right; width: 35px; height: 300px; }
+	.bar-bottom{ width: 100%; float: none; }
+	.shipped-date span.arrow{ display: none; }
+	.shipment-tracking-status .left{ float: none; width: 100%; }
+	.shipment-tracking-status .right{ float: none; width: 100%; }
+	.ordered-date span, .shipped-date span{ margin: 0; }
+	.shipment-bar-container{ margin-bottom: 10px; }
+	.tracking_status{ float: none; margin: 0 0 10px 0; }
+	.tracking_status span.arrow{ display: none; }
+	.shipment-bar{ display: none; }
+
+	.apple-dealer-login-container{ width: 100%; }
+
+	.moto-product-list-container .list-content{ width: 100%; float: none; }
+	.open-box-moto-container .list-price{ float: none; padding: 10px 0 0 0; }
+	.open-box-moto-container .pName{ font-size: 16px; }
+	.open-box-moto-container .pPrice{ font-size: 18px; }
+	.open-box-moto-container .pButton submit{ font-size: 14px; }	
+}
+
+@media only screen and (max-width: 768px){
+	/*EB Advantages*/
+	.advantage-icon{ width: 18%; height: 200px; }
+	.advantage-content, .advantage-content-inner{ height: 190px; }
+	.advantage-content-inner{ padding-top: 20px; }
+	.advantage-content{ width: 82%; }
+	.col2-left-layout .col-main{ width: 100%; float: none; margin: 20px 0 0 0; }
+
+	/*Pre Owned Products Guidelines*/
+	.pre-owned-product-container .page-title .title{ padding: 15px 0 0 30px; }
+	.pre-style.certified { font-size: 35px;}
+	.pre-owned-product-container h1{ font-size: 40px; line-height: 50px; }
+	.pre-owned-image{ width: 170px; }
+	.pre-owned-image img{ width: 100%; }
+	.pre-owned-content-container h2{ font-size: 22px; }
+	.pre-owned-content-container p{ font-size: 16px; line-height: 22px; }
+	.journey-content{ font-size: 16px; }
+	.pre-owned-device-journey{ margin: 25px 0 30px 0; }
+	.pre-owned-device-journey li{ margin: 0 2.5% 0 0; width: 18%; }
+	.pre-owned-device-journey li:last-child { margin-right: 0;}
+	.feature-list li{ font-size: 16px; }
+
+	/*Pre Owned Mobile*/
+	.pre-owned-products li{ margin-right: 8px; }
+	.pre-owned-mobile .pre-owned-image{ width: 120px; }
+	.pre-owned-products li{ width: 23%; }
+	.pre-owned-products li img{ width: 100%; }
+	.pre-owned-content-container h3, .pre-owned-content-container h4{ font-size: 22px; }
+	.pre-owned-mobile .pre-style.certified{ font-size: 40px; }
+
+	/*Download Mobile App*/
+	.download-mobile-app-container .page-title{ padding: 0; }
+	.download-mobile-app-container .mobile-app-download{ width: 40%; margin-top: 15px; }
+	.download-mobile-app-container .mobile-app-download ul li{ width: 45%; }
+	.download-mobile-app-container h1{ font-size: 45px; }
+	.download-mobile-app-container h1 span{ font-size: 30px; }
+	.download-mobile-app-container .mobile-app-download h2{ font-size: 30px; margin-bottom: 10px; }
+	.download-mobile-app-content ul li{ font-size: 14px; padding: 10px; margin-bottom: 15px; line-height: 18px; }
+
+
+}
+
+@media only screen and (max-width: 767px){
+	.banner-bottom-container ul li{ float: none; width: 100%; margin: 0 0 20px 0; }
+	.banner-bottom-container ul li:last-child{ margin-bottom: 0; }
+	.download-app-container .download-app-right{ width: 140px; }
+	.download-app-container .download-app-left{ width: 50%; }
+	.banner-right li{ width: 100%; float: none; margin: 0; }
+	.banner-right li.eb-warranty-mobile{ margin-bottom: 20px; }
+	.banner-right li.gsti-container-mobile{ margin-bottom: 20px; }
+	.eb-buying-advantage-container ul li{ font-size: 14px; }
+
+	/*Product*/
+	.product-view .product-img-box{ float: none; width: 100%; }
+	.product-view .product-shop{ float: none; width: 100%; padding: 0; margin: 20px 0 0 0; }
+	.product-view .product-shop .short-description .strong{ margin: 0 0 10px 0; }
+	.product-view .product-shop .price-box .mrp-price, .product-view .product-shop .price-box .old-price{ margin: 0 0 20px 0; }
+	.price-box .special-price{ float: none; display: block; }
+	/* .feature-title{ float: none; width: 100%; } */
+	/* .feature-content{ float: none; width: 100%; } */
+	.category-products .products-grid li.item{ min-height: 380px; }
+	.product-section-left .quanity-left{ float: none; width: 100%; margin: 0 0 20px 0; }
+	.product-section-left .warranty-container{ float: none; width: 100%; }
+
+	/*EB Advantages*/
+	.advantage-icon{ width: 100%; float: none; height: inherit; line-height: inherit; padding: 20px; border: none; }
+	.advantage-content{ width: 100%; float: none; height: inherit; }
+	.advantage-content-inner{ height: inherit; box-shadow: 0 1.35px 3.76px 0.24px rgba(0, 0, 0, 0.24); }
+
+	/*Login & Register Popup*/
+	.login-register-container, .gst-popup-content{ width: 90%; padding-top: 35px; }
+	.login-register-container .login-register-tabs{ padding: 0 35px; }
+	.gst-popup-content h1{ margin-top: 0; font-size: 21px; }
+	.gst-popup-content{ padding: 20px; }
+
+	/*Deals*/
+	.sale-list-container{ margin-top: 40px; }
+	.deals-heading{ top: -13px; }
+	.deals-heading img{ width: 360px; }
+	.deals-container .deals-list-content li .deal-content p{ font-size: 14px; }
+	.sale-list-heading h1{ font-size: 20px; padding-bottom: 2px; }
+	.deal-content .price{ font-size: 18px; }
+
+	/*category*/
+	.recently-viewed-container .products-grid .actions button span{ font-size: 12px; }
+	.recently-viewed-container .products-grid .product-name a, .recently-viewed-container .products-list .product-name a{ font-size: 18px; }
+	.pages{ float: none; }
+	.pager p.amount { margin-top: 7px;}
+	.my-account-pg .pager{ margin-top: 10px; }
+	.sorter{ float: none; width: 100%; margin: 10px 0 0 0; }
+	.pager{ float: none; width: 100%; margin: 0; }
+
+	/*Pre Owned Products Guidelines*/
+	.pre-owned-device-journey li{ margin-bottom: 30px; }
+
+	/*Pre Owned Mobile*/
+	.pre-owned-mobile .pre-owned-image{ right: 20px; }
+
+	/*Download Mobile App*/
+	.download-mobile-app-container h1{ font-size: 40px; }
+	.download-mobile-app-container .mobile-app-download h2{ font-size: 23px; }
+	.download-mobile-app-content ul li{ font-size: 13px; }
+
+	/*GST Page*/
+	.gst-popup-inner-container .gst-popup-content{ width: 100%; }
+	.gst-popup-inner-container .gst-popup-content ul li{ float: none; width: 100%; }
+	.gst-popup-content .bttton.submit{ width: 100%; font-size: 16px; }
+	.gst-popup-inner-container{ padding: 20px; }
+	.gst-popup-inner-container .gst-popup-content h1{ font-size: 18px; margin-bottom: 15px; }
+	.gst-popup-content label{ font-size: 15px; }
+	.gst-popup-inner-container .gst-popup-content ul li{ margin-bottom: 10px; }
+
+	/*footer*/
+	.footer-content{ width: 100%; float: none; }
+	.footer-content:nth-child(2n){ width: 100%; float: none; border: 0; padding: 20px 0; min-height: inherit; margin: 0 0 20px 0; }
+	.footer-content:last-child{ padding: 0; }
+	.payment-method li{ margin-right: 15px; }
+	.footer-top li{ font-size: 15px; }
+	.footer-top h3{ float: none; margin: 0 0 10px 0; }
+	.payment-method-container{ text-align: center; }
+	.payment-method-container ul li{ float: none; }
+	.payment-method-container ul{ float: none; }
+	.footer-content:nth-child(2n){ margin-bottom: 0; }
+
+	/*About Us*/
+	.content-list-container .content-list{ width: 100%; margin-right: 0; padding: 0 20px; margin-bottom: 70px; min-height: inherit; }
+	.content-list-container{ margin-top: 80px; margin-bottom: 20px; }
+	.content-list-container .content-list h2{ margin-top: 60px; }
+	.content-list-container .content-list:last-child{ margin-bottom: 0; }
+
+	/*My Acoount*/
+	.dashboard .box-account.box-recent{ overflow-x: scroll; }
+
+	/*Gadget Dtail Order*/
+	.gadget-index-detail .order-detail-container .order-detail .left{ width: 100%; float: none; }
+	.gadget-index-detail .order-detail-container .order-detail .right{ width: 100%; float: none; margin: 15px 0 0 0; }
+	.gadget-index-detail .order-detail{ margin-bottom: 15px; }
+
+	.new-gadget-container{ padding: 30px 0; }
+	.new-gadget-container h1{ font-size: 18px; }
+	.gadget-tabs{ padding: 0; }
+	.gadget-tabs li{ padding: 20px; }
+	.gadget-tabs li h2{ font-size: 18px; }
+	.gadget-brand-list li{ width: 45px; }
+	.gadget-brand-list li + li{ margin-left: 5px; }
+	.gadget-brand__box img{ width: 80%; }
+	.gadget-brand__title{ font-size: 12px; }
+	.brand-title h3{ padding-bottom: 5px; }
+	.brand-title h3::after{ bottom: -13px; }
+	.gadget-brand__box{ height: 80px; }
+	.new-gadget-brand-form{ padding: 20px; }
+	.gadget-brand-form li > label{ margin: 0 0 5px 0; }
+	.gadget-brand-form li > label, .gadget-brand-form li .input-field{ float: none; width: 100%; font-size: 14px; }
+	.gadget-brand-form li select{ font-size: 14px; height: 30px; }
+	.gadget-brand--content__left{ float: none; width: 100%; }
+	.gadget-brand-form li + li{ margin-top: 10px; }
+	.gadget-brand--content__right{ float: none; width: 100%; }
+	.gadget-brand-form-mobile li .input-field .radio label{ width: 88%; }
+	.gadget-mobile-brand-content{ background-size: contain; padding-bottom: 150px; }
+	.gadget-brand-form-button .submit-btn{ width: 100%; font-size: 15px; height: 40px; margin-top: 15px; }
+	.new-gadget-popup-inner-content{ width: 90%; }
+	.help-icon{ right: -8px; }
+	.gadget-mobile-brand-content .brand-offer-detail, .brand-offer-detail{ position: static; margin-top: 15px; }
+	.brand-offer-detail .brand-get-upto{ font-size: 20px; }
+	.brand-offer-detail .brand-prices{ font-size: 25px; }
+	.inner-input-field { width: 90%;}
+	.gadget-laptop--content .new-gadget-brand-form{ padding-bottom: 170px; background-position: bottom center; }
+	.gadget-thank-you-page{ padding: 30px 30px 100px; }
+	.thank-you-img{ width: 180px; }
+	.gadget-thank-you-page__text p{ font-size: 14px; line-height:20px; }
+	.thank-you-page__text__order-id{ display: block; margin: 15px 0 0 0; }
+	.gadget-icon-bg-btm img{ width: 100px; margin: 0; }
+	.gadget-icon-bg-btm{ text-align: center; }
+	.gadget-icon-bg-btm::before{ width: 100%; z-index: -1; }
+	.gadget-icon-bg-btm::after{ display: none; }
+	.new-gadget-container h1{ font-size: 18px; padding-bottom: 5px; }
+	.bank-details-content, .bank-price-content{ float: none; width: 100%; }
+	.new-gadget-bank-details label{ width: 43%; margin: 0 0 5px 0; font-size: 14px; }
+	.bank-details-content .description{ width: 57%; margin: 0; padding: 0; font-size: 14px; }
+	.bank-details-content label::after{ position: static; }
+	.bank-price-content{ padding-top: 20px; }
+	.bank-price-content .brand-get-upto{ font-size: 18px; }
+	.gadget-icon img{ width: 90px; margin: 0; }
+	.new-gadget-bank-details .gadget-icon{ text-align: center; }
+	.bank-price-content .device-prices{ font-size: 25px; }
+	.bank-details-inner-container{ padding-bottom: 80px; }
+	.gadget-icon::before{ bottom: 24px; height: 4px; }
+	.bank-container, .address-container{ width: 100%; float: none; }
+	.new-gadget-bank-details .bank-container label, .new-gadget-bank-details .address-container label{ width: 100%; float: none; }	
+	.new-gadget-login-signup .checkboxContainer{ float: none; }
+	.gadget-home-page-banner img{ width: 100%; }
+	.gadget-home-page-banner{ min-height: inherit; margin-bottom: 30px; }
+	.gadget-home-page-banner-title{ top: 10px; font-size: 22px; line-height: 25px; left: 10px; }
+	.how-to-sell--list li{ width: 100%; float: none; margin: 0 0 30px 0; }
+	.how-to-sell--list__icon{ margin-bottom: 20px; }
+	.gadget-home-page-pincode .gadget-brand-form li .input-field .pincode-field{ width: 100%; text-align: center; margin-bottom: 20px; }
+	.how-to-sell--list-down-arrow, .how-to-sell--list-up-arrow{ display: none; }
+	.how-to-sell--list{ margin-bottom: 15px; }
+	.gadget-home-page-pincode__headline{ font-size: 14px; }
+	.gadget-home-page-pincode{ padding: 20px; }
+	.bank-details-content .gadget-order-details label, .bank-details-content .gadget-order-details .description{ font-size: 15px; }
+	.sales-history-container .bank-details-content .gadget-order-details ul li{ width: 100%; }
+	.gadget-order-details{ padding: 0 20px; }
+	.sales-history-container .bank-details-content ul li{ width: 100%; }
+	.new-gadget-popup-inner-content{ padding: 40px 20px 150px 30px; }
+	.new-gadget-popup-inner-content ul li h2{ font-size: 15px; }
+	.new-gadget-popup-inner-content ul li p{ font-size: 14px; }
+	.new-gadget-popup-inner-content { padding: 40px 0 20px 0; height: 280px; overflow-y: scroll;}
+	.new-gadget-close-popup{ top: 10px; right: 10px; }
+	.new-gadget-popup-inner-content h1{ font-size: 18px; padding: 0 20px 15px; }
+	.new-gadget-popup-inner-content ul{ padding: 0 20px; }
+	.new-gadget-popup-container .gadget-icon{ position: relative; margin-top: 30px; }
+	.popup-mobile .gadget-icon img{ width: 50px; margin-right: 30px; }
+	.popup-mobile .gadget-icon::before{ bottom: 33px; }
+	.popup-laptop .gadget-icon img{ margin-right: 30px; }
+   }
+
+@media only screen and (min-width: 480px){
+	.recently-viewed-container .products-grid > li{ margin-right: 30px; }
+	.recently-viewed-container .products-grid > li:nth-child(3n){ margin-right: 30px; }
+	.recently-viewed-container .products-grid > li:nth-child(3n+1) {clear: none;}
+	.featured-products .products-grid > li{ margin-right: 30px; }
+	.featured-products .products-grid > li:nth-child(3n){ margin-right: 30px; }
+	.featured-products .products-grid > li:nth-child(3n+1) {clear: none;}
+/* 	.category-products .products-grid > li{ width: 33%; } */
+	/* .category-products .products-grid > li:nth-child(3n){ border-right: 0; }
+	.category-products .products-grid > li:nth-child(3n) .item-container{ border-right: 0; } */
+}
+
+@media only screen and (max-width: 600px){
+	.login-register-container .register-container li{ width: 100%; float: none; margin-right: 0; }
+
+	.banner-top-container .bx-wrapper .bx-pager.bx-default-pager a{ width: 8px; height: 8px; margin: 0 5px; }
+	.banners-container .bx-wrapper .bx-controls-direction a{ width: 15px; height: 15px; }
+
+	.register-now-container{ height: inherit; }
+	.register-left{ width: 45%; height: 91px; padding-left: 10px; }
+	.register-right{ width: 55%; height: 91px; padding: 2px 0 0 0; }
+	.coupon-code{ font-size: 17px; }
+	.brand-new-scheme{ font-size: 13px; padding: 5px 0; }
+	.download-app-container{ height: 105px; }
+	.register-now-text{ font-size: 19px; line-height: 24px; }
+	.off-text{ font-size: 20px; background-image: url("../images/ebt/rupees-mobile.png"); padding-left: 15px; }
+	.on-your-purchase{ font-size: 23px; line-height: 17px; }
+	.newsignup{ width: 130px; }
+	.download-app-container .download-app-left{ padding-left: 10px; }
+	.download-app-container .download-app-left p{ font-size: 18px; }
+	.download-app-container .download-app-left p a{ line-height: 21px; }
+	.download-text{ font-size: 18px; line-height: 20px; display: block; }
+	.download-app-container .download-app-right { width: 112px; padding-top: 10px;}
+	.download-app-container .download-app-left{ width: 57%; }
+	.mobile-app-icon{ width: 40px; height: 40px; }
+	.mobile-app-icon img { width: 100%;}
+	.banner-right li.eb-warranty-mobile{ height: 140px; }
+	.brands-heading h2{ font-size: 20px; line-height: 30px; padding: 0 40px; }
+	.brands-heading h2:before, .brands-heading h2:after{ top: 0; }
+	.eb-warranty-mobile .warranty-left{ width: 45%; padding: 35px 5px 0 5px; }
+	.eb-warranty-mobile .eb-click{ padding-top: 2px; }
+	.eb-warranty-mobile .warranty-right{ width: 55%; padding: 10px 10px 0 10px; }
+	.eb-warranty-mobile .eb-left{ font-size: 50px; line-height: 40px; }
+	.eb-warranty-mobile .eb-right{ font-size: 16px; line-height: 22px; }
+	.eb-warranty-mobile .warranty-mobile{ font-size: 20px; line-height: 35px; }
+	.eb-warranty-mobile .warranty-laptop{ font-size: 20px; line-height: 35px; }
+	.brands-content-container .brands-content h3{ font-size: 20px; margin-bottom: 10px; }
+	.brands-content-container .brands-content{ padding: 20px; }
+	.brands-content-container .brands-content:last-child { padding-top: 0;}
+	.brands-content-container .brands-content ul li{ width: 100%; float: none; margin: 0 0 10px 0; }
+	.brands-content-container .brands-content ul li:last-child{ margin-bottom: 0; }
+	.eb-buying-advantage-container{ width: 90%; }
+	.eb-buying-heading{ width: 100%; height: 100px; float: none; padding-left: 40px; }
+	.eb-buying-heading h1{ width: 190px; font-size: 32px; line-height: 35px; margin-top: 8px; }
+	.eb-buying-advantage-container ul{ width: 100%; float: none; }
+	.remember-me{ float: none; }
+	.forgot-password{ float: none; }
+	.login-register-container .login-register-tabs li{ font-size: 20px; }
+	.login-register-container .login-register-tabs{ height: 33px; }
+	.header-right .toll-free-number-container{ display: none; }
+
+	.deals-link-container{ height: 105px; border: 2px solid #c7c5c5; font-size: 40px; }
+	.deals-text3{ font-size: 40px; }
+	.deals-text{ line-height: 25px; }
+	.deals-link-container a{ padding-top: 16px; }
+	.eb-warranty-mobile .eb-warranty-top{ padding: 2px 0; }
+	
+	.page-header-container .gsti-container{ display: none; }
+	.gsti-container{ float: none; width: 100%; }
+	.banner-right li.gsti-container-mobile{ margin-bottom: 20px; }
+	.gsti-container .gst-submit{ font-size: 16px; }
+	.gsti-container span{ line-height: 20px; }
+	.gsti-container .gst-number{ font-size: 20px; line-height: 22px; }
+	.banner-right .gsti-container, .gsti-container-mobile{ display: block; height: 105px; }
+	.gsti-container a{ height: 100%; }
+	.gsti-container .gsti-click{ height: 100%; background-image: url("../images/ebt/gsti-background-mobile.jpg"); font-size: 25px; line-height: 24px; padding: 16px 10px; }
+	.gsti-container .gst-identification{ font-size: 25px; line-height: 26px; padding-top: 15px; }
+
+	.toll-free-mobile{ display: none; margin-left: 15px; }
+	.toll-free-number-container .dial { color: #ffffff; display: none;}
+	.toll-free-number-container .dial-number { color: #ffffff; font-size: 11px; background-image: url("../images/ebt/phone2.png"); padding-left: 18px;}
+	.toll-free-number-container .emailid a { color: #ffffff;}
+	.responsive-menu-icon{ margin-top: 7px; }
+	.more-links{ margin-top: 6px; }
+	.search-links{ margin-top: 8px; }
+	#header-search{ top: 44px; }
+
+	.banner-right li.eb-warranty-banner{ margin-bottom: 20px; }
+	.banner-right li.lenovo-motorola-banner{ margin-bottom: 20px; }
+
+	.category-container ul li{ width: 100%; margin: 0 0 10px 0; }
+	.category-container ul li:last-child{ margin-bottom: 0; }
+	.category-container{ margin-bottom: 0; }
+	.eb-buying-advantage-container ul li{ width: 50%; margin-bottom: 20px; }
+	.eb-buying-advantage-container ul li:last-child{ border-right: 1px solid #7f7f7f; }
+	.eb-buying-advantage-container ul li:nth-child(2n){ border-right: 0; }
+	.recently-viewed-container .products-grid li.item, .recently-viewed-container .products-grid li.item, .featured-products-container .products-grid li.item{ width: 275px !important; margin-right: 40px !important; }
+	.guidelines-container li{ width: 100%; float: none; margin: 0 0 10px 0; }
+	.guidelines-container li:first-child{ width: 100%; }
+	.recently-viewed-container .bx-wrapper{ width: 85%; }
+
+	.category-container .text { font-size: 20px; bottom: 15px;}
+	.category-container .upto-off{ width: 110px; height: 110px; font-size: 20px; line-height: 25px; padding: 22px 0 0 27px; }
+	.category-container .off-amt{ font-size: 30px; }
+
+	/*Top Brands*/
+	.top-brands .main{ padding: 0; }
+	.top-brands-container{ margin: 0 20px; }
+
+	/*product*/
+	.pager .limiter{ float: none; }
+	.inner-products-category .products-grid{ padding: 0; }
+	.details-specification-container .specification-title{ background-position: 95% center; }
+	.details-specification-container .specification-title h2{ font-size: 16px; }
+	.login-register-container .input-box select{ font-size: 14px; }
+	.category-description{ margin-top: 10px; }
+	.product-view .product-essential .product-name h1{ font-size: 16px; line-height: 24px; }
+	.product-view .product-essential .product-name, .product-view .product-essential .product-name{ margin-bottom: 10px; }
+	.product-view .product-shop .short-description .strong{ font-size: 15px; margin-bottom: 5px; }
+	.quantity-container .qty-label label, .product-section-left .warranty-container .warranty-title{ font-size: 15px; }
+	.product-details-content{ margin-top: 10px; }
+	.product-view .product-shop .price-info{ margin-top: 20px; }
+	.product-view .product-shop .btn-section{ margin-top: 20px; }
+	.product-view .product-shop .price-box .regular-price .price, .product-view .product-shop .price-box .special-price .price{ font-size: 22px; margin-left: 0; }
+	.btn-section button.submit{ font-size: 16px; }
+	.availability-container p{ font-size: 15px; }
+	.grade-title, .warranty-title{ font-size: 15px; }
+	.grade-content{ font-size: 14px; }
+
+	/*EB Advantages*/
+	.eb-advantages-container h1{ font-size: 25px; }
+	.advantage-content h2{ font-size: 18px; }
+	.advantage-content p{ font-size: 15px; }
+
+	/*Deals*/
+	.deals-heading{ top: -8px; }
+	.sale-list-container{ margin-top: 30px; }
+	.sale-list-heading h1{ font-size: 16px; margin-bottom: 0; }
+	.deals-heading img{ width: 240px; }
+	.deals-container .deals-list-content li{ width: 100%; margin: 0 0 20px 0; }
+	.deals-container .deals-list-content li:nth-child(3n){ margin-right: 0; }
+	.deal-content .price{ float: none; }
+	.deal-content .buy-now-btn{ float: none; }
+	.deal-content .buy-now-btn a{ display: inline-block; }
+	.deals-bottom{ position: static; }
+	.deals-container .deals-list-content li .deal-content{ height: inherit; }
+	.deals-container .deals-list-content li .deal-image{ width: 30%; padding: 0 5px; }
+	.deals-container .deals-list-content li .deal-content{ padding-left: 10px; margin: 0 0px 0px -1px; border-left: 1px solid #afafaf; float: left; }
+	.deals-container .deals-list-content li .deal-content p{ line-height: 20px; margin-top: 0; }
+
+	.products-grid > li:nth-child(odd){ clear: none; }
+	.recently-viewed-container .products-grid li.item{ width: 248px !important; }
+
+	/*Category*/
+	.limiter select{ width: 52px; }
+	.sorter > .sort-by{ float: none; }
+	.toolbar{ position: relative; margin-bottom: 10px; }
+	.pages li.preivous-icon{ margin-right: 2px; }
+	.modes-mode{ margin-right: 2px; }
+	.count-container .modes{ margin-right: 20px; }
+
+	/*Pre Owned Products Guidelines*/
+	.pre-owned-device-journey li{ width: 50%; margin: 0 0 30px 0; }
+	.journey-content{ margin-top: 15px; }
+	.pre-owned-product-container h1{ font-size: 32px; line-height: 45px; }
+	.pre-style.certified{ font-size: 30px; }
+	.pre-owned-product-container .page-title .title{ padding-top: 20px; }
+
+	/*Pre Owned Mobile*/
+	.pre-owned-mobile .pre-style.certified { font-size: 22px;}
+
+	/*Pre Owned Laptop*/
+	.pre-owned-grade-container{ padding: 0 30px; }
+	.pre-owned-products li{ width: 22%; }
+	.pre-owned-laptop .pre-owned-image{ margin-left: 10px; margin-top: 5px; margin-bottom: 5px; }
+
+	/*Download Mobile App*/
+	.download-mobile-app-container{ padding-left: 20px; padding-right: 20px; }
+	.download-mobile-app-container .mobile-app-download ul li{ width: 30%; }
+	.download-mobile-app-container .page-title .title{ width: inherit; float: none; }
+	.download-mobile-app-container h1{ font-size: 35px; line-height: 40px; }
+	.download-mobile-app-container .mobile-app-download{ width: inherit; float: none; margin-top: 10px; }
+	.download-mobile-app-content{ float: none; width: 100%; }
+	.download-mobile-app-image{ padding: 0; float: none; margin: 0 auto 20px; width: 100px; }
+	.download-mobile-app-content ul li, .download-mobile-app-content.app-right ul li{ border-radius: 5px; }
+	.download-mobile-app-content ul li:after, .download-mobile-app-content ul li:last-child:after, .download-mobile-app-content.app-right ul li:after, .download-mobile-app-content.app-right ul li:last-child:after{ background: none; }
+
+	/*Warranty*/
+	.warranty-container{ padding: 20px 20px 0; }
+	.warranty-table-container .warranty-category{ padding: 10px; }
+	.warranty-period{ padding: 10px; }
+	.warranty-table-container ul li{ font-size: 13px; }
+	.warranty-table-container .warranty-category, .warranty-period{ padding: 10px 5px; }
+	.static-content ul.general-terms-list > li{ font-size: 13px; margin-bottom: 15px; }
+	.warranty-container .static-content p, .warranty-container p{ font-size: 13px; }
+	.static-content ul.general-terms-list > li > ul > li{ font-size: 13px; }
+	.warranty-eb-service-content h3{ font-size: 20px; }
+	.warranty-container .static-content .warranty-eb-service-content p{ font-size: 13px; }
+	.warranty-table-container h4{ padding: 10px 0; }
+	.warranty-container h1{ font-size: 18px; }
+	.warranty-2{ margin-top: 30px; }
+	.general-terms-list ul{ margin-top: 5px; }
+	.warranty-service-center{ margin-top: 20px; }
+	.warranty-service-list-container h5{ font-size: 14px; margin: 0 0 5px 0; }
+	.warranty-container .page-title h1, .warranty-container h1{ font-size: 17px; line-height: 22px; }
+	.eb-warranty-container h2, .warranty-service-center h2{ font-size: 16px; font-weight: bold; margin-bottom: 10px; }
+	.warranty-1{ margin-top: 20px; }
+
+	/*Contact Us*/
+	.contact-form .page-title h1{ font-size: 22px; }
+	.contact-information h2{ margin: 10px 0 5px; }
+	.contact-list .left{ width: 100%; float: none; }
+	.contact-list .right{ float: none; width: 100%; }
+	.contact-list img{ display: none; }
+	.contact-form{ margin-bottom: 0; padding-bottom: 0; padding-top: 20px; }
+	.contact-info .contact-content, .contact-info .top-contact-info{ padding: 0 20px; width: 100%; }
+	.contact-info .top-contact-info{ padding-bottom: 20px; }
+	.contact-info .contact-content li, .contact-info .top-contact-info li{ padding-left: 70px; font-size: 14px; }
+	.top-contact-info .contact-no label{ font-size: 14px; }
+	.contact-info .contact-image{ position: static; margin: 20px 0 0 0; width: inherit; text-align: right; }
+	.contact-info .contact-image img { width: 250px; display: inline-block;}
+	.contact-info{ padding: 30px 0 0; background-image: none; }
+	.contact-info .contact-content p { font-size: 16px; word-wrap: break-word; }
+	.top-contact-info li.contact-email a{ word-wrap: break-word; }
+	.contact-list li button.submit{ font-size: 20px; }
+
+	.contact-form .icon-bg { width: 50px; height: 50px; line-height: 64px;}
+	.contact-form .icon-bg img { max-width: 100%; max-height: 25px;}
+	.contact-information ul li:nth-child(2) .icon-bg { line-height: 60px;}
+	.contact-information ul li:nth-child(2) .icon-bg img { max-height: 18px;}
+
+	/*My Account*/
+	.col-left.sidebar.col-left-first{ margin: 0; }
+	.my-account { border: 0; }
+	.my-account .control .checkbox { float: left;}
+	.my-account .form-list .control label { float: left; padding: 0; min-width: inherit; margin: 0; line-height: 14px;}
+	.col-main.my-account-pg .my-account .buttons-set button.button{ margin-bottom: 0; }
+	.col-main.my-account-pg .my-account .buttons-set{ margin-top: 20px; }
+	body.customer-account .my-account .form-list .control::after { clear: both; display: table; content: "";}
+	.customer-account .inner-main-container{ padding-bottom: 0; margin-bottom: 0; }
+	.col-main.my-account-pg .my-account h2.legend{ width: 100%; padding: 0 0 5px 0; }
+	body.customer-account .my-account .title-buttons{ margin: 0 0 15px 0; padding: 0; }
+	body.customer-account .my-account .title-buttons .button{ margin-top: 10px; }
+
+	/*Gadget*/
+	ul.gadgetList li{ width: 100%; display: block; margin: 0 0 15px 0; }
+	ul.mobileList li, ul.mobileList li, .apple-dealer-list-container ul.mobileList li{ width: 100%; margin-right: 0; padding: 8px; }
+	ul.mobileList li:nth-child(3n), .apple-dealer-list-container ul.mobileList li:nth-child(3n){ margin-right: 0; }
+	.gadgetModuleContainer.brand-list-container ul.mobileList{ padding: 0 20px; }
+	ul.mobileList li .imgContent{ padding-right: 10px; }
+	.productContent{ padding-left: 10px; width: 63%; }
+	.gadget-view .product-image-gallery img.gallery-image.visible{ max-height: inherit; width: inherit!important; }
+	.product-view.gadget-view .product-shop{ width: 100%; border: 0; }
+	.product-view.gadget-view .product-essential .product-name h1{ font-size: 21px; }
+	.product-view.gadget-view .product-essential .product-name h1 span{ display: block; overflow: hidden; height: 30px; text-overflow: ellipsis; white-space: nowrap; }
+	.checkout-details-form ul li{ width: 100%; float: none; }
+	.ui-accordion .ui-accordion-header{ font-size: 14px; padding-left: 5px; }
+	.gadget-view .product-options dt:before{ padding-right: 8px; font-size: 14px; }
+	.checkout-details-form .checkout-form1, .checkout-details-form .checkout-form2{ float: none; width: 100%; }
+
+	/*recently viewed*/
+	.catalog-product-view .recently-viewed-container .main{ padding: 0; }
+	.catalog-product-view .brands-heading h2{ font-size: 18px; line-height: 25px; padding: 0; }
+	.catalog-product-view .recently-viewed-container .products-grid li.item { width: 255px !important;}
+	.catalog-product-view .brands-heading:before, .catalog-product-view .brands-heading:after{ background: none; }
+	.catalog-product-view .brands-heading{ padding: 0; margin: 0 0 15px 0; }
+	.catalog-product-view .brands-heading h2:before, .catalog-product-view .brands-heading h2:after{ background: none; }
+	input[type=checkbox].css-checkbox + label.css-label{ height: inherit; }
+/*	input[type=checkbox].css-checkbox + label.css-label{ background: url("../images/ebt/sell-gadget/checkbox1.png") no-repeat; }*/
+	input[type=checkbox].css-checkbox:checked + label.css-label{ background: url("../images/ebt/sell-gadget/checkbox2.png") no-repeat; }
+	.ui-accordion .ui-accordion-header{ margin-bottom: 0; }
+
+	/*Forgot password*/
+	.customer-account-forgotpassword .account-forgot  .fieldset li .input-box{ width: 100%; }
+
+	/*Checkout page*/
+	.checkout-agreements { padding: 10px 15px; }
+	.checkout-agreements .field:first-child{ margin: 0 0 10px 0; }
+	.checkout-agreements .field { display: block; margin: 0 0 10px 0; }
+	.checkout-agreements input[type="text"] { width: 100%;}
+	.checkout-agreements li { margin-bottom: 0; }
+	/* #checkout-review-table-wrapper tbody tr td{ padding: 6px 3px; } */
+	.checkout-agreements label{ font-size: 13px; }
+	.discount-form .input-box { width: 68%; padding: 0; }
+	.discount-form .input-box input[type=text] { margin: 0; }
+	.discount-form .buttons-set { padding: 0; clear: none; width: 32%; }
+	.discount-form .buttons-set .button { /* height: 32px; */ margin: 0; }
+	.discount { padding: 0 10px 10px; }
+	.opc-wrapper-opc{ overflow: visible; }
+	.opc-wrapper-opc .opc-col-left, .opc-wrapper-opc .opc-col-center{ float: none; }
+	.checkout-agreements .agreement-content { max-width: 100%; max-height: inherit;}
+	.form-list select { width: 100%;}
+	.opc-wrapper-opc .payment-block .form-list{ padding-left: 15px; }
+	ul#payment_form_innoviti { padding-left: 0; }
+
+	/*Footer*/
+	.footer-content:nth-child(2n){ padding: 0; border: 0; }
+	.payment-method li img{ height: inherit; }
+	.footer-top li{ font-size: 14px; }
+	.quick-links ul li{ padding: 0 4px; margin: 0 0 6px 0; }
+	.social-container ul{ width: 205px; margin: 0 auto; }
+	.footer-top li{ float: none; }
+	.footer-content .toll-free-number{ float: none; clear: both; display: block; text-align: left; }
+	.footer-content .toll-free-number p{ padding-left: 50px; line-height: 20px; }
+	.footer-content:nth-child(2n){ margin: 0; }
+	.footer-logo{ float: none; margin: 0; text-align: center; padding: 0; border-right: 0; }
+	.payment-method-container{ float: none; width: 100%; }
+	.footer-logo img { display: inline-block; width: 120px;}
+	.payment-method-container h3{ float: none; text-align: center; margin: 10px 0 10px 0; }
+	.payment-method-container ul{ float: none; text-align: center; }
+	.social-container{ float: none; }
+	.payment-method-container h3{ margin-top: 0; }
+	.quick-links { margin: 0 0 15px;}
+	.footer-top{ padding-top: 20px; }
+	.footer-content:nth-child(2n){ margin-bottom: 0; }	
+	.payment-method-container ul li{ margin-bottom: 10px; height: inherit; padding: 0 10px; }
+	.footer-content .toll-free-number{ margin-top: 10px; }
+
+	/*Prepaid off*/
+	.prepaid-container .static-content{ padding: 20px; margin-top: 10px; }
+	.prepaid-container .static-content h2{ font-size: 20px; margin-bottom: 15px; }
+	.prepaid-container .static-content ul li { font-size: 14px;}
+
+	/*sell your gadget*/
+	.gadget-brands-container .form-search{ width: 100%; }
+
+	/*Terms & Conditions*/
+	.cms-terms-and-conditions .page-title h1, .cms-privacy-policy .page-title h1, .static-page-content .page-title h1{ font-size: 18px; }
+	.cms-terms-and-conditions .static-content ul{ margin: 0 0 0 20px; }
+	.cms-terms-and-conditions .static-content ul li{ font-size: 14px; line-height: 22px; }
+	.static-page-content ul li{ font-size: 14px; line-height: 22px; }
+
+	/*Assured Buyback Program*/
+	.buyback-program-content{ width: 100%; }
+
+	.apple-dealer-login-container ul li input[type="text"], .apple-dealer-login-container ul li input[type="password"]{ height: 40px; font-size: 15px; }
+	.apple-dealer-login-container ul li{ margin-top: 20px; }
+	.apple-dealer-login-container ul li button{ font-size: 18px; padding: 5px 20px; }
+	.apple-dealer-login-container .customer-service{ font-size: 14px; }
+
+}
+
+@media only screen and (max-height: 530px){
+	/*Login & Register Popup*/
+	.login-register-container, .gst-popup-content{ height: inherit; top: 30px; overflow: scroll; padding-bottom: 30px; }
+	.login-register-image img{ display: none; }
+
+	/*GSTIN*/
+	.gst-popup-content .close-button, .popup-container .close-button{ top: 10px; right: 10px; }
+}
+
+@media only screen and (max-width: 480px){
+	.register-right{ background: #ffffff; width: 52%; padding-left: 0; }
+	.on-your-purchase{ font-size: 14px; }
+	.coupon-code{ font-size: 13px; }
+	.off-text{ display: block; margin: 0; }
+	.register-left{ padding-top: 6px; }
+	.brand-new-scheme{ font-size: 11px; line-height: 16px; }
+
+	/*Navigation*/
+	.nav-primary li ul li{ font-size: 14px; }
+
+	.guidelines-container{ margin-bottom: 0; }
+
+	/*Login & Register Popup*/
+	.login-register-container .login-register-tabs{ height: 25px; padding: 0; }
+	.register-content{ padding: 0 15px; }
+	.login-register-container .login-register-tabs li{ font-size: 15px; }
+	.login-register-container .login-register-tabs li a, .ui-tabs .ui-tabs-nav .ui-tabs-anchor{ padding: 0 15px; }
+	.login-content{ padding: 0 25px; }
+	.login-register-container button.button{ width: 100%; }
+	.login-register-image img{ width: 100%; }
+	.register-content{ padding: 0 10px; }
+	.login-register-container label{ font-size: 13px; margin: 3px 0 0 0; }
+	.break-line{ display: block; }
+	.login-register-container button.button.eb-pin-button{ margin-top: 5px; margin-bottom: 15px; font-size: 16px; line-height: 20px; }
+	.register-container .login-register-image{ width: 45%; }
+	.login-register-container .register-container button.button{ width: 100%; }
+	.contact-list li input[type="text"], .contact-list li textarea{ height: 35px; font-size: 14px; }
+	.contact-list li textarea{ height: 65px; }
+	.contact-list li button.submit{ padding: 10px 15px; font-size: 18px; }
+	.contact-list li{ margin-bottom: 15px; }
+	.top-contact-info .contact-email label{ font-size: 16px; }
+	.login-register-container .register-container li{ width: 100%; float: none; margin-right: 0; }
+	.login-register-container{ overflow-y: scroll; }
+	.popup-container .close-button{ top: 5px; right: 5px; width: 25px; height: 25px; }
+	.popup-container .close-button a{ line-height: 25px; }
+
+	/*Login & Register page*/
+	.customer-account-login .col2-set .buttons-set button, .customer-account-login .col2-set .buttons-set .button{ font-size: 16px; padding: 7px 20px; }
+	.customer-account-login .col2-set .col-1{ padding: 10px 15px 15px 15px; }
+	.customer-account-login .col2-set .col-2{ padding: 15px 15px 20px 15px; }
+	.account-login .account-registered label.required{ font-size: 13px; margin: 0; }
+	.account-login .account-create label.required{ font-size: 13px; margin: 0; }
+	input#asm_affiliate_otp_sub_input_value { width: 100%;}
+	.account-login .col2-set h2{ font-size: 18px; }
+	.account-registered .content.fieldset input[type="text"], .account-registered .content.fieldset input[type="email"], .account-registered .content.fieldset input[type="password"], .account-create .input-box input[type="text"], .account-create .input-box input[type="password"], .account-login .input-box select{ height: 25px; }
+	.account-login{ margin-bottom: 0; }
+	.account-login label{ font-size: 13px; }
+
+	/*category*/
+	.recently-viewed-container .products-grid li.item{ width: 278px !important; }
+	.products-grid > li{ float: none; width: 100%; }
+	.category-products .products-grid li.item{ border-right: 0; padding-top: 0px; min-height: inherit; padding-left: 0; padding-right: 0; }
+	body.customer-account .my-account .page-title h1{ text-transform: none; }
+	.sales-order-view .my-account .page-title h1 { font-size: 16px; margin-bottom: 5px!important;}
+	body.customer-account.sales-order-view .my-account .title-buttons{ padding-bottom: 5px; }
+	.my-account .page-title{ padding-top: 0; }
+	.col-main.my-account-pg .my-account{ padding-top: 0; margin-left: 0; }
+	.product-category{ position: static; margin: 0 0 10px 0; display: block; }
+	.limiter select{ width: 100%; }
+	.pager{ float: none; width: 100%; margin: 0 0 30px 0; }
+	.sorter{ float: none; margin: 10px 0 0 0; }
+	.sorter > .sort-by{ float: none; }
+	.toolbar .pages{ float: none; margin: 0; }
+	.toolbar{ position: relative; float: none; width: 100%; padding: 0; }
+	.pages li.preivous-icon{ margin-right: 2px; }
+	.modes-mode{ margin-right: 2px; }
+	.count-container .modes{ margin-right: 20px; }
+	.toolbar.bottom .pages{ position: static; }
+	.sorter label{ width: 30%; margin: 0; }
+	.sorter > .sort-by .select{ width: 70%; }
+	.category-products .products-grid li.item .item-container{ border-right: 0; padding-top: 0; margin-bottom: 0; min-height: inherit; }
+
+	/*Pre Owned Products Guidelines*/
+	.pre-owned-content-container { padding: 20px;}
+	.pre-owned-device-journey li{ float: none; width: 100%; }
+	.pre-owned-image{ width: 110px; position: absolute; right: 0; bottom: 0; float: none; }
+	.pre-owned-product-container .page-title .title{ padding-top: 5px; position: relative; z-index: 1; padding-left: 20px; }
+	.pre-owned-product-container h1 { font-size: 27px; line-height: 30px;}
+	.pre-style.certified { font-size: 20px;}
+	.pre-owned-product-container .page-title{ position: relative; overflow: hidden; }
+	.pre-owned-content-container h2{ font-size: 17px; font-weight: bold; margin-bottom: 10px; }
+	.pre-owned-content-container p{ font-size: 14px; margin-bottom: 20px; }
+	.pre-owned-device-journey{ margin-bottom: 20px; }
+	.feature-list li{ font-size: 14px; }
+
+	/*Pre Owned Mobile*/
+	.pre-owned-product-container h1{ font-size: 17px; line-height: 26px; }
+	.pre-owned-mobile .page-title{ padding-bottom: 5px; }
+	.pre-owned-mobile .pre-owned-image{ width: 62px; right: 15px; }
+	.pre-owned-grade-container{ padding: 0 20px; }
+	.pre-owned-products li{ width: 46%; margin-bottom: 5px; }
+	.pre-owned-products li img{ width: 100%; }
+	.pre-owned-content-container h3{ font-size: 16px; margin-bottom: 10px; }
+	.pre-owned-content-container .eb-warranty{ font-size: 17px; }
+	.pre-owned-content-container h4{ font-size: 17px; }
+
+	/*Pre Owned Laptop*/
+	.pre-owned-laptop .pre-owned-image{ width: 80px; bottom: 0; margin: 0; }
+
+	/*Download Mobile App*/
+	.download-mobile-app-container .mobile-app-download ul li{ width: 110px; }
+
+	/*Contact Us*/
+	.contact-info .contact-content li.phone{ background-image: url("../images/ebt/phone-new.png"); }
+	.contact-info .top-contact-info li.contact-email{ background-image: url("../images/ebt/email-new.png"); }
+	.contact-info .top-contact-info li.contact-add{ background-image: url("../images/ebt/address-new.png"); }
+	.contact-info .top-contact-info li{ padding-left: 50px; font-size: 13px; }
+	.contact-info .contact-content h2, .top-contact-info .contact-email label, .top-contact-info .contact-add label{ margin-bottom: 0; }
+
+	/*Warranty*/
+	.eb-center-icon{ width: 75px; height: 75px; top: -35px; }
+	.eb-center-icon img { width: 100%;}
+	.warranty-eb-service-content h3{ margin-top: 35px; font-size: 16px; }
+	.warranty-2 { margin-top: 20px;}
+	.warranty-eb-service-content { margin-top: 40px;}
+	.warranty-3 ul li{ font-size: 13px; margin-bottom: 0; }
+
+	/*EB Advantages*/
+	.advantage-content-inner{ padding-left: 12px; padding-right: 12px; }
+	.advantage-content h2{ font-size: 16px; text-transform: none; }
+	.advantage-content p{ font-size: 13px; }
+	.advantage-icon{ padding: 10px 0 6px; }
+	.advantage-icon img{ max-height: 35px; }
+
+	/*Product*/
+	.feature-title{ font-size: 14px; font-weight: bold; }
+	.feature-content{ font-size: 14px; }
+	.product-view .product-shop .product-sec{ margin-bottom: 0; }
+	.details-specification-container .specification-title h2{ font-size: 14px; }
+	.warranty-title { font-weight: bold; }
+	.btn-section button.submit{ font-size: 14px; padding: 4px 0; }
+
+	/*GSTIN*/
+	.gst-popup-content label{ font-size: 13px; }
+	.gst-popup-content input[type="text"], .gst-popup-content select{ height: 30px; }
+	.gst-popup-content .bttton.submit{ font-size: 14px; }
+	.customer-gst-details .col-main{ margin-bottom: 0; }
+
+	/*Footer*/
+	.footer-top{ padding: 10px 0; }
+	.payment-method li { margin-right: 15px; height: 28px; margin: 0 8px 8px 0;}
+	.payment-method li img { height: 100%;}
+	.social-container li{ margin-right: 10px; }
+	.footer-content .toll-free-number{ margin-top: 10px; }
+
+	/*cms*/
+	.page-title { padding-top: 0;}
+	.page-title h1 { text-transform: none; padding: 0; }
+	.cms-about-us .main .std, .cms-shipping-packaging .main .std, .cms-payments .main .std{ padding: 20px 20px 10px; }
+	.cms-page-view h3 { font-weight: bold;}
+
+	/*About Us*/
+	.content-list-container .content-img { width: 70px; height: 70px; padding: 15px; top: -35px;}
+	.content-list-container .content-img img { width: 100%;}
+	.content-list-container .content-list h2{ margin-top: 50px; }
+	.content-list-container{ margin-top: 60px; }
+	.content-list-container .content-list{ margin-bottom: 60px; }
+	.static-content p, .content-list-container .listing-content li{ text-align: left; }
+	.content-list-container .listing-content li{ background-position: 0 3px; }	
+
+	/*Career*/
+	.careers-listing li .left-job h3{ font-size: 15px; font-weight: bold; }
+
+	/*Cart*/
+	ul#payment_form_innoviti{ width: 230px; }
+	.emi_plans span{ font-size: 13px !important; }
+	ul#payment_form_innoviti li table{ margin: 10px 0 0 0; }
+	.checkout-cart-index .cart .checkout-types { float: none; width: 100%; text-align: left;}
+	.cart .cart-totals table tfoot td{ font-size: 15px; }
+	.cart .cart-totals table{ margin: 0; }
+
+	/*Pre owned products*/
+	.pre-owned-device-journey li{ width: 45%; display: block; float: left; margin: 0 10% 15px 0; }
+	.pre-owned-device-journey li:nth-child(2n) { margin-right: 0;}
+	.pre-owned-device-journey li:nth-child(odd) { clear: both;}
+	.journey-img { height: inherit;}
+	.journey-img img{ display: block; width: 100%; }
+	.journey-content { margin-top: 5px;}
+
+	/*My Account*/
+	.sales-order-history .my-account{ overflow-x: scroll; }
+	.order-items.order-details{ overflow-x: scroll; }
+	.box .billing-address { margin-bottom: 0;}
+	.box .shipping-address{ margin-top: 0; }
+	.dashboard .box-account:last-child{ padding-bottom: 0; }
+
+	/*gstin registration*/
+	.gstin-registraion-container p{ font-size: 16px; }
+	.gstin-registraion-container .button-container a{ margin: 0 5px; }
+
+	/*Gadget*/
+	.gadgetModuleContainer{ padding-top: 0; }
+	.gadgetModuleContainer h1{ margin-bottom: 15px; }
+	.gadget-brands-container ul li{ width: 40%; }
+	.brand-img-container{ width: 72px; height: 70px; }
+	.brand-img-container .brand-img img{ max-width: 70px; max-height: 65px; }
+	.gadget-brands-container .laptop-gadget-container ul li .brand-img-container { width: 72px;}
+
+	/*Privacy Policy*/
+	.static-content p{ font-size: 14px; }
+	.cms-privacy-policy .static-content h2{ font-size: 16px; }
+
+	/*Footer*/
+	.footer-content:nth-child(2n){ padding: 0; border: 0; }
+	.payment-method li img{ height: inherit; }
+	.footer-top li{ font-size: 14px; }
+	.quick-links ul li{ padding: 0 5px; margin: 0 0 6px 0; }
+	.quick-links ul li:nth-child(4){ border-right: 0; }
+	.social-container ul{ width: 205px; margin: 0 auto; }
+	.footer-top li{ float: none; }
+	.footer-content .toll-free-number{ float: none; clear: both; display: block; text-align: left; }
+	.footer-content .toll-free-number p{ padding-left: 50px; line-height: 20px; }
+	.footer-content:nth-child(2n){ margin: 0; }
+	.footer-logo{ float: none; margin: 0; text-align: center; padding: 0; border-right: 0; }
+	.payment-method-container{ float: none; width: 100%; margin-bottom: 10px; }
+	.footer-logo img { display: inline-block; width: 120px;}
+	.payment-method-container h3{ float: none; text-align: center; margin: 10px 0 10px 0; }
+	.payment-method-container ul{ float: none; text-align: center; }
+	.social-container{ float: none; }
+	.payment-method-container h3{ margin-top: 0; }
+	.quick-links { margin: 0 0 15px;}
+	.footer-top{ padding-top: 20px; }
+	.footer-content:nth-child(2n){ margin-bottom: 0; }
+	.payment-method-container ul li:nth-child(3){ border-right: 0; }
+	.payment-method-container ul li{ margin-bottom: 10px; height: inherit; min-height: inherit; }
+	.footer-content .toll-free-number{ margin-top: 10px; }
+
+	/*Prepaid off*/
+	.cms-prepaid-off .main-container{ padding-top: 81px; }
+
+	/*Product*/
+	.product-image-gallery{ min-height: inherit; }
+	.product-view .product-essential .product-name h1{ font-size: 15px; }
+	.gst-info{ line-height: 20px; }
+	.details-specification-container .specification-title{ padding: 6px 10px; }
+
+	/*sell your gadget*/
+	.gadget-brands-container #search{ width: 84%; font-size: 14px; }
+	.gadget-brands-container #search_mini_form .search-button{ width: 15%; }
+	.gadget-brands-container .searchautocomplete .searchautocomplete-placeholder ul li{ width: 100%; }
+	.gadget-brands-container .searchautocomplete .searchautocomplete-placeholder ul li .price-box{ float: left; }
+	.gadget-brands-container .searchautocomplete .searchautocomplete-placeholder ul li a.name{ margin-top: 5px; }
+	.gadget-brands-container .searchautocomplete .searchautocomplete-loader { right: 18%;}
+
+	/*Assured Buyback Program*/
+	.buyback-program-content h2{ font-size: 20px; }
+	.buyback-program-content ul li label{ font-size: 14px; line-height: 20px; }
+	.buyback-program-content ul li input[type="text"], .buyback-program-content ul li input[type="email"], .buyback-program-content ul li input[type="number"], .buyback-program-content ul li textarea{ height: 35px; }
+	.buyback-program-content input[type="radio"]:not(old) + .label{ padding-left: 30px; }
+	.buyback-program-content ul.buyback-options li label { font-size: 15px; line-height: 18px; }
+	.buyback-program-content .button-container .btn-submit{ width: 100%; }
+
+	.apple-dealer-login-container h1, .apple-dealer-list-container h1{ font-size: 20px; }
+	.apple-dealer-list-container .search-container input[type="text"]{ font-size: 14px; width: 83%; }
+	.apple-dealer-list-container .search-container button{ background-size: 70%; }
+	.apple-dealer-list-container .search-container{ padding: 3px 7px; }
+	.apple-dealer-list-container ul.mobileList li .imgContent{ width: 33%; }	
+}

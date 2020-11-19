@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Neo_ReversePickup>
+      <version>0.1.0</version>
+    </Neo_ReversePickup>
+  </modules>
+  <global>
+    <helpers>
+      <reversepickup>
+        <class>Neo_ReversePickup_Helper</class>
+      </reversepickup>
+    </helpers>
+  </global>
+</config> 
